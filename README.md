@@ -1,5 +1,5 @@
 
-|The project has completed. All documentations, sequence diagrams as well as source codes will be uploaded as soon as possible|
+|The project has completed. All documentations, sequence diagrams as well as source codes will be migerated from gitlab as soon as possible|
 | --- |
 
 
