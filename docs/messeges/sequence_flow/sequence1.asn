@@ -1,0 +1,149 @@
+// mmWAVE RADAR Control Flow
+// Cooperative Mode multi-core Communication
+// Sequence number #1
+// Author: Astro
+// Affilation: TeCIP Institute, Scuola Superiore Sant'anna
+
+
+title mmWAVE RADAR Control Flow [xWR1843]
+participantgroup #pink 
+participant MSS
+end
+participant mmWave API
+participant mmWaveLink
+participant Drivers
+participant mmWave FE (BSS)
+participant Drivers.
+participant mmWave API.
+participantgroup #pink 
+participant DSS
+end
+
+
+
+
+linear
+MSS->mmWave API:SOC_init
+mmWave API ->mmWave FE (BSS):Power Up mmWave FE/ Radar SS
+linear off
+
+
+
+parallel
+MSS->mmWave API:mmWAVE_init
+mmWave API ->Drivers: Drivers Init
+DSS->mmWave API.:mmWAVE_init
+mmWave API. ->Drivers.: Drivers Init
+parallel off 
+
+
+
+mmWave API ->mmWaveLink:rlDevicePowerOn 
+
+activate mmWave API
+activate mmWave FE (BSS)
+abox right of mmWave FE (BSS)#white:rf Boot Up
+mmWave FE (BSS)->mmWave API:Power Up complete
+deactivate mmWave API 
+deactivate mmWave FE (BSS)
+
+MSS->mmWave API:mmWave_execute
+
+mmWave API <->mmWave API.: mmWave_sync
+
+space 
+activate DSS 
+
+DSS->Drivers.: EDMA init
+abox right of DSS#white:Data Path Init
+DSS->Drivers.: ADCBUF init
+MSS->mmWave API:mmWave_config
+deactivate DSS
+
+
+entryspacing 0.1
+
+mmWave API->mmWaveLink:init time calibration
+parallel 
+mmWaveLink-->Drivers:Send Message
+Drivers-->mmWave FE (BSS):Send Message
+parallel off
+parallel
+Drivers<--mmWave FE (BSS):Ack
+mmWaveLink<--Drivers:Ack
+parallel off
+
+
+mmWave API->mmWaveLink:rlSetChannelConfig
+parallel 
+mmWaveLink-->Drivers:Send Message
+Drivers-->mmWave FE (BSS):Send Message
+parallel off
+parallel
+Drivers<--mmWave FE (BSS):Ack
+mmWaveLink<--Drivers:Ack
+parallel off
+
+
+mmWave API->mmWaveLink:rlSetAdcOutConfig 
+parallel 
+mmWaveLink-->Drivers:Send Message
+Drivers-->mmWave FE (BSS):Send Message
+parallel off
+parallel
+Drivers<--mmWave FE (BSS):Ack
+mmWaveLink<--Drivers:Ack
+parallel off
+
+mmWave API->mmWaveLink:rlAppLowPowerConfig
+parallel 
+mmWaveLink-->Drivers:Send Message
+Drivers-->mmWave FE (BSS):Send Message
+parallel off
+parallel
+Drivers<--mmWave FE (BSS):Ack
+mmWaveLink<--Drivers:Ack
+parallel off
+
+mmWave API->mmWaveLink:rlRfInit
+parallel 
+mmWaveLink-->Drivers:Send Message
+Drivers-->mmWave FE (BSS):Send Message
+parallel off
+parallel
+Drivers<--mmWave FE (BSS):Ack
+mmWaveLink<--Drivers:Ack
+parallel off
+
+mmWave API->mmWaveLink:rlSetProfileConfig
+parallel 
+mmWaveLink-->Drivers:Send Message
+Drivers-->mmWave FE (BSS):Send Message
+parallel off
+parallel
+Drivers<--mmWave FE (BSS):Ack
+mmWaveLink<--Drivers:Ack
+parallel off
+
+mmWave API->mmWaveLink:rlSetChirpConfig
+parallel 
+mmWaveLink-->Drivers:Send Message
+Drivers-->mmWave FE (BSS):Send Message
+parallel off
+parallel
+Drivers<--mmWave FE (BSS):Ack
+mmWaveLink<--Drivers:Ack
+parallel off
+
+mmWave API->mmWaveLink:rlSetFrameConfig
+parallel 
+mmWaveLink-->Drivers:Send Message
+Drivers-->mmWave FE (BSS):Send Message
+parallel off
+parallel
+Drivers<--mmWave FE (BSS):Ack
+mmWaveLink<--Drivers:Ack
+parallel off
+
+
+
