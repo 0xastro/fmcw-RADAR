@@ -1,10 +1,10 @@
-# Doxyfile 1.8.16
-
 #---------------------------------------------------------------------------
 # fmcw-RADAR related doxygen documentation for the MSS sub-system
 # @Author:      Astro, astro7x@yandex.com
 # @Affilation:  Scuola Superiore Sant'anna
 #---------------------------------------------------------------------------
+
+# Doxyfile 1.8.16
 
 # This file describes the settings to be used by the documentation system
 # doxygen (www.doxygen.org) for a project.
@@ -497,7 +497,7 @@ EXTRACT_PACKAGE = NO
 # included in the documentation.
 # The default value is: NO.
 
-EXTRACT_STATIC = NO
+EXTRACT_STATIC = YES
 
 # If the EXTRACT_LOCAL_CLASSES tag is set to YES, classes (and structs) defined
 # locally in source files will be included in the documentation. If set to NO,
@@ -972,7 +972,7 @@ EXAMPLE_RECURSIVE = NO
 # that contain images that are to be included in the documentation (see the
 # \image command).
 
-IMAGE_PATH =
+IMAGE_PATH = "C:/Users/astro/workspace_v9_2/mrr_18xx_mss/imgs"
 
 # The INPUT_FILTER tag can be used to specify a program that doxygen should
 # invoke to filter for each input file. Doxygen will invoke the filter program
@@ -2146,7 +2146,7 @@ PERLMOD_MAKEVAR_PREFIX =
 # C-preprocessor directives found in the sources and include files.
 # The default value is: YES.
 
-ENABLE_PREPROCESSING = YES
+ENABLE_PREPROCESSING = NO
 
 # If the MACRO_EXPANSION tag is set to YES, doxygen will expand all macro names
 # in the source code. If set to NO, only conditional compilation will be
