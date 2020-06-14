@@ -1,0 +1,12 @@
+# Setting Travis CI for Continuous Integration Setting
+
+sudo: required
+
+services:
+  - docker
+
+before_install:
+ # - docker pull ccs08:1.0-onbuild
+  - docker build -t mmWaveRadar .
+
+script:
