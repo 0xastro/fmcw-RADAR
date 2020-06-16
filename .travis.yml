@@ -6,7 +6,11 @@ services:
   - docker
 
 before_install:
- # - docker pull ccs08:1.0-onbuild
-  - docker build -t mmWaveRadar .
+  - docker pull roomz/ccs-ci
+  
+install:
+  - docker build -t ccs_test .
 
 script:
+  - docker run -ti -v C:\workspace\roomzscreen:/workdir ccs_test /bin/bash
+
