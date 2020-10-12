@@ -17,6 +17,13 @@ We use TI AWR1843 EVM, algorithms run on-board the single-chip device to create 
 
 ### Getting Started 
 
+#### CCS Debug utility
+CCS Debug Utility: This utility can be flashed on the QSPI The application is written over SYSBIOS and will loop forever. In the meantime CCS can be attached and the developers can then download the real application which needs to be debugged.
+This utility provides while loop application for MSS in XWR14xx and for MSS and DSS in XWR16xx/XWR18xx/XWR68xx.
+On MSS, it calls ESM and SOC init functions to initialize the device in known state. ESM init is needed to install the FIQ handler in case there are ESM errors on bootup. SOC init is needed to unhalt DSP in XWR16xx/XWR18xx/XWR68xx. As a byproduct, SOC init also unhalts the BSS and performs the APLL close loop procedure. Hence when this debug utility is executed from flash, the system is running using the APLL clocks.
+
+
+
 > Debug mode: Downloading and running the executable (.xer4f image) from CCS. You will need to flash a small CCS debug firmware on the EVM (one time) to allow connecting with CCS. This debug firmware image is provided with the mmWave SDK.
 
 > To prepare the EVM for debug mode, we start with flashing the CCS debug firmware image.
@@ -64,6 +71,107 @@ We use TI AWR1843 EVM, algorithms run on-board the single-chip device to create 
 [10/12/2020, 12:32:22 PM] [INFO] Cortex_R4_0: Instance deinitialized!
 [10/12/2020, 12:32:22 PM] [SUCCESS] Program Load completed successfully.
 ```
+
+#### Connecting EVM to CCS
+
+> To connect the Radar EVM to CCS, we need to create a target configuration
+
+-  Go to File ► New ► New Target Configuration File
+- Name the target configuration accordingly and check the “Use shared location” checkbox. Press Finish
+- In the configuration editor window: Select “Texas Instruments XDS110 USB Debug Probe” for Connection and Select AWR1843 device in the Board or Device text box.
+- Press the Save button to save the target configuration.
+- You can press the Test Connection button to check the connection with the board.
+
+> TEST LOGS
+
+```
+[Start: Texas Instruments XDS110 USB Debug Probe_0]
+
+Execute the command:
+
+%ccs_base%/common/uscif/dbgjtag -f %boarddatafile% -rv -o -S integrity
+
+[Result]
+
+
+-----[Print the board config pathname(s)]------------------------------------
+
+C:\Users\astro\AppData\Local\TEXASI~1\CCS\
+    ccs920\0\0\BrdDat\testBoard.dat
+
+-----[Print the reset-command software log-file]-----------------------------
+
+This utility has selected a 100- or 510-class product.
+This utility will load the adapter 'jioxds110.dll'.
+The library build date was 'Aug 26 2019'.
+The library build time was '13:34:49'.
+The library package version is '8.3.0.00003'.
+The library component version is '35.35.0.0'.
+The controller does not use a programmable FPGA.
+Updating the XDS110 firmware ... complete.
+The controller has a version number of '5' (0x00000005).
+The controller has an insertion length of '0' (0x00000000).
+This utility will attempt to reset the controller.
+This utility has successfully reset the controller.
+
+-----[Print the reset-command hardware log-file]-----------------------------
+
+The scan-path will be reset by toggling the JTAG TRST signal.
+The controller is the XDS110 with USB interface.
+The link from controller to target is direct (without cable).
+The software is configured for XDS110 features.
+The controller cannot monitor the value on the EMU[0] pin.
+The controller cannot monitor the value on the EMU[1] pin.
+The controller cannot control the timing on output pins.
+The controller cannot control the timing on input pins.
+The scan-path link-delay has been set to exactly '0' (0x0000).
+
+-----[Perform the Integrity scan-test on the JTAG IR]------------------------
+
+This test will use blocks of 64 32-bit words.
+This test will be applied just once.
+
+Do a test using 0xFFFFFFFF.
+Scan tests: 1, skipped: 0, failed: 0
+Do a test using 0x00000000.
+Scan tests: 2, skipped: 0, failed: 0
+Do a test using 0xFE03E0E2.
+Scan tests: 3, skipped: 0, failed: 0
+Do a test using 0x01FC1F1D.
+Scan tests: 4, skipped: 0, failed: 0
+Do a test using 0x5533CCAA.
+Scan tests: 5, skipped: 0, failed: 0
+Do a test using 0xAACC3355.
+Scan tests: 6, skipped: 0, failed: 0
+All of the values were scanned correctly.
+
+The JTAG IR Integrity scan-test has succeeded.
+
+-----[Perform the Integrity scan-test on the JTAG DR]------------------------
+
+This test will use blocks of 64 32-bit words.
+This test will be applied just once.
+
+Do a test using 0xFFFFFFFF.
+Scan tests: 1, skipped: 0, failed: 0
+Do a test using 0x00000000.
+Scan tests: 2, skipped: 0, failed: 0
+Do a test using 0xFE03E0E2.
+Scan tests: 3, skipped: 0, failed: 0
+Do a test using 0x01FC1F1D.
+Scan tests: 4, skipped: 0, failed: 0
+Do a test using 0x5533CCAA.
+Scan tests: 5, skipped: 0, failed: 0
+Do a test using 0xAACC3355.
+Scan tests: 6, skipped: 0, failed: 0
+All of the values were scanned correctly.
+
+The JTAG DR Integrity scan-test has succeeded.
+
+[End: Texas Instruments XDS110 USB Debug Probe_0]
+
+```
+
 
 ### Future Work
 Porting the system to be deployed in Localization and exploration services.
