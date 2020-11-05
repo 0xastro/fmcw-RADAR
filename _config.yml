@@ -7,4 +7,4 @@ include:
   - README.md
   - DSS_setup.md
 
-theme: jekyll-theme-modernist
+theme: jekyll-theme-minimal
