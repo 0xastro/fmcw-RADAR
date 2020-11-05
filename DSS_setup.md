@@ -27,12 +27,6 @@ DSS_dataPathInitEdma(obj);
  * This is used to page in fast code from L3 to L1PSRAM.
  */
 DSS_copyTable(obj->edmaHandle[EDMA_INSTANCE_DSS], &L1PSRAM_copy_table);
-
-SOC_Cfg socCfg;
-        /* Initialize the SOC configuration: */
-        memset((void *) &socCfg, 0, sizeof(SOC_Cfg));
-        /* Populate the SOC configuration: */
-        socCfg.clockCfg = SOC_SysClock_BYPASS_INIT;
 /** @brief
  *  Initialize the SOC Module.
  */
