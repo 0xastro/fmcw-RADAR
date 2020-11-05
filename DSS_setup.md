@@ -7,7 +7,7 @@ The first part of ```main()```is used by the application ,on top of the DSS core
 
 > The system flow inside the ```main``` is as follow:
 
-``` C 
+```C 
 /* MAIN */ 
 DSS_DataPathObj* obj = &gMCB.dataPathObj[0];
 memset((void *) obj, 0, sizeof(DSS_DataPathObj));
@@ -50,7 +50,7 @@ BIOS_start();
 ### DSS_dataPathConfigPopulate
 
 Populate the chirp configuration in the DSS for the data path object by invoking ``` DSS_dataPathConfigPopulate(obj)```. Hence, the function is a hierarchical encapsulation to customize the design requirements accoroding to the use case either short, medium or long range radar (srr, mrr, or lrr). Therefore, ``` DSS_populateSRR(obj, 0)```, ``` DSS_populateMRR(obj, 0)```, or ``` DSS_populateMRR(obj, 0)``` is called to populate the data path object array with the appropriate configuration. 
-``` C
+```C
 void DSS_dataPathConfigPopulate(DSS_DataPathObj* obj)
 {
 
