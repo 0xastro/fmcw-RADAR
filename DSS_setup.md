@@ -68,6 +68,8 @@ void DSS_dataPathConfigPopulate(DSS_DataPathObj* obj)
 
 ### SRR Profile Configuration
 
+#### DSS_mmWaveInitTASK
+
 
 
 
