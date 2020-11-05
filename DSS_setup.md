@@ -2,7 +2,10 @@ On top of the DSS core, we start by initializing and configuring the mmWave and 
 
 ## mmWave data path initialization and configuration
 
-We start by initiazizing the data path object for signal processing flow:
+We start by initiazizing the data path object for signal processing flow.
+The first part of ```main()```is used by the application ,on top of the DSS core, to perform its one-time-only application-specific initializations. Once that is completed, ```BIOS_start()``` marks the beginning of the application's operational functioning.
+
+> The system flow inside the ```main``` is as follow:
 
 ``` C 
 /* MAIN */ 
@@ -21,10 +24,10 @@ DSS_dataPathInit1Dstate(obj);
  */
 DSS_dataPathInitEdma(obj); 
 /** @brief
- * Copy linker generated table code from L3 Shared RAM to the DSS L1PSRAM using EDMA.
- * L1SPRAM supports parity. Hence, parity diagnostic on DSP’s L1P memory is reported to the CPU
- * as an interrupt in case of an error.
- * This is used to page in fast code from L3 to L1PSRAM.
+ *	Copy linker generated table code from L3 Shared RAM to the DSS L1PSRAM using EDMA.
+ *	L1SPRAM supports parity. Hence, parity diagnostic on DSP’s L1P memory is reported to the CPU
+ *	as an interrupt in case of an error.
+ *	This is used to page in fast code from L3 to L1PSRAM.
  */
 DSS_copyTable(obj->edmaHandle[EDMA_INSTANCE_DSS], &L1PSRAM_copy_table);
 /** @brief
@@ -33,11 +36,13 @@ DSS_copyTable(obj->edmaHandle[EDMA_INSTANCE_DSS], &L1PSRAM_copy_table);
 SOC_init(&socCfg, &errCode);
 
 /** @brief
- *   Initialize the Task Parameters. 
+ *  Initialize the Task Parameters. 
  */
 Task_create(DSS_mmWaveInitTASK, &taskParams, NULL);
 /** @brief
- *   Start BIOS. 
+ * 	Start BIOS. 
+ *	In SYS/BIOS, BIOS_start() starts up task threads which then take over the application's flow of execution.
+ *	Hence, the function doesn't return.
  */
 BIOS_start();
 ```
