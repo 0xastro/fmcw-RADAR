@@ -1,9 +1,3 @@
-markdown: kramdown
-kramdown:
-  input: GFM
-  syntax_highlighter: rouge
-plugins:
-  - jekyll-relative-links
 relative_links:
   enabled: true
   collections: true
@@ -11,4 +5,13 @@ include:
   - README.md
   - DSS_setup.md
 
-theme: jekyll-theme-minimal
+
+# Jekyll 3 now only supports Kramdown for Markdown
+kramdown:
+    # Use GitHub flavored markdown, including triple backtick fenced code blocks
+    input: GFM
+    # Jekyll 3 and GitHub Pages now only support rouge for syntax highlighting
+    syntax_highlighter: rouge
+    syntax_highlighter_opts:
+        # Use existing pygments syntax highlighting css
+        css_class: 'highlight'
