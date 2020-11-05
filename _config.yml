@@ -6,3 +6,5 @@ relative_links:
 include:
   - README.md
   - DSS_setup.md
+
+theme: jekyll-theme-modernist
