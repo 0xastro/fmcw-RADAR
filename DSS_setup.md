@@ -50,7 +50,7 @@ BIOS_start();
 ### DSS_dataPathConfigPopulate
 
 Populate the chirp configuration in the DSS for the data path object by invoking ``` DSS_dataPathConfigPopulate(obj)```. Hence, the function is a hierarchical encapsulation to customize the design requirements accoroding to the use case either short, medium or long range radar (srr, mrr, or lrr). Therefore, ``` DSS_populateSRR(obj, 0)```, ``` DSS_populateMRR(obj, 0)```, or ``` DSS_populateMRR(obj, 0)``` is called to populate the data path object array with the appropriate configuration. 
-```C
+~~~C
 void DSS_dataPathConfigPopulate(DSS_DataPathObj* obj)
 {
 
@@ -64,7 +64,7 @@ void DSS_dataPathConfigPopulate(DSS_DataPathObj* obj)
 	DSS_populateLRR(obj, subframeIndx);
 #endif
 }
-```
+~~~
 
 ### SRR Profile Configuration
 
