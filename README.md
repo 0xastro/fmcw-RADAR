@@ -39,7 +39,7 @@ On MSS, it calls ESM and SOC init functions to initialize the device in known st
 - - In the Program tab, browse and locate demo binary file C:\ti\mmwave_sdk_xx_xx_xx_xx\packages\ti\utils\ccsdebug\xwr18xx_ccsdebug.bin
 - - In the Settings & Utilities tab, fill the COM Port text box with the Application/User UART COM port number (COMUART) noted earlier
 
-``` bash
+~~~shell
 [10/12/2020, 12:31:29 PM] [INFO] Cortex_R4_0: Initialization complete.
 [10/12/2020, 12:31:29 PM] [INFO] Cortex_R4_0: Flashing process starting...
 [10/12/2020, 12:31:29 PM] [INFO] Cortex_R4_0: Connecting to COM Port COM1...
@@ -70,7 +70,8 @@ On MSS, it calls ESM and SOC init functions to initialize the device in known st
 [10/12/2020, 12:32:22 PM] [INFO] Cortex_R4_0: Flashing instance clean-up initiated...
 [10/12/2020, 12:32:22 PM] [INFO] Cortex_R4_0: Instance deinitialized!
 [10/12/2020, 12:32:22 PM] [SUCCESS] Program Load completed successfully.
-```
+~~~
+
 
 #### Connecting EVM to CCS
 
@@ -84,7 +85,7 @@ On MSS, it calls ESM and SOC init functions to initialize the device in known st
 
 > TEST LOGS
 
-```
+~~~shell
 [Start: Texas Instruments XDS110 USB Debug Probe_0]
 
 Execute the command:
@@ -169,8 +170,7 @@ All of the values were scanned correctly.
 The JTAG DR Integrity scan-test has succeeded.
 
 [End: Texas Instruments XDS110 USB Debug Probe_0]
-
-```
+~~~
 
 
 ### Future Work
