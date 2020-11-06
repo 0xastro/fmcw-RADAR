@@ -7,7 +7,7 @@ The first part of ```main()```is used by the application ,on top of the DSS core
 
 > The system flow inside the ```main``` is as follow:
 
-```c
+~~~c
 /* MAIN */ 
 DSS_DataPathObj* obj = &gMCB.dataPathObj[0];
 memset((void *) obj, 0, sizeof(DSS_DataPathObj));
@@ -45,7 +45,7 @@ Task_create(DSS_mmWaveInitTASK, &taskParams, NULL);
  *	Hence, the function doesn't return.
  */
 BIOS_start();
-```
+~~~
 
 ### DSS_dataPathConfigPopulate
 
