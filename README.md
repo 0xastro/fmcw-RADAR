@@ -3,6 +3,15 @@
 | --- |
 
 
+
+|The System will be reconfigured to LRR (Long Range Radar) but keeping the highst anglular resolution by operating in TDM-3Tx-12vRx Mode. This is to be used as a baseline development for railway drone obstacle avoidance use cases. Trials and field tests will be added by the end of Q4 2020. UPDATED  NOV 13, 2020| 
+| --- |
+
+|Docker container based on CCSv9 and TI mmWave SDK is currently under development to enable CI/CD using Jenkins UPDATED  NOV 13, 2020|
+| --- |
+
+
+
 # fmcw-RADAR
 [mmWave based fmcw radar design files] based on AWR1843 chip operating at 76-GHz to 81-GHz.
 
