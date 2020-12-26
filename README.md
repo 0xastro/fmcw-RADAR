@@ -262,7 +262,7 @@ Based on the range of operation, automotive radar sensors are classified into th
 * **MRR**: Medium Range Radar for medium distance and speed profile, like cross traffic alert (CTA) applications.
 * **SRR**: Short Range Radar for sensing in direct proximity of the vehicle like obstacle detection and parking aid.
 
-### Chirp configuration for short range radar
+### Chirp configuration
 
 Using TI-Cloud tool mmWave Sensing Estimator,[https://dev.ti.com/gallery/view/1792614/mmWaveSensingEstimator/ver/1.3.0]
 
@@ -376,12 +376,312 @@ After desining the chirp parameters based on your specific application using mmW
 #define SUBFRAME_USRR_NUM_CHIRPTYPES 		 (3U)
 ```
 
-After adding your own configuration, you should include in `app_cfg.h`
+After adding your own configuration, you should include it the in `app_cfg.h` which is located in
+
+    srr_18xx_mss
+    ├── common                                
+    │   └── app_cfg.h   
+
+
 ```C
 #include <common/profiles/config_chirp_design_USRR30.h>
 ```
- 
-    
+
+### Frame Configuration
+  
+    srr_18xx_mss
+    ├── common                                
+    │   └── frame_cfg.h   
+
+```C
+/*frame_cfg.c*/
+    #ifdef SUBFRAME_CONF_USRR
+        /* The high resolution 20m subframe 
+	 * Hence: We use only one subframe in our design USRR
+	 */
+        ptrAdvFrameCfg->frameSeq.subFrameCfg[0].forceProfileIdx    = 0;
+        ptrAdvFrameCfg->frameSeq.subFrameCfg[0].numLoops           = SUBFRAME_USRR_LOOP_COUNT;
+        ptrAdvFrameCfg->frameSeq.subFrameCfg[0].numOfBurst         = 1;
+        ptrAdvFrameCfg->frameSeq.subFrameCfg[0].numOfBurstLoops    = 1;
+        ptrAdvFrameCfg->frameSeq.subFrameCfg[0].chirpStartIdxOffset= 0;
+        ptrAdvFrameCfg->frameSeq.subFrameCfg[0].numOfChirps        = SUBFRAME_USRR_CHIRP_END_IDX - SUBFRAME_USRR_CHIRP_START_IDX + 1;
+        ptrAdvFrameCfg->frameSeq.subFrameCfg[0].chirpStartIdx      = SUBFRAME_USRR_CHIRP_START_IDX;
+        ptrAdvFrameCfg->frameSeq.subFrameCfg[0].subFramePeriodicity= SUBFRAME_USRR_PERIODICITY_VAL;
+        ptrAdvFrameCfg->frameSeq.subFrameCfg[0].burstPeriodicity   = SUBFRAME_USRR_PERIODICITY_VAL;
+        ptrAdvFrameCfg->frameData.subframeDataCfg[0].numAdcSamples = PROFILE_USRR_ADC_SAMPLE_VAL*2;
+        ptrAdvFrameCfg->frameData.subframeDataCfg[0].totalChirps   = SUBFRAME_USRR_NUM_CHIRPS_TOTAL;
+        ptrAdvFrameCfg->frameData.subframeDataCfg[0].numChirpsInDataPacket = 1;
+        numOfSubFrame++;
+    #endif
+
+void Cfg_FrameCfgInitParams (rlFrameCfg_t* ptrFrameCfg) {
+    /* Initialize the configuration: */
+    memset ((void*)ptrFrameCfg, 0, sizeof(rlFrameCfg_t));
+
+    /* Populate the default configuration: */
+    ptrFrameCfg->chirpEndIdx        = FRAME_CHIRP_END_IDX;
+    ptrFrameCfg->chirpStartIdx      = FRAME_CHIRP_START_IDX;
+    ptrFrameCfg->numFrames          = FRAME_COUNT_VAL;
+    ptrFrameCfg->numLoops           = FRAME_LOOP_COUNT;
+    ptrFrameCfg->triggerSelect      = RL_FRAMESTRT_SYNCIN_TRIGGER;
+    ptrFrameCfg->framePeriodicity   = FRAME_PERIODICITY_VAL;
+    ptrFrameCfg->frameTriggerDelay  = FRAME_TRIGGER_DELAY_VAL;
+    ptrFrameCfg->numAdcSamples      = FRAME_NUM_REAL_ADC_SAMPLES;
+    return;
+}
+
+void Cfg_ProfileCfgInitParams (uint8_t profileNum, rlProfileCfg_t* ptrProfileCfg) {
+    /* Initialize the configuration: */
+    memset ((void*)ptrProfileCfg, 0, sizeof(rlProfileCfg_t));
+
+    if (profileNum == 0U) {
+        /* Populate the default configuration for profile 1  */
+        ptrProfileCfg->profileId             = PROFILE_USRR_PROFILE_ID;
+        ptrProfileCfg->startFreqConst        = PROFILE_USRR_START_FREQ_VAL;
+        ptrProfileCfg->idleTimeConst         = PROFILE_USRR_IDLE_TIME_VAL;
+        ptrProfileCfg->adcStartTimeConst     = PROFILE_USRR_ADC_START_TIME_VAL;
+        ptrProfileCfg->rampEndTime           = PROFILE_USRR_RAMP_END_TIME_VAL;
+        ptrProfileCfg->txOutPowerBackoffCode = PROFILE_USRR_TXOUT_POWER_BACKOFF;
+        ptrProfileCfg->txPhaseShifter        = PROFILE_USRR_TXPHASESHIFTER_VAL;
+        ptrProfileCfg->freqSlopeConst        = PROFILE_USRR_FREQ_SLOPE_VAL;
+        ptrProfileCfg->txStartTime           = PROFILE_USRR_TX_START_TIME_VAL;
+        ptrProfileCfg->numAdcSamples         = PROFILE_USRR_ADC_SAMPLE_VAL;
+        ptrProfileCfg->digOutSampleRate      = PROFILE_USRR_DIGOUT_SAMPLERATE_VAL;
+        ptrProfileCfg->hpfCornerFreq1        = PROFILE_USRR_HPFCORNER_FREQ1_VAL;
+        ptrProfileCfg->hpfCornerFreq2        = PROFILE_USRR_HPFCORNER_FREQ2_VAL;
+        ptrProfileCfg->rxGain                = PROFILE_USRR_RX_GAIN_VAL;
+    }
+    return;
+}
+
+
+void Cfg_ChirpCfgInitParams (uint8_t chirpNum, rlChirpCfg_t* ptrChirpCfg) {
+    /* Initialize the configuration: */
+    memset ((void*)ptrChirpCfg, 0, sizeof(rlChirpCfg_t));
+
+
+
+    if (chirpNum == 0U) {
+        /* Populate the default configuration for chirp 3
+         *  - USRR Tx1 . */
+        ptrChirpCfg->profileId       = CHIRP_USRR_0_PROFILE_ID;
+        ptrChirpCfg->adcStartTimeVar = CHIRP_USRR_0_ADC_START_TIME_VAL;
+        ptrChirpCfg->chirpEndIdx     = CHIRP_USRR_0_END_INDEX;
+        ptrChirpCfg->chirpStartIdx   = CHIRP_USRR_0_START_INDEX;
+        ptrChirpCfg->idleTimeVar     = CHIRP_USRR_0_IDLE_TIME_VAL;
+        ptrChirpCfg->txEnable        = CHIRP_USRR_0_TX_CHANNEL;
+        ptrChirpCfg->startFreqVar    = CHIRP_USRR_0_START_FREQ_VAL;
+        ptrChirpCfg->freqSlopeVar    = CHIRP_USRR_0_FREQ_SLOPE_VAL;
+    }
+    else if (chirpNum == 1U) {
+        /* Populate the default configuration for chirp 3
+         *  - USRR Tx2. */
+        ptrChirpCfg->profileId       = CHIRP_USRR_1_PROFILE_ID;
+        ptrChirpCfg->adcStartTimeVar = CHIRP_USRR_1_ADC_START_TIME_VAL;
+        ptrChirpCfg->chirpEndIdx     = CHIRP_USRR_1_END_INDEX;
+        ptrChirpCfg->chirpStartIdx   = CHIRP_USRR_1_START_INDEX;
+        ptrChirpCfg->idleTimeVar     = CHIRP_USRR_1_IDLE_TIME_VAL;
+        ptrChirpCfg->txEnable        = CHIRP_USRR_1_TX_CHANNEL;
+        ptrChirpCfg->startFreqVar    = CHIRP_USRR_1_START_FREQ_VAL;
+        ptrChirpCfg->freqSlopeVar    = CHIRP_USRR_1_FREQ_SLOPE_VAL;
+
+    }
+    else if (chirpNum == 2U) {
+        /* Populate the default configuration for chirp 4
+         *  - USRR Tx3. */
+        ptrChirpCfg->profileId       = CHIRP_USRR_2_PROFILE_ID;
+        ptrChirpCfg->adcStartTimeVar = CHIRP_USRR_2_ADC_START_TIME_VAL;
+        ptrChirpCfg->chirpEndIdx     = CHIRP_USRR_2_END_INDEX;
+        ptrChirpCfg->chirpStartIdx   = CHIRP_USRR_2_START_INDEX;
+        ptrChirpCfg->idleTimeVar     = CHIRP_USRR_2_IDLE_TIME_VAL;
+        ptrChirpCfg->txEnable        = CHIRP_USRR_2_TX_CHANNEL;
+        ptrChirpCfg->startFreqVar    = CHIRP_USRR_2_START_FREQ_VAL;
+        ptrChirpCfg->freqSlopeVar    = CHIRP_USRR_2_FREQ_SLOPE_VAL;
+
+    }
+
+    return;
+}
+
+void Cfg_ChannelCfgInitParams (rlChanCfg_t* ptrChannelCfg) {
+
+    /* Initialize the configuration: */
+    memset ((void*)ptrChannelCfg, 0, sizeof(rlChanCfg_t));
+
+    /* Populate the default configuration: */
+    ptrChannelCfg->rxChannelEn = RX_CHANNEL_1_2_3_4_ENABLE;
+    ptrChannelCfg->txChannelEn = TX_CHANNEL_1_2_3_ENABLE;
+    ptrChannelCfg->cascading   = 0; /* Single Chip (no cascading) Only available by using AWR1243 SOC*/
+
+    return;
+}
+
+
+void Cfg_ADCOutCfgInitParams (rlAdcOutCfg_t* ptrADCOutCfg) {
+
+    /* Initialize the configuration: */
+    memset ((void*)ptrADCOutCfg, 0, sizeof(rlAdcOutCfg_t));
+
+    /* Populate the default configuration: */
+    ptrADCOutCfg->fmt.b2AdcBits				= ADC_BITS_16;
+    ptrADCOutCfg->fmt.b2AdcOutFmt			= ADC_FORMAT_COMPLEX;
+    ptrADCOutCfg->fmt.b8FullScaleReducFctr	= 0;
+
+    return;
+}
+
+```
+
+
+### Device Configuraion
+
+    srr_18xx_mss
+    ├── common                                
+    │   └── device_cfg.h   
+
+```C
+
+#ifndef DEVICE_CFG_H
+#define DEVICE_CFG_H
+
+/* Tx Channel Configuration */
+#define TX_CHANNEL_1_ENABLE                 (1U << 0U)
+#define TX_CHANNEL_2_ENABLE                 (1U << 1U)
+#define TX_CHANNEL_3_ENABLE                 (1U << 2U)
+#define TX_CHANNEL_1_2_ENABLE               (TX_CHANNEL_1_ENABLE | TX_CHANNEL_2_ENABLE)
+#define TX_CHANNEL_2_3_ENABLE               (TX_CHANNEL_2_ENABLE | TX_CHANNEL_3_ENABLE)
+#define TX_CHANNEL_1_3_ENABLE               (TX_CHANNEL_1_ENABLE | TX_CHANNEL_3_ENABLE)
+#define TX_CHANNEL_1_2_3_ENABLE             (TX_CHANNEL_1_ENABLE | TX_CHANNEL_2_ENABLE | TX_CHANNEL_3_ENABLE)
+
+/* Rx Channel Configuration */
+#define RX_CHANNEL_1_ENABLE                 (1U << 0U)
+#define RX_CHANNEL_2_ENABLE                 (1U << 1U)
+#define RX_CHANNEL_3_ENABLE                 (1U << 2U)
+#define RX_CHANNEL_4_ENABLE                 (1U << 3U)
+#define RX_CHANNEL_1_2_ENABLE               (RX_CHANNEL_1_ENABLE | RX_CHANNEL_2_ENABLE)
+#define RX_CHANNEL_1_3_ENABLE               (RX_CHANNEL_1_ENABLE | RX_CHANNEL_3_ENABLE)
+#define RX_CHANNEL_1_4_ENABLE               (RX_CHANNEL_1_ENABLE | RX_CHANNEL_4_ENABLE)
+#define RX_CHANNEL_2_3_ENABLE               (RX_CHANNEL_2_ENABLE | RX_CHANNEL_3_ENABLE)
+#define RX_CHANNEL_2_4_ENABLE               (RX_CHANNEL_2_ENABLE | RX_CHANNEL_4_ENABLE)
+#define RX_CHANNEL_3_4_ENABLE               (RX_CHANNEL_3_ENABLE | RX_CHANNEL_4_ENABLE)
+#define RX_CHANNEL_1_2_3_ENABLE             (RX_CHANNEL_1_ENABLE | RX_CHANNEL_2_ENABLE | RX_CHANNEL_3_ENABLE)
+#define RX_CHANNEL_2_3_4_ENABLE             (RX_CHANNEL_2_ENABLE | RX_CHANNEL_3_ENABLE | RX_CHANNEL_4_ENABLE)
+#define RX_CHANNEL_1_3_4_ENABLE             (RX_CHANNEL_1_ENABLE | RX_CHANNEL_3_ENABLE | RX_CHANNEL_4_ENABLE)
+#define RX_CHANNEL_1_2_3_4_ENABLE           (RX_CHANNEL_1_ENABLE | RX_CHANNEL_2_ENABLE | RX_CHANNEL_3_ENABLE | RX_CHANNEL_4_ENABLE)
+
+/* ADC Config Settings */
+#define ADC_BITS_12                         (0U)
+#define ADC_BITS_14                         (1U)
+#define ADC_BITS_16                         (2U)
+
+#define ADC_FORMAT_REAL                     (0U)
+#define ADC_FORMAT_COMPLEX                  (1U)
+#define ADC_FORMAT_CPMLEX_WITH_IMG_BAND     (2U)
+
+#define ADC_I_FIRST                         (0U)
+#define ADC_Q_FIRST                         (1U)
+
+#define ADC_INTERLEAVED_MODE                (0U)
+#define ADC_NON_INTERLEAVED_MODE            (1U)
+
+/* Data Path Configuration */
+#define DATA_PATH_CSI2                      (0U)
+#define DATA_PATH_LVDS                      (1U)
+
+
+#define DATA_PATH_FMT1_SUPRESS              (0U)
+#define DATA_PATH_FMT1_CP_CQ                (1U)
+#define DATA_PATH_FMT1_CQ_CP                (2U)
+
+#define DATA_PATH_FMT0_ADC_DATA_ONLY        (0U)
+#define DATA_PATH_FMT0_CP_ADC_DATA          (1U)
+#define DATA_PATH_FMT0_ADC_CP_DATA          (2U)
+#define DATA_PATH_FMT0_CP_ADC_CQ_DATA       (3U)
+
+#define DATA_PATH_CQ_FMT_BITS_12            (0U)
+#define DATA_PATH_CQ_FMT_BITS_14            (1U)
+#define DATA_PATH_CQ_FMT_BITS_16            (2U)
+
+/* LVDS Clock Configuration */
+#define LVDS_LANE_CLOCK_SDR                 (0U)
+#define LVDS_LANE_CLOCK_DDR                 (1U)
+
+#define LVDS_ALL_LANE_EN                    (0xFU)
+
+#define LVDS_DATA_RATE_900                  (0U)
+#define LVDS_DATA_RATE_600                  (1U)
+#define LVDS_DATA_RATE_450                  (2U)
+#define LVDS_DATA_RATE_400                  (3U)
+#define LVDS_DATA_RATE_300                  (4U)
+#define LVDS_DATA_RATE_225                  (5U)
+#define LVDS_DATA_RATE_150                  (6U)
+
+/* LCDS Lane Configuration */
+#define LVDS_LANE1_DISABLE                  (0U)
+#define LVDS_LANE1_FORMAT_0                 (1U)
+#define LVDS_LANE1_FORMAT_1                 (2U)
+
+#define LVDS_LANE2_DISABLE                  (0U)
+#define LVDS_LANE2_FORMAT_0                 (1U)
+#define LVDS_LANE2_FORMAT_1                 (2U)
+
+#define LVDS_LANE3_DISABLE                  (0U)
+#define LVDS_LANE3_FORMAT_0                 (1U)
+#define LVDS_LANE3_FORMAT_1                 (2U)
+
+#define LVDS_LANE4_DISABLE                  (0U)
+#define LVDS_LANE4_FORMAT_0                 (1U)
+#define LVDS_LANE4_FORMAT_1                 (2U)
+
+#define LVDS_LANE_MSB_FIRST_ENABLE          (1U)
+#define LVDS_LANE_MSB_FIRST_DISABLE         (0U)
+#define LVDS_LANE_PACKET_END_PULSE_ENABLE   (1U)
+#define LVDS_LANE_PACKET_END_PULSE_DISABLE  (0U)
+#define LVDS_LANE_CRC_ENABLE                (1U)
+#define LVDS_LANE_CRC_DISABLE               (0U)
+#define LVDS_LANE_TI_MODE_ENABLE            (1U)
+#define LVDS_LANE_TI_MODE_DISABLE           (0U)
+
+/* Advanced configuration */
+#define ANA_CHANNEL_COMPLEX_CHAIN           (0U)
+#define ANA_CHANNEL_REAL_CHAIN              (1U)
+
+#define LP_ADC_MODE_REGULAR                 (0U)
+#define LP_ADC_MODE_LOW_POWER               (1U)
+
+#define NOISE_FIGURE_LOW                    (0U)
+#define NOISE_FIGURE_HIGH                   (1U)
+
+/* CHIRP Profile Settings */
+#define CHIRP_HPF1_CORNER_FREQ_175K         (0U)
+#define CHIRP_HPF1_CORNER_FREQ_235K         (1U)
+#define CHIRP_HPF1_CORNER_FREQ_350K         (2U)
+#define CHIRP_HPF1_CORNER_FREQ_700K         (3U)
+
+#define CHIRP_HPF2_CORNER_FREQ_350K         (0U)
+#define CHIRP_HPF2_CORNER_FREQ_700K         (1U)
+#define CHIRP_HPF2_CORNER_FREQ_1_4M         (2U)
+#define CHIRP_HPF2_CORNER_FREQ_2_8M         (3U)
+#define CHIRP_HPF2_CORNER_FREQ_5M           (4U)
+#define CHIRP_HPF2_CORNER_FREQ_7_5M         (5U)
+#define CHIRP_HPF2_CORNER_FREQ_10M          (6U)
+#define CHIRP_HPF2_CORNER_FREQ_15M          (7U)
+
+/* Some MACROS to simplify programming the device */
+#define ROUND_TO_INT32(X)    ((int32_t) (X))
+#define CONV_FREQ_GHZ_TO_CODEWORD(X) ROUND_TO_INT32(X * (1.0e9/53.644))
+#define CONV_SLOPE_MHZ_PER_US_TO_CODEWORD(X) (ROUND_TO_INT32(X * (1000.0/48.279)))
+
+#define LOG2_APPROX(X) ((X <= 1)? 0:((X <= 2)? 1:((X <= 4)? 2:((X <= 8)? 3:((X <= 16)? 4:((X <= 32)? 5:((X <= 64)? 6:((X <= 128)? 7:((X <= 256)? 8:((X <= 512)? 9:((X <= 1024)? 10:11)))))))))))
+
+#define SPEED_OF_LIGHT_IN_METERS_PER_SEC (3.0e8)
+
+#define SPEED_OF_LIGHT_IN_METERS_PER_USEC (3.0e2) 
+
+
+#endif
+
+```
 ### Dependencies
 
 ### Getting Started 
