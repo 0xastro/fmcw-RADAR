@@ -4,6 +4,16 @@
 # fmcw-RADAR
 [mmWave based fmcw radar design files] based on AWR1843 chip operating at 77-GHz to 81-GHz for railway drone use-case.
 
+# Dependencies
+
+- Code Composer Studio (CCS) **version CCSV9_2**
+- mmWave software development kit (SDK) **version 3.1.0.02**
+- TI-RTOS Kernal SYS/BIOS **version 6.73.01**
+- Uniflash **version 5.1.0**
+- Matlab Runtime Compiler **version > 8.5.1**
+- mmWave Sensing Estimator
+- mmWave Demo Visualizer
+
 ## Objective
 Test & Evaluate the performance of TI mmWave Radar system using the AWR1843 EVM development board.
 In this system we detect specifically objects within close proximity the radar and generally evaluate different ranges profiles short, medium and long for further application. We use TI AWR1843 EVM, algorithms run on-board the single-chip device to create Range-Azimuth and Range-Elevation heat-maps, then performs object detection with CFAR, angle of arrival estimation and clustering on configured range rows in the heatmaps.
