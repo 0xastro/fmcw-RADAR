@@ -7,7 +7,7 @@ services:
 
 before_install:
 #  - docker pull roomz/ccs-ci
-  - docker build -t astro/ccs-mmwave .
+  - docker build -t astro/ccs-mmwave --file Dockerfile.ccs.mmwave.ubuntu18 .
   - docker run -d -p 127.0.0.1:80:4567 astro/ccs-mmwave /bin/sh -c "cd /root/ccs-mmwave; bundle exec foreman start;"
   - docker ps -a
   - docker run astro/ccs-mmwave /bin/sh -c "cd /root/ccs-mmwave; bundle exec rake test"
