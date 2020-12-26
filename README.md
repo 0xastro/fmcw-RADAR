@@ -1,3 +1,6 @@
+|In this file, there's a minimal explanation for the system design based on TI-AWR1843 SOC. The documentation here only adresses the MSS subsytem, the DSS is not documented here, but as It's mostly designed by TI so you may refer to the Doxygen files for the documentation|
+| --- |
+
 # fmcw-RADAR
 [mmWave based fmcw radar design files] based on AWR1843 chip operating at 77-GHz to 81-GHz for railway drone use-case.
 
