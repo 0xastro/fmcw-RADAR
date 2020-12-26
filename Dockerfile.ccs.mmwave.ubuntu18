@@ -52,10 +52,10 @@ ENV PATH="/scripts:${PATH}"
 
 
 # This is stored on our private server as TI requires authentication and LFS is not supported on docker with github
-RUN wget -q https://roomzproduction.blob.core.windows.net/tools/simplelink_cc32xx_sdk_4_10_00_07.run \
-    && chmod 777 /ccs_install/simplelink_cc32xx_sdk_4_10_00_07.run \
-    && /ccs_install/simplelink_cc32xx_sdk_4_10_00_07.run --mode unattended \
-    && rm -rf /ccs_install/
+#RUN wget -q https://roomzproduction.blob.core.windows.net/tools/simplelink_cc32xx_sdk_4_10_00_07.run \
+#    && chmod 777 /ccs_install/simplelink_cc32xx_sdk_4_10_00_07.run \
+#    && /ccs_install/simplelink_cc32xx_sdk_4_10_00_07.run --mode unattended \
+#    && rm -rf /ccs_install/
 
 # Download and install CCS
 #ADD CCS9.2.0.00013_linux-x64 /ccs_install
