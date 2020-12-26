@@ -1,17 +1,3 @@
-
-|The project has completed. All documentations, sequence diagrams as well as source codes will be migerated from gitlab as soon as possible|
-| --- |
-
-
-
-|The System will be reconfigured to LRR (Long Range Radar) but keeping the highst anglular resolution by operating in TDM-3Tx-12vRx Mode. This is to be used as a baseline development for railway drone obstacle avoidance use cases. Trials and field tests will be added by the end of Q4 2020. UPDATED  NOV 13, 2020| 
-| --- |
-
-|Docker container based on CCSv9 and TI mmWave SDK is currently under development to enable CI/CD using Jenkins UPDATED  NOV 13, 2020|
-| --- |
-
-
-
 # fmcw-RADAR
 [mmWave based fmcw radar design files] based on AWR1843 chip operating at 76-GHz to 81-GHz.
 
@@ -285,7 +271,7 @@ The Design Rules, Restrictions and Hardware configuration for the AWR1843 device
 </p>
 
 
-<p align="center">
+<p align="left">
 <img  src="https://github.com/astro7x/fmcw-RADAR/blob/master/figs/mmWaveSensingEstimatorTI1.svg" alt="Sequence calls between MSS and BSS" class="inline"/>
 </p>
 
