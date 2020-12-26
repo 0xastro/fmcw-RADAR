@@ -130,10 +130,24 @@ The main task **MSS_mmWaveInitTASK** is the mss initialization task which initia
 * UART for logging and configurations by calling ` UART_Params_init` and `UART_open`
 * Mailbox for bi-directional communication between MSS and DSS subsystems by calling `Mailbox_Config_init` and ` Mailbox_open(MAILBOX_TYPE_DSS, &mboxCfg, &errCode);`
 
+
 #### UART
+
+<p align="center">
+<img  src="https://github.com/astro7x/fmcw-RADAR/blob/master/figs/uart.svg" alt="uart flow" class="inline"/>
+</p>
 
 #### MAILBOX
 
+<p align="center">
+<img  src="https://github.com/astro7x/fmcw-RADAR/blob/master/figs/mailbox.svg" alt="mailbox flow" class="inline"/>
+</p>
+
+#### Recieving and Sending objects
+
+<p align="center">
+<img  src="https://github.com/astro7x/fmcw-RADAR/blob/master/figs/mboxIN_uartOUT.svg" alt="communication on SOC flow" class="inline"/>
+</p>
 
 
 Based on the range of operation, automotive radar sensors are classified into three major categories:
