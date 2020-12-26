@@ -5,12 +5,13 @@ sudo: required
 services:
   - docker
 
-before_install:
-  - docker pull roomz/ccs-ci
+#before_install:
+#  - docker pull roomz/ccs-ci
   
 install:
-  - docker build -t ccs_test .
+  #- docker build -t Dockerfile.ccs.mmwave .
+  - docker build --target ccs-mmwave --tag ccs-mmwave:latest --file Dockerfile.ccs.mmwave.ubuntu18 .
 
 script:
-  - docker run -ti -v C:\workspace\roomzscreen:/workdir ccs_test /bin/bash
-
+  #- docker run -ti -v ccs_test /bin/bash
+  - sudo docker run --net=host  --cap-add=NET_ADMIN --device /dev/net/tun:/dev/net/tun -it ccs-mmwave
