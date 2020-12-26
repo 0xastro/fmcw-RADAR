@@ -20,3 +20,5 @@ script:
   #- docker run -ti -v ccs_test /bin/bash
   #- sudo docker run --net=host  --cap-add=NET_ADMIN --device /dev/net/tun:/dev/net/tun -it ccs-mmwave
    - ls
+  # - eclipse -noSplash -data ./workspace -application com.ti.ccstudio.apps.projectCreate -ccs.name lrr_dss.projectspec -ccs.device AWR1843
+  # - eclipse -noSplash -data ./workspace -application com.ti.ccstudio.apps.projectCreate -ccs.name lrr_mss.projectspec -ccs.device AWR1843
