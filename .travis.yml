@@ -6,8 +6,7 @@ services:
   - docker
 
 before_install:
-#  - docker pull roomz/ccs-ci
-  - docker build -t astro/ccs-mmwave --file Dockerfile.ccs.mmwave.ubuntu18 .
+  - docker build -t astro/ccs-mmwave --file docker/Dockerfile.ccs.mmwave.ubuntu18 .
   - docker run -d -p 127.0.0.1:80:4567 astro/ccs-mmwave /bin/sh -c "ls;"
   - docker ps -a
   - docker run astro/ccs-mmwave
@@ -15,7 +14,7 @@ before_install:
 #install:
   #- docker build -t Dockerfile.ccs.mmwave .
   #- docker build --target ccs-mmwave --tag ccs-mmwave:latest --file Dockerfile.ccs.mmwave.ubuntu18 .
-#  - docker build -t Dockerfile.ccs.mmwave.ubuntu18 .
+  #- docker build -t Dockerfile.ccs.mmwave.ubuntu18 .
 
 script:
   #- docker run -ti -v ccs_test /bin/bash
