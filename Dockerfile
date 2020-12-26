@@ -1,8 +1,11 @@
 #FROM ubuntu:18.04
 #start from scratch for target executable
 FROM ubuntu:bionic as ccsv-mmwave
-
 LABEL maintainer="Astro <astro@bridgeit.tech>"
+
+ENV DEBIAN_FRONTEND=noninteractive
+ENV TZ=Europe
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 #Install all packages needed
 #http://processors.wiki.ti.com/index.php/Linux_Host_Support_CCSv6
