@@ -5,14 +5,19 @@ sudo: required
 services:
   - docker
 
-#before_install:
+before_install:
 #  - docker pull roomz/ccs-ci
+  - docker build -t astro/ccs-mmwave .
+  - docker run -d -p 127.0.0.1:80:4567 astro/ccs-mmwave /bin/sh -c "cd /root/ccs-mmwave; bundle exec foreman start;"
+  - docker ps -a
+  - docker run astro/ccs-mmwave /bin/sh -c "cd /root/ccs-mmwave; bundle exec rake test"
   
-install:
+#install:
   #- docker build -t Dockerfile.ccs.mmwave .
   #- docker build --target ccs-mmwave --tag ccs-mmwave:latest --file Dockerfile.ccs.mmwave.ubuntu18 .
-  - docker build -t Dockerfile.ccs.mmwave.ubuntu18 .
+#  - docker build -t Dockerfile.ccs.mmwave.ubuntu18 .
 
 script:
   #- docker run -ti -v ccs_test /bin/bash
-  - sudo docker run --net=host  --cap-add=NET_ADMIN --device /dev/net/tun:/dev/net/tun -it ccs-mmwave
+  #- sudo docker run --net=host  --cap-add=NET_ADMIN --device /dev/net/tun:/dev/net/tun -it ccs-mmwave
+   - bundle exec rake test
