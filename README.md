@@ -267,12 +267,17 @@ Concurrently, DSP application, on the other hand, do the same initialization pro
 
 Once the initialization is complete and the MSS and the DSS are both synchronized, MSS application use the ` MMWave_config()` API to parse the configuration from the application to the mmWave Front End. mmWave API uses the mmWaveLink API, which constructs the mailbox message and sends it to the mmWave Front End. mmWave Front End, once it receives a message, checks the integrity of the message and sends an acknowledgement back to the mmWaveLink. In this way, all the messages are sent to the front end. 
 
-
+## Sensing Profiles
 Based on the range of operation, automotive radar sensors are classified into three major categories:
 
 * **LRR**: Long Range Radar for narrow-beam, forward-looking view, like adaptive cruise control applications.
 * **MRR**: Medium Range Radar for medium distance and speed profile, like cross traffic alert (CTA) applications.
 * **SRR**: Short Range Radar for sensing in direct proximity of the vehicle like obstacle detection and parking aid.
+
+### Chirp configuration for short range radar
+
+[](https://dev.ti.com/gallery/view/1792614/mmWaveSensingEstimator/ver/1.3.0)
+
 
 ### Dependencies
 
