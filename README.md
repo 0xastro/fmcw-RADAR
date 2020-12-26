@@ -695,15 +695,15 @@ void Cfg_ADCOutCfgInitParams (rlAdcOutCfg_t* ptrADCOutCfg) {
 #endif
 
 ```
-### Dependencies
 
-### Getting Started 
 
-#### CCS Debug utility
-CCS Debug Utility: This utility can be flashed on the QSPI The application is written over SYSBIOS and will loop forever. In the meantime CCS can be attached and the developers can then download the real application which needs to be debugged.
+# Getting Started 
+
+## CCS Debug utility
+
+This utility can be flashed on the QSPI The application is written over SYSBIOS and will loop forever. In the meantime CCS can be attached and the developers can then download the real application which needs to be debugged.
 This utility provides while loop application for MSS in XWR14xx and for MSS and DSS in XWR16xx/XWR18xx/XWR68xx.
 On MSS, it calls ESM and SOC init functions to initialize the device in known state. ESM init is needed to install the FIQ handler in case there are ESM errors on bootup. SOC init is needed to unhalt DSP in XWR16xx/XWR18xx/XWR68xx. As a byproduct, SOC init also unhalts the BSS and performs the APLL close loop procedure. Hence when this debug utility is executed from flash, the system is running using the APLL clocks.
-
 
 
 > Debug mode: Downloading and running the executable (.xer4f image) from CCS. You will need to flash a small CCS debug firmware on the EVM (one time) to allow connecting with CCS. This debug firmware image is provided with the mmWave SDK.
@@ -715,10 +715,10 @@ On MSS, it calls ESM and SOC init functions to initialize the device in known st
 - - XDS110 Class Application/User UART (COMUART): Used for passing configuration data and firmware to the EVM
 - - XDS110 Class Auxiliary Data Port (COMAUX): Used to send processed radar data output
 - Set the Dip Switch SOP0=ON; SOP1=OFF; SOP2=ON
-- Open the UniFlash tool TI.com/tool/uniflash
+- Open the UniFlash tool [TI.com/tool/uniflash]
 - - In the New Configuration section, locate and select the appropriate device AWR1843BOOST
 - - Click Start to proceed
-- - In the Program tab, browse and locate demo binary file C:\ti\mmwave_sdk_xx_xx_xx_xx\packages\ti\utils\ccsdebug\xwr18xx_ccsdebug.bin
+- - In the Program tab, browse and locate the generated binary file 
 - - In the Settings & Utilities tab, fill the COM Port text box with the Application/User UART COM port number (COMUART) noted earlier
 
 ~~~shell
@@ -755,7 +755,7 @@ On MSS, it calls ESM and SOC init functions to initialize the device in known st
 ~~~
 
 
-#### Connecting EVM to CCS
+## Connecting EVM to CCS
 
 > To connect the Radar EVM to CCS, we need to create a target configuration
 
@@ -854,6 +854,12 @@ The JTAG DR Integrity scan-test has succeeded.
 [End: Texas Instruments XDS110 USB Debug Probe_0]
 ~~~
 
+
+# Continuous Integration and Continuous Development
+
+Travis CI host our CI/CD flow by building the docker image `Dockerfile.ccs.mmwave.ubuntu18`. So far the test flow is to setup the environment and the dependencies for system development. Travis is triggered by every pull request.
+**TODO1** Add source files using COPY function, and build DSS and MSS
+**TODO2** Add testcases
 
 ### Affiliation
  TeCIP Institute, Scuola Superiore Sant'anna.
