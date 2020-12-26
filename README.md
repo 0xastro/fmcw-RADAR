@@ -54,6 +54,40 @@ The C674x DSP clocked at 600 MHz for advanced Radar signal processing. Core algo
 <img  src="https://github.com/astro7x/fmcw-RADAR/blob/master/figs/dss_ccs.png" alt="DSS file architicture in code composer studio" class="inline"/>
 </p>
 
+#### ADC
+
+
+The ADC buffer is on-chip memory arranged as a ping-pong buffer, with ECC (Error-correcting Code) memory support for each ping and pong memory. The raw ADC output data from RADAR-SS(BSS) is stored on this memory, to be consumed by the DSP processor. Hence, The analog signals received on each of the configured receive (Rx) channels in the device passes through a pre-conditioning over the Analog and Digital Front End (DFE) and the resulting data at the configured sampling rate is stored in the ADC buffer. Data corresponding to all the configured Rx channels is stored within this buffer. Once again, the ADC buffer is implemented as a double buffering (ping-pong) mechanism that allows for one buffer to be written(filled) while the other one is being read out(emptied).
+
+**The size of the ADC buffer is 32 KiB for each ping and pong buffers.**
+
+The ADC buffer can be written from DFE in any of the three modes by configuring the control registers or by using the API as in our case.
+
+- Single-chirp mode
+- Multi-chirp mode
+- Continuous mode
+
+As we operate in **continuous mode**, where the FMCW transceiver has been configured to output a single frequency tone in the range of 76-81 GHz, $N$ ADC samples are stored in a ping/pong buffer before the Ping Pong Select toggles and the Chirp Available Interrupt is generated. In real mode, this value $N$ refers to the number of real samples per channel, and in complex mode, this refers to the number of complex samples per channel. This counter increments once for every new sample (as long as 1 or more Rx channels are enabled). Continuous mode is expected to be only used for CZ and ADC buffer test pattern mode.
+
+<p align="center">
+<img  src="https://github.com/astro7x/fmcw-RADAR/blob/master/figs/adc.svg" alt="uart flow" class="inline"/>
+</p>
+
+#### ADC Data Format
+
+The ADCBuf driver in TI-RTOS samples an analogue waveform at a specified frequency. The resulting samples are transferred to a buffer provided by the application. The driver can either take n samples once, or continuously sample by double-buffering and providing a callback to process each finished buffer.
+ADC buffer Data format is written into Non-interleaved data storageto the ADC buffer. Accordingly, each channel data is stored in different memory locations, as shown below.
+<p align="center">
+<img  src="https://github.com/astro7x/fmcw-RADAR/blob/master/figs/adc_data.png" alt="uart flow" class="inline"/>
+</p>
+
+
+In the **non-interleaved mode** of storage, the ADC data corresponding to each Rx channel are grouped and stored together allowing easy processing of the related data corresponding to each channel. The storage offset for each of the channels is configurable. Also depending on the number of channels configured, the offset to store the data can be moved to allow for larger amount of data to be stored within the same buffer for reduced number of Rx channels.
+
+The configuration of ADC buffer is shown below
+<p align="center">
+<img  src="https://github.com/astro7x/fmcw-RADAR/blob/master/figs/adc.svg" alt="uart flow" class="inline"/>
+</p>
 
 ### Master Sub-system [MSS]
 
