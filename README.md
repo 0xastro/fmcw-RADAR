@@ -276,8 +276,18 @@ Based on the range of operation, automotive radar sensors are classified into th
 
 ### Chirp configuration for short range radar
 
-[](https://dev.ti.com/gallery/view/1792614/mmWaveSensingEstimator/ver/1.3.0)
+Using TI-Cloud tool mmWave Sensing Estimator,[https://dev.ti.com/gallery/view/1792614/mmWaveSensingEstimator/ver/1.3.0]
 
+The Design Rules, Restrictions and Hardware configuration for the AWR1843 device is shown below
+
+<p align="left">
+<img  src="https://github.com/astro7x/fmcw-RADAR/blob/master/figs/mmWaveSensingEstimatorTI2.svg" alt="Sequence calls between MSS and BSS" class="inline"/>
+</p>
+
+
+<p align="center">
+<img  src="https://github.com/astro7x/fmcw-RADAR/blob/master/figs/mmWaveSensingEstimatorTI1.svg" alt="Sequence calls between MSS and BSS" class="inline"/>
+</p>
 
 ### Dependencies
 
