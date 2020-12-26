@@ -1,6 +1,6 @@
 #FROM ubuntu:18.04
 #start from scratch for target executable
-FROM ubuntu:bionic as ccsv-mmwave
+FROM ubuntu:bionic as ccs-mmwave
 LABEL maintainer="Astro <astro@bridgeit.tech>"
 
 ENV DEBIAN_FRONTEND=noninteractive
