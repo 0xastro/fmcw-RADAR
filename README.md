@@ -21,7 +21,12 @@ In this system we detect specifically objects within close proximity the radar a
 
 The mmWave FMCW Radar shows some of the capabilities of the AWR1843 SoC using the drivers in the mmWave SDK (Software Development Kit). It allows user to specify the chirping profile and displays the detected objects in range-doppler map and tracking information in real-time. In this work we exploit the usage of radar in the automotive space by deploying the basic DSP algorithms 1D-FFT, 2D-FFT to detect range and velocity of targets in front of the radar. Accordingly, expanding into more advanced processing chains by deploying unsupervised machine learning algorithm dBScan and tracking the objects using the extended Kaman filter. In this work, we test, verify and validate mmWave FMCW MIMO radar processing chain on AWR1843 platform with different sensing profiles. Different application are possible and could be easily integrated into our design by interfacing into CAN bus. Wide scenarios can be deployed on top of this system i.e object motion direction estimation, precise angular position estimation of obstacles in urban environments and ground vehicle localization in V2V application.
 
-## System Architicture
+<p align="center">
+<img  src="https://github.com/astro7x/fmcw-RADAR/blob/master/figs/sysview1.svg" alt="system architicture" class="inline"/>
+</p>
+
+
+# System Architicture
 
 The FMCW RADAR SOC System is divided into 3 subsystems as illustrated in here:
 <p align="center">
@@ -29,7 +34,7 @@ The FMCW RADAR SOC System is divided into 3 subsystems as illustrated in here:
 </p>
 
 
-### RADAR Processor Sub-system [BSS]
+## RADAR Processor Sub-system [BSS]
     
 > BSS is controled by MSS through mmWave SDK APIs
 
@@ -45,10 +50,49 @@ Concurrently, DSP application, on the other hand, do the same initialization pro
 
 Once the initialization is complete and the MSS and the DSS are both synchronized, MSS application use the ` MMWave_config()` API to parse the configuration from the application to the mmWave Front End. mmWave API uses the mmWaveLink API, which constructs the mailbox message and sends it to the mmWave Front End. mmWave Front End, once it receives a message, checks the integrity of the message and sends an acknowledgement back to the mmWaveLink. In this way, all the messages are sent to the front end. 
 
-### DSP Sub-system [DSS]
+## DSP Sub-system [DSS]
 
 DSS Includes TI’s standard TMS320C674x (C674x) megamodule and several blocks of internal memory (L1P, L1D, and L2).
 The C674x DSP clocked at 600 MHz for advanced Radar signal processing. Core algorithms were implemented on the DSP sub-system such as the Range-FFT, Dopple-FFT, Angle-FFT, CFAR, dBSCAN, and extended kalman filter. Details about the execution flow and the algorithms will be discussed in next sections after introducing the sensing dimensions and the enabling algorithms.
+
+### Processing Chain 
+
+The processing chain for AWR1843 using the ultra short range chirp and frame design, is implemented on the AWR1843 EVM as shown in 
+the main processing elements involved in the processing chain consist of the following:
+
+<p align="center">
+<img  src="https://github.com/astro7x/fmcw-RADAR/blob/master/figs/sysview2.svg" alt="system architicture" class="inline"/>
+</p>
+
+
+
+**Front End**
+– Represents the antennas and the analog RF transceiver implementing the FMCW transmitter and receiver and various hardware-based signal conditioning operations. This must be properly configured for the chirp and frame settings of the use case. Refere to MSS and BSS sections.
+
+**C674x DSP**
+– This is the digital signal processing core that implements the configuration of the front end and executes the low-level signal processing operations on the data. This core has access to several memory resources as noted further in the design description.
+
+**ADC**
+– The ADC is the main element that interfaces to the DSP chain. The ADC output samples are buffered in ADC output buffers for access by the digital part of the processing chain.
+
+**EDMA controller**
+– This is a user-programmed DMA engine employed to move data from one memory location to another without using another processor. The EDMA can be programmed to be triggered automatically, and can also be configured to reorder some of the data during the movement operations.
+
+**Range processing**
+– For each antenna, 1D windowing, and 1D fast Fourier transform (FFT). Range processing is interleaved with the active chirp time of the frame
+
+**Doppler processing**
+– For each antenna, 2D windowing, and 2D FFT. Then non-coherent combining of received power across antennas in floating-point precision
+
+**CFAR**
+–  Range-Doppler detection algorithm is based on Constant false-alarm rate algorithm, cell averaging smallest of (CASO-CFAR) detection in range domain, plus CFAR-cell averaging (CACFAR) in Doppler domain detection, run on the range-Doppler power mapping to find detection points in range and Doppler space
+
+**Angle estimation**
+– For each detected point in range and Doppler space, reconstruct the 2D FFT output with Doppler compensation, then a beamforming algorithm is applied to calculate the angle spectrum on the azimuth direction with multiple peaks detected. After that the elevation angle is estimated for each detected peak angle in azimuth domain.
+
+**Clustering**
+– Collect all detected points and perform DBSCAN-based clustering algorithm for every fixed number of frames. The reported output includes the number of clusters and properties for each cluster, like center location and size. After the DSP finishes frame processing, the results consisting of range, doppler, 3D location, and clustering are formatted and written in shared memory \textcolor{red}{(L3RAM)} for R4F to send all the results to the host through UART for visualization.
+
 
 <p align="left">
 <img  src="https://github.com/astro7x/fmcw-RADAR/blob/master/figs/dss_ccs.png" alt="DSS file architicture in code composer studio" class="inline"/>
@@ -89,7 +133,7 @@ The configuration of ADC buffer is shown below
 <img  src="https://github.com/astro7x/fmcw-RADAR/blob/master/figs/adc.svg" alt="uart flow" class="inline"/>
 </p>
 
-### Master Sub-system [MSS]
+## Master Sub-system [MSS]
 
 MSS includes an ARM Cortex R4F processor, clocked using a MSS\_VCLK clock with a maximum operating frequency of 200 MHz. User applications executing on this processor control the overall operation of the device, including radar control through well-defined API messages, radar signal processing (assisted by the radar hardware accelerator), and peripherals for external interfaces.
 
