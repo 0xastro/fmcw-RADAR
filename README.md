@@ -34,112 +34,14 @@ The FMCW RADAR SOC System is divided into 3 subsystems as illustrated in here:
 </p>
 
 
-## RADAR Processor Sub-system [BSS]
-    
-> BSS is controled by MSS through mmWave SDK APIs
-
-BSS is responsible for the RF and analog functionality of the device. The sybsystem contains the FMCW transceiver and ARM Cortex R4F-based radio control system. Hence, the subsystem is equipped with a Built-in firmware with an API interface to the on-chip Cortex-R4F application MCU for configuration, monitoring, and calibration of the low-level RF/Analog components. Access to the Radar subsystem is provided through hardware mailboxes and a well defined API controlled by the MSS sus-system which will be discussed in this document. The RADAR subsystem consists of the RF/Analog subsystem and the radio processor subsystem. The RF/analog subsystem implements the FMCW transceiver system with RF and analog circuitry – namely, the synthesizer, PA, LNA, mixer, IF, and ADC. Additionally, it includes the crystal oscillator and temperature sensors. The three transmit channels as well as the four receive channels can all be operated simultaneously. On the other hand, the radio processor subsystem includes the digital front-end, the ramp generator, and an internal processor for controlling and configuring the low-level RF/analog and ramp generator registers, based on well-defined API messages from the master subsystem. This radio processor is programmed by TI, and addresses both RF calibration needs and some basic self-test and monitoring functions (BIST); this processor is not available directly for customer use. The digital front-end filters and decimates the raw sigma-delta ADC output, and provides the final ADC data samples at a programmable sampling rate.
-
-<p align="center">
-<img  src="https://github.com/astro7x/fmcw-RADAR/blob/master/figs/sequence1.svg" alt="Sequence calls between MSS and BSS" class="inline"/>
-</p>
-
-As illustrated above, the MSS application invokes ` SOC_init()`  to initialize the device and powers up the mmWave Front End mmWave. 
-It then uses the ` MMWave_init()` API to do the basic initialization of the mailbox and the other key drivers.  
-Concurrently, DSP application, on the other hand, do the same initialization procedures. After that, it waits for the (FE) front end boot-up completion.  Then it uses the ` MMWave_execute()` API, which sets up the Inter process communication (IPC) to receive the data from the MSS. Both the MSS and the DSS does synchronization to check the health of each other. DSS also initializes the EDMA and the ADC buffer for the data processing. 
-
-Once the initialization is complete and the MSS and the DSS are both synchronized, MSS application use the ` MMWave_config()` API to parse the configuration from the application to the mmWave Front End. mmWave API uses the mmWaveLink API, which constructs the mailbox message and sends it to the mmWave Front End. mmWave Front End, once it receives a message, checks the integrity of the message and sends an acknowledgement back to the mmWaveLink. In this way, all the messages are sent to the front end. 
-
-## DSP Sub-system [DSS]
-
-DSS Includes TI’s standard TMS320C674x (C674x) megamodule and several blocks of internal memory (L1P, L1D, and L2).
-The C674x DSP clocked at 600 MHz for advanced Radar signal processing. Core algorithms were implemented on the DSP sub-system such as the Range-FFT, Dopple-FFT, Angle-FFT, CFAR, dBSCAN, and extended kalman filter. Details about the execution flow and the algorithms will be discussed in next sections after introducing the sensing dimensions and the enabling algorithms.
-
-### Processing Chain 
-
-The processing chain for AWR1843 using the ultra short range chirp and frame design, is implemented on the AWR1843 EVM as shown in 
-the main processing elements involved in the processing chain consist of the following:
-
-<p align="center">
-<img  src="https://github.com/astro7x/fmcw-RADAR/blob/master/figs/sysview2.svg" alt="system architicture" class="inline"/>
-</p>
-
-
-
-**Front End**
-– Represents the antennas and the analog RF transceiver implementing the FMCW transmitter and receiver and various hardware-based signal conditioning operations. This must be properly configured for the chirp and frame settings of the use case. Refere to MSS and BSS sections.
-
-**C674x DSP**
-– This is the digital signal processing core that implements the configuration of the front end and executes the low-level signal processing operations on the data. This core has access to several memory resources as noted further in the design description.
-
-**ADC**
-– The ADC is the main element that interfaces to the DSP chain. The ADC output samples are buffered in ADC output buffers for access by the digital part of the processing chain.
-
-**EDMA controller**
-– This is a user-programmed DMA engine employed to move data from one memory location to another without using another processor. The EDMA can be programmed to be triggered automatically, and can also be configured to reorder some of the data during the movement operations.
-
-**Range processing**
-– For each antenna, 1D windowing, and 1D fast Fourier transform (FFT). Range processing is interleaved with the active chirp time of the frame
-
-**Doppler processing**
-– For each antenna, 2D windowing, and 2D FFT. Then non-coherent combining of received power across antennas in floating-point precision
-
-**CFAR**
-–  Range-Doppler detection algorithm is based on Constant false-alarm rate algorithm, cell averaging smallest of (CASO-CFAR) detection in range domain, plus CFAR-cell averaging (CACFAR) in Doppler domain detection, run on the range-Doppler power mapping to find detection points in range and Doppler space
-
-**Angle estimation**
-– For each detected point in range and Doppler space, reconstruct the 2D FFT output with Doppler compensation, then a beamforming algorithm is applied to calculate the angle spectrum on the azimuth direction with multiple peaks detected. After that the elevation angle is estimated for each detected peak angle in azimuth domain.
-
-**Clustering**
-– Collect all detected points and perform DBSCAN-based clustering algorithm for every fixed number of frames. The reported output includes the number of clusters and properties for each cluster, like center location and size. After the DSP finishes frame processing, the results consisting of range, doppler, 3D location, and clustering are formatted and written in shared memory \textcolor{red}{(L3RAM)} for R4F to send all the results to the host through UART for visualization.
-
-
-<p align="left">
-<img  src="https://github.com/astro7x/fmcw-RADAR/blob/master/figs/dss_ccs.png" alt="DSS file architicture in code composer studio" class="inline"/>
-</p>
-
-#### ADC
-
-
-The ADC buffer is on-chip memory arranged as a ping-pong buffer, with ECC (Error-correcting Code) memory support for each ping and pong memory. The raw ADC output data from RADAR-SS(BSS) is stored on this memory, to be consumed by the DSP processor. Hence, The analog signals received on each of the configured receive (Rx) channels in the device passes through a pre-conditioning over the Analog and Digital Front End (DFE) and the resulting data at the configured sampling rate is stored in the ADC buffer. Data corresponding to all the configured Rx channels is stored within this buffer. Once again, the ADC buffer is implemented as a double buffering (ping-pong) mechanism that allows for one buffer to be written(filled) while the other one is being read out(emptied).
-
-**The size of the ADC buffer is 32 KiB for each ping and pong buffers.**
-
-The ADC buffer can be written from DFE in any of the three modes by configuring the control registers or by using the API as in our case.
-
-- Single-chirp mode
-- Multi-chirp mode
-- Continuous mode
-
-As we operate in **continuous mode**, where the FMCW transceiver has been configured to output a single frequency tone in the range of 76-81 GHz, $N$ ADC samples are stored in a ping/pong buffer before the Ping Pong Select toggles and the Chirp Available Interrupt is generated. In real mode, this value $N$ refers to the number of real samples per channel, and in complex mode, this refers to the number of complex samples per channel. This counter increments once for every new sample (as long as 1 or more Rx channels are enabled). Continuous mode is expected to be only used for CZ and ADC buffer test pattern mode.
-
-<p align="center">
-<img  src="https://github.com/astro7x/fmcw-RADAR/blob/master/figs/adc.svg" alt="uart flow" class="inline"/>
-</p>
-
-#### ADC Data Format
-
-The ADCBuf driver in TI-RTOS samples an analogue waveform at a specified frequency. The resulting samples are transferred to a buffer provided by the application. The driver can either take n samples once, or continuously sample by double-buffering and providing a callback to process each finished buffer.
-ADC buffer Data format is written into Non-interleaved data storageto the ADC buffer. Accordingly, each channel data is stored in different memory locations, as shown below.
-<p align="center">
-<img  src="https://github.com/astro7x/fmcw-RADAR/blob/master/figs/adc_data.png" alt="uart flow" class="inline"/>
-</p>
-
-
-In the **non-interleaved mode** of storage, the ADC data corresponding to each Rx channel are grouped and stored together allowing easy processing of the related data corresponding to each channel. The storage offset for each of the channels is configurable. Also depending on the number of channels configured, the offset to store the data can be moved to allow for larger amount of data to be stored within the same buffer for reduced number of Rx channels.
-
-The configuration of ADC buffer is shown below
-<p align="center">
-<img  src="https://github.com/astro7x/fmcw-RADAR/blob/master/figs/adc.svg" alt="uart flow" class="inline"/>
-</p>
-
 ## Master Sub-system [MSS]
-
-MSS includes an ARM Cortex R4F processor, clocked using a MSS\_VCLK clock with a maximum operating frequency of 200 MHz. User applications executing on this processor control the overall operation of the device, including radar control through well-defined API messages, radar signal processing (assisted by the radar hardware accelerator), and peripherals for external interfaces.
 
 <p align="left">
 <img  src="https://github.com/astro7x/fmcw-RADAR/blob/master/figs/mss_ccs.png" alt="MSS file architicture in code composer studio" class="inline"/>
 </p>
+
+MSS includes an ARM Cortex R4F processor, clocked using a MSS\_VCLK clock with a maximum operating frequency of 200 MHz. User applications executing on this processor control the overall operation of the device, including radar control through well-defined API messages, radar signal processing (assisted by the radar hardware accelerator), and peripherals for external interfaces.
+
 
 
 Below here is the entrypoint for the MSS firmware which describe the startup sequence for the AWR1843 application running on top of MSS.
@@ -261,6 +163,109 @@ The Task is used to handle the recieved messages from the DSS Peer  over the mai
 <p align="center">
 <img  src="https://github.com/astro7x/fmcw-RADAR/blob/master/figs/mboxIN_uartOUT.svg" alt="communication on SOC flow" class="inline"/>
 </p>
+
+
+
+## DSP Sub-system [DSS]
+
+<p align="left">
+<img  src="https://github.com/astro7x/fmcw-RADAR/blob/master/figs/dss_ccs.png" alt="DSS file architicture in code composer studio" class="inline"/>
+</p>
+
+DSS Includes TI’s standard TMS320C674x (C674x) megamodule and several blocks of internal memory (L1P, L1D, and L2).
+The C674x DSP clocked at 600 MHz for advanced Radar signal processing. Core algorithms were implemented on the DSP sub-system such as the Range-FFT, Dopple-FFT, Angle-FFT, CFAR, dBSCAN, and extended kalman filter. Details about the execution flow and the algorithms will be discussed in next sections after introducing the sensing dimensions and the enabling algorithms.
+
+### Processing Chain 
+
+The processing chain for AWR1843 using the ultra short range chirp and frame design, is implemented on the AWR1843 EVM as shown in 
+the main processing elements involved in the processing chain consist of the following:
+
+<p align="center">
+<img  src="https://github.com/astro7x/fmcw-RADAR/blob/master/figs/sysview2.svg" alt="system architicture" class="inline"/>
+</p>
+
+
+
+**Front End**
+– Represents the antennas and the analog RF transceiver implementing the FMCW transmitter and receiver and various hardware-based signal conditioning operations. This must be properly configured for the chirp and frame settings of the use case. Refere to MSS and BSS sections.
+
+**C674x DSP**
+– This is the digital signal processing core that implements the configuration of the front end and executes the low-level signal processing operations on the data. This core has access to several memory resources as noted further in the design description.
+
+**ADC**
+– The ADC is the main element that interfaces to the DSP chain. The ADC output samples are buffered in ADC output buffers for access by the digital part of the processing chain.
+
+**EDMA controller**
+– This is a user-programmed DMA engine employed to move data from one memory location to another without using another processor. The EDMA can be programmed to be triggered automatically, and can also be configured to reorder some of the data during the movement operations.
+
+**Range processing**
+– For each antenna, 1D windowing, and 1D fast Fourier transform (FFT). Range processing is interleaved with the active chirp time of the frame
+
+**Doppler processing**
+– For each antenna, 2D windowing, and 2D FFT. Then non-coherent combining of received power across antennas in floating-point precision
+
+**CFAR**
+–  Range-Doppler detection algorithm is based on Constant false-alarm rate algorithm, cell averaging smallest of (CASO-CFAR) detection in range domain, plus CFAR-cell averaging (CACFAR) in Doppler domain detection, run on the range-Doppler power mapping to find detection points in range and Doppler space
+
+**Angle estimation**
+– For each detected point in range and Doppler space, reconstruct the 2D FFT output with Doppler compensation, then a beamforming algorithm is applied to calculate the angle spectrum on the azimuth direction with multiple peaks detected. After that the elevation angle is estimated for each detected peak angle in azimuth domain.
+
+**Clustering**
+– Collect all detected points and perform DBSCAN-based clustering algorithm for every fixed number of frames. The reported output includes the number of clusters and properties for each cluster, like center location and size. After the DSP finishes frame processing, the results consisting of range, doppler, 3D location, and clustering are formatted and written in shared memory \textcolor{red}{(L3RAM)} for R4F to send all the results to the host through UART for visualization.
+
+
+#### ADC
+
+
+The ADC buffer is on-chip memory arranged as a ping-pong buffer, with ECC (Error-correcting Code) memory support for each ping and pong memory. The raw ADC output data from RADAR-SS(BSS) is stored on this memory, to be consumed by the DSP processor. Hence, The analog signals received on each of the configured receive (Rx) channels in the device passes through a pre-conditioning over the Analog and Digital Front End (DFE) and the resulting data at the configured sampling rate is stored in the ADC buffer. Data corresponding to all the configured Rx channels is stored within this buffer. Once again, the ADC buffer is implemented as a double buffering (ping-pong) mechanism that allows for one buffer to be written(filled) while the other one is being read out(emptied).
+
+**The size of the ADC buffer is 32 KiB for each ping and pong buffers.**
+
+The ADC buffer can be written from DFE in any of the three modes by configuring the control registers or by using the API as in our case.
+
+- Single-chirp mode
+- Multi-chirp mode
+- Continuous mode
+
+As we operate in **continuous mode**, where the FMCW transceiver has been configured to output a single frequency tone in the range of 76-81 GHz, $N$ ADC samples are stored in a ping/pong buffer before the Ping Pong Select toggles and the Chirp Available Interrupt is generated. In real mode, this value $N$ refers to the number of real samples per channel, and in complex mode, this refers to the number of complex samples per channel. This counter increments once for every new sample (as long as 1 or more Rx channels are enabled). Continuous mode is expected to be only used for CZ and ADC buffer test pattern mode.
+
+<p align="center">
+<img  src="https://github.com/astro7x/fmcw-RADAR/blob/master/figs/adc.svg" alt="uart flow" class="inline"/>
+</p>
+
+#### ADC Data Format
+
+The ADCBuf driver in TI-RTOS samples an analogue waveform at a specified frequency. The resulting samples are transferred to a buffer provided by the application. The driver can either take n samples once, or continuously sample by double-buffering and providing a callback to process each finished buffer.
+ADC buffer Data format is written into Non-interleaved data storageto the ADC buffer. Accordingly, each channel data is stored in different memory locations, as shown below.
+<p align="center">
+<img  src="https://github.com/astro7x/fmcw-RADAR/blob/master/figs/adc_data.png" alt="uart flow" class="inline"/>
+</p>
+
+
+In the **non-interleaved mode** of storage, the ADC data corresponding to each Rx channel are grouped and stored together allowing easy processing of the related data corresponding to each channel. The storage offset for each of the channels is configurable. Also depending on the number of channels configured, the offset to store the data can be moved to allow for larger amount of data to be stored within the same buffer for reduced number of Rx channels.
+
+The configuration of ADC buffer is shown below
+<p align="center">
+<img  src="https://github.com/astro7x/fmcw-RADAR/blob/master/figs/adc.svg" alt="uart flow" class="inline"/>
+</p>
+
+
+
+## RADAR Processor Sub-system [BSS]
+    
+> BSS is controled by MSS through mmWave SDK APIs
+
+BSS is responsible for the RF and analog functionality of the device. The sybsystem contains the FMCW transceiver and ARM Cortex R4F-based radio control system. Hence, the subsystem is equipped with a Built-in firmware with an API interface to the on-chip Cortex-R4F application MCU for configuration, monitoring, and calibration of the low-level RF/Analog components. Access to the Radar subsystem is provided through hardware mailboxes and a well defined API controlled by the MSS sus-system which will be discussed in this document. The RADAR subsystem consists of the RF/Analog subsystem and the radio processor subsystem. The RF/analog subsystem implements the FMCW transceiver system with RF and analog circuitry – namely, the synthesizer, PA, LNA, mixer, IF, and ADC. Additionally, it includes the crystal oscillator and temperature sensors. The three transmit channels as well as the four receive channels can all be operated simultaneously. On the other hand, the radio processor subsystem includes the digital front-end, the ramp generator, and an internal processor for controlling and configuring the low-level RF/analog and ramp generator registers, based on well-defined API messages from the master subsystem. This radio processor is programmed by TI, and addresses both RF calibration needs and some basic self-test and monitoring functions (BIST); this processor is not available directly for customer use. The digital front-end filters and decimates the raw sigma-delta ADC output, and provides the final ADC data samples at a programmable sampling rate.
+
+<p align="center">
+<img  src="https://github.com/astro7x/fmcw-RADAR/blob/master/figs/sequence1.svg" alt="Sequence calls between MSS and BSS" class="inline"/>
+</p>
+
+As illustrated above, the MSS application invokes ` SOC_init()`  to initialize the device and powers up the mmWave Front End mmWave. 
+It then uses the ` MMWave_init()` API to do the basic initialization of the mailbox and the other key drivers.  
+Concurrently, DSP application, on the other hand, do the same initialization procedures. After that, it waits for the (FE) front end boot-up completion.  Then it uses the ` MMWave_execute()` API, which sets up the Inter process communication (IPC) to receive the data from the MSS. Both the MSS and the DSS does synchronization to check the health of each other. DSS also initializes the EDMA and the ADC buffer for the data processing. 
+
+Once the initialization is complete and the MSS and the DSS are both synchronized, MSS application use the ` MMWave_config()` API to parse the configuration from the application to the mmWave Front End. mmWave API uses the mmWaveLink API, which constructs the mailbox message and sends it to the mmWave Front End. mmWave Front End, once it receives a message, checks the integrity of the message and sends an acknowledgement back to the mmWaveLink. In this way, all the messages are sent to the front end. 
 
 
 Based on the range of operation, automotive radar sensors are classified into three major categories:
