@@ -1,5 +1,5 @@
 # fmcw-RADAR
-[mmWave based fmcw radar design files] based on AWR1843 chip operating at 76-GHz to 81-GHz.
+[mmWave based fmcw radar design files] based on AWR1843 chip operating at 77-GHz to 81-GHz for railway drone use-case.
 
 ## Objective
 Test & Evaluate the performance of TI mmWave Radar system using the AWR1843 EVM development board.
@@ -434,10 +434,6 @@ The JTAG DR Integrity scan-test has succeeded.
 [End: Texas Instruments XDS110 USB Debug Probe_0]
 ~~~
 
-
-### Future Work
-Porting the system to be deployed in Localization and exploration services.
-> DARPA competition
 
 ### Affiliation
  TeCIP Institute, Scuola Superiore Sant'anna.
