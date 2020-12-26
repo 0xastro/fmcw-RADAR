@@ -272,10 +272,12 @@ The Design Rules, Restrictions and Hardware configuration for the AWR1843 device
 <img  src="https://github.com/astro7x/fmcw-RADAR/blob/master/figs/mmWaveSensingEstimatorTI2.svg" alt="Sequence calls between MSS and BSS" class="inline"/>
 </p>
 
-
 <p align="left">
 <img  src="https://github.com/astro7x/fmcw-RADAR/blob/master/figs/mmWaveSensingEstimatorTI1.svg" alt="Sequence calls between MSS and BSS" class="inline"/>
 </p>
+
+Once we setup the design rules for the SRR configuration, the chirp design parameters are auto-calculated with respect to the hardware limitation such as available RAM and sampling frequencyof the sensor, as shown above.
+
 
 ### Dependencies
 
