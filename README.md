@@ -139,11 +139,46 @@ The main task **MSS_mmWaveInitTASK** is the mss initialization task which initia
 
 #### MAILBOX
 
+
+Mailbox relies on virtual communication channels, where they are a fundamental abstraction provided by the abstract machine. Hence, Channel: is a **link** between two tasks used to exchange data. On the other hand, in Hardware machine, the channel is the communication network (ethernet, PCIe, ..etc) which Can have different semantics, and can be used using different syntax, depending on the abstract machine and on its implementation.
+
+<p align="center">
+<img  src="https://github.com/astro7x/fmcw-RADAR/blob/master/figs/mbox1.svg" alt="uart flow" class="inline"/>
+</p>
+
+
+#### Mailbox channel semantics
+The behaviour of channel used to communicate between tasks depends on many factor: 
+
+* The direction of the communication [Mono-directional/unidirectional or bidirectional]. 
+In Mono-directional, the most commonly used cases is pipeline e.g producer consumer mechanism. However, In our case, we use **bidirectional communication channel** for the communication between **MSS** and **DSS**. To be more specific, the Bidirectional channel is implemented using 2 unidirectional virtual channels.
+
+*The number of tasks sending and receiving. In our scenario, we have **only two tasks**, one on the MSS side and another task on the DSS side. Morever, It could be n to m tasks or 1 to m, or n to 1. Here, we have 1 to 1 tasks communicatating through two virtual channels (MSS to DSS) and (DSS to MSS).
+
+*The kind of synchronization [Asynchronous, Synchronous, Extended]. Message queues provide an asynchronous communications protocol, meaning that the sender and receiver of the message do not need to interact with the message queue at the same time. Messages placed onto the queue are stored until the receiver  retrieves them. Message queues have implicit or explicit limits on the size of data that may be transmitted in a single message and the number of messages that may remain outstanding on the queue. The implementation of mailbox message queues function internally: within TI Real-Time operating system. 
+
+**Maibox Message Scheme**: The processor which wishes to send a message to another processor writes the message to the mailbox memory space, then interrupts the receiver processor. The receiver processor acknowledges the interrupt, then reads the message from the mailbox memory space. The receiver informs the sender that the message is read by an interrupt, which is acknowledged back by the sender. The sender must not initiate another message to the same receiver until the previously initiated mailbox interaction with the same receiver is complete. Hence, the the register layer definitions for the Mailbox Module are included in the following path:
+
+```C
+mailbox/include/reg\_mailbox.h
+```
+
+High level encapsulation (Abstraction) have been defined in the following path:
+```C
+ti/drivers/mailbox/mailbox.h
+```
+
+Mailbox Initialization and Implementation withing the mmWave Radar application is implemented as shown below:
+
 <p align="center">
 <img  src="https://github.com/astro7x/fmcw-RADAR/blob/master/figs/mailbox.svg" alt="mailbox flow" class="inline"/>
 </p>
+Where we rely on the communication between MSS and DSS, multiple instances of the driver can be opened (each instance controls one virtual channel). Note that the mailbox driver is instantiated both in the MSS and DSS. The code sample attached is deployed on the MSS side to open a virtual channel to communicate with the DSS. Accordingly, same code is deployed in the DSS side to open a second virtual channel to communicate with the MSS
+
 
 #### Recieving and Sending objects
+
+The Task is used to handle the recieved messages from the DSS Peer  over the mailbox virtual communication channel.
 
 <p align="center">
 <img  src="https://github.com/astro7x/fmcw-RADAR/blob/master/figs/mboxIN_uartOUT.svg" alt="communication on SOC flow" class="inline"/>
