@@ -15,12 +15,17 @@
 # fmcw-RADAR
 [mmWave based fmcw radar design files] based on AWR1843 chip operating at 76-GHz to 81-GHz.
 
-### Objective
+## Objective
 Test & Evaluate the performance of TI mmWave Radar system using the AWR1843 EVM development board.
+In this system we detect specifically objects within close proximity the radar and generally evaluate different ranges profiles short, medium and long for further application. We use TI AWR1843 EVM, algorithms run on-board the single-chip device to create Range-Azimuth and Range-Elevation heat-maps, then performs object detection with CFAR, angle of arrival estimation and clustering on configured range rows in the heatmaps.
 
-In this system we detect specifically objects within close proximity the radar and generally evaluate different ranges profiles short, medium and long for further application.
+The mmWave FMCW Radar shows some of the capabilities of the AWR1843 SoC using the drivers in the mmWave SDK (Software Development Kit). It allows user to specify the chirping profile and displays the detected objects in range-doppler map and tracking information in real-time. In this work we exploit the usage of radar in the automotive space by deploying the basic DSP algorithms 1D-FFT, 2D-FFT to detect range and velocity of targets in front of the radar. Accordingly, expanding into more advanced processing chains by deploying unsupervised machine learning algorithm dBScan and tracking the objects using the extended Kaman filter. In this work, we test, verify and validate mmWave FMCW MIMO radar processing chain on AWR1843 platform with different sensing profiles. Different application are possible and could be easily integrated into our design by interfacing into CAN bus. Wide scenarios can be deployed on top of this system i.e object motion direction estimation, precise angular position estimation of obstacles in urban environments and ground vehicle localization in V2V application.
 
-We use TI AWR1843 EVM, algorithms run on-board the single-chip device to create Range-Azimuth and Range-Elevation heat-maps, then performs object detection with CFAR, angle of arrival estimation and clustering on configured range rows in the heatmaps.
+Based on the range of operation, automotive radar sensors are classified into three major categories:
+
+* **LRR**: Long Range Radar for narrow-beam, forward-looking view, like adaptive cruise control applications.
+* **MRR**: Medium Range Radar for medium distance and speed profile, like cross traffic alert (CTA) applications.
+* **SRR**: Short Range Radar for sensing in direct proximity of the vehicle like obstacle detection and parking aid.
 
 ### Dependencies
 
