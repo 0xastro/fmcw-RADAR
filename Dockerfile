@@ -1,6 +1,8 @@
-FROM ubuntu:18.04
+#FROM ubuntu:18.04
+#start from scratch for target executable
+FROM ubuntu:bionic as ccsv-mmwave
 
-LABEL maintainer="Cedric Gerber <gerber.cedric@gmail.com>"
+LABEL maintainer="Astro <astro@bridgeit.tech>"
 
 #Install all packages needed
 #http://processors.wiki.ti.com/index.php/Linux_Host_Support_CCSv6
