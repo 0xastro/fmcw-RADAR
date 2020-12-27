@@ -1,0 +1,88 @@
+.TH "MmwDemo_detectedObj_t" 3 "Wed May 20 2020" "Version 1.0" "mmWaveFMCWRADAR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MmwDemo_detectedObj_t \- Detected object estimated parameters\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <detected_obj\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "uint16_t \fBrangeIdx\fP"
+.br
+.RI "Range index\&. "
+.ti -1c
+.RI "int16_t \fBdopplerIdx\fP"
+.br
+.RI "Doppler index\&. Note that it is changed to signed integer in order to handle extended maximum velocity\&. Neagative values correspond to the object moving toward sensor, and positive values correspond to the object moving away from the sensor\&. "
+.ti -1c
+.RI "uint16_t \fBpeakVal\fP"
+.br
+.RI "Peak value\&. "
+.ti -1c
+.RI "int16_t \fBx\fP"
+.br
+.RI "x - coordinate in meters\&. Q format depends on the range resolution "
+.ti -1c
+.RI "int16_t \fBy\fP"
+.br
+.RI "y - coordinate in meters\&. Q format depends on the range resolution "
+.ti -1c
+.RI "int16_t \fBz\fP"
+.br
+.RI "z - coordinate in meters\&. Q format depends on the range resolution "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Detected object estimated parameters\&. 
+
+
+.PP
+Definition at line 27 of file detected_obj\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "int16_t MmwDemo_detectedObj_t::dopplerIdx"
+
+.PP
+Doppler index\&. Note that it is changed to signed integer in order to handle extended maximum velocity\&. Neagative values correspond to the object moving toward sensor, and positive values correspond to the object moving away from the sensor\&. 
+.PP
+Definition at line 30 of file detected_obj\&.h\&.
+.SS "uint16_t MmwDemo_detectedObj_t::peakVal"
+
+.PP
+Peak value\&. 
+.PP
+Definition at line 35 of file detected_obj\&.h\&.
+.SS "uint16_t MmwDemo_detectedObj_t::rangeIdx"
+
+.PP
+Range index\&. 
+.PP
+Definition at line 29 of file detected_obj\&.h\&.
+.SS "int16_t MmwDemo_detectedObj_t::x"
+
+.PP
+x - coordinate in meters\&. Q format depends on the range resolution 
+.PP
+Definition at line 36 of file detected_obj\&.h\&.
+.SS "int16_t MmwDemo_detectedObj_t::y"
+
+.PP
+y - coordinate in meters\&. Q format depends on the range resolution 
+.PP
+Definition at line 37 of file detected_obj\&.h\&.
+.SS "int16_t MmwDemo_detectedObj_t::z"
+
+.PP
+z - coordinate in meters\&. Q format depends on the range resolution 
+.PP
+Definition at line 38 of file detected_obj\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mmWaveFMCWRADAR from the source code\&.

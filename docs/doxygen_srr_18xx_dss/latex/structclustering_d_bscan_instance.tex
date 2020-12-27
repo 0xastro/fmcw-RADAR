@@ -1,0 +1,246 @@
+\doxysection{clustering\+D\+Bscan\+Instance Struct Reference}
+\label{structclustering_d_bscan_instance}\index{clusteringDBscanInstance@{clusteringDBscanInstance}}
+
+
+error code for clustering\+D\+Bscan.  
+
+
+
+
+{\ttfamily \#include $<$dss\+\_\+data\+\_\+path.\+h$>$}
+
+
+
+Collaboration diagram for clustering\+D\+Bscan\+Instance\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=210pt]{structclustering_d_bscan_instance__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+float \textbf{ epsilon}
+\item 
+float \textbf{ weight}
+\item 
+float \textbf{ v\+Factor}
+\item 
+uint16\+\_\+t \textbf{ min\+Points\+In\+Cluster}
+\item 
+uint16\+\_\+t \textbf{ max\+Clusters}
+\item 
+uint16\+\_\+t \textbf{ point\+Index}
+\item 
+uint16\+\_\+t \textbf{ max\+Points}
+\item 
+uint16\+\_\+t \textbf{ d\+B\+Scan\+Neighbour\+Lim}
+\item 
+uint16\+\_\+t \textbf{ fixed\+Point\+Scale}
+\item 
+char $\ast$ \textbf{ scratch\+Pad}
+\item 
+char $\ast$ \textbf{ visited}
+\item 
+char $\ast$ \textbf{ scope}
+\item 
+uint16\+\_\+t $\ast$ \textbf{ neighbors}
+\item 
+float $\ast$ \textbf{ distances}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+error code for clustering\+D\+Bscan. 
+
+Definition at line 308 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\label{structclustering_d_bscan_instance_affb9b68118b3d306043d261ba6fc10e1}} 
+\index{clusteringDBscanInstance@{clusteringDBscanInstance}!dBScanNeighbourLim@{dBScanNeighbourLim}}
+\index{dBScanNeighbourLim@{dBScanNeighbourLim}!clusteringDBscanInstance@{clusteringDBscanInstance}}
+\doxysubsubsection{dBScanNeighbourLim}
+{\footnotesize\ttfamily uint16\+\_\+t clustering\+D\+Bscan\+Instance\+::d\+B\+Scan\+Neighbour\+Lim}
+
+Early terminate a search if the number of neighbours exceeds this number 
+
+Definition at line 318 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by clustering\+D\+Bscan\+Run().
+
+\mbox{\label{structclustering_d_bscan_instance_a49bb03bd2464b99cb002bf41dd998447}} 
+\index{clusteringDBscanInstance@{clusteringDBscanInstance}!distances@{distances}}
+\index{distances@{distances}!clusteringDBscanInstance@{clusteringDBscanInstance}}
+\doxysubsubsection{distances}
+{\footnotesize\ttfamily float$\ast$ clustering\+D\+Bscan\+Instance\+::distances}
+
+
+
+Definition at line 326 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{structclustering_d_bscan_instance_a29789e75d443633b495719c5184ba31b}} 
+\index{clusteringDBscanInstance@{clusteringDBscanInstance}!epsilon@{epsilon}}
+\index{epsilon@{epsilon}!clusteringDBscanInstance@{clusteringDBscanInstance}}
+\doxysubsubsection{epsilon}
+{\footnotesize\ttfamily float clustering\+D\+Bscan\+Instance\+::epsilon}
+
+
+
+Definition at line 310 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by clustering\+D\+Bscan\+Run().
+
+\mbox{\label{structclustering_d_bscan_instance_a43632ea1a692e365845ea56dd5af6176}} 
+\index{clusteringDBscanInstance@{clusteringDBscanInstance}!fixedPointScale@{fixedPointScale}}
+\index{fixedPointScale@{fixedPointScale}!clusteringDBscanInstance@{clusteringDBscanInstance}}
+\doxysubsubsection{fixedPointScale}
+{\footnotesize\ttfamily uint16\+\_\+t clustering\+D\+Bscan\+Instance\+::fixed\+Point\+Scale}
+
+Block scale value to convert x-\/y from floating-\/point to fixed-\/point. Should be the same the one used in converting r-\/theta to x-\/y, not used for floating-\/point input 
+
+Definition at line 319 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by clustering\+D\+Bscan\+Run().
+
+\mbox{\label{structclustering_d_bscan_instance_ae95dca8a15b3b8cbbc01804c08543955}} 
+\index{clusteringDBscanInstance@{clusteringDBscanInstance}!maxClusters@{maxClusters}}
+\index{maxClusters@{maxClusters}!clusteringDBscanInstance@{clusteringDBscanInstance}}
+\doxysubsubsection{maxClusters}
+{\footnotesize\ttfamily uint16\+\_\+t clustering\+D\+Bscan\+Instance\+::max\+Clusters}
+
+
+
+Definition at line 314 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by clustering\+D\+Bscan\+Run(), and populate\+Outputs().
+
+\mbox{\label{structclustering_d_bscan_instance_af3ae76908679f4c16e02896ed6b2441d}} 
+\index{clusteringDBscanInstance@{clusteringDBscanInstance}!maxPoints@{maxPoints}}
+\index{maxPoints@{maxPoints}!clusteringDBscanInstance@{clusteringDBscanInstance}}
+\doxysubsubsection{maxPoints}
+{\footnotesize\ttfamily uint16\+\_\+t clustering\+D\+Bscan\+Instance\+::max\+Points}
+
+
+
+Definition at line 317 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{structclustering_d_bscan_instance_a8259acd3aba0271fd4d9051977957020}} 
+\index{clusteringDBscanInstance@{clusteringDBscanInstance}!minPointsInCluster@{minPointsInCluster}}
+\index{minPointsInCluster@{minPointsInCluster}!clusteringDBscanInstance@{clusteringDBscanInstance}}
+\doxysubsubsection{minPointsInCluster}
+{\footnotesize\ttfamily uint16\+\_\+t clustering\+D\+Bscan\+Instance\+::min\+Points\+In\+Cluster}
+
+
+
+Definition at line 313 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by clustering\+D\+Bscan\+Run().
+
+\mbox{\label{structclustering_d_bscan_instance_ae81cb5ac36390c741bb10378f1b0485b}} 
+\index{clusteringDBscanInstance@{clusteringDBscanInstance}!neighbors@{neighbors}}
+\index{neighbors@{neighbors}!clusteringDBscanInstance@{clusteringDBscanInstance}}
+\doxysubsubsection{neighbors}
+{\footnotesize\ttfamily uint16\+\_\+t$\ast$ clustering\+D\+Bscan\+Instance\+::neighbors}
+
+
+
+Definition at line 325 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by clustering\+D\+Bscan\+Run().
+
+\mbox{\label{structclustering_d_bscan_instance_a161b47e10e58f772f25ecfcd70568837}} 
+\index{clusteringDBscanInstance@{clusteringDBscanInstance}!pointIndex@{pointIndex}}
+\index{pointIndex@{pointIndex}!clusteringDBscanInstance@{clusteringDBscanInstance}}
+\doxysubsubsection{pointIndex}
+{\footnotesize\ttfamily uint16\+\_\+t clustering\+D\+Bscan\+Instance\+::point\+Index}
+
+
+
+Definition at line 315 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{structclustering_d_bscan_instance_a1eac2f855fb7224113569fcd4f7916b3}} 
+\index{clusteringDBscanInstance@{clusteringDBscanInstance}!scope@{scope}}
+\index{scope@{scope}!clusteringDBscanInstance@{clusteringDBscanInstance}}
+\doxysubsubsection{scope}
+{\footnotesize\ttfamily char$\ast$ clustering\+D\+Bscan\+Instance\+::scope}
+
+
+
+Definition at line 324 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by clustering\+D\+Bscan\+Run().
+
+\mbox{\label{structclustering_d_bscan_instance_aea3453914d032cb14b70c255517e8fe3}} 
+\index{clusteringDBscanInstance@{clusteringDBscanInstance}!scratchPad@{scratchPad}}
+\index{scratchPad@{scratchPad}!clusteringDBscanInstance@{clusteringDBscanInstance}}
+\doxysubsubsection{scratchPad}
+{\footnotesize\ttfamily char$\ast$ clustering\+D\+Bscan\+Instance\+::scratch\+Pad}
+
+
+
+Definition at line 322 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{structclustering_d_bscan_instance_a8cbd3a1f8d4b8b5b19523e84a2cea2e4}} 
+\index{clusteringDBscanInstance@{clusteringDBscanInstance}!vFactor@{vFactor}}
+\index{vFactor@{vFactor}!clusteringDBscanInstance@{clusteringDBscanInstance}}
+\doxysubsubsection{vFactor}
+{\footnotesize\ttfamily float clustering\+D\+Bscan\+Instance\+::v\+Factor}
+
+
+
+Definition at line 312 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by clustering\+D\+Bscan\+Run().
+
+\mbox{\label{structclustering_d_bscan_instance_ae340da9963fe9ca3cbf08b3bd4447dc6}} 
+\index{clusteringDBscanInstance@{clusteringDBscanInstance}!visited@{visited}}
+\index{visited@{visited}!clusteringDBscanInstance@{clusteringDBscanInstance}}
+\doxysubsubsection{visited}
+{\footnotesize\ttfamily char$\ast$ clustering\+D\+Bscan\+Instance\+::visited}
+
+
+
+Definition at line 323 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by clustering\+D\+Bscan\+Run().
+
+\mbox{\label{structclustering_d_bscan_instance_a73de611f717c4fb44bc77d3d56547697}} 
+\index{clusteringDBscanInstance@{clusteringDBscanInstance}!weight@{weight}}
+\index{weight@{weight}!clusteringDBscanInstance@{clusteringDBscanInstance}}
+\doxysubsubsection{weight}
+{\footnotesize\ttfamily float clustering\+D\+Bscan\+Instance\+::weight}
+
+
+
+Definition at line 311 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by clustering\+D\+Bscan\+Run().
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ dss\+\_\+data\+\_\+path.\+h}\end{DoxyCompactItemize}

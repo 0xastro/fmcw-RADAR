@@ -1,0 +1,175 @@
+.TH "C:/Users/astro/workspace_v9_2/mrr_18xx_dss/common/mrr_output.h" 3 "Wed May 20 2020" "Version 1.0" "mmWaveFMCWRADAR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/Users/astro/workspace_v9_2/mrr_18xx_dss/common/mrr_output.h \- This is the interface/message header file for the Millimeter Wave Demo\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBMmwDemo_output_message_header_t\fP"
+.br
+.RI "Message header for reporting detection information from data path\&. "
+.ti -1c
+.RI "struct \fBMmwDemo_output_message_stats_t\fP"
+.br
+.RI "Structure holds message stats information from data path\&. "
+.ti -1c
+.RI "struct \fBMmwDemo_output_message_dataObjDescr_t\fP"
+.br
+.RI "Structure holds information about detected objects\&. "
+.ti -1c
+.RI "struct \fBMmwDemo_output_message_tl_t\fP"
+.br
+.RI "Message for reporting detected objects from data path\&. "
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBMMWDEMO_OUTPUT_MSG_SEGMENT_LEN\fP   32"
+.br
+.RI "Output packet length is a multiple of this value, must be power of 2\&. "
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef enum \fBMmwDemo_output_message_type_e\fP \fBMmwDemo_output_message_type\fP"
+.br
+.RI "Message types used in Millimeter Wave Demo for the communication between target and host, and also for Mailbox communication between MSS and DSS on the XWR16xx platform\&. Message types are used to indicate different type detection information sent out from the target\&. "
+.ti -1c
+.RI "typedef struct \fBMmwDemo_output_message_header_t\fP \fBMmwDemo_output_message_header\fP"
+.br
+.RI "Message header for reporting detection information from data path\&. "
+.ti -1c
+.RI "typedef struct \fBMmwDemo_output_message_stats_t\fP \fBMmwDemo_output_message_stats\fP"
+.br
+.RI "Structure holds message stats information from data path\&. "
+.ti -1c
+.RI "typedef struct \fBMmwDemo_output_message_dataObjDescr_t\fP \fBMmwDemo_output_message_dataObjDescr\fP"
+.br
+.RI "Structure holds information about detected objects\&. "
+.ti -1c
+.RI "typedef struct \fBMmwDemo_output_message_tl_t\fP \fBMmwDemo_output_message_tl\fP"
+.br
+.RI "Message for reporting detected objects from data path\&. "
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBMmwDemo_output_message_type_e\fP { \fBMMWDEMO_OUTPUT_MSG_DETECTED_POINTS\fP = 1, \fBMMWDEMO_OUTPUT_MSG_RANGE_PROFILE\fP, \fBMMWDEMO_OUTPUT_MSG_NOISE_PROFILE\fP, \fBMMWDEMO_OUTPUT_MSG_AZIMUT_STATIC_HEAT_MAP\fP, \fBMMWDEMO_OUTPUT_MSG_RANGE_DOPPLER_HEAT_MAP\fP, \fBMMWDEMO_OUTPUT_MSG_STATS\fP, \fBMMWDEMO_OUTPUT_MSG_MAX\fP, \fBMMWDEMO_OUTPUT_MSG_DETECTED_POINTS\fP = 1, \fBMMWDEMO_OUTPUT_MSG_RANGE_PROFILE\fP, \fBMMWDEMO_OUTPUT_MSG_NOISE_PROFILE\fP, \fBMMWDEMO_OUTPUT_MSG_AZIMUT_STATIC_HEAT_MAP\fP, \fBMMWDEMO_OUTPUT_MSG_RANGE_DOPPLER_HEAT_MAP\fP, \fBMMWDEMO_OUTPUT_MSG_STATS\fP, \fBMMWDEMO_OUTPUT_MSG_MAX\fP }"
+.br
+.RI "Message types used in Millimeter Wave Demo for the communication between target and host, and also for Mailbox communication between MSS and DSS on the XWR16xx platform\&. Message types are used to indicate different type detection information sent out from the target\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+This is the interface/message header file for the Millimeter Wave Demo\&. 
+
+
+.PP
+\fB\fP
+.RS 4
+NOTE: (C) Copyright 2016 Texas Instruments, Inc\&.
+.RE
+.PP
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+.PP
+Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer\&.
+.PP
+Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution\&.
+.PP
+Neither the name of Texas Instruments Incorporated nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission\&.
+.PP
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED\&. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE\&. 
+.PP
+Definition in file \fBmrr_output\&.h\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define MMWDEMO_OUTPUT_MSG_SEGMENT_LEN   32"
+
+.PP
+Output packet length is a multiple of this value, must be power of 2\&. 
+.PP
+Definition at line 47 of file mrr_output\&.h\&.
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fBMmwDemo_output_message_dataObjDescr_t\fP  \fBMmwDemo_output_message_dataObjDescr\fP"
+
+.PP
+Structure holds information about detected objects\&. This information is sent in front of the array of detected objects 
+.SS "typedef struct \fBMmwDemo_output_message_header_t\fP  \fBMmwDemo_output_message_header\fP"
+
+.PP
+Message header for reporting detection information from data path\&. The structure defines the message header\&. 
+.SS "typedef struct \fBMmwDemo_output_message_stats_t\fP  \fBMmwDemo_output_message_stats\fP"
+
+.PP
+Structure holds message stats information from data path\&. The structure holds stats information\&. This is a payload of the TLV message item that holds stats information\&. 
+.SS "typedef struct \fBMmwDemo_output_message_tl_t\fP  \fBMmwDemo_output_message_tl\fP"
+
+.PP
+Message for reporting detected objects from data path\&. The structure defines the message body for detected objects from from data path\&. 
+.SS "typedef enum \fBMmwDemo_output_message_type_e\fP  \fBMmwDemo_output_message_type\fP"
+
+.PP
+Message types used in Millimeter Wave Demo for the communication between target and host, and also for Mailbox communication between MSS and DSS on the XWR16xx platform\&. Message types are used to indicate different type detection information sent out from the target\&. 
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBMmwDemo_output_message_type_e\fP"
+
+.PP
+Message types used in Millimeter Wave Demo for the communication between target and host, and also for Mailbox communication between MSS and DSS on the XWR16xx platform\&. Message types are used to indicate different type detection information sent out from the target\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIMMWDEMO_OUTPUT_MSG_DETECTED_POINTS \fP\fP
+List of detected points\&. 
+.TP
+\fB\fIMMWDEMO_OUTPUT_MSG_RANGE_PROFILE \fP\fP
+Range profile\&. 
+.TP
+\fB\fIMMWDEMO_OUTPUT_MSG_NOISE_PROFILE \fP\fP
+Noise floor profile\&. 
+.TP
+\fB\fIMMWDEMO_OUTPUT_MSG_AZIMUT_STATIC_HEAT_MAP \fP\fP
+Samples to calculate static azimuth heatmap\&. 
+.TP
+\fB\fIMMWDEMO_OUTPUT_MSG_RANGE_DOPPLER_HEAT_MAP \fP\fP
+Range/Doppler detection matrix\&. 
+.TP
+\fB\fIMMWDEMO_OUTPUT_MSG_STATS \fP\fP
+Stats information\&. 
+.TP
+\fB\fIMMWDEMO_OUTPUT_MSG_MAX \fP\fP
+.TP
+\fB\fIMMWDEMO_OUTPUT_MSG_DETECTED_POINTS \fP\fP
+List of detected points\&. 
+.TP
+\fB\fIMMWDEMO_OUTPUT_MSG_RANGE_PROFILE \fP\fP
+Range profile\&. 
+.TP
+\fB\fIMMWDEMO_OUTPUT_MSG_NOISE_PROFILE \fP\fP
+Noise floor profile\&. 
+.TP
+\fB\fIMMWDEMO_OUTPUT_MSG_AZIMUT_STATIC_HEAT_MAP \fP\fP
+Samples to calculate static azimuth heatmap\&. 
+.TP
+\fB\fIMMWDEMO_OUTPUT_MSG_RANGE_DOPPLER_HEAT_MAP \fP\fP
+Range/Doppler detection matrix\&. 
+.TP
+\fB\fIMMWDEMO_OUTPUT_MSG_STATS \fP\fP
+Stats information\&. 
+.TP
+\fB\fIMMWDEMO_OUTPUT_MSG_MAX \fP\fP
+.PP
+Definition at line 57 of file mrr_output\&.h\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mmWaveFMCWRADAR from the source code\&.

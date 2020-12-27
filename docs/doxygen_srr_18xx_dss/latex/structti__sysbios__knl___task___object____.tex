@@ -1,0 +1,293 @@
+\doxysection{ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Object\+\_\+\+\_\+ Struct Reference}
+\label{structti__sysbios__knl___task___object____}\index{ti\_sysbios\_knl\_Task\_Object\_\_@{ti\_sysbios\_knl\_Task\_Object\_\_}}
+
+
+Collaboration diagram for ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Object\+\_\+\+\_\+\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=185pt]{structti__sysbios__knl___task___object______coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+ti\+\_\+sysbios\+\_\+knl\+\_\+\+Queue\+\_\+\+Elem \textbf{ q\+Elem}
+\item 
+volatile xdc\+\_\+\+Int \textbf{ priority}
+\item 
+xdc\+\_\+\+U\+Int \textbf{ mask}
+\item 
+xdc\+\_\+\+Ptr \textbf{ context}
+\item 
+ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Mode \textbf{ mode}
+\item 
+ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Pend\+Elem $\ast$ \textbf{ pend\+Elem}
+\item 
+xdc\+\_\+\+SizeT \textbf{ stack\+Size}
+\item 
+\+\_\+\+\_\+\+T\+A\+\_\+ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Instance\+\_\+\+State\+\_\+\+\_\+stack \textbf{ stack}
+\item 
+xdc\+\_\+runtime\+\_\+\+I\+Heap\+\_\+\+Handle \textbf{ stack\+Heap}
+\item 
+ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Func\+Ptr \textbf{ fxn}
+\item 
+xdc\+\_\+\+U\+Arg \textbf{ arg0}
+\item 
+xdc\+\_\+\+U\+Arg \textbf{ arg1}
+\item 
+xdc\+\_\+\+Ptr \textbf{ env}
+\item 
+\+\_\+\+\_\+\+T\+A\+\_\+ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Instance\+\_\+\+State\+\_\+\+\_\+hook\+Env \textbf{ hook\+Env}
+\item 
+xdc\+\_\+\+Bool \textbf{ vital\+Task\+Flag}
+\item 
+ti\+\_\+sysbios\+\_\+knl\+\_\+\+Queue\+\_\+\+Handle \textbf{ readyQ}
+\item 
+xdc\+\_\+\+U\+Int \textbf{ cur\+Core\+Id}
+\item 
+xdc\+\_\+\+U\+Int \textbf{ affinity}
+\item 
+xdc\+\_\+\+Bool \textbf{ privileged}
+\item 
+xdc\+\_\+\+Ptr \textbf{ domain}
+\item 
+xdc\+\_\+\+U\+Int32 \textbf{ check\+Value}
+\item 
+xdc\+\_\+\+Ptr \textbf{ tls}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 521 of file dss\+\_\+mrr\+\_\+pe674.\+c.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\label{structti__sysbios__knl___task___object_____a0397cdaa6ec42bc158086cdc29430c43}} 
+\index{ti\_sysbios\_knl\_Task\_Object\_\_@{ti\_sysbios\_knl\_Task\_Object\_\_}!affinity@{affinity}}
+\index{affinity@{affinity}!ti\_sysbios\_knl\_Task\_Object\_\_@{ti\_sysbios\_knl\_Task\_Object\_\_}}
+\doxysubsubsection{affinity}
+{\footnotesize\ttfamily xdc\+\_\+\+U\+Int ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Object\+\_\+\+\_\+\+::affinity}
+
+
+
+Definition at line 539 of file dss\+\_\+mrr\+\_\+pe674.\+c.
+
+\mbox{\label{structti__sysbios__knl___task___object_____a80a2c290a45a1a8e98cab6199f09f581}} 
+\index{ti\_sysbios\_knl\_Task\_Object\_\_@{ti\_sysbios\_knl\_Task\_Object\_\_}!arg0@{arg0}}
+\index{arg0@{arg0}!ti\_sysbios\_knl\_Task\_Object\_\_@{ti\_sysbios\_knl\_Task\_Object\_\_}}
+\doxysubsubsection{arg0}
+{\footnotesize\ttfamily xdc\+\_\+\+U\+Arg ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Object\+\_\+\+\_\+\+::arg0}
+
+
+
+Definition at line 532 of file dss\+\_\+mrr\+\_\+pe674.\+c.
+
+\mbox{\label{structti__sysbios__knl___task___object_____a1c3430c214e16cdc7e28a277d075536f}} 
+\index{ti\_sysbios\_knl\_Task\_Object\_\_@{ti\_sysbios\_knl\_Task\_Object\_\_}!arg1@{arg1}}
+\index{arg1@{arg1}!ti\_sysbios\_knl\_Task\_Object\_\_@{ti\_sysbios\_knl\_Task\_Object\_\_}}
+\doxysubsubsection{arg1}
+{\footnotesize\ttfamily xdc\+\_\+\+U\+Arg ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Object\+\_\+\+\_\+\+::arg1}
+
+
+
+Definition at line 533 of file dss\+\_\+mrr\+\_\+pe674.\+c.
+
+\mbox{\label{structti__sysbios__knl___task___object_____a183098d7fab01c3cb79074c7fce63476}} 
+\index{ti\_sysbios\_knl\_Task\_Object\_\_@{ti\_sysbios\_knl\_Task\_Object\_\_}!checkValue@{checkValue}}
+\index{checkValue@{checkValue}!ti\_sysbios\_knl\_Task\_Object\_\_@{ti\_sysbios\_knl\_Task\_Object\_\_}}
+\doxysubsubsection{checkValue}
+{\footnotesize\ttfamily xdc\+\_\+\+U\+Int32 ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Object\+\_\+\+\_\+\+::check\+Value}
+
+
+
+Definition at line 542 of file dss\+\_\+mrr\+\_\+pe674.\+c.
+
+\mbox{\label{structti__sysbios__knl___task___object_____af60fb798e9b4450803c7f785154a3232}} 
+\index{ti\_sysbios\_knl\_Task\_Object\_\_@{ti\_sysbios\_knl\_Task\_Object\_\_}!context@{context}}
+\index{context@{context}!ti\_sysbios\_knl\_Task\_Object\_\_@{ti\_sysbios\_knl\_Task\_Object\_\_}}
+\doxysubsubsection{context}
+{\footnotesize\ttfamily xdc\+\_\+\+Ptr ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Object\+\_\+\+\_\+\+::context}
+
+
+
+Definition at line 525 of file dss\+\_\+mrr\+\_\+pe674.\+c.
+
+\mbox{\label{structti__sysbios__knl___task___object_____ada1098a0fdf16d062ceb6411a009e3e3}} 
+\index{ti\_sysbios\_knl\_Task\_Object\_\_@{ti\_sysbios\_knl\_Task\_Object\_\_}!curCoreId@{curCoreId}}
+\index{curCoreId@{curCoreId}!ti\_sysbios\_knl\_Task\_Object\_\_@{ti\_sysbios\_knl\_Task\_Object\_\_}}
+\doxysubsubsection{curCoreId}
+{\footnotesize\ttfamily xdc\+\_\+\+U\+Int ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Object\+\_\+\+\_\+\+::cur\+Core\+Id}
+
+
+
+Definition at line 538 of file dss\+\_\+mrr\+\_\+pe674.\+c.
+
+\mbox{\label{structti__sysbios__knl___task___object_____a24785e855e3e67acb085edaec03c43ea}} 
+\index{ti\_sysbios\_knl\_Task\_Object\_\_@{ti\_sysbios\_knl\_Task\_Object\_\_}!domain@{domain}}
+\index{domain@{domain}!ti\_sysbios\_knl\_Task\_Object\_\_@{ti\_sysbios\_knl\_Task\_Object\_\_}}
+\doxysubsubsection{domain}
+{\footnotesize\ttfamily xdc\+\_\+\+Ptr ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Object\+\_\+\+\_\+\+::domain}
+
+
+
+Definition at line 541 of file dss\+\_\+mrr\+\_\+pe674.\+c.
+
+\mbox{\label{structti__sysbios__knl___task___object_____afdf92dad21502cf504741b263265a4ae}} 
+\index{ti\_sysbios\_knl\_Task\_Object\_\_@{ti\_sysbios\_knl\_Task\_Object\_\_}!env@{env}}
+\index{env@{env}!ti\_sysbios\_knl\_Task\_Object\_\_@{ti\_sysbios\_knl\_Task\_Object\_\_}}
+\doxysubsubsection{env}
+{\footnotesize\ttfamily xdc\+\_\+\+Ptr ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Object\+\_\+\+\_\+\+::env}
+
+
+
+Definition at line 534 of file dss\+\_\+mrr\+\_\+pe674.\+c.
+
+\mbox{\label{structti__sysbios__knl___task___object_____ae693b36f012627e83f574b05ad91e4c5}} 
+\index{ti\_sysbios\_knl\_Task\_Object\_\_@{ti\_sysbios\_knl\_Task\_Object\_\_}!fxn@{fxn}}
+\index{fxn@{fxn}!ti\_sysbios\_knl\_Task\_Object\_\_@{ti\_sysbios\_knl\_Task\_Object\_\_}}
+\doxysubsubsection{fxn}
+{\footnotesize\ttfamily ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Func\+Ptr ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Object\+\_\+\+\_\+\+::fxn}
+
+
+
+Definition at line 531 of file dss\+\_\+mrr\+\_\+pe674.\+c.
+
+\mbox{\label{structti__sysbios__knl___task___object_____a6491d6226aa4f898d8a9f9d96a0beafe}} 
+\index{ti\_sysbios\_knl\_Task\_Object\_\_@{ti\_sysbios\_knl\_Task\_Object\_\_}!hookEnv@{hookEnv}}
+\index{hookEnv@{hookEnv}!ti\_sysbios\_knl\_Task\_Object\_\_@{ti\_sysbios\_knl\_Task\_Object\_\_}}
+\doxysubsubsection{hookEnv}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+T\+A\+\_\+ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Instance\+\_\+\+State\+\_\+\+\_\+hook\+Env ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Object\+\_\+\+\_\+\+::hook\+Env}
+
+
+
+Definition at line 535 of file dss\+\_\+mrr\+\_\+pe674.\+c.
+
+\mbox{\label{structti__sysbios__knl___task___object_____a74b1cb866a113c3b4ff410b9fa19d4ef}} 
+\index{ti\_sysbios\_knl\_Task\_Object\_\_@{ti\_sysbios\_knl\_Task\_Object\_\_}!mask@{mask}}
+\index{mask@{mask}!ti\_sysbios\_knl\_Task\_Object\_\_@{ti\_sysbios\_knl\_Task\_Object\_\_}}
+\doxysubsubsection{mask}
+{\footnotesize\ttfamily xdc\+\_\+\+U\+Int ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Object\+\_\+\+\_\+\+::mask}
+
+
+
+Definition at line 524 of file dss\+\_\+mrr\+\_\+pe674.\+c.
+
+\mbox{\label{structti__sysbios__knl___task___object_____a73091353d453f83bed75604be3b42dbf}} 
+\index{ti\_sysbios\_knl\_Task\_Object\_\_@{ti\_sysbios\_knl\_Task\_Object\_\_}!mode@{mode}}
+\index{mode@{mode}!ti\_sysbios\_knl\_Task\_Object\_\_@{ti\_sysbios\_knl\_Task\_Object\_\_}}
+\doxysubsubsection{mode}
+{\footnotesize\ttfamily ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Mode ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Object\+\_\+\+\_\+\+::mode}
+
+
+
+Definition at line 526 of file dss\+\_\+mrr\+\_\+pe674.\+c.
+
+\mbox{\label{structti__sysbios__knl___task___object_____ac335d32228d964c4297b8adcc1af4974}} 
+\index{ti\_sysbios\_knl\_Task\_Object\_\_@{ti\_sysbios\_knl\_Task\_Object\_\_}!pendElem@{pendElem}}
+\index{pendElem@{pendElem}!ti\_sysbios\_knl\_Task\_Object\_\_@{ti\_sysbios\_knl\_Task\_Object\_\_}}
+\doxysubsubsection{pendElem}
+{\footnotesize\ttfamily ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Pend\+Elem$\ast$ ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Object\+\_\+\+\_\+\+::pend\+Elem}
+
+
+
+Definition at line 527 of file dss\+\_\+mrr\+\_\+pe674.\+c.
+
+\mbox{\label{structti__sysbios__knl___task___object_____a2a5b4f990ba4899ddf690659aff1e02d}} 
+\index{ti\_sysbios\_knl\_Task\_Object\_\_@{ti\_sysbios\_knl\_Task\_Object\_\_}!priority@{priority}}
+\index{priority@{priority}!ti\_sysbios\_knl\_Task\_Object\_\_@{ti\_sysbios\_knl\_Task\_Object\_\_}}
+\doxysubsubsection{priority}
+{\footnotesize\ttfamily volatile xdc\+\_\+\+Int ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Object\+\_\+\+\_\+\+::priority}
+
+
+
+Definition at line 523 of file dss\+\_\+mrr\+\_\+pe674.\+c.
+
+\mbox{\label{structti__sysbios__knl___task___object_____a665d0b246cfe68fdd222523f2071127e}} 
+\index{ti\_sysbios\_knl\_Task\_Object\_\_@{ti\_sysbios\_knl\_Task\_Object\_\_}!privileged@{privileged}}
+\index{privileged@{privileged}!ti\_sysbios\_knl\_Task\_Object\_\_@{ti\_sysbios\_knl\_Task\_Object\_\_}}
+\doxysubsubsection{privileged}
+{\footnotesize\ttfamily xdc\+\_\+\+Bool ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Object\+\_\+\+\_\+\+::privileged}
+
+
+
+Definition at line 540 of file dss\+\_\+mrr\+\_\+pe674.\+c.
+
+\mbox{\label{structti__sysbios__knl___task___object_____a6622e875923fef13dbd481e2da5d7488}} 
+\index{ti\_sysbios\_knl\_Task\_Object\_\_@{ti\_sysbios\_knl\_Task\_Object\_\_}!qElem@{qElem}}
+\index{qElem@{qElem}!ti\_sysbios\_knl\_Task\_Object\_\_@{ti\_sysbios\_knl\_Task\_Object\_\_}}
+\doxysubsubsection{qElem}
+{\footnotesize\ttfamily ti\+\_\+sysbios\+\_\+knl\+\_\+\+Queue\+\_\+\+Elem ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Object\+\_\+\+\_\+\+::q\+Elem}
+
+
+
+Definition at line 522 of file dss\+\_\+mrr\+\_\+pe674.\+c.
+
+\mbox{\label{structti__sysbios__knl___task___object_____a62af44a1d95e05e4f5bf1bce073b9c1c}} 
+\index{ti\_sysbios\_knl\_Task\_Object\_\_@{ti\_sysbios\_knl\_Task\_Object\_\_}!readyQ@{readyQ}}
+\index{readyQ@{readyQ}!ti\_sysbios\_knl\_Task\_Object\_\_@{ti\_sysbios\_knl\_Task\_Object\_\_}}
+\doxysubsubsection{readyQ}
+{\footnotesize\ttfamily ti\+\_\+sysbios\+\_\+knl\+\_\+\+Queue\+\_\+\+Handle ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Object\+\_\+\+\_\+\+::readyQ}
+
+
+
+Definition at line 537 of file dss\+\_\+mrr\+\_\+pe674.\+c.
+
+\mbox{\label{structti__sysbios__knl___task___object_____a6646f76ea473e38ed413c0b4dcbe46bc}} 
+\index{ti\_sysbios\_knl\_Task\_Object\_\_@{ti\_sysbios\_knl\_Task\_Object\_\_}!stack@{stack}}
+\index{stack@{stack}!ti\_sysbios\_knl\_Task\_Object\_\_@{ti\_sysbios\_knl\_Task\_Object\_\_}}
+\doxysubsubsection{stack}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+T\+A\+\_\+ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Instance\+\_\+\+State\+\_\+\+\_\+stack ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Object\+\_\+\+\_\+\+::stack}
+
+
+
+Definition at line 529 of file dss\+\_\+mrr\+\_\+pe674.\+c.
+
+\mbox{\label{structti__sysbios__knl___task___object_____a3db1e768e6825daad19cb53d23c11ff0}} 
+\index{ti\_sysbios\_knl\_Task\_Object\_\_@{ti\_sysbios\_knl\_Task\_Object\_\_}!stackHeap@{stackHeap}}
+\index{stackHeap@{stackHeap}!ti\_sysbios\_knl\_Task\_Object\_\_@{ti\_sysbios\_knl\_Task\_Object\_\_}}
+\doxysubsubsection{stackHeap}
+{\footnotesize\ttfamily xdc\+\_\+runtime\+\_\+\+I\+Heap\+\_\+\+Handle ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Object\+\_\+\+\_\+\+::stack\+Heap}
+
+
+
+Definition at line 530 of file dss\+\_\+mrr\+\_\+pe674.\+c.
+
+\mbox{\label{structti__sysbios__knl___task___object_____ab5e820015b5eb633605a3cc657d03bce}} 
+\index{ti\_sysbios\_knl\_Task\_Object\_\_@{ti\_sysbios\_knl\_Task\_Object\_\_}!stackSize@{stackSize}}
+\index{stackSize@{stackSize}!ti\_sysbios\_knl\_Task\_Object\_\_@{ti\_sysbios\_knl\_Task\_Object\_\_}}
+\doxysubsubsection{stackSize}
+{\footnotesize\ttfamily xdc\+\_\+\+SizeT ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Object\+\_\+\+\_\+\+::stack\+Size}
+
+
+
+Definition at line 528 of file dss\+\_\+mrr\+\_\+pe674.\+c.
+
+\mbox{\label{structti__sysbios__knl___task___object_____ac2a7947fb6644254eab8d7b8fa52a9a8}} 
+\index{ti\_sysbios\_knl\_Task\_Object\_\_@{ti\_sysbios\_knl\_Task\_Object\_\_}!tls@{tls}}
+\index{tls@{tls}!ti\_sysbios\_knl\_Task\_Object\_\_@{ti\_sysbios\_knl\_Task\_Object\_\_}}
+\doxysubsubsection{tls}
+{\footnotesize\ttfamily xdc\+\_\+\+Ptr ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Object\+\_\+\+\_\+\+::tls}
+
+
+
+Definition at line 543 of file dss\+\_\+mrr\+\_\+pe674.\+c.
+
+\mbox{\label{structti__sysbios__knl___task___object_____a06f6fbeb2772b974a329f98b758c5f72}} 
+\index{ti\_sysbios\_knl\_Task\_Object\_\_@{ti\_sysbios\_knl\_Task\_Object\_\_}!vitalTaskFlag@{vitalTaskFlag}}
+\index{vitalTaskFlag@{vitalTaskFlag}!ti\_sysbios\_knl\_Task\_Object\_\_@{ti\_sysbios\_knl\_Task\_Object\_\_}}
+\doxysubsubsection{vitalTaskFlag}
+{\footnotesize\ttfamily xdc\+\_\+\+Bool ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Object\+\_\+\+\_\+\+::vital\+Task\+Flag}
+
+
+
+Definition at line 536 of file dss\+\_\+mrr\+\_\+pe674.\+c.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Debug/config\+Pkg/package/cfg/\textbf{ dss\+\_\+mrr\+\_\+pe674.\+c}\end{DoxyCompactItemize}

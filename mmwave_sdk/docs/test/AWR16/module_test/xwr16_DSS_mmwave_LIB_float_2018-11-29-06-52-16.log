@@ -1,0 +1,734 @@
+eth008 Board details:
+IP address: 10.218.113.62
+
+Port: 17494
+
+connecting...
+Relay states 8->1 : 00010101
+1 off
+8 off
+2 off
+Relay states 8->1 : 00010100
+1 on
+Relay states 8->1 : 00010101
+exit
+Disconnected
+Pre-Script returned: Success
+**************************************************
+Testcase mods & parameters invoked:
+**************************************************
+Two core test case: None (this is not a two core testcase)
+
+**************************************************
+Copying test case files from the Build server
+**************************************************
+Testdata possible location 1: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/alg/mmwavelib/test/testdata
+
+
+Copy-To local testcase data path is: /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/testdata
+
+Test case data file accumPowerFlt_test.bin found on server for downloading
+Test case data file peakpruning_test.bin found on server for downloading
+Test case data file radarDemo_multiObj_test.bin found on server for downloading
+Test case data file radarCase2_mulObj_2dfftout_test.bin found on server for downloading
+Test case data file aoaest_test.bin found on server for downloading
+Test case data file radarDemo_neg10_test.bin found on server for downloading
+Test case data file radarDemo_neg15_ref.bin found on server for downloading
+Test case data file floatpoint_test_dbscanCluster.bin found on server for downloading
+Test case data file radarCase2_test.bin found on server for downloading
+Test case data file radarDemo_captured_ref.bin found on server for downloading
+Test case data file radarDemo_multiObj_neg5_test.bin found on server for downloading
+Test case data file clustering_test.bin found on server for downloading
+Test case data file radarCase2_2dfftout_test.bin found on server for downloading
+Test case data file radarCase1_test.bin found on server for downloading
+Test case data file cfarca_test.bin found on server for downloading
+Test case data file cfarca_wrap_test.bin found on server for downloading
+Test case data file dftsinglebinwithwin_test.bin found on server for downloading
+Test case data file floatPoint_chain_test.bin found on server for downloading
+Test case data file radarCase2_mulObj_test.bin found on server for downloading
+Test case data file radarDemo_multiObj_neg5_ref.bin found on server for downloading
+Test case data file radarDemo_ref.bin found on server for downloading
+Test case data file radarCase1_mulObj_ref.bin found on server for downloading
+Test case data file radarDemo_multiObj_ref.bin found on server for downloading
+Test case data file radarCase1_mulObj_test.bin found on server for downloading
+Test case data file dftsinglebin_test.bin found on server for downloading
+Test case data file radarDemo_neg15_test.bin found on server for downloading
+Test case data file radarDemo_neg10_ref.bin found on server for downloading
+Test case data file cfarca_peak_test.bin found on server for downloading
+Test case data file radarCase1_512_test.bin found on server for downloading
+Test case data file floatpoint_test_dbscanCluster_ref.bin found on server for downloading
+Test case data file radarDemo_captured_test.bin found on server for downloading
+Test case data file radarDemo_multiObj_neg15_ref.bin found on server for downloading
+Test case data file radarDemo_ref_new.bin found on server for downloading
+Test case data file radarCase2_ref.bin found on server for downloading
+Test case data file radarCase1_512_ref.bin found on server for downloading
+Test case data file radarCase1_ref.bin found on server for downloading
+Test case data file radarDemo_test.bin found on server for downloading
+Test case data file radarCase2_mulObj_ref.bin found on server for downloading
+Test case data file windowFlt_test.bin found on server for downloading
+Test case data file floatpoint_test_aoaMultiObj.bin found on server for downloading
+Test case data file radarDemo_multiObj_neg15_test.bin found on server for downloading
+Test case data file floatpoint_test_aoaMultiObj_ref.bin found on server for downloading
+Test case data file dftsinglebinwithwinQI_test.bin found on server for downloading
+Call to copy_testcase_binary:
+TCP: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/alg/mmwavelib/test/xwr16xx; /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13
+
+Copying testcase binary file from http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/alg/mmwavelib/test/xwr16xx/xwr16xx_mmwavealg_float.xe674 to /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13 using command: 
+wget -e robots=off --no-proxy -N -T 30 -t 2 -P /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13 http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/alg/mmwavelib/test/xwr16xx/xwr16xx_mmwavealg_float.xe674
+**************************************************
+Executing Testcase:/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13/xwr16xx_mmwavealg_float.xe674
+**************************************************
+Checking if Py4J Gateway server has started...
+Py4J Gateway Server is Started
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/DEBUGSSM_0
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/IcePick_M_0
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/C674X_0
+DSS test case opening debug session.
+
+cr4ctl = 0x0
+
+efuse/register @0xFFFFE210 = 0x0
+
+efuse/register @0xFFFFE214 = 0x0
+
+efuse/register @0xFFFFE218 = 0x0
+
+efuse/register @0xFFFFE21C = 0x0
+
+Loading binary to the DUT (no binary args updated):/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13/xwr16xx_mmwavealg_float.xe674
+binary path = /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13/xwr16xx_mmwavealg_float.xe674
+
+dt-time: start time = Thu Nov 29 06:52:59 2018
+
+dt-time: end time = Thu Nov 29 07:46:07 2018
+
+
+**************************************************
+CIO Log captured for the testcase
+**************************************************
+tsc_overhead = 1 cycles
+256-point twiddle16x16 cycles=239958
+32-point float twiddle cycles=21600
+
+===  Floating-point test vector with single object: ===
+ref number of cfar objects: 1
+ref doppler&range indices, 15, 52.
+ref angle of arrival in degree, 23.00.
+file read count for 1D window =128
+
+----- Antenna index 0:
+--- 1D Processing:
+256-point Window16x16 cycles =193, FFT16x16 cycles =936
+--- 2D Processing: ---
+32-point FixedpinFltpOut Windowing cycles =100; DSPF_sp_fftSPxSP cycles =329; accumPowerFltp cycles =73
+ 
+----- Antenna index 1:
+--- 1D Processing:
+256-point Window16x16 cycles =193, FFT16x16 cycles =936
+--- 2D Processing: ---
+32-point FixedpinFltpOut Windowing cycles =100; DSPF_sp_fftSPxSP cycles =329; accumPowerFltp cycles =139
+ 
+----- Antenna index 2:
+--- 1D Processing:
+256-point Window16x16 cycles =193, FFT16x16 cycles =936
+--- 2D Processing: ---
+32-point FixedpinFltpOut Windowing cycles =100; DSPF_sp_fftSPxSP cycles =329; accumPowerFltp cycles =139
+ 
+----- Antenna index 3:
+--- 1D Processing:
+256-point Window16x16 cycles =193, FFT16x16 cycles =936
+--- 2D Processing: ---
+32-point FixedpinFltpOut Windowing cycles =100; DSPF_sp_fftSPxSP cycles =329; accumPowerFltp cycles =139
+ 
+----- Antenna index 4:
+--- 1D Processing:
+256-point Window16x16 cycles =193, FFT16x16 cycles =936
+--- 2D Processing: ---
+32-point FixedpinFltpOut Windowing cycles =100; DSPF_sp_fftSPxSP cycles =329; accumPowerFltp cycles =139
+ 
+----- Antenna index 5:
+--- 1D Processing:
+256-point Window16x16 cycles =193, FFT16x16 cycles =936
+--- 2D Processing: ---
+32-point FixedpinFltpOut Windowing cycles =100; DSPF_sp_fftSPxSP cycles =329; accumPowerFltp cycles =139
+ 
+----- Antenna index 6:
+--- 1D Processing:
+256-point Window16x16 cycles =193, FFT16x16 cycles =936
+--- 2D Processing: ---
+32-point FixedpinFltpOut Windowing cycles =100; DSPF_sp_fftSPxSP cycles =329; accumPowerFltp cycles =139
+ 
+----- Antenna index 7:
+--- 1D Processing:
+256-point Window16x16 cycles =193, FFT16x16 cycles =936
+--- 2D Processing: ---
+32-point FixedpinFltpOut Windowing cycles =100; DSPF_sp_fftSPxSP cycles =329; accumPowerFltp cycles =139
+ 
+----- All 8 antennae's 1D&2D processing done.
+
+Run 256-point cfar(type CFAR_CAVG) on every doppler bin:
+Doppler Bin 12: Num detected object: 1, detected range bin index: 52 (4.225074e+09)
+Doppler Bin 13: Num detected object: 2, detected range bin index: 52 (8.213044e+09),53 (4.498814e+09)
+Doppler Bin 14: Num detected object: 2, detected range bin index: 52 (2.145403e+10),53 (1.000554e+10)
+Doppler Bin 15: Num detected object: 4, detected range bin index: 51 (1.286492e+10),52 (3.138366e+11),53 (1.446306e+11),54 (1.555583e+10)
+Detected the object1 succesfully. 
+cfarfloat_wrap_opt cycles =2033.
+Doppler Bin 16: Num detected object: 3, detected range bin index: 51 (1.109161e+10),52 (1.910938e+11),53 (9.949414e+10)
+Doppler Bin 17: Num detected object: 2, detected range bin index: 52 (1.793102e+10),53 (1.041797e+10)
+Doppler Bin 18: Num detected object: 1, detected range bin index: 52 (6.761669e+09)
+
+CFAR detection PASSED.
+
+Test AOA estimation:
+ aoaEstBFSinglePeak cycles =2802.
+ num detected AOA peaks =1, index=64.
+
+AOA estimate passed on object 0: ref=23.00, estimate in degree=24.00 (index=64)
+
+ aoaEstBFMultiPeakDet cycles =3538.
+ num detected AOA peaks =1, index=64
+
+
+AOA estimation PASSED.
+
+This test case's fail count = 0. Total failed = 0
+Feature: demo case 256pt 1DFFT 32pt 2DFFT single-obj SNR0: Passed
+
+=== Floating-point TV single object SNR0 done. ====
+
+===  Floating-point test vector multi-peak-AOA: ===
+ref number of cfar objects: 1
+ref doppler&range indices, 22, 104.
+ref angle of arrival in degree, 10.00, 40.00.
+file read count for 1D window =128
+
+----- Antenna index 0:
+--- 1D Processing:
+256-point Window16x16 cycles =193, FFT16x16 cycles =936
+--- 2D Processing: ---
+32-point FixedpinFltpOut Windowing cycles =100; DSPF_sp_fftSPxSP cycles =329; accumPowerFltp cycles =73
+ 
+----- Antenna index 1:
+--- 1D Processing:
+256-point Window16x16 cycles =193, FFT16x16 cycles =936
+--- 2D Processing: ---
+32-point FixedpinFltpOut Windowing cycles =100; DSPF_sp_fftSPxSP cycles =329; accumPowerFltp cycles =139
+ 
+----- Antenna index 2:
+--- 1D Processing:
+256-point Window16x16 cycles =193, FFT16x16 cycles =936
+--- 2D Processing: ---
+32-point FixedpinFltpOut Windowing cycles =100; DSPF_sp_fftSPxSP cycles =329; accumPowerFltp cycles =139
+ 
+----- Antenna index 3:
+--- 1D Processing:
+256-point Window16x16 cycles =193, FFT16x16 cycles =936
+--- 2D Processing: ---
+32-point FixedpinFltpOut Windowing cycles =100; DSPF_sp_fftSPxSP cycles =329; accumPowerFltp cycles =139
+ 
+----- Antenna index 4:
+--- 1D Processing:
+256-point Window16x16 cycles =193, FFT16x16 cycles =936
+--- 2D Processing: ---
+32-point FixedpinFltpOut Windowing cycles =100; DSPF_sp_fftSPxSP cycles =329; accumPowerFltp cycles =139
+ 
+----- Antenna index 5:
+--- 1D Processing:
+256-point Window16x16 cycles =193, FFT16x16 cycles =936
+--- 2D Processing: ---
+32-point FixedpinFltpOut Windowing cycles =100; DSPF_sp_fftSPxSP cycles =329; accumPowerFltp cycles =139
+ 
+----- Antenna index 6:
+--- 1D Processing:
+256-point Window16x16 cycles =193, FFT16x16 cycles =936
+--- 2D Processing: ---
+32-point FixedpinFltpOut Windowing cycles =100; DSPF_sp_fftSPxSP cycles =329; accumPowerFltp cycles =139
+ 
+----- Antenna index 7:
+--- 1D Processing:
+256-point Window16x16 cycles =193, FFT16x16 cycles =936
+--- 2D Processing: ---
+32-point FixedpinFltpOut Windowing cycles =100; DSPF_sp_fftSPxSP cycles =329; accumPowerFltp cycles =139
+ 
+----- All 8 antennae's 1D&2D processing done.
+
+Run 256-point cfar(type CFAR_CAVG) on every doppler bin:
+Doppler Bin 19: Num detected object: 1, detected range bin index: 105 (4.947741e+09)
+Doppler Bin 20: Num detected object: 1, detected range bin index: 105 (1.169354e+10)
+Doppler Bin 21: Num detected object: 3, detected range bin index: 103 (1.966605e+10),104 (1.601913e+10),105 (4.974797e+10)
+Doppler Bin 22: Num detected object: 3, detected range bin index: 104 (1.091370e+12),105 (3.264407e+11),106 (3.438840e+10)
+Detected the object1 succesfully. 
+cfarfloat_wrap_opt cycles =2033.
+Doppler Bin 23: Num detected object: 3, detected range bin index: 103 (2.654314e+10),104 (3.678013e+10),105 (7.260788e+10)
+Doppler Bin 24: Num detected object: 2, detected range bin index: 104 (6.571672e+09),105 (1.379647e+10)
+Doppler Bin 25: Num detected object: 1, detected range bin index: 105 (5.679212e+09)
+
+CFAR detection PASSED.
+
+Test AOA estimation:
+ aoaEstBFSinglePeak cycles =2786.
+ num detected AOA peaks =1, index=49.
+
+ aoaEstBFMultiPeakDet cycles =3597.
+ num detected AOA peaks =2, index=49, 80
+
+AOA estimate passed on object 0: ref=10.00, estimate in degree= 9.00 (index=49)
+AOA estimate passed on object 0: ref=40.00, estimate in degree=40.00 (index=80)
+
+AOA estimation PASSED.
+
+This test case's fail count = 0. Total failed = 0
+Feature: demo case 256pt 1DFFT 32pt 2DFFT multi-peak-AOA: Passed
+
+=== Floating-point TV multi-peak-AOA done. ====
+
+===  Floating-point test vector DBSCAN Clustering: ===
+
+---- first frame data processing for clustering test----
+ref number of cfar objects: 15
+ref doppler&range indices, 11, 11, 11, 11, 11, 11, 11, 27, 27, 27, 27, 28, 28, 28, 28, 75, 76, 77, 78, 79, 80, 81, 130, 131, 133, 134, 131, 132, 133, 134.
+file read count for 1D window =128
+
+----- Antenna index 0:
+--- 1D Processing:
+256-point Window16x16 cycles =193, FFT16x16 cycles =936
+--- 2D Processing: ---
+32-point FixedpinFltpOut Windowing cycles =100; DSPF_sp_fftSPxSP cycles =329; accumPowerFltp cycles =73
+ 
+----- Antenna index 1:
+--- 1D Processing:
+256-point Window16x16 cycles =193, FFT16x16 cycles =936
+--- 2D Processing: ---
+32-point FixedpinFltpOut Windowing cycles =100; DSPF_sp_fftSPxSP cycles =329; accumPowerFltp cycles =139
+ 
+----- Antenna index 2:
+--- 1D Processing:
+256-point Window16x16 cycles =193, FFT16x16 cycles =936
+--- 2D Processing: ---
+32-point FixedpinFltpOut Windowing cycles =100; DSPF_sp_fftSPxSP cycles =329; accumPowerFltp cycles =139
+ 
+----- Antenna index 3:
+--- 1D Processing:
+256-point Window16x16 cycles =193, FFT16x16 cycles =936
+--- 2D Processing: ---
+32-point FixedpinFltpOut Windowing cycles =100; DSPF_sp_fftSPxSP cycles =329; accumPowerFltp cycles =139
+ 
+----- Antenna index 4:
+--- 1D Processing:
+256-point Window16x16 cycles =193, FFT16x16 cycles =936
+--- 2D Processing: ---
+32-point FixedpinFltpOut Windowing cycles =100; DSPF_sp_fftSPxSP cycles =329; accumPowerFltp cycles =139
+ 
+----- Antenna index 5:
+--- 1D Processing:
+256-point Window16x16 cycles =193, FFT16x16 cycles =936
+--- 2D Processing: ---
+32-point FixedpinFltpOut Windowing cycles =100; DSPF_sp_fftSPxSP cycles =329; accumPowerFltp cycles =139
+ 
+----- Antenna index 6:
+--- 1D Processing:
+256-point Window16x16 cycles =193, FFT16x16 cycles =936
+--- 2D Processing: ---
+32-point FixedpinFltpOut Windowing cycles =100; DSPF_sp_fftSPxSP cycles =329; accumPowerFltp cycles =139
+ 
+----- Antenna index 7:
+--- 1D Processing:
+256-point Window16x16 cycles =193, FFT16x16 cycles =936
+--- 2D Processing: ---
+32-point FixedpinFltpOut Windowing cycles =100; DSPF_sp_fftSPxSP cycles =329; accumPowerFltp cycles =139
+ 
+----- All 8 antennae's 1D&2D processing done.
+
+Run 256-point cfar(type CFAR_CAVG) on every doppler bin:
+Doppler Bin 11: Num detected object: 7, detected range bin index: 75 (2.554293e+12),76 (1.892846e+12),77 (2.743263e+12),78 (1.639419e+12),79 (2.843061e+12),80 (1.940998e+12),81 (1.647867e+12)
+Detected the object7 succesfully at Doppler bin 11
+Doppler Bin 25: Num detected object: 4, detected range bin index: 135 (9.859160e+09),132 (1.741848e+10),130 (1.895208e+10),129 (6.092164e+09)
+Doppler Bin 26: Num detected object: 4, detected range bin index: 135 (2.783094e+10),132 (4.721142e+10),130 (5.372333e+10),129 (1.803927e+10)
+Doppler Bin 27: Num detected object: 6, detected range bin index: 135 (6.001667e+11),134 (8.400546e+11),133 (6.405263e+11),132 (6.254893e+11),131 (7.739636e+11),130 (9.024744e+11)
+Detected the object4 succesfully at Doppler bin 27
+Doppler Bin 28: Num detected object: 4, detected range bin index: 134 (1.136570e+12),133 (1.515380e+12),132 (2.032402e+12),131 (1.347903e+12)
+Detected the object4 succesfully at Doppler bin 28
+Doppler Bin 29: Num detected object: 3, detected range bin index: 135 (2.914217e+10),132 (6.054488e+10),130 (5.204253e+10)
+Doppler Bin 30: Num detected object: 3, detected range bin index: 135 (1.016660e+10),132 (2.010025e+10),130 (1.855641e+10)
+
+CFAR detection PASSED.
+
+ AOA estimation:
+ aoaEstBFMultiPeakDet cycles =2077.
+ num detected AOA peaks =1 (objectindex=0), estimate in degree=21.00 ,
+ aoaEstBFMultiPeakDet cycles =2077.
+ num detected AOA peaks =3 (objectindex=1), estimate in degree=-23.00 ,-3.00 ,33.00 ,
+ aoaEstBFMultiPeakDet cycles =2077.
+ num detected AOA peaks =3 (objectindex=2), estimate in degree=-33.00 , 4.00 ,24.00 ,
+ aoaEstBFMultiPeakDet cycles =2077.
+ num detected AOA peaks =2 (objectindex=3), estimate in degree= 9.00 ,33.00 ,
+ aoaEstBFMultiPeakDet cycles =2077.
+ num detected AOA peaks =3 (objectindex=4), estimate in degree=-1.00 ,19.00 ,40.00 ,
+ aoaEstBFMultiPeakDet cycles =2077.
+ num detected AOA peaks =3 (objectindex=5), estimate in degree=-4.00 ,14.00 ,40.00 ,
+ aoaEstBFMultiPeakDet cycles =2077.
+ num detected AOA peaks =3 (objectindex=6), estimate in degree=-13.00 ,25.00 ,-40.00 ,
+ aoaEstBFMultiPeakDet cycles =2077.
+ num detected AOA peaks =3 (objectindex=7), estimate in degree=-2.00 ,21.00 ,-40.00 ,
+ aoaEstBFMultiPeakDet cycles =2077.
+ num detected AOA peaks =3 (objectindex=8), estimate in degree=-7.00 ,19.00 ,-40.00 ,
+ aoaEstBFMultiPeakDet cycles =2077.
+ num detected AOA peaks =2 (objectindex=9), estimate in degree=10.00 ,34.00 ,
+ aoaEstBFMultiPeakDet cycles =2077.
+ num detected AOA peaks =2 (objectindex=10), estimate in degree= 0.00 ,30.00 ,
+ aoaEstBFMultiPeakDet cycles =2077.
+ num detected AOA peaks =3 (objectindex=11), estimate in degree=-14.00 ,23.00 ,-38.00 ,
+ aoaEstBFMultiPeakDet cycles =2077.
+ num detected AOA peaks =3 (objectindex=12), estimate in degree=-36.00 ,-12.00 ,13.00 ,
+ aoaEstBFMultiPeakDet cycles =2077.
+ num detected AOA peaks =1 (objectindex=13), estimate in degree=11.00 ,
+ aoaEstBFMultiPeakDet cycles =2077.
+ num detected AOA peaks =3 (objectindex=14), estimate in degree=-28.00 ,-7.00 ,13.00 ,
+
+AOA estimation DONE.
+
+This test case's fail count = 0. Total failed = 0
+Feature: demo case 256pt 1DFFT 32pt 2DFFT first frame: Passed
+
+---- second frame data processing for clustering test----
+ref number of cfar objects: 12
+ref doppler&range indices, 11, 11, 11, 27, 27, 27, 27, 28, 28, 28, 28, 28, 78, 79, 80, 132, 133, 135, 136, 132, 133, 134, 135, 136.
+file read count for 1D window =128
+
+----- Antenna index 0:
+--- 1D Processing:
+256-point Window16x16 cycles =193, FFT16x16 cycles =936
+--- 2D Processing: ---
+32-point FixedpinFltpOut Windowing cycles =100; DSPF_sp_fftSPxSP cycles =329; accumPowerFltp cycles =73
+ 
+----- Antenna index 1:
+--- 1D Processing:
+256-point Window16x16 cycles =193, FFT16x16 cycles =936
+--- 2D Processing: ---
+32-point FixedpinFltpOut Windowing cycles =100; DSPF_sp_fftSPxSP cycles =329; accumPowerFltp cycles =139
+ 
+----- Antenna index 2:
+--- 1D Processing:
+256-point Window16x16 cycles =193, FFT16x16 cycles =936
+--- 2D Processing: ---
+32-point FixedpinFltpOut Windowing cycles =100; DSPF_sp_fftSPxSP cycles =329; accumPowerFltp cycles =139
+ 
+----- Antenna index 3:
+--- 1D Processing:
+256-point Window16x16 cycles =193, FFT16x16 cycles =936
+--- 2D Processing: ---
+32-point FixedpinFltpOut Windowing cycles =100; DSPF_sp_fftSPxSP cycles =329; accumPowerFltp cycles =139
+ 
+----- Antenna index 4:
+--- 1D Processing:
+256-point Window16x16 cycles =193, FFT16x16 cycles =936
+--- 2D Processing: ---
+32-point FixedpinFltpOut Windowing cycles =100; DSPF_sp_fftSPxSP cycles =329; accumPowerFltp cycles =139
+ 
+----- Antenna index 5:
+--- 1D Processing:
+256-point Window16x16 cycles =193, FFT16x16 cycles =936
+--- 2D Processing: ---
+32-point FixedpinFltpOut Windowing cycles =100; DSPF_sp_fftSPxSP cycles =329; accumPowerFltp cycles =139
+ 
+----- Antenna index 6:
+--- 1D Processing:
+256-point Window16x16 cycles =193, FFT16x16 cycles =936
+--- 2D Processing: ---
+32-point FixedpinFltpOut Windowing cycles =100; DSPF_sp_fftSPxSP cycles =329; accumPowerFltp cycles =139
+ 
+----- Antenna index 7:
+--- 1D Processing:
+256-point Window16x16 cycles =193, FFT16x16 cycles =936
+--- 2D Processing: ---
+32-point FixedpinFltpOut Windowing cycles =100; DSPF_sp_fftSPxSP cycles =329; accumPowerFltp cycles =139
+ 
+----- All 8 antennae's 1D&2D processing done.
+
+Run 256-point cfar(type CFAR_CAVG) on every doppler bin:
+Doppler Bin 10: Num detected object: 1, detected range bin index: 81 (5.546408e+10)
+Doppler Bin 11: Num detected object: 7, detected range bin index: 76 (2.151059e+12),77 (1.559831e+12),78 (1.643686e+12),79 (2.020483e+12),80 (2.005049e+12),81 (1.351333e+12),82 (2.908162e+12)
+Detected the object3 succesfully at Doppler bin 11
+Doppler Bin 25: Num detected object: 6, detected range bin index: 137 (9.251973e+09),136 (1.151205e+10),135 (1.276874e+10),134 (1.597563e+10),131 (1.044408e+10),130 (5.102010e+09)
+Doppler Bin 26: Num detected object: 6, detected range bin index: 137 (2.673489e+10),136 (3.429853e+10),135 (3.774548e+10),134 (4.306841e+10),131 (3.015815e+10),130 (1.456202e+10)
+Doppler Bin 27: Num detected object: 5, detected range bin index: 136 (1.045373e+12),135 (1.057423e+12),134 (5.253055e+11),133 (6.346850e+11),132 (8.542032e+11)
+Detected the object4 succesfully at Doppler bin 27
+Doppler Bin 28: Num detected object: 6, detected range bin index: 136 (8.346328e+11),135 (7.016045e+11),134 (1.084983e+12),133 (6.753486e+11),132 (5.989469e+11),131 (5.118232e+11)
+Detected the object5 succesfully at Doppler bin 28
+Doppler Bin 29: Num detected object: 4, detected range bin index: 136 (2.606279e+10),135 (2.932850e+10),134 (5.202573e+10),131 (2.766185e+10)
+Doppler Bin 30: Num detected object: 4, detected range bin index: 136 (9.764542e+09),135 (1.106770e+10),134 (1.773344e+10),131 (9.901751e+09)
+
+CFAR detection PASSED.
+
+ AOA estimation:
+ aoaEstBFMultiPeakDet cycles =2061.
+ num detected AOA peaks =3 (objectindex=0), estimate in degree=-17.00 , 6.00 ,40.00 ,
+ aoaEstBFMultiPeakDet cycles =2061.
+ num detected AOA peaks =3 (objectindex=1), estimate in degree=-9.00 , 7.00 ,26.00 ,
+ aoaEstBFMultiPeakDet cycles =2061.
+ num detected AOA peaks =1 (objectindex=2), estimate in degree=-36.00 ,
+ aoaEstBFMultiPeakDet cycles =2061.
+ num detected AOA peaks =4 (objectindex=3), estimate in degree=-7.00 ,11.00 ,30.00 ,-40.00 ,
+ aoaEstBFMultiPeakDet cycles =2061.
+ num detected AOA peaks =4 (objectindex=4), estimate in degree=-7.00 ,11.00 ,30.00 ,-40.00 ,
+ aoaEstBFMultiPeakDet cycles =2061.
+ num detected AOA peaks =2 (objectindex=5), estimate in degree=-19.00 ,37.00 ,
+ aoaEstBFMultiPeakDet cycles =2061.
+ num detected AOA peaks =3 (objectindex=6), estimate in degree=-15.00 , 4.00 ,40.00 ,
+ aoaEstBFMultiPeakDet cycles =2061.
+ num detected AOA peaks =5 (objectindex=7), estimate in degree=-21.00 ,-4.00 ,14.00 ,30.00 ,-40.00 ,
+ aoaEstBFMultiPeakDet cycles =2061.
+ num detected AOA peaks =4 (objectindex=8), estimate in degree=-4.00 ,13.00 ,31.00 ,-40.00 ,
+ aoaEstBFMultiPeakDet cycles =2061.
+ num detected AOA peaks =4 (objectindex=9), estimate in degree=-19.00 , 3.00 ,34.00 ,-40.00 ,
+ aoaEstBFMultiPeakDet cycles =2061.
+ num detected AOA peaks =2 (objectindex=10), estimate in degree=-18.00 ,18.00 ,
+ aoaEstBFMultiPeakDet cycles =2061.
+ num detected AOA peaks =4 (objectindex=11), estimate in degree=-21.00 , 4.00 ,22.00 ,40.00 ,
+
+AOA estimation DONE.
+
+This test case's fail count = 0. Total failed = 0
+Feature: demo case 256pt 1DFFT 32pt 2DFFT second frame: Passed
+
+---- third frame data processing for clustering test----
+ref number of cfar objects: 12
+ref doppler&range indices, 27, 27, 27, 27, 27, 28, 28, 28, 28, 28, 28, 28, 132, 133, 134, 135, 136, 132, 133, 134, 135, 136, 137, 138.
+file read count for 1D window =128
+
+----- Antenna index 0:
+--- 1D Processing:
+256-point Window16x16 cycles =193, FFT16x16 cycles =936
+--- 2D Processing: ---
+32-point FixedpinFltpOut Windowing cycles =100; DSPF_sp_fftSPxSP cycles =329; accumPowerFltp cycles =73
+ 
+----- Antenna index 1:
+--- 1D Processing:
+256-point Window16x16 cycles =193, FFT16x16 cycles =936
+--- 2D Processing: ---
+32-point FixedpinFltpOut Windowing cycles =100; DSPF_sp_fftSPxSP cycles =329; accumPowerFltp cycles =139
+ 
+----- Antenna index 2:
+--- 1D Processing:
+256-point Window16x16 cycles =193, FFT16x16 cycles =936
+--- 2D Processing: ---
+32-point FixedpinFltpOut Windowing cycles =100; DSPF_sp_fftSPxSP cycles =329; accumPowerFltp cycles =139
+ 
+----- Antenna index 3:
+--- 1D Processing:
+256-point Window16x16 cycles =193, FFT16x16 cycles =936
+--- 2D Processing: ---
+32-point FixedpinFltpOut Windowing cycles =100; DSPF_sp_fftSPxSP cycles =329; accumPowerFltp cycles =139
+ 
+----- Antenna index 4:
+--- 1D Processing:
+256-point Window16x16 cycles =193, FFT16x16 cycles =936
+--- 2D Processing: ---
+32-point FixedpinFltpOut Windowing cycles =100; DSPF_sp_fftSPxSP cycles =329; accumPowerFltp cycles =139
+ 
+----- Antenna index 5:
+--- 1D Processing:
+256-point Window16x16 cycles =193, FFT16x16 cycles =936
+--- 2D Processing: ---
+32-point FixedpinFltpOut Windowing cycles =100; DSPF_sp_fftSPxSP cycles =329; accumPowerFltp cycles =139
+ 
+----- Antenna index 6:
+--- 1D Processing:
+256-point Window16x16 cycles =193, FFT16x16 cycles =936
+--- 2D Processing: ---
+32-point FixedpinFltpOut Windowing cycles =100; DSPF_sp_fftSPxSP cycles =329; accumPowerFltp cycles =139
+ 
+----- Antenna index 7:
+--- 1D Processing:
+256-point Window16x16 cycles =193, FFT16x16 cycles =936
+--- 2D Processing: ---
+32-point FixedpinFltpOut Windowing cycles =100; DSPF_sp_fftSPxSP cycles =329; accumPowerFltp cycles =139
+ 
+----- All 8 antennae's 1D&2D processing done.
+
+Run 256-point cfar(type CFAR_CAVG) on every doppler bin:
+Doppler Bin 11: Num detected object: 3, detected range bin index: 77 (1.837568e+12),78 (2.136481e+12),80 (1.833730e+12)
+Doppler Bin 25: Num detected object: 5, detected range bin index: 138 (8.289416e+09),137 (1.097027e+10),133 (1.294137e+10),132 (1.425417e+10),131 (1.127812e+10)
+Doppler Bin 26: Num detected object: 6, detected range bin index: 138 (2.318484e+10),137 (2.974007e+10),136 (9.973477e+10),133 (3.804106e+10),132 (4.099878e+10),131 (3.166740e+10)
+Doppler Bin 27: Num detected object: 7, detected range bin index: 138 (4.700714e+11),137 (5.474685e+11),136 (1.164109e+12),135 (1.327117e+12),134 (9.322495e+11),133 (7.697916e+11),132 (8.074132e+11)
+Detected the object5 succesfully at Doppler bin 27
+Doppler Bin 28: Num detected object: 7, detected range bin index: 138 (9.118739e+11),137 (8.207879e+11),136 (6.823591e+11),135 (1.314207e+12),134 (7.637265e+11),133 (9.818407e+11),132 (9.515231e+11)
+Detected the object7 succesfully at Doppler bin 28
+Doppler Bin 29: Num detected object: 5, detected range bin index: 138 (2.444178e+10),137 (3.599819e+10),136 (9.875710e+10),133 (3.183893e+10),132 (3.861496e+10)
+Doppler Bin 30: Num detected object: 5, detected range bin index: 138 (8.612327e+09),137 (1.220532e+10),133 (1.167494e+10),132 (1.372779e+10),131 (1.139071e+10)
+
+CFAR detection PASSED.
+
+ AOA estimation:
+ aoaEstBFMultiPeakDet cycles =2061.
+ num detected AOA peaks =3 (objectindex=0), estimate in degree=-29.00 ,19.00 ,40.00 ,
+ aoaEstBFMultiPeakDet cycles =2061.
+ num detected AOA peaks =4 (objectindex=1), estimate in degree=-30.00 ,-8.00 ,20.00 ,40.00 ,
+ aoaEstBFMultiPeakDet cycles =2061.
+ num detected AOA peaks =3 (objectindex=2), estimate in degree=-26.00 ,-4.00 ,40.00 ,
+ aoaEstBFMultiPeakDet cycles =2061.
+ num detected AOA peaks =1 (objectindex=3), estimate in degree=-27.00 ,
+ aoaEstBFMultiPeakDet cycles =2061.
+ num detected AOA peaks =2 (objectindex=4), estimate in degree=-31.00 ,18.00 ,
+ aoaEstBFMultiPeakDet cycles =2061.
+ num detected AOA peaks =3 (objectindex=5), estimate in degree=-20.00 ,-2.00 ,36.00 ,
+ aoaEstBFMultiPeakDet cycles =2061.
+ num detected AOA peaks =5 (objectindex=6), estimate in degree=-19.00 ,-2.00 ,17.00 ,33.00 ,-40.00 ,
+ aoaEstBFMultiPeakDet cycles =2061.
+ num detected AOA peaks =4 (objectindex=7), estimate in degree=-23.00 ,-4.00 ,23.00 ,40.00 ,
+ aoaEstBFMultiPeakDet cycles =2061.
+ num detected AOA peaks =3 (objectindex=8), estimate in degree=-29.00 ,-4.00 ,35.00 ,
+ aoaEstBFMultiPeakDet cycles =2061.
+ num detected AOA peaks =2 (objectindex=9), estimate in degree=-26.00 ,27.00 ,
+ aoaEstBFMultiPeakDet cycles =2061.
+ num detected AOA peaks =3 (objectindex=10), estimate in degree=-18.00 ,11.00 ,40.00 ,
+ aoaEstBFMultiPeakDet cycles =2061.
+ num detected AOA peaks =2 (objectindex=11), estimate in degree=-7.00 ,35.00 ,
+
+AOA estimation DONE.
+
+This test case's fail count = 0. Total failed = 0
+Feature: demo case 256pt 1DFFT 32pt 2DFFT third frame: Passed
+
+---- forth frame data processing for clustering test----
+ref number of cfar objects: 14
+ref doppler&range indices, 11, 11, 11, 11, 27, 27, 27, 27, 28, 28, 28, 28, 28, 28, 77, 78, 79, 80, 134, 135, 136, 137, 134, 135, 136, 137, 138, 139.
+file read count for 1D window =128
+
+----- Antenna index 0:
+--- 1D Processing:
+256-point Window16x16 cycles =193, FFT16x16 cycles =936
+--- 2D Processing: ---
+32-point FixedpinFltpOut Windowing cycles =100; DSPF_sp_fftSPxSP cycles =329; accumPowerFltp cycles =73
+ 
+----- Antenna index 1:
+--- 1D Processing:
+256-point Window16x16 cycles =193, FFT16x16 cycles =936
+--- 2D Processing: ---
+32-point FixedpinFltpOut Windowing cycles =100; DSPF_sp_fftSPxSP cycles =329; accumPowerFltp cycles =139
+ 
+----- Antenna index 2:
+--- 1D Processing:
+256-point Window16x16 cycles =193, FFT16x16 cycles =936
+--- 2D Processing: ---
+32-point FixedpinFltpOut Windowing cycles =100; DSPF_sp_fftSPxSP cycles =329; accumPowerFltp cycles =139
+ 
+----- Antenna index 3:
+--- 1D Processing:
+256-point Window16x16 cycles =193, FFT16x16 cycles =936
+--- 2D Processing: ---
+32-point FixedpinFltpOut Windowing cycles =100; DSPF_sp_fftSPxSP cycles =329; accumPowerFltp cycles =139
+ 
+----- Antenna index 4:
+--- 1D Processing:
+256-point Window16x16 cycles =193, FFT16x16 cycles =936
+--- 2D Processing: ---
+32-point FixedpinFltpOut Windowing cycles =100; DSPF_sp_fftSPxSP cycles =329; accumPowerFltp cycles =139
+ 
+----- Antenna index 5:
+--- 1D Processing:
+256-point Window16x16 cycles =193, FFT16x16 cycles =936
+--- 2D Processing: ---
+32-point FixedpinFltpOut Windowing cycles =100; DSPF_sp_fftSPxSP cycles =329; accumPowerFltp cycles =139
+ 
+----- Antenna index 6:
+--- 1D Processing:
+256-point Window16x16 cycles =193, FFT16x16 cycles =936
+--- 2D Processing: ---
+32-point FixedpinFltpOut Windowing cycles =100; DSPF_sp_fftSPxSP cycles =329; accumPowerFltp cycles =139
+ 
+----- Antenna index 7:
+--- 1D Processing:
+256-point Window16x16 cycles =193, FFT16x16 cycles =936
+--- 2D Processing: ---
+32-point FixedpinFltpOut Windowing cycles =100; DSPF_sp_fftSPxSP cycles =329; accumPowerFltp cycles =139
+ 
+----- All 8 antennae's 1D&2D processing done.
+
+Run 256-point cfar(type CFAR_CAVG) on every doppler bin:
+Doppler Bin 11: Num detected object: 7, detected range bin index: 76 (2.187471e+12),77 (2.137203e+12),78 (1.652139e+12),79 (2.544392e+12),80 (1.679021e+12),81 (1.346018e+12),82 (1.610974e+12)
+Detected the object4 succesfully at Doppler bin 11
+Doppler Bin 12: Num detected object: 3, detected range bin index: 78 (5.242766e+10),79 (3.953169e+10),80 (4.185006e+10)
+Doppler Bin 13: Num detected object: 1, detected range bin index: 78 (1.192543e+10)
+Doppler Bin 14: Num detected object: 1, detected range bin index: 78 (5.251688e+09)
+Doppler Bin 25: Num detected object: 2, detected range bin index: 139 (9.958524e+09),138 (1.125288e+10)
+Doppler Bin 26: Num detected object: 2, detected range bin index: 139 (2.686615e+10),138 (3.120857e+10)
+Doppler Bin 27: Num detected object: 5, detected range bin index: 138 (6.189452e+11),137 (9.344029e+11),136 (9.154523e+11),135 (1.049734e+12),134 (1.294503e+12)
+Detected the object4 succesfully at Doppler bin 27
+Doppler Bin 28: Num detected object: 7, detected range bin index: 140 (7.459737e+11),139 (7.870630e+11),138 (1.077223e+12),137 (1.990583e+12),136 (1.295674e+12),135 (1.401306e+12),134 (1.107233e+12)
+Detected the object6 succesfully at Doppler bin 28
+Doppler Bin 29: Num detected object: 2, detected range bin index: 139 (3.415346e+10),138 (3.799966e+10)
+Doppler Bin 30: Num detected object: 2, detected range bin index: 139 (1.135798e+10),138 (1.258275e+10)
+
+CFAR detection PASSED.
+
+ AOA estimation:
+ aoaEstBFMultiPeakDet cycles =2059.
+ num detected AOA peaks =2 (objectindex=0), estimate in degree=15.00 ,37.00 ,
+ aoaEstBFMultiPeakDet cycles =2059.
+ num detected AOA peaks =4 (objectindex=1), estimate in degree=-10.00 ,10.00 ,28.00 ,-40.00 ,
+ aoaEstBFMultiPeakDet cycles =2059.
+ num detected AOA peaks =2 (objectindex=2), estimate in degree=-2.00 ,17.00 ,
+ aoaEstBFMultiPeakDet cycles =2059.
+ num detected AOA peaks =3 (objectindex=3), estimate in degree=-21.00 ,19.00 ,40.00 ,
+ aoaEstBFMultiPeakDet cycles =2059.
+ num detected AOA peaks =2 (objectindex=4), estimate in degree=-24.00 ,-2.00 ,
+ aoaEstBFMultiPeakDet cycles =2059.
+ num detected AOA peaks =1 (objectindex=5), estimate in degree=-7.00 ,
+ aoaEstBFMultiPeakDet cycles =2059.
+ num detected AOA peaks =2 (objectindex=6), estimate in degree=-13.00 , 8.00 ,
+ aoaEstBFMultiPeakDet cycles =2059.
+ num detected AOA peaks =2 (objectindex=7), estimate in degree=-13.00 ,23.00 ,
+ aoaEstBFMultiPeakDet cycles =2059.
+ num detected AOA peaks =2 (objectindex=8), estimate in degree=-24.00 ,-1.00 ,
+ aoaEstBFMultiPeakDet cycles =2059.
+ num detected AOA peaks =2 (objectindex=9), estimate in degree= 8.00 , 8.00 ,
+ aoaEstBFMultiPeakDet cycles =2059.
+ num detected AOA peaks =3 (objectindex=10), estimate in degree=12.00 ,27.00 ,-40.00 ,
+ aoaEstBFMultiPeakDet cycles =2059.
+ num detected AOA peaks =2 (objectindex=11), estimate in degree=27.00 ,-39.00 ,
+ aoaEstBFMultiPeakDet cycles =2059.
+ num detected AOA peaks =2 (objectindex=12), estimate in degree=-37.00 ,32.00 ,
+ aoaEstBFMultiPeakDet cycles =2059.
+ num detected AOA peaks =3 (objectindex=13), estimate in degree=-29.00 , 8.00 ,31.00 ,
+
+AOA estimation DONE.
+
+This test case's fail count = 0. Total failed = 0
+Feature: demo case 256pt 1DFFT 32pt 2DFFT forth frame: Passed
+
+Test DBSCAN Clustering:
+ DBSCAN cycles =69785.
+
+DBSCAN Clustering PASSED.
+
+=== Floating-point TV DBSCAN Clustering done. ====
+
+==========  All tests passed! ==========
+
+==========  Testing completed! ==========
+Value read from Global variable (MCPI_Result): 0
+Test Failure Signature: 0
+Test Log Messages: 
+Feature tested: demo case 256pt 1DFFT 32pt 2DFFT single-obj SNR0: Passed
+Feature tested: demo case 256pt 1DFFT 32pt 2DFFT multi-peak-AOA: Passed
+Feature tested: demo case 256pt 1DFFT 32pt 2DFFT first frame: Passed
+Feature tested: demo case 256pt 1DFFT 32pt 2DFFT second frame: Passed
+Feature tested: demo case 256pt 1DFFT 32pt 2DFFT third frame: Passed
+Feature tested: demo case 256pt 1DFFT 32pt 2DFFT forth frame: Passed
+
+
+shutting down py4j gw server.
+
+
+**************************************************
+Terminating the debug session and Shutting down gateway.
+**************************************************
+
+**************************************************
+Test case execution completed
+**************************************************
+
+**************************************************
+Testcase Result : PASS
+**************************************************

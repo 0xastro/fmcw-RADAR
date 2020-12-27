@@ -1,0 +1,76 @@
+.TH "MmwDemo_output_message_stats_t" 3 "Wed May 20 2020" "Version 1.0" "mmWaveFMCWRADAR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MmwDemo_output_message_stats_t \- Structure holds message stats information from data path\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <mrr_output\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "uint32_t \fBinterFrameProcessingTime\fP"
+.br
+.RI "Interframe processing time in usec\&. "
+.ti -1c
+.RI "uint32_t \fBtransmitOutputTime\fP"
+.br
+.RI "Transmission time of output detection informaion in usec\&. "
+.ti -1c
+.RI "uint32_t \fBinterFrameProcessingMargin\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBinterChirpProcessingMargin\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBactiveFrameCPULoad\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBinterFrameCPULoad\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Structure holds message stats information from data path\&. 
+
+The structure holds stats information\&. This is a payload of the TLV message item that holds stats information\&. 
+.PP
+Definition at line 135 of file mrr_output\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "uint32_t MmwDemo_output_message_stats_t::activeFrameCPULoad"
+
+.PP
+Definition at line 150 of file mrr_output\&.h\&.
+.SS "uint32_t MmwDemo_output_message_stats_t::interChirpProcessingMargin"
+
+.PP
+Definition at line 147 of file mrr_output\&.h\&.
+.SS "uint32_t MmwDemo_output_message_stats_t::interFrameCPULoad"
+
+.PP
+Definition at line 153 of file mrr_output\&.h\&.
+.SS "uint32_t MmwDemo_output_message_stats_t::interFrameProcessingMargin"
+
+.PP
+Definition at line 144 of file mrr_output\&.h\&.
+.SS "uint32_t MmwDemo_output_message_stats_t::interFrameProcessingTime"
+
+.PP
+Interframe processing time in usec\&. 
+.PP
+Definition at line 138 of file mrr_output\&.h\&.
+.SS "uint32_t MmwDemo_output_message_stats_t::transmitOutputTime"
+
+.PP
+Transmission time of output detection informaion in usec\&. 
+.PP
+Definition at line 141 of file mrr_output\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mmWaveFMCWRADAR from the source code\&.

@@ -1,0 +1,144 @@
+.TH "clusteringDBscanInstance" 3 "Wed May 20 2020" "Version 1.0" "mmWaveFMCWRADAR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+clusteringDBscanInstance \- error code for clusteringDBscan\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <dss_data_path\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "float \fBepsilon\fP"
+.br
+.ti -1c
+.RI "float \fBweight\fP"
+.br
+.ti -1c
+.RI "float \fBvFactor\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBminPointsInCluster\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBmaxClusters\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBpointIndex\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBmaxPoints\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBdBScanNeighbourLim\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBfixedPointScale\fP"
+.br
+.ti -1c
+.RI "char * \fBscratchPad\fP"
+.br
+.ti -1c
+.RI "char * \fBvisited\fP"
+.br
+.ti -1c
+.RI "char * \fBscope\fP"
+.br
+.ti -1c
+.RI "uint16_t * \fBneighbors\fP"
+.br
+.ti -1c
+.RI "float * \fBdistances\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+error code for clusteringDBscan\&. 
+.PP
+Definition at line 308 of file dss_data_path\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "uint16_t clusteringDBscanInstance::dBScanNeighbourLim"
+Early terminate a search if the number of neighbours exceeds this number 
+.PP
+Definition at line 318 of file dss_data_path\&.h\&.
+.PP
+Referenced by clusteringDBscanRun()\&.
+.SS "float* clusteringDBscanInstance::distances"
+
+.PP
+Definition at line 326 of file dss_data_path\&.h\&.
+.SS "float clusteringDBscanInstance::epsilon"
+
+.PP
+Definition at line 310 of file dss_data_path\&.h\&.
+.PP
+Referenced by clusteringDBscanRun()\&.
+.SS "uint16_t clusteringDBscanInstance::fixedPointScale"
+Block scale value to convert x-y from floating-point to fixed-point\&. Should be the same the one used in converting r-theta to x-y, not used for floating-point input 
+.PP
+Definition at line 319 of file dss_data_path\&.h\&.
+.PP
+Referenced by clusteringDBscanRun()\&.
+.SS "uint16_t clusteringDBscanInstance::maxClusters"
+
+.PP
+Definition at line 314 of file dss_data_path\&.h\&.
+.PP
+Referenced by clusteringDBscanRun(), and populateOutputs()\&.
+.SS "uint16_t clusteringDBscanInstance::maxPoints"
+
+.PP
+Definition at line 317 of file dss_data_path\&.h\&.
+.SS "uint16_t clusteringDBscanInstance::minPointsInCluster"
+
+.PP
+Definition at line 313 of file dss_data_path\&.h\&.
+.PP
+Referenced by clusteringDBscanRun()\&.
+.SS "uint16_t* clusteringDBscanInstance::neighbors"
+
+.PP
+Definition at line 325 of file dss_data_path\&.h\&.
+.PP
+Referenced by clusteringDBscanRun()\&.
+.SS "uint16_t clusteringDBscanInstance::pointIndex"
+
+.PP
+Definition at line 315 of file dss_data_path\&.h\&.
+.SS "char* clusteringDBscanInstance::scope"
+
+.PP
+Definition at line 324 of file dss_data_path\&.h\&.
+.PP
+Referenced by clusteringDBscanRun()\&.
+.SS "char* clusteringDBscanInstance::scratchPad"
+
+.PP
+Definition at line 322 of file dss_data_path\&.h\&.
+.SS "float clusteringDBscanInstance::vFactor"
+
+.PP
+Definition at line 312 of file dss_data_path\&.h\&.
+.PP
+Referenced by clusteringDBscanRun()\&.
+.SS "char* clusteringDBscanInstance::visited"
+
+.PP
+Definition at line 323 of file dss_data_path\&.h\&.
+.PP
+Referenced by clusteringDBscanRun()\&.
+.SS "float clusteringDBscanInstance::weight"
+
+.PP
+Definition at line 311 of file dss_data_path\&.h\&.
+.PP
+Referenced by clusteringDBscanRun()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mmWaveFMCWRADAR from the source code\&.

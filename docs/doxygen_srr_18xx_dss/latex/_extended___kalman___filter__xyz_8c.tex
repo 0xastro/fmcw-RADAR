@@ -1,0 +1,1049 @@
+\doxysection{Extended\+\_\+\+Kalman\+\_\+\+Filter\+\_\+xyz.\+c File Reference}
+\label{_extended___kalman___filter__xyz_8c}\index{Extended\_Kalman\_Filter\_xyz.c@{Extended\_Kalman\_Filter\_xyz.c}}
+
+
+Implements an \textquotesingle{}Extended Kalman Filter\textquotesingle{} for radar tracking.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$ti/mathlib/mathlib.\+h$>$}\newline
+{\ttfamily \#include $<$ti/drivers/osal/\+Debug\+P.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}dss\+\_\+data\+\_\+path.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}E\+K\+F\+\_\+\+X\+Y\+Z\+\_\+\+Consts.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}E\+K\+F\+\_\+\+X\+Y\+Z\+\_\+\+Interface.\+h\char`\"{}}\newline
+Include dependency graph for Extended\+\_\+\+Kalman\+\_\+\+Filter\+\_\+xyz.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_extended___kalman___filter__xyz_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ Debug\+P\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+N\+A\+B\+L\+ED}~1
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ Init\+Associated\+Measurement\+Indx} (int16\+\_\+t $\ast$restrict assoc\+Meas\+Indx, const int32\+\_\+t num\+Meas)
+\item 
+void \textbf{ init\+Associated\+Tracker\+Indx} (int16\+\_\+t $\ast$restrict assoc\+Obj\+Indx, const int32\+\_\+t num\+Obj)
+\item 
+int32\+\_\+t \textbf{ state\+Vec\+Time\+Update} (float $\ast$restrict state, const float td)
+\item 
+void \textbf{ state\+Covmat\+Time\+Update} (float $\ast$restrict covmat, float const $\ast$restrict Qvec, const float td, \textbf{ K\+Ftracker\+Instance\+\_\+t} $\ast$restrict inst)
+\item 
+int32\+\_\+t \textbf{ compute\+Predicted\+Meas} (float $\ast$restrict rrd, float const $\ast$restrict xyz, float $\ast$restrict p\+\_\+inv\+Range)
+\item 
+int32\+\_\+t \textbf{ is\+Target\+Within\+Data\+Association\+Thresh} (float $\ast$restrict meas\+Residual, float const $\ast$restrict state\+\_\+rrd, float const $\ast$restrict meas\+\_\+rrd, float const $\ast$restrict state\+\_\+xyz, \textbf{ K\+Ftracker\+Instance\+\_\+t} $\ast$restrict inst, float $\ast$restrict pdist\+Sq, int32\+\_\+t tick, int32\+\_\+t age)
+\item 
+int32\+\_\+t \textbf{ sym\+Mat\+Inv} (float $\ast$restrict inv, float const $\ast$restrict m)
+\item 
+void \textbf{ compute\+Hmat} (float $\ast$restrict h\+Mat, float const $\ast$restrict statevec\+\_\+xyz, float const $\ast$restrict state\+Vec, const float invrange)
+\item 
+void \textbf{ residual\+Covariance\+Computation} (float $\ast$restrict resid\+Covmat, float const $\ast$restrict state\+\_\+covmat, float const $\ast$restrict meas\+Cov\+Vec, float const $\ast$restrict h\+Mat)
+\item 
+void \textbf{ kalman\+Gain\+Computation} (float $\ast$restrict kalman\+Gain, float const $\ast$restrict state\+\_\+covmat, float const $\ast$restrict h\+Mat, float const $\ast$restrict inv\+Resid\+Covmat, \textbf{ K\+Ftracker\+Instance\+\_\+t} $\ast$inst)
+\item 
+int32\+\_\+t \textbf{ state\+Vec\+Measurement\+Update} (float $\ast$restrict state, float const $\ast$restrict kalman\+Gain, float const $\ast$restrict meas\+Residual)
+\item 
+void \textbf{ state\+Covmat\+Measurement\+Update} (float $\ast$restrict covmat, float const $\ast$restrict kalman\+Gain, float const $\ast$restrict h\+Mat, \textbf{ K\+Ftracker\+Instance\+\_\+t} $\ast$inst)
+\item 
+int32\+\_\+t \textbf{ select\+Meas} (int16\+\_\+t $\ast$restrict selected\+Meas, \textbf{ tracking\+Input\+Report\+\_\+t} const $\ast$restrict meas\+Array, int16\+\_\+t $\ast$restrict assoc\+Meas\+Indx, const int32\+\_\+t n\+Free, const int32\+\_\+t num\+Unassociated\+Meas, const int32\+\_\+t num\+Meas\+Total)
+\item 
+void \textbf{ create\+New\+Tracks} (\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$restrict data\+Path\+Obj, \textbf{ tracking\+Input\+Report\+\_\+t} const $\ast$restrict meas\+Array, int16\+\_\+t const $\ast$restrict free\+Tracker\+Indx\+Array, int16\+\_\+t const $\ast$restrict selected\+Indx\+Arr, const int32\+\_\+t num\+Selected)
+\item 
+void \textbf{ init\+New\+Tracker} (\textbf{ K\+Fstate\+\_\+t} $\ast$restrict obj, \textbf{ tracking\+Input\+Report\+\_\+t} const $\ast$restrict meas)
+\item 
+float $\ast$ \textbf{ select\+\_\+\+Q\+Vec} (float const $\ast$restrict Qvec\+List, uint8\+\_\+t tick, uint8\+\_\+t age, const float range)
+\item 
+uint32\+\_\+t \textbf{ is\+Within\+Bounding\+Box} (\textbf{ K\+Fstate\+\_\+t} $\ast$restrict curr\+Track, \textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$restrict data\+Path\+Obj)
+\item 
+void \textbf{ arrange\+Tracks\+By\+Age} (\textbf{ K\+Fstate\+\_\+t} $\ast$restrict Track\+List, const uint32\+\_\+t num\+Tracks\+Total)
+\item 
+int32\+\_\+t \textbf{ invalidate\+Curr\+Track} (\textbf{ K\+Fstate\+\_\+t} $\ast$restrict curr\+Track, int16\+\_\+t $\ast$restrict free\+Tracker\+Indx\+Array, int32\+\_\+t n\+Free, int32\+\_\+t i\+Track)
+\item 
+void \textbf{ ekf\+Init} (\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$restrict data\+Path\+Obj)
+\item 
+void \textbf{ ekf\+Run} (const int32\+\_\+t num\+Meas, \textbf{ tracking\+Input\+Report\+\_\+t} const $\ast$restrict meas\+Array, \textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$restrict data\+Path\+Obj, float const $\ast$restrict Qvec\+List, const float td)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implements an \textquotesingle{}Extended Kalman Filter\textquotesingle{} for radar tracking. 
+
+\begin{DoxyParagraph}{}
+N\+O\+TE\+: (C) Copyright 2018 Texas Instruments, Inc.
+\end{DoxyParagraph}
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met\+:
+
+Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+Neither the name of Texas Instruments Incorporated nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+T\+H\+IS S\+O\+F\+T\+W\+A\+RE IS P\+R\+O\+V\+I\+D\+ED BY T\+HE C\+O\+P\+Y\+R\+I\+G\+HT H\+O\+L\+D\+E\+RS A\+ND C\+O\+N\+T\+R\+I\+B\+U\+T\+O\+RS \char`\"{}\+A\+S I\+S\char`\"{} A\+ND A\+NY E\+X\+P\+R\+E\+SS OR I\+M\+P\+L\+I\+ED W\+A\+R\+R\+A\+N\+T\+I\+ES, I\+N\+C\+L\+U\+D\+I\+NG, B\+UT N\+OT L\+I\+M\+I\+T\+ED TO, T\+HE I\+M\+P\+L\+I\+ED W\+A\+R\+R\+A\+N\+T\+I\+ES OF M\+E\+R\+C\+H\+A\+N\+T\+A\+B\+I\+L\+I\+TY A\+ND F\+I\+T\+N\+E\+SS F\+OR A P\+A\+R\+T\+I\+C\+U\+L\+AR P\+U\+R\+P\+O\+SE A\+RE D\+I\+S\+C\+L\+A\+I\+M\+ED. IN NO E\+V\+E\+NT S\+H\+A\+LL T\+HE C\+O\+P\+Y\+R\+I\+G\+HT O\+W\+N\+ER OR C\+O\+N\+T\+R\+I\+B\+U\+T\+O\+RS BE L\+I\+A\+B\+LE F\+OR A\+NY D\+I\+R\+E\+CT, I\+N\+D\+I\+R\+E\+CT, I\+N\+C\+I\+D\+E\+N\+T\+AL, S\+P\+E\+C\+I\+AL, E\+X\+E\+M\+P\+L\+A\+RY, OR C\+O\+N\+S\+E\+Q\+U\+E\+N\+T\+I\+AL D\+A\+M\+A\+G\+ES (I\+N\+C\+L\+U\+D\+I\+NG, B\+UT N\+OT L\+I\+M\+I\+T\+ED TO, P\+R\+O\+C\+U\+R\+E\+M\+E\+NT OF S\+U\+B\+S\+T\+I\+T\+U\+TE G\+O\+O\+DS OR S\+E\+R\+V\+I\+C\+ES; L\+O\+SS OF U\+SE, D\+A\+TA, OR P\+R\+O\+F\+I\+TS; OR B\+U\+S\+I\+N\+E\+SS I\+N\+T\+E\+R\+R\+U\+P\+T\+I\+ON) H\+O\+W\+E\+V\+ER C\+A\+U\+S\+ED A\+ND ON A\+NY T\+H\+E\+O\+RY OF L\+I\+A\+B\+I\+L\+I\+TY, W\+H\+E\+T\+H\+ER IN C\+O\+N\+T\+R\+A\+CT, S\+T\+R\+I\+CT L\+I\+A\+B\+I\+L\+I\+TY, OR T\+O\+RT (I\+N\+C\+L\+U\+D\+I\+NG N\+E\+G\+L\+I\+G\+E\+N\+CE OR O\+T\+H\+E\+R\+W\+I\+SE) A\+R\+I\+S\+I\+NG IN A\+NY W\+AY O\+UT OF T\+HE U\+SE OF T\+H\+IS S\+O\+F\+T\+W\+A\+RE, E\+V\+EN IF A\+D\+V\+I\+S\+ED OF T\+HE P\+O\+S\+S\+I\+B\+I\+L\+I\+TY OF S\+U\+CH D\+A\+M\+A\+GE. 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\label{_extended___kalman___filter__xyz_8c_a03b7dc7186ecc72ee015f386b1c16260}} 
+\index{Extended\_Kalman\_Filter\_xyz.c@{Extended\_Kalman\_Filter\_xyz.c}!DebugP\_ASSERT\_ENABLED@{DebugP\_ASSERT\_ENABLED}}
+\index{DebugP\_ASSERT\_ENABLED@{DebugP\_ASSERT\_ENABLED}!Extended\_Kalman\_Filter\_xyz.c@{Extended\_Kalman\_Filter\_xyz.c}}
+\doxysubsubsection{DebugP\_ASSERT\_ENABLED}
+{\footnotesize\ttfamily \#define Debug\+P\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+N\+A\+B\+L\+ED~1}
+
+
+
+Definition at line 44 of file Extended\+\_\+\+Kalman\+\_\+\+Filter\+\_\+xyz.\+c.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\label{_extended___kalman___filter__xyz_8c_a47f69cf3e2249a65761b2d608ccb718d}} 
+\index{Extended\_Kalman\_Filter\_xyz.c@{Extended\_Kalman\_Filter\_xyz.c}!arrangeTracksByAge@{arrangeTracksByAge}}
+\index{arrangeTracksByAge@{arrangeTracksByAge}!Extended\_Kalman\_Filter\_xyz.c@{Extended\_Kalman\_Filter\_xyz.c}}
+\doxysubsubsection{arrangeTracksByAge()}
+{\footnotesize\ttfamily void arrange\+Tracks\+By\+Age (\begin{DoxyParamCaption}\item[{\textbf{ K\+Fstate\+\_\+t} $\ast$restrict}]{Track\+List,  }\item[{const uint32\+\_\+t}]{num\+Tracks\+Total }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ Since we use a greedy algorithm to associate tracks and measurements, it is important that stable (older) tracks are associated before the newer (more unstable) tracks. This will ensure that newer tracks do not associate with measurements that would have better associated with older tracks.
+
+
+\begin{DoxyRetVals}{Return values}
+{\em Not} & Applicable. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 400 of file Extended\+\_\+\+Kalman\+\_\+\+Filter\+\_\+xyz.\+c.
+
+
+
+References I\+S\+\_\+\+V\+A\+L\+ID, K\+Fstate\+::tick, and K\+Fstate\+::validity.
+
+
+
+Referenced by ekf\+Run().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=270pt]{_extended___kalman___filter__xyz_8c_a47f69cf3e2249a65761b2d608ccb718d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{_extended___kalman___filter__xyz_8c_a7d5dd7ea716c6b318fcad6973a4d9584}} 
+\index{Extended\_Kalman\_Filter\_xyz.c@{Extended\_Kalman\_Filter\_xyz.c}!computeHmat@{computeHmat}}
+\index{computeHmat@{computeHmat}!Extended\_Kalman\_Filter\_xyz.c@{Extended\_Kalman\_Filter\_xyz.c}}
+\doxysubsubsection{computeHmat()}
+{\footnotesize\ttfamily void compute\+Hmat (\begin{DoxyParamCaption}\item[{float $\ast$restrict}]{h\+Mat,  }\item[{float const $\ast$restrict}]{statevec\+\_\+xyz,  }\item[{float const $\ast$restrict}]{state\+Vec\+Rrd,  }\item[{const float}]{invrange }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ This function computes the observation matrix (h\+Mat).
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em h\+Mat} & a vector containing the non-\/zero elements of the hmat. ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em statevec\+\_\+xyz} & predicted state (in x y co-\/ordinates) \\
+\hline
+\mbox{\texttt{ in}}  & {\em state\+Vec\+Rrd} & predicted measurents. \\
+\hline
+\mbox{\texttt{ in}}  & {\em invrange} & 1/r -\/ computed in the compute\+Predicted\+Meas function.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Not} & Applicable. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 819 of file Extended\+\_\+\+Kalman\+\_\+\+Filter\+\_\+xyz.\+c.
+
+
+
+References i\+R\+A\+N\+G\+E\+\_\+\+R\+A\+TE, i\+S\+I\+N\+\_\+\+A\+Z\+IM, i\+Xd, iY, and i\+Yd.
+
+
+
+Referenced by ekf\+Run().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=240pt]{_extended___kalman___filter__xyz_8c_a7d5dd7ea716c6b318fcad6973a4d9584_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{_extended___kalman___filter__xyz_8c_a0b4f0b9a4a18bb9a34f9d530b69fca5e}} 
+\index{Extended\_Kalman\_Filter\_xyz.c@{Extended\_Kalman\_Filter\_xyz.c}!computePredictedMeas@{computePredictedMeas}}
+\index{computePredictedMeas@{computePredictedMeas}!Extended\_Kalman\_Filter\_xyz.c@{Extended\_Kalman\_Filter\_xyz.c}}
+\doxysubsubsection{computePredictedMeas()}
+{\footnotesize\ttfamily int32\+\_\+t compute\+Predicted\+Meas (\begin{DoxyParamCaption}\item[{float $\ast$restrict}]{rrd,  }\item[{float const $\ast$restrict}]{xyz,  }\item[{float $\ast$restrict}]{p\+\_\+inv\+Range }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ This function computes the predicted measurements from the state vector. i.\+e. R = H(x);
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em rrd} & predicted measurement. ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em xyz} & state. \\
+\hline
+\mbox{\texttt{ in}}  & {\em p\+\_\+inv\+Range} & The inv sqrt of the range is also computed and used in the h\+Mat computation.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Not} & Applicable. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 595 of file Extended\+\_\+\+Kalman\+\_\+\+Filter\+\_\+xyz.\+c.
+
+
+
+References i\+R\+A\+N\+GE, i\+R\+A\+N\+G\+E\+\_\+\+R\+A\+TE, I\+S\+\_\+\+I\+N\+V\+A\+L\+ID, I\+S\+\_\+\+V\+A\+L\+ID, i\+S\+I\+N\+\_\+\+A\+Z\+IM, iX, i\+Xd, iY, and i\+Yd.
+
+
+
+Referenced by ekf\+Run().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{_extended___kalman___filter__xyz_8c_a0b4f0b9a4a18bb9a34f9d530b69fca5e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{_extended___kalman___filter__xyz_8c_ac95e4c0b8dda3b7be8ba399423427235}} 
+\index{Extended\_Kalman\_Filter\_xyz.c@{Extended\_Kalman\_Filter\_xyz.c}!createNewTracks@{createNewTracks}}
+\index{createNewTracks@{createNewTracks}!Extended\_Kalman\_Filter\_xyz.c@{Extended\_Kalman\_Filter\_xyz.c}}
+\doxysubsubsection{createNewTracks()}
+{\footnotesize\ttfamily void create\+New\+Tracks (\begin{DoxyParamCaption}\item[{\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$restrict}]{data\+Path\+Obj,  }\item[{\textbf{ tracking\+Input\+Report\+\_\+t} const $\ast$restrict}]{meas\+Array,  }\item[{int16\+\_\+t const $\ast$restrict}]{free\+Tracker\+Indx\+Array,  }\item[{int16\+\_\+t const $\ast$restrict}]{selected\+Indx\+Arr,  }\item[{const int32\+\_\+t}]{num\+Selected }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ This function creates new tracks.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em data\+Path\+Obj} & Data path object -\/ for the \textquotesingle{}tracker\+State\textquotesingle{} struct array. ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em meas\+Array} & List of input measurements \\
+\hline
+\mbox{\texttt{ in}}  & {\em free\+Tracker\+Index\+Array} & Number of free tracks. \\
+\hline
+\mbox{\texttt{ in}}  & {\em selected\+Indx\+Arr} & An array of the selected measurements for new tracks. \\
+\hline
+\mbox{\texttt{ in}}  & {\em num\+Selected.} & number of selected measurements. ~\newline
+\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em not} & applicable \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 1313 of file Extended\+\_\+\+Kalman\+\_\+\+Filter\+\_\+xyz.\+c.
+
+
+
+References init\+New\+Tracker(), and I\+S\+\_\+\+V\+A\+L\+ID.
+
+
+
+Referenced by ekf\+Run().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=288pt]{_extended___kalman___filter__xyz_8c_ac95e4c0b8dda3b7be8ba399423427235_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=255pt]{_extended___kalman___filter__xyz_8c_ac95e4c0b8dda3b7be8ba399423427235_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{_extended___kalman___filter__xyz_8c_abe157ce973383a2db9843ed0e8826f34}} 
+\index{Extended\_Kalman\_Filter\_xyz.c@{Extended\_Kalman\_Filter\_xyz.c}!ekfInit@{ekfInit}}
+\index{ekfInit@{ekfInit}!Extended\_Kalman\_Filter\_xyz.c@{Extended\_Kalman\_Filter\_xyz.c}}
+\doxysubsubsection{ekfInit()}
+{\footnotesize\ttfamily void ekf\+Init (\begin{DoxyParamCaption}\item[{\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$restrict}]{data\+Path\+Obj }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ This function initializes the memory used by the tracking function. It also initializes all the trackers to an invalid state, and then populates the \textquotesingle{}process noise matrix\textquotesingle{} or \textquotesingle{}Qmat\textquotesingle{}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em data\+Path\+Obj} & data path object\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Not} & Applicable. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 86 of file Extended\+\_\+\+Kalman\+\_\+\+Filter\+\_\+xyz.\+c.
+
+
+
+References F\+R\+A\+M\+E\+\_\+\+P\+E\+R\+I\+O\+D\+I\+C\+I\+T\+Y\+\_\+\+S\+EC, I\+S\+\_\+\+I\+N\+V\+A\+L\+ID, iX, i\+Xd, iY, i\+Yd, M\+A\+X\+\_\+\+A\+C\+C\+E\+L\+\_\+\+X\+\_\+\+M\+\_\+\+P\+\_\+\+S\+E\+C\+SQ, M\+A\+X\+\_\+\+A\+C\+C\+E\+L\+\_\+\+Y\+\_\+\+M\+\_\+\+P\+\_\+\+S\+E\+C\+SQ, M\+A\+X\+\_\+\+T\+R\+K\+\_\+\+O\+B\+Js, M\+R\+R\+\_\+\+M\+A\+X\+\_\+\+O\+B\+J\+\_\+\+O\+UT, N\+\_\+\+M\+E\+A\+S\+U\+R\+E\+M\+E\+N\+TS, N\+\_\+\+S\+T\+A\+T\+ES, N\+\_\+\+U\+N\+I\+Q\+\_\+\+E\+L\+E\+M\+\_\+\+I\+N\+\_\+\+H\+M\+AT, N\+\_\+\+U\+N\+I\+Q\+\_\+\+E\+L\+E\+M\+\_\+\+I\+N\+\_\+\+S\+Y\+M\+\_\+\+C\+O\+V\+M\+AT, N\+\_\+\+U\+N\+I\+Q\+\_\+\+E\+L\+E\+M\+\_\+\+I\+N\+\_\+\+S\+Y\+M\+\_\+\+R\+E\+S\+I\+D\+C\+O\+V\+M\+AT, and K\+Ftracker\+Instance\+::scratch\+Pad\+Flt.
+
+\mbox{\label{_extended___kalman___filter__xyz_8c_aecc3565592740ab1732d39bfbe44ad0b}} 
+\index{Extended\_Kalman\_Filter\_xyz.c@{Extended\_Kalman\_Filter\_xyz.c}!ekfRun@{ekfRun}}
+\index{ekfRun@{ekfRun}!Extended\_Kalman\_Filter\_xyz.c@{Extended\_Kalman\_Filter\_xyz.c}}
+\doxysubsubsection{ekfRun()}
+{\footnotesize\ttfamily void ekf\+Run (\begin{DoxyParamCaption}\item[{const int32\+\_\+t}]{num\+Meas,  }\item[{\textbf{ tracking\+Input\+Report\+\_\+t} const $\ast$restrict}]{meas\+Array,  }\item[{\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$restrict}]{data\+Path\+Obj,  }\item[{float const $\ast$restrict}]{Qvec\+List,  }\item[{const float}]{td }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ This function runs the kalmanfilter on a list of input data ~\newline
+
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em num\+Meas} & The number of tracking inputs. \\
+\hline
+\mbox{\texttt{ in}}  & {\em meas\+Array} & An array of structures holding the measurements. ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em data\+Path\+Obj} & data path object \\
+\hline
+\mbox{\texttt{ in}}  & {\em Qvec\+List} & A array of structures holding the \textquotesingle{}process noise matrix. \\
+\hline
+\mbox{\texttt{ in}}  & {\em td} & The update rate of the measurement.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Not} & Applicable. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 166 of file Extended\+\_\+\+Kalman\+\_\+\+Filter\+\_\+xyz.\+c.
+
+
+
+References A\+G\+E\+D\+\_\+\+O\+B\+J\+\_\+\+D\+E\+L\+E\+T\+I\+O\+N\+\_\+\+T\+H\+R\+E\+SH, arrange\+Tracks\+By\+Age(), K\+Ftracker\+Instance\+::assoc\+Meas\+Indx, compute\+Hmat(), compute\+Predicted\+Meas(), create\+New\+Tracks(), Init\+Associated\+Measurement\+Indx(), init\+Associated\+Tracker\+Indx(), invalidate\+Curr\+Track(), i\+R\+A\+N\+GE, i\+R\+A\+N\+G\+E\+\_\+\+R\+A\+TE, I\+S\+\_\+\+A\+S\+S\+O\+C\+I\+A\+T\+ED, I\+S\+\_\+\+I\+N\+V\+A\+L\+ID, i\+S\+I\+N\+\_\+\+A\+Z\+IM, is\+Target\+Within\+Data\+Association\+Thresh(), is\+Within\+Bounding\+Box(), iY, kalman\+Gain\+Computation(), M\+A\+X\+\_\+\+T\+R\+K\+\_\+\+O\+B\+Js, N\+O\+T\+\_\+\+A\+S\+S\+O\+C\+I\+A\+T\+ED, residual\+Covariance\+Computation(), select\+\_\+\+Q\+Vec(), select\+Meas(), state\+Covmat\+Measurement\+Update(), state\+Covmat\+Time\+Update(), state\+Vec\+Measurement\+Update(), state\+Vec\+Time\+Update(), and sym\+Mat\+Inv().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{_extended___kalman___filter__xyz_8c_aecc3565592740ab1732d39bfbe44ad0b_cgraph}
+\end{center}
+\end{figure}
+\mbox{\label{_extended___kalman___filter__xyz_8c_af46788e48ba5ede2c2663ca9a18cb8fd}} 
+\index{Extended\_Kalman\_Filter\_xyz.c@{Extended\_Kalman\_Filter\_xyz.c}!InitAssociatedMeasurementIndx@{InitAssociatedMeasurementIndx}}
+\index{InitAssociatedMeasurementIndx@{InitAssociatedMeasurementIndx}!Extended\_Kalman\_Filter\_xyz.c@{Extended\_Kalman\_Filter\_xyz.c}}
+\doxysubsubsection{InitAssociatedMeasurementIndx()}
+{\footnotesize\ttfamily void Init\+Associated\+Measurement\+Indx (\begin{DoxyParamCaption}\item[{int16\+\_\+t $\ast$restrict}]{assoc\+Meas\+Indx,  }\item[{const int32\+\_\+t}]{num\+Meas }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ This function initializes the assoc\+Meas\+Indx to state that no measurements have been associated to an existing tracker.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em assoc\+Meas\+Indx} & An array that will hold the mapping of the incoming measurement to the existing tracker to which it is associated to. ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em nu\+Meas} & number of measurement (for this epoch).\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Not} & Applicable. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 454 of file Extended\+\_\+\+Kalman\+\_\+\+Filter\+\_\+xyz.\+c.
+
+
+
+References N\+O\+T\+\_\+\+A\+S\+S\+O\+C\+I\+A\+T\+ED.
+
+
+
+Referenced by ekf\+Run().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=318pt]{_extended___kalman___filter__xyz_8c_af46788e48ba5ede2c2663ca9a18cb8fd_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{_extended___kalman___filter__xyz_8c_ad8bcb03b6497736f827edccaea29aa89}} 
+\index{Extended\_Kalman\_Filter\_xyz.c@{Extended\_Kalman\_Filter\_xyz.c}!initAssociatedTrackerIndx@{initAssociatedTrackerIndx}}
+\index{initAssociatedTrackerIndx@{initAssociatedTrackerIndx}!Extended\_Kalman\_Filter\_xyz.c@{Extended\_Kalman\_Filter\_xyz.c}}
+\doxysubsubsection{initAssociatedTrackerIndx()}
+{\footnotesize\ttfamily void init\+Associated\+Tracker\+Indx (\begin{DoxyParamCaption}\item[{int16\+\_\+t $\ast$restrict}]{free\+Tracker\+Indx\+Array,  }\item[{const int32\+\_\+t}]{num\+Obj }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ This function initializes the free\+Tracker\+Indx\+Array to state that no objects have been associated to an existing measurement.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em free\+Tracker\+Indx\+Array} & An array that will hold the mapping of the existing tracker to a measurement. ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em num\+Obj} & number of trackers (for this epoch).\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Not} & Applicable. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 477 of file Extended\+\_\+\+Kalman\+\_\+\+Filter\+\_\+xyz.\+c.
+
+
+
+References N\+O\+T\+\_\+\+A\+S\+S\+O\+C\+I\+A\+T\+ED.
+
+
+
+Referenced by ekf\+Run().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=291pt]{_extended___kalman___filter__xyz_8c_ad8bcb03b6497736f827edccaea29aa89_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{_extended___kalman___filter__xyz_8c_a9e8bd913054328b86e6af6c351f4e5ab}} 
+\index{Extended\_Kalman\_Filter\_xyz.c@{Extended\_Kalman\_Filter\_xyz.c}!initNewTracker@{initNewTracker}}
+\index{initNewTracker@{initNewTracker}!Extended\_Kalman\_Filter\_xyz.c@{Extended\_Kalman\_Filter\_xyz.c}}
+\doxysubsubsection{initNewTracker()}
+{\footnotesize\ttfamily void init\+New\+Tracker (\begin{DoxyParamCaption}\item[{\textbf{ K\+Fstate\+\_\+t} $\ast$restrict}]{obj,  }\item[{\textbf{ tracking\+Input\+Report\+\_\+t} const $\ast$restrict}]{meas }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ This function initialzes a new tracker.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em obj} & pointer to the new tracker\textquotesingle{}s state. ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em meas} & set of measurements to initialize the tracker. ~\newline
+\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em not} & applicable \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 1354 of file Extended\+\_\+\+Kalman\+\_\+\+Filter\+\_\+xyz.\+c.
+
+
+
+References i\+R\+A\+N\+GE, i\+R\+A\+N\+G\+E\+\_\+\+R\+A\+TE, i\+S\+I\+N\+\_\+\+A\+Z\+IM, iX, i\+Xd, i\+Xd\+Xd, i\+XX, iY, i\+Yd, i\+Yd\+Yd, i\+YY, and N\+\_\+\+U\+N\+I\+Q\+\_\+\+E\+L\+E\+M\+\_\+\+I\+N\+\_\+\+S\+Y\+M\+\_\+\+C\+O\+V\+M\+AT.
+
+
+
+Referenced by create\+New\+Tracks().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_extended___kalman___filter__xyz_8c_a9e8bd913054328b86e6af6c351f4e5ab_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{_extended___kalman___filter__xyz_8c_a0cb688c01c72e68805ba3a2937cd3907}} 
+\index{Extended\_Kalman\_Filter\_xyz.c@{Extended\_Kalman\_Filter\_xyz.c}!invalidateCurrTrack@{invalidateCurrTrack}}
+\index{invalidateCurrTrack@{invalidateCurrTrack}!Extended\_Kalman\_Filter\_xyz.c@{Extended\_Kalman\_Filter\_xyz.c}}
+\doxysubsubsection{invalidateCurrTrack()}
+{\footnotesize\ttfamily int32\+\_\+t invalidate\+Curr\+Track (\begin{DoxyParamCaption}\item[{\textbf{ K\+Fstate\+\_\+t} $\ast$restrict}]{curr\+Track,  }\item[{int16\+\_\+t $\ast$restrict}]{free\+Tracker\+Indx\+Array,  }\item[{int32\+\_\+t}]{n\+Free,  }\item[{int32\+\_\+t}]{i\+Track }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ This function invalidates a track by marking it as invalid, marking its index as invalid, incrementing the number of free tracks.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em curr\+Track} & pointer to the tracker\textquotesingle{}s state. ~\newline
+ \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em free\+Tracker\+Indx\+Array} & List of unassociated trackers. ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em n\+Free} & current number of free trackers. ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em i\+Track} & current track Index. ~\newline
+\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em updated} & number of free trackers. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 1518 of file Extended\+\_\+\+Kalman\+\_\+\+Filter\+\_\+xyz.\+c.
+
+
+
+References I\+S\+\_\+\+I\+N\+V\+A\+L\+ID.
+
+
+
+Referenced by ekf\+Run().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=261pt]{_extended___kalman___filter__xyz_8c_a0cb688c01c72e68805ba3a2937cd3907_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{_extended___kalman___filter__xyz_8c_a126935d26cd74710f0f1aa80890acba9}} 
+\index{Extended\_Kalman\_Filter\_xyz.c@{Extended\_Kalman\_Filter\_xyz.c}!isTargetWithinDataAssociationThresh@{isTargetWithinDataAssociationThresh}}
+\index{isTargetWithinDataAssociationThresh@{isTargetWithinDataAssociationThresh}!Extended\_Kalman\_Filter\_xyz.c@{Extended\_Kalman\_Filter\_xyz.c}}
+\doxysubsubsection{isTargetWithinDataAssociationThresh()}
+{\footnotesize\ttfamily int32\+\_\+t is\+Target\+Within\+Data\+Association\+Thresh (\begin{DoxyParamCaption}\item[{float $\ast$restrict}]{meas\+Residual,  }\item[{float const $\ast$restrict}]{state\+\_\+rrd,  }\item[{float const $\ast$restrict}]{meas\+\_\+rrd,  }\item[{float const $\ast$restrict}]{state\+\_\+xyz,  }\item[{\textbf{ K\+Ftracker\+Instance\+\_\+t} $\ast$restrict}]{inst,  }\item[{float $\ast$restrict}]{pdist\+Sq,  }\item[{int32\+\_\+t}]{tick,  }\item[{int32\+\_\+t}]{age }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ This function checks whether the predicted measurements are close to the new measurements ( i.\+e. can they be associated). If they can be then the mean sq distance between the predicted and the new is passed back, so that the closest measurement is used.
+
+Track association is not a traditional part of Kalman filtering, and hence our approach (based on experiment) is ad-\/hoc.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em meas\+Residual} & measurement residual. ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em state\+\_\+rrd} & predicted measurents. \\
+\hline
+\mbox{\texttt{ in}}  & {\em meas\+\_\+rrd} & new measurements. \\
+\hline
+\mbox{\texttt{ in}}  & {\em state\+\_\+xyz} & predicted state (in x y co-\/ordinates) \\
+\hline
+\mbox{\texttt{ in}}  & {\em inst} & K\+Ftracker\+Instance\+\_\+t object (for scratchpad.) \\
+\hline
+\mbox{\texttt{ out}}  & {\em pdist\+Sq} & The distance sq between predicted and new measurement. Only valid if the measurement is deemed to be \textquotesingle{}associatable\textquotesingle{}. \\
+\hline
+\mbox{\texttt{ in}}  & {\em tick} & age of the Track. Newer tracks are given more leeway \& in associating, as they take some time to converge.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em I\+S\+\_\+\+A\+S\+S\+O\+C\+I\+A\+T\+ED} & or N\+O\+T\+\_\+\+A\+S\+S\+O\+C\+I\+A\+T\+ED. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 648 of file Extended\+\_\+\+Kalman\+\_\+\+Filter\+\_\+xyz.\+c.
+
+
+
+References i\+R\+A\+N\+GE, i\+R\+A\+N\+G\+E\+\_\+\+R\+A\+TE, I\+S\+\_\+\+A\+S\+S\+O\+C\+I\+A\+T\+ED, i\+S\+I\+N\+\_\+\+A\+Z\+IM, iX, iY, and N\+O\+T\+\_\+\+A\+S\+S\+O\+C\+I\+A\+T\+ED.
+
+
+
+Referenced by ekf\+Run().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=313pt]{_extended___kalman___filter__xyz_8c_a126935d26cd74710f0f1aa80890acba9_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{_extended___kalman___filter__xyz_8c_a5d0c64f2115aa3793596ede54c039e3a}} 
+\index{Extended\_Kalman\_Filter\_xyz.c@{Extended\_Kalman\_Filter\_xyz.c}!isWithinBoundingBox@{isWithinBoundingBox}}
+\index{isWithinBoundingBox@{isWithinBoundingBox}!Extended\_Kalman\_Filter\_xyz.c@{Extended\_Kalman\_Filter\_xyz.c}}
+\doxysubsubsection{isWithinBoundingBox()}
+{\footnotesize\ttfamily uint32\+\_\+t is\+Within\+Bounding\+Box (\begin{DoxyParamCaption}\item[{\textbf{ K\+Fstate\+\_\+t} $\ast$restrict}]{curr\+Track,  }\item[{\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$restrict}]{data\+Path\+Obj }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ This function validates a state by checking whether it is within a specific bounding box. For e.\+g if an object is behind the radar, there is no need to track it.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em curr\+Track} & pointer to the tracker\textquotesingle{}s state. ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em data\+Path\+Obj} & data path object -\/$>$ for max range. ~\newline
+\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em true/false} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 1455 of file Extended\+\_\+\+Kalman\+\_\+\+Filter\+\_\+xyz.\+c.
+
+
+
+References I\+S\+\_\+\+I\+N\+V\+A\+L\+ID, I\+S\+\_\+\+V\+A\+L\+ID, iX, iY, N\+\_\+\+S\+T\+A\+T\+ES, and N\+\_\+\+U\+N\+I\+Q\+\_\+\+E\+L\+E\+M\+\_\+\+I\+N\+\_\+\+S\+Y\+M\+\_\+\+C\+O\+V\+M\+AT.
+
+
+
+Referenced by ekf\+Run().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=273pt]{_extended___kalman___filter__xyz_8c_a5d0c64f2115aa3793596ede54c039e3a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{_extended___kalman___filter__xyz_8c_a3165705fd153e1d405f7f46f29ebb1b2}} 
+\index{Extended\_Kalman\_Filter\_xyz.c@{Extended\_Kalman\_Filter\_xyz.c}!kalmanGainComputation@{kalmanGainComputation}}
+\index{kalmanGainComputation@{kalmanGainComputation}!Extended\_Kalman\_Filter\_xyz.c@{Extended\_Kalman\_Filter\_xyz.c}}
+\doxysubsubsection{kalmanGainComputation()}
+{\footnotesize\ttfamily void kalman\+Gain\+Computation (\begin{DoxyParamCaption}\item[{float $\ast$restrict}]{kalman\+Gain,  }\item[{float const $\ast$restrict}]{state\+\_\+covmat,  }\item[{float const $\ast$restrict}]{h\+Mat,  }\item[{float const $\ast$restrict}]{inv\+Resid\+Covmat,  }\item[{\textbf{ K\+Ftracker\+Instance\+\_\+t} $\ast$}]{inst }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ This function performs the (near-\/optimal) kalman gain computation. i.\+e. in matlab kalman\+Gain = state\+\_\+covmat$\ast$transpose(h\+Mat)$\ast$inv(resid\+Covmat)
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em kalman\+Gain} & kalman gain matrix. ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em state\+\_\+covmat} & state covariance matrix. \\
+\hline
+\mbox{\texttt{ in}}  & {\em h\+Mat} & (observation matrix) Hmat \\
+\hline
+\mbox{\texttt{ in}}  & {\em meas\+Cov\+Vec} & inverse of the residual cov\+Mat. \\
+\hline
+\mbox{\texttt{ in}}  & {\em inst} & K\+Ftracker\+Instance\+\_\+t object (for scratchpad.) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Not} & Applicable. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 962 of file Extended\+\_\+\+Kalman\+\_\+\+Filter\+\_\+xyz.\+c.
+
+
+
+References i\+Az\+Az, i\+R\+Az, i\+Rd\+Az, i\+Rd\+Rd, i\+RR, i\+R\+Rd, i\+Xd\+Xd, i\+Xd\+Yd, i\+XX, i\+X\+Xd, i\+XY, i\+X\+Yd, i\+Yd\+Yd, i\+Y\+Xd, i\+YY, i\+Y\+Yd, and K\+Ftracker\+Instance\+::kalman\+Gain\+Temp.
+
+
+
+Referenced by ekf\+Run().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=286pt]{_extended___kalman___filter__xyz_8c_a3165705fd153e1d405f7f46f29ebb1b2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{_extended___kalman___filter__xyz_8c_a679267ffcf59b07348b98db6a67da78a}} 
+\index{Extended\_Kalman\_Filter\_xyz.c@{Extended\_Kalman\_Filter\_xyz.c}!residualCovarianceComputation@{residualCovarianceComputation}}
+\index{residualCovarianceComputation@{residualCovarianceComputation}!Extended\_Kalman\_Filter\_xyz.c@{Extended\_Kalman\_Filter\_xyz.c}}
+\doxysubsubsection{residualCovarianceComputation()}
+{\footnotesize\ttfamily void residual\+Covariance\+Computation (\begin{DoxyParamCaption}\item[{float $\ast$restrict}]{resid\+Covmat,  }\item[{float const $\ast$restrict}]{state\+\_\+covmat,  }\item[{float const $\ast$restrict}]{meas\+Cov\+Vec,  }\item[{float const $\ast$restrict}]{h\+Mat }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ This function performs the residual covariance matrix computation. i.\+e. resid\+Covmat = h\+Mat$\ast$state\+\_\+covmat$\ast$transpose(h\+Mat) + meas\+Cov\+Vec ~\newline
+
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em resid\+Covmat} & residual covariance matrix. ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em state\+\_\+covmat} & state covariance matrix. \\
+\hline
+\mbox{\texttt{ in}}  & {\em meas\+Cov\+Vec} & variance of the measurement. \\
+\hline
+\mbox{\texttt{ in}}  & {\em h\+Mat} & (observation matrix) Hmat\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Not} & Applicable. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 861 of file Extended\+\_\+\+Kalman\+\_\+\+Filter\+\_\+xyz.\+c.
+
+
+
+References i\+Az\+Az, i\+R\+A\+N\+GE, i\+R\+A\+N\+G\+E\+\_\+\+R\+A\+TE, i\+R\+Az, i\+Rd\+Az, i\+Rd\+Rd, i\+RR, i\+R\+Rd, i\+S\+I\+N\+\_\+\+A\+Z\+IM, i\+Xd\+Xd, i\+Xd\+Yd, i\+XX, i\+X\+Xd, i\+XY, i\+X\+Yd, i\+Yd\+Yd, i\+Y\+Xd, i\+YY, and i\+Y\+Yd.
+
+
+
+Referenced by ekf\+Run().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=315pt]{_extended___kalman___filter__xyz_8c_a679267ffcf59b07348b98db6a67da78a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{_extended___kalman___filter__xyz_8c_a83917a7f6d9275c50284b771aefc8d13}} 
+\index{Extended\_Kalman\_Filter\_xyz.c@{Extended\_Kalman\_Filter\_xyz.c}!select\_QVec@{select\_QVec}}
+\index{select\_QVec@{select\_QVec}!Extended\_Kalman\_Filter\_xyz.c@{Extended\_Kalman\_Filter\_xyz.c}}
+\doxysubsubsection{select\_QVec()}
+{\footnotesize\ttfamily float $\ast$ select\+\_\+\+Q\+Vec (\begin{DoxyParamCaption}\item[{float const $\ast$restrict}]{Qvec\+List,  }\item[{uint8\+\_\+t}]{tick,  }\item[{uint8\+\_\+t}]{age,  }\item[{const float}]{range }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ This function selects a \textquotesingle{}process noise matrix\textquotesingle{} based on the age of the tracker. If the tracker is new, then the \textquotesingle{}process noise\textquotesingle{} is assumed to be high, so as to allow faster convergence. If the tracker is old, the process noise is computed as per the the unmodeled parameters. We also allow higher \textquotesingle{}process noise\textquotesingle{} for closer objects, assuming that their higher S\+NR will compensate for the noisier measurements.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em Qvec\+List} & 3 arrays [N\+\_\+\+S\+T\+A\+T\+ES] long. A list of possible Qvec matrices. \\
+\hline
+\mbox{\texttt{ in}}  & {\em tick} & the number of valid association of the tracker. ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em age} & the age of the tracker (i.\+e. the number of ticks before the last associated measurement). ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em range} & the distance of the target being tracked. ~\newline
+\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em pointer} & to the \textquotesingle{}process noise diagonal\textquotesingle{} \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 1418 of file Extended\+\_\+\+Kalman\+\_\+\+Filter\+\_\+xyz.\+c.
+
+
+
+References N\+\_\+\+S\+T\+A\+T\+ES.
+
+
+
+Referenced by ekf\+Run().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{_extended___kalman___filter__xyz_8c_a83917a7f6d9275c50284b771aefc8d13_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{_extended___kalman___filter__xyz_8c_ab9b0ea77408de969dc69d8730ed694d0}} 
+\index{Extended\_Kalman\_Filter\_xyz.c@{Extended\_Kalman\_Filter\_xyz.c}!selectMeas@{selectMeas}}
+\index{selectMeas@{selectMeas}!Extended\_Kalman\_Filter\_xyz.c@{Extended\_Kalman\_Filter\_xyz.c}}
+\doxysubsubsection{selectMeas()}
+{\footnotesize\ttfamily int32\+\_\+t select\+Meas (\begin{DoxyParamCaption}\item[{int16\+\_\+t $\ast$restrict}]{selected\+Meas,  }\item[{\textbf{ tracking\+Input\+Report\+\_\+t} const $\ast$restrict}]{meas\+Array,  }\item[{int16\+\_\+t $\ast$restrict}]{assoc\+Meas\+Indx,  }\item[{const int32\+\_\+t}]{n\+Free,  }\item[{const int32\+\_\+t}]{num\+Unassociated\+Meas,  }\item[{const int32\+\_\+t}]{num\+Meas\+Total }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ This function selects the unassociated measurements that are to be used to create the new tracks.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em selected\+Meas} & The unassociated measurements selected for tracking. ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em meas\+Array} & List of input measurements \\
+\hline
+\mbox{\texttt{ in}}  & {\em assoc\+Meas\+Indx} & An array declaring whether a measurement has been associated or not. \\
+\hline
+\mbox{\texttt{ in}}  & {\em n\+Free} & Number of free tracks. \\
+\hline
+\mbox{\texttt{ in}}  & {\em num\+Unassociated\+Meas} & Number of unassociated measurements. \\
+\hline
+\mbox{\texttt{ in}}  & {\em num\+Meas\+Total.} & Total number of measurements.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em number} & of selected measurements. . \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 1244 of file Extended\+\_\+\+Kalman\+\_\+\+Filter\+\_\+xyz.\+c.
+
+
+
+References H\+I\+G\+H\+\_\+\+S\+N\+R\+\_\+\+R\+V\+A\+R\+\_\+\+T\+H\+R\+E\+SH, i\+R\+A\+N\+GE, I\+S\+\_\+\+A\+S\+S\+O\+C\+I\+A\+T\+ED, and N\+O\+T\+\_\+\+A\+S\+S\+O\+C\+I\+A\+T\+ED.
+
+
+
+Referenced by ekf\+Run().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=230pt]{_extended___kalman___filter__xyz_8c_ab9b0ea77408de969dc69d8730ed694d0_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{_extended___kalman___filter__xyz_8c_a2a20b7327db5415d39343f8a6f9b4608}} 
+\index{Extended\_Kalman\_Filter\_xyz.c@{Extended\_Kalman\_Filter\_xyz.c}!stateCovmatMeasurementUpdate@{stateCovmatMeasurementUpdate}}
+\index{stateCovmatMeasurementUpdate@{stateCovmatMeasurementUpdate}!Extended\_Kalman\_Filter\_xyz.c@{Extended\_Kalman\_Filter\_xyz.c}}
+\doxysubsubsection{stateCovmatMeasurementUpdate()}
+{\footnotesize\ttfamily void state\+Covmat\+Measurement\+Update (\begin{DoxyParamCaption}\item[{float $\ast$restrict}]{covmat,  }\item[{float const $\ast$restrict const}]{kalman\+Gain,  }\item[{float const $\ast$restrict const}]{h\+Mat,  }\item[{\textbf{ K\+Ftracker\+Instance\+\_\+t} $\ast$}]{inst }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ This function performs the state covariance matrix update. i.\+e. in matlab P = (I -\/ KH)$\ast$P ~\newline
+
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em covmat} & updated state covariance matrix (P). ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em kalman\+Gain} & Kalman gain (K). ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em h\+Mat} & observation matrix (H). ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em K\+Ftracker\+Instance\+\_\+t} & scratchpad pointers.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Not} & Applicable. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 1129 of file Extended\+\_\+\+Kalman\+\_\+\+Filter\+\_\+xyz.\+c.
+
+
+
+References i\+Xd\+Xd, i\+Xd\+Yd, i\+XX, i\+X\+Xd, i\+XY, i\+X\+Yd, i\+Yd\+Yd, i\+Y\+Xd, i\+YY, i\+Y\+Yd, N\+\_\+\+M\+E\+A\+S\+U\+R\+E\+M\+E\+N\+TS, N\+\_\+\+S\+T\+A\+T\+ES, N\+\_\+\+U\+N\+I\+Q\+\_\+\+E\+L\+E\+M\+\_\+\+I\+N\+\_\+\+S\+Y\+M\+\_\+\+C\+O\+V\+M\+AT, K\+Ftracker\+Instance\+::state\+Cov\+Mattemp, and K\+Ftracker\+Instance\+::state\+Cov\+MattempP.
+
+
+
+Referenced by ekf\+Run().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=324pt]{_extended___kalman___filter__xyz_8c_a2a20b7327db5415d39343f8a6f9b4608_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{_extended___kalman___filter__xyz_8c_a6b5a70d53d79e3339edcc2ee2c9da2d2}} 
+\index{Extended\_Kalman\_Filter\_xyz.c@{Extended\_Kalman\_Filter\_xyz.c}!stateCovmatTimeUpdate@{stateCovmatTimeUpdate}}
+\index{stateCovmatTimeUpdate@{stateCovmatTimeUpdate}!Extended\_Kalman\_Filter\_xyz.c@{Extended\_Kalman\_Filter\_xyz.c}}
+\doxysubsubsection{stateCovmatTimeUpdate()}
+{\footnotesize\ttfamily void state\+Covmat\+Time\+Update (\begin{DoxyParamCaption}\item[{float $\ast$restrict}]{covmat,  }\item[{float const $\ast$restrict}]{Q,  }\item[{const float}]{td,  }\item[{\textbf{ K\+Ftracker\+Instance\+\_\+t} $\ast$restrict}]{inst }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ This function updates the state covariance matrix.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em covmat} & state covariance matrix. ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em Q} & process noise diagonal . ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em td} & time delta. \\
+\hline
+\mbox{\texttt{ in}}  & {\em inst} & K\+Ftracker\+Instance\+\_\+t (for scratchpad).\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Not} & Applicable. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 526 of file Extended\+\_\+\+Kalman\+\_\+\+Filter\+\_\+xyz.\+c.
+
+
+
+References iX, i\+Xd, i\+Xd\+Xd, i\+Xd\+Yd, i\+XX, i\+X\+Xd, i\+XY, i\+X\+Yd, iY, i\+Yd, i\+Yd\+Yd, i\+Y\+Xd, i\+YY, i\+Y\+Yd, and N\+\_\+\+U\+N\+I\+Q\+\_\+\+E\+L\+E\+M\+\_\+\+I\+N\+\_\+\+S\+Y\+M\+\_\+\+C\+O\+V\+M\+AT.
+
+
+
+Referenced by ekf\+Run().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=285pt]{_extended___kalman___filter__xyz_8c_a6b5a70d53d79e3339edcc2ee2c9da2d2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{_extended___kalman___filter__xyz_8c_a4c0bf6cb067e6753dd73472e0710380c}} 
+\index{Extended\_Kalman\_Filter\_xyz.c@{Extended\_Kalman\_Filter\_xyz.c}!stateVecMeasurementUpdate@{stateVecMeasurementUpdate}}
+\index{stateVecMeasurementUpdate@{stateVecMeasurementUpdate}!Extended\_Kalman\_Filter\_xyz.c@{Extended\_Kalman\_Filter\_xyz.c}}
+\doxysubsubsection{stateVecMeasurementUpdate()}
+{\footnotesize\ttfamily int32\+\_\+t state\+Vec\+Measurement\+Update (\begin{DoxyParamCaption}\item[{float $\ast$restrict}]{state,  }\item[{float const $\ast$restrict}]{kalman\+Gain,  }\item[{float const $\ast$restrict}]{meas\+\_\+residual }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ This function performs the state measurement update. i.\+e. in matlab state = state + kalman\+Gain$\ast$meas\+Residual
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em state} & updated state . ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em kalman\+Gain} & kalman gain matrix. ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em meas\+\_\+residual} & measurement residual.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Not} & Applicable. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 1089 of file Extended\+\_\+\+Kalman\+\_\+\+Filter\+\_\+xyz.\+c.
+
+
+
+References I\+S\+\_\+\+I\+N\+V\+A\+L\+ID, I\+S\+\_\+\+V\+A\+L\+ID, iY, N\+\_\+\+M\+E\+A\+S\+U\+R\+E\+M\+E\+N\+TS, and N\+\_\+\+S\+T\+A\+T\+ES.
+
+
+
+Referenced by ekf\+Run().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=309pt]{_extended___kalman___filter__xyz_8c_a4c0bf6cb067e6753dd73472e0710380c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{_extended___kalman___filter__xyz_8c_a1dc7786835499d701b46752ed8f10812}} 
+\index{Extended\_Kalman\_Filter\_xyz.c@{Extended\_Kalman\_Filter\_xyz.c}!stateVecTimeUpdate@{stateVecTimeUpdate}}
+\index{stateVecTimeUpdate@{stateVecTimeUpdate}!Extended\_Kalman\_Filter\_xyz.c@{Extended\_Kalman\_Filter\_xyz.c}}
+\doxysubsubsection{stateVecTimeUpdate()}
+{\footnotesize\ttfamily int32\+\_\+t state\+Vec\+Time\+Update (\begin{DoxyParamCaption}\item[{float $\ast$restrict}]{state,  }\item[{const float}]{td }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ This function updates the state vector.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em state} & state vector. ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em td} & time delta.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Is} & the object behind the radar?. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 497 of file Extended\+\_\+\+Kalman\+\_\+\+Filter\+\_\+xyz.\+c.
+
+
+
+References I\+S\+\_\+\+I\+N\+V\+A\+L\+ID, I\+S\+\_\+\+V\+A\+L\+ID, iX, i\+Xd, iY, and i\+Yd.
+
+
+
+Referenced by ekf\+Run().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=270pt]{_extended___kalman___filter__xyz_8c_a1dc7786835499d701b46752ed8f10812_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{_extended___kalman___filter__xyz_8c_a4f8b47000064776f91b9034115ad9aee}} 
+\index{Extended\_Kalman\_Filter\_xyz.c@{Extended\_Kalman\_Filter\_xyz.c}!symMatInv@{symMatInv}}
+\index{symMatInv@{symMatInv}!Extended\_Kalman\_Filter\_xyz.c@{Extended\_Kalman\_Filter\_xyz.c}}
+\doxysubsubsection{symMatInv()}
+{\footnotesize\ttfamily int32\+\_\+t sym\+Mat\+Inv (\begin{DoxyParamCaption}\item[{float $\ast$restrict}]{inv,  }\item[{float const $\ast$restrict}]{m }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ This function computes the inverse of a symettric N\+\_\+\+M\+E\+A\+S\+U\+R\+E\+M\+E\+N\+TS x N\+\_\+\+M\+E\+A\+S\+U\+R\+E\+M\+E\+N\+TS matrix.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em inv} & inverted matrix. ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em m} & input matrix.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Not} & Applicable. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 752 of file Extended\+\_\+\+Kalman\+\_\+\+Filter\+\_\+xyz.\+c.
+
+
+
+References E\+PS, and N\+\_\+\+U\+N\+I\+Q\+\_\+\+E\+L\+E\+M\+\_\+\+I\+N\+\_\+\+S\+Y\+M\+\_\+\+R\+E\+S\+I\+D\+C\+O\+V\+M\+AT.
+
+
+
+Referenced by ekf\+Run().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=226pt]{_extended___kalman___filter__xyz_8c_a4f8b47000064776f91b9034115ad9aee_icgraph}
+\end{center}
+\end{figure}

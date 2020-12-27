@@ -1,0 +1,748 @@
+\doxysection{common/profiles/config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.h File Reference}
+\label{config__chirp__design___u_s_r_r20_8h}\index{common/profiles/config\_chirp\_design\_USRR20.h@{common/profiles/config\_chirp\_design\_USRR20.h}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+P\+R\+O\+F\+I\+L\+E\+\_\+\+ID}~(1U)
+\begin{DoxyCompactList}\small\item\em Ultra short range chirp profile -\/ 20 m range, 4.\+3cm resolution. better angular resolution, approximately 18kmph max -\/ vel. \end{DoxyCompactList}\item 
+\#define \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+H\+P\+F\+C\+O\+R\+N\+E\+R\+\_\+\+F\+R\+E\+Q1\+\_\+\+V\+AL}~R\+L\+\_\+\+R\+X\+\_\+\+H\+P\+F1\+\_\+175\+\_\+\+K\+Hz
+\item 
+\#define \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+H\+P\+F\+C\+O\+R\+N\+E\+R\+\_\+\+F\+R\+E\+Q2\+\_\+\+V\+AL}~R\+L\+\_\+\+R\+X\+\_\+\+H\+P\+F2\+\_\+350\+\_\+\+K\+Hz
+\item 
+\#define \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+R\+X\+\_\+\+G\+A\+I\+N\+\_\+\+V\+AL}~(30U)
+\item 
+\#define \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+D\+I\+G\+O\+U\+T\+\_\+\+S\+A\+M\+P\+L\+E\+R\+A\+T\+E\+\_\+\+V\+AL}~(6222U)
+\item 
+\#define \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+A\+D\+C\+\_\+\+S\+A\+M\+P\+L\+E\+\_\+\+V\+AL}~(512U)
+\item 
+\#define \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+I\+D\+L\+E\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL}~(700U)
+\item 
+\#define \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+R\+A\+M\+P\+\_\+\+E\+N\+D\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL}~(8728U)
+\item 
+\#define \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+S\+T\+A\+R\+T\+\_\+\+F\+R\+E\+Q\+\_\+\+G\+HZ}~(77.\+01f)
+\item 
+\#define \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+S\+T\+A\+R\+T\+\_\+\+F\+R\+E\+Q\+\_\+\+V\+AL}~(\textbf{ C\+O\+N\+V\+\_\+\+F\+R\+E\+Q\+\_\+\+G\+H\+Z\+\_\+\+T\+O\+\_\+\+C\+O\+D\+E\+W\+O\+RD}(\textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+S\+T\+A\+R\+T\+\_\+\+F\+R\+E\+Q\+\_\+\+G\+HZ}))
+\item 
+\#define \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+T\+X\+O\+U\+T\+\_\+\+P\+O\+W\+E\+R\+\_\+\+B\+A\+C\+K\+O\+FF}~(0U)
+\item 
+\#define \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+T\+X\+P\+H\+A\+S\+E\+S\+H\+I\+F\+T\+E\+R\+\_\+\+V\+AL}~(0U)
+\item 
+\#define \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+F\+R\+E\+Q\+\_\+\+S\+L\+O\+P\+E\+\_\+\+M\+H\+Z\+\_\+\+P\+E\+R\+\_\+\+US}~(42.\+0f)
+\item 
+\#define \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+F\+R\+E\+Q\+\_\+\+S\+L\+O\+P\+E\+\_\+\+V\+AL}~(\textbf{ C\+O\+N\+V\+\_\+\+S\+L\+O\+P\+E\+\_\+\+M\+H\+Z\+\_\+\+P\+E\+R\+\_\+\+U\+S\+\_\+\+T\+O\+\_\+\+C\+O\+D\+E\+W\+O\+RD}(\textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+F\+R\+E\+Q\+\_\+\+S\+L\+O\+P\+E\+\_\+\+M\+H\+Z\+\_\+\+P\+E\+R\+\_\+\+US}))
+\item 
+\#define \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+T\+X\+\_\+\+S\+T\+A\+R\+T\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL}~(100U)
+\item 
+\#define \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+A\+D\+C\+\_\+\+S\+T\+A\+R\+T\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL}~(480U)
+\item 
+\#define \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+L\+A\+M\+B\+D\+A\+\_\+\+M\+I\+L\+L\+I\+M\+E\+T\+ER}~(M\+M\+W\+D\+E\+M\+O\+\_\+\+S\+P\+E\+E\+D\+\_\+\+O\+F\+\_\+\+L\+I\+G\+H\+T\+\_\+\+I\+N\+\_\+\+M\+E\+T\+E\+R\+S\+\_\+\+P\+E\+R\+\_\+\+U\+S\+EC/\textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+S\+T\+A\+R\+T\+\_\+\+F\+R\+E\+Q\+\_\+\+G\+HZ})
+\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+0\+\_\+\+P\+R\+O\+F\+I\+L\+E\+\_\+\+ID}~(1U)
+\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+0\+\_\+\+S\+T\+A\+R\+T\+\_\+\+I\+N\+D\+EX}~(256U + 0U)
+\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+0\+\_\+\+E\+N\+D\+\_\+\+I\+N\+D\+EX}~(256U + 0U)
+\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+0\+\_\+\+S\+T\+A\+R\+T\+\_\+\+F\+R\+E\+Q\+\_\+\+V\+AL}~(0U)
+\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+0\+\_\+\+F\+R\+E\+Q\+\_\+\+S\+L\+O\+P\+E\+\_\+\+V\+AL}~(0U)
+\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+0\+\_\+\+I\+D\+L\+E\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL}~(0U)
+\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+0\+\_\+\+A\+D\+C\+\_\+\+S\+T\+A\+R\+T\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL}~(0U)
+\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+0\+\_\+\+T\+X\+\_\+\+C\+H\+A\+N\+N\+EL}~(\textbf{ T\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+1\+\_\+\+E\+N\+A\+B\+LE})
+\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+1\+\_\+\+P\+R\+O\+F\+I\+L\+E\+\_\+\+ID}~(1U)
+\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+1\+\_\+\+S\+T\+A\+R\+T\+\_\+\+I\+N\+D\+EX}~(256U + 1U)
+\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+1\+\_\+\+E\+N\+D\+\_\+\+I\+N\+D\+EX}~(256U + 1U)
+\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+1\+\_\+\+S\+T\+A\+R\+T\+\_\+\+F\+R\+E\+Q\+\_\+\+V\+AL}~(0U)
+\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+1\+\_\+\+F\+R\+E\+Q\+\_\+\+S\+L\+O\+P\+E\+\_\+\+V\+AL}~(0U)
+\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+1\+\_\+\+I\+D\+L\+E\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL}~(0U)
+\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+1\+\_\+\+A\+D\+C\+\_\+\+S\+T\+A\+R\+T\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL}~(0U)
+\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+1\+\_\+\+T\+X\+\_\+\+C\+H\+A\+N\+N\+EL}~(\textbf{ T\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+2\+\_\+\+E\+N\+A\+B\+LE})
+\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+2\+\_\+\+P\+R\+O\+F\+I\+L\+E\+\_\+\+ID}~(1U)
+\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+2\+\_\+\+S\+T\+A\+R\+T\+\_\+\+I\+N\+D\+EX}~(256U + 2U)
+\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+2\+\_\+\+E\+N\+D\+\_\+\+I\+N\+D\+EX}~(256U + 2U)
+\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+2\+\_\+\+S\+T\+A\+R\+T\+\_\+\+F\+R\+E\+Q\+\_\+\+V\+AL}~(0U)
+\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+2\+\_\+\+F\+R\+E\+Q\+\_\+\+S\+L\+O\+P\+E\+\_\+\+V\+AL}~(0U)
+\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+2\+\_\+\+I\+D\+L\+E\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL}~(0U)
+\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+2\+\_\+\+A\+D\+C\+\_\+\+S\+T\+A\+R\+T\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL}~(0U)
+\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+2\+\_\+\+T\+X\+\_\+\+C\+H\+A\+N\+N\+EL}~(\textbf{ T\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+3\+\_\+\+E\+N\+A\+B\+LE})
+\item 
+\#define \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+C\+H\+I\+R\+P\+\_\+\+S\+T\+A\+R\+T\+\_\+\+I\+DX}~(\textbf{ C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+0\+\_\+\+S\+T\+A\+R\+T\+\_\+\+I\+N\+D\+EX})
+\item 
+\#define \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+C\+H\+I\+R\+P\+\_\+\+E\+N\+D\+\_\+\+I\+DX}~(\textbf{ C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+2\+\_\+\+E\+N\+D\+\_\+\+I\+N\+D\+EX})
+\item 
+\#define \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+L\+O\+O\+P\+\_\+\+C\+O\+U\+NT}~(32U)
+\item 
+\#define \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+P\+E\+R\+I\+O\+D\+I\+C\+I\+T\+Y\+\_\+\+V\+AL}~(6000000U)
+\item 
+\#define \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+D\+E\+L\+A\+Y\+\_\+\+V\+AL}~(0U)
+\item 
+\#define \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+N\+U\+M\+\_\+\+R\+E\+A\+L\+\_\+\+A\+D\+C\+\_\+\+S\+A\+M\+P\+L\+ES}~(\textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+A\+D\+C\+\_\+\+S\+A\+M\+P\+L\+E\+\_\+\+V\+AL} $\ast$ 2)
+\item 
+\#define \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+N\+U\+M\+\_\+\+C\+M\+P\+L\+X\+\_\+\+A\+D\+C\+\_\+\+S\+A\+M\+P\+L\+ES}~(\textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+A\+D\+C\+\_\+\+S\+A\+M\+P\+L\+E\+\_\+\+V\+AL})
+\item 
+\#define \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+E\+\_\+0\+\_\+\+N\+U\+M\+\_\+\+C\+H\+I\+R\+PS}~((\textbf{ C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+0\+\_\+\+E\+N\+D\+\_\+\+I\+N\+D\+EX} -\/ \textbf{ C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+0\+\_\+\+S\+T\+A\+R\+T\+\_\+\+I\+N\+D\+EX} + 1)$\ast$\textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+L\+O\+O\+P\+\_\+\+C\+O\+U\+NT})
+\item 
+\#define \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+E\+\_\+1\+\_\+\+N\+U\+M\+\_\+\+C\+H\+I\+R\+PS}~((\textbf{ C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+1\+\_\+\+E\+N\+D\+\_\+\+I\+N\+D\+EX} -\/ \textbf{ C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+1\+\_\+\+S\+T\+A\+R\+T\+\_\+\+I\+N\+D\+EX} + 1)$\ast$\textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+L\+O\+O\+P\+\_\+\+C\+O\+U\+NT})
+\item 
+\#define \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+E\+\_\+2\+\_\+\+N\+U\+M\+\_\+\+C\+H\+I\+R\+PS}~((\textbf{ C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+2\+\_\+\+E\+N\+D\+\_\+\+I\+N\+D\+EX} -\/ \textbf{ C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+2\+\_\+\+S\+T\+A\+R\+T\+\_\+\+I\+N\+D\+EX} + 1)$\ast$\textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+L\+O\+O\+P\+\_\+\+C\+O\+U\+NT})
+\item 
+\#define \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+N\+U\+M\+\_\+\+TX}~(3U)
+\item 
+\#define \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+N\+U\+M\+\_\+\+V\+I\+R\+T\+\_\+\+A\+NT}~(\textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+N\+U\+M\+\_\+\+TX}$\ast$\textbf{ N\+U\+M\+\_\+\+R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+LS})
+\item 
+\#define \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+N\+U\+M\+\_\+\+A\+N\+G\+L\+E\+\_\+\+B\+I\+NS}~(64U)
+\item 
+\#define \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+N\+U\+M\+\_\+\+C\+H\+I\+R\+P\+S\+\_\+\+T\+O\+T\+AL}~((\textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+C\+H\+I\+R\+P\+\_\+\+E\+N\+D\+\_\+\+I\+DX} -\/ \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+C\+H\+I\+R\+P\+\_\+\+S\+T\+A\+R\+T\+\_\+\+I\+DX} + 1) $\ast$ \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+L\+O\+O\+P\+\_\+\+C\+O\+U\+NT})
+\item 
+\#define \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+R\+A\+N\+G\+E\+\_\+\+R\+E\+S\+O\+L\+U\+T\+I\+O\+N\+\_\+\+M\+E\+T\+E\+RS}~((M\+M\+W\+D\+E\+M\+O\+\_\+\+S\+P\+E\+E\+D\+\_\+\+O\+F\+\_\+\+L\+I\+G\+H\+T\+\_\+\+I\+N\+\_\+\+M\+E\+T\+E\+R\+S\+\_\+\+P\+E\+R\+\_\+\+U\+S\+EC $\ast$ \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+D\+I\+G\+O\+U\+T\+\_\+\+S\+A\+M\+P\+L\+E\+R\+A\+T\+E\+\_\+\+V\+AL})/ (2000.\+0f $\ast$ \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+F\+R\+E\+Q\+\_\+\+S\+L\+O\+P\+E\+\_\+\+M\+H\+Z\+\_\+\+P\+E\+R\+\_\+\+US} $\ast$ \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+N\+U\+M\+\_\+\+C\+M\+P\+L\+X\+\_\+\+A\+D\+C\+\_\+\+S\+A\+M\+P\+L\+ES}))
+\begin{DoxyCompactList}\small\item\em Derived parameters. \end{DoxyCompactList}\item 
+\#define \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+C\+H\+I\+R\+P\+\_\+\+R\+E\+P\+E\+T\+I\+T\+I\+O\+N\+\_\+\+P\+E\+R\+I\+O\+D\+\_\+\+US}~((( \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+I\+D\+L\+E\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL} + \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+R\+A\+M\+P\+\_\+\+E\+N\+D\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL})/100.\+0f))
+\item 
+\#define \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+V\+E\+L\+\_\+\+R\+E\+S\+O\+L\+U\+T\+I\+O\+N\+\_\+\+M\+\_\+\+P\+\_\+S}~(((1000.\+0f/(3.\+0f$\ast$\textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+C\+H\+I\+R\+P\+\_\+\+R\+E\+P\+E\+T\+I\+T\+I\+O\+N\+\_\+\+P\+E\+R\+I\+O\+D\+\_\+\+US}))/\textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+E\+\_\+0\+\_\+\+N\+U\+M\+\_\+\+C\+H\+I\+R\+PS})$\ast$(\textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+L\+A\+M\+B\+D\+A\+\_\+\+M\+I\+L\+L\+I\+M\+E\+T\+ER}/2.\+0f))
+\item 
+\#define \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+M\+A\+X\+\_\+\+V\+E\+L\+\_\+\+M\+\_\+\+P\+\_\+S}~(\textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+V\+E\+L\+\_\+\+R\+E\+S\+O\+L\+U\+T\+I\+O\+N\+\_\+\+M\+\_\+\+P\+\_\+S}$\ast$\textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+E\+\_\+0\+\_\+\+N\+U\+M\+\_\+\+C\+H\+I\+R\+PS}/2)
+\item 
+\#define \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+M\+I\+N\+\_\+\+S\+N\+R\+\_\+dB}~(22.\+0f)
+\item 
+\#define \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+N\+U\+M\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+ES}~(3U)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_a6d2c2bc9ce2acac54b950561e276e563}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!CHIRP\_USRR\_0\_ADC\_START\_TIME\_VAL@{CHIRP\_USRR\_0\_ADC\_START\_TIME\_VAL}}
+\index{CHIRP\_USRR\_0\_ADC\_START\_TIME\_VAL@{CHIRP\_USRR\_0\_ADC\_START\_TIME\_VAL}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{CHIRP\_USRR\_0\_ADC\_START\_TIME\_VAL}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+0\+\_\+\+A\+D\+C\+\_\+\+S\+T\+A\+R\+T\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL~(0U)}
+
+
+
+Definition at line 65 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_a0d34dc1297804ad4021bf44ce2dd3741}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!CHIRP\_USRR\_0\_END\_INDEX@{CHIRP\_USRR\_0\_END\_INDEX}}
+\index{CHIRP\_USRR\_0\_END\_INDEX@{CHIRP\_USRR\_0\_END\_INDEX}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{CHIRP\_USRR\_0\_END\_INDEX}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+0\+\_\+\+E\+N\+D\+\_\+\+I\+N\+D\+EX~(256U + 0U)}
+
+
+
+Definition at line 61 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_ae1dd1bb3deed26a0586950fd854c522d}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!CHIRP\_USRR\_0\_FREQ\_SLOPE\_VAL@{CHIRP\_USRR\_0\_FREQ\_SLOPE\_VAL}}
+\index{CHIRP\_USRR\_0\_FREQ\_SLOPE\_VAL@{CHIRP\_USRR\_0\_FREQ\_SLOPE\_VAL}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{CHIRP\_USRR\_0\_FREQ\_SLOPE\_VAL}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+0\+\_\+\+F\+R\+E\+Q\+\_\+\+S\+L\+O\+P\+E\+\_\+\+V\+AL~(0U)}
+
+
+
+Definition at line 63 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_a35155ad87876503daf8430667368e1ec}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!CHIRP\_USRR\_0\_IDLE\_TIME\_VAL@{CHIRP\_USRR\_0\_IDLE\_TIME\_VAL}}
+\index{CHIRP\_USRR\_0\_IDLE\_TIME\_VAL@{CHIRP\_USRR\_0\_IDLE\_TIME\_VAL}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{CHIRP\_USRR\_0\_IDLE\_TIME\_VAL}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+0\+\_\+\+I\+D\+L\+E\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL~(0U)}
+
+
+
+Definition at line 64 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_aaf2373dc0b315f796945de63ad3682e6}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!CHIRP\_USRR\_0\_PROFILE\_ID@{CHIRP\_USRR\_0\_PROFILE\_ID}}
+\index{CHIRP\_USRR\_0\_PROFILE\_ID@{CHIRP\_USRR\_0\_PROFILE\_ID}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{CHIRP\_USRR\_0\_PROFILE\_ID}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+0\+\_\+\+P\+R\+O\+F\+I\+L\+E\+\_\+\+ID~(1U)}
+
+
+
+Definition at line 59 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_a38744a8ff508d307854072510f946a81}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!CHIRP\_USRR\_0\_START\_FREQ\_VAL@{CHIRP\_USRR\_0\_START\_FREQ\_VAL}}
+\index{CHIRP\_USRR\_0\_START\_FREQ\_VAL@{CHIRP\_USRR\_0\_START\_FREQ\_VAL}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{CHIRP\_USRR\_0\_START\_FREQ\_VAL}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+0\+\_\+\+S\+T\+A\+R\+T\+\_\+\+F\+R\+E\+Q\+\_\+\+V\+AL~(0U)}
+
+
+
+Definition at line 62 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_acc0569a670667fec4e56685d944cf4f6}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!CHIRP\_USRR\_0\_START\_INDEX@{CHIRP\_USRR\_0\_START\_INDEX}}
+\index{CHIRP\_USRR\_0\_START\_INDEX@{CHIRP\_USRR\_0\_START\_INDEX}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{CHIRP\_USRR\_0\_START\_INDEX}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+0\+\_\+\+S\+T\+A\+R\+T\+\_\+\+I\+N\+D\+EX~(256U + 0U)}
+
+
+
+Definition at line 60 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_a7b9e2b538e390d06395c2b6bb5186d6e}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!CHIRP\_USRR\_0\_TX\_CHANNEL@{CHIRP\_USRR\_0\_TX\_CHANNEL}}
+\index{CHIRP\_USRR\_0\_TX\_CHANNEL@{CHIRP\_USRR\_0\_TX\_CHANNEL}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{CHIRP\_USRR\_0\_TX\_CHANNEL}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+0\+\_\+\+T\+X\+\_\+\+C\+H\+A\+N\+N\+EL~(\textbf{ T\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+1\+\_\+\+E\+N\+A\+B\+LE})}
+
+
+
+Definition at line 66 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_ae3917683d1ad40316594acb344681f49}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!CHIRP\_USRR\_1\_ADC\_START\_TIME\_VAL@{CHIRP\_USRR\_1\_ADC\_START\_TIME\_VAL}}
+\index{CHIRP\_USRR\_1\_ADC\_START\_TIME\_VAL@{CHIRP\_USRR\_1\_ADC\_START\_TIME\_VAL}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{CHIRP\_USRR\_1\_ADC\_START\_TIME\_VAL}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+1\+\_\+\+A\+D\+C\+\_\+\+S\+T\+A\+R\+T\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL~(0U)}
+
+
+
+Definition at line 74 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_af44c8ae6bcc3c75018bdcc38335aa3cf}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!CHIRP\_USRR\_1\_END\_INDEX@{CHIRP\_USRR\_1\_END\_INDEX}}
+\index{CHIRP\_USRR\_1\_END\_INDEX@{CHIRP\_USRR\_1\_END\_INDEX}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{CHIRP\_USRR\_1\_END\_INDEX}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+1\+\_\+\+E\+N\+D\+\_\+\+I\+N\+D\+EX~(256U + 1U)}
+
+
+
+Definition at line 70 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_aa4c210e836df23a39776fc9b9d3b707e}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!CHIRP\_USRR\_1\_FREQ\_SLOPE\_VAL@{CHIRP\_USRR\_1\_FREQ\_SLOPE\_VAL}}
+\index{CHIRP\_USRR\_1\_FREQ\_SLOPE\_VAL@{CHIRP\_USRR\_1\_FREQ\_SLOPE\_VAL}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{CHIRP\_USRR\_1\_FREQ\_SLOPE\_VAL}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+1\+\_\+\+F\+R\+E\+Q\+\_\+\+S\+L\+O\+P\+E\+\_\+\+V\+AL~(0U)}
+
+
+
+Definition at line 72 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_a349c7f1bd5f81520b768e60a34ec3ef4}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!CHIRP\_USRR\_1\_IDLE\_TIME\_VAL@{CHIRP\_USRR\_1\_IDLE\_TIME\_VAL}}
+\index{CHIRP\_USRR\_1\_IDLE\_TIME\_VAL@{CHIRP\_USRR\_1\_IDLE\_TIME\_VAL}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{CHIRP\_USRR\_1\_IDLE\_TIME\_VAL}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+1\+\_\+\+I\+D\+L\+E\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL~(0U)}
+
+
+
+Definition at line 73 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_ac4eacf4b689be3342442ea930501b649}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!CHIRP\_USRR\_1\_PROFILE\_ID@{CHIRP\_USRR\_1\_PROFILE\_ID}}
+\index{CHIRP\_USRR\_1\_PROFILE\_ID@{CHIRP\_USRR\_1\_PROFILE\_ID}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{CHIRP\_USRR\_1\_PROFILE\_ID}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+1\+\_\+\+P\+R\+O\+F\+I\+L\+E\+\_\+\+ID~(1U)}
+
+
+
+Definition at line 68 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_a633528730233a07595209f5d24e6bacd}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!CHIRP\_USRR\_1\_START\_FREQ\_VAL@{CHIRP\_USRR\_1\_START\_FREQ\_VAL}}
+\index{CHIRP\_USRR\_1\_START\_FREQ\_VAL@{CHIRP\_USRR\_1\_START\_FREQ\_VAL}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{CHIRP\_USRR\_1\_START\_FREQ\_VAL}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+1\+\_\+\+S\+T\+A\+R\+T\+\_\+\+F\+R\+E\+Q\+\_\+\+V\+AL~(0U)}
+
+
+
+Definition at line 71 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_a9cca4c7a56ad6e71ae1828ba4d888aaf}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!CHIRP\_USRR\_1\_START\_INDEX@{CHIRP\_USRR\_1\_START\_INDEX}}
+\index{CHIRP\_USRR\_1\_START\_INDEX@{CHIRP\_USRR\_1\_START\_INDEX}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{CHIRP\_USRR\_1\_START\_INDEX}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+1\+\_\+\+S\+T\+A\+R\+T\+\_\+\+I\+N\+D\+EX~(256U + 1U)}
+
+
+
+Definition at line 69 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_a39258c76fd38a2942b90111e84ee08bc}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!CHIRP\_USRR\_1\_TX\_CHANNEL@{CHIRP\_USRR\_1\_TX\_CHANNEL}}
+\index{CHIRP\_USRR\_1\_TX\_CHANNEL@{CHIRP\_USRR\_1\_TX\_CHANNEL}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{CHIRP\_USRR\_1\_TX\_CHANNEL}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+1\+\_\+\+T\+X\+\_\+\+C\+H\+A\+N\+N\+EL~(\textbf{ T\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+2\+\_\+\+E\+N\+A\+B\+LE})}
+
+
+
+Definition at line 75 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_ab57f731315fe10a479e69a839a5944a4}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!CHIRP\_USRR\_2\_ADC\_START\_TIME\_VAL@{CHIRP\_USRR\_2\_ADC\_START\_TIME\_VAL}}
+\index{CHIRP\_USRR\_2\_ADC\_START\_TIME\_VAL@{CHIRP\_USRR\_2\_ADC\_START\_TIME\_VAL}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{CHIRP\_USRR\_2\_ADC\_START\_TIME\_VAL}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+2\+\_\+\+A\+D\+C\+\_\+\+S\+T\+A\+R\+T\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL~(0U)}
+
+
+
+Definition at line 84 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_a067687a03df06b28e8f694bb8fbf6ed3}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!CHIRP\_USRR\_2\_END\_INDEX@{CHIRP\_USRR\_2\_END\_INDEX}}
+\index{CHIRP\_USRR\_2\_END\_INDEX@{CHIRP\_USRR\_2\_END\_INDEX}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{CHIRP\_USRR\_2\_END\_INDEX}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+2\+\_\+\+E\+N\+D\+\_\+\+I\+N\+D\+EX~(256U + 2U)}
+
+
+
+Definition at line 80 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_a621b806145bf3fadf0ecee6eddb4f90d}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!CHIRP\_USRR\_2\_FREQ\_SLOPE\_VAL@{CHIRP\_USRR\_2\_FREQ\_SLOPE\_VAL}}
+\index{CHIRP\_USRR\_2\_FREQ\_SLOPE\_VAL@{CHIRP\_USRR\_2\_FREQ\_SLOPE\_VAL}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{CHIRP\_USRR\_2\_FREQ\_SLOPE\_VAL}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+2\+\_\+\+F\+R\+E\+Q\+\_\+\+S\+L\+O\+P\+E\+\_\+\+V\+AL~(0U)}
+
+
+
+Definition at line 82 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_ad1b4e837172f547dfe4ebe8af7e35668}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!CHIRP\_USRR\_2\_IDLE\_TIME\_VAL@{CHIRP\_USRR\_2\_IDLE\_TIME\_VAL}}
+\index{CHIRP\_USRR\_2\_IDLE\_TIME\_VAL@{CHIRP\_USRR\_2\_IDLE\_TIME\_VAL}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{CHIRP\_USRR\_2\_IDLE\_TIME\_VAL}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+2\+\_\+\+I\+D\+L\+E\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL~(0U)}
+
+
+
+Definition at line 83 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_aadcf4dfec52c2e45808e184197c1c90f}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!CHIRP\_USRR\_2\_PROFILE\_ID@{CHIRP\_USRR\_2\_PROFILE\_ID}}
+\index{CHIRP\_USRR\_2\_PROFILE\_ID@{CHIRP\_USRR\_2\_PROFILE\_ID}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{CHIRP\_USRR\_2\_PROFILE\_ID}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+2\+\_\+\+P\+R\+O\+F\+I\+L\+E\+\_\+\+ID~(1U)}
+
+
+
+Definition at line 78 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_a067bf81b427972c501d8f3ed8a13afae}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!CHIRP\_USRR\_2\_START\_FREQ\_VAL@{CHIRP\_USRR\_2\_START\_FREQ\_VAL}}
+\index{CHIRP\_USRR\_2\_START\_FREQ\_VAL@{CHIRP\_USRR\_2\_START\_FREQ\_VAL}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{CHIRP\_USRR\_2\_START\_FREQ\_VAL}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+2\+\_\+\+S\+T\+A\+R\+T\+\_\+\+F\+R\+E\+Q\+\_\+\+V\+AL~(0U)}
+
+
+
+Definition at line 81 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_abc3869fc4e6de191549199bfb1980374}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!CHIRP\_USRR\_2\_START\_INDEX@{CHIRP\_USRR\_2\_START\_INDEX}}
+\index{CHIRP\_USRR\_2\_START\_INDEX@{CHIRP\_USRR\_2\_START\_INDEX}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{CHIRP\_USRR\_2\_START\_INDEX}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+2\+\_\+\+S\+T\+A\+R\+T\+\_\+\+I\+N\+D\+EX~(256U + 2U)}
+
+
+
+Definition at line 79 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_aad7c14a7675f7752acea7eeb21d92219}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!CHIRP\_USRR\_2\_TX\_CHANNEL@{CHIRP\_USRR\_2\_TX\_CHANNEL}}
+\index{CHIRP\_USRR\_2\_TX\_CHANNEL@{CHIRP\_USRR\_2\_TX\_CHANNEL}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{CHIRP\_USRR\_2\_TX\_CHANNEL}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+2\+\_\+\+T\+X\+\_\+\+C\+H\+A\+N\+N\+EL~(\textbf{ T\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+3\+\_\+\+E\+N\+A\+B\+LE})}
+
+
+
+Definition at line 85 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_a1d0b504355040fc074a9bd60efe5783e}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!PROFILE\_USRR\_ADC\_SAMPLE\_VAL@{PROFILE\_USRR\_ADC\_SAMPLE\_VAL}}
+\index{PROFILE\_USRR\_ADC\_SAMPLE\_VAL@{PROFILE\_USRR\_ADC\_SAMPLE\_VAL}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{PROFILE\_USRR\_ADC\_SAMPLE\_VAL}
+{\footnotesize\ttfamily \#define P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+A\+D\+C\+\_\+\+S\+A\+M\+P\+L\+E\+\_\+\+V\+AL~(512U)}
+
+
+
+Definition at line 46 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_aca7560c9c7c2dd68682c01557e6e060b}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!PROFILE\_USRR\_ADC\_START\_TIME\_VAL@{PROFILE\_USRR\_ADC\_START\_TIME\_VAL}}
+\index{PROFILE\_USRR\_ADC\_START\_TIME\_VAL@{PROFILE\_USRR\_ADC\_START\_TIME\_VAL}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{PROFILE\_USRR\_ADC\_START\_TIME\_VAL}
+{\footnotesize\ttfamily \#define P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+A\+D\+C\+\_\+\+S\+T\+A\+R\+T\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL~(480U)}
+
+
+
+Definition at line 56 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_ae8a26757f2d73ffafae77da89097a829}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!PROFILE\_USRR\_DIGOUT\_SAMPLERATE\_VAL@{PROFILE\_USRR\_DIGOUT\_SAMPLERATE\_VAL}}
+\index{PROFILE\_USRR\_DIGOUT\_SAMPLERATE\_VAL@{PROFILE\_USRR\_DIGOUT\_SAMPLERATE\_VAL}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{PROFILE\_USRR\_DIGOUT\_SAMPLERATE\_VAL}
+{\footnotesize\ttfamily \#define P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+D\+I\+G\+O\+U\+T\+\_\+\+S\+A\+M\+P\+L\+E\+R\+A\+T\+E\+\_\+\+V\+AL~(6222U)}
+
+
+
+Definition at line 45 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_aa410f8c818538f486bf9aaab66e64229}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!PROFILE\_USRR\_FREQ\_SLOPE\_MHZ\_PER\_US@{PROFILE\_USRR\_FREQ\_SLOPE\_MHZ\_PER\_US}}
+\index{PROFILE\_USRR\_FREQ\_SLOPE\_MHZ\_PER\_US@{PROFILE\_USRR\_FREQ\_SLOPE\_MHZ\_PER\_US}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{PROFILE\_USRR\_FREQ\_SLOPE\_MHZ\_PER\_US}
+{\footnotesize\ttfamily \#define P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+F\+R\+E\+Q\+\_\+\+S\+L\+O\+P\+E\+\_\+\+M\+H\+Z\+\_\+\+P\+E\+R\+\_\+\+US~(42.\+0f)}
+
+
+
+Definition at line 53 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_ad62eedfa0fe7333585a5e31f453ff844}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!PROFILE\_USRR\_FREQ\_SLOPE\_VAL@{PROFILE\_USRR\_FREQ\_SLOPE\_VAL}}
+\index{PROFILE\_USRR\_FREQ\_SLOPE\_VAL@{PROFILE\_USRR\_FREQ\_SLOPE\_VAL}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{PROFILE\_USRR\_FREQ\_SLOPE\_VAL}
+{\footnotesize\ttfamily \#define P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+F\+R\+E\+Q\+\_\+\+S\+L\+O\+P\+E\+\_\+\+V\+AL~(\textbf{ C\+O\+N\+V\+\_\+\+S\+L\+O\+P\+E\+\_\+\+M\+H\+Z\+\_\+\+P\+E\+R\+\_\+\+U\+S\+\_\+\+T\+O\+\_\+\+C\+O\+D\+E\+W\+O\+RD}(\textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+F\+R\+E\+Q\+\_\+\+S\+L\+O\+P\+E\+\_\+\+M\+H\+Z\+\_\+\+P\+E\+R\+\_\+\+US}))}
+
+
+
+Definition at line 54 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_a410331d2d33531e9517c4c1c79145931}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!PROFILE\_USRR\_HPFCORNER\_FREQ1\_VAL@{PROFILE\_USRR\_HPFCORNER\_FREQ1\_VAL}}
+\index{PROFILE\_USRR\_HPFCORNER\_FREQ1\_VAL@{PROFILE\_USRR\_HPFCORNER\_FREQ1\_VAL}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{PROFILE\_USRR\_HPFCORNER\_FREQ1\_VAL}
+{\footnotesize\ttfamily \#define P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+H\+P\+F\+C\+O\+R\+N\+E\+R\+\_\+\+F\+R\+E\+Q1\+\_\+\+V\+AL~R\+L\+\_\+\+R\+X\+\_\+\+H\+P\+F1\+\_\+175\+\_\+\+K\+Hz}
+
+
+
+Definition at line 42 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_a63634c56e99fe9c3b12e7cf51d36bbeb}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!PROFILE\_USRR\_HPFCORNER\_FREQ2\_VAL@{PROFILE\_USRR\_HPFCORNER\_FREQ2\_VAL}}
+\index{PROFILE\_USRR\_HPFCORNER\_FREQ2\_VAL@{PROFILE\_USRR\_HPFCORNER\_FREQ2\_VAL}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{PROFILE\_USRR\_HPFCORNER\_FREQ2\_VAL}
+{\footnotesize\ttfamily \#define P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+H\+P\+F\+C\+O\+R\+N\+E\+R\+\_\+\+F\+R\+E\+Q2\+\_\+\+V\+AL~R\+L\+\_\+\+R\+X\+\_\+\+H\+P\+F2\+\_\+350\+\_\+\+K\+Hz}
+
+
+
+Definition at line 43 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_a8dae3abf7f3531610fd649719ab015a8}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!PROFILE\_USRR\_IDLE\_TIME\_VAL@{PROFILE\_USRR\_IDLE\_TIME\_VAL}}
+\index{PROFILE\_USRR\_IDLE\_TIME\_VAL@{PROFILE\_USRR\_IDLE\_TIME\_VAL}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{PROFILE\_USRR\_IDLE\_TIME\_VAL}
+{\footnotesize\ttfamily \#define P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+I\+D\+L\+E\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL~(700U)}
+
+
+
+Definition at line 47 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_afdb178c94f2fe825a7d9ff93c671055e}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!PROFILE\_USRR\_LAMBDA\_MILLIMETER@{PROFILE\_USRR\_LAMBDA\_MILLIMETER}}
+\index{PROFILE\_USRR\_LAMBDA\_MILLIMETER@{PROFILE\_USRR\_LAMBDA\_MILLIMETER}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{PROFILE\_USRR\_LAMBDA\_MILLIMETER}
+{\footnotesize\ttfamily \#define P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+L\+A\+M\+B\+D\+A\+\_\+\+M\+I\+L\+L\+I\+M\+E\+T\+ER~(M\+M\+W\+D\+E\+M\+O\+\_\+\+S\+P\+E\+E\+D\+\_\+\+O\+F\+\_\+\+L\+I\+G\+H\+T\+\_\+\+I\+N\+\_\+\+M\+E\+T\+E\+R\+S\+\_\+\+P\+E\+R\+\_\+\+U\+S\+EC/\textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+S\+T\+A\+R\+T\+\_\+\+F\+R\+E\+Q\+\_\+\+G\+HZ})}
+
+
+
+Definition at line 57 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_a12f7e5e6a8466f2a18cb8661f5d642c4}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!PROFILE\_USRR\_PROFILE\_ID@{PROFILE\_USRR\_PROFILE\_ID}}
+\index{PROFILE\_USRR\_PROFILE\_ID@{PROFILE\_USRR\_PROFILE\_ID}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{PROFILE\_USRR\_PROFILE\_ID}
+{\footnotesize\ttfamily \#define P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+P\+R\+O\+F\+I\+L\+E\+\_\+\+ID~(1U)}
+
+
+
+Ultra short range chirp profile -\/ 20 m range, 4.\+3cm resolution. better angular resolution, approximately 18kmph max -\/ vel. 
+
+
+
+Definition at line 41 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_a03fd0e92a49bc66cf1c48e2ac88464af}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!PROFILE\_USRR\_RAMP\_END\_TIME\_VAL@{PROFILE\_USRR\_RAMP\_END\_TIME\_VAL}}
+\index{PROFILE\_USRR\_RAMP\_END\_TIME\_VAL@{PROFILE\_USRR\_RAMP\_END\_TIME\_VAL}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{PROFILE\_USRR\_RAMP\_END\_TIME\_VAL}
+{\footnotesize\ttfamily \#define P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+R\+A\+M\+P\+\_\+\+E\+N\+D\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL~(8728U)}
+
+
+
+Definition at line 48 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_a6a4078209e9761a4321ce5dc04dad5d8}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!PROFILE\_USRR\_RANGE\_RESOLUTION\_METERS@{PROFILE\_USRR\_RANGE\_RESOLUTION\_METERS}}
+\index{PROFILE\_USRR\_RANGE\_RESOLUTION\_METERS@{PROFILE\_USRR\_RANGE\_RESOLUTION\_METERS}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{PROFILE\_USRR\_RANGE\_RESOLUTION\_METERS}
+{\footnotesize\ttfamily \#define P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+R\+A\+N\+G\+E\+\_\+\+R\+E\+S\+O\+L\+U\+T\+I\+O\+N\+\_\+\+M\+E\+T\+E\+RS~((M\+M\+W\+D\+E\+M\+O\+\_\+\+S\+P\+E\+E\+D\+\_\+\+O\+F\+\_\+\+L\+I\+G\+H\+T\+\_\+\+I\+N\+\_\+\+M\+E\+T\+E\+R\+S\+\_\+\+P\+E\+R\+\_\+\+U\+S\+EC $\ast$ \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+D\+I\+G\+O\+U\+T\+\_\+\+S\+A\+M\+P\+L\+E\+R\+A\+T\+E\+\_\+\+V\+AL})/ (2000.\+0f $\ast$ \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+F\+R\+E\+Q\+\_\+\+S\+L\+O\+P\+E\+\_\+\+M\+H\+Z\+\_\+\+P\+E\+R\+\_\+\+US} $\ast$ \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+N\+U\+M\+\_\+\+C\+M\+P\+L\+X\+\_\+\+A\+D\+C\+\_\+\+S\+A\+M\+P\+L\+ES}))}
+
+
+
+Derived parameters. 
+
+
+
+Definition at line 105 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_a17108f09b9c2d3218ad8ff91a3c7f4b8}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!PROFILE\_USRR\_RX\_GAIN\_VAL@{PROFILE\_USRR\_RX\_GAIN\_VAL}}
+\index{PROFILE\_USRR\_RX\_GAIN\_VAL@{PROFILE\_USRR\_RX\_GAIN\_VAL}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{PROFILE\_USRR\_RX\_GAIN\_VAL}
+{\footnotesize\ttfamily \#define P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+R\+X\+\_\+\+G\+A\+I\+N\+\_\+\+V\+AL~(30U)}
+
+
+
+Definition at line 44 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_af0aa832d7738e9c4e9fbdd3b92dcaac9}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!PROFILE\_USRR\_START\_FREQ\_GHZ@{PROFILE\_USRR\_START\_FREQ\_GHZ}}
+\index{PROFILE\_USRR\_START\_FREQ\_GHZ@{PROFILE\_USRR\_START\_FREQ\_GHZ}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{PROFILE\_USRR\_START\_FREQ\_GHZ}
+{\footnotesize\ttfamily \#define P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+S\+T\+A\+R\+T\+\_\+\+F\+R\+E\+Q\+\_\+\+G\+HZ~(77.\+01f)}
+
+
+
+Definition at line 49 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_a279fe4f7d244e0104aae2d09fed348df}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!PROFILE\_USRR\_START\_FREQ\_VAL@{PROFILE\_USRR\_START\_FREQ\_VAL}}
+\index{PROFILE\_USRR\_START\_FREQ\_VAL@{PROFILE\_USRR\_START\_FREQ\_VAL}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{PROFILE\_USRR\_START\_FREQ\_VAL}
+{\footnotesize\ttfamily \#define P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+S\+T\+A\+R\+T\+\_\+\+F\+R\+E\+Q\+\_\+\+V\+AL~(\textbf{ C\+O\+N\+V\+\_\+\+F\+R\+E\+Q\+\_\+\+G\+H\+Z\+\_\+\+T\+O\+\_\+\+C\+O\+D\+E\+W\+O\+RD}(\textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+S\+T\+A\+R\+T\+\_\+\+F\+R\+E\+Q\+\_\+\+G\+HZ}))}
+
+
+
+Definition at line 50 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_ab35413db61ee13091ccd94fc7adbf2aa}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!PROFILE\_USRR\_TX\_START\_TIME\_VAL@{PROFILE\_USRR\_TX\_START\_TIME\_VAL}}
+\index{PROFILE\_USRR\_TX\_START\_TIME\_VAL@{PROFILE\_USRR\_TX\_START\_TIME\_VAL}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{PROFILE\_USRR\_TX\_START\_TIME\_VAL}
+{\footnotesize\ttfamily \#define P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+T\+X\+\_\+\+S\+T\+A\+R\+T\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL~(100U)}
+
+
+
+Definition at line 55 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_a5e22ddbde54c08b536712103c52663db}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!PROFILE\_USRR\_TXOUT\_POWER\_BACKOFF@{PROFILE\_USRR\_TXOUT\_POWER\_BACKOFF}}
+\index{PROFILE\_USRR\_TXOUT\_POWER\_BACKOFF@{PROFILE\_USRR\_TXOUT\_POWER\_BACKOFF}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{PROFILE\_USRR\_TXOUT\_POWER\_BACKOFF}
+{\footnotesize\ttfamily \#define P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+T\+X\+O\+U\+T\+\_\+\+P\+O\+W\+E\+R\+\_\+\+B\+A\+C\+K\+O\+FF~(0U)}
+
+
+
+Definition at line 51 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_a9f3987c7da7b0f3e7f3c3941e4b01781}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!PROFILE\_USRR\_TXPHASESHIFTER\_VAL@{PROFILE\_USRR\_TXPHASESHIFTER\_VAL}}
+\index{PROFILE\_USRR\_TXPHASESHIFTER\_VAL@{PROFILE\_USRR\_TXPHASESHIFTER\_VAL}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{PROFILE\_USRR\_TXPHASESHIFTER\_VAL}
+{\footnotesize\ttfamily \#define P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+T\+X\+P\+H\+A\+S\+E\+S\+H\+I\+F\+T\+E\+R\+\_\+\+V\+AL~(0U)}
+
+
+
+Definition at line 52 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_aed936291d9a67f99d740997b1b1e0bfc}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!SUBFRAME\_USRR\_CHIRP\_END\_IDX@{SUBFRAME\_USRR\_CHIRP\_END\_IDX}}
+\index{SUBFRAME\_USRR\_CHIRP\_END\_IDX@{SUBFRAME\_USRR\_CHIRP\_END\_IDX}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{SUBFRAME\_USRR\_CHIRP\_END\_IDX}
+{\footnotesize\ttfamily \#define S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+C\+H\+I\+R\+P\+\_\+\+E\+N\+D\+\_\+\+I\+DX~(\textbf{ C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+2\+\_\+\+E\+N\+D\+\_\+\+I\+N\+D\+EX})}
+
+
+
+Definition at line 89 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_a38e37425185fa6d9cfc39701cf380bc9}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!SUBFRAME\_USRR\_CHIRP\_REPETITION\_PERIOD\_US@{SUBFRAME\_USRR\_CHIRP\_REPETITION\_PERIOD\_US}}
+\index{SUBFRAME\_USRR\_CHIRP\_REPETITION\_PERIOD\_US@{SUBFRAME\_USRR\_CHIRP\_REPETITION\_PERIOD\_US}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{SUBFRAME\_USRR\_CHIRP\_REPETITION\_PERIOD\_US}
+{\footnotesize\ttfamily \#define S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+C\+H\+I\+R\+P\+\_\+\+R\+E\+P\+E\+T\+I\+T\+I\+O\+N\+\_\+\+P\+E\+R\+I\+O\+D\+\_\+\+US~((( \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+I\+D\+L\+E\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL} + \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+R\+A\+M\+P\+\_\+\+E\+N\+D\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL})/100.\+0f))}
+
+
+
+Definition at line 108 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_a976731ebbd127b949274cc8e7d49f248}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!SUBFRAME\_USRR\_CHIRP\_START\_IDX@{SUBFRAME\_USRR\_CHIRP\_START\_IDX}}
+\index{SUBFRAME\_USRR\_CHIRP\_START\_IDX@{SUBFRAME\_USRR\_CHIRP\_START\_IDX}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{SUBFRAME\_USRR\_CHIRP\_START\_IDX}
+{\footnotesize\ttfamily \#define S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+C\+H\+I\+R\+P\+\_\+\+S\+T\+A\+R\+T\+\_\+\+I\+DX~(\textbf{ C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+0\+\_\+\+S\+T\+A\+R\+T\+\_\+\+I\+N\+D\+EX})}
+
+
+
+Definition at line 88 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_aaaec85cc059ed6ca66196e0a98f8658e}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!SUBFRAME\_USRR\_CHIRPTYPE\_0\_NUM\_CHIRPS@{SUBFRAME\_USRR\_CHIRPTYPE\_0\_NUM\_CHIRPS}}
+\index{SUBFRAME\_USRR\_CHIRPTYPE\_0\_NUM\_CHIRPS@{SUBFRAME\_USRR\_CHIRPTYPE\_0\_NUM\_CHIRPS}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{SUBFRAME\_USRR\_CHIRPTYPE\_0\_NUM\_CHIRPS}
+{\footnotesize\ttfamily \#define S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+E\+\_\+0\+\_\+\+N\+U\+M\+\_\+\+C\+H\+I\+R\+PS~((\textbf{ C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+0\+\_\+\+E\+N\+D\+\_\+\+I\+N\+D\+EX} -\/ \textbf{ C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+0\+\_\+\+S\+T\+A\+R\+T\+\_\+\+I\+N\+D\+EX} + 1)$\ast$\textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+L\+O\+O\+P\+\_\+\+C\+O\+U\+NT})}
+
+
+
+Definition at line 95 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_ac8278db5616ef4e42f78fc590e5cf712}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!SUBFRAME\_USRR\_CHIRPTYPE\_1\_NUM\_CHIRPS@{SUBFRAME\_USRR\_CHIRPTYPE\_1\_NUM\_CHIRPS}}
+\index{SUBFRAME\_USRR\_CHIRPTYPE\_1\_NUM\_CHIRPS@{SUBFRAME\_USRR\_CHIRPTYPE\_1\_NUM\_CHIRPS}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{SUBFRAME\_USRR\_CHIRPTYPE\_1\_NUM\_CHIRPS}
+{\footnotesize\ttfamily \#define S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+E\+\_\+1\+\_\+\+N\+U\+M\+\_\+\+C\+H\+I\+R\+PS~((\textbf{ C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+1\+\_\+\+E\+N\+D\+\_\+\+I\+N\+D\+EX} -\/ \textbf{ C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+1\+\_\+\+S\+T\+A\+R\+T\+\_\+\+I\+N\+D\+EX} + 1)$\ast$\textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+L\+O\+O\+P\+\_\+\+C\+O\+U\+NT})}
+
+
+
+Definition at line 96 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_a85ad87ac0b4306e2fe9f21d4b15d4a01}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!SUBFRAME\_USRR\_CHIRPTYPE\_2\_NUM\_CHIRPS@{SUBFRAME\_USRR\_CHIRPTYPE\_2\_NUM\_CHIRPS}}
+\index{SUBFRAME\_USRR\_CHIRPTYPE\_2\_NUM\_CHIRPS@{SUBFRAME\_USRR\_CHIRPTYPE\_2\_NUM\_CHIRPS}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{SUBFRAME\_USRR\_CHIRPTYPE\_2\_NUM\_CHIRPS}
+{\footnotesize\ttfamily \#define S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+E\+\_\+2\+\_\+\+N\+U\+M\+\_\+\+C\+H\+I\+R\+PS~((\textbf{ C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+2\+\_\+\+E\+N\+D\+\_\+\+I\+N\+D\+EX} -\/ \textbf{ C\+H\+I\+R\+P\+\_\+\+U\+S\+R\+R\+\_\+2\+\_\+\+S\+T\+A\+R\+T\+\_\+\+I\+N\+D\+EX} + 1)$\ast$\textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+L\+O\+O\+P\+\_\+\+C\+O\+U\+NT})}
+
+
+
+Definition at line 97 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_ab7949bf321a27e70e7ae4b3d10452cda}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!SUBFRAME\_USRR\_LOOP\_COUNT@{SUBFRAME\_USRR\_LOOP\_COUNT}}
+\index{SUBFRAME\_USRR\_LOOP\_COUNT@{SUBFRAME\_USRR\_LOOP\_COUNT}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{SUBFRAME\_USRR\_LOOP\_COUNT}
+{\footnotesize\ttfamily \#define S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+L\+O\+O\+P\+\_\+\+C\+O\+U\+NT~(32U)}
+
+
+
+Definition at line 90 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_af57a9032049e5184f364a79c7c443d9a}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!SUBFRAME\_USRR\_MAX\_VEL\_M\_P\_S@{SUBFRAME\_USRR\_MAX\_VEL\_M\_P\_S}}
+\index{SUBFRAME\_USRR\_MAX\_VEL\_M\_P\_S@{SUBFRAME\_USRR\_MAX\_VEL\_M\_P\_S}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{SUBFRAME\_USRR\_MAX\_VEL\_M\_P\_S}
+{\footnotesize\ttfamily \#define S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+M\+A\+X\+\_\+\+V\+E\+L\+\_\+\+M\+\_\+\+P\+\_\+S~(\textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+V\+E\+L\+\_\+\+R\+E\+S\+O\+L\+U\+T\+I\+O\+N\+\_\+\+M\+\_\+\+P\+\_\+S}$\ast$\textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+E\+\_\+0\+\_\+\+N\+U\+M\+\_\+\+C\+H\+I\+R\+PS}/2)}
+
+
+
+Definition at line 111 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_a526ee0d4b43242298dda557685ba0708}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!SUBFRAME\_USRR\_MIN\_SNR\_dB@{SUBFRAME\_USRR\_MIN\_SNR\_dB}}
+\index{SUBFRAME\_USRR\_MIN\_SNR\_dB@{SUBFRAME\_USRR\_MIN\_SNR\_dB}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{SUBFRAME\_USRR\_MIN\_SNR\_dB}
+{\footnotesize\ttfamily \#define S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+M\+I\+N\+\_\+\+S\+N\+R\+\_\+dB~(22.\+0f)}
+
+
+
+Definition at line 113 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_a10680162da14ec29732b96854e96d6d0}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!SUBFRAME\_USRR\_NUM\_ANGLE\_BINS@{SUBFRAME\_USRR\_NUM\_ANGLE\_BINS}}
+\index{SUBFRAME\_USRR\_NUM\_ANGLE\_BINS@{SUBFRAME\_USRR\_NUM\_ANGLE\_BINS}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{SUBFRAME\_USRR\_NUM\_ANGLE\_BINS}
+{\footnotesize\ttfamily \#define S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+N\+U\+M\+\_\+\+A\+N\+G\+L\+E\+\_\+\+B\+I\+NS~(64U)}
+
+
+
+Definition at line 101 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_a750badb6e12e7ebb2e356929552e8e21}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!SUBFRAME\_USRR\_NUM\_CHIRPS\_TOTAL@{SUBFRAME\_USRR\_NUM\_CHIRPS\_TOTAL}}
+\index{SUBFRAME\_USRR\_NUM\_CHIRPS\_TOTAL@{SUBFRAME\_USRR\_NUM\_CHIRPS\_TOTAL}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{SUBFRAME\_USRR\_NUM\_CHIRPS\_TOTAL}
+{\footnotesize\ttfamily \#define S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+N\+U\+M\+\_\+\+C\+H\+I\+R\+P\+S\+\_\+\+T\+O\+T\+AL~((\textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+C\+H\+I\+R\+P\+\_\+\+E\+N\+D\+\_\+\+I\+DX} -\/ \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+C\+H\+I\+R\+P\+\_\+\+S\+T\+A\+R\+T\+\_\+\+I\+DX} + 1) $\ast$ \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+L\+O\+O\+P\+\_\+\+C\+O\+U\+NT})}
+
+
+
+Definition at line 102 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_a25983c3d377d956de8958fa72d446fbd}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!SUBFRAME\_USRR\_NUM\_CHIRPTYPES@{SUBFRAME\_USRR\_NUM\_CHIRPTYPES}}
+\index{SUBFRAME\_USRR\_NUM\_CHIRPTYPES@{SUBFRAME\_USRR\_NUM\_CHIRPTYPES}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{SUBFRAME\_USRR\_NUM\_CHIRPTYPES}
+{\footnotesize\ttfamily \#define S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+N\+U\+M\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+ES~(3U)}
+
+
+
+Definition at line 115 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_a097bc0b05cb2b559fae10cd418094e22}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!SUBFRAME\_USRR\_NUM\_CMPLX\_ADC\_SAMPLES@{SUBFRAME\_USRR\_NUM\_CMPLX\_ADC\_SAMPLES}}
+\index{SUBFRAME\_USRR\_NUM\_CMPLX\_ADC\_SAMPLES@{SUBFRAME\_USRR\_NUM\_CMPLX\_ADC\_SAMPLES}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{SUBFRAME\_USRR\_NUM\_CMPLX\_ADC\_SAMPLES}
+{\footnotesize\ttfamily \#define S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+N\+U\+M\+\_\+\+C\+M\+P\+L\+X\+\_\+\+A\+D\+C\+\_\+\+S\+A\+M\+P\+L\+ES~(\textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+A\+D\+C\+\_\+\+S\+A\+M\+P\+L\+E\+\_\+\+V\+AL})}
+
+
+
+Definition at line 94 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_a489f7186603db8d09bb38b12b5547fe3}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!SUBFRAME\_USRR\_NUM\_REAL\_ADC\_SAMPLES@{SUBFRAME\_USRR\_NUM\_REAL\_ADC\_SAMPLES}}
+\index{SUBFRAME\_USRR\_NUM\_REAL\_ADC\_SAMPLES@{SUBFRAME\_USRR\_NUM\_REAL\_ADC\_SAMPLES}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{SUBFRAME\_USRR\_NUM\_REAL\_ADC\_SAMPLES}
+{\footnotesize\ttfamily \#define S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+N\+U\+M\+\_\+\+R\+E\+A\+L\+\_\+\+A\+D\+C\+\_\+\+S\+A\+M\+P\+L\+ES~(\textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+A\+D\+C\+\_\+\+S\+A\+M\+P\+L\+E\+\_\+\+V\+AL} $\ast$ 2)}
+
+
+
+Definition at line 93 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_aa2b96ace2abf4f0b1405610f5d3bfbd9}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!SUBFRAME\_USRR\_NUM\_TX@{SUBFRAME\_USRR\_NUM\_TX}}
+\index{SUBFRAME\_USRR\_NUM\_TX@{SUBFRAME\_USRR\_NUM\_TX}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{SUBFRAME\_USRR\_NUM\_TX}
+{\footnotesize\ttfamily \#define S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+N\+U\+M\+\_\+\+TX~(3U)}
+
+
+
+Definition at line 99 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_a8e14316667581a1fa4db95590063180b}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!SUBFRAME\_USRR\_NUM\_VIRT\_ANT@{SUBFRAME\_USRR\_NUM\_VIRT\_ANT}}
+\index{SUBFRAME\_USRR\_NUM\_VIRT\_ANT@{SUBFRAME\_USRR\_NUM\_VIRT\_ANT}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{SUBFRAME\_USRR\_NUM\_VIRT\_ANT}
+{\footnotesize\ttfamily \#define S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+N\+U\+M\+\_\+\+V\+I\+R\+T\+\_\+\+A\+NT~(\textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+N\+U\+M\+\_\+\+TX}$\ast$\textbf{ N\+U\+M\+\_\+\+R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+LS})}
+
+
+
+Definition at line 100 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_aa64f212b537a800997fb37d918dd4df3}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!SUBFRAME\_USRR\_PERIODICITY\_VAL@{SUBFRAME\_USRR\_PERIODICITY\_VAL}}
+\index{SUBFRAME\_USRR\_PERIODICITY\_VAL@{SUBFRAME\_USRR\_PERIODICITY\_VAL}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{SUBFRAME\_USRR\_PERIODICITY\_VAL}
+{\footnotesize\ttfamily \#define S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+P\+E\+R\+I\+O\+D\+I\+C\+I\+T\+Y\+\_\+\+V\+AL~(6000000U)}
+
+
+
+Definition at line 91 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_a47fac6847bf2faac1b3d8fe59efe473b}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!SUBFRAME\_USRR\_TRIGGER\_DELAY\_VAL@{SUBFRAME\_USRR\_TRIGGER\_DELAY\_VAL}}
+\index{SUBFRAME\_USRR\_TRIGGER\_DELAY\_VAL@{SUBFRAME\_USRR\_TRIGGER\_DELAY\_VAL}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{SUBFRAME\_USRR\_TRIGGER\_DELAY\_VAL}
+{\footnotesize\ttfamily \#define S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+D\+E\+L\+A\+Y\+\_\+\+V\+AL~(0U)}
+
+
+
+Definition at line 92 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+
+\mbox{\label{config__chirp__design___u_s_r_r20_8h_a3b508c669f59d1c5967b47a6b72bf18b}} 
+\index{config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}!SUBFRAME\_USRR\_VEL\_RESOLUTION\_M\_P\_S@{SUBFRAME\_USRR\_VEL\_RESOLUTION\_M\_P\_S}}
+\index{SUBFRAME\_USRR\_VEL\_RESOLUTION\_M\_P\_S@{SUBFRAME\_USRR\_VEL\_RESOLUTION\_M\_P\_S}!config\_chirp\_design\_USRR20.h@{config\_chirp\_design\_USRR20.h}}
+\doxysubsubsection{SUBFRAME\_USRR\_VEL\_RESOLUTION\_M\_P\_S}
+{\footnotesize\ttfamily \#define S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+V\+E\+L\+\_\+\+R\+E\+S\+O\+L\+U\+T\+I\+O\+N\+\_\+\+M\+\_\+\+P\+\_\+S~(((1000.\+0f/(3.\+0f$\ast$\textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+C\+H\+I\+R\+P\+\_\+\+R\+E\+P\+E\+T\+I\+T\+I\+O\+N\+\_\+\+P\+E\+R\+I\+O\+D\+\_\+\+US}))/\textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+E\+\_\+0\+\_\+\+N\+U\+M\+\_\+\+C\+H\+I\+R\+PS})$\ast$(\textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+U\+S\+R\+R\+\_\+\+L\+A\+M\+B\+D\+A\+\_\+\+M\+I\+L\+L\+I\+M\+E\+T\+ER}/2.\+0f))}
+
+
+
+Definition at line 110 of file config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h.
+

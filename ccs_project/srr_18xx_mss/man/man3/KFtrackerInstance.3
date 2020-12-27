@@ -1,0 +1,185 @@
+.TH "KFtrackerInstance" 3 "Wed May 20 2020" "Version 1.0" "mmWaveFMCWRADAR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+KFtrackerInstance \- Struct for the tracker configuration, and pointers to scratch buffers\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <dss_data_path\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "float \fBrangeAssocThresh\fP"
+.br
+.ti -1c
+.RI "float \fBvelAssocThresh\fP"
+.br
+.ti -1c
+.RI "float \fBazimAssocThresh\fP"
+.br
+.ti -1c
+.RI "float \fBdistAssocThreshSq\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBmaxTrackers\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBfixedPointScale\fP"
+.br
+.ti -1c
+.RI "float * \fBscratchPadFlt\fP"
+.br
+.ti -1c
+.RI "int16_t * \fBscratchPadShort\fP"
+.br
+.ti -1c
+.RI "int16_t * \fBassocMeasIndx\fP"
+.br
+.ti -1c
+.RI "int16_t * \fBfreeTrackerIndxArray\fP"
+.br
+.ti -1c
+.RI "int16_t * \fBselectedIndxArr\fP"
+.br
+.ti -1c
+.RI "float * \fBstateVecRrd\fP"
+.br
+.ti -1c
+.RI "float * \fBresidCovmat\fP"
+.br
+.ti -1c
+.RI "float * \fBinvResidCovmat\fP"
+.br
+.ti -1c
+.RI "float * \fBhMat\fP"
+.br
+.ti -1c
+.RI "float * \fBkalmanGain\fP"
+.br
+.ti -1c
+.RI "float * \fBcovmattmp\fP"
+.br
+.ti -1c
+.RI "float * \fBkalmanGainTemp\fP"
+.br
+.ti -1c
+.RI "float * \fBstateCovMattemp\fP"
+.br
+.ti -1c
+.RI "float * \fBstateCovMattempP\fP"
+.br
+.ti -1c
+.RI "float * \fBmeasResidual\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Struct for the tracker configuration, and pointers to scratch buffers\&. 
+.PP
+Definition at line 392 of file dss_data_path\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "int16_t* KFtrackerInstance::assocMeasIndx"
+
+.PP
+Definition at line 404 of file dss_data_path\&.h\&.
+.PP
+Referenced by ekfRun()\&.
+.SS "float KFtrackerInstance::azimAssocThresh"
+
+.PP
+Definition at line 396 of file dss_data_path\&.h\&.
+.SS "float* KFtrackerInstance::covmattmp"
+
+.PP
+Definition at line 412 of file dss_data_path\&.h\&.
+.SS "float KFtrackerInstance::distAssocThreshSq"
+
+.PP
+Definition at line 397 of file dss_data_path\&.h\&.
+.SS "uint16_t KFtrackerInstance::fixedPointScale"
+
+.PP
+Definition at line 399 of file dss_data_path\&.h\&.
+.SS "int16_t* KFtrackerInstance::freeTrackerIndxArray"
+
+.PP
+Definition at line 405 of file dss_data_path\&.h\&.
+.SS "float* KFtrackerInstance::hMat"
+
+.PP
+Definition at line 410 of file dss_data_path\&.h\&.
+.SS "float* KFtrackerInstance::invResidCovmat"
+
+.PP
+Definition at line 409 of file dss_data_path\&.h\&.
+.SS "float* KFtrackerInstance::kalmanGain"
+
+.PP
+Definition at line 411 of file dss_data_path\&.h\&.
+.SS "float* KFtrackerInstance::kalmanGainTemp"
+
+.PP
+Definition at line 413 of file dss_data_path\&.h\&.
+.PP
+Referenced by kalmanGainComputation()\&.
+.SS "uint16_t KFtrackerInstance::maxTrackers"
+
+.PP
+Definition at line 398 of file dss_data_path\&.h\&.
+.PP
+Referenced by populateOutputs()\&.
+.SS "float* KFtrackerInstance::measResidual"
+
+.PP
+Definition at line 416 of file dss_data_path\&.h\&.
+.SS "float KFtrackerInstance::rangeAssocThresh"
+
+.PP
+Definition at line 394 of file dss_data_path\&.h\&.
+.SS "float* KFtrackerInstance::residCovmat"
+
+.PP
+Definition at line 408 of file dss_data_path\&.h\&.
+.SS "float* KFtrackerInstance::scratchPadFlt"
+
+.PP
+Definition at line 402 of file dss_data_path\&.h\&.
+.PP
+Referenced by ekfInit()\&.
+.SS "int16_t* KFtrackerInstance::scratchPadShort"
+
+.PP
+Definition at line 403 of file dss_data_path\&.h\&.
+.SS "int16_t* KFtrackerInstance::selectedIndxArr"
+
+.PP
+Definition at line 406 of file dss_data_path\&.h\&.
+.SS "float* KFtrackerInstance::stateCovMattemp"
+
+.PP
+Definition at line 414 of file dss_data_path\&.h\&.
+.PP
+Referenced by stateCovmatMeasurementUpdate()\&.
+.SS "float* KFtrackerInstance::stateCovMattempP"
+
+.PP
+Definition at line 415 of file dss_data_path\&.h\&.
+.PP
+Referenced by stateCovmatMeasurementUpdate()\&.
+.SS "float* KFtrackerInstance::stateVecRrd"
+
+.PP
+Definition at line 407 of file dss_data_path\&.h\&.
+.SS "float KFtrackerInstance::velAssocThresh"
+
+.PP
+Definition at line 395 of file dss_data_path\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mmWaveFMCWRADAR from the source code\&.

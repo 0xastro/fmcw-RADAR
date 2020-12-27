@@ -1,0 +1,100 @@
+\doxysection{Mmw\+Demo\+\_\+1\+D\+\_\+\+Doppler\+Lines Struct Reference}
+\label{struct_mmw_demo__1_d___doppler_lines}\index{MmwDemo\_1D\_DopplerLines@{MmwDemo\_1D\_DopplerLines}}
+
+
+Active Doppler lines, lines (bins) on which the C\+F\+AR detector detected objects during the detections in Doppler direction.  
+
+
+
+
+{\ttfamily \#include $<$dss\+\_\+data\+\_\+path.\+h$>$}
+
+
+
+Collaboration diagram for Mmw\+Demo\+\_\+1\+D\+\_\+\+Doppler\+Lines\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=224pt]{struct_mmw_demo__1_d___doppler_lines__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t $\ast$ \textbf{ doppler\+Line\+Mask}
+\begin{DoxyCompactList}\small\item\em Doppler line bit mask of active (C\+F\+AR detected) Doppler bins in the first round of C\+F\+AR detections in Doppler direction. The L\+SB bit of the first word corresponds to Doppler bin zero of the range/\+Doppler detection matrix. \end{DoxyCompactList}\item 
+uint16\+\_\+t \textbf{ current\+Index}
+\begin{DoxyCompactList}\small\item\em starting index for the search for next active Doppler line \end{DoxyCompactList}\item 
+uint16\+\_\+t \textbf{ doppler\+Line\+Mask\+Len}
+\begin{DoxyCompactList}\small\item\em size of doppler\+Line\+Mask array, (number of 32\+\_\+bit words, for example for Doppler F\+FT size of 64 this length is equal to 2) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Active Doppler lines, lines (bins) on which the C\+F\+AR detector detected objects during the detections in Doppler direction. 
+
+
+
+Definition at line 238 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\label{struct_mmw_demo__1_d___doppler_lines_ac705deaf1e07a08f71ece4188c7febdd}} 
+\index{MmwDemo\_1D\_DopplerLines@{MmwDemo\_1D\_DopplerLines}!currentIndex@{currentIndex}}
+\index{currentIndex@{currentIndex}!MmwDemo\_1D\_DopplerLines@{MmwDemo\_1D\_DopplerLines}}
+\doxysubsubsection{currentIndex}
+{\footnotesize\ttfamily uint16\+\_\+t Mmw\+Demo\+\_\+1\+D\+\_\+\+Doppler\+Lines\+::current\+Index}
+
+
+
+starting index for the search for next active Doppler line 
+
+
+
+Definition at line 246 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by Mmw\+Demo\+\_\+get\+Doppler\+Line(), and Mmw\+Demo\+\_\+reset\+Doppler\+Lines().
+
+\mbox{\label{struct_mmw_demo__1_d___doppler_lines_a41731676ae39ab4ab6dc856e5b2c6d62}} 
+\index{MmwDemo\_1D\_DopplerLines@{MmwDemo\_1D\_DopplerLines}!dopplerLineMask@{dopplerLineMask}}
+\index{dopplerLineMask@{dopplerLineMask}!MmwDemo\_1D\_DopplerLines@{MmwDemo\_1D\_DopplerLines}}
+\doxysubsubsection{dopplerLineMask}
+{\footnotesize\ttfamily uint32\+\_\+t$\ast$ Mmw\+Demo\+\_\+1\+D\+\_\+\+Doppler\+Lines\+::doppler\+Line\+Mask}
+
+
+
+Doppler line bit mask of active (C\+F\+AR detected) Doppler bins in the first round of C\+F\+AR detections in Doppler direction. The L\+SB bit of the first word corresponds to Doppler bin zero of the range/\+Doppler detection matrix. 
+
+
+
+Definition at line 240 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by Mmw\+Demo\+\_\+get\+Doppler\+Line(), Mmw\+Demo\+\_\+is\+Set\+Doppler\+Line(), Mmw\+Demo\+\_\+reset\+Doppler\+Lines(), and Mmw\+Demo\+\_\+set\+Doppler\+Line().
+
+\mbox{\label{struct_mmw_demo__1_d___doppler_lines_aa738fe9cec4c60612ee9198a4eafb1f0}} 
+\index{MmwDemo\_1D\_DopplerLines@{MmwDemo\_1D\_DopplerLines}!dopplerLineMaskLen@{dopplerLineMaskLen}}
+\index{dopplerLineMaskLen@{dopplerLineMaskLen}!MmwDemo\_1D\_DopplerLines@{MmwDemo\_1D\_DopplerLines}}
+\doxysubsubsection{dopplerLineMaskLen}
+{\footnotesize\ttfamily uint16\+\_\+t Mmw\+Demo\+\_\+1\+D\+\_\+\+Doppler\+Lines\+::doppler\+Line\+Mask\+Len}
+
+
+
+size of doppler\+Line\+Mask array, (number of 32\+\_\+bit words, for example for Doppler F\+FT size of 64 this length is equal to 2) 
+
+
+
+Definition at line 248 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by Mmw\+Demo\+\_\+reset\+Doppler\+Lines().
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ dss\+\_\+data\+\_\+path.\+h}\end{DoxyCompactItemize}

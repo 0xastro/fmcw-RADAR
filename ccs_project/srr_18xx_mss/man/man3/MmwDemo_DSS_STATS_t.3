@@ -1,0 +1,175 @@
+.TH "MmwDemo_DSS_STATS_t" 3 "Wed May 20 2020" "Version 1.0" "mmWaveFMCWRADAR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MmwDemo_DSS_STATS_t
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <dss_mrr\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "uint8_t \fBconfigEvt\fP"
+.br
+.RI "Counter which tracks the number of config events 
+.br
+ The config event is triggered in mmwave config callback function when remote sends configuration\&. "
+.ti -1c
+.RI "uint8_t \fBstartEvt\fP"
+.br
+.RI "Counter which tracks the number of start events The start event is triggered in mmwave start callback function when remote calls mmwave_start() "
+.ti -1c
+.RI "uint8_t \fBstopEvt\fP"
+.br
+.RI "Counter which tracks the number of stop events The start event is triggered in mmwave stop callback function when remote calls mmwave_stop() "
+.ti -1c
+.RI "uint32_t \fBchirpIntSkipCounter\fP"
+.br
+.RI "Counter which tracks the number of chirp interrupt skipped due to stopped state of sensor\&. "
+.ti -1c
+.RI "uint32_t \fBframeIntSkipCounter\fP"
+.br
+.RI "Counter which tracks the number of chirp interrupt skipped due to stopped state of sensor\&. "
+.ti -1c
+.RI "uint32_t \fBchirpIntCounter\fP"
+.br
+.RI "Counter which tracks the number of chirp interrupt detected\&. "
+.ti -1c
+.RI "uint32_t \fBframeStartIntCounter\fP"
+.br
+.RI "Counter which tracks the number of frame start interrupt detected\&. "
+.ti -1c
+.RI "uint32_t \fBchirpEvt\fP"
+.br
+.RI "Counter which tracks the number of chirp event detected The chirp event is triggered in the ISR for chirp interrupt\&. "
+.ti -1c
+.RI "uint32_t \fBframeStartEvt\fP"
+.br
+.RI "Counter which tracks the number of frame start event detected The frame start event is triggered in the ISR for frame start interrupt\&. "
+.ti -1c
+.RI "uint32_t \fBframeTrigEvt\fP"
+.br
+.RI "Counter which tracks the number of frames triggered in BSS detected The frame trigger event is triggered in the mmwave async event callback function\&. "
+.ti -1c
+.RI "uint32_t \fBnumFailedTimingReports\fP"
+.br
+.RI "Counter which tracks the number of Failed Timing Reports received from BSS 
+.br
+ "
+.ti -1c
+.RI "uint32_t \fBnumCalibrationReports\fP"
+.br
+.RI "Counter which tracks the number of Calibration Report received from BSS 
+.br
+ "
+.ti -1c
+.RI "uint32_t \fBdetObjLoggingSkip\fP"
+.br
+.RI "Counter which tracks the number of times saving detected objects in logging buffer is skipped\&. "
+.ti -1c
+.RI "uint32_t \fBdetObjLoggingErr\fP"
+.br
+.RI "Counter which tracks the number of times saving detected objects in logging buffer has an error\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 89 of file dss_mrr\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "uint32_t MmwDemo_DSS_STATS_t::chirpEvt"
+
+.PP
+Counter which tracks the number of chirp event detected The chirp event is triggered in the ISR for chirp interrupt\&. 
+.PP
+Definition at line 120 of file dss_mrr\&.h\&.
+.SS "uint32_t MmwDemo_DSS_STATS_t::chirpIntCounter"
+
+.PP
+Counter which tracks the number of chirp interrupt detected\&. 
+.PP
+Definition at line 113 of file dss_mrr\&.h\&.
+.SS "uint32_t MmwDemo_DSS_STATS_t::chirpIntSkipCounter"
+
+.PP
+Counter which tracks the number of chirp interrupt skipped due to stopped state of sensor\&. 
+.PP
+Definition at line 107 of file dss_mrr\&.h\&.
+.SS "uint8_t MmwDemo_DSS_STATS_t::configEvt"
+
+.PP
+Counter which tracks the number of config events 
+.br
+ The config event is triggered in mmwave config callback function when remote sends configuration\&. 
+.PP
+Definition at line 94 of file dss_mrr\&.h\&.
+.SS "uint32_t MmwDemo_DSS_STATS_t::detObjLoggingErr"
+
+.PP
+Counter which tracks the number of times saving detected objects in logging buffer has an error\&. 
+.PP
+Definition at line 142 of file dss_mrr\&.h\&.
+.SS "uint32_t MmwDemo_DSS_STATS_t::detObjLoggingSkip"
+
+.PP
+Counter which tracks the number of times saving detected objects in logging buffer is skipped\&. 
+.PP
+Definition at line 138 of file dss_mrr\&.h\&.
+.SS "uint32_t MmwDemo_DSS_STATS_t::frameIntSkipCounter"
+
+.PP
+Counter which tracks the number of chirp interrupt skipped due to stopped state of sensor\&. 
+.PP
+Definition at line 110 of file dss_mrr\&.h\&.
+.SS "uint32_t MmwDemo_DSS_STATS_t::frameStartEvt"
+
+.PP
+Counter which tracks the number of frame start event detected The frame start event is triggered in the ISR for frame start interrupt\&. 
+.PP
+Definition at line 124 of file dss_mrr\&.h\&.
+.SS "uint32_t MmwDemo_DSS_STATS_t::frameStartIntCounter"
+
+.PP
+Counter which tracks the number of frame start interrupt detected\&. 
+.PP
+Definition at line 116 of file dss_mrr\&.h\&.
+.SS "uint32_t MmwDemo_DSS_STATS_t::frameTrigEvt"
+
+.PP
+Counter which tracks the number of frames triggered in BSS detected The frame trigger event is triggered in the mmwave async event callback function\&. 
+.PP
+Definition at line 128 of file dss_mrr\&.h\&.
+.SS "uint32_t MmwDemo_DSS_STATS_t::numCalibrationReports"
+
+.PP
+Counter which tracks the number of Calibration Report received from BSS 
+.br
+ 
+.PP
+Definition at line 134 of file dss_mrr\&.h\&.
+.SS "uint32_t MmwDemo_DSS_STATS_t::numFailedTimingReports"
+
+.PP
+Counter which tracks the number of Failed Timing Reports received from BSS 
+.br
+ 
+.PP
+Definition at line 131 of file dss_mrr\&.h\&.
+.SS "uint8_t MmwDemo_DSS_STATS_t::startEvt"
+
+.PP
+Counter which tracks the number of start events The start event is triggered in mmwave start callback function when remote calls mmwave_start() 
+.PP
+Definition at line 99 of file dss_mrr\&.h\&.
+.SS "uint8_t MmwDemo_DSS_STATS_t::stopEvt"
+
+.PP
+Counter which tracks the number of stop events The start event is triggered in mmwave stop callback function when remote calls mmwave_stop() 
+.PP
+Definition at line 104 of file dss_mrr\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mmWaveFMCWRADAR from the source code\&.

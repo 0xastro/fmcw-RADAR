@@ -1,0 +1,241 @@
+eth008 Board details:
+IP address: 10.218.113.67
+
+Port: 17494
+
+connecting...
+Relay states 8->1 : 00000001
+1 off
+2 off
+Relay states 8->1 : 00000000
+1 on
+Relay states 8->1 : 00000001
+exit
+Disconnected
+Pre-Script returned: Success
+**************************************************
+Testcase mods & parameters invoked:
+**************************************************
+Two core test case: None (this is not a two core testcase)
+
+**************************************************
+Copying test case files from the Build server
+**************************************************
+Testdata possible location 1: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/datapath/dpc/dpu/staticclutterproc/test/testdata
+
+
+Testdata directory was not found on Testdata possible location 1
+
+
+Testdata possible location 2: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/datapath/dpc/dpu/staticclutterproc/test/xwr16xx/testdata
+
+
+Testdata directory was not found on Testdata possible location 2
+
+Call to copy_testcase_binary:
+TCP: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/datapath/dpc/dpu/staticclutterproc/test/xwr16xx; /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___hs_iwr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13
+
+Copying testcase binary file from http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/datapath/dpc/dpu/staticclutterproc/test/xwr16xx/xwr16xx_staticclutterproc_dss.xe674 to /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___hs_iwr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13 using command: 
+wget -e robots=off --no-proxy -N -T 30 -t 2 -P /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___hs_iwr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13 http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/datapath/dpc/dpu/staticclutterproc/test/xwr16xx/xwr16xx_staticclutterproc_dss.xe674
+**************************************************
+Executing Testcase:/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___hs_iwr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13/xwr16xx_staticclutterproc_dss.xe674
+**************************************************
+Checking if Py4J Gateway server has started...
+Py4J Gateway Server is Started
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/DEBUGSSM_0
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/IcePick_M_0
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/C674X_0
+DSS test case opening debug session.
+
+cr4ctl = 0x0
+
+efuse/register @0xFFFFE210 = 0x0
+
+efuse/register @0xFFFFE214 = 0x0
+
+efuse/register @0xFFFFE218 = 0x0
+
+efuse/register @0xFFFFE21C = 0x0
+
+Loading binary to the DUT (no binary args updated):/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___hs_iwr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13/xwr16xx_staticclutterproc_dss.xe674
+binary path = /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___hs_iwr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13/xwr16xx_staticclutterproc_dss.xe674
+
+dt-time: start time = Thu Nov 29 10:43:34 2018
+
+dt-time: end time = Thu Nov 29 10:45:04 2018
+
+
+**************************************************
+CIO Log captured for the testcase
+**************************************************
+Test started. Will run 13 tests
+staticClutterHandle = 0x802248
+Debug: EDMA Instance 80aa10 has been opened successfully
+
+Test number 0
+Test params:
+NumTxAnt=3
+NumRxAnt=4
+numDopChirps=16
+NumRanBin=128
+Test cube size = 98304. Maximum cube size = 391168
+Reference clutter removal done
+Reference benchmark 6676546. DPU benchmark 1559053. Gain 4.3
+Test PASSED!
+
+Test number 1
+Test params:
+NumTxAnt=3
+NumRxAnt=4
+numDopChirps=128
+NumRanBin=16
+Test cube size = 98304. Maximum cube size = 391168
+Reference clutter removal done
+Reference benchmark 6515728. DPU benchmark 362468. Gain 18.0
+Test PASSED!
+
+Test number 2
+Test params:
+NumTxAnt=3
+NumRxAnt=1
+numDopChirps=256
+NumRanBin=32
+Test cube size = 98304. Maximum cube size = 391168
+Reference clutter removal done
+Reference benchmark 6504542. DPU benchmark 357770. Gain 18.2
+Test PASSED!
+
+Test number 3
+Test params:
+NumTxAnt=3
+NumRxAnt=1
+numDopChirps=16
+NumRanBin=256
+Test cube size = 49152. Maximum cube size = 391168
+Reference clutter removal done
+Reference benchmark 3338260. DPU benchmark 779953. Gain 4.3
+Test PASSED!
+
+Test number 4
+Test params:
+NumTxAnt=2
+NumRxAnt=4
+numDopChirps=32
+NumRanBin=64
+Test cube size = 65536. Maximum cube size = 391168
+Reference clutter removal done
+Reference benchmark 4389346. DPU benchmark 561875. Gain 7.8
+Test PASSED!
+
+Test number 5
+Test params:
+NumTxAnt=2
+NumRxAnt=4
+numDopChirps=16
+NumRanBin=128
+Test cube size = 65536. Maximum cube size = 391168
+Reference clutter removal done
+Reference benchmark 4451326. DPU benchmark 1065883. Gain 4.2
+Test PASSED!
+
+Test number 6
+Test params:
+NumTxAnt=2
+NumRxAnt=2
+numDopChirps=32
+NumRanBin=128
+Test cube size = 65536. Maximum cube size = 391168
+Reference clutter removal done
+Reference benchmark 4389820. DPU benchmark 561869. Gain 7.8
+Test PASSED!
+
+Test number 7
+Test params:
+NumTxAnt=2
+NumRxAnt=1
+numDopChirps=64
+NumRanBin=64
+Test cube size = 32768. Maximum cube size = 391168
+Reference clutter removal done
+Reference benchmark 2179744. DPU benchmark 160141. Gain 13.6
+Test PASSED!
+
+Test number 8
+Test params:
+NumTxAnt=1
+NumRxAnt=1
+numDopChirps=256
+NumRanBin=64
+Test cube size = 65536. Maximum cube size = 391168
+Reference clutter removal done
+Reference benchmark 4336120. DPU benchmark 258600. Gain 16.8
+Test PASSED!
+
+Test number 9
+Test params:
+NumTxAnt=1
+NumRxAnt=1
+numDopChirps=32
+NumRanBin=256
+Test cube size = 32768. Maximum cube size = 391168
+Reference clutter removal done
+Reference benchmark 2194918. DPU benchmark 311441. Gain 7.0
+Test PASSED!
+
+Test number 10
+Test params:
+NumTxAnt=3
+NumRxAnt=4
+numDopChirps=130
+NumRanBin=16
+Test cube size = 99840. Maximum cube size = 391168
+Reference clutter removal done
+Reference benchmark 6617134. DPU benchmark 366080. Gain 18.1
+Test PASSED!
+
+Test number 11
+Test params:
+NumTxAnt=2
+NumRxAnt=2
+numDopChirps=34
+NumRanBin=128
+Test cube size = 69632. Maximum cube size = 391168
+Reference clutter removal done
+Reference benchmark 4659610. DPU benchmark 576763. Gain 8.1
+Test PASSED!
+
+Test number 12
+Test params:
+NumTxAnt=1
+NumRxAnt=1
+numDopChirps=250
+NumRanBin=64
+Test cube size = 64000. Maximum cube size = 391168
+Reference clutter removal done
+Reference benchmark 4235322. DPU benchmark 255235. Gain 16.6
+Test PASSED!
+----------------------------
+
+All Tests PASSED!
+Feature: static_clutter_DPU: Passed
+Test Finished
+Value read from Global variable (MCPI_Result): 0
+Test Failure Signature: 0
+Test Log Messages: 
+Feature tested: static_clutter_DPU: Passed
+
+
+shutting down py4j gw server.
+
+
+**************************************************
+Terminating the debug session and Shutting down gateway.
+**************************************************
+
+**************************************************
+Test case execution completed
+**************************************************
+
+**************************************************
+Testcase Result : PASS
+**************************************************

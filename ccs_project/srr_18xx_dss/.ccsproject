@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?ccsproject version="1.0"?>
+<projectOptions>
+	<ccsVersion value="9.2.0"/>
+	<deviceVariant value="TMS320C67XX.AWR1843"/>
+	<deviceFamily value="C6000"/>
+	<deviceEndianness value="little"/>
+	<codegenToolVersion value="8.3.4"/>
+	<isElfFormat value="true"/>
+	<linkerCommandFile value="dss_mrr_linker.cmd"/>
+	<rts value="libc.a"/>
+	<createSlaveProjects value=""/>
+	<templateProperties value="id=mrr_dss.projectspec.mrr_18xx_dss,type=rtsc,products=com.ti.rtsc.SYSBIOS:6.73.1.01;com.ti.MMWAVE_SDK:3.1.0.02;,xdcToolsVersion=3.50.08.24_core,target=ti.targets.elf.C674,platform=ti.platforms.c6x:AWR16XX:false:600,endianness=little,output_format=elf,buildProfile=release"/>
+	<origin value="\\Mac\Home\Desktop\mmWave-Radar\AWR1843MRR\src\mrr_dss.projectspec"/>
+	<filesToOpen value=""/>
+	<isTargetManual value="true"/>
+</projectOptions>

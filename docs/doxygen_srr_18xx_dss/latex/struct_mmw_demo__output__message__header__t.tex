@@ -1,0 +1,156 @@
+\doxysection{Mmw\+Demo\+\_\+output\+\_\+message\+\_\+header\+\_\+t Struct Reference}
+\label{struct_mmw_demo__output__message__header__t}\index{MmwDemo\_output\_message\_header\_t@{MmwDemo\_output\_message\_header\_t}}
+
+
+Message header for reporting detection information from data path.  
+
+
+
+
+{\ttfamily \#include $<$mrr\+\_\+output.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint16\+\_\+t \textbf{ magic\+Word} [4]
+\begin{DoxyCompactList}\small\item\em Output buffer magic word (sync word). It is initialized to \{0x0102,0x0304,0x0506,0x0708\}. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ version}
+\item 
+uint32\+\_\+t \textbf{ total\+Packet\+Len}
+\begin{DoxyCompactList}\small\item\em Total packet length including header in Bytes. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ platform}
+\begin{DoxyCompactList}\small\item\em platform type \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ frame\+Number}
+\begin{DoxyCompactList}\small\item\em Frame number. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ time\+Cpu\+Cycles}
+\begin{DoxyCompactList}\small\item\em Time in C\+PU cycles when the message was created. For X\+W\+R16xx/\+X\+W\+R18xx\+: D\+SP C\+PU cycles, for X\+W\+R14xx\+: R4F C\+PU cycles. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ num\+Detected\+Obj}
+\begin{DoxyCompactList}\small\item\em Number of detected objects. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ num\+T\+L\+Vs}
+\begin{DoxyCompactList}\small\item\em Number of T\+L\+Vs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Message header for reporting detection information from data path. 
+
+The structure defines the message header. 
+
+Definition at line 87 of file mrr\+\_\+output.\+h.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\label{struct_mmw_demo__output__message__header__t_a318b045d44e2404244710d28ec49de64}} 
+\index{MmwDemo\_output\_message\_header\_t@{MmwDemo\_output\_message\_header\_t}!frameNumber@{frameNumber}}
+\index{frameNumber@{frameNumber}!MmwDemo\_output\_message\_header\_t@{MmwDemo\_output\_message\_header\_t}}
+\doxysubsubsection{frameNumber}
+{\footnotesize\ttfamily uint32\+\_\+t Mmw\+Demo\+\_\+output\+\_\+message\+\_\+header\+\_\+t\+::frame\+Number}
+
+
+
+Frame number. 
+
+
+
+Definition at line 102 of file mrr\+\_\+output.\+h.
+
+\mbox{\label{struct_mmw_demo__output__message__header__t_a2dfb00a896da227ea8e2161079409cc4}} 
+\index{MmwDemo\_output\_message\_header\_t@{MmwDemo\_output\_message\_header\_t}!magicWord@{magicWord}}
+\index{magicWord@{magicWord}!MmwDemo\_output\_message\_header\_t@{MmwDemo\_output\_message\_header\_t}}
+\doxysubsubsection{magicWord}
+{\footnotesize\ttfamily uint16\+\_\+t Mmw\+Demo\+\_\+output\+\_\+message\+\_\+header\+\_\+t\+::magic\+Word[4]}
+
+
+
+Output buffer magic word (sync word). It is initialized to \{0x0102,0x0304,0x0506,0x0708\}. 
+
+
+
+Definition at line 90 of file mrr\+\_\+output.\+h.
+
+\mbox{\label{struct_mmw_demo__output__message__header__t_ab400aa4f7627f0e3485ebf5b14e34f14}} 
+\index{MmwDemo\_output\_message\_header\_t@{MmwDemo\_output\_message\_header\_t}!numDetectedObj@{numDetectedObj}}
+\index{numDetectedObj@{numDetectedObj}!MmwDemo\_output\_message\_header\_t@{MmwDemo\_output\_message\_header\_t}}
+\doxysubsubsection{numDetectedObj}
+{\footnotesize\ttfamily uint32\+\_\+t Mmw\+Demo\+\_\+output\+\_\+message\+\_\+header\+\_\+t\+::num\+Detected\+Obj}
+
+
+
+Number of detected objects. 
+
+
+
+Definition at line 108 of file mrr\+\_\+output.\+h.
+
+\mbox{\label{struct_mmw_demo__output__message__header__t_ad739c8f92f540bfb6c051a28a781bfd9}} 
+\index{MmwDemo\_output\_message\_header\_t@{MmwDemo\_output\_message\_header\_t}!numTLVs@{numTLVs}}
+\index{numTLVs@{numTLVs}!MmwDemo\_output\_message\_header\_t@{MmwDemo\_output\_message\_header\_t}}
+\doxysubsubsection{numTLVs}
+{\footnotesize\ttfamily uint32\+\_\+t Mmw\+Demo\+\_\+output\+\_\+message\+\_\+header\+\_\+t\+::num\+T\+L\+Vs}
+
+
+
+Number of T\+L\+Vs. 
+
+
+
+Definition at line 111 of file mrr\+\_\+output.\+h.
+
+\mbox{\label{struct_mmw_demo__output__message__header__t_ae672ffee68c08fedf3e46cfd3d027fb6}} 
+\index{MmwDemo\_output\_message\_header\_t@{MmwDemo\_output\_message\_header\_t}!platform@{platform}}
+\index{platform@{platform}!MmwDemo\_output\_message\_header\_t@{MmwDemo\_output\_message\_header\_t}}
+\doxysubsubsection{platform}
+{\footnotesize\ttfamily uint32\+\_\+t Mmw\+Demo\+\_\+output\+\_\+message\+\_\+header\+\_\+t\+::platform}
+
+
+
+platform type 
+
+
+
+Definition at line 99 of file mrr\+\_\+output.\+h.
+
+\mbox{\label{struct_mmw_demo__output__message__header__t_a93cd90b4ded3a153e79afbe0f0c4f04a}} 
+\index{MmwDemo\_output\_message\_header\_t@{MmwDemo\_output\_message\_header\_t}!timeCpuCycles@{timeCpuCycles}}
+\index{timeCpuCycles@{timeCpuCycles}!MmwDemo\_output\_message\_header\_t@{MmwDemo\_output\_message\_header\_t}}
+\doxysubsubsection{timeCpuCycles}
+{\footnotesize\ttfamily uint32\+\_\+t Mmw\+Demo\+\_\+output\+\_\+message\+\_\+header\+\_\+t\+::time\+Cpu\+Cycles}
+
+
+
+Time in C\+PU cycles when the message was created. For X\+W\+R16xx/\+X\+W\+R18xx\+: D\+SP C\+PU cycles, for X\+W\+R14xx\+: R4F C\+PU cycles. 
+
+
+
+Definition at line 105 of file mrr\+\_\+output.\+h.
+
+\mbox{\label{struct_mmw_demo__output__message__header__t_a2d475d740b34fe9dfd6ab8d99ec1a732}} 
+\index{MmwDemo\_output\_message\_header\_t@{MmwDemo\_output\_message\_header\_t}!totalPacketLen@{totalPacketLen}}
+\index{totalPacketLen@{totalPacketLen}!MmwDemo\_output\_message\_header\_t@{MmwDemo\_output\_message\_header\_t}}
+\doxysubsubsection{totalPacketLen}
+{\footnotesize\ttfamily uint32\+\_\+t Mmw\+Demo\+\_\+output\+\_\+message\+\_\+header\+\_\+t\+::total\+Packet\+Len}
+
+
+
+Total packet length including header in Bytes. 
+
+
+
+Definition at line 96 of file mrr\+\_\+output.\+h.
+
+\mbox{\label{struct_mmw_demo__output__message__header__t_ac1b5a3f23fb518d2059420db70f6b82f}} 
+\index{MmwDemo\_output\_message\_header\_t@{MmwDemo\_output\_message\_header\_t}!version@{version}}
+\index{version@{version}!MmwDemo\_output\_message\_header\_t@{MmwDemo\_output\_message\_header\_t}}
+\doxysubsubsection{version}
+{\footnotesize\ttfamily uint32\+\_\+t Mmw\+Demo\+\_\+output\+\_\+message\+\_\+header\+\_\+t\+::version}
+
+brief Version\+: \+: Major\+Num $\ast$ 2$^\wedge$24 + Minor\+Num $\ast$ 2$^\wedge$16 + Bugfix\+Num $\ast$ 2$^\wedge$8 + Build\+Num ~\newline
+ 
+
+Definition at line 93 of file mrr\+\_\+output.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+common/\textbf{ mrr\+\_\+output.\+h}\end{DoxyCompactItemize}

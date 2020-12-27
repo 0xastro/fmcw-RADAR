@@ -1,0 +1,449 @@
+\doxysection{common/mm\+Wave\+\_\+\+X\+SS.h File Reference}
+\label{mm_wave___x_s_s_8h}\index{common/mmWave\_XSS.h@{common/mmWave\_XSS.h}}
+{\ttfamily \#include $<$ti/common/mmwave\+\_\+error.\+h$>$}\newline
+{\ttfamily \#include $<$ti/drivers/soc/soc.\+h$>$}\newline
+{\ttfamily \#include $<$ti/drivers/crc/crc.\+h$>$}\newline
+{\ttfamily \#include $<$ti/drivers/uart/\+U\+A\+R\+T.\+h$>$}\newline
+{\ttfamily \#include $<$ti/drivers/pinmux/pinmux.\+h$>$}\newline
+{\ttfamily \#include $<$ti/drivers/esm/esm.\+h$>$}\newline
+{\ttfamily \#include $<$ti/drivers/mailbox/mailbox.\+h$>$}\newline
+{\ttfamily \#include $<$ti/control/mmwave/mmwave.\+h$>$}\newline
+{\ttfamily \#include $<$ti/drivers/cbuff/cbuff.\+h$>$}\newline
+{\ttfamily \#include $<$ti/drivers/adcbuf/\+A\+D\+C\+Buf.\+h$>$}\newline
+{\ttfamily \#include $<$ti/drivers/edma/edma.\+h$>$}\newline
+{\ttfamily \#include $<$ti/drivers/osal/\+Debug\+P.\+h$>$}\newline
+{\ttfamily \#include $<$ti/sysbios/knl/\+Semaphore.\+h$>$}\newline
+{\ttfamily \#include $<$ti/sysbios/knl/\+Event.\+h$>$}\newline
+{\ttfamily \#include $<$common/app\+\_\+cfg.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}dss\+\_\+data\+\_\+path.\+h\char`\"{}}\newline
+Include dependency graph for mm\+Wave\+\_\+\+X\+S\+S.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mm_wave___x_s_s_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=254pt]{mm_wave___x_s_s_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+T\+S\+\_\+t}
+\item 
+struct \textbf{ M\+C\+B\+\_\+t}
+\begin{DoxyCompactList}\small\item\em D\+S\+P-\/\+Subsystem (D\+SS) Master control block (M\+CB) The structure is used to hold handling information, flags and stats relative to the radar design. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ D\+SS}
+\item 
+\#define \textbf{ D\+S\+S\+\_\+\+S\+T\+A\+R\+T\+\_\+\+C\+O\+M\+P\+L\+E\+T\+E\+D\+\_\+\+E\+VT}~Event\+\_\+\+Id\+\_\+07
+\begin{DoxyCompactList}\small\item\em sensor start C\+LI event S\+Y\+S/\+B\+I\+OS events are a means of communication between Tasks and threads S\+Y\+S/\+B\+I\+OS objects include semaphores, mailboxes, message queues, etc. Only tasks can W\+A\+IT for events; whereas tasks, Hwis, Swis, or S\+Y\+S/\+B\+I\+OS objects can P\+O\+ST them. -\/ref {\texttt{ http\+://software-\/dl.\+ti.\+com/dsps/dsps\+\_\+public\+\_\+sw/sdo\+\_\+sb/targetcontent/sysbios/6\+\_\+41\+\_\+02\+\_\+41/exports/bios\+\_\+6\+\_\+41\+\_\+02\+\_\+41/docs/cdoc/ti/sysbios/knl/\+Event.\+html}} \end{DoxyCompactList}\item 
+\#define \textbf{ M\+M\+W\+D\+E\+M\+O\+\_\+\+C\+L\+I\+\_\+\+E\+V\+E\+N\+TS}
+\item 
+\#define \textbf{ M\+M\+W\+D\+E\+M\+O\+\_\+\+B\+S\+S\+\_\+\+F\+A\+U\+L\+T\+\_\+\+E\+V\+E\+N\+TS}
+\item 
+\#define \textbf{ Mmw\+Demo\+\_\+dss\+Assert}(expression)
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \textbf{ Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+T\+E\+\_\+e} \textbf{ Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+TE}
+\begin{DoxyCompactList}\small\item\em Millimeter Wave Demo state. \end{DoxyCompactList}\item 
+typedef struct \textbf{ Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+T\+S\+\_\+t} \textbf{ Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+TS}
+\item 
+typedef struct \textbf{ M\+C\+B\+\_\+t} \textbf{ M\+CB}
+\begin{DoxyCompactList}\small\item\em D\+S\+P-\/\+Subsystem (D\+SS) Master control block (M\+CB) The structure is used to hold handling information, flags and stats relative to the radar design. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \textbf{ Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+T\+E\+\_\+e} \{ \textbf{ Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+T\+E\+\_\+\+I\+N\+IT} = 0, 
+\textbf{ Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+T\+E\+\_\+\+S\+T\+A\+R\+T\+ED}, 
+\textbf{ Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+T\+E\+\_\+\+S\+T\+O\+P\+P\+ED}, 
+\textbf{ Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+T\+E\+\_\+\+S\+T\+O\+P\+\_\+\+P\+E\+N\+D\+I\+NG}
+ \}
+\begin{DoxyCompactList}\small\item\em Millimeter Wave Demo state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ \+\_\+\+Mmw\+Demo\+\_\+dss\+Assert} (int32\+\_\+t expression, const char $\ast$file, int32\+\_\+t line)
+\item 
+void \textbf{ Cfg\+\_\+\+Adv\+Frame\+Cfg\+Init\+Params} (rl\+Adv\+Frame\+Cfg\+\_\+t $\ast$ptr\+Adv\+Frame\+Cfg)
+\begin{DoxyCompactList}\small\item\em The function initializes the frame configuration with the default parameters. \end{DoxyCompactList}\item 
+void \textbf{ Cfg\+\_\+\+Frame\+Cfg\+Init\+Params} (rl\+Frame\+Cfg\+\_\+t $\ast$ptr\+Frame\+Cfg)
+\begin{DoxyCompactList}\small\item\em The function initializes the frame configuration with the default parameters. \end{DoxyCompactList}\item 
+void \textbf{ Cfg\+\_\+\+Profile\+Cfg\+Init\+Params} (uint8\+\_\+t profile\+Num, rl\+Profile\+Cfg\+\_\+t $\ast$ptr\+Profile\+Cfg)
+\begin{DoxyCompactList}\small\item\em The function initializes the profile configuration with the default parameters. \end{DoxyCompactList}\item 
+void \textbf{ Cfg\+\_\+\+Chirp\+Cfg\+Init\+Params} (uint8\+\_\+t chirp\+Num, rl\+Chirp\+Cfg\+\_\+t $\ast$ptr\+Chirp\+Cfg)
+\begin{DoxyCompactList}\small\item\em The function initializes the chirp configuration with the default parameters. \end{DoxyCompactList}\item 
+void \textbf{ Cfg\+\_\+\+Low\+Power\+Mode\+Init\+Params} (rl\+Low\+Power\+Mode\+Cfg\+\_\+t $\ast$ptr\+Low\+Power\+Mode)
+\begin{DoxyCompactList}\small\item\em The function initializes the low power configuration with the default parameters. \end{DoxyCompactList}\item 
+void \textbf{ Cfg\+\_\+\+Channel\+Cfg\+Init\+Params} (rl\+Chan\+Cfg\+\_\+t $\ast$ptr\+Channel\+Cfg)
+\begin{DoxyCompactList}\small\item\em The function initializes the channel configuration with the default parameters. \end{DoxyCompactList}\item 
+void \textbf{ Cfg\+\_\+\+A\+D\+C\+Out\+Cfg\+Init\+Params} (rl\+Adc\+Out\+Cfg\+\_\+t $\ast$ptr\+A\+D\+C\+Out\+Cfg)
+\begin{DoxyCompactList}\small\item\em The function initializes the A\+D\+C\+Out configuration with the default parameters. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ M\+CB} \textbf{ g\+M\+CB}
+\begin{DoxyCompactList}\small\item\em Global Variable for tracking information required by the design. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\label{mm_wave___x_s_s_8h_a105a3cc9c4e2aebf77784cbaa7af4f4e}} 
+\index{mmWave\_XSS.h@{mmWave\_XSS.h}!DSS@{DSS}}
+\index{DSS@{DSS}!mmWave\_XSS.h@{mmWave\_XSS.h}}
+\doxysubsubsection{DSS}
+{\footnotesize\ttfamily \#define D\+SS}
+
+
+
+Definition at line 13 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+\mbox{\label{mm_wave___x_s_s_8h_aad78cc8548277fafe8e943ce395781a8}} 
+\index{mmWave\_XSS.h@{mmWave\_XSS.h}!DSS\_START\_COMPLETED\_EVT@{DSS\_START\_COMPLETED\_EVT}}
+\index{DSS\_START\_COMPLETED\_EVT@{DSS\_START\_COMPLETED\_EVT}!mmWave\_XSS.h@{mmWave\_XSS.h}}
+\doxysubsubsection{DSS\_START\_COMPLETED\_EVT}
+{\footnotesize\ttfamily \#define D\+S\+S\+\_\+\+S\+T\+A\+R\+T\+\_\+\+C\+O\+M\+P\+L\+E\+T\+E\+D\+\_\+\+E\+VT~Event\+\_\+\+Id\+\_\+07}
+
+
+
+sensor start C\+LI event S\+Y\+S/\+B\+I\+OS events are a means of communication between Tasks and threads S\+Y\+S/\+B\+I\+OS objects include semaphores, mailboxes, message queues, etc. Only tasks can W\+A\+IT for events; whereas tasks, Hwis, Swis, or S\+Y\+S/\+B\+I\+OS objects can P\+O\+ST them. -\/ref {\texttt{ http\+://software-\/dl.\+ti.\+com/dsps/dsps\+\_\+public\+\_\+sw/sdo\+\_\+sb/targetcontent/sysbios/6\+\_\+41\+\_\+02\+\_\+41/exports/bios\+\_\+6\+\_\+41\+\_\+02\+\_\+41/docs/cdoc/ti/sysbios/knl/\+Event.\+html}} 
+
+
+
+Definition at line 80 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+\mbox{\label{mm_wave___x_s_s_8h_a0088321d4ec146930a4b1b5aeef851c0}} 
+\index{mmWave\_XSS.h@{mmWave\_XSS.h}!MMWDEMO\_BSS\_FAULT\_EVENTS@{MMWDEMO\_BSS\_FAULT\_EVENTS}}
+\index{MMWDEMO\_BSS\_FAULT\_EVENTS@{MMWDEMO\_BSS\_FAULT\_EVENTS}!mmWave\_XSS.h@{mmWave\_XSS.h}}
+\doxysubsubsection{MMWDEMO\_BSS\_FAULT\_EVENTS}
+{\footnotesize\ttfamily \#define M\+M\+W\+D\+E\+M\+O\+\_\+\+B\+S\+S\+\_\+\+F\+A\+U\+L\+T\+\_\+\+E\+V\+E\+N\+TS}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(MMWDEMO\_BSS\_CPUFAULT\_EVT | \(\backslash\)}
+\DoxyCodeLine{                                                         MMWDEMO\_BSS\_ESMFAULT\_EVT )}
+
+\end{DoxyCode}
+
+
+Definition at line 90 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+\mbox{\label{mm_wave___x_s_s_8h_a59e07cee0a8d4d79bb5a60e1b43c98d1}} 
+\index{mmWave\_XSS.h@{mmWave\_XSS.h}!MMWDEMO\_CLI\_EVENTS@{MMWDEMO\_CLI\_EVENTS}}
+\index{MMWDEMO\_CLI\_EVENTS@{MMWDEMO\_CLI\_EVENTS}!mmWave\_XSS.h@{mmWave\_XSS.h}}
+\doxysubsubsection{MMWDEMO\_CLI\_EVENTS}
+{\footnotesize\ttfamily \#define M\+M\+W\+D\+E\+M\+O\+\_\+\+C\+L\+I\+\_\+\+E\+V\+E\+N\+TS}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(MMWDEMO\_CLI\_SENSORSTART\_EVT    | \(\backslash\)}
+\DoxyCodeLine{                                                         MMWDEMO\_CLI\_SENSORSTOP\_EVT     | \(\backslash\)}
+\DoxyCodeLine{                                                         MMWDEMO\_CLI\_FRAMESTART\_EVT)}
+
+\end{DoxyCode}
+
+
+Definition at line 84 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+\mbox{\label{mm_wave___x_s_s_8h_aec77c76a32ee1da1e9d9747ddd5cc23e}} 
+\index{mmWave\_XSS.h@{mmWave\_XSS.h}!MmwDemo\_dssAssert@{MmwDemo\_dssAssert}}
+\index{MmwDemo\_dssAssert@{MmwDemo\_dssAssert}!mmWave\_XSS.h@{mmWave\_XSS.h}}
+\doxysubsubsection{MmwDemo\_dssAssert}
+{\footnotesize\ttfamily \#define Mmw\+Demo\+\_\+dss\+Assert(\begin{DoxyParamCaption}\item[{}]{expression }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{                                      \(\backslash\)}
+\DoxyCodeLine{                                    \_MmwDemo\_dssAssert(expression,           \(\backslash\)}
+\DoxyCodeLine{                                             \_\_FILE\_\_, \_\_LINE\_\_);         \(\backslash\)}
+\DoxyCodeLine{                                    DebugP\_assert(expression);            \(\backslash\)}
+\DoxyCodeLine{                                   \}}
+
+\end{DoxyCode}
+
+
+Definition at line 259 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\label{mm_wave___x_s_s_8h_a3f3a9a9f7695e79e28ce3e455822c638}} 
+\index{mmWave\_XSS.h@{mmWave\_XSS.h}!MCB@{MCB}}
+\index{MCB@{MCB}!mmWave\_XSS.h@{mmWave\_XSS.h}}
+\doxysubsubsection{MCB}
+{\footnotesize\ttfamily typedef struct \textbf{ M\+C\+B\+\_\+t} \textbf{ M\+CB}}
+
+
+
+D\+S\+P-\/\+Subsystem (D\+SS) Master control block (M\+CB) The structure is used to hold handling information, flags and stats relative to the radar design. 
+
+\DoxyHorRuler
+ \DoxyHorRuler
+ \mbox{\label{mm_wave___x_s_s_8h_a3781c5d95015e5907bea6aa131b5ad13}} 
+\index{mmWave\_XSS.h@{mmWave\_XSS.h}!MmwDemo\_DSS\_STATE@{MmwDemo\_DSS\_STATE}}
+\index{MmwDemo\_DSS\_STATE@{MmwDemo\_DSS\_STATE}!mmWave\_XSS.h@{mmWave\_XSS.h}}
+\doxysubsubsection{MmwDemo\_DSS\_STATE}
+{\footnotesize\ttfamily typedef enum \textbf{ Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+T\+E\+\_\+e} \textbf{ Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+TE}}
+
+
+
+Millimeter Wave Demo state. 
+
+The enumeration is used to hold the data path states for the Millimeter Wave demo \mbox{\label{mm_wave___x_s_s_8h_a318771e48627af9cb9cc9c8f0db920b6}} 
+\index{mmWave\_XSS.h@{mmWave\_XSS.h}!MmwDemo\_DSS\_STATS@{MmwDemo\_DSS\_STATS}}
+\index{MmwDemo\_DSS\_STATS@{MmwDemo\_DSS\_STATS}!mmWave\_XSS.h@{mmWave\_XSS.h}}
+\doxysubsubsection{MmwDemo\_DSS\_STATS}
+{\footnotesize\ttfamily typedef struct \textbf{ Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+T\+S\+\_\+t} \textbf{ Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+TS}}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\label{mm_wave___x_s_s_8h_a954ae46b578dfac30faffeaa36ddc5ee}} 
+\index{mmWave\_XSS.h@{mmWave\_XSS.h}!MmwDemo\_DSS\_STATE\_e@{MmwDemo\_DSS\_STATE\_e}}
+\index{MmwDemo\_DSS\_STATE\_e@{MmwDemo\_DSS\_STATE\_e}!mmWave\_XSS.h@{mmWave\_XSS.h}}
+\doxysubsubsection{MmwDemo\_DSS\_STATE\_e}
+{\footnotesize\ttfamily enum \textbf{ Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+T\+E\+\_\+e}}
+
+
+
+Millimeter Wave Demo state. 
+
+The enumeration is used to hold the data path states for the Millimeter Wave demo \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MmwDemo\_DSS\_STATE\_INIT@{MmwDemo\_DSS\_STATE\_INIT}!mmWave\_XSS.h@{mmWave\_XSS.h}}\index{mmWave\_XSS.h@{mmWave\_XSS.h}!MmwDemo\_DSS\_STATE\_INIT@{MmwDemo\_DSS\_STATE\_INIT}}}\mbox{\label{mm_wave___x_s_s_8h_a954ae46b578dfac30faffeaa36ddc5eead03541b515af53110411a887685e5705}} 
+Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+T\+E\+\_\+\+I\+N\+IT&State after data path is initialized. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MmwDemo\_DSS\_STATE\_STARTED@{MmwDemo\_DSS\_STATE\_STARTED}!mmWave\_XSS.h@{mmWave\_XSS.h}}\index{mmWave\_XSS.h@{mmWave\_XSS.h}!MmwDemo\_DSS\_STATE\_STARTED@{MmwDemo\_DSS\_STATE\_STARTED}}}\mbox{\label{mm_wave___x_s_s_8h_a954ae46b578dfac30faffeaa36ddc5eea50f43589577b604094032715bbac771f}} 
+Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+T\+E\+\_\+\+S\+T\+A\+R\+T\+ED&State after data path is started. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MmwDemo\_DSS\_STATE\_STOPPED@{MmwDemo\_DSS\_STATE\_STOPPED}!mmWave\_XSS.h@{mmWave\_XSS.h}}\index{mmWave\_XSS.h@{mmWave\_XSS.h}!MmwDemo\_DSS\_STATE\_STOPPED@{MmwDemo\_DSS\_STATE\_STOPPED}}}\mbox{\label{mm_wave___x_s_s_8h_a954ae46b578dfac30faffeaa36ddc5eead4361b2c1827d8d31b258b838eb22b60}} 
+Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+T\+E\+\_\+\+S\+T\+O\+P\+P\+ED&State after data path is stopped. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MmwDemo\_DSS\_STATE\_STOP\_PENDING@{MmwDemo\_DSS\_STATE\_STOP\_PENDING}!mmWave\_XSS.h@{mmWave\_XSS.h}}\index{mmWave\_XSS.h@{mmWave\_XSS.h}!MmwDemo\_DSS\_STATE\_STOP\_PENDING@{MmwDemo\_DSS\_STATE\_STOP\_PENDING}}}\mbox{\label{mm_wave___x_s_s_8h_a954ae46b578dfac30faffeaa36ddc5eea6e640857902d92fbdd68fc0d325f0cf4}} 
+Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+T\+E\+\_\+\+S\+T\+O\+P\+\_\+\+P\+E\+N\+D\+I\+NG&State after S\+T\+OP request was received by D\+SP but complete stop is on-\/going. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 105 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\label{mm_wave___x_s_s_8h_a91a8ede97a3777ba3da80043dc61cdd1}} 
+\index{mmWave\_XSS.h@{mmWave\_XSS.h}!\_MmwDemo\_dssAssert@{\_MmwDemo\_dssAssert}}
+\index{\_MmwDemo\_dssAssert@{\_MmwDemo\_dssAssert}!mmWave\_XSS.h@{mmWave\_XSS.h}}
+\doxysubsubsection{\_MmwDemo\_dssAssert()}
+{\footnotesize\ttfamily void \+\_\+\+Mmw\+Demo\+\_\+dss\+Assert (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{expression,  }\item[{const char $\ast$}]{file,  }\item[{int32\+\_\+t}]{line }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ Sends D\+SS assert information to M\+SS
+
+
+\begin{DoxyRetVals}{Return values}
+{\em Not} & Applicable. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 302 of file dss\+\_\+main.\+c.
+
+\mbox{\label{mm_wave___x_s_s_8h_a97614be092b49866d88d08a85808d653}} 
+\index{mmWave\_XSS.h@{mmWave\_XSS.h}!Cfg\_ADCOutCfgInitParams@{Cfg\_ADCOutCfgInitParams}}
+\index{Cfg\_ADCOutCfgInitParams@{Cfg\_ADCOutCfgInitParams}!mmWave\_XSS.h@{mmWave\_XSS.h}}
+\doxysubsubsection{Cfg\_ADCOutCfgInitParams()}
+{\footnotesize\ttfamily void Cfg\+\_\+\+A\+D\+C\+Out\+Cfg\+Init\+Params (\begin{DoxyParamCaption}\item[{rl\+Adc\+Out\+Cfg\+\_\+t $\ast$}]{ptr\+A\+D\+C\+Out\+Cfg }\end{DoxyParamCaption})}
+
+
+
+The function initializes the A\+D\+C\+Out configuration with the default parameters. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em ptr\+A\+D\+C\+Out\+Cfg} & Pointer to the A\+D\+C\+Output configuration\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em N/A} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 308 of file frame\+\_\+cfg.\+c.
+
+\mbox{\label{mm_wave___x_s_s_8h_a8c220050230c0150a0ee1bd0b6b291c1}} 
+\index{mmWave\_XSS.h@{mmWave\_XSS.h}!Cfg\_AdvFrameCfgInitParams@{Cfg\_AdvFrameCfgInitParams}}
+\index{Cfg\_AdvFrameCfgInitParams@{Cfg\_AdvFrameCfgInitParams}!mmWave\_XSS.h@{mmWave\_XSS.h}}
+\doxysubsubsection{Cfg\_AdvFrameCfgInitParams()}
+{\footnotesize\ttfamily void Cfg\+\_\+\+Adv\+Frame\+Cfg\+Init\+Params (\begin{DoxyParamCaption}\item[{rl\+Adv\+Frame\+Cfg\+\_\+t $\ast$}]{ptr\+Adv\+Frame\+Cfg }\end{DoxyParamCaption})}
+
+
+
+The function initializes the frame configuration with the default parameters. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em ptr\+Adv\+Frame\+Cfg} & Pointer to the adavance frame configuration\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em N/A} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 42 of file frame\+\_\+cfg.\+c.
+
+\mbox{\label{mm_wave___x_s_s_8h_a0f19cdd6f9114573831a701ba671fa07}} 
+\index{mmWave\_XSS.h@{mmWave\_XSS.h}!Cfg\_ChannelCfgInitParams@{Cfg\_ChannelCfgInitParams}}
+\index{Cfg\_ChannelCfgInitParams@{Cfg\_ChannelCfgInitParams}!mmWave\_XSS.h@{mmWave\_XSS.h}}
+\doxysubsubsection{Cfg\_ChannelCfgInitParams()}
+{\footnotesize\ttfamily void Cfg\+\_\+\+Channel\+Cfg\+Init\+Params (\begin{DoxyParamCaption}\item[{rl\+Chan\+Cfg\+\_\+t $\ast$}]{ptr\+Channel\+Cfg }\end{DoxyParamCaption})}
+
+
+
+The function initializes the channel configuration with the default parameters. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em ptr\+Channel\+Cfg} & Pointer to the channel configuration\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em N/A} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 285 of file frame\+\_\+cfg.\+c.
+
+\mbox{\label{mm_wave___x_s_s_8h_a0b5e20fd310136c525f6e983366ee19f}} 
+\index{mmWave\_XSS.h@{mmWave\_XSS.h}!Cfg\_ChirpCfgInitParams@{Cfg\_ChirpCfgInitParams}}
+\index{Cfg\_ChirpCfgInitParams@{Cfg\_ChirpCfgInitParams}!mmWave\_XSS.h@{mmWave\_XSS.h}}
+\doxysubsubsection{Cfg\_ChirpCfgInitParams()}
+{\footnotesize\ttfamily void Cfg\+\_\+\+Chirp\+Cfg\+Init\+Params (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{chirp\+Num,  }\item[{rl\+Chirp\+Cfg\+\_\+t $\ast$}]{ptr\+Chirp\+Cfg }\end{DoxyParamCaption})}
+
+
+
+The function initializes the chirp configuration with the default parameters. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em chirp\+Num} & Chirp Number to be configured \\
+\hline
+\mbox{\texttt{ out}}  & {\em ptr\+Chirp\+Cfg} & Pointer to the chirp configuration\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em N/A} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 204 of file frame\+\_\+cfg.\+c.
+
+\mbox{\label{mm_wave___x_s_s_8h_a285d8a73a5cea5f2e239c1f14b2e0e92}} 
+\index{mmWave\_XSS.h@{mmWave\_XSS.h}!Cfg\_FrameCfgInitParams@{Cfg\_FrameCfgInitParams}}
+\index{Cfg\_FrameCfgInitParams@{Cfg\_FrameCfgInitParams}!mmWave\_XSS.h@{mmWave\_XSS.h}}
+\doxysubsubsection{Cfg\_FrameCfgInitParams()}
+{\footnotesize\ttfamily void Cfg\+\_\+\+Frame\+Cfg\+Init\+Params (\begin{DoxyParamCaption}\item[{rl\+Frame\+Cfg\+\_\+t $\ast$}]{ptr\+Frame\+Cfg }\end{DoxyParamCaption})}
+
+
+
+The function initializes the frame configuration with the default parameters. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em ptr\+Frame\+Cfg} & Pointer to the frame configuration\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em N/A} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 138 of file frame\+\_\+cfg.\+c.
+
+\mbox{\label{mm_wave___x_s_s_8h_ade79a8527c5a0769895ee1b6ac9ec327}} 
+\index{mmWave\_XSS.h@{mmWave\_XSS.h}!Cfg\_LowPowerModeInitParams@{Cfg\_LowPowerModeInitParams}}
+\index{Cfg\_LowPowerModeInitParams@{Cfg\_LowPowerModeInitParams}!mmWave\_XSS.h@{mmWave\_XSS.h}}
+\doxysubsubsection{Cfg\_LowPowerModeInitParams()}
+{\footnotesize\ttfamily void Cfg\+\_\+\+Low\+Power\+Mode\+Init\+Params (\begin{DoxyParamCaption}\item[{rl\+Low\+Power\+Mode\+Cfg\+\_\+t $\ast$}]{ptr\+Low\+Power\+Mode }\end{DoxyParamCaption})}
+
+
+
+The function initializes the low power configuration with the default parameters. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em ptr\+Low\+Power\+Mode} & Pointer to the low power mode configuration\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em N/A} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 264 of file frame\+\_\+cfg.\+c.
+
+\mbox{\label{mm_wave___x_s_s_8h_a35827653f7b672697d2aecbcb643b986}} 
+\index{mmWave\_XSS.h@{mmWave\_XSS.h}!Cfg\_ProfileCfgInitParams@{Cfg\_ProfileCfgInitParams}}
+\index{Cfg\_ProfileCfgInitParams@{Cfg\_ProfileCfgInitParams}!mmWave\_XSS.h@{mmWave\_XSS.h}}
+\doxysubsubsection{Cfg\_ProfileCfgInitParams()}
+{\footnotesize\ttfamily void Cfg\+\_\+\+Profile\+Cfg\+Init\+Params (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{profile\+Num,  }\item[{rl\+Profile\+Cfg\+\_\+t $\ast$}]{ptr\+Profile\+Cfg }\end{DoxyParamCaption})}
+
+
+
+The function initializes the profile configuration with the default parameters. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em profile\+Num} & Profile number to be initialized \\
+\hline
+\mbox{\texttt{ out}}  & {\em ptr\+Profile\+Cfg} & Pointer to the profile configuration\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em N/A} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 167 of file frame\+\_\+cfg.\+c.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\label{mm_wave___x_s_s_8h_a400857e2ff108c7f9aa2f123e85774a1}} 
+\index{mmWave\_XSS.h@{mmWave\_XSS.h}!gMCB@{gMCB}}
+\index{gMCB@{gMCB}!mmWave\_XSS.h@{mmWave\_XSS.h}}
+\doxysubsubsection{gMCB}
+{\footnotesize\ttfamily \textbf{ M\+CB} g\+M\+CB}
+
+
+
+Global Variable for tracking information required by the design. 
+
+
+
+Definition at line 97 of file dss\+\_\+main.\+c.
+

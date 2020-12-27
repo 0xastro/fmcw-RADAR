@@ -1,0 +1,27 @@
+[
+    {
+    "name": "Release Notes",
+    "resourceType": "file",
+    "location": "../../docs/mmwave_sdk_release_notes.pdf",
+    "categories": [["Documents"]],
+    "mainCategories": [["Documents"]],
+    "devices": ["IWR1443", "IWR1642", "IWR1843", "IWR6843", "AWR1443", "AWR1642", "AWR1843"]
+    },
+    {
+    "name": "User Guide",
+    "resourceType": "file",
+    "location": "../../docs/mmwave_sdk_user_guide.pdf",
+    "categories": [["Documents"]],
+    "mainCategories": [["Documents"]],
+    "devices": ["IWR1443", "IWR1642", "IWR1843", "IWR6843", "AWR1443", "AWR1642", "AWR1843"]
+    },
+    {
+    "name": "Software Manifest",
+    "resourceType": "file",
+    "location": "../../docs/mmwave_sdk_software_manifest.html",
+    "categories": [["Documents"]],
+    "mainCategories": [["Documents"]],
+    "devices": ["IWR1443", "IWR1642", "IWR1843", "IWR6843", "AWR1443", "AWR1642", "AWR1843"]
+    }
+]
+

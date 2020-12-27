@@ -1,0 +1,92 @@
+\doxysection{Mmw\+Demo\+\_\+\+Bpm\+Cfg\+\_\+t Struct Reference}
+\label{struct_mmw_demo___bpm_cfg__t}\index{MmwDemo\_BpmCfg\_t@{MmwDemo\_BpmCfg\_t}}
+
+
+B\+PM configuration.  
+
+
+
+
+{\ttfamily \#include $<$mrr\+\_\+config.\+h$>$}
+
+
+
+Collaboration diagram for Mmw\+Demo\+\_\+\+Bpm\+Cfg\+\_\+t\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=193pt]{struct_mmw_demo___bpm_cfg__t__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+bool \textbf{ is\+Enabled}
+\begin{DoxyCompactList}\small\item\em Enabled/disabled flag. \end{DoxyCompactList}\item 
+uint16\+\_\+t \textbf{ chirp0\+Idx}
+\begin{DoxyCompactList}\small\item\em ~\newline
+ If B\+PM is enabled, this is the chirp index for the first B\+PM chirp. It will have phase 0 on both TX antennas (+ +). \end{DoxyCompactList}\item 
+uint16\+\_\+t \textbf{ chirp1\+Idx}
+\begin{DoxyCompactList}\small\item\em ~\newline
+ If B\+PM is enabled, this is the chirp index for the second B\+PM chirp. It will have phase 0 on T\+X0 and phase 180 on T\+X1 (+ -\/). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+B\+PM configuration. 
+
+The structure specifies the B\+PM configuration 
+
+Definition at line 169 of file mrr\+\_\+config.\+h.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\label{struct_mmw_demo___bpm_cfg__t_a1eac7ed95f662124fcbb68c740740716}} 
+\index{MmwDemo\_BpmCfg\_t@{MmwDemo\_BpmCfg\_t}!chirp0Idx@{chirp0Idx}}
+\index{chirp0Idx@{chirp0Idx}!MmwDemo\_BpmCfg\_t@{MmwDemo\_BpmCfg\_t}}
+\doxysubsubsection{chirp0Idx}
+{\footnotesize\ttfamily uint16\+\_\+t Mmw\+Demo\+\_\+\+Bpm\+Cfg\+\_\+t\+::chirp0\+Idx}
+
+
+
+~\newline
+ If B\+PM is enabled, this is the chirp index for the first B\+PM chirp. It will have phase 0 on both TX antennas (+ +). 
+
+If B\+PM is disabled, a B\+PM disable command (set phase to zero) will be issued for the chirps in the range [chirp0\+Idx..chirp1\+Idx]. 
+
+Definition at line 184 of file mrr\+\_\+config.\+h.
+
+\mbox{\label{struct_mmw_demo___bpm_cfg__t_a99517876a060fb10e742ddade0ff73b2}} 
+\index{MmwDemo\_BpmCfg\_t@{MmwDemo\_BpmCfg\_t}!chirp1Idx@{chirp1Idx}}
+\index{chirp1Idx@{chirp1Idx}!MmwDemo\_BpmCfg\_t@{MmwDemo\_BpmCfg\_t}}
+\doxysubsubsection{chirp1Idx}
+{\footnotesize\ttfamily uint16\+\_\+t Mmw\+Demo\+\_\+\+Bpm\+Cfg\+\_\+t\+::chirp1\+Idx}
+
+
+
+~\newline
+ If B\+PM is enabled, this is the chirp index for the second B\+PM chirp. It will have phase 0 on T\+X0 and phase 180 on T\+X1 (+ -\/). 
+
+If B\+PM is disabled, a B\+PM disable command (set phase to zero) will be issued for the chirps in the range [chirp0\+Idx..chirp1\+Idx]. 
+
+Definition at line 194 of file mrr\+\_\+config.\+h.
+
+\mbox{\label{struct_mmw_demo___bpm_cfg__t_a3ce2a76f3e0f18d9358e9b89db28770d}} 
+\index{MmwDemo\_BpmCfg\_t@{MmwDemo\_BpmCfg\_t}!isEnabled@{isEnabled}}
+\index{isEnabled@{isEnabled}!MmwDemo\_BpmCfg\_t@{MmwDemo\_BpmCfg\_t}}
+\doxysubsubsection{isEnabled}
+{\footnotesize\ttfamily bool Mmw\+Demo\+\_\+\+Bpm\+Cfg\+\_\+t\+::is\+Enabled}
+
+
+
+Enabled/disabled flag. 
+
+
+
+Definition at line 174 of file mrr\+\_\+config.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+common/\textbf{ mrr\+\_\+config.\+h}\end{DoxyCompactItemize}

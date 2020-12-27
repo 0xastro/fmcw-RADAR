@@ -1,0 +1,717 @@
+\doxysection{dss\+\_\+main.\+c File Reference}
+\label{dss__main_8c}\index{dss\_main.c@{dss\_main.c}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$xdc/std.\+h$>$}\newline
+{\ttfamily \#include $<$xdc/cfg/global.\+h$>$}\newline
+{\ttfamily \#include $<$xdc/runtime/\+I\+Heap.\+h$>$}\newline
+{\ttfamily \#include $<$xdc/runtime/\+System.\+h$>$}\newline
+{\ttfamily \#include $<$xdc/runtime/\+Error.\+h$>$}\newline
+{\ttfamily \#include $<$xdc/runtime/\+Memory.\+h$>$}\newline
+{\ttfamily \#include $<$ti/sysbios/\+B\+I\+O\+S.\+h$>$}\newline
+{\ttfamily \#include $<$ti/sysbios/knl/\+Task.\+h$>$}\newline
+{\ttfamily \#include $<$ti/sysbios/knl/\+Event.\+h$>$}\newline
+{\ttfamily \#include $<$ti/sysbios/knl/\+Semaphore.\+h$>$}\newline
+{\ttfamily \#include $<$ti/sysbios/knl/\+Clock.\+h$>$}\newline
+{\ttfamily \#include $<$ti/sysbios/heaps/\+Heap\+Buf.\+h$>$}\newline
+{\ttfamily \#include $<$ti/sysbios/heaps/\+Heap\+Mem.\+h$>$}\newline
+{\ttfamily \#include $<$ti/sysbios/family/c64p/\+Cache.\+h$>$}\newline
+{\ttfamily \#include $<$ti/sysbios/family/c64p/\+Hwi.\+h$>$}\newline
+{\ttfamily \#include $<$ti/sysbios/family/c64p/\+Event\+Combiner.\+h$>$}\newline
+{\ttfamily \#include $<$ti/sysbios/utils/\+Load.\+h$>$}\newline
+{\ttfamily \#include $<$ti/common/sys\+\_\+common.\+h$>$}\newline
+{\ttfamily \#include $<$ti/common/mmwave\+\_\+sdk\+\_\+version.\+h$>$}\newline
+{\ttfamily \#include $<$ti/utils/cycleprofiler/cycle\+\_\+profiler.\+h$>$}\newline
+{\ttfamily \#include $<$ti/drivers/mailbox/mailbox.\+h$>$}\newline
+{\ttfamily \#include $<$ti/drivers/adcbuf/\+A\+D\+C\+Buf.\+h$>$}\newline
+{\ttfamily \#include $<$ti/drivers/esm/esm.\+h$>$}\newline
+{\ttfamily \#include $<$ti/drivers/pinmux/pinmux.\+h$>$}\newline
+{\ttfamily \#include $<$ti/drivers/soc/soc.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}common/mm\+Wave\+\_\+\+X\+S\+S.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dss\+\_\+data\+\_\+path.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}E\+K\+F\+\_\+\+X\+Y\+Z\+\_\+\+Interface.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}common/mmw\+\_\+messages.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}common/app\+\_\+cfg.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$cpy\+\_\+tbl.\+h$>$}\newline
+Include dependency graph for dss\+\_\+main.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dss__main_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ D\+S\+S2\+M\+S\+S\+\_\+\+H\+S\+R\+AM}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ S\+O\+C\+\_\+\+X\+W\+R18\+X\+X\+\_\+\+D\+S\+S\+\_\+\+H\+S\+R\+A\+M\+\_\+\+S\+I\+ZE}~0x8000U        /$\ast$ Size\+: 32KB $\ast$/
+\begin{DoxyCompactList}\small\item\em D\+SS stores the application output and D\+S\+S2\+M\+SS I\+SR information (for fast exception signalling) in H\+S\+R\+AM. \end{DoxyCompactList}\item 
+\#define \textbf{ D\+A\+T\+A\+P\+A\+T\+H\+\_\+\+D\+E\+T\+\_\+\+P\+A\+Y\+L\+O\+A\+D\+\_\+\+S\+I\+ZE}~(\textbf{ S\+O\+C\+\_\+\+X\+W\+R18\+X\+X\+\_\+\+D\+S\+S\+\_\+\+H\+S\+R\+A\+M\+\_\+\+S\+I\+ZE} -\/  sizeof(uint8\+\_\+t))
+\item 
+\#define \textbf{ M\+M\+W\+\_\+\+N\+U\+M\+\_\+\+A\+N\+G\+L\+E\+\_\+\+B\+I\+NS}~64
+\begin{DoxyCompactList}\small\item\em \begin{quote}
+\end{quote}
+\end{DoxyCompactList}\item 
+\#define \textbf{ S\+P\+E\+E\+D\+\_\+\+O\+F\+\_\+\+L\+I\+G\+H\+T\+\_\+\+I\+N\+\_\+\+M\+E\+T\+E\+R\+S\+\_\+\+P\+E\+R\+\_\+\+S\+EC}~(3.\+0e8)
+\item 
+\#define \textbf{ S\+P\+E\+E\+D\+\_\+\+O\+F\+\_\+\+L\+I\+G\+H\+T\+\_\+\+I\+N\+\_\+\+M\+E\+T\+E\+R\+S\+\_\+\+P\+E\+R\+\_\+\+U\+S\+EC}~(3.\+0e2)
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \textbf{ D\+S\+S2\+M\+S\+S\+\_\+\+H\+S\+R\+AM} \textbf{ D\+S\+S2\+M\+S\+S\+\_\+\+H\+S\+R\+A\+M\+\_\+t}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \textbf{ D\+S\+S\+\_\+mm\+Wave\+Init\+T\+A\+SK} (U\+Arg arg0, U\+Arg arg1)
+\item 
+static void \textbf{ D\+S\+S\+\_\+mm\+Wave\+Ctrl\+Task} (U\+Arg arg0, U\+Arg arg1)
+\item 
+static void \textbf{ D\+S\+S\+\_\+chirp\+Int\+Callback} (uintptr\+\_\+t arg)
+\item 
+static void \textbf{ D\+S\+S\+\_\+frame\+Start\+Int\+Callback} (uintptr\+\_\+t arg)
+\item 
+static int32\+\_\+t \textbf{ D\+S\+S\+\_\+\+Data\+Path\+Config\+Adc\+Buf} ()
+\item 
+void \textbf{ D\+S\+S\+\_\+data\+Path\+Config\+Populate} (\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$obj)
+\item 
+void \textbf{ D\+S\+S\+\_\+populate\+U\+S\+RR} (\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$obj, uint16\+\_\+t subframe\+Indx)
+\item 
+void \textbf{ D\+S\+S\+\_\+d\+B\+Scan\+Config\+Buffers} (\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$obj)
+\item 
+static void \textbf{ D\+S\+S\+\_\+edma\+Block\+Copy} (E\+D\+M\+A\+\_\+\+Handle handle, uint32\+\_\+t load\+Addr, uint32\+\_\+t run\+Addr, uint16\+\_\+t size)
+\item 
+static void \textbf{ D\+S\+S\+\_\+copy\+Table} (E\+D\+M\+A\+\_\+\+Handle handle, C\+O\+P\+Y\+\_\+\+T\+A\+B\+LE $\ast$tp)
+\item 
+int32\+\_\+t \textbf{ D\+S\+S\+\_\+\+Data\+Path\+Init} (void)
+\item 
+static int32\+\_\+t \textbf{ D\+S\+S\+\_\+\+Send\+Process\+Output\+To\+M\+SS} (uint8\+\_\+t $\ast$ptr\+Hsm\+Buffer, uint32\+\_\+t output\+Buf\+Size, \textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$obj)
+\item 
+static void \textbf{ D\+S\+S\+\_\+\+Data\+Path\+Output\+Logging} (\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$data\+Path\+Obj)
+\item 
+static void \textbf{ mbox\+In\+\_\+uart\+Out\+\_\+\+T\+A\+SK} ()
+\item 
+void \textbf{ mbox\+Callback\+Fxn\+\_\+\+M\+S\+S\+\_\+ch0} (Mbox\+\_\+\+Handle handle, Mailbox\+\_\+\+Type peer)
+\item 
+void \textbf{ D\+S\+P\+\_\+sleep} (void)
+\item 
+uint16\+\_\+t \textbf{ convert\+S\+N\+Rd\+Bto\+Threshold} (uint16\+\_\+t num\+Integ, float Threshold\+IndB, uint16\+\_\+t bitwidth)
+\item 
+static int32\+\_\+t \textbf{ D\+S\+S\+\_\+mbox\+Write} (\textbf{ mm\+Wave\+M\+SG} $\ast$message)
+\item 
+void \textbf{ \+\_\+\+Mmw\+Demo\+\_\+dss\+Assert} (int32\+\_\+t expression, const char $\ast$file, int32\+\_\+t line)
+\item 
+int32\+\_\+t \textbf{ main} (void)
+\item 
+void \textbf{ rx\+Gain\+Phase\+Param\+\_\+\+Init} (\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$obj)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ D\+S\+S2\+M\+S\+S\+\_\+\+H\+S\+R\+A\+M\+\_\+t} \textbf{ g\+H\+S\+R\+AM}
+\item 
+far C\+O\+P\+Y\+\_\+\+T\+A\+B\+LE \textbf{ \+\_\+\+Mmw\+Demo\+\_\+fast\+Code\+\_\+\+L1\+P\+S\+R\+A\+M\+\_\+copy\+\_\+table}
+\item 
+\textbf{ M\+CB} \textbf{ g\+M\+CB}
+\begin{DoxyCompactList}\small\item\em Global Variable for tracking information required by the design. \end{DoxyCompactList}\item 
+volatile \textbf{ cycle\+Log\+\_\+t} \textbf{ g\+Cycle\+Log}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\label{dss__main_8c_a8127e9a591a64e05e4a28702071fee9a}} 
+\index{dss\_main.c@{dss\_main.c}!DATAPATH\_DET\_PAYLOAD\_SIZE@{DATAPATH\_DET\_PAYLOAD\_SIZE}}
+\index{DATAPATH\_DET\_PAYLOAD\_SIZE@{DATAPATH\_DET\_PAYLOAD\_SIZE}!dss\_main.c@{dss\_main.c}}
+\doxysubsubsection{DATAPATH\_DET\_PAYLOAD\_SIZE}
+{\footnotesize\ttfamily \#define D\+A\+T\+A\+P\+A\+T\+H\+\_\+\+D\+E\+T\+\_\+\+P\+A\+Y\+L\+O\+A\+D\+\_\+\+S\+I\+ZE~(\textbf{ S\+O\+C\+\_\+\+X\+W\+R18\+X\+X\+\_\+\+D\+S\+S\+\_\+\+H\+S\+R\+A\+M\+\_\+\+S\+I\+ZE} -\/  sizeof(uint8\+\_\+t))}
+
+
+
+Definition at line 78 of file dss\+\_\+main.\+c.
+
+\mbox{\label{dss__main_8c_a95442efb4452ea2af94dd34f70ef5515}} 
+\index{dss\_main.c@{dss\_main.c}!MMW\_NUM\_ANGLE\_BINS@{MMW\_NUM\_ANGLE\_BINS}}
+\index{MMW\_NUM\_ANGLE\_BINS@{MMW\_NUM\_ANGLE\_BINS}!dss\_main.c@{dss\_main.c}}
+\doxysubsubsection{MMW\_NUM\_ANGLE\_BINS}
+{\footnotesize\ttfamily \#define M\+M\+W\+\_\+\+N\+U\+M\+\_\+\+A\+N\+G\+L\+E\+\_\+\+B\+I\+NS~64}
+
+
+
+\begin{quote}
+\end{quote}
+
+
+Azimuth F\+FT size 
+
+Definition at line 89 of file dss\+\_\+main.\+c.
+
+\mbox{\label{dss__main_8c_a0f6e54d586e4192b6a9d2d97aa1962bd}} 
+\index{dss\_main.c@{dss\_main.c}!SOC\_XWR18XX\_DSS\_HSRAM\_SIZE@{SOC\_XWR18XX\_DSS\_HSRAM\_SIZE}}
+\index{SOC\_XWR18XX\_DSS\_HSRAM\_SIZE@{SOC\_XWR18XX\_DSS\_HSRAM\_SIZE}!dss\_main.c@{dss\_main.c}}
+\doxysubsubsection{SOC\_XWR18XX\_DSS\_HSRAM\_SIZE}
+{\footnotesize\ttfamily \#define S\+O\+C\+\_\+\+X\+W\+R18\+X\+X\+\_\+\+D\+S\+S\+\_\+\+H\+S\+R\+A\+M\+\_\+\+S\+I\+ZE~0x8000U        /$\ast$ Size\+: 32KB $\ast$/}
+
+
+
+D\+SS stores the application output and D\+S\+S2\+M\+SS I\+SR information (for fast exception signalling) in H\+S\+R\+AM. 
+
+
+
+Definition at line 75 of file dss\+\_\+main.\+c.
+
+\mbox{\label{dss__main_8c_a18acd357f55b477ebe646b62aa7b2850}} 
+\index{dss\_main.c@{dss\_main.c}!SPEED\_OF\_LIGHT\_IN\_METERS\_PER\_SEC@{SPEED\_OF\_LIGHT\_IN\_METERS\_PER\_SEC}}
+\index{SPEED\_OF\_LIGHT\_IN\_METERS\_PER\_SEC@{SPEED\_OF\_LIGHT\_IN\_METERS\_PER\_SEC}!dss\_main.c@{dss\_main.c}}
+\doxysubsubsection{SPEED\_OF\_LIGHT\_IN\_METERS\_PER\_SEC}
+{\footnotesize\ttfamily \#define S\+P\+E\+E\+D\+\_\+\+O\+F\+\_\+\+L\+I\+G\+H\+T\+\_\+\+I\+N\+\_\+\+M\+E\+T\+E\+R\+S\+\_\+\+P\+E\+R\+\_\+\+S\+EC~(3.\+0e8)}
+
+
+
+Definition at line 90 of file dss\+\_\+main.\+c.
+
+\mbox{\label{dss__main_8c_a3752bcaa979b853facfb28d2d9304003}} 
+\index{dss\_main.c@{dss\_main.c}!SPEED\_OF\_LIGHT\_IN\_METERS\_PER\_USEC@{SPEED\_OF\_LIGHT\_IN\_METERS\_PER\_USEC}}
+\index{SPEED\_OF\_LIGHT\_IN\_METERS\_PER\_USEC@{SPEED\_OF\_LIGHT\_IN\_METERS\_PER\_USEC}!dss\_main.c@{dss\_main.c}}
+\doxysubsubsection{SPEED\_OF\_LIGHT\_IN\_METERS\_PER\_USEC}
+{\footnotesize\ttfamily \#define S\+P\+E\+E\+D\+\_\+\+O\+F\+\_\+\+L\+I\+G\+H\+T\+\_\+\+I\+N\+\_\+\+M\+E\+T\+E\+R\+S\+\_\+\+P\+E\+R\+\_\+\+U\+S\+EC~(3.\+0e2)}
+
+
+
+Definition at line 91 of file dss\+\_\+main.\+c.
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\label{dss__main_8c_a68fbf78c32d9ad2ed947d41049f2afce}} 
+\index{dss\_main.c@{dss\_main.c}!DSS2MSS\_HSRAM\_t@{DSS2MSS\_HSRAM\_t}}
+\index{DSS2MSS\_HSRAM\_t@{DSS2MSS\_HSRAM\_t}!dss\_main.c@{dss\_main.c}}
+\doxysubsubsection{DSS2MSS\_HSRAM\_t}
+{\footnotesize\ttfamily typedef struct \textbf{ D\+S\+S2\+M\+S\+S\+\_\+\+H\+S\+R\+AM}  \textbf{ D\+S\+S2\+M\+S\+S\+\_\+\+H\+S\+R\+A\+M\+\_\+t}}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\label{dss__main_8c_a91a8ede97a3777ba3da80043dc61cdd1}} 
+\index{dss\_main.c@{dss\_main.c}!\_MmwDemo\_dssAssert@{\_MmwDemo\_dssAssert}}
+\index{\_MmwDemo\_dssAssert@{\_MmwDemo\_dssAssert}!dss\_main.c@{dss\_main.c}}
+\doxysubsubsection{\_MmwDemo\_dssAssert()}
+{\footnotesize\ttfamily void \+\_\+\+Mmw\+Demo\+\_\+dss\+Assert (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{expression,  }\item[{const char $\ast$}]{file,  }\item[{int32\+\_\+t}]{line }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ Sends D\+SS assert information to M\+SS
+
+
+\begin{DoxyRetVals}{Return values}
+{\em Not} & Applicable. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 302 of file dss\+\_\+main.\+c.
+
+\mbox{\label{dss__main_8c_a39815827271ca3a241991c957141d53f}} 
+\index{dss\_main.c@{dss\_main.c}!convertSNRdBtoThreshold@{convertSNRdBtoThreshold}}
+\index{convertSNRdBtoThreshold@{convertSNRdBtoThreshold}!dss\_main.c@{dss\_main.c}}
+\doxysubsubsection{convertSNRdBtoThreshold()}
+{\footnotesize\ttfamily uint16\+\_\+t convert\+S\+N\+Rd\+Bto\+Threshold (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{num\+Integ,  }\item[{float}]{Threshold\+IndB,  }\item[{uint16\+\_\+t}]{bitwidth }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ Converts an S\+NR (in dB) to an S\+NR Threshold that the C\+F\+AR algo can use. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em number} & of integrations in the detection matrix Typically the number of virtual antennas \\
+\hline
+\mbox{\texttt{ in}}  & {\em Threshold} & in dB (float)\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Threshold} & for C\+F\+AR algorithm. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 1267 of file dss\+\_\+main.\+c.
+
+\mbox{\label{dss__main_8c_a1c39b984ed1341eed88b16df5481e555}} 
+\index{dss\_main.c@{dss\_main.c}!DSP\_sleep@{DSP\_sleep}}
+\index{DSP\_sleep@{DSP\_sleep}!dss\_main.c@{dss\_main.c}}
+\doxysubsubsection{DSP\_sleep()}
+{\footnotesize\ttfamily void D\+S\+P\+\_\+sleep (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ Function to sleep the D\+SP using I\+D\+LE instruction. When D\+SP has no work left to do, the B\+I\+OS will be in Idle thread and will call this function. The D\+SP will wake-\/up on any interrupt (e.\+g chirp interrupt).
+
+
+\begin{DoxyRetVals}{Return values}
+{\em Not} & Applicable. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 288 of file dss\+\_\+main.\+c.
+
+\mbox{\label{dss__main_8c_aa0d3ce0b9a026a2b8443b2624ac340c0}} 
+\index{dss\_main.c@{dss\_main.c}!DSS\_chirpIntCallback@{DSS\_chirpIntCallback}}
+\index{DSS\_chirpIntCallback@{DSS\_chirpIntCallback}!dss\_main.c@{dss\_main.c}}
+\doxysubsubsection{DSS\_chirpIntCallback()}
+{\footnotesize\ttfamily static void D\+S\+S\+\_\+chirp\+Int\+Callback (\begin{DoxyParamCaption}\item[{uintptr\+\_\+t}]{arg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries{Description}} ~\newline
+ This is the callback function registered with the A\+DC Driver which is invoked when a chirp is available. This is executed in the I\+SR context.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em arg} & Application registered argument\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Not} & Applicable. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 158 of file dss\+\_\+main.\+c.
+
+\mbox{\label{dss__main_8c_a25eb89f406c7cd6763d1ad067c68a3d0}} 
+\index{dss\_main.c@{dss\_main.c}!DSS\_copyTable@{DSS\_copyTable}}
+\index{DSS\_copyTable@{DSS\_copyTable}!dss\_main.c@{dss\_main.c}}
+\doxysubsubsection{DSS\_copyTable()}
+{\footnotesize\ttfamily static void D\+S\+S\+\_\+copy\+Table (\begin{DoxyParamCaption}\item[{E\+D\+M\+A\+\_\+\+Handle}]{handle,  }\item[{C\+O\+P\+Y\+\_\+\+T\+A\+B\+LE $\ast$}]{tp }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries{Description}} ~\newline
+ Performs linker generated copy table copy using E\+D\+MA. Currently this is used to page in fast code from L3 to L1\+P\+S\+R\+AM. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em handle} & E\+D\+MA handle \\
+\hline
+\mbox{\texttt{ in}}  & {\em tp} & Pointer to copy table\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Not} & Applicable. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 1147 of file dss\+\_\+main.\+c.
+
+\mbox{\label{dss__main_8c_aa7fd13cc99bb9d83779b59eb0921796a}} 
+\index{dss\_main.c@{dss\_main.c}!DSS\_DataPathConfigAdcBuf@{DSS\_DataPathConfigAdcBuf}}
+\index{DSS\_DataPathConfigAdcBuf@{DSS\_DataPathConfigAdcBuf}!dss\_main.c@{dss\_main.c}}
+\doxysubsubsection{DSS\_DataPathConfigAdcBuf()}
+{\footnotesize\ttfamily static int32\+\_\+t D\+S\+S\+\_\+\+Data\+Path\+Config\+Adc\+Buf (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries{Description}} ~\newline
+ Function to configure A\+D\+C\+B\+UF driver based on C\+LI inputs. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em num\+Rx\+Channels} & Number of receive channels.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Not} & Applicable. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 1048 of file dss\+\_\+main.\+c.
+
+\mbox{\label{dss__main_8c_a5970197da21d2826735f1f1104e3b7ca}} 
+\index{dss\_main.c@{dss\_main.c}!DSS\_dataPathConfigPopulate@{DSS\_dataPathConfigPopulate}}
+\index{DSS\_dataPathConfigPopulate@{DSS\_dataPathConfigPopulate}!dss\_main.c@{dss\_main.c}}
+\doxysubsubsection{DSS\_dataPathConfigPopulate()}
+{\footnotesize\ttfamily void D\+S\+S\+\_\+data\+Path\+Config\+Populate (\begin{DoxyParamCaption}\item[{\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$}]{obj }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ populates the data path object array with the M\+RR configuration.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em obj} & pointer to the data path object.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Not} & Applicable. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 613 of file dss\+\_\+main.\+c.
+
+\mbox{\label{dss__main_8c_adad22e2963c191f2dfe40c9d0dd1ac0f}} 
+\index{dss\_main.c@{dss\_main.c}!DSS\_DataPathInit@{DSS\_DataPathInit}}
+\index{DSS\_DataPathInit@{DSS\_DataPathInit}!dss\_main.c@{dss\_main.c}}
+\doxysubsubsection{DSS\_DataPathInit()}
+{\footnotesize\ttfamily int32\+\_\+t D\+S\+S\+\_\+\+Data\+Path\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\label{dss__main_8c_a72b9770073934132fbaa430bdfa9fba1}} 
+\index{dss\_main.c@{dss\_main.c}!DSS\_DataPathOutputLogging@{DSS\_DataPathOutputLogging}}
+\index{DSS\_DataPathOutputLogging@{DSS\_DataPathOutputLogging}!dss\_main.c@{dss\_main.c}}
+\doxysubsubsection{DSS\_DataPathOutputLogging()}
+{\footnotesize\ttfamily void D\+S\+S\+\_\+\+Data\+Path\+Output\+Logging (\begin{DoxyParamCaption}\item[{\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$}]{data\+Path\+Obj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries{Description}} ~\newline
+ Function to send data path detection output.
+
+
+\begin{DoxyRetVals}{Return values}
+{\em Not} & Applicable. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 995 of file dss\+\_\+main.\+c.
+
+\mbox{\label{dss__main_8c_ac11e5cd9edb8ac3e7a60fc0f62f9cc7b}} 
+\index{dss\_main.c@{dss\_main.c}!DSS\_dBScanConfigBuffers@{DSS\_dBScanConfigBuffers}}
+\index{DSS\_dBScanConfigBuffers@{DSS\_dBScanConfigBuffers}!dss\_main.c@{dss\_main.c}}
+\doxysubsubsection{DSS\_dBScanConfigBuffers()}
+{\footnotesize\ttfamily void D\+S\+S\+\_\+d\+B\+Scan\+Config\+Buffers (\begin{DoxyParamCaption}\item[{\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$}]{obj }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ Configures the d\+B\+Scan buffers. ~\newline
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em data} & path Object\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Not} & applicable. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 1284 of file dss\+\_\+main.\+c.
+
+\mbox{\label{dss__main_8c_aef60f76714caf07e2355842d21ac91c6}} 
+\index{dss\_main.c@{dss\_main.c}!DSS\_edmaBlockCopy@{DSS\_edmaBlockCopy}}
+\index{DSS\_edmaBlockCopy@{DSS\_edmaBlockCopy}!dss\_main.c@{dss\_main.c}}
+\doxysubsubsection{DSS\_edmaBlockCopy()}
+{\footnotesize\ttfamily static void D\+S\+S\+\_\+edma\+Block\+Copy (\begin{DoxyParamCaption}\item[{E\+D\+M\+A\+\_\+\+Handle}]{handle,  }\item[{uint32\+\_\+t}]{load\+Addr,  }\item[{uint32\+\_\+t}]{run\+Addr,  }\item[{uint16\+\_\+t}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries{Description}} ~\newline
+ Performs simple block copy using E\+D\+MA. Used for the purpose of copying linker table for L3 to L1\+P\+S\+R\+AM copy. memcpy cannot be used because there is no data bus access to L1\+P\+S\+R\+AM.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em handle} & E\+D\+MA handle \\
+\hline
+\mbox{\texttt{ in}}  & {\em load\+Addr} & load address \\
+\hline
+\mbox{\texttt{ in}}  & {\em run\+Addr} & run address \\
+\hline
+\mbox{\texttt{ in}}  & {\em size} & size in bytes\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Not} & Applicable. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 1185 of file dss\+\_\+main.\+c.
+
+\mbox{\label{dss__main_8c_a3187a1b3863543147015c82f5060b222}} 
+\index{dss\_main.c@{dss\_main.c}!DSS\_frameStartIntCallback@{DSS\_frameStartIntCallback}}
+\index{DSS\_frameStartIntCallback@{DSS\_frameStartIntCallback}!dss\_main.c@{dss\_main.c}}
+\doxysubsubsection{DSS\_frameStartIntCallback()}
+{\footnotesize\ttfamily static void D\+S\+S\+\_\+frame\+Start\+Int\+Callback (\begin{DoxyParamCaption}\item[{uintptr\+\_\+t}]{arg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries{Description}} ~\newline
+ This is the callback function registered when a frame is triggered. This is executed in the I\+SR context.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em arg} & Application registered argument\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Not} & Applicable. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 177 of file dss\+\_\+main.\+c.
+
+\mbox{\label{dss__main_8c_abea578dc8601af02478b28de555dd1a4}} 
+\index{dss\_main.c@{dss\_main.c}!DSS\_mboxWrite@{DSS\_mboxWrite}}
+\index{DSS\_mboxWrite@{DSS\_mboxWrite}!dss\_main.c@{dss\_main.c}}
+\doxysubsubsection{DSS\_mboxWrite()}
+{\footnotesize\ttfamily static int32\+\_\+t D\+S\+S\+\_\+mbox\+Write (\begin{DoxyParamCaption}\item[{\textbf{ mm\+Wave\+M\+SG} $\ast$}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries{Description}} ~\newline
+ Function to send a message to peer through Mailbox virtural channel
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em message} & Pointer to the Capture demo message.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Success -\/ 0 Fail $<$ -\/1 
+\end{DoxyReturn}
+
+
+Definition at line 640 of file dss\+\_\+main.\+c.
+
+\mbox{\label{dss__main_8c_ac8ed520355da87e3908befe37bb39110}} 
+\index{dss\_main.c@{dss\_main.c}!DSS\_mmWaveCtrlTask@{DSS\_mmWaveCtrlTask}}
+\index{DSS\_mmWaveCtrlTask@{DSS\_mmWaveCtrlTask}!dss\_main.c@{dss\_main.c}}
+\doxysubsubsection{DSS\_mmWaveCtrlTask()}
+{\footnotesize\ttfamily static void D\+S\+S\+\_\+mm\+Wave\+Ctrl\+Task (\begin{DoxyParamCaption}\item[{U\+Arg}]{arg0,  }\item[{U\+Arg}]{arg1 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries{Description}} ~\newline
+ This is the task which provides an execution context for the mm\+Wave control module.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em arg0} & Argument0 with which the task was created \\
+\hline
+\mbox{\texttt{ in}}  & {\em arg1} & Argument1 with which the task was created\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Not} & Applicable. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 199 of file dss\+\_\+main.\+c.
+
+\mbox{\label{dss__main_8c_a07fb7314eebeff45138ae5d3e8166649}} 
+\index{dss\_main.c@{dss\_main.c}!DSS\_mmWaveInitTASK@{DSS\_mmWaveInitTASK}}
+\index{DSS\_mmWaveInitTASK@{DSS\_mmWaveInitTASK}!dss\_main.c@{dss\_main.c}}
+\doxysubsubsection{DSS\_mmWaveInitTASK()}
+{\footnotesize\ttfamily static void D\+S\+S\+\_\+mm\+Wave\+Init\+T\+A\+SK (\begin{DoxyParamCaption}\item[{U\+Arg}]{arg0,  }\item[{U\+Arg}]{arg1 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries{Description}} ~\newline
+ D\+SS Initialization Task which initializes the various components in the D\+SS subsystem.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em arg0} & Argument0 with which the task was created \\
+\hline
+\mbox{\texttt{ in}}  & {\em arg1} & Argument1 with which the task was created\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Not} & Applicable. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 472 of file dss\+\_\+main.\+c.
+
+\mbox{\label{dss__main_8c_af430eed2ddab938cf2f7b1740cb75642}} 
+\index{dss\_main.c@{dss\_main.c}!DSS\_populateUSRR@{DSS\_populateUSRR}}
+\index{DSS\_populateUSRR@{DSS\_populateUSRR}!dss\_main.c@{dss\_main.c}}
+\doxysubsubsection{DSS\_populateUSRR()}
+{\footnotesize\ttfamily void D\+S\+S\+\_\+populate\+U\+S\+RR (\begin{DoxyParamCaption}\item[{\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$}]{obj,  }\item[{uint16\+\_\+t}]{subframe\+Indx }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ Populates the configuration for the U\+S\+RR point cloud subframe. ~\newline
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em data} & path Object\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Not} & applicable. \\
+\hline
+\end{DoxyRetVals}
+Q format of the output x/y/z coordinates
+
+C\+F\+AR configuration in Doppler direction
+
+C\+F\+AR configuration in Range direction
+
+min and max range configuration
+
+Multi object beam forming configuration
+
+DC Range antenna signature calibration configuration.
+
+C\+F\+AR thresholds are varied as a function of range
+
+peak\+Val thresholds are varied as a function of range (meant to remove cases of clutter being detected too when we drive the car.) Thresholds were derived from experiments.
+
+Configuring the db\+S\+Can for car like objects. These numbers are derived from field tests
+
+Configuring the \textquotesingle{}parking assist\textquotesingle{} occupancy detect.
+
+Definition at line 1316 of file dss\+\_\+main.\+c.
+
+\mbox{\label{dss__main_8c_ae1bdef234348ea1f2b4350c5986bb615}} 
+\index{dss\_main.c@{dss\_main.c}!DSS\_SendProcessOutputToMSS@{DSS\_SendProcessOutputToMSS}}
+\index{DSS\_SendProcessOutputToMSS@{DSS\_SendProcessOutputToMSS}!dss\_main.c@{dss\_main.c}}
+\doxysubsubsection{DSS\_SendProcessOutputToMSS()}
+{\footnotesize\ttfamily int32\+\_\+t D\+S\+S\+\_\+\+Send\+Process\+Output\+To\+M\+SS (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{ptr\+Hsm\+Buffer,  }\item[{uint32\+\_\+t}]{output\+Buf\+Size,  }\item[{\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$}]{obj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries{Description}} ~\newline
+ Function to send detected objects to M\+SS logger.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em ptr\+Output\+Buffer} & Pointer to the output buffer \\
+\hline
+\mbox{\texttt{ in}}  & {\em output\+Buf\+Size} & Size of the output buffer \\
+\hline
+\mbox{\texttt{ in}}  & {\em obj} & Handle to the Data Path Object\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em =0} & Success $<$0 Failed \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 766 of file dss\+\_\+main.\+c.
+
+\mbox{\label{dss__main_8c_a52d2cba30e6946c95578be946ac12a65}} 
+\index{dss\_main.c@{dss\_main.c}!main@{main}}
+\index{main@{main}!dss\_main.c@{dss\_main.c}}
+\doxysubsubsection{main()}
+{\footnotesize\ttfamily int32\+\_\+t main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ Entry point into the D\+SS M\+RR TI Design
+
+
+\begin{DoxyRetVals}{Return values}
+{\em Not} & Applicable. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 331 of file dss\+\_\+main.\+c.
+
+\mbox{\label{dss__main_8c_ae4fe179e8556819fdd4c5300f11a92a3}} 
+\index{dss\_main.c@{dss\_main.c}!mboxCallbackFxn\_MSS\_ch0@{mboxCallbackFxn\_MSS\_ch0}}
+\index{mboxCallbackFxn\_MSS\_ch0@{mboxCallbackFxn\_MSS\_ch0}!dss\_main.c@{dss\_main.c}}
+\doxysubsubsection{mboxCallbackFxn\_MSS\_ch0()}
+{\footnotesize\ttfamily void mbox\+Callback\+Fxn\+\_\+\+M\+S\+S\+\_\+ch0 (\begin{DoxyParamCaption}\item[{Mbox\+\_\+\+Handle}]{handle,  }\item[{Mailbox\+\_\+\+Type}]{peer }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ This function is a callback function that invoked when a message is received from the peer.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em handle} & Handle to the Mailbox on which data was received \\
+\hline
+\mbox{\texttt{ in}}  & {\em peer} & Peer from which data was received\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Not} & Applicable. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 741 of file dss\+\_\+main.\+c.
+
+\mbox{\label{dss__main_8c_a85ff4eb72e93e180ece82bc30378b823}} 
+\index{dss\_main.c@{dss\_main.c}!mboxIn\_uartOut\_TASK@{mboxIn\_uartOut\_TASK}}
+\index{mboxIn\_uartOut\_TASK@{mboxIn\_uartOut\_TASK}!dss\_main.c@{dss\_main.c}}
+\doxysubsubsection{mboxIn\_uartOut\_TASK()}
+{\footnotesize\ttfamily static void mbox\+In\+\_\+uart\+Out\+\_\+\+T\+A\+SK (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries{Description}} ~\newline
+ The Task is used to handle the mmw demo messages received from Mailbox virtual channel.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em arg0} & arg0 of the Task. Not used \\
+\hline
+\mbox{\texttt{ in}}  & {\em arg1} & arg1 of the Task. Not used\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Not} & Applicable. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 667 of file dss\+\_\+main.\+c.
+
+\mbox{\label{dss__main_8c_a4457564915233c3e58a3d53ae6307a52}} 
+\index{dss\_main.c@{dss\_main.c}!rxGainPhaseParam\_Init@{rxGainPhaseParam\_Init}}
+\index{rxGainPhaseParam\_Init@{rxGainPhaseParam\_Init}!dss\_main.c@{dss\_main.c}}
+\doxysubsubsection{rxGainPhaseParam\_Init()}
+{\footnotesize\ttfamily void rx\+Gain\+Phase\+Param\+\_\+\+Init (\begin{DoxyParamCaption}\item[{\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$}]{obj }\end{DoxyParamCaption})}
+
+
+
+Definition at line 393 of file dss\+\_\+main.\+c.
+
+
+
+References M\+A\+X\+\_\+\+V\+E\+L\+\_\+\+E\+N\+H\+\_\+\+P\+R\+O\+C\+E\+S\+S\+I\+NG, P\+O\+I\+N\+T\+\_\+\+C\+L\+O\+U\+D\+\_\+\+P\+R\+O\+C\+E\+S\+S\+I\+NG, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::processing\+Path, and D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::rx\+Ch\+Phase\+Comp.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\label{dss__main_8c_acb0a1e2af898631e012b183842d76c2a}} 
+\index{dss\_main.c@{dss\_main.c}!\_MmwDemo\_fastCode\_L1PSRAM\_copy\_table@{\_MmwDemo\_fastCode\_L1PSRAM\_copy\_table}}
+\index{\_MmwDemo\_fastCode\_L1PSRAM\_copy\_table@{\_MmwDemo\_fastCode\_L1PSRAM\_copy\_table}!dss\_main.c@{dss\_main.c}}
+\doxysubsubsection{\_MmwDemo\_fastCode\_L1PSRAM\_copy\_table}
+{\footnotesize\ttfamily far C\+O\+P\+Y\+\_\+\+T\+A\+B\+LE \+\_\+\+Mmw\+Demo\+\_\+fast\+Code\+\_\+\+L1\+P\+S\+R\+A\+M\+\_\+copy\+\_\+table}
+
+\mbox{\label{dss__main_8c_a6e08c5e3199213090b427bdef632f159}} 
+\index{dss\_main.c@{dss\_main.c}!gCycleLog@{gCycleLog}}
+\index{gCycleLog@{gCycleLog}!dss\_main.c@{dss\_main.c}}
+\doxysubsubsection{gCycleLog}
+{\footnotesize\ttfamily volatile \textbf{ cycle\+Log\+\_\+t} g\+Cycle\+Log}
+
+
+
+Definition at line 99 of file dss\+\_\+main.\+c.
+
+
+
+Referenced by Mmw\+Demo\+\_\+process\+Chirp().
+
+\mbox{\label{dss__main_8c_a7c106429088ea25d365cdaa699a62c58}} 
+\index{dss\_main.c@{dss\_main.c}!gHSRAM@{gHSRAM}}
+\index{gHSRAM@{gHSRAM}!dss\_main.c@{dss\_main.c}}
+\doxysubsubsection{gHSRAM}
+{\footnotesize\ttfamily \textbf{ D\+S\+S2\+M\+S\+S\+\_\+\+H\+S\+R\+A\+M\+\_\+t} g\+H\+S\+R\+AM}
+
+
+
+Definition at line 86 of file dss\+\_\+main.\+c.
+
+\mbox{\label{dss__main_8c_a400857e2ff108c7f9aa2f123e85774a1}} 
+\index{dss\_main.c@{dss\_main.c}!gMCB@{gMCB}}
+\index{gMCB@{gMCB}!dss\_main.c@{dss\_main.c}}
+\doxysubsubsection{gMCB}
+{\footnotesize\ttfamily \textbf{ M\+CB} g\+M\+CB}
+
+
+
+Global Variable for tracking information required by the design. 
+
+
+
+Definition at line 97 of file dss\+\_\+main.\+c.
+

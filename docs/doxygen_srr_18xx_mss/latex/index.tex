@@ -1,0 +1,176 @@
+\doxysection{Introduction}\label{index_intro_sec}
+
+
+The mm\+Wave F\+M\+CW Radar shows some of the capabilities of the A\+W\+R1843 SoC using the drivers in the mm\+Wave S\+DK (Software Development Kit). It allows user to specify the chirping profile and displays the detected objects in range-\/doppler map and tracking information in real-\/time.
+
+In this work we exploit the usage of radar in the automotive space by deploying the basic D\+SP algorithms 1D-\/\+F\+FT, 2D-\/\+F\+FT to detect range and velocity of targets in front of the radar. Accordingly, expanding into more advanced processing chains by deploying unsupervised machine learning algorithm d\+B\+Scan and tracking the objects using the extended Kaman filter. In this work, we test, verify and validate mm\+Wave F\+M\+CW M\+I\+MO radar processing chain on A\+W\+R1843 platform with different sensing profiles. Different application are possible and could be easily integrated into our design by interfacing into C\+AN bus. Wide scenarios can be deployed on top of this system i.\+e object motion direction estimation, precise angular position estimation of obstacles in urban environments and ground vehicle localization in V2V application.
+
+Based on the range of operation, automotive radar sensors are classified into three major categories\+:
+
+
+\begin{DoxyItemize}
+\item L\+RR. Long Range Radar for narrow-\/beam, forward-\/looking view, like adaptive cruise control applications.
+\item M\+RR. Medium Range Radar for medium distance and speed profile, like cross traffic alert (C\+TA) applications.
+\item S\+RR. Short Range Radar for sensing in direct proximity of the vehicle like obstacle detection and parking aid.
+\end{DoxyItemize}
+
+Following is a high level description of the features of this system\+:
+\begin{DoxyItemize}
+\item Be able to specify desired chirping profile through command line interface (C\+LI) on a U\+A\+RT port or through the TI Gallery App -\/ {\bfseries{mm\+Wave Demo Visualizer}} -\/ that allows user to provide a variety of profile configurations via the U\+A\+RT input port and displays the streamed detected output from another U\+A\+RT port in real-\/time, as seen in picture above.
+\item Some sample profile configurations have been provided in the demo directory that can be used with C\+LI directly or via {\bfseries{mm\+Wave Demo Visualizer}} under following directory\+: \begin{DoxyVerb}mmw/profiles \end{DoxyVerb}
+.
+\item Do 1D, 2D, C\+F\+AR, Azimuth and Elevation processing and stream out velocity and three spatial coordinates (x,y,z) of the detected objects in real-\/time. The demo can also be configured to do 2D only detection (velocity and x,y coordinates).
+\item Various display options besides object detection like azimuth heat map and Doppler-\/range heat map.
+\end{DoxyItemize}\doxysection{Limitations}\label{index_limit}
+
+\begin{DoxyItemize}
+\item Because of U\+A\+RT speed limit ($<$ 1 Mbps), the frame time is more restrictive. For example, for the azimuth and Doppler heat maps for 256 F\+FT range and 16 point F\+FT Doppler, it takes about 200 ms to transmit.
+\item For most boards, a range bias of few centimeters has been observed. User can estimate the range bias on their board and correct using the calibration procedure described in \doxyref{Range Bias and Rx Channel Gain/\+Phase Measurement and Compensation}{p.}{index_Calibration_section}.
+\end{DoxyItemize}\doxysection{System Execution Flow}\label{index_systemFlow}
+The millimeter wave demo runs on R4F (M\+SS). Following diagram shows the system execution flow
+
+\doxysection{Software Tasks}\label{index_tasks}
+The demo consists of the following (S\+Y\+S\+B\+I\+OS) tasks\+:
+
+{\bfseries{M\+SS}}
+\begin{DoxyItemize}
+\item Mmw\+Demo\+\_\+init\+Task. This task is created/launched by \doxyref{main}{p.}{mss__main_8c_a52d2cba30e6946c95578be946ac12a65} and is a one-\/time active task whose main functionality is to initialize drivers ($<$driver$>$\+\_\+init), M\+M\+Wave module (M\+M\+Wave\+\_\+init), D\+PM module (D\+P\+M\+\_\+init), open U\+A\+RT and data path related drivers (A\+D\+C\+B\+UF), and create/launch the following tasks (the C\+L\+I\+\_\+task is launched indirectly by calling C\+L\+I\+\_\+open).
+\item C\+L\+I\+\_\+task. This command line interface task provides a simplified \textquotesingle{}shell\textquotesingle{} interface which allows the configuration of the B\+SS via the mm\+Wave interface (M\+M\+Wave\+\_\+config). It parses input C\+LI configuration commands like chirp profile and G\+UI configuration. When sensor start C\+LI command is parsed, all actions related to starting sensor and starting the processing the data path are taken. When sensor stop C\+LI command is parsed, all actions related to stopping the sensor and stopping the processing of the data path are taken
+\item Mmw\+Demo\+\_\+mm\+Wave\+Ctrl\+Task. This task is used to provide an execution context for the mm\+Wave control, it calls in an endless loop the M\+M\+Wave\+\_\+execute A\+PI.
+\item mmw\+Demo\+\_\+mss\+D\+P\+M\+Task. This task is used to provide an execution context for D\+PM (Data Path Manager) execution, it calls in an endless loop. There is no D\+PC registered with D\+PM.
+\end{DoxyItemize}
+
+{\bfseries{D\+SS}}
+\begin{DoxyItemize}
+\item Mmw\+Demo\+\_\+init\+Task. This task is created/launched by \doxyref{main}{p.}{mss__main_8c_a52d2cba30e6946c95578be946ac12a65} and is a one-\/time active task whose main functionality is to initialize drivers ($<$driver$>$\+\_\+init), D\+PM module (D\+P\+M\+\_\+init), data path related drivers (E\+D\+MA, H\+WA), and create/launch the following tasks.
+\item Mmw\+Demo\+\_\+\+D\+P\+C\+\_\+\+Object\+Detection\+\_\+dpm\+Task. This task is used to provide an execution context for D\+PM (Data Path Manager) execution, it calls in an endless loop the D\+P\+M\+\_\+execute A\+PI. In this context, all of the registered object detection D\+PC (Data Path Chain) A\+P\+Is like configuration, control and execute will take place. In this task. When the D\+PC\textquotesingle{}s execute A\+PI produces the detected objects and other results, they are reported to M\+SS where they are transmitted out of the U\+A\+RT port for display using the visualizer.
+\end{DoxyItemize}\doxysection{Data Path}\label{index_datapath}
+ ~\newline
+ ~\newline
+ 
+
+The data path processing consists of taking A\+DC samples as input and producing detected objects (point-\/cloud and other information) to be shipped out of U\+A\+RT port to the PC. The algorithm processing is realized using the D\+PM registered Object Detection D\+PC. The details of the processing in D\+PC can be seen from the following doxygen documentation\+: \begin{DoxyVerb}  ti/datapath/dpc/objectdetection/objdethwa/docs/doxygen/html/index.html\end{DoxyVerb}
+\doxysubsection{Output information sent to host}\label{index_output}
+Output packets with the detection information are sent out every frame through the U\+A\+RT. Each packet consists of the header Mmw\+Demo\+\_\+output\+\_\+message\+\_\+header\+\_\+t and the number of T\+LV items containing various data information with types enumerated in Mmw\+Demo\+\_\+output\+\_\+message\+\_\+type\+\_\+e. The numerical values of the types can be found in mmw\+\_\+output.\+h. Each T\+LV item consists of type, length (Mmw\+Demo\+\_\+output\+\_\+message\+\_\+tl\+\_\+t) and payload information. The structure of the output packet is illustrated in the following figure. Since the length of the packet depends on the number of detected objects it can vary from frame to frame. The end of the packet is padded so that the total packet length is always multiple of 32 Bytes.
+
+
+
+The following subsections describe the structure of each T\+LV.\doxysubsubsection{List of detected objects}\label{index_tlv1}
+Type\+: (M\+M\+W\+D\+E\+M\+O\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+S\+G\+\_\+\+D\+E\+T\+E\+C\+T\+E\+D\+\_\+\+P\+O\+I\+N\+TS)
+
+Length\+: (Number of detected objects) x (size of D\+P\+I\+F\+\_\+\+Point\+Cloud\+Cartesian\+\_\+t)
+
+Value\+: Array of detected objects. The information of each detected object is as per the structure D\+P\+I\+F\+\_\+\+Point\+Cloud\+Cartesian\+\_\+t. When the number of detected objects is zero, this T\+LV item is not sent.
+
+The orientation of x,y and z axes relative to the sensor is as per the following figure.
+
+
+
+The whole detected objects T\+LV structure is illustrated in figure below.
+
+\doxysubsubsection{Range profile}\label{index_tlv2}
+Type\+: (M\+M\+W\+D\+E\+M\+O\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+S\+G\+\_\+\+R\+A\+N\+G\+E\+\_\+\+P\+R\+O\+F\+I\+LE)
+
+Length\+: (Range F\+FT size) x (size of uint16\+\_\+t)
+
+Value\+: Array of profile points at 0th Doppler (stationary objects). The points represent the sum of log2 magnitudes of received antennas expressed in Q9 format.\doxysubsubsection{Noise floor profile}\label{index_tlv3}
+Type\+: (M\+M\+W\+D\+E\+M\+O\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+S\+G\+\_\+\+N\+O\+I\+S\+E\+\_\+\+P\+R\+O\+F\+I\+LE)
+
+Length\+: (Range F\+FT size) x (size of uint16\+\_\+t)
+
+Value\+: This is the same format as range profile but the profile is at the maximum Doppler bin (maximum speed objects). In general for stationary scene, there would be no objects or clutter at maximum speed so the range profile at such speed represents the receiver noise floor.\doxysubsubsection{Azimuth static heatmap}\label{index_tlv4}
+Type\+: (M\+M\+W\+D\+E\+M\+O\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+S\+G\+\_\+\+A\+Z\+I\+M\+U\+T\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+H\+E\+A\+T\+\_\+\+M\+AP)
+
+Length\+: (Range F\+FT size) x (Number of virtual antennas) (size of cmplx16\+Im\+Re\+\_\+t\+\_\+)
+
+Value\+: Array D\+P\+U\+\_\+\+Ao\+A\+Proc\+H\+W\+A\+\_\+\+H\+W\+\_\+\+Resources\+::azimuth\+Static\+Heat\+Map. The antenna data are complex symbols, with imaginary first and real second in the following order\+:~\newline
+\begin{DoxyVerb}         Imag(ant 0, range 0), Real(ant 0, range 0),...,Imag(ant N-1, range 0),Real(ant N-1, range 0)
+         ...
+         Imag(ant 0, range R-1), Real(ant 0, range R-1),...,Imag(ant N-1, range R-1),Real(ant N-1, range R-1)\end{DoxyVerb}
+ Based on this data the static azimuth heat map is constructed by the G\+UI running on the host.\doxysubsubsection{Range/\+Doppler heatmap}\label{index_tlv5}
+Type\+: (M\+M\+W\+D\+E\+M\+O\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+S\+G\+\_\+\+R\+A\+N\+G\+E\+\_\+\+D\+O\+P\+P\+L\+E\+R\+\_\+\+H\+E\+A\+T\+\_\+\+M\+AP)
+
+Length\+: (Range F\+FT size) x (Doppler F\+FT size) (size of uint16\+\_\+t)
+
+Value\+: Detection matrix D\+P\+I\+F\+\_\+\+Det\+Matrix\+::data. The order is \+: ~\newline
+\begin{DoxyVerb}        X(range bin 0, Doppler bin 0),...,X(range bin 0, Doppler bin D-1),
+        ...
+        X(range bin R-1, Doppler bin 0),...,X(range bin R-1, Doppler bin D-1)\end{DoxyVerb}
+\doxysubsubsection{Stats information}\label{index_tlv6}
+Type\+: (M\+M\+W\+D\+E\+M\+O\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+S\+G\+\_\+\+S\+T\+A\+TS )
+
+Length\+: (size of Mmw\+Demo\+\_\+output\+\_\+message\+\_\+stats\+\_\+t)
+
+Value\+: Timing information as per Mmw\+Demo\+\_\+output\+\_\+message\+\_\+stats\+\_\+t. See timing diagram below related to the stats.
+
+
+
+Note\+:
+\begin{DoxyEnumerate}
+\item The Mmw\+Demo\+\_\+output\+\_\+message\+\_\+stats\+\_\+t\+::inter\+Chirp\+Processing\+Margin is not computed (it is always set to 0). This is because there is no C\+PU involvement in the 1D processing (only H\+WA and E\+D\+MA are involved), and it is not possible to know how much margin is there in chirp processing without C\+PU being notified at every chirp when processing begins (chirp event) and when the H\+W\+A-\/\+E\+D\+MA computation ends. The C\+PU is intentionally kept free during 1D processing because a real application may use this time for doing some post-\/processing algorithm execution.
+\item While the Mmw\+Demo\+\_\+output\+\_\+message\+\_\+stats\+\_\+t\+::inter\+Frame\+Processing\+Time reported will be of the current sub-\/frame/frame, the Mmw\+Demo\+\_\+output\+\_\+message\+\_\+stats\+\_\+t\+::inter\+Frame\+Processing\+Margin and Mmw\+Demo\+\_\+output\+\_\+message\+\_\+stats\+\_\+t\+::transmit\+Output\+Time will be of the previous sub-\/frame (of the same Mmw\+Demo\+\_\+output\+\_\+message\+\_\+header\+\_\+t\+::sub\+Frame\+Number as that of the current sub-\/frame) or of the previous frame.
+\item The Mmw\+Demo\+\_\+output\+\_\+message\+\_\+stats\+\_\+t\+::inter\+Frame\+Processing\+Margin excludes the U\+A\+RT transmission time (available as Mmw\+Demo\+\_\+output\+\_\+message\+\_\+stats\+\_\+t\+::transmit\+Output\+Time). This is done intentionally to inform the user of a genuine inter-\/frame processing margin without being influenced by a slow transport like U\+A\+RT, this transport time can be significantly longer for example when streaming out debug information like heat maps. Also, in a real product deployment, higher speed interfaces (e.\+g L\+V\+DS) are likely to be used instead of U\+A\+RT. User can calculate the margin that includes transport overhead (say to determine the max frame rate that a particular demo configuration will allow) using the stats because they also contain the U\+A\+RT transmission time.
+\end{DoxyEnumerate}
+
+The C\+LI command "gu\+Monitor" specifies which T\+LV element will be sent out within the output packet. The arguments of the C\+LI command are stored in the structure \doxyref{Mmw\+Demo\+\_\+\+Gui\+Mon\+Sel\+\_\+t}{p.}{struct_mmw_demo___gui_mon_sel__t}.\doxysubsubsection{Side information of detected objects}\label{index_tlv7}
+Type\+: (M\+M\+W\+D\+E\+M\+O\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+S\+G\+\_\+\+D\+E\+T\+E\+C\+T\+E\+D\+\_\+\+P\+O\+I\+N\+T\+S\+\_\+\+S\+I\+D\+E\+\_\+\+I\+N\+FO)
+
+Length\+: (Number of detected objects) x (size of D\+P\+I\+F\+\_\+\+Point\+Cloud\+Side\+Info\+\_\+t)
+
+Value\+: Array of detected objects side information. The side information of each detected object is as per the structure D\+P\+I\+F\+\_\+\+Point\+Cloud\+Side\+Info\+\_\+t). When the number of detected objects is zero, this T\+LV item is not sent.\doxysubsection{Range Bias and Rx Channel Gain/\+Phase Measurement and Compensation}\label{index_Calibration_section}
+Because of imperfections in antenna layouts on the board, RF delays in S\+OC, etc, there is need to calibrate the sensor to compensate for bias in the range estimation and receive channel gain and phase imperfections. The following figure illustrates the calibration procedure.
+
+\label{index_Figure_calibration_ladder_diagram}%
+ 
+
+The calibration procedure includes the following steps\+:
+\begin{DoxyEnumerate}
+\item Set a strong target like corner reflector at the distance of X meter (X less than 50 cm is not recommended) at boresight.
+\item Set the following command in the configuration profile in .../profiles/profile\+\_\+calibration.cfg, to reflect the position X as follows\+: \begin{DoxyVerb}   measureRangeBiasAndRxChanPhase 1 X D\end{DoxyVerb}
+ where D (in meters) is the distance of window around X where the peak will be searched. The purpose of the search window is to allow the test environment from not being overly constrained say because it may not be possible to clear it of all reflectors that may be stronger than the one used for calibration. The window size is recommended to be at least the distance equivalent of a few range bins. One range bin for the calibration profile (profile\+\_\+calibration.\+cfg) is about 5 cm. The first argument \char`\"{}1\char`\"{} is to enable the measurement. The stated configuration profile (.cfg) must be used otherwise the calibration may not work as expected (this profile ensures all transmit and receive antennas are engaged among other things needed for calibration).
+\item Start the sensor with the configuration file.
+\item In the configuration file, the measurement is enabled because of which the D\+PC will be configured to perform the measurement and generate the measurement result (D\+P\+U\+\_\+\+Ao\+A\+Proc\+\_\+comp\+Rx\+Channel\+Bias\+Cfg\+\_\+t) in its result structure (D\+P\+C\+\_\+\+Object\+Detection\+\_\+\+Execute\+Result\+\_\+t\+::comp\+Rx\+Chan\+Bias\+Measurement), the measurement results are written out on the C\+LI port (Mmw\+Demo\+\_\+measurement\+Result\+Output) in the format below\+: \begin{DoxyVerb}   compRangeBiasAndRxChanPhase <rangeBias> <Re(0,0)> <Im(0,0)> <Re(0,1)> <Im(0,1)> ... <Re(0,R-1)> <Im(0,R-1)> <Re(1,0)> <Im(1,0)> ... <Re(T-1,R-1)> <Im(T-1,R-1)>\end{DoxyVerb}
+ For details of how D\+PC performs the measurement, see the D\+PC documentation.
+\item The command printed out on the C\+LI now can be copied and pasted in any configuration file for correction purposes. This configuration will be passed to the D\+PC for the purpose of applying compensation during angle computation, the details of this can be seen in the D\+PC documentation. If compensation is not desired, the following command should be given \begin{DoxyVerb}   compRangeBiasAndRxChanPhase 0.0   1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0\end{DoxyVerb}
+ Above sets the range bias to 0 and the phase coefficients to unity so that there is no correction. Note the two commands must always be given in any configuration file, typically the measure commmand will be disabled when the correction command is the desired one.
+\end{DoxyEnumerate}\doxysection{How to bypass C\+LI}\label{index_bypassCLI}
+Re-\/implement the file mmw\+\_\+cli.\+c as follows\+:
+
+
+\begin{DoxyEnumerate}
+\item Mmw\+Demo\+\_\+\+C\+L\+I\+Init should just create a task with input task\+Priority. Lets say the task is called \char`\"{}\+Mmw\+Demo\+\_\+sensor\+Config\+\_\+task\char`\"{}.
+\item All other functions are not needed
+\item Implement the Mmw\+Demo\+\_\+sensor\+Config\+\_\+task as follows\+:
+\begin{DoxyItemize}
+\item Fill g\+Mmw\+Mss\+M\+C\+B.\+cfg.\+open\+Cfg
+\item Fill g\+Mmw\+Mss\+M\+C\+B.\+cfg.\+ctrl\+Cfg
+\item Add profiles and chirps using M\+M\+Wave\+\_\+add\+Profile and M\+M\+Wave\+\_\+add\+Chirp functions
+\item Call Mmw\+Demo\+\_\+\+Cfg\+Update for every offset in config\+Store\+Offsets (M\+M\+W\+D\+E\+M\+O\+\_\+xxx\+\_\+\+O\+F\+F\+S\+ET in mmw\+\_\+mss.\+h)
+\item Fill g\+Mmw\+Mss\+M\+C\+B.\+obj\+Det\+Common\+Cfg.\+pre\+Start\+Common\+Cfg
+\item Call Mmw\+Demo\+\_\+open\+Sensor
+\item Call Mmw\+Demo\+\_\+config\+Sensor
+\item Call Mmw\+Demo\+\_\+start\+Sensor (One can use helper function Mmw\+Demo\+\_\+is\+All\+Cfg\+In\+Pending\+State to know if all dynamic config was provided)
+\end{DoxyItemize}
+\end{DoxyEnumerate}\doxysection{Hardware Resource Allocation}\label{index_resourceAlloc}
+The Object Detection D\+PC needs to configure the D\+P\+Us hardware resources (H\+WA, E\+D\+MA). Even though the hardware resources currently are only required to be allocated for this one and only D\+PC in the system, the resource partitioning is shown to be in the ownership of the demo. This is to illustrate the general case of resource allocation across more than one D\+P\+Cs and/or demo\textquotesingle{}s own processing that is post-\/\+D\+PC processing. This partitioning can be seen in the mmw\+\_\+res.\+h file. This file is passed as a compiler command line define\begin{DoxyVerb}"--define=APP_RESOURCE_FILE="<ti/demo/xwr18xx/mmw/mmw_res.h>" \end{DoxyVerb}
+ in mmw.\+mak when building the D\+PC sources as part of building the demo application and is referred in object detection D\+PC sources where needed as \begin{DoxyVerb}#include APP_RESOURCE_FILE \end{DoxyVerb}
+\doxysection{Design Notes}\label{index_demoDesignNotes}
+Due to the limitation of D\+PM local queue size, for certain D\+PM functions such as D\+P\+M\+\_\+start, D\+P\+M\+\_\+stop and some of the D\+PC control through D\+P\+M\+\_\+ioctl, semaphores are used to sync between calling task and function Mmw\+Demo\+\_\+\+D\+P\+C\+\_\+\+Object\+Detection\+\_\+report\+Fxn. So that it won\textquotesingle{}t cause D\+PM crash because of running out of D\+PM local queues. The following diagram demonstrates the example calling flow for blocking D\+P\+M\+\_\+ioctl() function call. Non-\/blocking D\+P\+M\+\_\+ioctl is also shown for comparison.
+
+
+
+There are D\+PM report functions on both M\+SS and D\+SS for the same D\+P\+M\+\_\+\+Report. However the sequence is not guaranteed between the two cores.\doxysection{Memory Usage}\label{index_memoryUsage}
+\doxysubsection{Memory usage summary}\label{index_memUsageSummary}
+The table below shows the usage of various memories available on the device across the demo application and other S\+DK components. The table is generated using the demo\textquotesingle{}s map file and applying some mapping rules to it to generate a condensed summary. For the mapping rules, please refer to {\texttt{ demo\+\_\+mss\+\_\+mapping.\+txt}} and {\texttt{ demo\+\_\+dss\+\_\+mapping.\+txt}}. The numeric values shown here represent bytes.
+
+{\bfseries{M\+SS\+:}} Refer to the {\texttt{ xwr18xx\+\_\+mmw\+\_\+demo\+\_\+mss\+\_\+mem\+\_\+analysis\+\_\+detailed.\+txt}} for detailed analysis of the memory usage across drivers and control/alg components on M\+SS and to {\texttt{ demo\+\_\+mss\+\_\+mapping\+\_\+detailed.\+txt}} for detailed mapping rules .
+
+{\bfseries{D\+SS\+:}} Refer to the {\texttt{ xwr18xx\+\_\+mmw\+\_\+demo\+\_\+dss\+\_\+mem\+\_\+analysis\+\_\+detailed.\+txt}} for detailed analysis of the memory usage across drivers and control/alg components on D\+SS and to {\texttt{ demo\+\_\+dss\+\_\+mapping\+\_\+detailed.\+txt}} for detailed mapping rules .
+
+
+\begin{DoxyCodeInclude}{0}
+\end{DoxyCodeInclude}
+ 
+\begin{DoxyCodeInclude}{0}
+\end{DoxyCodeInclude}
+ 

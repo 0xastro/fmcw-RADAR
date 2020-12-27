@@ -1,0 +1,720 @@
+\doxysection{common/profiles/config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.h File Reference}
+\label{config__chirp__design___m_r_r120_8h}\index{common/profiles/config\_chirp\_design\_MRR120.h@{common/profiles/config\_chirp\_design\_MRR120.h}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+P\+R\+O\+F\+I\+L\+E\+\_\+\+ID}~(0U)
+\begin{DoxyCompactList}\small\item\em M\+RR profile ID. \end{DoxyCompactList}\item 
+\#define \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+H\+P\+F\+C\+O\+R\+N\+E\+R\+\_\+\+F\+R\+E\+Q1\+\_\+\+V\+AL}~R\+L\+\_\+\+R\+X\+\_\+\+H\+P\+F1\+\_\+175\+\_\+\+K\+Hz
+\begin{DoxyCompactList}\small\item\em H\+PF 1 corner frequency. \end{DoxyCompactList}\item 
+\#define \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+H\+P\+F\+C\+O\+R\+N\+E\+R\+\_\+\+F\+R\+E\+Q2\+\_\+\+V\+AL}~R\+L\+\_\+\+R\+X\+\_\+\+H\+P\+F2\+\_\+350\+\_\+\+K\+Hz
+\begin{DoxyCompactList}\small\item\em H\+PF 2 corner frequency. \end{DoxyCompactList}\item 
+\#define \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+R\+X\+\_\+\+G\+A\+I\+N\+\_\+\+V\+AL}~(44U)
+\begin{DoxyCompactList}\small\item\em Rx gain is kept at the maximum . \end{DoxyCompactList}\item 
+\#define \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+D\+I\+G\+O\+U\+T\+\_\+\+S\+A\+M\+P\+L\+E\+R\+A\+T\+E\+\_\+\+V\+AL}~(4652U)
+\begin{DoxyCompactList}\small\item\em A\+DC Output rate is 5Mhz. \end{DoxyCompactList}\item 
+\#define \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+A\+D\+C\+\_\+\+S\+A\+M\+P\+L\+E\+\_\+\+V\+AL}~(256U)
+\item 
+\#define \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+I\+D\+L\+E\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL}~(500U)
+\item 
+\#define \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+R\+A\+M\+P\+\_\+\+E\+N\+D\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL}~(6000U)
+\item 
+\#define \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+S\+T\+A\+R\+T\+\_\+\+F\+R\+E\+Q\+\_\+\+G\+HZ}~(76.\+01f)
+\item 
+\#define \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+S\+T\+A\+R\+T\+\_\+\+F\+R\+E\+Q\+\_\+\+V\+AL}~(\textbf{ C\+O\+N\+V\+\_\+\+F\+R\+E\+Q\+\_\+\+G\+H\+Z\+\_\+\+T\+O\+\_\+\+C\+O\+D\+E\+W\+O\+RD}(\textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+S\+T\+A\+R\+T\+\_\+\+F\+R\+E\+Q\+\_\+\+G\+HZ}))
+\item 
+\#define \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+T\+X\+O\+U\+T\+\_\+\+P\+O\+W\+E\+R\+\_\+\+B\+A\+C\+K\+O\+FF}~(0U)
+\item 
+\#define \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+T\+X\+P\+H\+A\+S\+E\+S\+H\+I\+F\+T\+E\+R\+\_\+\+V\+AL}~(0U)
+\item 
+\#define \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+F\+R\+E\+Q\+\_\+\+S\+L\+O\+P\+E\+\_\+\+M\+H\+Z\+\_\+\+P\+E\+R\+\_\+\+US}~(4.\+0f)
+\item 
+\#define \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+F\+R\+E\+Q\+\_\+\+S\+L\+O\+P\+E\+\_\+\+V\+AL}~(\textbf{ C\+O\+N\+V\+\_\+\+S\+L\+O\+P\+E\+\_\+\+M\+H\+Z\+\_\+\+P\+E\+R\+\_\+\+U\+S\+\_\+\+T\+O\+\_\+\+C\+O\+D\+E\+W\+O\+RD}(\textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+F\+R\+E\+Q\+\_\+\+S\+L\+O\+P\+E\+\_\+\+M\+H\+Z\+\_\+\+P\+E\+R\+\_\+\+US}))
+\item 
+\#define \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+T\+X\+\_\+\+S\+T\+A\+R\+T\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL}~(100U)
+\item 
+\#define \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+A\+D\+C\+\_\+\+S\+T\+A\+R\+T\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL}~(480U)
+\item 
+\#define \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+L\+A\+M\+B\+D\+A\+\_\+\+M\+I\+L\+L\+I\+M\+E\+T\+ER}~(M\+M\+W\+D\+E\+M\+O\+\_\+\+S\+P\+E\+E\+D\+\_\+\+O\+F\+\_\+\+L\+I\+G\+H\+T\+\_\+\+I\+N\+\_\+\+M\+E\+T\+E\+R\+S\+\_\+\+P\+E\+R\+\_\+\+U\+S\+EC/\textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+S\+T\+A\+R\+T\+\_\+\+F\+R\+E\+Q\+\_\+\+G\+HZ})
+\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+M\+R\+R\+\_\+0\+\_\+\+P\+R\+O\+F\+I\+L\+E\+\_\+\+ID}~(0U)
+\begin{DoxyCompactList}\small\item\em Define 128 chirps, the first 64 will have an idle time of 3us, and the remaining 64 will have an idle time of 14.\+8us (11.\+8us extra \textquotesingle{}idle time\textquotesingle{}) \end{DoxyCompactList}\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+M\+R\+R\+\_\+0\+\_\+\+S\+T\+A\+R\+T\+\_\+\+I\+N\+D\+EX}~(0U)
+\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+M\+R\+R\+\_\+0\+\_\+\+E\+N\+D\+\_\+\+I\+N\+D\+EX}~(127U)
+\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+M\+R\+R\+\_\+0\+\_\+\+S\+T\+A\+R\+T\+\_\+\+F\+R\+E\+Q\+\_\+\+V\+AL}~(0U)
+\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+M\+R\+R\+\_\+0\+\_\+\+F\+R\+E\+Q\+\_\+\+S\+L\+O\+P\+E\+\_\+\+V\+AL}~(0U)
+\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+M\+R\+R\+\_\+0\+\_\+\+I\+D\+L\+E\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL}~(0U)
+\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+M\+R\+R\+\_\+0\+\_\+\+A\+D\+C\+\_\+\+S\+T\+A\+R\+T\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL}~(0U)
+\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+M\+R\+R\+\_\+0\+\_\+\+T\+X\+\_\+\+C\+H\+A\+N\+N\+EL}~(\textbf{ T\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+1\+\_\+\+E\+N\+A\+B\+LE}$\vert$\textbf{ T\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+2\+\_\+\+E\+N\+A\+B\+LE} $\vert$ \textbf{ T\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+3\+\_\+\+E\+N\+A\+B\+LE})
+\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+M\+R\+R\+\_\+1\+\_\+\+P\+R\+O\+F\+I\+L\+E\+\_\+\+ID}~(0U)
+\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+M\+R\+R\+\_\+1\+\_\+\+S\+T\+A\+R\+T\+\_\+\+I\+N\+D\+EX}~(128U)
+\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+M\+R\+R\+\_\+1\+\_\+\+E\+N\+D\+\_\+\+I\+N\+D\+EX}~(255U)
+\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+M\+R\+R\+\_\+1\+\_\+\+S\+T\+A\+R\+T\+\_\+\+F\+R\+E\+Q\+\_\+\+V\+AL}~(0U)
+\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+M\+R\+R\+\_\+1\+\_\+\+F\+R\+E\+Q\+\_\+\+S\+L\+O\+P\+E\+\_\+\+V\+AL}~(0U)
+\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+M\+R\+R\+\_\+1\+\_\+\+I\+D\+L\+E\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL}~(1300U)
+\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+M\+R\+R\+\_\+1\+\_\+\+A\+D\+C\+\_\+\+S\+T\+A\+R\+T\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL}~(0U)
+\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+M\+R\+R\+\_\+1\+\_\+\+T\+X\+\_\+\+C\+H\+A\+N\+N\+EL}~(\textbf{ T\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+1\+\_\+\+E\+N\+A\+B\+LE}$\vert$\textbf{ T\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+2\+\_\+\+E\+N\+A\+B\+LE} $\vert$ \textbf{ T\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+3\+\_\+\+E\+N\+A\+B\+LE})
+\item 
+\#define \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+C\+H\+I\+R\+P\+\_\+\+S\+T\+A\+R\+T\+\_\+\+I\+DX}~(0U)
+\begin{DoxyCompactList}\small\item\em S\+U\+B\+F\+R\+A\+ME configuration. \end{DoxyCompactList}\item 
+\#define \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+C\+H\+I\+R\+P\+\_\+\+E\+N\+D\+\_\+\+I\+DX}~(255U)
+\item 
+\#define \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+L\+O\+O\+P\+\_\+\+C\+O\+U\+NT}~(1U)
+\item 
+\#define \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+P\+E\+R\+I\+O\+D\+I\+C\+I\+T\+Y\+\_\+\+V\+AL}~(6000000U)
+\item 
+\#define \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+D\+E\+L\+A\+Y\+\_\+\+V\+AL}~(0U)
+\item 
+\#define \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+N\+U\+M\+\_\+\+R\+E\+A\+L\+\_\+\+A\+D\+C\+\_\+\+S\+A\+M\+P\+L\+ES}~(\textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+A\+D\+C\+\_\+\+S\+A\+M\+P\+L\+E\+\_\+\+V\+AL} $\ast$ 2)
+\item 
+\#define \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+N\+U\+M\+\_\+\+C\+M\+P\+L\+X\+\_\+\+A\+D\+C\+\_\+\+S\+A\+M\+P\+L\+ES}~(\textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+A\+D\+C\+\_\+\+S\+A\+M\+P\+L\+E\+\_\+\+V\+AL})
+\item 
+\#define \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+E\+\_\+0\+\_\+\+N\+U\+M\+\_\+\+C\+H\+I\+R\+PS}~((\textbf{ C\+H\+I\+R\+P\+\_\+\+M\+R\+R\+\_\+0\+\_\+\+E\+N\+D\+\_\+\+I\+N\+D\+EX} -\/ \textbf{ C\+H\+I\+R\+P\+\_\+\+M\+R\+R\+\_\+0\+\_\+\+S\+T\+A\+R\+T\+\_\+\+I\+N\+D\+EX} + 1)$\ast$\textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+L\+O\+O\+P\+\_\+\+C\+O\+U\+NT})
+\item 
+\#define \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+E\+\_\+1\+\_\+\+N\+U\+M\+\_\+\+C\+H\+I\+R\+PS}~((\textbf{ C\+H\+I\+R\+P\+\_\+\+M\+R\+R\+\_\+1\+\_\+\+E\+N\+D\+\_\+\+I\+N\+D\+EX} -\/ \textbf{ C\+H\+I\+R\+P\+\_\+\+M\+R\+R\+\_\+1\+\_\+\+S\+T\+A\+R\+T\+\_\+\+I\+N\+D\+EX} + 1)$\ast$\textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+L\+O\+O\+P\+\_\+\+C\+O\+U\+NT})
+\item 
+\#define \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+N\+U\+M\+\_\+\+TX}~(1U)
+\item 
+\#define \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+N\+U\+M\+\_\+\+V\+I\+R\+T\+\_\+\+A\+NT}~(\textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+N\+U\+M\+\_\+\+TX}$\ast$\textbf{ N\+U\+M\+\_\+\+R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+LS})
+\item 
+\#define \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+N\+U\+M\+\_\+\+A\+N\+G\+L\+E\+\_\+\+B\+I\+NS}~(32U)
+\item 
+\#define \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+N\+U\+M\+\_\+\+C\+H\+I\+R\+P\+S\+\_\+\+T\+O\+T\+AL}~((\textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+C\+H\+I\+R\+P\+\_\+\+E\+N\+D\+\_\+\+I\+DX} -\/ \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+C\+H\+I\+R\+P\+\_\+\+S\+T\+A\+R\+T\+\_\+\+I\+DX} + 1) $\ast$ \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+L\+O\+O\+P\+\_\+\+C\+O\+U\+NT})
+\item 
+\#define \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+R\+A\+N\+G\+E\+\_\+\+R\+E\+S\+O\+L\+U\+T\+I\+O\+N\+\_\+\+M\+E\+T\+E\+RS}~((M\+M\+W\+D\+E\+M\+O\+\_\+\+S\+P\+E\+E\+D\+\_\+\+O\+F\+\_\+\+L\+I\+G\+H\+T\+\_\+\+I\+N\+\_\+\+M\+E\+T\+E\+R\+S\+\_\+\+P\+E\+R\+\_\+\+U\+S\+EC $\ast$ \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+D\+I\+G\+O\+U\+T\+\_\+\+S\+A\+M\+P\+L\+E\+R\+A\+T\+E\+\_\+\+V\+AL})/ (2000.\+0f $\ast$ \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+F\+R\+E\+Q\+\_\+\+S\+L\+O\+P\+E\+\_\+\+M\+H\+Z\+\_\+\+P\+E\+R\+\_\+\+US} $\ast$ \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+N\+U\+M\+\_\+\+C\+M\+P\+L\+X\+\_\+\+A\+D\+C\+\_\+\+S\+A\+M\+P\+L\+ES}) )
+\item 
+\#define \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+E\+\_\+0\+\_\+\+C\+H\+I\+R\+P\+\_\+\+R\+E\+P\+E\+T\+I\+T\+I\+O\+N\+\_\+\+P\+E\+R\+I\+O\+D\+\_\+\+US}~((\textbf{ C\+H\+I\+R\+P\+\_\+\+M\+R\+R\+\_\+0\+\_\+\+I\+D\+L\+E\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL} + \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+I\+D\+L\+E\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL} + \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+R\+A\+M\+P\+\_\+\+E\+N\+D\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL})/100.\+0f)
+\item 
+\#define \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+E\+\_\+0\+\_\+\+V\+E\+L\+\_\+\+R\+E\+S\+O\+L\+U\+T\+I\+O\+N\+\_\+\+M\+\_\+\+P\+\_\+S}~(((1000.\+0f/\textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+E\+\_\+0\+\_\+\+C\+H\+I\+R\+P\+\_\+\+R\+E\+P\+E\+T\+I\+T\+I\+O\+N\+\_\+\+P\+E\+R\+I\+O\+D\+\_\+\+US})/\textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+E\+\_\+0\+\_\+\+N\+U\+M\+\_\+\+C\+H\+I\+R\+PS})$\ast$(\textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+L\+A\+M\+B\+D\+A\+\_\+\+M\+I\+L\+L\+I\+M\+E\+T\+ER}/2))
+\item 
+\#define \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+E\+\_\+0\+\_\+\+M\+A\+X\+\_\+\+V\+E\+L\+\_\+\+M\+\_\+\+P\+\_\+S}~(\textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+E\+\_\+0\+\_\+\+V\+E\+L\+\_\+\+R\+E\+S\+O\+L\+U\+T\+I\+O\+N\+\_\+\+M\+\_\+\+P\+\_\+S}$\ast$\textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+E\+\_\+0\+\_\+\+N\+U\+M\+\_\+\+C\+H\+I\+R\+PS}/2)
+\item 
+\#define \textbf{ I\+N\+V\+\_\+\+S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+E\+\_\+0\+\_\+\+V\+E\+L\+\_\+\+R\+E\+S\+O\+L\+U\+T\+I\+O\+N\+\_\+\+M\+\_\+\+P\+\_\+S}~(1.\+0f/\textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+E\+\_\+0\+\_\+\+V\+E\+L\+\_\+\+R\+E\+S\+O\+L\+U\+T\+I\+O\+N\+\_\+\+M\+\_\+\+P\+\_\+S})
+\item 
+\#define \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+E\+\_\+1\+\_\+\+C\+H\+I\+R\+P\+\_\+\+R\+E\+P\+E\+T\+I\+T\+I\+O\+N\+\_\+\+P\+E\+R\+I\+O\+D\+\_\+\+US}~((\textbf{ C\+H\+I\+R\+P\+\_\+\+M\+R\+R\+\_\+1\+\_\+\+I\+D\+L\+E\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL} + \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+I\+D\+L\+E\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL} + \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+R\+A\+M\+P\+\_\+\+E\+N\+D\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL})/100.\+0f)
+\item 
+\#define \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+E\+\_\+1\+\_\+\+V\+E\+L\+\_\+\+R\+E\+S\+O\+L\+U\+T\+I\+O\+N\+\_\+\+M\+\_\+\+P\+\_\+S}~(((1000.\+0f/\textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+E\+\_\+1\+\_\+\+C\+H\+I\+R\+P\+\_\+\+R\+E\+P\+E\+T\+I\+T\+I\+O\+N\+\_\+\+P\+E\+R\+I\+O\+D\+\_\+\+US})/\textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+E\+\_\+1\+\_\+\+N\+U\+M\+\_\+\+C\+H\+I\+R\+PS})$\ast$(\textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+L\+A\+M\+B\+D\+A\+\_\+\+M\+I\+L\+L\+I\+M\+E\+T\+ER}/2))
+\item 
+\#define \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+E\+\_\+1\+\_\+\+M\+A\+X\+\_\+\+V\+E\+L\+\_\+\+M\+\_\+\+P\+\_\+S}~((\textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+E\+\_\+1\+\_\+\+V\+E\+L\+\_\+\+R\+E\+S\+O\+L\+U\+T\+I\+O\+N\+\_\+\+M\+\_\+\+P\+\_\+S}$\ast$\textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+E\+\_\+1\+\_\+\+N\+U\+M\+\_\+\+C\+H\+I\+R\+PS}/2)
+\item 
+\#define \textbf{ I\+N\+V\+\_\+\+S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+E\+\_\+1\+\_\+\+V\+E\+L\+\_\+\+R\+E\+S\+O\+L\+U\+T\+I\+O\+N\+\_\+\+M\+\_\+\+P\+\_\+S}~(1.\+0f/\textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+E\+\_\+1\+\_\+\+V\+E\+L\+\_\+\+R\+E\+S\+O\+L\+U\+T\+I\+O\+N\+\_\+\+M\+\_\+\+P\+\_\+S})
+\item 
+\#define \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+M\+I\+N\+\_\+\+S\+N\+R\+\_\+dB}~(14.\+0f)
+\item 
+\#define \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+N\+U\+M\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+ES}~(2U)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\label{config__chirp__design___m_r_r120_8h_a7d0000b027690a90b3dc871e9dc2a48e}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!CHIRP\_MRR\_0\_ADC\_START\_TIME\_VAL@{CHIRP\_MRR\_0\_ADC\_START\_TIME\_VAL}}
+\index{CHIRP\_MRR\_0\_ADC\_START\_TIME\_VAL@{CHIRP\_MRR\_0\_ADC\_START\_TIME\_VAL}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{CHIRP\_MRR\_0\_ADC\_START\_TIME\_VAL}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+M\+R\+R\+\_\+0\+\_\+\+A\+D\+C\+\_\+\+S\+T\+A\+R\+T\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL~(0U)}
+
+
+
+Definition at line 75 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_a1793a8b334240b7f1ebc9fa9f378d4f1}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!CHIRP\_MRR\_0\_END\_INDEX@{CHIRP\_MRR\_0\_END\_INDEX}}
+\index{CHIRP\_MRR\_0\_END\_INDEX@{CHIRP\_MRR\_0\_END\_INDEX}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{CHIRP\_MRR\_0\_END\_INDEX}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+M\+R\+R\+\_\+0\+\_\+\+E\+N\+D\+\_\+\+I\+N\+D\+EX~(127U)}
+
+
+
+Definition at line 71 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_af2e38f25c493b9b1bb1585b1f461048e}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!CHIRP\_MRR\_0\_FREQ\_SLOPE\_VAL@{CHIRP\_MRR\_0\_FREQ\_SLOPE\_VAL}}
+\index{CHIRP\_MRR\_0\_FREQ\_SLOPE\_VAL@{CHIRP\_MRR\_0\_FREQ\_SLOPE\_VAL}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{CHIRP\_MRR\_0\_FREQ\_SLOPE\_VAL}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+M\+R\+R\+\_\+0\+\_\+\+F\+R\+E\+Q\+\_\+\+S\+L\+O\+P\+E\+\_\+\+V\+AL~(0U)}
+
+
+
+Definition at line 73 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_a9125afe7b29c5b73dae217f9237504c8}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!CHIRP\_MRR\_0\_IDLE\_TIME\_VAL@{CHIRP\_MRR\_0\_IDLE\_TIME\_VAL}}
+\index{CHIRP\_MRR\_0\_IDLE\_TIME\_VAL@{CHIRP\_MRR\_0\_IDLE\_TIME\_VAL}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{CHIRP\_MRR\_0\_IDLE\_TIME\_VAL}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+M\+R\+R\+\_\+0\+\_\+\+I\+D\+L\+E\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL~(0U)}
+
+
+
+Definition at line 74 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_aae1ae6f709a9020c874f371982aaec42}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!CHIRP\_MRR\_0\_PROFILE\_ID@{CHIRP\_MRR\_0\_PROFILE\_ID}}
+\index{CHIRP\_MRR\_0\_PROFILE\_ID@{CHIRP\_MRR\_0\_PROFILE\_ID}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{CHIRP\_MRR\_0\_PROFILE\_ID}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+M\+R\+R\+\_\+0\+\_\+\+P\+R\+O\+F\+I\+L\+E\+\_\+\+ID~(0U)}
+
+
+
+Define 128 chirps, the first 64 will have an idle time of 3us, and the remaining 64 will have an idle time of 14.\+8us (11.\+8us extra \textquotesingle{}idle time\textquotesingle{}) 
+
+
+
+Definition at line 69 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_ab34d0140177ef4b45a76e712c881b13e}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!CHIRP\_MRR\_0\_START\_FREQ\_VAL@{CHIRP\_MRR\_0\_START\_FREQ\_VAL}}
+\index{CHIRP\_MRR\_0\_START\_FREQ\_VAL@{CHIRP\_MRR\_0\_START\_FREQ\_VAL}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{CHIRP\_MRR\_0\_START\_FREQ\_VAL}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+M\+R\+R\+\_\+0\+\_\+\+S\+T\+A\+R\+T\+\_\+\+F\+R\+E\+Q\+\_\+\+V\+AL~(0U)}
+
+
+
+Definition at line 72 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_aa06a7c2626789c6a729bd7cc50f9f8fb}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!CHIRP\_MRR\_0\_START\_INDEX@{CHIRP\_MRR\_0\_START\_INDEX}}
+\index{CHIRP\_MRR\_0\_START\_INDEX@{CHIRP\_MRR\_0\_START\_INDEX}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{CHIRP\_MRR\_0\_START\_INDEX}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+M\+R\+R\+\_\+0\+\_\+\+S\+T\+A\+R\+T\+\_\+\+I\+N\+D\+EX~(0U)}
+
+
+
+Definition at line 70 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_a1e22a3725aed000980bd278cbfd2273a}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!CHIRP\_MRR\_0\_TX\_CHANNEL@{CHIRP\_MRR\_0\_TX\_CHANNEL}}
+\index{CHIRP\_MRR\_0\_TX\_CHANNEL@{CHIRP\_MRR\_0\_TX\_CHANNEL}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{CHIRP\_MRR\_0\_TX\_CHANNEL}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+M\+R\+R\+\_\+0\+\_\+\+T\+X\+\_\+\+C\+H\+A\+N\+N\+EL~(\textbf{ T\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+1\+\_\+\+E\+N\+A\+B\+LE}$\vert$\textbf{ T\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+2\+\_\+\+E\+N\+A\+B\+LE} $\vert$ \textbf{ T\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+3\+\_\+\+E\+N\+A\+B\+LE})}
+
+
+
+Definition at line 76 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_ab3cf9edd4e4dfbcb6cd30cf8ecae0e0d}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!CHIRP\_MRR\_1\_ADC\_START\_TIME\_VAL@{CHIRP\_MRR\_1\_ADC\_START\_TIME\_VAL}}
+\index{CHIRP\_MRR\_1\_ADC\_START\_TIME\_VAL@{CHIRP\_MRR\_1\_ADC\_START\_TIME\_VAL}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{CHIRP\_MRR\_1\_ADC\_START\_TIME\_VAL}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+M\+R\+R\+\_\+1\+\_\+\+A\+D\+C\+\_\+\+S\+T\+A\+R\+T\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL~(0U)}
+
+
+
+Definition at line 85 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_ad7c6cb17f09e4efe79f7050316bcfad3}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!CHIRP\_MRR\_1\_END\_INDEX@{CHIRP\_MRR\_1\_END\_INDEX}}
+\index{CHIRP\_MRR\_1\_END\_INDEX@{CHIRP\_MRR\_1\_END\_INDEX}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{CHIRP\_MRR\_1\_END\_INDEX}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+M\+R\+R\+\_\+1\+\_\+\+E\+N\+D\+\_\+\+I\+N\+D\+EX~(255U)}
+
+
+
+Definition at line 81 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_a83bc59a2520c6efbcfbdd483caf938a6}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!CHIRP\_MRR\_1\_FREQ\_SLOPE\_VAL@{CHIRP\_MRR\_1\_FREQ\_SLOPE\_VAL}}
+\index{CHIRP\_MRR\_1\_FREQ\_SLOPE\_VAL@{CHIRP\_MRR\_1\_FREQ\_SLOPE\_VAL}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{CHIRP\_MRR\_1\_FREQ\_SLOPE\_VAL}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+M\+R\+R\+\_\+1\+\_\+\+F\+R\+E\+Q\+\_\+\+S\+L\+O\+P\+E\+\_\+\+V\+AL~(0U)}
+
+
+
+Definition at line 83 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_a2a22e41102f57e27cc1ce5ed262b214f}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!CHIRP\_MRR\_1\_IDLE\_TIME\_VAL@{CHIRP\_MRR\_1\_IDLE\_TIME\_VAL}}
+\index{CHIRP\_MRR\_1\_IDLE\_TIME\_VAL@{CHIRP\_MRR\_1\_IDLE\_TIME\_VAL}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{CHIRP\_MRR\_1\_IDLE\_TIME\_VAL}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+M\+R\+R\+\_\+1\+\_\+\+I\+D\+L\+E\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL~(1300U)}
+
+
+
+Definition at line 84 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_a2d9bf427db1264567028e095ef54da4f}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!CHIRP\_MRR\_1\_PROFILE\_ID@{CHIRP\_MRR\_1\_PROFILE\_ID}}
+\index{CHIRP\_MRR\_1\_PROFILE\_ID@{CHIRP\_MRR\_1\_PROFILE\_ID}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{CHIRP\_MRR\_1\_PROFILE\_ID}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+M\+R\+R\+\_\+1\+\_\+\+P\+R\+O\+F\+I\+L\+E\+\_\+\+ID~(0U)}
+
+
+
+Definition at line 79 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_a46c67ab7194fea0ceca7c850f83224ea}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!CHIRP\_MRR\_1\_START\_FREQ\_VAL@{CHIRP\_MRR\_1\_START\_FREQ\_VAL}}
+\index{CHIRP\_MRR\_1\_START\_FREQ\_VAL@{CHIRP\_MRR\_1\_START\_FREQ\_VAL}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{CHIRP\_MRR\_1\_START\_FREQ\_VAL}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+M\+R\+R\+\_\+1\+\_\+\+S\+T\+A\+R\+T\+\_\+\+F\+R\+E\+Q\+\_\+\+V\+AL~(0U)}
+
+
+
+Definition at line 82 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_a12aa39c7823dbf4f311ad1a7dc148885}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!CHIRP\_MRR\_1\_START\_INDEX@{CHIRP\_MRR\_1\_START\_INDEX}}
+\index{CHIRP\_MRR\_1\_START\_INDEX@{CHIRP\_MRR\_1\_START\_INDEX}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{CHIRP\_MRR\_1\_START\_INDEX}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+M\+R\+R\+\_\+1\+\_\+\+S\+T\+A\+R\+T\+\_\+\+I\+N\+D\+EX~(128U)}
+
+
+
+Definition at line 80 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_aa6d90a29cee413dbda893bc1cb3dea82}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!CHIRP\_MRR\_1\_TX\_CHANNEL@{CHIRP\_MRR\_1\_TX\_CHANNEL}}
+\index{CHIRP\_MRR\_1\_TX\_CHANNEL@{CHIRP\_MRR\_1\_TX\_CHANNEL}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{CHIRP\_MRR\_1\_TX\_CHANNEL}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+M\+R\+R\+\_\+1\+\_\+\+T\+X\+\_\+\+C\+H\+A\+N\+N\+EL~(\textbf{ T\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+1\+\_\+\+E\+N\+A\+B\+LE}$\vert$\textbf{ T\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+2\+\_\+\+E\+N\+A\+B\+LE} $\vert$ \textbf{ T\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+3\+\_\+\+E\+N\+A\+B\+LE})}
+
+
+
+Definition at line 86 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_ad3f8de9737b0d490e7b16d85d0aa8c1d}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!INV\_SUBFRAME\_MRR\_CHIRPTYPE\_0\_VEL\_RESOLUTION\_M\_P\_S@{INV\_SUBFRAME\_MRR\_CHIRPTYPE\_0\_VEL\_RESOLUTION\_M\_P\_S}}
+\index{INV\_SUBFRAME\_MRR\_CHIRPTYPE\_0\_VEL\_RESOLUTION\_M\_P\_S@{INV\_SUBFRAME\_MRR\_CHIRPTYPE\_0\_VEL\_RESOLUTION\_M\_P\_S}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{INV\_SUBFRAME\_MRR\_CHIRPTYPE\_0\_VEL\_RESOLUTION\_M\_P\_S}
+{\footnotesize\ttfamily \#define I\+N\+V\+\_\+\+S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+E\+\_\+0\+\_\+\+V\+E\+L\+\_\+\+R\+E\+S\+O\+L\+U\+T\+I\+O\+N\+\_\+\+M\+\_\+\+P\+\_\+S~(1.\+0f/\textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+E\+\_\+0\+\_\+\+V\+E\+L\+\_\+\+R\+E\+S\+O\+L\+U\+T\+I\+O\+N\+\_\+\+M\+\_\+\+P\+\_\+S})}
+
+
+
+Definition at line 109 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_a59602872c529dab6aabcc9f261b5489d}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!INV\_SUBFRAME\_MRR\_CHIRPTYPE\_1\_VEL\_RESOLUTION\_M\_P\_S@{INV\_SUBFRAME\_MRR\_CHIRPTYPE\_1\_VEL\_RESOLUTION\_M\_P\_S}}
+\index{INV\_SUBFRAME\_MRR\_CHIRPTYPE\_1\_VEL\_RESOLUTION\_M\_P\_S@{INV\_SUBFRAME\_MRR\_CHIRPTYPE\_1\_VEL\_RESOLUTION\_M\_P\_S}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{INV\_SUBFRAME\_MRR\_CHIRPTYPE\_1\_VEL\_RESOLUTION\_M\_P\_S}
+{\footnotesize\ttfamily \#define I\+N\+V\+\_\+\+S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+E\+\_\+1\+\_\+\+V\+E\+L\+\_\+\+R\+E\+S\+O\+L\+U\+T\+I\+O\+N\+\_\+\+M\+\_\+\+P\+\_\+S~(1.\+0f/\textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+E\+\_\+1\+\_\+\+V\+E\+L\+\_\+\+R\+E\+S\+O\+L\+U\+T\+I\+O\+N\+\_\+\+M\+\_\+\+P\+\_\+S})}
+
+
+
+Definition at line 114 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_aacec915b5d9e2129530b683e2d819cf2}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!PROFILE\_MRR\_ADC\_SAMPLE\_VAL@{PROFILE\_MRR\_ADC\_SAMPLE\_VAL}}
+\index{PROFILE\_MRR\_ADC\_SAMPLE\_VAL@{PROFILE\_MRR\_ADC\_SAMPLE\_VAL}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{PROFILE\_MRR\_ADC\_SAMPLE\_VAL}
+{\footnotesize\ttfamily \#define P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+A\+D\+C\+\_\+\+S\+A\+M\+P\+L\+E\+\_\+\+V\+AL~(256U)}
+
+
+
+Definition at line 52 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_a2f83da600061591b23d442b4d52b8d06}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!PROFILE\_MRR\_ADC\_START\_TIME\_VAL@{PROFILE\_MRR\_ADC\_START\_TIME\_VAL}}
+\index{PROFILE\_MRR\_ADC\_START\_TIME\_VAL@{PROFILE\_MRR\_ADC\_START\_TIME\_VAL}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{PROFILE\_MRR\_ADC\_START\_TIME\_VAL}
+{\footnotesize\ttfamily \#define P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+A\+D\+C\+\_\+\+S\+T\+A\+R\+T\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL~(480U)}
+
+
+
+Definition at line 62 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_a4bb4bb67db13d09c887ddc3c59aea3f2}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!PROFILE\_MRR\_DIGOUT\_SAMPLERATE\_VAL@{PROFILE\_MRR\_DIGOUT\_SAMPLERATE\_VAL}}
+\index{PROFILE\_MRR\_DIGOUT\_SAMPLERATE\_VAL@{PROFILE\_MRR\_DIGOUT\_SAMPLERATE\_VAL}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{PROFILE\_MRR\_DIGOUT\_SAMPLERATE\_VAL}
+{\footnotesize\ttfamily \#define P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+D\+I\+G\+O\+U\+T\+\_\+\+S\+A\+M\+P\+L\+E\+R\+A\+T\+E\+\_\+\+V\+AL~(4652U)}
+
+
+
+A\+DC Output rate is 5Mhz. 
+
+
+
+Definition at line 51 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_acd98c8f82e10cec56fb58bf0d2a8390e}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!PROFILE\_MRR\_FREQ\_SLOPE\_MHZ\_PER\_US@{PROFILE\_MRR\_FREQ\_SLOPE\_MHZ\_PER\_US}}
+\index{PROFILE\_MRR\_FREQ\_SLOPE\_MHZ\_PER\_US@{PROFILE\_MRR\_FREQ\_SLOPE\_MHZ\_PER\_US}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{PROFILE\_MRR\_FREQ\_SLOPE\_MHZ\_PER\_US}
+{\footnotesize\ttfamily \#define P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+F\+R\+E\+Q\+\_\+\+S\+L\+O\+P\+E\+\_\+\+M\+H\+Z\+\_\+\+P\+E\+R\+\_\+\+US~(4.\+0f)}
+
+
+
+Definition at line 59 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_a4d172666f36c6284e116a2898dffe33a}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!PROFILE\_MRR\_FREQ\_SLOPE\_VAL@{PROFILE\_MRR\_FREQ\_SLOPE\_VAL}}
+\index{PROFILE\_MRR\_FREQ\_SLOPE\_VAL@{PROFILE\_MRR\_FREQ\_SLOPE\_VAL}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{PROFILE\_MRR\_FREQ\_SLOPE\_VAL}
+{\footnotesize\ttfamily \#define P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+F\+R\+E\+Q\+\_\+\+S\+L\+O\+P\+E\+\_\+\+V\+AL~(\textbf{ C\+O\+N\+V\+\_\+\+S\+L\+O\+P\+E\+\_\+\+M\+H\+Z\+\_\+\+P\+E\+R\+\_\+\+U\+S\+\_\+\+T\+O\+\_\+\+C\+O\+D\+E\+W\+O\+RD}(\textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+F\+R\+E\+Q\+\_\+\+S\+L\+O\+P\+E\+\_\+\+M\+H\+Z\+\_\+\+P\+E\+R\+\_\+\+US}))}
+
+
+
+Definition at line 60 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_aa0d31349d2c97e6421d81b1edce0e1f8}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!PROFILE\_MRR\_HPFCORNER\_FREQ1\_VAL@{PROFILE\_MRR\_HPFCORNER\_FREQ1\_VAL}}
+\index{PROFILE\_MRR\_HPFCORNER\_FREQ1\_VAL@{PROFILE\_MRR\_HPFCORNER\_FREQ1\_VAL}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{PROFILE\_MRR\_HPFCORNER\_FREQ1\_VAL}
+{\footnotesize\ttfamily \#define P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+H\+P\+F\+C\+O\+R\+N\+E\+R\+\_\+\+F\+R\+E\+Q1\+\_\+\+V\+AL~R\+L\+\_\+\+R\+X\+\_\+\+H\+P\+F1\+\_\+175\+\_\+\+K\+Hz}
+
+
+
+H\+PF 1 corner frequency. 
+
+
+
+Definition at line 45 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_aedc180b80cd0b28c1f2d21240b2485fd}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!PROFILE\_MRR\_HPFCORNER\_FREQ2\_VAL@{PROFILE\_MRR\_HPFCORNER\_FREQ2\_VAL}}
+\index{PROFILE\_MRR\_HPFCORNER\_FREQ2\_VAL@{PROFILE\_MRR\_HPFCORNER\_FREQ2\_VAL}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{PROFILE\_MRR\_HPFCORNER\_FREQ2\_VAL}
+{\footnotesize\ttfamily \#define P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+H\+P\+F\+C\+O\+R\+N\+E\+R\+\_\+\+F\+R\+E\+Q2\+\_\+\+V\+AL~R\+L\+\_\+\+R\+X\+\_\+\+H\+P\+F2\+\_\+350\+\_\+\+K\+Hz}
+
+
+
+H\+PF 2 corner frequency. 
+
+
+
+Definition at line 47 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_a1020170b443484002d84caf7eeef4760}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!PROFILE\_MRR\_IDLE\_TIME\_VAL@{PROFILE\_MRR\_IDLE\_TIME\_VAL}}
+\index{PROFILE\_MRR\_IDLE\_TIME\_VAL@{PROFILE\_MRR\_IDLE\_TIME\_VAL}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{PROFILE\_MRR\_IDLE\_TIME\_VAL}
+{\footnotesize\ttfamily \#define P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+I\+D\+L\+E\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL~(500U)}
+
+
+
+Definition at line 53 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_a7ea8676a8def9a5167fa75c48831f085}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!PROFILE\_MRR\_LAMBDA\_MILLIMETER@{PROFILE\_MRR\_LAMBDA\_MILLIMETER}}
+\index{PROFILE\_MRR\_LAMBDA\_MILLIMETER@{PROFILE\_MRR\_LAMBDA\_MILLIMETER}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{PROFILE\_MRR\_LAMBDA\_MILLIMETER}
+{\footnotesize\ttfamily \#define P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+L\+A\+M\+B\+D\+A\+\_\+\+M\+I\+L\+L\+I\+M\+E\+T\+ER~(M\+M\+W\+D\+E\+M\+O\+\_\+\+S\+P\+E\+E\+D\+\_\+\+O\+F\+\_\+\+L\+I\+G\+H\+T\+\_\+\+I\+N\+\_\+\+M\+E\+T\+E\+R\+S\+\_\+\+P\+E\+R\+\_\+\+U\+S\+EC/\textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+S\+T\+A\+R\+T\+\_\+\+F\+R\+E\+Q\+\_\+\+G\+HZ})}
+
+
+
+Definition at line 64 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_aa339b4b661594386791f4291c39d9bf4}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!PROFILE\_MRR\_PROFILE\_ID@{PROFILE\_MRR\_PROFILE\_ID}}
+\index{PROFILE\_MRR\_PROFILE\_ID@{PROFILE\_MRR\_PROFILE\_ID}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{PROFILE\_MRR\_PROFILE\_ID}
+{\footnotesize\ttfamily \#define P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+P\+R\+O\+F\+I\+L\+E\+\_\+\+ID~(0U)}
+
+
+
+M\+RR profile ID. 
+
+
+
+Definition at line 43 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_a6415f46c2b86b15934d40962df08da9c}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!PROFILE\_MRR\_RAMP\_END\_TIME\_VAL@{PROFILE\_MRR\_RAMP\_END\_TIME\_VAL}}
+\index{PROFILE\_MRR\_RAMP\_END\_TIME\_VAL@{PROFILE\_MRR\_RAMP\_END\_TIME\_VAL}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{PROFILE\_MRR\_RAMP\_END\_TIME\_VAL}
+{\footnotesize\ttfamily \#define P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+R\+A\+M\+P\+\_\+\+E\+N\+D\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL~(6000U)}
+
+
+
+Definition at line 54 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_a9f23c6fdf5e9c876120c5ac68e3bffca}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!PROFILE\_MRR\_RANGE\_RESOLUTION\_METERS@{PROFILE\_MRR\_RANGE\_RESOLUTION\_METERS}}
+\index{PROFILE\_MRR\_RANGE\_RESOLUTION\_METERS@{PROFILE\_MRR\_RANGE\_RESOLUTION\_METERS}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{PROFILE\_MRR\_RANGE\_RESOLUTION\_METERS}
+{\footnotesize\ttfamily \#define P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+R\+A\+N\+G\+E\+\_\+\+R\+E\+S\+O\+L\+U\+T\+I\+O\+N\+\_\+\+M\+E\+T\+E\+RS~((M\+M\+W\+D\+E\+M\+O\+\_\+\+S\+P\+E\+E\+D\+\_\+\+O\+F\+\_\+\+L\+I\+G\+H\+T\+\_\+\+I\+N\+\_\+\+M\+E\+T\+E\+R\+S\+\_\+\+P\+E\+R\+\_\+\+U\+S\+EC $\ast$ \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+D\+I\+G\+O\+U\+T\+\_\+\+S\+A\+M\+P\+L\+E\+R\+A\+T\+E\+\_\+\+V\+AL})/ (2000.\+0f $\ast$ \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+F\+R\+E\+Q\+\_\+\+S\+L\+O\+P\+E\+\_\+\+M\+H\+Z\+\_\+\+P\+E\+R\+\_\+\+US} $\ast$ \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+N\+U\+M\+\_\+\+C\+M\+P\+L\+X\+\_\+\+A\+D\+C\+\_\+\+S\+A\+M\+P\+L\+ES}) )}
+
+
+
+Definition at line 104 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_a022c0495893a18df0908cd745343a926}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!PROFILE\_MRR\_RX\_GAIN\_VAL@{PROFILE\_MRR\_RX\_GAIN\_VAL}}
+\index{PROFILE\_MRR\_RX\_GAIN\_VAL@{PROFILE\_MRR\_RX\_GAIN\_VAL}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{PROFILE\_MRR\_RX\_GAIN\_VAL}
+{\footnotesize\ttfamily \#define P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+R\+X\+\_\+\+G\+A\+I\+N\+\_\+\+V\+AL~(44U)}
+
+
+
+Rx gain is kept at the maximum . 
+
+
+
+Definition at line 49 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_a73a1e6f9bd2a0f018f4d4c92546fef91}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!PROFILE\_MRR\_START\_FREQ\_GHZ@{PROFILE\_MRR\_START\_FREQ\_GHZ}}
+\index{PROFILE\_MRR\_START\_FREQ\_GHZ@{PROFILE\_MRR\_START\_FREQ\_GHZ}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{PROFILE\_MRR\_START\_FREQ\_GHZ}
+{\footnotesize\ttfamily \#define P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+S\+T\+A\+R\+T\+\_\+\+F\+R\+E\+Q\+\_\+\+G\+HZ~(76.\+01f)}
+
+
+
+Definition at line 55 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_aac7a995f8747b072a20cefdaf255b72e}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!PROFILE\_MRR\_START\_FREQ\_VAL@{PROFILE\_MRR\_START\_FREQ\_VAL}}
+\index{PROFILE\_MRR\_START\_FREQ\_VAL@{PROFILE\_MRR\_START\_FREQ\_VAL}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{PROFILE\_MRR\_START\_FREQ\_VAL}
+{\footnotesize\ttfamily \#define P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+S\+T\+A\+R\+T\+\_\+\+F\+R\+E\+Q\+\_\+\+V\+AL~(\textbf{ C\+O\+N\+V\+\_\+\+F\+R\+E\+Q\+\_\+\+G\+H\+Z\+\_\+\+T\+O\+\_\+\+C\+O\+D\+E\+W\+O\+RD}(\textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+S\+T\+A\+R\+T\+\_\+\+F\+R\+E\+Q\+\_\+\+G\+HZ}))}
+
+
+
+Definition at line 56 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_ac1ed61959f68831d8c1f6d3dc6bccf84}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!PROFILE\_MRR\_TX\_START\_TIME\_VAL@{PROFILE\_MRR\_TX\_START\_TIME\_VAL}}
+\index{PROFILE\_MRR\_TX\_START\_TIME\_VAL@{PROFILE\_MRR\_TX\_START\_TIME\_VAL}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{PROFILE\_MRR\_TX\_START\_TIME\_VAL}
+{\footnotesize\ttfamily \#define P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+T\+X\+\_\+\+S\+T\+A\+R\+T\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL~(100U)}
+
+
+
+Definition at line 61 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_a90324957113e2080f49f3ff4d5d013ed}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!PROFILE\_MRR\_TXOUT\_POWER\_BACKOFF@{PROFILE\_MRR\_TXOUT\_POWER\_BACKOFF}}
+\index{PROFILE\_MRR\_TXOUT\_POWER\_BACKOFF@{PROFILE\_MRR\_TXOUT\_POWER\_BACKOFF}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{PROFILE\_MRR\_TXOUT\_POWER\_BACKOFF}
+{\footnotesize\ttfamily \#define P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+T\+X\+O\+U\+T\+\_\+\+P\+O\+W\+E\+R\+\_\+\+B\+A\+C\+K\+O\+FF~(0U)}
+
+
+
+Definition at line 57 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_aa42121cc7bff96bc1e5940fdcdef24c3}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!PROFILE\_MRR\_TXPHASESHIFTER\_VAL@{PROFILE\_MRR\_TXPHASESHIFTER\_VAL}}
+\index{PROFILE\_MRR\_TXPHASESHIFTER\_VAL@{PROFILE\_MRR\_TXPHASESHIFTER\_VAL}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{PROFILE\_MRR\_TXPHASESHIFTER\_VAL}
+{\footnotesize\ttfamily \#define P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+T\+X\+P\+H\+A\+S\+E\+S\+H\+I\+F\+T\+E\+R\+\_\+\+V\+AL~(0U)}
+
+
+
+Definition at line 58 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_a3e8f46041d52e75e6f273d4fe569d34e}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!SUBFRAME\_MRR\_CHIRP\_END\_IDX@{SUBFRAME\_MRR\_CHIRP\_END\_IDX}}
+\index{SUBFRAME\_MRR\_CHIRP\_END\_IDX@{SUBFRAME\_MRR\_CHIRP\_END\_IDX}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{SUBFRAME\_MRR\_CHIRP\_END\_IDX}
+{\footnotesize\ttfamily \#define S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+C\+H\+I\+R\+P\+\_\+\+E\+N\+D\+\_\+\+I\+DX~(255U)}
+
+
+
+Definition at line 90 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_a56cbb7e7bef5fa2657d1d9fe100d3293}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!SUBFRAME\_MRR\_CHIRP\_START\_IDX@{SUBFRAME\_MRR\_CHIRP\_START\_IDX}}
+\index{SUBFRAME\_MRR\_CHIRP\_START\_IDX@{SUBFRAME\_MRR\_CHIRP\_START\_IDX}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{SUBFRAME\_MRR\_CHIRP\_START\_IDX}
+{\footnotesize\ttfamily \#define S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+C\+H\+I\+R\+P\+\_\+\+S\+T\+A\+R\+T\+\_\+\+I\+DX~(0U)}
+
+
+
+S\+U\+B\+F\+R\+A\+ME configuration. 
+
+
+
+Definition at line 89 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_a9cf79df3e3191d3b4fd13a2438916d51}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!SUBFRAME\_MRR\_CHIRPTYPE\_0\_CHIRP\_REPETITION\_PERIOD\_US@{SUBFRAME\_MRR\_CHIRPTYPE\_0\_CHIRP\_REPETITION\_PERIOD\_US}}
+\index{SUBFRAME\_MRR\_CHIRPTYPE\_0\_CHIRP\_REPETITION\_PERIOD\_US@{SUBFRAME\_MRR\_CHIRPTYPE\_0\_CHIRP\_REPETITION\_PERIOD\_US}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{SUBFRAME\_MRR\_CHIRPTYPE\_0\_CHIRP\_REPETITION\_PERIOD\_US}
+{\footnotesize\ttfamily \#define S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+E\+\_\+0\+\_\+\+C\+H\+I\+R\+P\+\_\+\+R\+E\+P\+E\+T\+I\+T\+I\+O\+N\+\_\+\+P\+E\+R\+I\+O\+D\+\_\+\+US~((\textbf{ C\+H\+I\+R\+P\+\_\+\+M\+R\+R\+\_\+0\+\_\+\+I\+D\+L\+E\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL} + \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+I\+D\+L\+E\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL} + \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+R\+A\+M\+P\+\_\+\+E\+N\+D\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL})/100.\+0f)}
+
+
+
+Definition at line 106 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_aeabf3fc4cfa2bf5f895d434897c0540d}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!SUBFRAME\_MRR\_CHIRPTYPE\_0\_MAX\_VEL\_M\_P\_S@{SUBFRAME\_MRR\_CHIRPTYPE\_0\_MAX\_VEL\_M\_P\_S}}
+\index{SUBFRAME\_MRR\_CHIRPTYPE\_0\_MAX\_VEL\_M\_P\_S@{SUBFRAME\_MRR\_CHIRPTYPE\_0\_MAX\_VEL\_M\_P\_S}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{SUBFRAME\_MRR\_CHIRPTYPE\_0\_MAX\_VEL\_M\_P\_S}
+{\footnotesize\ttfamily \#define S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+E\+\_\+0\+\_\+\+M\+A\+X\+\_\+\+V\+E\+L\+\_\+\+M\+\_\+\+P\+\_\+S~(\textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+E\+\_\+0\+\_\+\+V\+E\+L\+\_\+\+R\+E\+S\+O\+L\+U\+T\+I\+O\+N\+\_\+\+M\+\_\+\+P\+\_\+S}$\ast$\textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+E\+\_\+0\+\_\+\+N\+U\+M\+\_\+\+C\+H\+I\+R\+PS}/2)}
+
+
+
+Definition at line 108 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_aa1eeb312d5c78bbfab99bcb6a827a7f1}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!SUBFRAME\_MRR\_CHIRPTYPE\_0\_NUM\_CHIRPS@{SUBFRAME\_MRR\_CHIRPTYPE\_0\_NUM\_CHIRPS}}
+\index{SUBFRAME\_MRR\_CHIRPTYPE\_0\_NUM\_CHIRPS@{SUBFRAME\_MRR\_CHIRPTYPE\_0\_NUM\_CHIRPS}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{SUBFRAME\_MRR\_CHIRPTYPE\_0\_NUM\_CHIRPS}
+{\footnotesize\ttfamily \#define S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+E\+\_\+0\+\_\+\+N\+U\+M\+\_\+\+C\+H\+I\+R\+PS~((\textbf{ C\+H\+I\+R\+P\+\_\+\+M\+R\+R\+\_\+0\+\_\+\+E\+N\+D\+\_\+\+I\+N\+D\+EX} -\/ \textbf{ C\+H\+I\+R\+P\+\_\+\+M\+R\+R\+\_\+0\+\_\+\+S\+T\+A\+R\+T\+\_\+\+I\+N\+D\+EX} + 1)$\ast$\textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+L\+O\+O\+P\+\_\+\+C\+O\+U\+NT})}
+
+
+
+Definition at line 96 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_a00168a5302fc2040ae94ebfefaf9b2fb}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!SUBFRAME\_MRR\_CHIRPTYPE\_0\_VEL\_RESOLUTION\_M\_P\_S@{SUBFRAME\_MRR\_CHIRPTYPE\_0\_VEL\_RESOLUTION\_M\_P\_S}}
+\index{SUBFRAME\_MRR\_CHIRPTYPE\_0\_VEL\_RESOLUTION\_M\_P\_S@{SUBFRAME\_MRR\_CHIRPTYPE\_0\_VEL\_RESOLUTION\_M\_P\_S}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{SUBFRAME\_MRR\_CHIRPTYPE\_0\_VEL\_RESOLUTION\_M\_P\_S}
+{\footnotesize\ttfamily \#define S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+E\+\_\+0\+\_\+\+V\+E\+L\+\_\+\+R\+E\+S\+O\+L\+U\+T\+I\+O\+N\+\_\+\+M\+\_\+\+P\+\_\+S~(((1000.\+0f/\textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+E\+\_\+0\+\_\+\+C\+H\+I\+R\+P\+\_\+\+R\+E\+P\+E\+T\+I\+T\+I\+O\+N\+\_\+\+P\+E\+R\+I\+O\+D\+\_\+\+US})/\textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+E\+\_\+0\+\_\+\+N\+U\+M\+\_\+\+C\+H\+I\+R\+PS})$\ast$(\textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+L\+A\+M\+B\+D\+A\+\_\+\+M\+I\+L\+L\+I\+M\+E\+T\+ER}/2))}
+
+
+
+Definition at line 107 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_af9db85e62cbe1dd21925907fed4b06fe}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!SUBFRAME\_MRR\_CHIRPTYPE\_1\_CHIRP\_REPETITION\_PERIOD\_US@{SUBFRAME\_MRR\_CHIRPTYPE\_1\_CHIRP\_REPETITION\_PERIOD\_US}}
+\index{SUBFRAME\_MRR\_CHIRPTYPE\_1\_CHIRP\_REPETITION\_PERIOD\_US@{SUBFRAME\_MRR\_CHIRPTYPE\_1\_CHIRP\_REPETITION\_PERIOD\_US}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{SUBFRAME\_MRR\_CHIRPTYPE\_1\_CHIRP\_REPETITION\_PERIOD\_US}
+{\footnotesize\ttfamily \#define S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+E\+\_\+1\+\_\+\+C\+H\+I\+R\+P\+\_\+\+R\+E\+P\+E\+T\+I\+T\+I\+O\+N\+\_\+\+P\+E\+R\+I\+O\+D\+\_\+\+US~((\textbf{ C\+H\+I\+R\+P\+\_\+\+M\+R\+R\+\_\+1\+\_\+\+I\+D\+L\+E\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL} + \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+I\+D\+L\+E\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL} + \textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+R\+A\+M\+P\+\_\+\+E\+N\+D\+\_\+\+T\+I\+M\+E\+\_\+\+V\+AL})/100.\+0f)}
+
+
+
+Definition at line 111 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_aaa6b1d9196df8631fc0fdf6695ebf15e}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!SUBFRAME\_MRR\_CHIRPTYPE\_1\_MAX\_VEL\_M\_P\_S@{SUBFRAME\_MRR\_CHIRPTYPE\_1\_MAX\_VEL\_M\_P\_S}}
+\index{SUBFRAME\_MRR\_CHIRPTYPE\_1\_MAX\_VEL\_M\_P\_S@{SUBFRAME\_MRR\_CHIRPTYPE\_1\_MAX\_VEL\_M\_P\_S}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{SUBFRAME\_MRR\_CHIRPTYPE\_1\_MAX\_VEL\_M\_P\_S}
+{\footnotesize\ttfamily \#define S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+E\+\_\+1\+\_\+\+M\+A\+X\+\_\+\+V\+E\+L\+\_\+\+M\+\_\+\+P\+\_\+S~((\textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+E\+\_\+1\+\_\+\+V\+E\+L\+\_\+\+R\+E\+S\+O\+L\+U\+T\+I\+O\+N\+\_\+\+M\+\_\+\+P\+\_\+S}$\ast$\textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+E\+\_\+1\+\_\+\+N\+U\+M\+\_\+\+C\+H\+I\+R\+PS}/2)}
+
+
+
+Definition at line 113 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_a44bd6caf58083fee1e1710c7ba385be3}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!SUBFRAME\_MRR\_CHIRPTYPE\_1\_NUM\_CHIRPS@{SUBFRAME\_MRR\_CHIRPTYPE\_1\_NUM\_CHIRPS}}
+\index{SUBFRAME\_MRR\_CHIRPTYPE\_1\_NUM\_CHIRPS@{SUBFRAME\_MRR\_CHIRPTYPE\_1\_NUM\_CHIRPS}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{SUBFRAME\_MRR\_CHIRPTYPE\_1\_NUM\_CHIRPS}
+{\footnotesize\ttfamily \#define S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+E\+\_\+1\+\_\+\+N\+U\+M\+\_\+\+C\+H\+I\+R\+PS~((\textbf{ C\+H\+I\+R\+P\+\_\+\+M\+R\+R\+\_\+1\+\_\+\+E\+N\+D\+\_\+\+I\+N\+D\+EX} -\/ \textbf{ C\+H\+I\+R\+P\+\_\+\+M\+R\+R\+\_\+1\+\_\+\+S\+T\+A\+R\+T\+\_\+\+I\+N\+D\+EX} + 1)$\ast$\textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+L\+O\+O\+P\+\_\+\+C\+O\+U\+NT})}
+
+
+
+Definition at line 97 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_a90af084a56807044a9523e35b4591d1d}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!SUBFRAME\_MRR\_CHIRPTYPE\_1\_VEL\_RESOLUTION\_M\_P\_S@{SUBFRAME\_MRR\_CHIRPTYPE\_1\_VEL\_RESOLUTION\_M\_P\_S}}
+\index{SUBFRAME\_MRR\_CHIRPTYPE\_1\_VEL\_RESOLUTION\_M\_P\_S@{SUBFRAME\_MRR\_CHIRPTYPE\_1\_VEL\_RESOLUTION\_M\_P\_S}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{SUBFRAME\_MRR\_CHIRPTYPE\_1\_VEL\_RESOLUTION\_M\_P\_S}
+{\footnotesize\ttfamily \#define S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+E\+\_\+1\+\_\+\+V\+E\+L\+\_\+\+R\+E\+S\+O\+L\+U\+T\+I\+O\+N\+\_\+\+M\+\_\+\+P\+\_\+S~(((1000.\+0f/\textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+E\+\_\+1\+\_\+\+C\+H\+I\+R\+P\+\_\+\+R\+E\+P\+E\+T\+I\+T\+I\+O\+N\+\_\+\+P\+E\+R\+I\+O\+D\+\_\+\+US})/\textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+E\+\_\+1\+\_\+\+N\+U\+M\+\_\+\+C\+H\+I\+R\+PS})$\ast$(\textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+L\+A\+M\+B\+D\+A\+\_\+\+M\+I\+L\+L\+I\+M\+E\+T\+ER}/2))}
+
+
+
+Definition at line 112 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_a5751496899aec0e2675573d66e14bb82}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!SUBFRAME\_MRR\_LOOP\_COUNT@{SUBFRAME\_MRR\_LOOP\_COUNT}}
+\index{SUBFRAME\_MRR\_LOOP\_COUNT@{SUBFRAME\_MRR\_LOOP\_COUNT}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{SUBFRAME\_MRR\_LOOP\_COUNT}
+{\footnotesize\ttfamily \#define S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+L\+O\+O\+P\+\_\+\+C\+O\+U\+NT~(1U)}
+
+
+
+Definition at line 91 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_a47efc20cfedc6877c52f1096f239cb2c}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!SUBFRAME\_MRR\_MIN\_SNR\_dB@{SUBFRAME\_MRR\_MIN\_SNR\_dB}}
+\index{SUBFRAME\_MRR\_MIN\_SNR\_dB@{SUBFRAME\_MRR\_MIN\_SNR\_dB}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{SUBFRAME\_MRR\_MIN\_SNR\_dB}
+{\footnotesize\ttfamily \#define S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+M\+I\+N\+\_\+\+S\+N\+R\+\_\+dB~(14.\+0f)}
+
+
+
+Definition at line 116 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_a013787b066978e998b0aa366b8a85218}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!SUBFRAME\_MRR\_NUM\_ANGLE\_BINS@{SUBFRAME\_MRR\_NUM\_ANGLE\_BINS}}
+\index{SUBFRAME\_MRR\_NUM\_ANGLE\_BINS@{SUBFRAME\_MRR\_NUM\_ANGLE\_BINS}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{SUBFRAME\_MRR\_NUM\_ANGLE\_BINS}
+{\footnotesize\ttfamily \#define S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+N\+U\+M\+\_\+\+A\+N\+G\+L\+E\+\_\+\+B\+I\+NS~(32U)}
+
+
+
+Definition at line 101 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_a2a28d1ec6f74d9bf76e5945cbc2b43fa}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!SUBFRAME\_MRR\_NUM\_CHIRPS\_TOTAL@{SUBFRAME\_MRR\_NUM\_CHIRPS\_TOTAL}}
+\index{SUBFRAME\_MRR\_NUM\_CHIRPS\_TOTAL@{SUBFRAME\_MRR\_NUM\_CHIRPS\_TOTAL}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{SUBFRAME\_MRR\_NUM\_CHIRPS\_TOTAL}
+{\footnotesize\ttfamily \#define S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+N\+U\+M\+\_\+\+C\+H\+I\+R\+P\+S\+\_\+\+T\+O\+T\+AL~((\textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+C\+H\+I\+R\+P\+\_\+\+E\+N\+D\+\_\+\+I\+DX} -\/ \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+C\+H\+I\+R\+P\+\_\+\+S\+T\+A\+R\+T\+\_\+\+I\+DX} + 1) $\ast$ \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+L\+O\+O\+P\+\_\+\+C\+O\+U\+NT})}
+
+
+
+Definition at line 102 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_a239d22740020cfa5d777fdadf1d84635}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!SUBFRAME\_MRR\_NUM\_CHIRPTYPES@{SUBFRAME\_MRR\_NUM\_CHIRPTYPES}}
+\index{SUBFRAME\_MRR\_NUM\_CHIRPTYPES@{SUBFRAME\_MRR\_NUM\_CHIRPTYPES}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{SUBFRAME\_MRR\_NUM\_CHIRPTYPES}
+{\footnotesize\ttfamily \#define S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+N\+U\+M\+\_\+\+C\+H\+I\+R\+P\+T\+Y\+P\+ES~(2U)}
+
+
+
+Definition at line 118 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_a65e388b6d231614198a13a168dd2fd13}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!SUBFRAME\_MRR\_NUM\_CMPLX\_ADC\_SAMPLES@{SUBFRAME\_MRR\_NUM\_CMPLX\_ADC\_SAMPLES}}
+\index{SUBFRAME\_MRR\_NUM\_CMPLX\_ADC\_SAMPLES@{SUBFRAME\_MRR\_NUM\_CMPLX\_ADC\_SAMPLES}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{SUBFRAME\_MRR\_NUM\_CMPLX\_ADC\_SAMPLES}
+{\footnotesize\ttfamily \#define S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+N\+U\+M\+\_\+\+C\+M\+P\+L\+X\+\_\+\+A\+D\+C\+\_\+\+S\+A\+M\+P\+L\+ES~(\textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+A\+D\+C\+\_\+\+S\+A\+M\+P\+L\+E\+\_\+\+V\+AL})}
+
+
+
+Definition at line 95 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_aacd9943df43cb494702e23d6576d8f7e}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!SUBFRAME\_MRR\_NUM\_REAL\_ADC\_SAMPLES@{SUBFRAME\_MRR\_NUM\_REAL\_ADC\_SAMPLES}}
+\index{SUBFRAME\_MRR\_NUM\_REAL\_ADC\_SAMPLES@{SUBFRAME\_MRR\_NUM\_REAL\_ADC\_SAMPLES}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{SUBFRAME\_MRR\_NUM\_REAL\_ADC\_SAMPLES}
+{\footnotesize\ttfamily \#define S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+N\+U\+M\+\_\+\+R\+E\+A\+L\+\_\+\+A\+D\+C\+\_\+\+S\+A\+M\+P\+L\+ES~(\textbf{ P\+R\+O\+F\+I\+L\+E\+\_\+\+M\+R\+R\+\_\+\+A\+D\+C\+\_\+\+S\+A\+M\+P\+L\+E\+\_\+\+V\+AL} $\ast$ 2)}
+
+
+
+Definition at line 94 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_a5b3b6b5345104999afb4f0894692264f}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!SUBFRAME\_MRR\_NUM\_TX@{SUBFRAME\_MRR\_NUM\_TX}}
+\index{SUBFRAME\_MRR\_NUM\_TX@{SUBFRAME\_MRR\_NUM\_TX}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{SUBFRAME\_MRR\_NUM\_TX}
+{\footnotesize\ttfamily \#define S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+N\+U\+M\+\_\+\+TX~(1U)}
+
+
+
+Definition at line 98 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_a63f1c84347f5cf48bb63faa8e004efd7}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!SUBFRAME\_MRR\_NUM\_VIRT\_ANT@{SUBFRAME\_MRR\_NUM\_VIRT\_ANT}}
+\index{SUBFRAME\_MRR\_NUM\_VIRT\_ANT@{SUBFRAME\_MRR\_NUM\_VIRT\_ANT}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{SUBFRAME\_MRR\_NUM\_VIRT\_ANT}
+{\footnotesize\ttfamily \#define S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+N\+U\+M\+\_\+\+V\+I\+R\+T\+\_\+\+A\+NT~(\textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+N\+U\+M\+\_\+\+TX}$\ast$\textbf{ N\+U\+M\+\_\+\+R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+LS})}
+
+
+
+Definition at line 100 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_a5b8c0d564ce923b91c26ae82918310c5}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!SUBFRAME\_MRR\_PERIODICITY\_VAL@{SUBFRAME\_MRR\_PERIODICITY\_VAL}}
+\index{SUBFRAME\_MRR\_PERIODICITY\_VAL@{SUBFRAME\_MRR\_PERIODICITY\_VAL}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{SUBFRAME\_MRR\_PERIODICITY\_VAL}
+{\footnotesize\ttfamily \#define S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+P\+E\+R\+I\+O\+D\+I\+C\+I\+T\+Y\+\_\+\+V\+AL~(6000000U)}
+
+
+
+Definition at line 92 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+
+\mbox{\label{config__chirp__design___m_r_r120_8h_a49b778c9beed2928ac6312a0599228a0}} 
+\index{config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}!SUBFRAME\_MRR\_TRIGGER\_DELAY\_VAL@{SUBFRAME\_MRR\_TRIGGER\_DELAY\_VAL}}
+\index{SUBFRAME\_MRR\_TRIGGER\_DELAY\_VAL@{SUBFRAME\_MRR\_TRIGGER\_DELAY\_VAL}!config\_chirp\_design\_MRR120.h@{config\_chirp\_design\_MRR120.h}}
+\doxysubsubsection{SUBFRAME\_MRR\_TRIGGER\_DELAY\_VAL}
+{\footnotesize\ttfamily \#define S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+D\+E\+L\+A\+Y\+\_\+\+V\+AL~(0U)}
+
+
+
+Definition at line 93 of file config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h.
+

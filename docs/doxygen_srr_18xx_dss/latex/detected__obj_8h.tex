@@ -1,0 +1,92 @@
+\doxysection{common/detected\+\_\+obj.h File Reference}
+\label{detected__obj_8h}\index{common/detected\_obj.h@{common/detected\_obj.h}}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{detected__obj_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ Mmw\+Demo\+\_\+detected\+Obj\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Detected object estimated parameters. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ M\+M\+W\+\_\+\+M\+A\+X\+\_\+\+O\+B\+J\+\_\+\+O\+UT}~100
+\begin{DoxyCompactList}\small\item\em Maximum number of detected objects by H\+WA. \end{DoxyCompactList}\item 
+\#define \textbf{ D\+O\+P\+P\+L\+E\+R\+\_\+\+I\+D\+X\+\_\+\+T\+O\+\_\+\+S\+I\+G\+N\+ED}(\+\_\+idx,  \+\_\+fft\+Size)
+\begin{DoxyCompactList}\small\item\em Converts Doppler index to signed variable. Value greater than or equal half the Doppler F\+FT size will become negative. Needed for extended maximum velocity. \end{DoxyCompactList}\item 
+\#define \textbf{ D\+O\+P\+P\+L\+E\+R\+\_\+\+I\+D\+X\+\_\+\+T\+O\+\_\+\+U\+N\+S\+I\+G\+N\+ED}(\+\_\+idx,  \+\_\+fft\+Size)~((\+\_\+idx) \& (\+\_\+fft\+Size -\/ 1))
+\begin{DoxyCompactList}\small\item\em Converts signed Doppler index to unsigned variable (zero to F\+FT size -\/1). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef volatile struct \textbf{ Mmw\+Demo\+\_\+detected\+Obj\+\_\+t} \textbf{ Mmw\+Demo\+\_\+detected\+Obj}
+\begin{DoxyCompactList}\small\item\em Detected object estimated parameters. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\label{detected__obj_8h_aadbe88483d7d17cf1e18bd38cb3c25b1}} 
+\index{detected\_obj.h@{detected\_obj.h}!DOPPLER\_IDX\_TO\_SIGNED@{DOPPLER\_IDX\_TO\_SIGNED}}
+\index{DOPPLER\_IDX\_TO\_SIGNED@{DOPPLER\_IDX\_TO\_SIGNED}!detected\_obj.h@{detected\_obj.h}}
+\doxysubsubsection{DOPPLER\_IDX\_TO\_SIGNED}
+{\footnotesize\ttfamily \#define D\+O\+P\+P\+L\+E\+R\+\_\+\+I\+D\+X\+\_\+\+T\+O\+\_\+\+S\+I\+G\+N\+ED(\begin{DoxyParamCaption}\item[{}]{\+\_\+idx,  }\item[{}]{\+\_\+fft\+Size }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((\_idx) < (\_fftSize)/2 ? \(\backslash\)}
+\DoxyCodeLine{        ((int16\_t) (\_idx)) : ((int16\_t) (\_idx) -\/ (int16\_t) (\_fftSize)))}
+
+\end{DoxyCode}
+
+
+Converts Doppler index to signed variable. Value greater than or equal half the Doppler F\+FT size will become negative. Needed for extended maximum velocity. 
+
+
+
+Definition at line 16 of file detected\+\_\+obj.\+h.
+
+\mbox{\label{detected__obj_8h_a558eb0a31417d1363eccfc369557b197}} 
+\index{detected\_obj.h@{detected\_obj.h}!DOPPLER\_IDX\_TO\_UNSIGNED@{DOPPLER\_IDX\_TO\_UNSIGNED}}
+\index{DOPPLER\_IDX\_TO\_UNSIGNED@{DOPPLER\_IDX\_TO\_UNSIGNED}!detected\_obj.h@{detected\_obj.h}}
+\doxysubsubsection{DOPPLER\_IDX\_TO\_UNSIGNED}
+{\footnotesize\ttfamily \#define D\+O\+P\+P\+L\+E\+R\+\_\+\+I\+D\+X\+\_\+\+T\+O\+\_\+\+U\+N\+S\+I\+G\+N\+ED(\begin{DoxyParamCaption}\item[{}]{\+\_\+idx,  }\item[{}]{\+\_\+fft\+Size }\end{DoxyParamCaption})~((\+\_\+idx) \& (\+\_\+fft\+Size -\/ 1))}
+
+
+
+Converts signed Doppler index to unsigned variable (zero to F\+FT size -\/1). 
+
+
+
+Definition at line 21 of file detected\+\_\+obj.\+h.
+
+\mbox{\label{detected__obj_8h_aacb091770bbe78cbd1ea4a03d8145468}} 
+\index{detected\_obj.h@{detected\_obj.h}!MMW\_MAX\_OBJ\_OUT@{MMW\_MAX\_OBJ\_OUT}}
+\index{MMW\_MAX\_OBJ\_OUT@{MMW\_MAX\_OBJ\_OUT}!detected\_obj.h@{detected\_obj.h}}
+\doxysubsubsection{MMW\_MAX\_OBJ\_OUT}
+{\footnotesize\ttfamily \#define M\+M\+W\+\_\+\+M\+A\+X\+\_\+\+O\+B\+J\+\_\+\+O\+UT~100}
+
+
+
+Maximum number of detected objects by H\+WA. 
+
+
+
+Definition at line 10 of file detected\+\_\+obj.\+h.
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\label{detected__obj_8h_a6e34f7ff05ea4a17f897aa9bae35f62d}} 
+\index{detected\_obj.h@{detected\_obj.h}!MmwDemo\_detectedObj@{MmwDemo\_detectedObj}}
+\index{MmwDemo\_detectedObj@{MmwDemo\_detectedObj}!detected\_obj.h@{detected\_obj.h}}
+\doxysubsubsection{MmwDemo\_detectedObj}
+{\footnotesize\ttfamily typedef volatile struct \textbf{ Mmw\+Demo\+\_\+detected\+Obj\+\_\+t}  \textbf{ Mmw\+Demo\+\_\+detected\+Obj}}
+
+
+
+Detected object estimated parameters. 
+

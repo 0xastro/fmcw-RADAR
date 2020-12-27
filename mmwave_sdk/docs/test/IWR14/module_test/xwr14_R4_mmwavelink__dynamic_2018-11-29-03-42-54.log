@@ -1,0 +1,293 @@
+mss in binary >>> xwr14xx_link_mss.xer4f
+eth008 Board details:
+IP address: 10.218.113.61
+
+Port: 17494
+
+connecting...
+Relay states 8->1 : 01010101
+3 off
+4 off
+Relay states 8->1 : 01010001
+3 on
+Relay states 8->1 : 01010101
+exit
+Disconnected
+Pre-Script returned: Success
+**************************************************
+Testcase mods & parameters invoked:
+**************************************************
+Two core test case: None (this is not a two core testcase)
+
+**************************************************
+Copying test case files from the Build server
+**************************************************
+Testdata possible location 1: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/control/mmwavelink/test/testdata
+
+
+Testdata directory was not found on Testdata possible location 1
+
+
+Testdata possible location 2: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/control/mmwavelink/test/xwr14xx/testdata
+
+
+Testdata directory was not found on Testdata possible location 2
+
+Call to copy_testcase_binary:
+TCP: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/control/mmwavelink/test/xwr14xx; /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr14xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_50_24
+
+Copying testcase binary file from http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/control/mmwavelink/test/xwr14xx/xwr14xx_link_mss.xer4f to /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr14xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_50_24 using command: 
+wget -e robots=off --no-proxy -N -T 30 -t 2 -P /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr14xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_50_24 http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/control/mmwavelink/test/xwr14xx/xwr14xx_link_mss.xer4f
+**************************************************
+Executing Testcase:/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr14xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_50_24/xwr14xx_link_mss.xer4f
+**************************************************
+Checking if Py4J Gateway server has started...
+Py4J Gateway Server is Started
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_0/CS_DAP_0
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_0/Master_R4
+DSS test case opening debug session.
+
+cr4ctl = 0xadad00
+
+efuse/register @0xFFFFE210 = 0x100001
+
+efuse/register @0xFFFFE214 = 0x2802480
+
+efuse/register @0xFFFFE218 = 0x13
+
+efuse/register @0xFFFFE21C = 0x300
+
+Loading binary to the DUT:/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr14xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_50_24/xwr14xx_link_mss.xer4f
+
+**************************************************
+ Parameters found in the Binary arguments : 
+{'gLinkMonitoringTest(8)': '0', 'cqDataVerifyTest(8)': '0', 'gDynamicChirpTest(8)': '1', 'gLinkCalibTest(8)': '0', 'gLinkSubFrameTrigTest(8)': '0', 'gLinkContModeTest(8)': '0', 'gLinkAdvanceFrameTest(8)': '0', 'gLinkBpmEnableTest(8)': '0'}
+**************************************************
+Reading address of symbol: gLinkMonitoringTest
+Address of symbol obtained: 0x800d314
+Write value 0 to address 0x800d314 
+Value updated successfully
+Reading address of symbol: cqDataVerifyTest
+Address of symbol obtained: 0x800d317
+Write value 0 to address 0x800d317 
+Value updated successfully
+Reading address of symbol: gDynamicChirpTest
+Address of symbol obtained: 0x800d319
+Write value 1 to address 0x800d319 
+Value updated successfully
+Reading address of symbol: gLinkCalibTest
+Address of symbol obtained: 0x800d315
+Write value 0 to address 0x800d315 
+Value updated successfully
+Reading address of symbol: gLinkSubFrameTrigTest
+Address of symbol obtained: 0x800d31d
+Write value 0 to address 0x800d31d 
+Value updated successfully
+Reading address of symbol: gLinkContModeTest
+Address of symbol obtained: 0x800d318
+Write value 0 to address 0x800d318 
+Value updated successfully
+Reading address of symbol: gLinkAdvanceFrameTest
+Address of symbol obtained: 0x800d316
+Write value 0 to address 0x800d316 
+Value updated successfully
+Reading address of symbol: gLinkBpmEnableTest
+Address of symbol obtained: 0x800d31a
+Write value 0 to address 0x800d31a 
+Value updated successfully
+binary path = /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr14xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_50_24/xwr14xx_link_mss.xer4f
+
+dt-time: start time = Thu Nov 29 03:43:33 2018
+
+dt-time: end time = Thu Nov 29 03:45:53 2018
+
+
+**************************************************
+CIO Log captured for the testcase
+**************************************************
+Debug: ADCBUF Instance @0800d5f8 has been reopened successfully
+******************************************
+Debug: Launching the mmwaveLink
+******************************************
+Debug: Launched the mmwaveLink Initialization Task
+Debug: CRC Channel @08000b48 has been opened successfully
+Debug: BSS Mailbox Handle @08001408
+Debug: Power on request successfully passed to the BSS
+Feature: mmWave Link Initialization: Passed
+Debug: Launched the mmwaveLink Management Task
+Debug: Finished get radarSS bootup status to BSS
+Feature: Get radarSS bootup status: Passed
+RF H/W Version    : 03.00
+RF F/W Version    : 02.00.00.01.17.10.05
+RF F/W Patch Version : 01.02.00.03.18.10.24
+mmWaveLink Version: 01.02.00.01
+Feature: Get mmWave Link Version: Passed
+Debug: Die ID Status
+Lot no : 6123003, Wafer no: 3
+Die cordinates in wafer. X : 1 , Y : 877
+Feature: Get Device Die ID Status: Passed
+Debug: Finished set channel configurations to BSS
+Feature: Set mmWave Link Channel Config: Passed
+Debug: Finished setAdcOutConfig to BSS
+Feature: Set mmWave Link ADC Out Config: Passed
+Debug: Finished rlRfSetDeviceCfg
+Feature: Set Async event config: Passed
+Debug: Set HSI clock successfully
+Feature: Set HSI clock: Passed
+Feature: mmWave Link Enable/Disable Calibration: Passed
+Debug: Init time calibration status [0x800017fe] 
+Debug: RF start successfully
+Feature: mmWave Link RF Calibration: Passed
+Debug: Finished rlRfCalibDataStore
+Feature: mmWave Link Calibration Data Store config: Passed
+Feature: mmWave Link Enable/Disable Calibration: Passed
+Debug: Init time calibration status [0x800017f2] 
+Debug: Finished rlRfCalibDataRestore
+Feature: mmWave Link Calibration Data Restore config: Passed
+Debug: Init time calibration status [0x800017fe] 
+Debug: RF start successfully
+Feature: mmWave Link RF Calibration: Passed
+Debug: Finished rlSetGpAdcConfig
+Feature: mmWave Link Set GPAdc: Passed
+Debug: Finished rlRfSetLdoBypassConfig
+Feature: mmWave Link Set LDO bypass: Passed
+Feature: mmWave Link Calib/Monitoring config: Passed
+Debug: Finished rlSetProfileConfig
+Feature: Set mmWave Link Profile config: Passed
+Debug: Finished rlRxGainTempLutGet
+Feature: Get mmWave Link RX Gain Temperature LUT config: Passed
+Debug: Finished rlTxGainTempLutGet
+Feature: Get mmWave Link TX Gain Temperature LUT config: Passed
+Debug: Finished rlRxGainTempLutSet
+Feature: Set mmWave Link RX Gain Temperature LUT config: Passed
+Debug: Finished rlTxGainTempLutSet
+Feature: Set mmWave Link TX Gain Temperature LUT config: Passed
+Debug: rlGetProfileConfig parameters matched with configured parameters
+Feature: Get mmWave Link Profile config: Passed
+Debug: Finished rlSetChirpConfig
+Feature: Set mmWave Link Chirp config: Passed
+Debug: Finished rlSetMultiChirpCfg
+Feature: Set mmWave Link Multi Chirp config: Passed
+Debug: Finished rlRfInterRxGainPhaseConfig
+Feature: Set mmWave Link Inter RX Gain/Phase config: Passed
+Debug : Temerature readings
+RX0 :  32 degree C, RX1 :  34 degree C, RX2 :  34 degree C, RX3 :  34 degree C
+TX0 :  36 degree C, TX1 :  36 degree C, TX2 :  36 degree C
+PM  :  35 degree C, DIG0:  35 degree C
+Feature: Set mmWave Link Get Temperature Report: Passed
+Debug: Finished rlSetTestSourceConfig
+Debug: Finished rlTestSourceEnable
+Feature: Set mmWave Link Test Source config: Passed
+Debug: Finished rlSetFrameConfig
+Feature: Set mmWave Link Frame config: Passed
+Debug: rlGetFrameConfig parameters matched wilh configured parameters
+Feature: Get mmWave Link Frame config: Passed
+Debug: Finished rlRfSetPALoopbackConfig
+Feature: Enable mmWave Link PA Loop Back config: Passed
+Feature: Sensor Start: Passed
+Debug: Finished rlRfSetPALoopbackConfig
+Feature: Disable mmWave Link PA Loop Back config: Passed
+Debug:  Frame Stop Async Event 
+Debug: Sensor stop successfully
+Feature: Sensor Stop: Passed
+Feature: Sensor Start: Passed
+Debug: Finished rlRfSetPALoopbackConfig
+Feature: Enable mmWave Link PS Loop Back config: Passed
+Debug:  Frame Stop Async Event 
+Debug: Sensor stop successfully
+Feature: Sensor Stop: Passed
+Debug: Finished rlRfSetPALoopbackConfig
+Feature: Disable mmWave Link PS Loop Back config: Passed
+Feature: Sensor Start: Passed
+Debug: Finished rlRfSetIFLoopbackConfig
+Feature: Enable mmWave Link IF Loop Back config: Passed
+Debug:  Frame Stop Async Event 
+Debug: Sensor stop successfully
+Feature: Sensor Stop: Passed
+Debug: Finished rlRfSetIFLoopbackConfig
+Feature: Disable mmWave Link IF Loop Back config: Passed
+Debug: ADCbuf configuration is done!!
+Debug: Starting Sensor.. 
+Debug:  Frame Stop Async Event 
+Feature: Dynamic Chirp config: Passed
+Feature: Dynamic Chirp Enable: Passed
+Feature: All Frames Received: Passed
+Feature: Dynamic Chirp config: Passed
+-----------Debug: Infinite Frame mode test-----------
+Debug: Finished rlSetFrameConfig
+Feature: Set mmWave Link Frame config: Passed
+Feature: Start sensor: Passed
+Debug:  Frame Stop Async Event 
+Debug: Sensor stop successfully
+Feature: Stop sensor: Passed
+******************************************
+Debug: MmwaveLink Test completed
+******************************************
+Value read from Global variable (MCPI_Result): 0
+Test Failure Signature: 0
+Test Log Messages: 
+Feature tested: mmWave Link Initialization: Passed
+Feature tested: Get radarSS bootup status: Passed
+Feature tested: Get mmWave Link Version: Passed
+Feature tested: Get Device Die ID Status: Passed
+Feature tested: Set mmWave Link Channel Config: Passed
+Feature tested: Set mmWave Link ADC Out Config: Passed
+Feature tested: Set Async event config: Passed
+Feature tested: Set HSI clock: Passed
+Feature tested: mmWave Link Enable/Disable Calibration: Passed
+Feature tested: mmWave Link RF Calibration: Passed
+Feature tested: mmWave Link Calibration Data Store config: Passed
+Feature tested: mmWave Link Enable/Disable Calibration: Passed
+Feature tested: mmWave Link Calibration Data Restore config: Passed
+Feature tested: mmWave Link RF Calibration: Passed
+Feature tested: mmWave Link Set GPAdc: Passed
+Feature tested: mmWave Link Set LDO bypass: Passed
+Feature tested: mmWave Link Calib/Monitoring config: Passed
+Feature tested: Set mmWave Link Profile config: Passed
+Feature tested: Get mmWave Link RX Gain Temperature LUT config: Passed
+Feature tested: Get mmWave Link TX Gain Temperature LUT config: Passed
+Feature tested: Set mmWave Link RX Gain Temperature LUT config: Passed
+Feature tested: Set mmWave Link TX Gain Temperature LUT config: Passed
+Feature tested: Get mmWave Link Profile config: Passed
+Feature tested: Set mmWave Link Chirp config: Passed
+Feature tested: Set mmWave Link Multi Chirp config: Passed
+Feature tested: Set mmWave Link Inter RX Gain/Phase config: Passed
+Feature tested: Set mmWave Link Get Temperature Report: Passed
+Feature tested: Set mmWave Link Test Source config: Passed
+Feature tested: Set mmWave Link Frame config: Passed
+Feature tested: Get mmWave Link Frame config: Passed
+Feature tested: Enable mmWave Link PA Loop Back config: Passed
+Feature tested: Sensor Start: Passed
+Feature tested: Disable mmWave Link PA Loop Back config: Passed
+Feature tested: Sensor Stop: Passed
+Feature tested: Sensor Start: Passed
+Feature tested: Enable mmWave Link PS Loop Back config: Passed
+Feature tested: Sensor Stop: Passed
+Feature tested: Disable mmWave Link PS Loop Back config: Passed
+Feature tested: Sensor Start: Passed
+Feature tested: Enable mmWave Link IF Loop Back config: Passed
+Feature tested: Sensor Stop: Passed
+Feature tested: Disable mmWave Link IF Loop Back config: Passed
+Feature tested: Dynamic Chirp config: Passed
+Feature tested: Dynamic Chirp Enable: Passed
+Feature tested: All Frames Received: Passed
+Feature tested: Dynamic Chirp config: Passed
+Feature tested: Set mmWave Link Frame config: Passed
+Feature tested: Start sensor: Passed
+Feature tested: Stop sensor: Passed
+
+
+shutting down py4j gw server.
+
+
+**************************************************
+Terminating the debug session and Shutting down gateway.
+**************************************************
+
+**************************************************
+Test case execution completed
+**************************************************
+
+**************************************************
+Testcase Result : PASS
+**************************************************

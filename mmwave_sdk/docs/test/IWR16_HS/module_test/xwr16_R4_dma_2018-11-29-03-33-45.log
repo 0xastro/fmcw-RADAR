@@ -1,0 +1,490 @@
+mss in binary >>> xwr16xx_dma_mss.xer4f
+eth008 Board details:
+IP address: 10.218.113.67
+
+Port: 17494
+
+connecting...
+Relay states 8->1 : 00000001
+1 off
+2 off
+Relay states 8->1 : 00000000
+1 on
+Relay states 8->1 : 00000001
+exit
+Disconnected
+Pre-Script returned: Success
+**************************************************
+Testcase mods & parameters invoked:
+**************************************************
+Two core test case: None (this is not a two core testcase)
+
+**************************************************
+Copying test case files from the Build server
+**************************************************
+Testdata possible location 1: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/drivers/dma/test/testdata
+
+
+Testdata directory was not found on Testdata possible location 1
+
+
+Testdata possible location 2: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/drivers/dma/test/xwr16xx/testdata
+
+
+Testdata directory was not found on Testdata possible location 2
+
+Call to copy_testcase_binary:
+TCP: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/drivers/dma/test/xwr16xx; /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___hs_iwr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13
+
+Copying testcase binary file from http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/drivers/dma/test/xwr16xx/xwr16xx_dma_mss.xer4f to /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___hs_iwr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13 using command: 
+wget -e robots=off --no-proxy -N -T 30 -t 2 -P /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___hs_iwr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13 http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/drivers/dma/test/xwr16xx/xwr16xx_dma_mss.xer4f
+**************************************************
+Executing Testcase:/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___hs_iwr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13/xwr16xx_dma_mss.xer4f
+**************************************************
+Checking if Py4J Gateway server has started...
+Py4J Gateway Server is Started
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/DEBUGSSM_0
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/IcePick_M_0
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/C674X_0
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/CS_DAP_0
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/CortexR4_0
+DSS test case opening debug session.
+
+cr4ctl = 0xadad00
+
+efuse/register @0xFFFFE210 = 0x300002
+
+efuse/register @0xFFFFE214 = 0x30405b0
+
+efuse/register @0xFFFFE218 = 0x12
+
+efuse/register @0xFFFFE21C = 0x300
+
+Loading binary to the DUT (no binary args updated):/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___hs_iwr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13/xwr16xx_dma_mss.xer4f
+binary path = /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___hs_iwr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13/xwr16xx_dma_mss.xer4f
+
+dt-time: start time = Thu Nov 29 03:34:23 2018
+
+dt-time: end time = Thu Nov 29 03:40:15 2018
+
+
+**************************************************
+CIO Log captured for the testcase
+**************************************************
+Debug: Launching BIOS 
+Debug: DMA has been initialized
+Feature: DMA_open: Passed
+Debug: DMA Instance (0) has been opened successfully (handle: @080011e8)
+Debug: DMA Instance @080011e8 has been closed err:0
+Feature: DMA_close: Passed
+Feature: DMA_open: Passed
+Debug: DMA Instance @080011e8 has been reopened successfully
+********************************************************
+Start Test 1 (DMA0): Frame trigger transfer 
+********************************************************
+Debug: Trigger channel ch:1 for loop#0
+Debug: Trigger channel ch:1 for loop#1
+Debug: Trigger channel ch:1 for loop#2
+Debug: Trigger channel ch:1 for loop#3
+Debug: Trigger channel ch:1 for loop#4
+Debug: Trigger channel ch:1 for loop#5
+Debug: Trigger channel ch:1 for loop#6
+Debug: Trigger channel ch:1 for loop#7
+Debug: Trigger channel ch:1 for loop#8
+Debug: Trigger channel ch:1 for loop#9
+Feature: Frame trigger transfer: Passed
+********************************************************
+Start Test 2 (DMA0): Block trigger transfer 
+********************************************************
+Debug: Trigger channel ch:2 for loop#0
+Feature: Block trigger transfer: Passed
+********************************************************
+Start Test 3 (DMA0): Frame trigger transfer (Constant - Constant) 
+********************************************************
+Debug: Trigger channel ch:3 for loop#0
+Debug: Trigger channel ch:3 for loop#1
+Debug: Trigger channel ch:3 for loop#2
+Debug: Trigger channel ch:3 for loop#3
+Debug: Trigger channel ch:3 for loop#4
+Debug: Trigger channel ch:3 for loop#5
+Debug: Trigger channel ch:3 for loop#6
+Debug: Trigger channel ch:3 for loop#7
+Debug: Trigger channel ch:3 for loop#8
+Debug: Trigger channel ch:3 for loop#9
+Feature: Frame trigger transfer (Constant - Constant): Passed
+********************************************************
+Start Test 4 (DMA0): Frame trigger transfer (Constant - Incr) 
+********************************************************
+Debug: Trigger channel ch:4 for loop#0
+Debug: Trigger channel ch:4 for loop#1
+Debug: Trigger channel ch:4 for loop#2
+Debug: Trigger channel ch:4 for loop#3
+Debug: Trigger channel ch:4 for loop#4
+Debug: Trigger channel ch:4 for loop#5
+Debug: Trigger channel ch:4 for loop#6
+Debug: Trigger channel ch:4 for loop#7
+Debug: Trigger channel ch:4 for loop#8
+Debug: Trigger channel ch:4 for loop#9
+Feature: Frame trigger transfer (Constant - Incr): Passed
+********************************************************
+Start Test 5 (DMA0): Frame trigger transfer (Constant - Indexed) 
+********************************************************
+Debug: Trigger channel ch:5 for loop#0
+Debug: Trigger channel ch:5 for loop#1
+Debug: Trigger channel ch:5 for loop#2
+Debug: Trigger channel ch:5 for loop#3
+Debug: Trigger channel ch:5 for loop#4
+Debug: Trigger channel ch:5 for loop#5
+Feature: Frame trigger transfer (Constant - Indexed): Passed
+********************************************************
+Start Test 6 (DMA0): Frame trigger transfer (Incr - Constant) 
+********************************************************
+Debug: Trigger channel ch:6 for loop#0
+Debug: Trigger channel ch:6 for loop#1
+Debug: Trigger channel ch:6 for loop#2
+Debug: Trigger channel ch:6 for loop#3
+Debug: Trigger channel ch:6 for loop#4
+Feature: Frame trigger transfer (Incr - Constant): Passed
+********************************************************
+Start Test 7 (DMA0): Frame trigger transfer (Incr - Incr) 
+********************************************************
+Debug: Trigger channel ch:7 for loop#0
+Debug: Trigger channel ch:7 for loop#1
+Feature: Frame trigger transfer (Incr - Incr): Passed
+********************************************************
+Start Test 8 (DMA0): Frame trigger transfer (Incr - Indexed) 
+********************************************************
+Debug: Trigger channel ch:8 for loop#0
+Debug: Trigger channel ch:8 for loop#1
+Feature: Frame trigger transfer (Incr - Indexed): Passed
+********************************************************
+Start Test 9 (DMA0): Frame trigger transfer (Indexed - constant) 
+********************************************************
+Feature: Frame trigger transfer (Indexed - constant): Passed
+********************************************************
+Start Test 10 (DMA0): Frame trigger transfer (Indexed - Incr) 
+********************************************************
+Debug: Trigger channel ch:11 for loop#0
+Debug: Trigger channel ch:11 for loop#1
+Debug: Trigger channel ch:11 for loop#2
+Debug: Trigger channel ch:11 for loop#3
+Feature: Frame trigger transfer (Indexed - Incr): Passed
+********************************************************
+Start Test 11 (DMA0): Frame trigger transfer (Indexed - Indexed) 
+********************************************************
+Debug: Trigger channel ch:12 for loop#0
+Debug: Trigger channel ch:12 for loop#1
+Debug: Trigger channel ch:12 for loop#2
+Feature: Frame trigger transfer (Indexed - Indexed): Passed
+********************************************************
+Start Test 12 (DMA0): Channel Chaining 
+********************************************************
+Debug: Trigger channel ch:13 for loop#0
+Debug: Trigger channel ch:14 for loop#0
+Debug: Trigger channel ch:15 for loop#0
+Feature: Channel Chaining: Passed
+********************************************************
+Start Test 13 (DMA0): Parameter error checking tests 
+********************************************************
+Feature: Check error code for invalid element xfer cnt : Passed
+Feature: Check error code for invalid frame xfer cnt : Passed
+Feature: Check error code for invalid chained channel : Passed
+Feature: Check error code for invalid channel number : Passed
+Feature: Check error code for invalid src element index offset : Passed
+Feature: Check error code for invalid src frame index offset : Passed
+Feature: Check error code for invalid dest element index offset : Passed
+Feature: Check error code for invalid dest frame index offset : Passed
+Feature: Check error code for unaligned src addr : Passed
+Feature: Check error code for unaligned dest addr : Passed
+********************************************************
+Start Test 14 (DMA0): Bus error checking tests 
+********************************************************
+Feature: Check BER interrupt : Passed
+Feature: Check BER polling flag : Passed
+********************************************************
+Start Test 15 (DMA0): Benchmarking tests (interrupt based) 
+********************************************************
+BufferSize,8-bit xfer,16-bit xfer,32-bit xfer,64-bit xfer
+1,851,,,,
+2,857,851,,,
+4,904,852,846,,
+8,918,882,837,838,
+16,895,881,882,837,
+32,1148,894,878,838,
+64,1467,1139,891,876,
+128,2324,1466,1129,722,
+256,4020,2330,1461,904,
+512,7412,4010,2300,1136,
+1024,14187,7418,4012,1378,
+2048,27755,14188,7404,2153,
+4096,54900,27749,14188,3682,
+8192,,54892,27756,6754,
+Feature: Benchmarking tests (interrupt based): Passed
+********************************************************
+Start Test 16 (DMA0): Benchmarking tests (polling based) 
+********************************************************
+BufferSize,8-bit xfer,16-bit xfer,32-bit xfer,64-bit xfer
+1,227,,,,
+2,215,192,,,
+4,199,192,192,,
+8,199,192,192,192,
+16,350,192,192,192,
+32,487,310,192,192,
+64,927,558,310,204,
+128,1791,990,558,204,
+256,3519,1854,990,300,
+512,6843,3464,1844,548,
+1024,13647,6920,3464,872,
+2048,27255,13630,6920,1628,
+4096,54363,27224,13724,3140,
+8192,,54397,27250,6272,
+Feature: Benchmarking tests (polling based): Passed
+Debug: DMA Instance @080011e8 has been closed err:0
+Feature: DMA_close: Passed
+Feature: DMA_open: Passed
+Debug: DMA Instance (1) has been opened successfully (handle: @080011e8)
+Debug: DMA Instance @080011e8 has been closed err:0
+Feature: DMA_close: Passed
+Feature: DMA_open: Passed
+Debug: DMA Instance @080011e8 has been reopened successfully
+********************************************************
+Start Test 1 (DMA1): Frame trigger transfer 
+********************************************************
+Debug: Trigger channel ch:1 for loop#0
+Debug: Trigger channel ch:1 for loop#1
+Debug: Trigger channel ch:1 for loop#2
+Debug: Trigger channel ch:1 for loop#3
+Debug: Trigger channel ch:1 for loop#4
+Debug: Trigger channel ch:1 for loop#5
+Debug: Trigger channel ch:1 for loop#6
+Debug: Trigger channel ch:1 for loop#7
+Debug: Trigger channel ch:1 for loop#8
+Debug: Trigger channel ch:1 for loop#9
+Feature: Frame trigger transfer: Passed
+********************************************************
+Start Test 2 (DMA1): Block trigger transfer 
+********************************************************
+Debug: Trigger channel ch:2 for loop#0
+Feature: Block trigger transfer: Passed
+********************************************************
+Start Test 3 (DMA1): Frame trigger transfer (Constant - Constant) 
+********************************************************
+Debug: Trigger channel ch:3 for loop#0
+Debug: Trigger channel ch:3 for loop#1
+Debug: Trigger channel ch:3 for loop#2
+Debug: Trigger channel ch:3 for loop#3
+Debug: Trigger channel ch:3 for loop#4
+Debug: Trigger channel ch:3 for loop#5
+Debug: Trigger channel ch:3 for loop#6
+Debug: Trigger channel ch:3 for loop#7
+Debug: Trigger channel ch:3 for loop#8
+Debug: Trigger channel ch:3 for loop#9
+Feature: Frame trigger transfer (Constant - Constant): Passed
+********************************************************
+Start Test 4 (DMA1): Frame trigger transfer (Constant - Incr) 
+********************************************************
+Debug: Trigger channel ch:4 for loop#0
+Debug: Trigger channel ch:4 for loop#1
+Debug: Trigger channel ch:4 for loop#2
+Debug: Trigger channel ch:4 for loop#3
+Debug: Trigger channel ch:4 for loop#4
+Debug: Trigger channel ch:4 for loop#5
+Debug: Trigger channel ch:4 for loop#6
+Debug: Trigger channel ch:4 for loop#7
+Debug: Trigger channel ch:4 for loop#8
+Debug: Trigger channel ch:4 for loop#9
+Feature: Frame trigger transfer (Constant - Incr): Passed
+********************************************************
+Start Test 5 (DMA1): Frame trigger transfer (Constant - Indexed) 
+********************************************************
+Debug: Trigger channel ch:5 for loop#0
+Debug: Trigger channel ch:5 for loop#1
+Debug: Trigger channel ch:5 for loop#2
+Debug: Trigger channel ch:5 for loop#3
+Debug: Trigger channel ch:5 for loop#4
+Debug: Trigger channel ch:5 for loop#5
+Feature: Frame trigger transfer (Constant - Indexed): Passed
+********************************************************
+Start Test 6 (DMA1): Frame trigger transfer (Incr - Constant) 
+********************************************************
+Debug: Trigger channel ch:6 for loop#0
+Debug: Trigger channel ch:6 for loop#1
+Debug: Trigger channel ch:6 for loop#2
+Debug: Trigger channel ch:6 for loop#3
+Debug: Trigger channel ch:6 for loop#4
+Feature: Frame trigger transfer (Incr - Constant): Passed
+********************************************************
+Start Test 7 (DMA1): Frame trigger transfer (Incr - Incr) 
+********************************************************
+Debug: Trigger channel ch:7 for loop#0
+Debug: Trigger channel ch:7 for loop#1
+Feature: Frame trigger transfer (Incr - Incr): Passed
+********************************************************
+Start Test 8 (DMA1): Frame trigger transfer (Incr - Indexed) 
+********************************************************
+Debug: Trigger channel ch:8 for loop#0
+Debug: Trigger channel ch:8 for loop#1
+Feature: Frame trigger transfer (Incr - Indexed): Passed
+********************************************************
+Start Test 9 (DMA1): Frame trigger transfer (Indexed - constant) 
+********************************************************
+Feature: Frame trigger transfer (Indexed - constant): Passed
+********************************************************
+Start Test 10 (DMA1): Frame trigger transfer (Indexed - Incr) 
+********************************************************
+Debug: Trigger channel ch:11 for loop#0
+Debug: Trigger channel ch:11 for loop#1
+Debug: Trigger channel ch:11 for loop#2
+Debug: Trigger channel ch:11 for loop#3
+Feature: Frame trigger transfer (Indexed - Incr): Passed
+********************************************************
+Start Test 11 (DMA1): Frame trigger transfer (Indexed - Indexed) 
+********************************************************
+Debug: Trigger channel ch:12 for loop#0
+Debug: Trigger channel ch:12 for loop#1
+Debug: Trigger channel ch:12 for loop#2
+Feature: Frame trigger transfer (Indexed - Indexed): Passed
+********************************************************
+Start Test 12 (DMA1): Channel Chaining 
+********************************************************
+Debug: Trigger channel ch:13 for loop#0
+Debug: Trigger channel ch:14 for loop#0
+Debug: Trigger channel ch:15 for loop#0
+Feature: Channel Chaining: Passed
+********************************************************
+Start Test 13 (DMA1): Parameter error checking tests 
+********************************************************
+Feature: Check error code for invalid element xfer cnt : Passed
+Feature: Check error code for invalid frame xfer cnt : Passed
+Feature: Check error code for invalid chained channel : Passed
+Feature: Check error code for invalid channel number : Passed
+Feature: Check error code for invalid src element index offset : Passed
+Feature: Check error code for invalid src frame index offset : Passed
+Feature: Check error code for invalid dest element index offset : Passed
+Feature: Check error code for invalid dest frame index offset : Passed
+Feature: Check error code for unaligned src addr : Passed
+Feature: Check error code for unaligned dest addr : Passed
+********************************************************
+Start Test 14 (DMA1): Bus error checking tests 
+********************************************************
+Feature: Check BER interrupt : Passed
+Feature: Check BER polling flag : Passed
+********************************************************
+Start Test 15 (DMA1): Benchmarking tests (interrupt based) 
+********************************************************
+BufferSize,8-bit xfer,16-bit xfer,32-bit xfer,64-bit xfer
+1,851,,,,
+2,857,851,,,
+4,904,852,846,,
+8,918,882,837,838,
+16,895,881,882,837,
+32,1148,894,878,838,
+64,1483,1146,891,876,
+128,2324,1482,1136,722,
+256,4011,2330,1473,891,
+512,7403,4026,2330,1151,
+1024,14210,7402,4010,1378,
+2048,27778,14179,7388,2148,
+4096,54891,27747,14186,3684,
+8192,,54885,27740,6754,
+Feature: Benchmarking tests (interrupt based): Passed
+********************************************************
+Start Test 16 (DMA1): Benchmarking tests (polling based) 
+********************************************************
+BufferSize,8-bit xfer,16-bit xfer,32-bit xfer,64-bit xfer
+1,227,,,,
+2,215,192,,,
+4,199,192,192,,
+8,199,192,192,192,
+16,350,192,192,192,
+32,487,310,192,192,
+64,927,558,310,204,
+128,1791,990,558,204,
+256,3519,1854,990,300,
+512,6843,3464,1844,548,
+1024,13647,6920,3464,872,
+2048,27255,13724,6920,1628,
+4096,54363,27224,13641,3140,
+8192,,54363,27224,6272,
+Feature: Benchmarking tests (polling based): Passed
+Debug: DMA Instance @080011e8 has been closed err:0
+Feature: DMA_close: Passed
+Value read from Global variable (MCPI_Result): 0
+Test Failure Signature: 0
+Test Log Messages: 
+Feature tested: DMA_open: Passed
+Feature tested: DMA_close: Passed
+Feature tested: DMA_open: Passed
+Feature tested: Frame trigger transfer: Passed
+Feature tested: Block trigger transfer: Passed
+Feature tested: Frame trigger transfer (Constant - Constant): Passed
+Feature tested: Frame trigger transfer (Constant - Incr): Passed
+Feature tested: Frame trigger transfer (Constant - Indexed): Passed
+Feature tested: Frame trigger transfer (Incr - Constant): Passed
+Feature tested: Frame trigger transfer (Incr - Incr): Passed
+Feature tested: Frame trigger transfer (Incr - Indexed): Passed
+Feature tested: Frame trigger transfer (Indexed - constant): Passed
+Feature tested: Frame trigger transfer (Indexed - Incr): Passed
+Feature tested: Frame trigger transfer (Indexed - Indexed): Passed
+Feature tested: Channel Chaining: Passed
+Feature tested: Check error code for invalid element xfer cnt : Passed
+Feature tested: Check error code for invalid frame xfer cnt : Passed
+Feature tested: Check error code for invalid chained channel : Passed
+Feature tested: Check error code for invalid channel number : Passed
+Feature tested: Check error code for invalid src element index offset : Passed
+Feature tested: Check error code for invalid src frame index offset : Passed
+Feature tested: Check error code for invalid dest element index offset : Passed
+Feature tested: Check error code for invalid dest frame index offset : Passed
+Feature tested: Check error code for unaligned src addr : Passed
+Feature tested: Check error code for unaligned dest addr : Passed
+Feature tested: Check BER interrupt : Passed
+Feature tested: Check BER polling flag : Passed
+Feature tested: Benchmarking tests (interrupt based): Passed
+Feature tested: Benchmarking tests (polling based): Passed
+Feature tested: DMA_close: Passed
+Feature tested: DMA_open: Passed
+Feature tested: DMA_close: Passed
+Feature tested: DMA_open: Passed
+Feature tested: Frame trigger transfer: Passed
+Feature tested: Block trigger transfer: Passed
+Feature tested: Frame trigger transfer (Constant - Constant): Passed
+Feature tested: Frame trigger transfer (Constant - Incr): Passed
+Feature tested: Frame trigger transfer (Constant - Indexed): Passed
+Feature tested: Frame trigger transfer (Incr - Constant): Passed
+Feature tested: Frame trigger transfer (Incr - Incr): Passed
+Feature tested: Frame trigger transfer (Incr - Indexed): Passed
+Feature tested: Frame trigger transfer (Indexed - constant): Passed
+Feature tested: Frame trigger transfer (Indexed - Incr): Passed
+Feature tested: Frame trigger transfer (Indexed - Indexed): Passed
+Feature tested: Channel Chaining: Passed
+Feature tested: Check error code for invalid element xfer cnt : Passed
+Feature tested: Check error code for invalid frame xfer cnt : Passed
+Feature tested: Check error code for invalid chained channel : Passed
+Feature tested: Check error code for invalid channel number : Passed
+Feature tested: Check error code for invalid src element index offset : Passed
+Feature tested: Check error code for invalid src frame index offset : Passed
+Feature tested: Check error code for invalid dest element index offset : Passed
+Feature tested: Check error code for invalid dest frame index offset : Passed
+Feature tested: Check error code for unaligned src addr : Passed
+Feature tested: Check error code for unaligned dest addr : Passed
+Feature tested: Check BER interrupt : Passed
+Feature tested: Check BER polling flag : Passed
+Feature tested: Benchmarking tests (interrupt based): Passed
+Feature tested: Benchmarking tests (polling based): Passed
+Feature tested: DMA_close: Passed
+
+
+shutting down py4j gw server.
+
+
+**************************************************
+Terminating the debug session and Shutting down gateway.
+**************************************************
+
+**************************************************
+Test case execution completed
+**************************************************
+
+**************************************************
+Testcase Result : PASS
+**************************************************

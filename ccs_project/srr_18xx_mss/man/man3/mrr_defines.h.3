@@ -1,0 +1,696 @@
+.TH "C:/Users/astro/workspace_v9_2/mrr_18xx_dss/common/mrr_defines.h" 3 "Wed May 20 2020" "Version 1.0" "mmWaveFMCWRADAR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/Users/astro/workspace_v9_2/mrr_18xx_dss/common/mrr_defines.h
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBTX_CHANNEL_1_ENABLE\fP   (1U << 0U)"
+.br
+.ti -1c
+.RI "#define \fBTX_CHANNEL_2_ENABLE\fP   (1U << 1U)"
+.br
+.ti -1c
+.RI "#define \fBTX_CHANNEL_3_ENABLE\fP   (1U << 2U)"
+.br
+.ti -1c
+.RI "#define \fBTX_CHANNEL_1_2_ENABLE\fP   (\fBTX_CHANNEL_1_ENABLE\fP | \fBTX_CHANNEL_2_ENABLE\fP)"
+.br
+.ti -1c
+.RI "#define \fBTX_CHANNEL_2_3_ENABLE\fP   (\fBTX_CHANNEL_2_ENABLE\fP | \fBTX_CHANNEL_3_ENABLE\fP)"
+.br
+.ti -1c
+.RI "#define \fBTX_CHANNEL_1_3_ENABLE\fP   (\fBTX_CHANNEL_1_ENABLE\fP | \fBTX_CHANNEL_3_ENABLE\fP)"
+.br
+.ti -1c
+.RI "#define \fBTX_CHANNEL_1_2_3_ENABLE\fP   (\fBTX_CHANNEL_1_ENABLE\fP | \fBTX_CHANNEL_2_ENABLE\fP | \fBTX_CHANNEL_3_ENABLE\fP)"
+.br
+.ti -1c
+.RI "#define \fBRX_CHANNEL_1_ENABLE\fP   (1U << 0U)"
+.br
+.ti -1c
+.RI "#define \fBRX_CHANNEL_2_ENABLE\fP   (1U << 1U)"
+.br
+.ti -1c
+.RI "#define \fBRX_CHANNEL_3_ENABLE\fP   (1U << 2U)"
+.br
+.ti -1c
+.RI "#define \fBRX_CHANNEL_4_ENABLE\fP   (1U << 3U)"
+.br
+.ti -1c
+.RI "#define \fBRX_CHANNEL_1_2_ENABLE\fP   (\fBRX_CHANNEL_1_ENABLE\fP | \fBRX_CHANNEL_2_ENABLE\fP)"
+.br
+.ti -1c
+.RI "#define \fBRX_CHANNEL_1_3_ENABLE\fP   (\fBRX_CHANNEL_1_ENABLE\fP | \fBRX_CHANNEL_3_ENABLE\fP)"
+.br
+.ti -1c
+.RI "#define \fBRX_CHANNEL_1_4_ENABLE\fP   (\fBRX_CHANNEL_1_ENABLE\fP | \fBRX_CHANNEL_4_ENABLE\fP)"
+.br
+.ti -1c
+.RI "#define \fBRX_CHANNEL_2_3_ENABLE\fP   (\fBRX_CHANNEL_2_ENABLE\fP | \fBRX_CHANNEL_3_ENABLE\fP)"
+.br
+.ti -1c
+.RI "#define \fBRX_CHANNEL_2_4_ENABLE\fP   (\fBRX_CHANNEL_2_ENABLE\fP | \fBRX_CHANNEL_4_ENABLE\fP)"
+.br
+.ti -1c
+.RI "#define \fBRX_CHANNEL_3_4_ENABLE\fP   (\fBRX_CHANNEL_3_ENABLE\fP | \fBRX_CHANNEL_4_ENABLE\fP)"
+.br
+.ti -1c
+.RI "#define \fBRX_CHANNEL_1_2_3_ENABLE\fP   (\fBRX_CHANNEL_1_ENABLE\fP | \fBRX_CHANNEL_2_ENABLE\fP | \fBRX_CHANNEL_3_ENABLE\fP)"
+.br
+.ti -1c
+.RI "#define \fBRX_CHANNEL_2_3_4_ENABLE\fP   (\fBRX_CHANNEL_2_ENABLE\fP | \fBRX_CHANNEL_3_ENABLE\fP | \fBRX_CHANNEL_4_ENABLE\fP)"
+.br
+.ti -1c
+.RI "#define \fBRX_CHANNEL_1_3_4_ENABLE\fP   (\fBRX_CHANNEL_1_ENABLE\fP | \fBRX_CHANNEL_3_ENABLE\fP | \fBRX_CHANNEL_4_ENABLE\fP)"
+.br
+.ti -1c
+.RI "#define \fBRX_CHANNEL_1_2_3_4_ENABLE\fP   (\fBRX_CHANNEL_1_ENABLE\fP | \fBRX_CHANNEL_2_ENABLE\fP | \fBRX_CHANNEL_3_ENABLE\fP | \fBRX_CHANNEL_4_ENABLE\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_BITS_12\fP   (0U)"
+.br
+.ti -1c
+.RI "#define \fBADC_BITS_14\fP   (1U)"
+.br
+.ti -1c
+.RI "#define \fBADC_BITS_16\fP   (2U)"
+.br
+.ti -1c
+.RI "#define \fBADC_FORMAT_REAL\fP   (0U)"
+.br
+.ti -1c
+.RI "#define \fBADC_FORMAT_COMPLEX\fP   (1U)"
+.br
+.ti -1c
+.RI "#define \fBADC_FORMAT_CPMLEX_WITH_IMG_BAND\fP   (2U)"
+.br
+.ti -1c
+.RI "#define \fBADC_I_FIRST\fP   (0U)"
+.br
+.ti -1c
+.RI "#define \fBADC_Q_FIRST\fP   (1U)"
+.br
+.ti -1c
+.RI "#define \fBADC_INTERLEAVED_MODE\fP   (0U)"
+.br
+.ti -1c
+.RI "#define \fBADC_NON_INTERLEAVED_MODE\fP   (1U)"
+.br
+.ti -1c
+.RI "#define \fBDATA_PATH_CSI2\fP   (0U)"
+.br
+.ti -1c
+.RI "#define \fBDATA_PATH_LVDS\fP   (1U)"
+.br
+.ti -1c
+.RI "#define \fBDATA_PATH_FMT1_SUPRESS\fP   (0U)"
+.br
+.ti -1c
+.RI "#define \fBDATA_PATH_FMT1_CP_CQ\fP   (1U)"
+.br
+.ti -1c
+.RI "#define \fBDATA_PATH_FMT1_CQ_CP\fP   (2U)"
+.br
+.ti -1c
+.RI "#define \fBDATA_PATH_FMT0_ADC_DATA_ONLY\fP   (0U)"
+.br
+.ti -1c
+.RI "#define \fBDATA_PATH_FMT0_CP_ADC_DATA\fP   (1U)"
+.br
+.ti -1c
+.RI "#define \fBDATA_PATH_FMT0_ADC_CP_DATA\fP   (2U)"
+.br
+.ti -1c
+.RI "#define \fBDATA_PATH_FMT0_CP_ADC_CQ_DATA\fP   (3U)"
+.br
+.ti -1c
+.RI "#define \fBDATA_PATH_CQ_FMT_BITS_12\fP   (0U)"
+.br
+.ti -1c
+.RI "#define \fBDATA_PATH_CQ_FMT_BITS_14\fP   (1U)"
+.br
+.ti -1c
+.RI "#define \fBDATA_PATH_CQ_FMT_BITS_16\fP   (2U)"
+.br
+.ti -1c
+.RI "#define \fBLVDS_LANE_CLOCK_SDR\fP   (0U)"
+.br
+.ti -1c
+.RI "#define \fBLVDS_LANE_CLOCK_DDR\fP   (1U)"
+.br
+.ti -1c
+.RI "#define \fBLVDS_ALL_LANE_EN\fP   (0xFU)"
+.br
+.ti -1c
+.RI "#define \fBLVDS_DATA_RATE_900\fP   (0U)"
+.br
+.ti -1c
+.RI "#define \fBLVDS_DATA_RATE_600\fP   (1U)"
+.br
+.ti -1c
+.RI "#define \fBLVDS_DATA_RATE_450\fP   (2U)"
+.br
+.ti -1c
+.RI "#define \fBLVDS_DATA_RATE_400\fP   (3U)"
+.br
+.ti -1c
+.RI "#define \fBLVDS_DATA_RATE_300\fP   (4U)"
+.br
+.ti -1c
+.RI "#define \fBLVDS_DATA_RATE_225\fP   (5U)"
+.br
+.ti -1c
+.RI "#define \fBLVDS_DATA_RATE_150\fP   (6U)"
+.br
+.ti -1c
+.RI "#define \fBLVDS_LANE1_DISABLE\fP   (0U)"
+.br
+.ti -1c
+.RI "#define \fBLVDS_LANE1_FORMAT_0\fP   (1U)"
+.br
+.ti -1c
+.RI "#define \fBLVDS_LANE1_FORMAT_1\fP   (2U)"
+.br
+.ti -1c
+.RI "#define \fBLVDS_LANE2_DISABLE\fP   (0U)"
+.br
+.ti -1c
+.RI "#define \fBLVDS_LANE2_FORMAT_0\fP   (1U)"
+.br
+.ti -1c
+.RI "#define \fBLVDS_LANE2_FORMAT_1\fP   (2U)"
+.br
+.ti -1c
+.RI "#define \fBLVDS_LANE3_DISABLE\fP   (0U)"
+.br
+.ti -1c
+.RI "#define \fBLVDS_LANE3_FORMAT_0\fP   (1U)"
+.br
+.ti -1c
+.RI "#define \fBLVDS_LANE3_FORMAT_1\fP   (2U)"
+.br
+.ti -1c
+.RI "#define \fBLVDS_LANE4_DISABLE\fP   (0U)"
+.br
+.ti -1c
+.RI "#define \fBLVDS_LANE4_FORMAT_0\fP   (1U)"
+.br
+.ti -1c
+.RI "#define \fBLVDS_LANE4_FORMAT_1\fP   (2U)"
+.br
+.ti -1c
+.RI "#define \fBLVDS_LANE_MSB_FIRST_ENABLE\fP   (1U)"
+.br
+.ti -1c
+.RI "#define \fBLVDS_LANE_MSB_FIRST_DISABLE\fP   (0U)"
+.br
+.ti -1c
+.RI "#define \fBLVDS_LANE_PACKET_END_PULSE_ENABLE\fP   (1U)"
+.br
+.ti -1c
+.RI "#define \fBLVDS_LANE_PACKET_END_PULSE_DISABLE\fP   (0U)"
+.br
+.ti -1c
+.RI "#define \fBLVDS_LANE_CRC_ENABLE\fP   (1U)"
+.br
+.ti -1c
+.RI "#define \fBLVDS_LANE_CRC_DISABLE\fP   (0U)"
+.br
+.ti -1c
+.RI "#define \fBLVDS_LANE_TI_MODE_ENABLE\fP   (1U)"
+.br
+.ti -1c
+.RI "#define \fBLVDS_LANE_TI_MODE_DISABLE\fP   (0U)"
+.br
+.ti -1c
+.RI "#define \fBANA_CHANNEL_COMPLEX_CHAIN\fP   (0U)"
+.br
+.ti -1c
+.RI "#define \fBANA_CHANNEL_REAL_CHAIN\fP   (1U)"
+.br
+.ti -1c
+.RI "#define \fBLP_ADC_MODE_REGULAR\fP   (0U)"
+.br
+.ti -1c
+.RI "#define \fBLP_ADC_MODE_LOW_POWER\fP   (1U)"
+.br
+.ti -1c
+.RI "#define \fBNOISE_FIGURE_LOW\fP   (0U)"
+.br
+.ti -1c
+.RI "#define \fBNOISE_FIGURE_HIGH\fP   (1U)"
+.br
+.ti -1c
+.RI "#define \fBCHIRP_HPF1_CORNER_FREQ_175K\fP   (0U)"
+.br
+.ti -1c
+.RI "#define \fBCHIRP_HPF1_CORNER_FREQ_235K\fP   (1U)"
+.br
+.ti -1c
+.RI "#define \fBCHIRP_HPF1_CORNER_FREQ_350K\fP   (2U)"
+.br
+.ti -1c
+.RI "#define \fBCHIRP_HPF1_CORNER_FREQ_700K\fP   (3U)"
+.br
+.ti -1c
+.RI "#define \fBCHIRP_HPF2_CORNER_FREQ_350K\fP   (0U)"
+.br
+.ti -1c
+.RI "#define \fBCHIRP_HPF2_CORNER_FREQ_700K\fP   (1U)"
+.br
+.ti -1c
+.RI "#define \fBCHIRP_HPF2_CORNER_FREQ_1_4M\fP   (2U)"
+.br
+.ti -1c
+.RI "#define \fBCHIRP_HPF2_CORNER_FREQ_2_8M\fP   (3U)"
+.br
+.ti -1c
+.RI "#define \fBCHIRP_HPF2_CORNER_FREQ_5M\fP   (4U)"
+.br
+.ti -1c
+.RI "#define \fBCHIRP_HPF2_CORNER_FREQ_7_5M\fP   (5U)"
+.br
+.ti -1c
+.RI "#define \fBCHIRP_HPF2_CORNER_FREQ_10M\fP   (6U)"
+.br
+.ti -1c
+.RI "#define \fBCHIRP_HPF2_CORNER_FREQ_15M\fP   (7U)"
+.br
+.ti -1c
+.RI "#define \fBROUND_TO_INT32\fP(X)   ((int32_t) (X))"
+.br
+.ti -1c
+.RI "#define \fBCONV_FREQ_GHZ_TO_CODEWORD\fP(X)   \fBROUND_TO_INT32\fP(X * (1\&.0e9/53\&.644))"
+.br
+.ti -1c
+.RI "#define \fBCONV_SLOPE_MHZ_PER_US_TO_CODEWORD\fP(X)   (\fBROUND_TO_INT32\fP(X * (1000\&.0/48\&.279)))"
+.br
+.ti -1c
+.RI "#define \fBLOG2_APPROX\fP(X)   ((X <= 1)? 0:((X <= 2)? 1:((X <= 4)? 2:((X <= 8)? 3:((X <= 16)? 4:((X <= 32)? 5:((X <= 64)? 6:((X <= 128)? 7:((X <= 256)? 8:((X <= 512)? 9:((X <= 1024)? 10:11)))))))))))"
+.br
+.ti -1c
+.RI "#define \fBMMWDEMO_SPEED_OF_LIGHT_IN_METERS_PER_SEC\fP   (3\&.0e8)"
+.br
+.ti -1c
+.RI "#define \fBMMWDEMO_SPEED_OF_LIGHT_IN_METERS_PER_USEC\fP   (3\&.0e2)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define ADC_BITS_12   (0U)"
+
+.PP
+Definition at line 31 of file mrr_defines\&.h\&.
+.SS "#define ADC_BITS_14   (1U)"
+
+.PP
+Definition at line 32 of file mrr_defines\&.h\&.
+.SS "#define ADC_BITS_16   (2U)"
+
+.PP
+Definition at line 33 of file mrr_defines\&.h\&.
+.SS "#define ADC_FORMAT_COMPLEX   (1U)"
+
+.PP
+Definition at line 36 of file mrr_defines\&.h\&.
+.SS "#define ADC_FORMAT_CPMLEX_WITH_IMG_BAND   (2U)"
+
+.PP
+Definition at line 37 of file mrr_defines\&.h\&.
+.SS "#define ADC_FORMAT_REAL   (0U)"
+
+.PP
+Definition at line 35 of file mrr_defines\&.h\&.
+.SS "#define ADC_I_FIRST   (0U)"
+
+.PP
+Definition at line 39 of file mrr_defines\&.h\&.
+.SS "#define ADC_INTERLEAVED_MODE   (0U)"
+
+.PP
+Definition at line 42 of file mrr_defines\&.h\&.
+.SS "#define ADC_NON_INTERLEAVED_MODE   (1U)"
+
+.PP
+Definition at line 43 of file mrr_defines\&.h\&.
+.SS "#define ADC_Q_FIRST   (1U)"
+
+.PP
+Definition at line 40 of file mrr_defines\&.h\&.
+.SS "#define ANA_CHANNEL_COMPLEX_CHAIN   (0U)"
+
+.PP
+Definition at line 104 of file mrr_defines\&.h\&.
+.SS "#define ANA_CHANNEL_REAL_CHAIN   (1U)"
+
+.PP
+Definition at line 105 of file mrr_defines\&.h\&.
+.SS "#define CHIRP_HPF1_CORNER_FREQ_175K   (0U)"
+
+.PP
+Definition at line 114 of file mrr_defines\&.h\&.
+.SS "#define CHIRP_HPF1_CORNER_FREQ_235K   (1U)"
+
+.PP
+Definition at line 115 of file mrr_defines\&.h\&.
+.SS "#define CHIRP_HPF1_CORNER_FREQ_350K   (2U)"
+
+.PP
+Definition at line 116 of file mrr_defines\&.h\&.
+.SS "#define CHIRP_HPF1_CORNER_FREQ_700K   (3U)"
+
+.PP
+Definition at line 117 of file mrr_defines\&.h\&.
+.SS "#define CHIRP_HPF2_CORNER_FREQ_10M   (6U)"
+
+.PP
+Definition at line 125 of file mrr_defines\&.h\&.
+.SS "#define CHIRP_HPF2_CORNER_FREQ_15M   (7U)"
+
+.PP
+Definition at line 126 of file mrr_defines\&.h\&.
+.SS "#define CHIRP_HPF2_CORNER_FREQ_1_4M   (2U)"
+
+.PP
+Definition at line 121 of file mrr_defines\&.h\&.
+.SS "#define CHIRP_HPF2_CORNER_FREQ_2_8M   (3U)"
+
+.PP
+Definition at line 122 of file mrr_defines\&.h\&.
+.SS "#define CHIRP_HPF2_CORNER_FREQ_350K   (0U)"
+
+.PP
+Definition at line 119 of file mrr_defines\&.h\&.
+.SS "#define CHIRP_HPF2_CORNER_FREQ_5M   (4U)"
+
+.PP
+Definition at line 123 of file mrr_defines\&.h\&.
+.SS "#define CHIRP_HPF2_CORNER_FREQ_700K   (1U)"
+
+.PP
+Definition at line 120 of file mrr_defines\&.h\&.
+.SS "#define CHIRP_HPF2_CORNER_FREQ_7_5M   (5U)"
+
+.PP
+Definition at line 124 of file mrr_defines\&.h\&.
+.SS "#define CONV_FREQ_GHZ_TO_CODEWORD(X)   \fBROUND_TO_INT32\fP(X * (1\&.0e9/53\&.644))"
+
+.PP
+Definition at line 130 of file mrr_defines\&.h\&.
+.SS "#define CONV_SLOPE_MHZ_PER_US_TO_CODEWORD(X)   (\fBROUND_TO_INT32\fP(X * (1000\&.0/48\&.279)))"
+
+.PP
+Definition at line 131 of file mrr_defines\&.h\&.
+.SS "#define DATA_PATH_CQ_FMT_BITS_12   (0U)"
+
+.PP
+Definition at line 59 of file mrr_defines\&.h\&.
+.SS "#define DATA_PATH_CQ_FMT_BITS_14   (1U)"
+
+.PP
+Definition at line 60 of file mrr_defines\&.h\&.
+.SS "#define DATA_PATH_CQ_FMT_BITS_16   (2U)"
+
+.PP
+Definition at line 61 of file mrr_defines\&.h\&.
+.SS "#define DATA_PATH_CSI2   (0U)"
+
+.PP
+Definition at line 46 of file mrr_defines\&.h\&.
+.SS "#define DATA_PATH_FMT0_ADC_CP_DATA   (2U)"
+
+.PP
+Definition at line 56 of file mrr_defines\&.h\&.
+.SS "#define DATA_PATH_FMT0_ADC_DATA_ONLY   (0U)"
+
+.PP
+Definition at line 54 of file mrr_defines\&.h\&.
+.SS "#define DATA_PATH_FMT0_CP_ADC_CQ_DATA   (3U)"
+
+.PP
+Definition at line 57 of file mrr_defines\&.h\&.
+.SS "#define DATA_PATH_FMT0_CP_ADC_DATA   (1U)"
+
+.PP
+Definition at line 55 of file mrr_defines\&.h\&.
+.SS "#define DATA_PATH_FMT1_CP_CQ   (1U)"
+
+.PP
+Definition at line 51 of file mrr_defines\&.h\&.
+.SS "#define DATA_PATH_FMT1_CQ_CP   (2U)"
+
+.PP
+Definition at line 52 of file mrr_defines\&.h\&.
+.SS "#define DATA_PATH_FMT1_SUPRESS   (0U)"
+
+.PP
+Definition at line 50 of file mrr_defines\&.h\&.
+.SS "#define DATA_PATH_LVDS   (1U)"
+
+.PP
+Definition at line 47 of file mrr_defines\&.h\&.
+.SS "#define LOG2_APPROX(X)   ((X <= 1)? 0:((X <= 2)? 1:((X <= 4)? 2:((X <= 8)? 3:((X <= 16)? 4:((X <= 32)? 5:((X <= 64)? 6:((X <= 128)? 7:((X <= 256)? 8:((X <= 512)? 9:((X <= 1024)? 10:11)))))))))))"
+
+.PP
+Definition at line 133 of file mrr_defines\&.h\&.
+.SS "#define LP_ADC_MODE_LOW_POWER   (1U)"
+
+.PP
+Definition at line 108 of file mrr_defines\&.h\&.
+.SS "#define LP_ADC_MODE_REGULAR   (0U)"
+
+.PP
+Definition at line 107 of file mrr_defines\&.h\&.
+.SS "#define LVDS_ALL_LANE_EN   (0xFU)"
+
+.PP
+Definition at line 67 of file mrr_defines\&.h\&.
+.SS "#define LVDS_DATA_RATE_150   (6U)"
+
+.PP
+Definition at line 75 of file mrr_defines\&.h\&.
+.SS "#define LVDS_DATA_RATE_225   (5U)"
+
+.PP
+Definition at line 74 of file mrr_defines\&.h\&.
+.SS "#define LVDS_DATA_RATE_300   (4U)"
+
+.PP
+Definition at line 73 of file mrr_defines\&.h\&.
+.SS "#define LVDS_DATA_RATE_400   (3U)"
+
+.PP
+Definition at line 72 of file mrr_defines\&.h\&.
+.SS "#define LVDS_DATA_RATE_450   (2U)"
+
+.PP
+Definition at line 71 of file mrr_defines\&.h\&.
+.SS "#define LVDS_DATA_RATE_600   (1U)"
+
+.PP
+Definition at line 70 of file mrr_defines\&.h\&.
+.SS "#define LVDS_DATA_RATE_900   (0U)"
+
+.PP
+Definition at line 69 of file mrr_defines\&.h\&.
+.SS "#define LVDS_LANE1_DISABLE   (0U)"
+
+.PP
+Definition at line 78 of file mrr_defines\&.h\&.
+.SS "#define LVDS_LANE1_FORMAT_0   (1U)"
+
+.PP
+Definition at line 79 of file mrr_defines\&.h\&.
+.SS "#define LVDS_LANE1_FORMAT_1   (2U)"
+
+.PP
+Definition at line 80 of file mrr_defines\&.h\&.
+.SS "#define LVDS_LANE2_DISABLE   (0U)"
+
+.PP
+Definition at line 82 of file mrr_defines\&.h\&.
+.SS "#define LVDS_LANE2_FORMAT_0   (1U)"
+
+.PP
+Definition at line 83 of file mrr_defines\&.h\&.
+.SS "#define LVDS_LANE2_FORMAT_1   (2U)"
+
+.PP
+Definition at line 84 of file mrr_defines\&.h\&.
+.SS "#define LVDS_LANE3_DISABLE   (0U)"
+
+.PP
+Definition at line 86 of file mrr_defines\&.h\&.
+.SS "#define LVDS_LANE3_FORMAT_0   (1U)"
+
+.PP
+Definition at line 87 of file mrr_defines\&.h\&.
+.SS "#define LVDS_LANE3_FORMAT_1   (2U)"
+
+.PP
+Definition at line 88 of file mrr_defines\&.h\&.
+.SS "#define LVDS_LANE4_DISABLE   (0U)"
+
+.PP
+Definition at line 90 of file mrr_defines\&.h\&.
+.SS "#define LVDS_LANE4_FORMAT_0   (1U)"
+
+.PP
+Definition at line 91 of file mrr_defines\&.h\&.
+.SS "#define LVDS_LANE4_FORMAT_1   (2U)"
+
+.PP
+Definition at line 92 of file mrr_defines\&.h\&.
+.SS "#define LVDS_LANE_CLOCK_DDR   (1U)"
+
+.PP
+Definition at line 65 of file mrr_defines\&.h\&.
+.SS "#define LVDS_LANE_CLOCK_SDR   (0U)"
+
+.PP
+Definition at line 64 of file mrr_defines\&.h\&.
+.SS "#define LVDS_LANE_CRC_DISABLE   (0U)"
+
+.PP
+Definition at line 99 of file mrr_defines\&.h\&.
+.SS "#define LVDS_LANE_CRC_ENABLE   (1U)"
+
+.PP
+Definition at line 98 of file mrr_defines\&.h\&.
+.SS "#define LVDS_LANE_MSB_FIRST_DISABLE   (0U)"
+
+.PP
+Definition at line 95 of file mrr_defines\&.h\&.
+.SS "#define LVDS_LANE_MSB_FIRST_ENABLE   (1U)"
+
+.PP
+Definition at line 94 of file mrr_defines\&.h\&.
+.SS "#define LVDS_LANE_PACKET_END_PULSE_DISABLE   (0U)"
+
+.PP
+Definition at line 97 of file mrr_defines\&.h\&.
+.SS "#define LVDS_LANE_PACKET_END_PULSE_ENABLE   (1U)"
+
+.PP
+Definition at line 96 of file mrr_defines\&.h\&.
+.SS "#define LVDS_LANE_TI_MODE_DISABLE   (0U)"
+
+.PP
+Definition at line 101 of file mrr_defines\&.h\&.
+.SS "#define LVDS_LANE_TI_MODE_ENABLE   (1U)"
+
+.PP
+Definition at line 100 of file mrr_defines\&.h\&.
+.SS "#define MMWDEMO_SPEED_OF_LIGHT_IN_METERS_PER_SEC   (3\&.0e8)"
+
+.PP
+Definition at line 135 of file mrr_defines\&.h\&.
+.SS "#define MMWDEMO_SPEED_OF_LIGHT_IN_METERS_PER_USEC   (3\&.0e2)"
+
+.PP
+Definition at line 137 of file mrr_defines\&.h\&.
+.SS "#define NOISE_FIGURE_HIGH   (1U)"
+
+.PP
+Definition at line 111 of file mrr_defines\&.h\&.
+.SS "#define NOISE_FIGURE_LOW   (0U)"
+
+.PP
+Definition at line 110 of file mrr_defines\&.h\&.
+.SS "#define ROUND_TO_INT32(X)   ((int32_t) (X))"
+
+.PP
+Definition at line 129 of file mrr_defines\&.h\&.
+.SS "#define RX_CHANNEL_1_2_3_4_ENABLE   (\fBRX_CHANNEL_1_ENABLE\fP | \fBRX_CHANNEL_2_ENABLE\fP | \fBRX_CHANNEL_3_ENABLE\fP | \fBRX_CHANNEL_4_ENABLE\fP)"
+
+.PP
+Definition at line 28 of file mrr_defines\&.h\&.
+.SS "#define RX_CHANNEL_1_2_3_ENABLE   (\fBRX_CHANNEL_1_ENABLE\fP | \fBRX_CHANNEL_2_ENABLE\fP | \fBRX_CHANNEL_3_ENABLE\fP)"
+
+.PP
+Definition at line 25 of file mrr_defines\&.h\&.
+.SS "#define RX_CHANNEL_1_2_ENABLE   (\fBRX_CHANNEL_1_ENABLE\fP | \fBRX_CHANNEL_2_ENABLE\fP)"
+
+.PP
+Definition at line 19 of file mrr_defines\&.h\&.
+.SS "#define RX_CHANNEL_1_3_4_ENABLE   (\fBRX_CHANNEL_1_ENABLE\fP | \fBRX_CHANNEL_3_ENABLE\fP | \fBRX_CHANNEL_4_ENABLE\fP)"
+
+.PP
+Definition at line 27 of file mrr_defines\&.h\&.
+.SS "#define RX_CHANNEL_1_3_ENABLE   (\fBRX_CHANNEL_1_ENABLE\fP | \fBRX_CHANNEL_3_ENABLE\fP)"
+
+.PP
+Definition at line 20 of file mrr_defines\&.h\&.
+.SS "#define RX_CHANNEL_1_4_ENABLE   (\fBRX_CHANNEL_1_ENABLE\fP | \fBRX_CHANNEL_4_ENABLE\fP)"
+
+.PP
+Definition at line 21 of file mrr_defines\&.h\&.
+.SS "#define RX_CHANNEL_1_ENABLE   (1U << 0U)"
+
+.PP
+Definition at line 15 of file mrr_defines\&.h\&.
+.SS "#define RX_CHANNEL_2_3_4_ENABLE   (\fBRX_CHANNEL_2_ENABLE\fP | \fBRX_CHANNEL_3_ENABLE\fP | \fBRX_CHANNEL_4_ENABLE\fP)"
+
+.PP
+Definition at line 26 of file mrr_defines\&.h\&.
+.SS "#define RX_CHANNEL_2_3_ENABLE   (\fBRX_CHANNEL_2_ENABLE\fP | \fBRX_CHANNEL_3_ENABLE\fP)"
+
+.PP
+Definition at line 22 of file mrr_defines\&.h\&.
+.SS "#define RX_CHANNEL_2_4_ENABLE   (\fBRX_CHANNEL_2_ENABLE\fP | \fBRX_CHANNEL_4_ENABLE\fP)"
+
+.PP
+Definition at line 23 of file mrr_defines\&.h\&.
+.SS "#define RX_CHANNEL_2_ENABLE   (1U << 1U)"
+
+.PP
+Definition at line 16 of file mrr_defines\&.h\&.
+.SS "#define RX_CHANNEL_3_4_ENABLE   (\fBRX_CHANNEL_3_ENABLE\fP | \fBRX_CHANNEL_4_ENABLE\fP)"
+
+.PP
+Definition at line 24 of file mrr_defines\&.h\&.
+.SS "#define RX_CHANNEL_3_ENABLE   (1U << 2U)"
+
+.PP
+Definition at line 17 of file mrr_defines\&.h\&.
+.SS "#define RX_CHANNEL_4_ENABLE   (1U << 3U)"
+
+.PP
+Definition at line 18 of file mrr_defines\&.h\&.
+.SS "#define TX_CHANNEL_1_2_3_ENABLE   (\fBTX_CHANNEL_1_ENABLE\fP | \fBTX_CHANNEL_2_ENABLE\fP | \fBTX_CHANNEL_3_ENABLE\fP)"
+
+.PP
+Definition at line 12 of file mrr_defines\&.h\&.
+.SS "#define TX_CHANNEL_1_2_ENABLE   (\fBTX_CHANNEL_1_ENABLE\fP | \fBTX_CHANNEL_2_ENABLE\fP)"
+
+.PP
+Definition at line 9 of file mrr_defines\&.h\&.
+.SS "#define TX_CHANNEL_1_3_ENABLE   (\fBTX_CHANNEL_1_ENABLE\fP | \fBTX_CHANNEL_3_ENABLE\fP)"
+
+.PP
+Definition at line 11 of file mrr_defines\&.h\&.
+.SS "#define TX_CHANNEL_1_ENABLE   (1U << 0U)"
+
+.PP
+Definition at line 6 of file mrr_defines\&.h\&.
+.SS "#define TX_CHANNEL_2_3_ENABLE   (\fBTX_CHANNEL_2_ENABLE\fP | \fBTX_CHANNEL_3_ENABLE\fP)"
+
+.PP
+Definition at line 10 of file mrr_defines\&.h\&.
+.SS "#define TX_CHANNEL_2_ENABLE   (1U << 1U)"
+
+.PP
+Definition at line 7 of file mrr_defines\&.h\&.
+.SS "#define TX_CHANNEL_3_ENABLE   (1U << 2U)"
+
+.PP
+Definition at line 8 of file mrr_defines\&.h\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mmWaveFMCWRADAR from the source code\&.

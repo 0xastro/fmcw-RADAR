@@ -1,0 +1,370 @@
+\doxysection{E\+D\+MA Allocation.}
+\label{group___m_r_r}\index{EDMA Allocation.@{EDMA Allocation.}}
+
+
+There are three seperate E\+D\+MA allocations in the M\+RR algorithm. the first two are for subbframe 1 and subframe 2, and the third is for C\+B\+U\+FF (L\+V\+DS data transfer).  
+
+
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+1\+D\+\_\+\+I\+N\+\_\+\+P\+I\+NG}~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+F\+R\+E\+E\+\_\+0
+\begin{DoxyCompactList}\small\item\em E\+D\+MA configuration table for F\+FT processing of subframe 0. \end{DoxyCompactList}\item 
+\#define \textbf{ M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+1\+D\+\_\+\+I\+N\+\_\+\+P\+O\+NG}~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+F\+R\+E\+E\+\_\+1
+\item 
+\#define \textbf{ M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+1\+D\+\_\+\+O\+U\+T\+\_\+\+P\+I\+NG}~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+F\+R\+E\+E\+\_\+2
+\item 
+\#define \textbf{ M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+1\+D\+\_\+\+O\+U\+T\+\_\+\+P\+O\+NG}~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+F\+R\+E\+E\+\_\+3
+\item 
+\#define \textbf{ M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+2\+D\+\_\+\+I\+N\+\_\+\+P\+I\+NG}~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+F\+R\+E\+E\+\_\+4
+\item 
+\#define \textbf{ M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+2\+D\+\_\+\+I\+N\+\_\+\+P\+O\+NG}~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+F\+R\+E\+E\+\_\+5
+\item 
+\#define \textbf{ M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+\+D\+E\+T\+\_\+\+M\+A\+T\+R\+IX}~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+F\+R\+E\+E\+\_\+6
+\item 
+\#define \textbf{ M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+\+D\+E\+T\+\_\+\+M\+A\+T\+R\+I\+X2}~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+F\+R\+E\+E\+\_\+7
+\item 
+\#define \textbf{ M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+3\+D\+\_\+\+I\+N\+\_\+\+P\+I\+NG}~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+F\+R\+E\+E\+\_\+8
+\item 
+\#define \textbf{ M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+3\+D\+\_\+\+I\+N\+\_\+\+P\+O\+NG}~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+F\+R\+E\+E\+\_\+9
+\item 
+\#define \textbf{ M\+R\+R\+\_\+\+S\+F1\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+1\+D\+\_\+\+I\+N\+\_\+\+P\+I\+NG}~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+F\+R\+E\+E\+\_\+10
+\begin{DoxyCompactList}\small\item\em E\+D\+MA configuration table for F\+FT processing of subframe 1. \end{DoxyCompactList}\item 
+\#define \textbf{ M\+R\+R\+\_\+\+S\+F1\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+1\+D\+\_\+\+I\+N\+\_\+\+P\+O\+NG}~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+F\+R\+E\+E\+\_\+11
+\item 
+\#define \textbf{ M\+R\+R\+\_\+\+S\+F1\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+1\+D\+\_\+\+O\+U\+T\+\_\+\+P\+I\+NG}~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+F\+R\+E\+E\+\_\+12
+\item 
+\#define \textbf{ M\+R\+R\+\_\+\+S\+F1\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+1\+D\+\_\+\+O\+U\+T\+\_\+\+P\+O\+NG}~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+F\+R\+E\+E\+\_\+13
+\item 
+\#define \textbf{ M\+R\+R\+\_\+\+S\+F1\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+2\+D\+\_\+\+I\+N\+\_\+\+P\+I\+NG}~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+F\+R\+E\+E\+\_\+14
+\item 
+\#define \textbf{ M\+R\+R\+\_\+\+S\+F1\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+2\+D\+\_\+\+I\+N\+\_\+\+P\+O\+NG}~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+H\+W\+A\+C\+C\+\_\+7
+\item 
+\#define \textbf{ M\+R\+R\+\_\+\+S\+F1\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+\+D\+E\+T\+\_\+\+M\+A\+T\+R\+IX}~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+H\+W\+A\+C\+C\+\_\+8
+\item 
+\#define \textbf{ M\+R\+R\+\_\+\+S\+F1\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+\+D\+E\+T\+\_\+\+M\+A\+T\+R\+I\+X2}~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+H\+W\+A\+C\+C\+\_\+9
+\item 
+\#define \textbf{ M\+R\+R\+\_\+\+S\+F1\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+3\+D\+\_\+\+I\+N\+\_\+\+P\+I\+NG}~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+H\+W\+A\+C\+C\+\_\+10
+\item 
+\#define \textbf{ M\+R\+R\+\_\+\+S\+F1\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+3\+D\+\_\+\+I\+N\+\_\+\+P\+O\+NG}~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+H\+W\+A\+C\+C\+\_\+11
+\item 
+\#define \textbf{ E\+D\+M\+A\+\_\+\+I\+N\+S\+T\+A\+N\+C\+E\+\_\+\+D\+SS}~\textbf{ E\+D\+M\+A\+\_\+\+I\+N\+S\+T\+A\+N\+C\+E\+\_\+A}
+\item 
+\#define \textbf{ E\+D\+M\+A\+\_\+\+I\+N\+S\+T\+A\+N\+C\+E\+\_\+\+M\+SS}~\textbf{ E\+D\+M\+A\+\_\+\+I\+N\+S\+T\+A\+N\+C\+E\+\_\+B}
+\item 
+\#define \textbf{ M\+R\+R\+\_\+\+C\+B\+U\+F\+F\+\_\+\+E\+D\+M\+A\+\_\+\+CH}~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+C\+B\+U\+F\+F\+\_\+0
+\begin{DoxyCompactList}\small\item\em E\+D\+MA configuration table for C\+B\+UF. (Unused in this configuration). \end{DoxyCompactList}\item 
+\#define \textbf{ M\+R\+R\+\_\+\+C\+B\+U\+F\+F\+\_\+\+E\+D\+M\+A\+\_\+\+S\+H\+A\+D\+O\+W\+\_\+\+CH}~(E\+D\+M\+A\+\_\+\+N\+U\+M\+\_\+\+D\+M\+A\+\_\+\+C\+H\+A\+N\+N\+E\+LS + 0U)
+\item 
+\#define \textbf{ C\+B\+U\+F\+F\+\_\+\+E\+D\+M\+A\+\_\+\+I\+N\+S\+T\+A\+N\+CE}~\textbf{ E\+D\+M\+A\+\_\+\+I\+N\+S\+T\+A\+N\+C\+E\+\_\+B}
+\item 
+\#define \textbf{ M\+R\+R\+\_\+\+E\+D\+M\+A\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+E\+N\+A\+B\+LE}~1
+\item 
+\#define \textbf{ M\+R\+R\+\_\+\+E\+D\+M\+A\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+D\+I\+S\+A\+B\+LE}~0
+\item 
+\#define \textbf{ M\+A\+X\+\_\+\+V\+E\+L\+\_\+\+P\+O\+I\+N\+T\+\_\+\+C\+L\+O\+U\+D\+\_\+\+P\+R\+O\+C\+E\+S\+S\+I\+N\+G\+\_\+\+I\+S\+\_\+\+E\+N\+A\+B\+L\+ED}~0
+\begin{DoxyCompactList}\small\item\em Flag to enable the max velocity enhancement in point cloud processing. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+There are three seperate E\+D\+MA allocations in the M\+RR algorithm. the first two are for subbframe 1 and subframe 2, and the third is for C\+B\+U\+FF (L\+V\+DS data transfer). 
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\label{group___m_r_r_ga4a6067a3085b89d1bc5d42a34175d55e}} 
+\index{EDMA Allocation.@{EDMA Allocation.}!CBUFF\_EDMA\_INSTANCE@{CBUFF\_EDMA\_INSTANCE}}
+\index{CBUFF\_EDMA\_INSTANCE@{CBUFF\_EDMA\_INSTANCE}!EDMA Allocation.@{EDMA Allocation.}}
+\doxysubsubsection{CBUFF\_EDMA\_INSTANCE}
+{\footnotesize\ttfamily \#define C\+B\+U\+F\+F\+\_\+\+E\+D\+M\+A\+\_\+\+I\+N\+S\+T\+A\+N\+CE~\textbf{ E\+D\+M\+A\+\_\+\+I\+N\+S\+T\+A\+N\+C\+E\+\_\+B}}
+
+
+
+Definition at line 323 of file app\+\_\+cfg\+\_\+bak.\+h.
+
+\mbox{\label{group___m_r_r_ga27cc0b44bed2165f0df5060660d8feaa}} 
+\index{EDMA Allocation.@{EDMA Allocation.}!EDMA\_INSTANCE\_DSS@{EDMA\_INSTANCE\_DSS}}
+\index{EDMA\_INSTANCE\_DSS@{EDMA\_INSTANCE\_DSS}!EDMA Allocation.@{EDMA Allocation.}}
+\doxysubsubsection{EDMA\_INSTANCE\_DSS}
+{\footnotesize\ttfamily \#define E\+D\+M\+A\+\_\+\+I\+N\+S\+T\+A\+N\+C\+E\+\_\+\+D\+SS~\textbf{ E\+D\+M\+A\+\_\+\+I\+N\+S\+T\+A\+N\+C\+E\+\_\+A}}
+
+
+
+Definition at line 315 of file app\+\_\+cfg\+\_\+bak.\+h.
+
+\mbox{\label{group___m_r_r_gad118efed9ee866f4590073330bd4ec41}} 
+\index{EDMA Allocation.@{EDMA Allocation.}!EDMA\_INSTANCE\_MSS@{EDMA\_INSTANCE\_MSS}}
+\index{EDMA\_INSTANCE\_MSS@{EDMA\_INSTANCE\_MSS}!EDMA Allocation.@{EDMA Allocation.}}
+\doxysubsubsection{EDMA\_INSTANCE\_MSS}
+{\footnotesize\ttfamily \#define E\+D\+M\+A\+\_\+\+I\+N\+S\+T\+A\+N\+C\+E\+\_\+\+M\+SS~\textbf{ E\+D\+M\+A\+\_\+\+I\+N\+S\+T\+A\+N\+C\+E\+\_\+B}}
+
+
+
+Definition at line 316 of file app\+\_\+cfg\+\_\+bak.\+h.
+
+\mbox{\label{group___m_r_r_gae6e854c4c08745a2ae57b19cb570f6e2}} 
+\index{EDMA Allocation.@{EDMA Allocation.}!MAX\_VEL\_POINT\_CLOUD\_PROCESSING\_IS\_ENABLED@{MAX\_VEL\_POINT\_CLOUD\_PROCESSING\_IS\_ENABLED}}
+\index{MAX\_VEL\_POINT\_CLOUD\_PROCESSING\_IS\_ENABLED@{MAX\_VEL\_POINT\_CLOUD\_PROCESSING\_IS\_ENABLED}!EDMA Allocation.@{EDMA Allocation.}}
+\doxysubsubsection{MAX\_VEL\_POINT\_CLOUD\_PROCESSING\_IS\_ENABLED}
+{\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+V\+E\+L\+\_\+\+P\+O\+I\+N\+T\+\_\+\+C\+L\+O\+U\+D\+\_\+\+P\+R\+O\+C\+E\+S\+S\+I\+N\+G\+\_\+\+I\+S\+\_\+\+E\+N\+A\+B\+L\+ED~0}
+
+
+
+Flag to enable the max velocity enhancement in point cloud processing. 
+
+
+
+Definition at line 336 of file app\+\_\+cfg\+\_\+bak.\+h.
+
+\mbox{\label{group___m_r_r_ga61f8f12feb5964637c792a7033a76ef9}} 
+\index{EDMA Allocation.@{EDMA Allocation.}!MRR\_CBUFF\_EDMA\_CH@{MRR\_CBUFF\_EDMA\_CH}}
+\index{MRR\_CBUFF\_EDMA\_CH@{MRR\_CBUFF\_EDMA\_CH}!EDMA Allocation.@{EDMA Allocation.}}
+\doxysubsubsection{MRR\_CBUFF\_EDMA\_CH}
+{\footnotesize\ttfamily \#define M\+R\+R\+\_\+\+C\+B\+U\+F\+F\+\_\+\+E\+D\+M\+A\+\_\+\+CH~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+C\+B\+U\+F\+F\+\_\+0}
+
+
+
+E\+D\+MA configuration table for C\+B\+UF. (Unused in this configuration). 
+
+
+
+Definition at line 321 of file app\+\_\+cfg\+\_\+bak.\+h.
+
+\mbox{\label{group___m_r_r_gaa239ba0504a8d45d1d1c42d76d35626a}} 
+\index{EDMA Allocation.@{EDMA Allocation.}!MRR\_CBUFF\_EDMA\_SHADOW\_CH@{MRR\_CBUFF\_EDMA\_SHADOW\_CH}}
+\index{MRR\_CBUFF\_EDMA\_SHADOW\_CH@{MRR\_CBUFF\_EDMA\_SHADOW\_CH}!EDMA Allocation.@{EDMA Allocation.}}
+\doxysubsubsection{MRR\_CBUFF\_EDMA\_SHADOW\_CH}
+{\footnotesize\ttfamily \#define M\+R\+R\+\_\+\+C\+B\+U\+F\+F\+\_\+\+E\+D\+M\+A\+\_\+\+S\+H\+A\+D\+O\+W\+\_\+\+CH~(E\+D\+M\+A\+\_\+\+N\+U\+M\+\_\+\+D\+M\+A\+\_\+\+C\+H\+A\+N\+N\+E\+LS + 0U)}
+
+
+
+Definition at line 322 of file app\+\_\+cfg\+\_\+bak.\+h.
+
+\mbox{\label{group___m_r_r_gae417e5e1c50982393d3bb3fd7eecc76f}} 
+\index{EDMA Allocation.@{EDMA Allocation.}!MRR\_EDMA\_TRIGGER\_DISABLE@{MRR\_EDMA\_TRIGGER\_DISABLE}}
+\index{MRR\_EDMA\_TRIGGER\_DISABLE@{MRR\_EDMA\_TRIGGER\_DISABLE}!EDMA Allocation.@{EDMA Allocation.}}
+\doxysubsubsection{MRR\_EDMA\_TRIGGER\_DISABLE}
+{\footnotesize\ttfamily \#define M\+R\+R\+\_\+\+E\+D\+M\+A\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+D\+I\+S\+A\+B\+LE~0}
+
+
+
+Definition at line 328 of file app\+\_\+cfg\+\_\+bak.\+h.
+
+\mbox{\label{group___m_r_r_ga66d4c1e219930646a508b6758ad2fb24}} 
+\index{EDMA Allocation.@{EDMA Allocation.}!MRR\_EDMA\_TRIGGER\_ENABLE@{MRR\_EDMA\_TRIGGER\_ENABLE}}
+\index{MRR\_EDMA\_TRIGGER\_ENABLE@{MRR\_EDMA\_TRIGGER\_ENABLE}!EDMA Allocation.@{EDMA Allocation.}}
+\doxysubsubsection{MRR\_EDMA\_TRIGGER\_ENABLE}
+{\footnotesize\ttfamily \#define M\+R\+R\+\_\+\+E\+D\+M\+A\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+E\+N\+A\+B\+LE~1}
+
+
+
+Definition at line 327 of file app\+\_\+cfg\+\_\+bak.\+h.
+
+\mbox{\label{group___m_r_r_ga8e85e9c43b49b7a3cf56fbe36ff31157}} 
+\index{EDMA Allocation.@{EDMA Allocation.}!MRR\_SF0\_EDMA\_CH\_1D\_IN\_PING@{MRR\_SF0\_EDMA\_CH\_1D\_IN\_PING}}
+\index{MRR\_SF0\_EDMA\_CH\_1D\_IN\_PING@{MRR\_SF0\_EDMA\_CH\_1D\_IN\_PING}!EDMA Allocation.@{EDMA Allocation.}}
+\doxysubsubsection{MRR\_SF0\_EDMA\_CH\_1D\_IN\_PING}
+{\footnotesize\ttfamily \#define M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+1\+D\+\_\+\+I\+N\+\_\+\+P\+I\+NG~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+F\+R\+E\+E\+\_\+0}
+
+
+
+E\+D\+MA configuration table for F\+FT processing of subframe 0. 
+
+
+
+Definition at line 290 of file app\+\_\+cfg\+\_\+bak.\+h.
+
+\mbox{\label{group___m_r_r_ga87b98c9179fd994b0d5fac16d00c5b17}} 
+\index{EDMA Allocation.@{EDMA Allocation.}!MRR\_SF0\_EDMA\_CH\_1D\_IN\_PONG@{MRR\_SF0\_EDMA\_CH\_1D\_IN\_PONG}}
+\index{MRR\_SF0\_EDMA\_CH\_1D\_IN\_PONG@{MRR\_SF0\_EDMA\_CH\_1D\_IN\_PONG}!EDMA Allocation.@{EDMA Allocation.}}
+\doxysubsubsection{MRR\_SF0\_EDMA\_CH\_1D\_IN\_PONG}
+{\footnotesize\ttfamily \#define M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+1\+D\+\_\+\+I\+N\+\_\+\+P\+O\+NG~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+F\+R\+E\+E\+\_\+1}
+
+
+
+Definition at line 291 of file app\+\_\+cfg\+\_\+bak.\+h.
+
+\mbox{\label{group___m_r_r_gaf746224d228ebc2c8761e5ba379cb567}} 
+\index{EDMA Allocation.@{EDMA Allocation.}!MRR\_SF0\_EDMA\_CH\_1D\_OUT\_PING@{MRR\_SF0\_EDMA\_CH\_1D\_OUT\_PING}}
+\index{MRR\_SF0\_EDMA\_CH\_1D\_OUT\_PING@{MRR\_SF0\_EDMA\_CH\_1D\_OUT\_PING}!EDMA Allocation.@{EDMA Allocation.}}
+\doxysubsubsection{MRR\_SF0\_EDMA\_CH\_1D\_OUT\_PING}
+{\footnotesize\ttfamily \#define M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+1\+D\+\_\+\+O\+U\+T\+\_\+\+P\+I\+NG~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+F\+R\+E\+E\+\_\+2}
+
+
+
+Definition at line 292 of file app\+\_\+cfg\+\_\+bak.\+h.
+
+\mbox{\label{group___m_r_r_gad2b5ba48be90a7a0e3f8b707e9c52e1e}} 
+\index{EDMA Allocation.@{EDMA Allocation.}!MRR\_SF0\_EDMA\_CH\_1D\_OUT\_PONG@{MRR\_SF0\_EDMA\_CH\_1D\_OUT\_PONG}}
+\index{MRR\_SF0\_EDMA\_CH\_1D\_OUT\_PONG@{MRR\_SF0\_EDMA\_CH\_1D\_OUT\_PONG}!EDMA Allocation.@{EDMA Allocation.}}
+\doxysubsubsection{MRR\_SF0\_EDMA\_CH\_1D\_OUT\_PONG}
+{\footnotesize\ttfamily \#define M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+1\+D\+\_\+\+O\+U\+T\+\_\+\+P\+O\+NG~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+F\+R\+E\+E\+\_\+3}
+
+
+
+Definition at line 293 of file app\+\_\+cfg\+\_\+bak.\+h.
+
+\mbox{\label{group___m_r_r_ga706ce8e4336a4b982bf6498c0d8822d6}} 
+\index{EDMA Allocation.@{EDMA Allocation.}!MRR\_SF0\_EDMA\_CH\_2D\_IN\_PING@{MRR\_SF0\_EDMA\_CH\_2D\_IN\_PING}}
+\index{MRR\_SF0\_EDMA\_CH\_2D\_IN\_PING@{MRR\_SF0\_EDMA\_CH\_2D\_IN\_PING}!EDMA Allocation.@{EDMA Allocation.}}
+\doxysubsubsection{MRR\_SF0\_EDMA\_CH\_2D\_IN\_PING}
+{\footnotesize\ttfamily \#define M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+2\+D\+\_\+\+I\+N\+\_\+\+P\+I\+NG~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+F\+R\+E\+E\+\_\+4}
+
+
+
+Definition at line 294 of file app\+\_\+cfg\+\_\+bak.\+h.
+
+\mbox{\label{group___m_r_r_ga10830f1df08c3fe98b7645f037a799c9}} 
+\index{EDMA Allocation.@{EDMA Allocation.}!MRR\_SF0\_EDMA\_CH\_2D\_IN\_PONG@{MRR\_SF0\_EDMA\_CH\_2D\_IN\_PONG}}
+\index{MRR\_SF0\_EDMA\_CH\_2D\_IN\_PONG@{MRR\_SF0\_EDMA\_CH\_2D\_IN\_PONG}!EDMA Allocation.@{EDMA Allocation.}}
+\doxysubsubsection{MRR\_SF0\_EDMA\_CH\_2D\_IN\_PONG}
+{\footnotesize\ttfamily \#define M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+2\+D\+\_\+\+I\+N\+\_\+\+P\+O\+NG~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+F\+R\+E\+E\+\_\+5}
+
+
+
+Definition at line 295 of file app\+\_\+cfg\+\_\+bak.\+h.
+
+\mbox{\label{group___m_r_r_ga2d19a6419427462a6a582175c63ea141}} 
+\index{EDMA Allocation.@{EDMA Allocation.}!MRR\_SF0\_EDMA\_CH\_3D\_IN\_PING@{MRR\_SF0\_EDMA\_CH\_3D\_IN\_PING}}
+\index{MRR\_SF0\_EDMA\_CH\_3D\_IN\_PING@{MRR\_SF0\_EDMA\_CH\_3D\_IN\_PING}!EDMA Allocation.@{EDMA Allocation.}}
+\doxysubsubsection{MRR\_SF0\_EDMA\_CH\_3D\_IN\_PING}
+{\footnotesize\ttfamily \#define M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+3\+D\+\_\+\+I\+N\+\_\+\+P\+I\+NG~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+F\+R\+E\+E\+\_\+8}
+
+
+
+Definition at line 298 of file app\+\_\+cfg\+\_\+bak.\+h.
+
+\mbox{\label{group___m_r_r_ga9fe9815ccaa7eebeb5f1dcb72d7b58b4}} 
+\index{EDMA Allocation.@{EDMA Allocation.}!MRR\_SF0\_EDMA\_CH\_3D\_IN\_PONG@{MRR\_SF0\_EDMA\_CH\_3D\_IN\_PONG}}
+\index{MRR\_SF0\_EDMA\_CH\_3D\_IN\_PONG@{MRR\_SF0\_EDMA\_CH\_3D\_IN\_PONG}!EDMA Allocation.@{EDMA Allocation.}}
+\doxysubsubsection{MRR\_SF0\_EDMA\_CH\_3D\_IN\_PONG}
+{\footnotesize\ttfamily \#define M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+3\+D\+\_\+\+I\+N\+\_\+\+P\+O\+NG~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+F\+R\+E\+E\+\_\+9}
+
+
+
+Definition at line 299 of file app\+\_\+cfg\+\_\+bak.\+h.
+
+\mbox{\label{group___m_r_r_gabfc4a4704452823a479dd84298031d45}} 
+\index{EDMA Allocation.@{EDMA Allocation.}!MRR\_SF0\_EDMA\_CH\_DET\_MATRIX@{MRR\_SF0\_EDMA\_CH\_DET\_MATRIX}}
+\index{MRR\_SF0\_EDMA\_CH\_DET\_MATRIX@{MRR\_SF0\_EDMA\_CH\_DET\_MATRIX}!EDMA Allocation.@{EDMA Allocation.}}
+\doxysubsubsection{MRR\_SF0\_EDMA\_CH\_DET\_MATRIX}
+{\footnotesize\ttfamily \#define M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+\+D\+E\+T\+\_\+\+M\+A\+T\+R\+IX~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+F\+R\+E\+E\+\_\+6}
+
+
+
+Definition at line 296 of file app\+\_\+cfg\+\_\+bak.\+h.
+
+\mbox{\label{group___m_r_r_gae51f238510fff63402618ba8c57bd85e}} 
+\index{EDMA Allocation.@{EDMA Allocation.}!MRR\_SF0\_EDMA\_CH\_DET\_MATRIX2@{MRR\_SF0\_EDMA\_CH\_DET\_MATRIX2}}
+\index{MRR\_SF0\_EDMA\_CH\_DET\_MATRIX2@{MRR\_SF0\_EDMA\_CH\_DET\_MATRIX2}!EDMA Allocation.@{EDMA Allocation.}}
+\doxysubsubsection{MRR\_SF0\_EDMA\_CH\_DET\_MATRIX2}
+{\footnotesize\ttfamily \#define M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+\+D\+E\+T\+\_\+\+M\+A\+T\+R\+I\+X2~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+F\+R\+E\+E\+\_\+7}
+
+
+
+Definition at line 297 of file app\+\_\+cfg\+\_\+bak.\+h.
+
+\mbox{\label{group___m_r_r_ga110530b3831c95f028c83b48b699c54e}} 
+\index{EDMA Allocation.@{EDMA Allocation.}!MRR\_SF1\_EDMA\_CH\_1D\_IN\_PING@{MRR\_SF1\_EDMA\_CH\_1D\_IN\_PING}}
+\index{MRR\_SF1\_EDMA\_CH\_1D\_IN\_PING@{MRR\_SF1\_EDMA\_CH\_1D\_IN\_PING}!EDMA Allocation.@{EDMA Allocation.}}
+\doxysubsubsection{MRR\_SF1\_EDMA\_CH\_1D\_IN\_PING}
+{\footnotesize\ttfamily \#define M\+R\+R\+\_\+\+S\+F1\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+1\+D\+\_\+\+I\+N\+\_\+\+P\+I\+NG~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+F\+R\+E\+E\+\_\+10}
+
+
+
+E\+D\+MA configuration table for F\+FT processing of subframe 1. 
+
+
+
+Definition at line 304 of file app\+\_\+cfg\+\_\+bak.\+h.
+
+\mbox{\label{group___m_r_r_ga664bb2052bf5d15b8b0437bd923bb8f4}} 
+\index{EDMA Allocation.@{EDMA Allocation.}!MRR\_SF1\_EDMA\_CH\_1D\_IN\_PONG@{MRR\_SF1\_EDMA\_CH\_1D\_IN\_PONG}}
+\index{MRR\_SF1\_EDMA\_CH\_1D\_IN\_PONG@{MRR\_SF1\_EDMA\_CH\_1D\_IN\_PONG}!EDMA Allocation.@{EDMA Allocation.}}
+\doxysubsubsection{MRR\_SF1\_EDMA\_CH\_1D\_IN\_PONG}
+{\footnotesize\ttfamily \#define M\+R\+R\+\_\+\+S\+F1\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+1\+D\+\_\+\+I\+N\+\_\+\+P\+O\+NG~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+F\+R\+E\+E\+\_\+11}
+
+
+
+Definition at line 305 of file app\+\_\+cfg\+\_\+bak.\+h.
+
+\mbox{\label{group___m_r_r_gab73ef176435d6615dbad152dea3fe6e7}} 
+\index{EDMA Allocation.@{EDMA Allocation.}!MRR\_SF1\_EDMA\_CH\_1D\_OUT\_PING@{MRR\_SF1\_EDMA\_CH\_1D\_OUT\_PING}}
+\index{MRR\_SF1\_EDMA\_CH\_1D\_OUT\_PING@{MRR\_SF1\_EDMA\_CH\_1D\_OUT\_PING}!EDMA Allocation.@{EDMA Allocation.}}
+\doxysubsubsection{MRR\_SF1\_EDMA\_CH\_1D\_OUT\_PING}
+{\footnotesize\ttfamily \#define M\+R\+R\+\_\+\+S\+F1\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+1\+D\+\_\+\+O\+U\+T\+\_\+\+P\+I\+NG~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+F\+R\+E\+E\+\_\+12}
+
+
+
+Definition at line 306 of file app\+\_\+cfg\+\_\+bak.\+h.
+
+\mbox{\label{group___m_r_r_ga8b20ed3551e721c6ffe03587beeff062}} 
+\index{EDMA Allocation.@{EDMA Allocation.}!MRR\_SF1\_EDMA\_CH\_1D\_OUT\_PONG@{MRR\_SF1\_EDMA\_CH\_1D\_OUT\_PONG}}
+\index{MRR\_SF1\_EDMA\_CH\_1D\_OUT\_PONG@{MRR\_SF1\_EDMA\_CH\_1D\_OUT\_PONG}!EDMA Allocation.@{EDMA Allocation.}}
+\doxysubsubsection{MRR\_SF1\_EDMA\_CH\_1D\_OUT\_PONG}
+{\footnotesize\ttfamily \#define M\+R\+R\+\_\+\+S\+F1\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+1\+D\+\_\+\+O\+U\+T\+\_\+\+P\+O\+NG~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+F\+R\+E\+E\+\_\+13}
+
+
+
+Definition at line 307 of file app\+\_\+cfg\+\_\+bak.\+h.
+
+\mbox{\label{group___m_r_r_gaddc3fe2c55518dfe4d6d6d37300c865a}} 
+\index{EDMA Allocation.@{EDMA Allocation.}!MRR\_SF1\_EDMA\_CH\_2D\_IN\_PING@{MRR\_SF1\_EDMA\_CH\_2D\_IN\_PING}}
+\index{MRR\_SF1\_EDMA\_CH\_2D\_IN\_PING@{MRR\_SF1\_EDMA\_CH\_2D\_IN\_PING}!EDMA Allocation.@{EDMA Allocation.}}
+\doxysubsubsection{MRR\_SF1\_EDMA\_CH\_2D\_IN\_PING}
+{\footnotesize\ttfamily \#define M\+R\+R\+\_\+\+S\+F1\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+2\+D\+\_\+\+I\+N\+\_\+\+P\+I\+NG~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+F\+R\+E\+E\+\_\+14}
+
+
+
+Definition at line 308 of file app\+\_\+cfg\+\_\+bak.\+h.
+
+\mbox{\label{group___m_r_r_ga0f511c2cc3ddef75d1f7f0bc38cd459d}} 
+\index{EDMA Allocation.@{EDMA Allocation.}!MRR\_SF1\_EDMA\_CH\_2D\_IN\_PONG@{MRR\_SF1\_EDMA\_CH\_2D\_IN\_PONG}}
+\index{MRR\_SF1\_EDMA\_CH\_2D\_IN\_PONG@{MRR\_SF1\_EDMA\_CH\_2D\_IN\_PONG}!EDMA Allocation.@{EDMA Allocation.}}
+\doxysubsubsection{MRR\_SF1\_EDMA\_CH\_2D\_IN\_PONG}
+{\footnotesize\ttfamily \#define M\+R\+R\+\_\+\+S\+F1\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+2\+D\+\_\+\+I\+N\+\_\+\+P\+O\+NG~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+H\+W\+A\+C\+C\+\_\+7}
+
+
+
+Definition at line 309 of file app\+\_\+cfg\+\_\+bak.\+h.
+
+\mbox{\label{group___m_r_r_ga3b2fbbba8d75fa44084cb6b6230df79a}} 
+\index{EDMA Allocation.@{EDMA Allocation.}!MRR\_SF1\_EDMA\_CH\_3D\_IN\_PING@{MRR\_SF1\_EDMA\_CH\_3D\_IN\_PING}}
+\index{MRR\_SF1\_EDMA\_CH\_3D\_IN\_PING@{MRR\_SF1\_EDMA\_CH\_3D\_IN\_PING}!EDMA Allocation.@{EDMA Allocation.}}
+\doxysubsubsection{MRR\_SF1\_EDMA\_CH\_3D\_IN\_PING}
+{\footnotesize\ttfamily \#define M\+R\+R\+\_\+\+S\+F1\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+3\+D\+\_\+\+I\+N\+\_\+\+P\+I\+NG~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+H\+W\+A\+C\+C\+\_\+10}
+
+
+
+Definition at line 312 of file app\+\_\+cfg\+\_\+bak.\+h.
+
+\mbox{\label{group___m_r_r_ga5719502c18f23f002465d9c05edbd785}} 
+\index{EDMA Allocation.@{EDMA Allocation.}!MRR\_SF1\_EDMA\_CH\_3D\_IN\_PONG@{MRR\_SF1\_EDMA\_CH\_3D\_IN\_PONG}}
+\index{MRR\_SF1\_EDMA\_CH\_3D\_IN\_PONG@{MRR\_SF1\_EDMA\_CH\_3D\_IN\_PONG}!EDMA Allocation.@{EDMA Allocation.}}
+\doxysubsubsection{MRR\_SF1\_EDMA\_CH\_3D\_IN\_PONG}
+{\footnotesize\ttfamily \#define M\+R\+R\+\_\+\+S\+F1\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+3\+D\+\_\+\+I\+N\+\_\+\+P\+O\+NG~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+H\+W\+A\+C\+C\+\_\+11}
+
+
+
+Definition at line 313 of file app\+\_\+cfg\+\_\+bak.\+h.
+
+\mbox{\label{group___m_r_r_gaae45b6d3eb40a992dfe0d58eb890af2c}} 
+\index{EDMA Allocation.@{EDMA Allocation.}!MRR\_SF1\_EDMA\_CH\_DET\_MATRIX@{MRR\_SF1\_EDMA\_CH\_DET\_MATRIX}}
+\index{MRR\_SF1\_EDMA\_CH\_DET\_MATRIX@{MRR\_SF1\_EDMA\_CH\_DET\_MATRIX}!EDMA Allocation.@{EDMA Allocation.}}
+\doxysubsubsection{MRR\_SF1\_EDMA\_CH\_DET\_MATRIX}
+{\footnotesize\ttfamily \#define M\+R\+R\+\_\+\+S\+F1\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+\+D\+E\+T\+\_\+\+M\+A\+T\+R\+IX~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+H\+W\+A\+C\+C\+\_\+8}
+
+
+
+Definition at line 310 of file app\+\_\+cfg\+\_\+bak.\+h.
+
+\mbox{\label{group___m_r_r_ga0e14d01fe0819a1d0e62ded9d08076db}} 
+\index{EDMA Allocation.@{EDMA Allocation.}!MRR\_SF1\_EDMA\_CH\_DET\_MATRIX2@{MRR\_SF1\_EDMA\_CH\_DET\_MATRIX2}}
+\index{MRR\_SF1\_EDMA\_CH\_DET\_MATRIX2@{MRR\_SF1\_EDMA\_CH\_DET\_MATRIX2}!EDMA Allocation.@{EDMA Allocation.}}
+\doxysubsubsection{MRR\_SF1\_EDMA\_CH\_DET\_MATRIX2}
+{\footnotesize\ttfamily \#define M\+R\+R\+\_\+\+S\+F1\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+\+D\+E\+T\+\_\+\+M\+A\+T\+R\+I\+X2~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+H\+W\+A\+C\+C\+\_\+9}
+
+
+
+Definition at line 311 of file app\+\_\+cfg\+\_\+bak.\+h.
+

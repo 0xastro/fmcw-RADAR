@@ -1,0 +1,332 @@
+.TH "C:/Users/astro/workspace_v9_2/mrr_18xx_dss/EKF_XYZ_Consts.h" 3 "Wed May 20 2020" "Version 1.0" "mmWaveFMCWRADAR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/Users/astro/workspace_v9_2/mrr_18xx_dss/EKF_XYZ_Consts.h \- Constants for the Extended Kalman Filter\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBEPS\fP   0\&.00001"
+.br
+.ti -1c
+.RI "#define \fBKF_2D\fP   1"
+.br
+.ti -1c
+.RI "#define \fBKF_3D\fP   0"
+.br
+.ti -1c
+.RI "#define \fBiRANGE\fP   0           /* Index of Range (meters)*/"
+.br
+.ti -1c
+.RI "#define \fBiRANGE_RATE\fP   1      /* Index of Range rate (meters/sec)*/"
+.br
+.ti -1c
+.RI "#define \fBiSIN_AZIM\fP   2        /* Index of sin(azim) (x/r)*/"
+.br
+.ti -1c
+.RI "#define \fBiX\fP   0               /* Index of x\-coord  (meters)*/"
+.br
+.ti -1c
+.RI "#define \fBiY\fP   1               /* Index of y\-coord  (meters)*/"
+.br
+.ti -1c
+.RI "#define \fBiXd\fP   2              /* Index of Speed in x direction (meters/sec)*/"
+.br
+.ti -1c
+.RI "#define \fBiYd\fP   3              /* Index of Speed in y direction (meters/sec)*/"
+.br
+.ti -1c
+.RI "#define \fBN_STATES\fP   4"
+.br
+.ti -1c
+.RI "#define \fBN_MEASUREMENTS\fP   3"
+.br
+.ti -1c
+.RI "#define \fBN_UNIQ_ELEM_IN_HMAT\fP   6"
+.br
+.ti -1c
+.RI "#define \fBN_UNIQ_ELEM_IN_SYM_COVMAT\fP   (\fBN_STATES\fP*(\fBN_STATES\fP+1)/2)"
+.br
+.ti -1c
+.RI "#define \fBN_UNIQ_ELEM_IN_SYM_RESIDCOVMAT\fP   (\fBN_MEASUREMENTS\fP*(\fBN_MEASUREMENTS\fP+1)/2)"
+.br
+.ti -1c
+.RI "#define \fBiXX\fP   \fBiX\fP"
+.br
+.ti -1c
+.RI "#define \fBiXY\fP   (\fBiXX\fP + 1)"
+.br
+.ti -1c
+.RI "#define \fBiXXd\fP   (\fBiXY\fP + 1)"
+.br
+.ti -1c
+.RI "#define \fBiXYd\fP   (\fBiXXd\fP + 1)"
+.br
+.ti -1c
+.RI "#define \fBiYY\fP   (\fBiXYd\fP + 1)"
+.br
+.ti -1c
+.RI "#define \fBiYXd\fP   (\fBiYY\fP + 1)"
+.br
+.ti -1c
+.RI "#define \fBiYYd\fP   (\fBiYXd\fP + 1)"
+.br
+.ti -1c
+.RI "#define \fBiXdXd\fP   (\fBiYYd\fP + 1)"
+.br
+.ti -1c
+.RI "#define \fBiXdYd\fP   (\fBiXdXd\fP + 1)"
+.br
+.ti -1c
+.RI "#define \fBiYdYd\fP   (\fBiXdYd\fP + 1)"
+.br
+.ti -1c
+.RI "#define \fBiRR\fP   \fBiRANGE\fP"
+.br
+.ti -1c
+.RI "#define \fBiRRd\fP   (\fBiRR\fP + 1)"
+.br
+.ti -1c
+.RI "#define \fBiRAz\fP   (\fBiRRd\fP + 1)"
+.br
+.ti -1c
+.RI "#define \fBiRdRd\fP   (\fBiRAz\fP + 1)"
+.br
+.ti -1c
+.RI "#define \fBiRdAz\fP   (\fBiRdRd\fP + 1)"
+.br
+.ti -1c
+.RI "#define \fBiAzAz\fP   (\fBiRdAz\fP + 1)"
+.br
+.ti -1c
+.RI "#define \fBNOT_ASSOCIATED\fP   (\-1)"
+.br
+.RI "object has not been associated\&. "
+.ti -1c
+.RI "#define \fBIS_ASSOCIATED\fP   (1)"
+.br
+.RI "object has been associated\&. "
+.ti -1c
+.RI "#define \fBIS_INVALID\fP   (0)"
+.br
+.RI "object is invalid\&. "
+.ti -1c
+.RI "#define \fBIS_VALID\fP   (1)"
+.br
+.RI "object is valid\&. "
+.ti -1c
+.RI "#define \fBMAX_ACCEL_Y_M_P_SECSQ\fP   12 /* m/s^2*/"
+.br
+.RI "Unmodelled acceleration parameter in the Y direction (perpendicular to the antenna)\&. "
+.ti -1c
+.RI "#define \fBMAX_ACCEL_X_M_P_SECSQ\fP   5 /* m/s^2*/"
+.br
+.RI "Unmodelled acceleration parameter in the X direction (parallel to the antenna)\&. "
+.ti -1c
+.RI "#define \fBAGED_OBJ_DELETION_THRESH\fP   10"
+.br
+.RI "Delete objects that haven't been associated after these many ticks\&. "
+.ti -1c
+.RI "#define \fBHIGH_SNR_RVAR_THRESH\fP   6"
+.br
+.RI "Objects with range variance lower than this are considered to be high SNR tracks\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Constants for the Extended Kalman Filter\&. 
+
+Copyright (C) 2017 Texas Instruments Incorporated - http://www.ti.com/
+.PP
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+.PP
+Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer\&.
+.PP
+Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution\&.
+.PP
+Neither the name of Texas Instruments Incorporated nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission\&.
+.PP
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED\&. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE\&. 
+.PP
+Definition in file \fBEKF_XYZ_Consts\&.h\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define AGED_OBJ_DELETION_THRESH   10"
+
+.PP
+Delete objects that haven't been associated after these many ticks\&. 
+.PP
+Definition at line 186 of file EKF_XYZ_Consts\&.h\&.
+.SS "#define EPS   0\&.00001"
+
+.PP
+Definition at line 43 of file EKF_XYZ_Consts\&.h\&.
+.SS "#define HIGH_SNR_RVAR_THRESH   6"
+
+.PP
+Objects with range variance lower than this are considered to be high SNR tracks\&. 
+.PP
+Definition at line 188 of file EKF_XYZ_Consts\&.h\&.
+.SS "#define iAzAz   (\fBiRdAz\fP + 1)"
+
+.PP
+Definition at line 149 of file EKF_XYZ_Consts\&.h\&.
+.SS "#define iRANGE   0           /* Index of Range (meters)*/"
+
+.PP
+Definition at line 50 of file EKF_XYZ_Consts\&.h\&.
+.SS "#define iRANGE_RATE   1      /* Index of Range rate (meters/sec)*/"
+
+.PP
+Definition at line 51 of file EKF_XYZ_Consts\&.h\&.
+.SS "#define iRAz   (\fBiRRd\fP + 1)"
+
+.PP
+Definition at line 144 of file EKF_XYZ_Consts\&.h\&.
+.SS "#define iRdAz   (\fBiRdRd\fP + 1)"
+
+.PP
+Definition at line 147 of file EKF_XYZ_Consts\&.h\&.
+.SS "#define iRdRd   (\fBiRAz\fP + 1)"
+
+.PP
+Definition at line 146 of file EKF_XYZ_Consts\&.h\&.
+.SS "#define iRR   \fBiRANGE\fP"
+
+.PP
+Definition at line 142 of file EKF_XYZ_Consts\&.h\&.
+.SS "#define iRRd   (\fBiRR\fP + 1)"
+
+.PP
+Definition at line 143 of file EKF_XYZ_Consts\&.h\&.
+.SS "#define IS_ASSOCIATED   (1)"
+
+.PP
+object has been associated\&. 
+.PP
+Definition at line 173 of file EKF_XYZ_Consts\&.h\&.
+.SS "#define IS_INVALID   (0)"
+
+.PP
+object is invalid\&. 
+.PP
+Definition at line 175 of file EKF_XYZ_Consts\&.h\&.
+.SS "#define IS_VALID   (1)"
+
+.PP
+object is valid\&. 
+.PP
+Definition at line 177 of file EKF_XYZ_Consts\&.h\&.
+.SS "#define iSIN_AZIM   2        /* Index of sin(azim) (x/r)*/"
+
+.PP
+Definition at line 52 of file EKF_XYZ_Consts\&.h\&.
+.SS "#define iX   0               /* Index of x\-coord  (meters)*/"
+
+.PP
+Definition at line 55 of file EKF_XYZ_Consts\&.h\&.
+.SS "#define iXd   2              /* Index of Speed in x direction (meters/sec)*/"
+
+.PP
+Definition at line 57 of file EKF_XYZ_Consts\&.h\&.
+.SS "#define iXdXd   (\fBiYYd\fP + 1)"
+
+.PP
+Definition at line 102 of file EKF_XYZ_Consts\&.h\&.
+.SS "#define iXdYd   (\fBiXdXd\fP + 1)"
+
+.PP
+Definition at line 103 of file EKF_XYZ_Consts\&.h\&.
+.SS "#define iXX   \fBiX\fP"
+
+.PP
+Definition at line 93 of file EKF_XYZ_Consts\&.h\&.
+.SS "#define iXXd   (\fBiXY\fP + 1)"
+
+.PP
+Definition at line 95 of file EKF_XYZ_Consts\&.h\&.
+.SS "#define iXY   (\fBiXX\fP + 1)"
+
+.PP
+Definition at line 94 of file EKF_XYZ_Consts\&.h\&.
+.SS "#define iXYd   (\fBiXXd\fP + 1)"
+
+.PP
+Definition at line 96 of file EKF_XYZ_Consts\&.h\&.
+.SS "#define iY   1               /* Index of y\-coord  (meters)*/"
+
+.PP
+Definition at line 56 of file EKF_XYZ_Consts\&.h\&.
+.SS "#define iYd   3              /* Index of Speed in y direction (meters/sec)*/"
+
+.PP
+Definition at line 58 of file EKF_XYZ_Consts\&.h\&.
+.SS "#define iYdYd   (\fBiXdYd\fP + 1)"
+
+.PP
+Definition at line 105 of file EKF_XYZ_Consts\&.h\&.
+.SS "#define iYXd   (\fBiYY\fP + 1)"
+
+.PP
+Definition at line 99 of file EKF_XYZ_Consts\&.h\&.
+.SS "#define iYY   (\fBiXYd\fP + 1)"
+
+.PP
+Definition at line 98 of file EKF_XYZ_Consts\&.h\&.
+.SS "#define iYYd   (\fBiYXd\fP + 1)"
+
+.PP
+Definition at line 100 of file EKF_XYZ_Consts\&.h\&.
+.SS "#define KF_2D   1"
+
+.PP
+Definition at line 45 of file EKF_XYZ_Consts\&.h\&.
+.SS "#define KF_3D   0"
+
+.PP
+Definition at line 46 of file EKF_XYZ_Consts\&.h\&.
+.SS "#define MAX_ACCEL_X_M_P_SECSQ   5 /* m/s^2*/"
+
+.PP
+Unmodelled acceleration parameter in the X direction (parallel to the antenna)\&. 
+.PP
+Definition at line 182 of file EKF_XYZ_Consts\&.h\&.
+.SS "#define MAX_ACCEL_Y_M_P_SECSQ   12 /* m/s^2*/"
+
+.PP
+Unmodelled acceleration parameter in the Y direction (perpendicular to the antenna)\&. 
+.PP
+Definition at line 180 of file EKF_XYZ_Consts\&.h\&.
+.SS "#define N_MEASUREMENTS   3"
+
+.PP
+Definition at line 62 of file EKF_XYZ_Consts\&.h\&.
+.SS "#define N_STATES   4"
+
+.PP
+Definition at line 61 of file EKF_XYZ_Consts\&.h\&.
+.SS "#define N_UNIQ_ELEM_IN_HMAT   6"
+
+.PP
+Definition at line 64 of file EKF_XYZ_Consts\&.h\&.
+.SS "#define N_UNIQ_ELEM_IN_SYM_COVMAT   (\fBN_STATES\fP*(\fBN_STATES\fP+1)/2)"
+
+.PP
+Definition at line 88 of file EKF_XYZ_Consts\&.h\&.
+.SS "#define N_UNIQ_ELEM_IN_SYM_RESIDCOVMAT   (\fBN_MEASUREMENTS\fP*(\fBN_MEASUREMENTS\fP+1)/2)"
+
+.PP
+Definition at line 89 of file EKF_XYZ_Consts\&.h\&.
+.SS "#define NOT_ASSOCIATED   (\-1)"
+
+.PP
+object has not been associated\&. 
+.PP
+Definition at line 171 of file EKF_XYZ_Consts\&.h\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mmWaveFMCWRADAR from the source code\&.

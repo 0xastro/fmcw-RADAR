@@ -1,0 +1,450 @@
+.TH "C:/Users/astro/workspace_v9_2/mrr_18xx_dss/common/mrr_config_chirp_design_USRR30.h" 3 "Wed May 20 2020" "Version 1.0" "mmWaveFMCWRADAR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/Users/astro/workspace_v9_2/mrr_18xx_dss/common/mrr_config_chirp_design_USRR30.h
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBPROFILE_USRR_PROFILE_ID\fP   (1U)"
+.br
+.RI "Ultra short range chirp profile - 20 m range, 4\&.3cm resolution\&. better angular resolution, approximately 18kmph max - vel\&. "
+.ti -1c
+.RI "#define \fBPROFILE_USRR_HPFCORNER_FREQ1_VAL\fP   RL_RX_HPF1_175_KHz"
+.br
+.ti -1c
+.RI "#define \fBPROFILE_USRR_HPFCORNER_FREQ2_VAL\fP   RL_RX_HPF2_350_KHz"
+.br
+.ti -1c
+.RI "#define \fBPROFILE_USRR_RX_GAIN_VAL\fP   (30U)"
+.br
+.ti -1c
+.RI "#define \fBPROFILE_USRR_DIGOUT_SAMPLERATE_VAL\fP   (12500U)"
+.br
+.ti -1c
+.RI "#define \fBPROFILE_USRR_ADC_SAMPLE_VAL\fP   (512U)"
+.br
+.ti -1c
+.RI "#define \fBPROFILE_USRR_IDLE_TIME_VAL\fP   (500U)"
+.br
+.ti -1c
+.RI "#define \fBPROFILE_USRR_RAMP_END_TIME_VAL\fP   (4400U)"
+.br
+.ti -1c
+.RI "#define \fBPROFILE_USRR_START_FREQ_GHZ\fP   (77\&.01f)"
+.br
+.ti -1c
+.RI "#define \fBPROFILE_USRR_START_FREQ_VAL\fP   (\fBCONV_FREQ_GHZ_TO_CODEWORD\fP(\fBPROFILE_USRR_START_FREQ_GHZ\fP))"
+.br
+.ti -1c
+.RI "#define \fBPROFILE_USRR_TXOUT_POWER_BACKOFF\fP   (0U)"
+.br
+.ti -1c
+.RI "#define \fBPROFILE_USRR_TXPHASESHIFTER_VAL\fP   (0U)"
+.br
+.ti -1c
+.RI "#define \fBPROFILE_USRR_FREQ_SLOPE_MHZ_PER_US\fP   (56\&.25f)"
+.br
+.ti -1c
+.RI "#define \fBPROFILE_USRR_FREQ_SLOPE_VAL\fP   (\fBCONV_SLOPE_MHZ_PER_US_TO_CODEWORD\fP(\fBPROFILE_USRR_FREQ_SLOPE_MHZ_PER_US\fP))"
+.br
+.ti -1c
+.RI "#define \fBPROFILE_USRR_TX_START_TIME_VAL\fP   (100U)"
+.br
+.ti -1c
+.RI "#define \fBPROFILE_USRR_ADC_START_TIME_VAL\fP   (300U)"
+.br
+.ti -1c
+.RI "#define \fBPROFILE_USRR_LAMBDA_MILLIMETER\fP   (\fBMMWDEMO_SPEED_OF_LIGHT_IN_METERS_PER_USEC\fP/\fBPROFILE_USRR_START_FREQ_GHZ\fP)"
+.br
+.ti -1c
+.RI "#define \fBCHIRP_USRR_0_PROFILE_ID\fP   (1U)"
+.br
+.ti -1c
+.RI "#define \fBCHIRP_USRR_0_START_INDEX\fP   (256U + 0U)"
+.br
+.ti -1c
+.RI "#define \fBCHIRP_USRR_0_END_INDEX\fP   (256U + 0U)"
+.br
+.ti -1c
+.RI "#define \fBCHIRP_USRR_0_START_FREQ_VAL\fP   (0U)"
+.br
+.ti -1c
+.RI "#define \fBCHIRP_USRR_0_FREQ_SLOPE_VAL\fP   (0U)"
+.br
+.ti -1c
+.RI "#define \fBCHIRP_USRR_0_IDLE_TIME_VAL\fP   (0U)"
+.br
+.ti -1c
+.RI "#define \fBCHIRP_USRR_0_ADC_START_TIME_VAL\fP   (0U)"
+.br
+.ti -1c
+.RI "#define \fBCHIRP_USRR_0_TX_CHANNEL\fP   (\fBTX_CHANNEL_1_ENABLE\fP)"
+.br
+.ti -1c
+.RI "#define \fBCHIRP_USRR_1_PROFILE_ID\fP   (1U)"
+.br
+.ti -1c
+.RI "#define \fBCHIRP_USRR_1_START_INDEX\fP   (256U + 1U)"
+.br
+.ti -1c
+.RI "#define \fBCHIRP_USRR_1_END_INDEX\fP   (256U + 1U)"
+.br
+.ti -1c
+.RI "#define \fBCHIRP_USRR_1_START_FREQ_VAL\fP   (0U)"
+.br
+.ti -1c
+.RI "#define \fBCHIRP_USRR_1_FREQ_SLOPE_VAL\fP   (0U)"
+.br
+.ti -1c
+.RI "#define \fBCHIRP_USRR_1_IDLE_TIME_VAL\fP   (0U)"
+.br
+.ti -1c
+.RI "#define \fBCHIRP_USRR_1_ADC_START_TIME_VAL\fP   (0U)"
+.br
+.ti -1c
+.RI "#define \fBCHIRP_USRR_1_TX_CHANNEL\fP   (\fBTX_CHANNEL_2_ENABLE\fP)"
+.br
+.ti -1c
+.RI "#define \fBCHIRP_USRR_2_PROFILE_ID\fP   (1U)"
+.br
+.ti -1c
+.RI "#define \fBCHIRP_USRR_2_START_INDEX\fP   (256U + 2U)"
+.br
+.ti -1c
+.RI "#define \fBCHIRP_USRR_2_END_INDEX\fP   (256U + 2U)"
+.br
+.ti -1c
+.RI "#define \fBCHIRP_USRR_2_START_FREQ_VAL\fP   (0U)"
+.br
+.ti -1c
+.RI "#define \fBCHIRP_USRR_2_FREQ_SLOPE_VAL\fP   (0U)"
+.br
+.ti -1c
+.RI "#define \fBCHIRP_USRR_2_IDLE_TIME_VAL\fP   (0U)"
+.br
+.ti -1c
+.RI "#define \fBCHIRP_USRR_2_ADC_START_TIME_VAL\fP   (0U)"
+.br
+.ti -1c
+.RI "#define \fBCHIRP_USRR_2_TX_CHANNEL\fP   (\fBTX_CHANNEL_3_ENABLE\fP)"
+.br
+.ti -1c
+.RI "#define \fBSUBFRAME_USRR_CHIRP_START_IDX\fP   (\fBCHIRP_USRR_0_START_INDEX\fP)"
+.br
+.ti -1c
+.RI "#define \fBSUBFRAME_USRR_CHIRP_END_IDX\fP   (\fBCHIRP_USRR_2_END_INDEX\fP)"
+.br
+.ti -1c
+.RI "#define \fBSUBFRAME_USRR_LOOP_COUNT\fP   (32U)"
+.br
+.ti -1c
+.RI "#define \fBSUBFRAME_USRR_PERIODICITY_VAL\fP   (6000000U)"
+.br
+.ti -1c
+.RI "#define \fBSUBFRAME_USRR_TRIGGER_DELAY_VAL\fP   (0U)"
+.br
+.ti -1c
+.RI "#define \fBSUBFRAME_USRR_NUM_REAL_ADC_SAMPLES\fP   (\fBPROFILE_USRR_ADC_SAMPLE_VAL\fP * 2)"
+.br
+.ti -1c
+.RI "#define \fBSUBFRAME_USRR_NUM_CMPLX_ADC_SAMPLES\fP   (\fBPROFILE_USRR_ADC_SAMPLE_VAL\fP)"
+.br
+.ti -1c
+.RI "#define \fBSUBFRAME_USRR_CHIRPTYPE_0_NUM_CHIRPS\fP   ((\fBCHIRP_USRR_0_END_INDEX\fP \- \fBCHIRP_USRR_0_START_INDEX\fP + 1)*\fBSUBFRAME_USRR_LOOP_COUNT\fP)"
+.br
+.ti -1c
+.RI "#define \fBSUBFRAME_USRR_CHIRPTYPE_1_NUM_CHIRPS\fP   ((\fBCHIRP_USRR_1_END_INDEX\fP \- \fBCHIRP_USRR_1_START_INDEX\fP + 1)*\fBSUBFRAME_USRR_LOOP_COUNT\fP)"
+.br
+.ti -1c
+.RI "#define \fBSUBFRAME_USRR_CHIRPTYPE_2_NUM_CHIRPS\fP   ((\fBCHIRP_USRR_2_END_INDEX\fP \- \fBCHIRP_USRR_2_START_INDEX\fP + 1)*\fBSUBFRAME_USRR_LOOP_COUNT\fP)"
+.br
+.ti -1c
+.RI "#define \fBSUBFRAME_USRR_NUM_TX\fP   (3U)"
+.br
+.ti -1c
+.RI "#define \fBSUBFRAME_USRR_NUM_VIRT_ANT\fP   (\fBSUBFRAME_USRR_NUM_TX\fP*\fBNUM_RX_CHANNELS\fP)"
+.br
+.ti -1c
+.RI "#define \fBSUBFRAME_USRR_NUM_ANGLE_BINS\fP   (64U)"
+.br
+.ti -1c
+.RI "#define \fBSUBFRAME_USRR_NUM_CHIRPS_TOTAL\fP   ((\fBSUBFRAME_USRR_CHIRP_END_IDX\fP \- \fBSUBFRAME_USRR_CHIRP_START_IDX\fP + 1) * \fBSUBFRAME_USRR_LOOP_COUNT\fP)"
+.br
+.ti -1c
+.RI "#define \fBPROFILE_USRR_RANGE_RESOLUTION_METERS\fP   ((\fBMMWDEMO_SPEED_OF_LIGHT_IN_METERS_PER_USEC\fP * \fBPROFILE_USRR_DIGOUT_SAMPLERATE_VAL\fP)/ (2000\&.0f * \fBPROFILE_USRR_FREQ_SLOPE_MHZ_PER_US\fP * \fBSUBFRAME_USRR_NUM_CMPLX_ADC_SAMPLES\fP))"
+.br
+.RI "Derived parameters\&. "
+.ti -1c
+.RI "#define \fBSUBFRAME_USRR_CHIRP_REPETITION_PERIOD_US\fP   ((( \fBPROFILE_USRR_IDLE_TIME_VAL\fP + \fBPROFILE_USRR_RAMP_END_TIME_VAL\fP)/100\&.0f))"
+.br
+.ti -1c
+.RI "#define \fBSUBFRAME_USRR_VEL_RESOLUTION_M_P_S\fP   (((1000\&.0f/(3\&.0f*\fBSUBFRAME_USRR_CHIRP_REPETITION_PERIOD_US\fP))/\fBSUBFRAME_USRR_CHIRPTYPE_0_NUM_CHIRPS\fP)*(\fBPROFILE_USRR_LAMBDA_MILLIMETER\fP/2\&.0f))"
+.br
+.ti -1c
+.RI "#define \fBSUBFRAME_USRR_MAX_VEL_M_P_S\fP   (\fBSUBFRAME_USRR_VEL_RESOLUTION_M_P_S\fP*\fBSUBFRAME_USRR_CHIRPTYPE_0_NUM_CHIRPS\fP/2)"
+.br
+.ti -1c
+.RI "#define \fBSUBFRAME_USRR_MIN_SNR_dB\fP   (22\&.0f)"
+.br
+.ti -1c
+.RI "#define \fBSUBFRAME_USRR_NUM_CHIRPTYPES\fP   (3U)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define CHIRP_USRR_0_ADC_START_TIME_VAL   (0U)"
+
+.PP
+Definition at line 65 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define CHIRP_USRR_0_END_INDEX   (256U + 0U)"
+
+.PP
+Definition at line 61 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define CHIRP_USRR_0_FREQ_SLOPE_VAL   (0U)"
+
+.PP
+Definition at line 63 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define CHIRP_USRR_0_IDLE_TIME_VAL   (0U)"
+
+.PP
+Definition at line 64 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define CHIRP_USRR_0_PROFILE_ID   (1U)"
+
+.PP
+Definition at line 59 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define CHIRP_USRR_0_START_FREQ_VAL   (0U)"
+
+.PP
+Definition at line 62 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define CHIRP_USRR_0_START_INDEX   (256U + 0U)"
+
+.PP
+Definition at line 60 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define CHIRP_USRR_0_TX_CHANNEL   (\fBTX_CHANNEL_1_ENABLE\fP)"
+
+.PP
+Definition at line 66 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define CHIRP_USRR_1_ADC_START_TIME_VAL   (0U)"
+
+.PP
+Definition at line 74 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define CHIRP_USRR_1_END_INDEX   (256U + 1U)"
+
+.PP
+Definition at line 70 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define CHIRP_USRR_1_FREQ_SLOPE_VAL   (0U)"
+
+.PP
+Definition at line 72 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define CHIRP_USRR_1_IDLE_TIME_VAL   (0U)"
+
+.PP
+Definition at line 73 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define CHIRP_USRR_1_PROFILE_ID   (1U)"
+
+.PP
+Definition at line 68 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define CHIRP_USRR_1_START_FREQ_VAL   (0U)"
+
+.PP
+Definition at line 71 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define CHIRP_USRR_1_START_INDEX   (256U + 1U)"
+
+.PP
+Definition at line 69 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define CHIRP_USRR_1_TX_CHANNEL   (\fBTX_CHANNEL_2_ENABLE\fP)"
+
+.PP
+Definition at line 75 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define CHIRP_USRR_2_ADC_START_TIME_VAL   (0U)"
+
+.PP
+Definition at line 84 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define CHIRP_USRR_2_END_INDEX   (256U + 2U)"
+
+.PP
+Definition at line 80 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define CHIRP_USRR_2_FREQ_SLOPE_VAL   (0U)"
+
+.PP
+Definition at line 82 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define CHIRP_USRR_2_IDLE_TIME_VAL   (0U)"
+
+.PP
+Definition at line 83 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define CHIRP_USRR_2_PROFILE_ID   (1U)"
+
+.PP
+Definition at line 78 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define CHIRP_USRR_2_START_FREQ_VAL   (0U)"
+
+.PP
+Definition at line 81 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define CHIRP_USRR_2_START_INDEX   (256U + 2U)"
+
+.PP
+Definition at line 79 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define CHIRP_USRR_2_TX_CHANNEL   (\fBTX_CHANNEL_3_ENABLE\fP)"
+
+.PP
+Definition at line 85 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define PROFILE_USRR_ADC_SAMPLE_VAL   (512U)"
+
+.PP
+Definition at line 46 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define PROFILE_USRR_ADC_START_TIME_VAL   (300U)"
+
+.PP
+Definition at line 56 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define PROFILE_USRR_DIGOUT_SAMPLERATE_VAL   (12500U)"
+
+.PP
+Definition at line 45 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define PROFILE_USRR_FREQ_SLOPE_MHZ_PER_US   (56\&.25f)"
+
+.PP
+Definition at line 53 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define PROFILE_USRR_FREQ_SLOPE_VAL   (\fBCONV_SLOPE_MHZ_PER_US_TO_CODEWORD\fP(\fBPROFILE_USRR_FREQ_SLOPE_MHZ_PER_US\fP))"
+
+.PP
+Definition at line 54 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define PROFILE_USRR_HPFCORNER_FREQ1_VAL   RL_RX_HPF1_175_KHz"
+
+.PP
+Definition at line 42 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define PROFILE_USRR_HPFCORNER_FREQ2_VAL   RL_RX_HPF2_350_KHz"
+
+.PP
+Definition at line 43 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define PROFILE_USRR_IDLE_TIME_VAL   (500U)"
+
+.PP
+Definition at line 47 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define PROFILE_USRR_LAMBDA_MILLIMETER   (\fBMMWDEMO_SPEED_OF_LIGHT_IN_METERS_PER_USEC\fP/\fBPROFILE_USRR_START_FREQ_GHZ\fP)"
+
+.PP
+Definition at line 57 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define PROFILE_USRR_PROFILE_ID   (1U)"
+
+.PP
+Ultra short range chirp profile - 20 m range, 4\&.3cm resolution\&. better angular resolution, approximately 18kmph max - vel\&. 
+.PP
+Definition at line 41 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define PROFILE_USRR_RAMP_END_TIME_VAL   (4400U)"
+
+.PP
+Definition at line 48 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define PROFILE_USRR_RANGE_RESOLUTION_METERS   ((\fBMMWDEMO_SPEED_OF_LIGHT_IN_METERS_PER_USEC\fP * \fBPROFILE_USRR_DIGOUT_SAMPLERATE_VAL\fP)/ (2000\&.0f * \fBPROFILE_USRR_FREQ_SLOPE_MHZ_PER_US\fP * \fBSUBFRAME_USRR_NUM_CMPLX_ADC_SAMPLES\fP))"
+
+.PP
+Derived parameters\&. 
+.PP
+Definition at line 105 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define PROFILE_USRR_RX_GAIN_VAL   (30U)"
+
+.PP
+Definition at line 44 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define PROFILE_USRR_START_FREQ_GHZ   (77\&.01f)"
+
+.PP
+Definition at line 49 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define PROFILE_USRR_START_FREQ_VAL   (\fBCONV_FREQ_GHZ_TO_CODEWORD\fP(\fBPROFILE_USRR_START_FREQ_GHZ\fP))"
+
+.PP
+Definition at line 50 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define PROFILE_USRR_TX_START_TIME_VAL   (100U)"
+
+.PP
+Definition at line 55 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define PROFILE_USRR_TXOUT_POWER_BACKOFF   (0U)"
+
+.PP
+Definition at line 51 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define PROFILE_USRR_TXPHASESHIFTER_VAL   (0U)"
+
+.PP
+Definition at line 52 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define SUBFRAME_USRR_CHIRP_END_IDX   (\fBCHIRP_USRR_2_END_INDEX\fP)"
+
+.PP
+Definition at line 89 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define SUBFRAME_USRR_CHIRP_REPETITION_PERIOD_US   ((( \fBPROFILE_USRR_IDLE_TIME_VAL\fP + \fBPROFILE_USRR_RAMP_END_TIME_VAL\fP)/100\&.0f))"
+
+.PP
+Definition at line 108 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define SUBFRAME_USRR_CHIRP_START_IDX   (\fBCHIRP_USRR_0_START_INDEX\fP)"
+
+.PP
+Definition at line 88 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define SUBFRAME_USRR_CHIRPTYPE_0_NUM_CHIRPS   ((\fBCHIRP_USRR_0_END_INDEX\fP \- \fBCHIRP_USRR_0_START_INDEX\fP + 1)*\fBSUBFRAME_USRR_LOOP_COUNT\fP)"
+
+.PP
+Definition at line 95 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define SUBFRAME_USRR_CHIRPTYPE_1_NUM_CHIRPS   ((\fBCHIRP_USRR_1_END_INDEX\fP \- \fBCHIRP_USRR_1_START_INDEX\fP + 1)*\fBSUBFRAME_USRR_LOOP_COUNT\fP)"
+
+.PP
+Definition at line 96 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define SUBFRAME_USRR_CHIRPTYPE_2_NUM_CHIRPS   ((\fBCHIRP_USRR_2_END_INDEX\fP \- \fBCHIRP_USRR_2_START_INDEX\fP + 1)*\fBSUBFRAME_USRR_LOOP_COUNT\fP)"
+
+.PP
+Definition at line 97 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define SUBFRAME_USRR_LOOP_COUNT   (32U)"
+
+.PP
+Definition at line 90 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define SUBFRAME_USRR_MAX_VEL_M_P_S   (\fBSUBFRAME_USRR_VEL_RESOLUTION_M_P_S\fP*\fBSUBFRAME_USRR_CHIRPTYPE_0_NUM_CHIRPS\fP/2)"
+
+.PP
+Definition at line 111 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define SUBFRAME_USRR_MIN_SNR_dB   (22\&.0f)"
+
+.PP
+Definition at line 113 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define SUBFRAME_USRR_NUM_ANGLE_BINS   (64U)"
+
+.PP
+Definition at line 101 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define SUBFRAME_USRR_NUM_CHIRPS_TOTAL   ((\fBSUBFRAME_USRR_CHIRP_END_IDX\fP \- \fBSUBFRAME_USRR_CHIRP_START_IDX\fP + 1) * \fBSUBFRAME_USRR_LOOP_COUNT\fP)"
+
+.PP
+Definition at line 102 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define SUBFRAME_USRR_NUM_CHIRPTYPES   (3U)"
+
+.PP
+Definition at line 115 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define SUBFRAME_USRR_NUM_CMPLX_ADC_SAMPLES   (\fBPROFILE_USRR_ADC_SAMPLE_VAL\fP)"
+
+.PP
+Definition at line 94 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define SUBFRAME_USRR_NUM_REAL_ADC_SAMPLES   (\fBPROFILE_USRR_ADC_SAMPLE_VAL\fP * 2)"
+
+.PP
+Definition at line 93 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define SUBFRAME_USRR_NUM_TX   (3U)"
+
+.PP
+Definition at line 99 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define SUBFRAME_USRR_NUM_VIRT_ANT   (\fBSUBFRAME_USRR_NUM_TX\fP*\fBNUM_RX_CHANNELS\fP)"
+
+.PP
+Definition at line 100 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define SUBFRAME_USRR_PERIODICITY_VAL   (6000000U)"
+
+.PP
+Definition at line 91 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define SUBFRAME_USRR_TRIGGER_DELAY_VAL   (0U)"
+
+.PP
+Definition at line 92 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SS "#define SUBFRAME_USRR_VEL_RESOLUTION_M_P_S   (((1000\&.0f/(3\&.0f*\fBSUBFRAME_USRR_CHIRP_REPETITION_PERIOD_US\fP))/\fBSUBFRAME_USRR_CHIRPTYPE_0_NUM_CHIRPS\fP)*(\fBPROFILE_USRR_LAMBDA_MILLIMETER\fP/2\&.0f))"
+
+.PP
+Definition at line 110 of file mrr_config_chirp_design_USRR30\&.h\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mmWaveFMCWRADAR from the source code\&.

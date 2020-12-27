@@ -1,0 +1,516 @@
+eth008 Board details:
+IP address: 10.218.113.68
+
+Port: 17494
+
+connecting...
+Relay states 8->1 : 00000001
+1 off
+8 off
+2 off
+Relay states 8->1 : 00000000
+1 on
+Relay states 8->1 : 00000001
+exit
+Disconnected
+Pre-Script returned: Success
+**************************************************
+Testcase mods & parameters invoked:
+**************************************************
+Two core test case: None (this is not a two core testcase)
+
+**************************************************
+Copying test case files from the Build server
+**************************************************
+Testdata possible location 1: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/alg/mmwavelib/test/testdata
+
+
+Copy-To local testcase data path is: /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/testdata
+
+Test case data file cfarca_test.bin found on server for downloading
+Test case data file radarCase1_512_test.bin found on server for downloading
+Test case data file radarCase1_mulObj_test.bin found on server for downloading
+Test case data file floatpoint_test_dbscanCluster.bin found on server for downloading
+Test case data file floatPoint_chain_test.bin found on server for downloading
+Test case data file clustering_test.bin found on server for downloading
+Test case data file radarDemo_ref_new.bin found on server for downloading
+Test case data file radarDemo_neg10_test.bin found on server for downloading
+Test case data file dftsinglebin_test.bin found on server for downloading
+Test case data file radarDemo_multiObj_neg15_ref.bin found on server for downloading
+Test case data file radarDemo_neg10_ref.bin found on server for downloading
+Test case data file radarDemo_neg15_ref.bin found on server for downloading
+Test case data file aoaest_test.bin found on server for downloading
+Test case data file floatpoint_test_dbscanCluster_ref.bin found on server for downloading
+Test case data file radarDemo_multiObj_neg5_ref.bin found on server for downloading
+Test case data file accumPowerFlt_test.bin found on server for downloading
+Test case data file floatpoint_test_aoaMultiObj.bin found on server for downloading
+Test case data file radarDemo_captured_ref.bin found on server for downloading
+Test case data file radarCase2_ref.bin found on server for downloading
+Test case data file cfarca_peak_test.bin found on server for downloading
+Test case data file radarDemo_captured_test.bin found on server for downloading
+Test case data file floatpoint_test_aoaMultiObj_ref.bin found on server for downloading
+Test case data file radarDemo_multiObj_test.bin found on server for downloading
+Test case data file windowFlt_test.bin found on server for downloading
+Test case data file radarDemo_multiObj_neg15_test.bin found on server for downloading
+Test case data file radarCase2_mulObj_test.bin found on server for downloading
+Test case data file peakpruning_test.bin found on server for downloading
+Test case data file radarCase1_ref.bin found on server for downloading
+Test case data file radarCase1_512_ref.bin found on server for downloading
+Test case data file radarDemo_multiObj_neg5_test.bin found on server for downloading
+Test case data file radarCase1_test.bin found on server for downloading
+Test case data file radarDemo_neg15_test.bin found on server for downloading
+Test case data file radarCase2_2dfftout_test.bin found on server for downloading
+Test case data file radarCase2_test.bin found on server for downloading
+Test case data file dftsinglebinwithwinQI_test.bin found on server for downloading
+Test case data file radarDemo_multiObj_ref.bin found on server for downloading
+Test case data file radarCase2_mulObj_2dfftout_test.bin found on server for downloading
+Test case data file dftsinglebinwithwin_test.bin found on server for downloading
+Test case data file radarCase1_mulObj_ref.bin found on server for downloading
+Test case data file radarDemo_ref.bin found on server for downloading
+Test case data file cfarca_wrap_test.bin found on server for downloading
+Test case data file radarCase2_mulObj_ref.bin found on server for downloading
+Test case data file radarDemo_test.bin found on server for downloading
+Call to copy_testcase_binary:
+TCP: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/alg/mmwavelib/test/xwr16xx; /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___hs_awr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_50_24
+
+Copying testcase binary file from http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/alg/mmwavelib/test/xwr16xx/xwr16xx_mmwavealg_vecmath.xe674 to /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___hs_awr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_50_24 using command: 
+wget -e robots=off --no-proxy -N -T 30 -t 2 -P /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___hs_awr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_50_24 http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/alg/mmwavelib/test/xwr16xx/xwr16xx_mmwavealg_vecmath.xe674
+**************************************************
+Executing Testcase:/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___hs_awr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_50_24/xwr16xx_mmwavealg_vecmath.xe674
+**************************************************
+Checking if Py4J Gateway server has started...
+Py4J Gateway Server is Started
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/DEBUGSSM_0
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/IcePick_M_0
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/C674X_0
+DSS test case opening debug session.
+
+cr4ctl = 0x0
+
+efuse/register @0xFFFFE210 = 0x0
+
+efuse/register @0xFFFFE214 = 0x0
+
+efuse/register @0xFFFFE218 = 0x0
+
+efuse/register @0xFFFFE21C = 0x0
+
+Loading binary to the DUT (no binary args updated):/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___hs_awr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_50_24/xwr16xx_mmwavealg_vecmath.xe674
+binary path = /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___hs_awr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_50_24/xwr16xx_mmwavealg_vecmath.xe674
+
+dt-time: start time = Thu Nov 29 07:47:34 2018
+
+dt-time: end time = Thu Nov 29 07:50:35 2018
+
+
+**************************************************
+CIO Log captured for the testcase
+**************************************************
+tsc_overhead = 2 cycles
+======== Testing started: ==========
+
+===== Test mmwavelib_vecsumabs =====
+Feature: Vector SumAbs mmwavelib_vecsumabs: Passed
+
+Benchmark for mmwavelib_vecsumabs
+length and cycles:
+64	55
+128	84
+256	116
+512	180
+
+===== Test mmwavelib_vecmul16x32 =====
+Feature: Multiply Complex Vectors mmwavelib_vecmul16x32: Passed
+
+Benchmark for mmwavelib_vecmul16x32
+Ncplx and cycles:
+16	53
+32	90
+64	138
+128	234
+
+===== Test mmwavelib_vecmul16x32_anylen =====
+Feature: Multiply Complex Vectors mmwavelib_vecmul16x32_anylen: Passed
+
+Benchmark for mmwavelib_vecmul16x32_anylen
+len and cycles:
+16	88
+32	122
+64	194
+128	338
+
+===== Test mmwavelib_vecmul32x16c =====
+Feature: Multiply Complex Vectors mmwavelib_vecmul32x16c: Passed
+
+Benchmark for mmwavelib_vecmul132x16c
+len and cycles:
+16	74
+32	118
+64	182
+128	310
+
+===== Test mmwavelib_vecmul16x16 =====
+Feature: Multiply Complex Vectors mmwavelib_vecmul16x16: Passed
+
+Benchmark for mmwavelib_vecmul16x16
+Ncplx and cycles:
+16	64
+32	75
+64	99
+128	147
+
+===== Test mmwavelib_maxpow and mmwavelib_powerAndMax =====
+Feature: Max power search mmwavelib_maxpow: Passed
+Feature: Power calc and Max Search mmwavelib_powerAndMax: Passed
+
+Benchmark for mmwavelib_maxpow
+Ncplx and cycles:
+16	70
+32	109
+64	157
+128	253
+
+Benchmark for mmwavelib_powerAndMax
+Ncplx and cycles:
+16	89
+32	113
+64	161
+128	257
+
+===== Test mmwavelib_power =====
+Feature: Power calculation mmwavelib_power: Passed
+
+Benchmark for mmwavelib_power
+Ncplx and cycles:
+16	81
+32	100
+64	148
+
+===== Test mmwavelib_power_float =====
+Feature: Power calculation mmwavelib_power_float: Passed
+
+Benchmark for mmwavelib_power_float
+Ncplx and cycles:
+16	57
+32	73
+64	105
+
+===== Test mmwavelib_multipeak =====
+len=64, threshscale = 0.00: Number peaks match.
+len=64, threshscale = 0.90: Number peaks match.
+idx = 8: val = 928.678223
+idx = 53: val = 997.650085
+idx = 55: val = 906.613342
+idx = 59: val = 993.957336
+idx = 63: val = 908.810669
+len=128, threshscale = 0.90: Number peaks match.
+idx = 10: val = 2073625.000000
+idx = 44: val = 2133260.750000
+Feature: Multiple Peak Search mmwavelib_multiPeakSearch: Passed
+
+Benchmark for mmwavelib_multipeak
+Len and cycles:
+16	240
+32	427
+64	803
+128	1555
+
+===== Test mmwavelib_secondpeak =====
+len = 64, maxidx = 22, maxval = 2133260.75
+Second peak's idx = 5, val = 2073625.00
+Second peak index is correct.
+len and cycles:
+64	364
+
+len = 128, maxidx = 44, maxval = 2133260.75
+Second peak's idx = 10, val = 2073625.00
+Second peak index is correct.
+len and cycles:
+128	623
+
+len = 32, maxidx = 11, maxval = 2133260.75
+Second peak's idx = 2, val = 2027158.13
+Second peak index is correct.
+len and cycles:
+32	239
+
+len = 64, maxidx = 0, maxval = 2133260.75
+Second peak's idx = 47, val = 2073625.00
+Second peak index is correct.
+len and cycles:
+64	359
+
+len = 64, maxidx = 63, maxval = 2133260.75
+Second peak's idx = 46, val = 2073625.00
+Second peak index is correct.
+len and cycles:
+64	359
+
+Feature: Second Peak Search mmwavelib_secondPeakSearch: Passed
+
+===== Test mmwavelib_mattrans =====
+Feature: Matrix Transpose mmwavelib_mattrans: Passed
+
+Benchmark for mmwavelib_mattrans
+rows	cols	cycles:
+128	32	8469
+128	32	7686
+rows	cols	cycles	0.75*rows*cols+3*cols+35:
+4	2	47	47
+4	4	59	59
+4	6	71	71
+
+8	2	53	53
+8	4	71	71
+8	6	89	89
+
+16	2	65	65
+16	4	95	95
+16	6	125	125
+
+32	2	89	89
+32	4	143	143
+32	6	197	197
+
+64	2	137	137
+64	4	239	239
+64	6	341	341
+
+128	2	233	233
+128	4	431	431
+128	6	660	629
+
+256	2	425	425
+256	4	815	815
+256	6	1205	1205
+
+512	2	809	809
+512	4	1583	1583
+512	6	4382	2357
+
+rows	cols	cycles	1*rows*cols+3*cols+35:
+4	8	91	91
+4	16	147	147
+4	24	203	203
+4	32	259	259
+
+8	8	123	123
+8	16	211	211
+8	24	299	299
+8	32	387	387
+
+16	8	187	187
+16	16	339	339
+16	24	491	491
+16	32	643	643
+
+32	8	315	315
+32	16	595	595
+32	24	875	875
+32	32	1155	1155
+
+64	8	571	571
+64	16	1107	1107
+64	24	1643	1643
+64	32	2179	2179
+
+128	8	1083	1083
+128	16	2156	2131
+128	24	4684	3179
+128	32	7242	4227
+
+
+===== Test mmwavelib_dcRemovalFloat =====
+Feature: DC Removal mmwavelib_dcRemovalFloat: Passed
+
+Benchmark for mmwavelib_dcRemovalFloat
+Ncplx	cycles:
+ncplx mod 8 = 0:
+16	181
+32	254
+64	398
+128	686
+
+ncplx mod 8 = 1:
+17	181
+33	254
+65	398
+129	686
+
+ncplx mod 8 = 2:
+18	172
+34	229
+66	341
+130	565
+
+ncplx mod 8 = 3:
+19	172
+35	229
+67	341
+131	565
+
+ncplx mod 8 = 4:
+20	179
+36	236
+68	348
+132	572
+
+ncplx mod 8 = 5:
+21	179
+37	236
+69	348
+133	572
+
+ncplx mod 8 = 6:
+22	196
+38	261
+70	389
+134	645
+
+ncplx mod 8 = 7:
+23	196
+39	261
+71	389
+135	645
+
+
+===== Test mmwavelib_accum16to32 =====
+Feature: Vector accumulation mmwavelib_accum16to32: Passed
+
+Benchmark for mmwavelib_accum16to32
+len	cycles:
+8	49
+10	62
+12	65
+14	65
+16	68
+18	68
+20	71
+22	71
+24	75
+26	75
+28	78
+30	78
+32	81
+34	81
+36	84
+38	84
+40	88
+42	88
+44	91
+46	91
+48	94
+50	94
+52	97
+54	97
+56	101
+58	101
+60	104
+62	104
+64	107
+
+
+===== Test mmwavelib_shiftright32to16 =====
+Feature: Vector shift mmwavelib_shiftright32to16: Passed
+
+Benchmark for mmwavelib_shiftright32to16
+len	cycles:
+2	40
+4	53
+6	53
+8	55
+10	55
+12	57
+14	57
+16	59
+18	59
+20	61
+22	61
+24	63
+26	63
+28	65
+30	65
+32	67
+34	67
+36	69
+38	69
+40	71
+42	71
+44	73
+46	73
+48	75
+50	75
+52	77
+54	77
+56	79
+58	79
+60	81
+62	81
+64	83
+
+
+===== Test mmwavelib_vecsub16 =====
+Feature: Vector subtraction mmwavelib_vecsub16: Passed
+
+Benchmark for mmwavelib_vecsub16
+len	cycles:
+len mod 8 = 0:
+32	57
+40	71
+48	74
+56	77
+64	80
+len mod 8 = 2:
+34	78
+42	80
+50	83
+58	86
+len mod 8 = 4:
+36	79
+44	82
+52	85
+60	88
+len mod 8 = 6:
+38	81
+46	85
+54	88
+62	91
+
+
+======== Vector math tests and matrix test all passed! ========== 
+======== Testing completed! ==========
+Value read from Global variable (MCPI_Result): 0
+Test Failure Signature: 0
+Test Log Messages: 
+Feature tested: Vector SumAbs mmwavelib_vecsumabs: Passed
+Feature tested: Multiply Complex Vectors mmwavelib_vecmul16x32: Passed
+Feature tested: Multiply Complex Vectors mmwavelib_vecmul16x32_anylen: Passed
+Feature tested: Multiply Complex Vectors mmwavelib_vecmul32x16c: Passed
+Feature tested: Multiply Complex Vectors mmwavelib_vecmul16x16: Passed
+Feature tested: Max power search mmwavelib_maxpow: Passed
+Feature tested: Power calc and Max Search mmwavelib_powerAndMax: Passed
+Feature tested: Power calculation mmwavelib_power: Passed
+Feature tested: Power calculation mmwavelib_power_float: Passed
+Feature tested: Multiple Peak Search mmwavelib_multiPeakSearch: Passed
+Feature tested: Second Peak Search mmwavelib_secondPeakSearch: Passed
+Feature tested: Matrix Transpose mmwavelib_mattrans: Passed
+Feature tested: DC Removal mmwavelib_dcRemovalFloat: Passed
+Feature tested: Vector accumulation mmwavelib_accum16to32: Passed
+Feature tested: Vector shift mmwavelib_shiftright32to16: Passed
+Feature tested: Vector subtraction mmwavelib_vecsub16: Passed
+
+
+shutting down py4j gw server.
+
+
+**************************************************
+Terminating the debug session and Shutting down gateway.
+**************************************************
+
+**************************************************
+Test case execution completed
+**************************************************
+
+**************************************************
+Testcase Result : PASS
+**************************************************

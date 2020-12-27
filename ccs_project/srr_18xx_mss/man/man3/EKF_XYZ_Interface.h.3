@@ -1,0 +1,95 @@
+.TH "C:/Users/astro/workspace_v9_2/mrr_18xx_dss/EKF_XYZ_Interface.h" 3 "Wed May 20 2020" "Version 1.0" "mmWaveFMCWRADAR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/Users/astro/workspace_v9_2/mrr_18xx_dss/EKF_XYZ_Interface.h \- Interface the Extended Kalman Filter\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'EKF_XYZ_Consts\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBekfInit\fP (\fBMmwDemo_DSS_DataPathObj\fP *restrict obj)"
+.br
+.ti -1c
+.RI "void \fBekfRun\fP (const int32_t numMeas, \fBtrackingInputReport_t\fP const *restrict measArray, \fBMmwDemo_DSS_DataPathObj\fP *restrict obj, float const *restrict QvecList, const float td)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Interface the Extended Kalman Filter\&. 
+
+Copyright (C) 2017 Texas Instruments Incorporated - http://www.ti.com/
+.PP
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+.PP
+Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer\&.
+.PP
+Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution\&.
+.PP
+Neither the name of Texas Instruments Incorporated nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission\&.
+.PP
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED\&. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE\&. 
+.PP
+Definition in file \fBEKF_XYZ_Interface\&.h\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "void ekfInit (\fBMmwDemo_DSS_DataPathObj\fP *restrict dataPathObj)"
+\fBDescription\fP 
+.br
+ This function initializes the memory used by the tracking function\&. It also initializes all the trackers to an invalid state, and then populates the 'process noise matrix' or 'Qmat'\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIdataPathObj\fP data path object
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP Applicable\&. 
+.RE
+.PP
+
+.PP
+Definition at line 86 of file Extended_Kalman_Filter_xyz\&.c\&.
+.PP
+References FRAME_PERIODICITY_SEC, IS_INVALID, iX, iXd, iY, iYd, MAX_ACCEL_X_M_P_SECSQ, MAX_ACCEL_Y_M_P_SECSQ, MAX_TRK_OBJs, MRR_MAX_OBJ_OUT, N_MEASUREMENTS, N_STATES, N_UNIQ_ELEM_IN_HMAT, N_UNIQ_ELEM_IN_SYM_COVMAT, N_UNIQ_ELEM_IN_SYM_RESIDCOVMAT, and KFtrackerInstance::scratchPadFlt\&.
+.SS "void ekfRun (const int32_t numMeas, \fBtrackingInputReport_t\fP const *restrict measArray, \fBMmwDemo_DSS_DataPathObj\fP *restrict dataPathObj, float const *restrict QvecList, const float td)"
+\fBDescription\fP 
+.br
+ This function runs the kalmanfilter on a list of input data 
+.br
+.PP
+\fBParameters\fP
+.RS 4
+\fInumMeas\fP The number of tracking inputs\&. 
+.br
+\fImeasArray\fP An array of structures holding the measurements\&. 
+.br
+ 
+.br
+\fIdataPathObj\fP data path object 
+.br
+\fIQvecList\fP A array of structures holding the 'process noise matrix\&. 
+.br
+\fItd\fP The update rate of the measurement\&.
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP Applicable\&. 
+.RE
+.PP
+
+.PP
+Definition at line 166 of file Extended_Kalman_Filter_xyz\&.c\&.
+.PP
+References AGED_OBJ_DELETION_THRESH, arrangeTracksByAge(), KFtrackerInstance::assocMeasIndx, computeHmat(), computePredictedMeas(), createNewTracks(), InitAssociatedMeasurementIndx(), initAssociatedTrackerIndx(), invalidateCurrTrack(), iRANGE, iRANGE_RATE, IS_ASSOCIATED, IS_INVALID, iSIN_AZIM, isTargetWithinDataAssociationThresh(), isWithinBoundingBox(), iY, kalmanGainComputation(), MAX_TRK_OBJs, NOT_ASSOCIATED, residualCovarianceComputation(), select_QVec(), selectMeas(), stateCovmatMeasurementUpdate(), stateCovmatTimeUpdate(), stateVecMeasurementUpdate(), stateVecTimeUpdate(), and symMatInv()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mmWaveFMCWRADAR from the source code\&.

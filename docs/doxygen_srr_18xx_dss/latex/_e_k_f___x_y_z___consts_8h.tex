@@ -1,0 +1,535 @@
+\doxysection{E\+K\+F\+\_\+\+X\+Y\+Z\+\_\+\+Consts.\+h File Reference}
+\label{_e_k_f___x_y_z___consts_8h}\index{EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}}
+
+
+Constants for the Extended Kalman Filter.  
+
+
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_e_k_f___x_y_z___consts_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ E\+PS}~0.\+00001
+\item 
+\#define \textbf{ K\+F\+\_\+2D}~1
+\item 
+\#define \textbf{ K\+F\+\_\+3D}~0
+\item 
+\#define \textbf{ i\+R\+A\+N\+GE}~0           /$\ast$ Index of Range (meters)$\ast$/
+\item 
+\#define \textbf{ i\+R\+A\+N\+G\+E\+\_\+\+R\+A\+TE}~1      /$\ast$ Index of Range rate (meters/sec)$\ast$/
+\item 
+\#define \textbf{ i\+S\+I\+N\+\_\+\+A\+Z\+IM}~2        /$\ast$ Index of sin(azim) (x/r)$\ast$/
+\item 
+\#define \textbf{ iX}~0               /$\ast$ Index of x-\/coord  (meters)$\ast$/
+\item 
+\#define \textbf{ iY}~1               /$\ast$ Index of y-\/coord  (meters)$\ast$/
+\item 
+\#define \textbf{ i\+Xd}~2              /$\ast$ Index of Speed in x direction (meters/sec)$\ast$/
+\item 
+\#define \textbf{ i\+Yd}~3              /$\ast$ Index of Speed in y direction (meters/sec)$\ast$/
+\item 
+\#define \textbf{ N\+\_\+\+S\+T\+A\+T\+ES}~4
+\item 
+\#define \textbf{ N\+\_\+\+M\+E\+A\+S\+U\+R\+E\+M\+E\+N\+TS}~3
+\item 
+\#define \textbf{ N\+\_\+\+U\+N\+I\+Q\+\_\+\+E\+L\+E\+M\+\_\+\+I\+N\+\_\+\+H\+M\+AT}~6
+\item 
+\#define \textbf{ N\+\_\+\+U\+N\+I\+Q\+\_\+\+E\+L\+E\+M\+\_\+\+I\+N\+\_\+\+S\+Y\+M\+\_\+\+C\+O\+V\+M\+AT}~(\textbf{ N\+\_\+\+S\+T\+A\+T\+ES}$\ast$(\textbf{ N\+\_\+\+S\+T\+A\+T\+ES}+1)/2)
+\item 
+\#define \textbf{ N\+\_\+\+U\+N\+I\+Q\+\_\+\+E\+L\+E\+M\+\_\+\+I\+N\+\_\+\+S\+Y\+M\+\_\+\+R\+E\+S\+I\+D\+C\+O\+V\+M\+AT}~(\textbf{ N\+\_\+\+M\+E\+A\+S\+U\+R\+E\+M\+E\+N\+TS}$\ast$(\textbf{ N\+\_\+\+M\+E\+A\+S\+U\+R\+E\+M\+E\+N\+TS}+1)/2)
+\item 
+\#define \textbf{ i\+XX}~\textbf{ iX}
+\item 
+\#define \textbf{ i\+XY}~(\textbf{ i\+XX} + 1)
+\item 
+\#define \textbf{ i\+X\+Xd}~(\textbf{ i\+XY} + 1)
+\item 
+\#define \textbf{ i\+X\+Yd}~(\textbf{ i\+X\+Xd} + 1)
+\item 
+\#define \textbf{ i\+YY}~(\textbf{ i\+X\+Yd} + 1)
+\item 
+\#define \textbf{ i\+Y\+Xd}~(\textbf{ i\+YY} + 1)
+\item 
+\#define \textbf{ i\+Y\+Yd}~(\textbf{ i\+Y\+Xd} + 1)
+\item 
+\#define \textbf{ i\+Xd\+Xd}~(\textbf{ i\+Y\+Yd} + 1)
+\item 
+\#define \textbf{ i\+Xd\+Yd}~(\textbf{ i\+Xd\+Xd} + 1)
+\item 
+\#define \textbf{ i\+Yd\+Yd}~(\textbf{ i\+Xd\+Yd} + 1)
+\item 
+\#define \textbf{ i\+RR}~\textbf{ i\+R\+A\+N\+GE}
+\item 
+\#define \textbf{ i\+R\+Rd}~(\textbf{ i\+RR} + 1)
+\item 
+\#define \textbf{ i\+R\+Az}~(\textbf{ i\+R\+Rd} + 1)
+\item 
+\#define \textbf{ i\+Rd\+Rd}~(\textbf{ i\+R\+Az} + 1)
+\item 
+\#define \textbf{ i\+Rd\+Az}~(\textbf{ i\+Rd\+Rd} + 1)
+\item 
+\#define \textbf{ i\+Az\+Az}~(\textbf{ i\+Rd\+Az} + 1)
+\item 
+\#define \textbf{ N\+O\+T\+\_\+\+A\+S\+S\+O\+C\+I\+A\+T\+ED}~(-\/1)
+\begin{DoxyCompactList}\small\item\em object has not been associated. \end{DoxyCompactList}\item 
+\#define \textbf{ I\+S\+\_\+\+A\+S\+S\+O\+C\+I\+A\+T\+ED}~(1)
+\begin{DoxyCompactList}\small\item\em object has been associated. \end{DoxyCompactList}\item 
+\#define \textbf{ I\+S\+\_\+\+I\+N\+V\+A\+L\+ID}~(0)
+\begin{DoxyCompactList}\small\item\em object is invalid. \end{DoxyCompactList}\item 
+\#define \textbf{ I\+S\+\_\+\+V\+A\+L\+ID}~(1)
+\begin{DoxyCompactList}\small\item\em object is valid. \end{DoxyCompactList}\item 
+\#define \textbf{ M\+A\+X\+\_\+\+A\+C\+C\+E\+L\+\_\+\+Y\+\_\+\+M\+\_\+\+P\+\_\+\+S\+E\+C\+SQ}~12 /$\ast$ m/s$^\wedge$2$\ast$/
+\begin{DoxyCompactList}\small\item\em Unmodelled acceleration parameter in the Y direction (perpendicular to the antenna). \end{DoxyCompactList}\item 
+\#define \textbf{ M\+A\+X\+\_\+\+A\+C\+C\+E\+L\+\_\+\+X\+\_\+\+M\+\_\+\+P\+\_\+\+S\+E\+C\+SQ}~5 /$\ast$ m/s$^\wedge$2$\ast$/
+\begin{DoxyCompactList}\small\item\em Unmodelled acceleration parameter in the X direction (parallel to the antenna). \end{DoxyCompactList}\item 
+\#define \textbf{ A\+G\+E\+D\+\_\+\+O\+B\+J\+\_\+\+D\+E\+L\+E\+T\+I\+O\+N\+\_\+\+T\+H\+R\+E\+SH}~10
+\begin{DoxyCompactList}\small\item\em Delete objects that haven\textquotesingle{}t been associated after these many ticks. \end{DoxyCompactList}\item 
+\#define \textbf{ H\+I\+G\+H\+\_\+\+S\+N\+R\+\_\+\+R\+V\+A\+R\+\_\+\+T\+H\+R\+E\+SH}~6
+\begin{DoxyCompactList}\small\item\em Objects with range variance lower than this are considered to be high S\+NR tracks. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Constants for the Extended Kalman Filter. 
+
+Copyright (C) 2017 Texas Instruments Incorporated -\/ {\texttt{ http\+://www.\+ti.\+com/}}
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met\+:
+
+Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+Neither the name of Texas Instruments Incorporated nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+T\+H\+IS S\+O\+F\+T\+W\+A\+RE IS P\+R\+O\+V\+I\+D\+ED BY T\+HE C\+O\+P\+Y\+R\+I\+G\+HT H\+O\+L\+D\+E\+RS A\+ND C\+O\+N\+T\+R\+I\+B\+U\+T\+O\+RS \char`\"{}\+A\+S I\+S\char`\"{} A\+ND A\+NY E\+X\+P\+R\+E\+SS OR I\+M\+P\+L\+I\+ED W\+A\+R\+R\+A\+N\+T\+I\+ES, I\+N\+C\+L\+U\+D\+I\+NG, B\+UT N\+OT L\+I\+M\+I\+T\+ED TO, T\+HE I\+M\+P\+L\+I\+ED W\+A\+R\+R\+A\+N\+T\+I\+ES OF M\+E\+R\+C\+H\+A\+N\+T\+A\+B\+I\+L\+I\+TY A\+ND F\+I\+T\+N\+E\+SS F\+OR A P\+A\+R\+T\+I\+C\+U\+L\+AR P\+U\+R\+P\+O\+SE A\+RE D\+I\+S\+C\+L\+A\+I\+M\+ED. IN NO E\+V\+E\+NT S\+H\+A\+LL T\+HE C\+O\+P\+Y\+R\+I\+G\+HT O\+W\+N\+ER OR C\+O\+N\+T\+R\+I\+B\+U\+T\+O\+RS BE L\+I\+A\+B\+LE F\+OR A\+NY D\+I\+R\+E\+CT, I\+N\+D\+I\+R\+E\+CT, I\+N\+C\+I\+D\+E\+N\+T\+AL, S\+P\+E\+C\+I\+AL, E\+X\+E\+M\+P\+L\+A\+RY, OR C\+O\+N\+S\+E\+Q\+U\+E\+N\+T\+I\+AL D\+A\+M\+A\+G\+ES (I\+N\+C\+L\+U\+D\+I\+NG, B\+UT N\+OT L\+I\+M\+I\+T\+ED TO, P\+R\+O\+C\+U\+R\+E\+M\+E\+NT OF S\+U\+B\+S\+T\+I\+T\+U\+TE G\+O\+O\+DS OR S\+E\+R\+V\+I\+C\+ES; L\+O\+SS OF U\+SE, D\+A\+TA, OR P\+R\+O\+F\+I\+TS; OR B\+U\+S\+I\+N\+E\+SS I\+N\+T\+E\+R\+R\+U\+P\+T\+I\+ON) H\+O\+W\+E\+V\+ER C\+A\+U\+S\+ED A\+ND ON A\+NY T\+H\+E\+O\+RY OF L\+I\+A\+B\+I\+L\+I\+TY, W\+H\+E\+T\+H\+ER IN C\+O\+N\+T\+R\+A\+CT, S\+T\+R\+I\+CT L\+I\+A\+B\+I\+L\+I\+TY, OR T\+O\+RT (I\+N\+C\+L\+U\+D\+I\+NG N\+E\+G\+L\+I\+G\+E\+N\+CE OR O\+T\+H\+E\+R\+W\+I\+SE) A\+R\+I\+S\+I\+NG IN A\+NY W\+AY O\+UT OF T\+HE U\+SE OF T\+H\+IS S\+O\+F\+T\+W\+A\+RE, E\+V\+EN IF A\+D\+V\+I\+S\+ED OF T\+HE P\+O\+S\+S\+I\+B\+I\+L\+I\+TY OF S\+U\+CH D\+A\+M\+A\+GE. 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\label{_e_k_f___x_y_z___consts_8h_a6646e9cd2e5fbc415ac21a13eb5c9c18}} 
+\index{EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}!AGED\_OBJ\_DELETION\_THRESH@{AGED\_OBJ\_DELETION\_THRESH}}
+\index{AGED\_OBJ\_DELETION\_THRESH@{AGED\_OBJ\_DELETION\_THRESH}!EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}}
+\doxysubsubsection{AGED\_OBJ\_DELETION\_THRESH}
+{\footnotesize\ttfamily \#define A\+G\+E\+D\+\_\+\+O\+B\+J\+\_\+\+D\+E\+L\+E\+T\+I\+O\+N\+\_\+\+T\+H\+R\+E\+SH~10}
+
+
+
+Delete objects that haven\textquotesingle{}t been associated after these many ticks. 
+
+
+
+Definition at line 186 of file E\+K\+F\+\_\+\+X\+Y\+Z\+\_\+\+Consts.\+h.
+
+\mbox{\label{_e_k_f___x_y_z___consts_8h_a6ebf6899d6c1c8b7b9d09be872c05aae}} 
+\index{EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}!EPS@{EPS}}
+\index{EPS@{EPS}!EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}}
+\doxysubsubsection{EPS}
+{\footnotesize\ttfamily \#define E\+PS~0.\+00001}
+
+
+
+Definition at line 43 of file E\+K\+F\+\_\+\+X\+Y\+Z\+\_\+\+Consts.\+h.
+
+\mbox{\label{_e_k_f___x_y_z___consts_8h_a4ac7d5bc1f574083f9349885b47969ad}} 
+\index{EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}!HIGH\_SNR\_RVAR\_THRESH@{HIGH\_SNR\_RVAR\_THRESH}}
+\index{HIGH\_SNR\_RVAR\_THRESH@{HIGH\_SNR\_RVAR\_THRESH}!EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}}
+\doxysubsubsection{HIGH\_SNR\_RVAR\_THRESH}
+{\footnotesize\ttfamily \#define H\+I\+G\+H\+\_\+\+S\+N\+R\+\_\+\+R\+V\+A\+R\+\_\+\+T\+H\+R\+E\+SH~6}
+
+
+
+Objects with range variance lower than this are considered to be high S\+NR tracks. 
+
+
+
+Definition at line 188 of file E\+K\+F\+\_\+\+X\+Y\+Z\+\_\+\+Consts.\+h.
+
+\mbox{\label{_e_k_f___x_y_z___consts_8h_a63c011f246b8fb13e2c1a0b3ed77a7cb}} 
+\index{EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}!iAzAz@{iAzAz}}
+\index{iAzAz@{iAzAz}!EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}}
+\doxysubsubsection{iAzAz}
+{\footnotesize\ttfamily \#define i\+Az\+Az~(\textbf{ i\+Rd\+Az} + 1)}
+
+
+
+Definition at line 149 of file E\+K\+F\+\_\+\+X\+Y\+Z\+\_\+\+Consts.\+h.
+
+\mbox{\label{_e_k_f___x_y_z___consts_8h_a1eb83b9c5f43cc6f3916c16c3f6ff521}} 
+\index{EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}!iRANGE@{iRANGE}}
+\index{iRANGE@{iRANGE}!EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}}
+\doxysubsubsection{iRANGE}
+{\footnotesize\ttfamily \#define i\+R\+A\+N\+GE~0           /$\ast$ Index of Range (meters)$\ast$/}
+
+
+
+Definition at line 50 of file E\+K\+F\+\_\+\+X\+Y\+Z\+\_\+\+Consts.\+h.
+
+\mbox{\label{_e_k_f___x_y_z___consts_8h_a49ef119e1add41243d9529c6a965dd46}} 
+\index{EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}!iRANGE\_RATE@{iRANGE\_RATE}}
+\index{iRANGE\_RATE@{iRANGE\_RATE}!EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}}
+\doxysubsubsection{iRANGE\_RATE}
+{\footnotesize\ttfamily \#define i\+R\+A\+N\+G\+E\+\_\+\+R\+A\+TE~1      /$\ast$ Index of Range rate (meters/sec)$\ast$/}
+
+
+
+Definition at line 51 of file E\+K\+F\+\_\+\+X\+Y\+Z\+\_\+\+Consts.\+h.
+
+\mbox{\label{_e_k_f___x_y_z___consts_8h_ac9ef22eec2143586363bac17a11d5d7f}} 
+\index{EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}!iRAz@{iRAz}}
+\index{iRAz@{iRAz}!EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}}
+\doxysubsubsection{iRAz}
+{\footnotesize\ttfamily \#define i\+R\+Az~(\textbf{ i\+R\+Rd} + 1)}
+
+
+
+Definition at line 144 of file E\+K\+F\+\_\+\+X\+Y\+Z\+\_\+\+Consts.\+h.
+
+\mbox{\label{_e_k_f___x_y_z___consts_8h_a332345eeabd0f2a09d8fdb0a41a0b769}} 
+\index{EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}!iRdAz@{iRdAz}}
+\index{iRdAz@{iRdAz}!EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}}
+\doxysubsubsection{iRdAz}
+{\footnotesize\ttfamily \#define i\+Rd\+Az~(\textbf{ i\+Rd\+Rd} + 1)}
+
+
+
+Definition at line 147 of file E\+K\+F\+\_\+\+X\+Y\+Z\+\_\+\+Consts.\+h.
+
+\mbox{\label{_e_k_f___x_y_z___consts_8h_ae63a7df1a1a97be890f007126f149157}} 
+\index{EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}!iRdRd@{iRdRd}}
+\index{iRdRd@{iRdRd}!EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}}
+\doxysubsubsection{iRdRd}
+{\footnotesize\ttfamily \#define i\+Rd\+Rd~(\textbf{ i\+R\+Az} + 1)}
+
+
+
+Definition at line 146 of file E\+K\+F\+\_\+\+X\+Y\+Z\+\_\+\+Consts.\+h.
+
+\mbox{\label{_e_k_f___x_y_z___consts_8h_acd8229c8c2306d35b232ba883eca9a43}} 
+\index{EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}!iRR@{iRR}}
+\index{iRR@{iRR}!EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}}
+\doxysubsubsection{iRR}
+{\footnotesize\ttfamily \#define i\+RR~\textbf{ i\+R\+A\+N\+GE}}
+
+
+
+Definition at line 142 of file E\+K\+F\+\_\+\+X\+Y\+Z\+\_\+\+Consts.\+h.
+
+\mbox{\label{_e_k_f___x_y_z___consts_8h_a0e31c913018e9b855e527dc11ff139b7}} 
+\index{EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}!iRRd@{iRRd}}
+\index{iRRd@{iRRd}!EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}}
+\doxysubsubsection{iRRd}
+{\footnotesize\ttfamily \#define i\+R\+Rd~(\textbf{ i\+RR} + 1)}
+
+
+
+Definition at line 143 of file E\+K\+F\+\_\+\+X\+Y\+Z\+\_\+\+Consts.\+h.
+
+\mbox{\label{_e_k_f___x_y_z___consts_8h_a6fb926c6944d602773af07c297dcb42d}} 
+\index{EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}!IS\_ASSOCIATED@{IS\_ASSOCIATED}}
+\index{IS\_ASSOCIATED@{IS\_ASSOCIATED}!EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}}
+\doxysubsubsection{IS\_ASSOCIATED}
+{\footnotesize\ttfamily \#define I\+S\+\_\+\+A\+S\+S\+O\+C\+I\+A\+T\+ED~(1)}
+
+
+
+object has been associated. 
+
+
+
+Definition at line 173 of file E\+K\+F\+\_\+\+X\+Y\+Z\+\_\+\+Consts.\+h.
+
+\mbox{\label{_e_k_f___x_y_z___consts_8h_a102767bb347a375485373856a96bfe98}} 
+\index{EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}!IS\_INVALID@{IS\_INVALID}}
+\index{IS\_INVALID@{IS\_INVALID}!EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}}
+\doxysubsubsection{IS\_INVALID}
+{\footnotesize\ttfamily \#define I\+S\+\_\+\+I\+N\+V\+A\+L\+ID~(0)}
+
+
+
+object is invalid. 
+
+
+
+Definition at line 175 of file E\+K\+F\+\_\+\+X\+Y\+Z\+\_\+\+Consts.\+h.
+
+\mbox{\label{_e_k_f___x_y_z___consts_8h_a64e6456a4cc84a20b74b435632a2826c}} 
+\index{EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}!IS\_VALID@{IS\_VALID}}
+\index{IS\_VALID@{IS\_VALID}!EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}}
+\doxysubsubsection{IS\_VALID}
+{\footnotesize\ttfamily \#define I\+S\+\_\+\+V\+A\+L\+ID~(1)}
+
+
+
+object is valid. 
+
+
+
+Definition at line 177 of file E\+K\+F\+\_\+\+X\+Y\+Z\+\_\+\+Consts.\+h.
+
+\mbox{\label{_e_k_f___x_y_z___consts_8h_a8028f384d5b683615899aea8037a8b0a}} 
+\index{EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}!iSIN\_AZIM@{iSIN\_AZIM}}
+\index{iSIN\_AZIM@{iSIN\_AZIM}!EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}}
+\doxysubsubsection{iSIN\_AZIM}
+{\footnotesize\ttfamily \#define i\+S\+I\+N\+\_\+\+A\+Z\+IM~2        /$\ast$ Index of sin(azim) (x/r)$\ast$/}
+
+
+
+Definition at line 52 of file E\+K\+F\+\_\+\+X\+Y\+Z\+\_\+\+Consts.\+h.
+
+\mbox{\label{_e_k_f___x_y_z___consts_8h_a7eb293f022f8a32486a057c717c7c5b9}} 
+\index{EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}!iX@{iX}}
+\index{iX@{iX}!EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}}
+\doxysubsubsection{iX}
+{\footnotesize\ttfamily \#define iX~0               /$\ast$ Index of x-\/coord  (meters)$\ast$/}
+
+
+
+Definition at line 55 of file E\+K\+F\+\_\+\+X\+Y\+Z\+\_\+\+Consts.\+h.
+
+\mbox{\label{_e_k_f___x_y_z___consts_8h_a42424bda42db7cf0ac20e2dcb38adbdc}} 
+\index{EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}!iXd@{iXd}}
+\index{iXd@{iXd}!EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}}
+\doxysubsubsection{iXd}
+{\footnotesize\ttfamily \#define i\+Xd~2              /$\ast$ Index of Speed in x direction (meters/sec)$\ast$/}
+
+
+
+Definition at line 57 of file E\+K\+F\+\_\+\+X\+Y\+Z\+\_\+\+Consts.\+h.
+
+\mbox{\label{_e_k_f___x_y_z___consts_8h_a108905f221013b69440c9b8f53604a9e}} 
+\index{EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}!iXdXd@{iXdXd}}
+\index{iXdXd@{iXdXd}!EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}}
+\doxysubsubsection{iXdXd}
+{\footnotesize\ttfamily \#define i\+Xd\+Xd~(\textbf{ i\+Y\+Yd} + 1)}
+
+
+
+Definition at line 102 of file E\+K\+F\+\_\+\+X\+Y\+Z\+\_\+\+Consts.\+h.
+
+\mbox{\label{_e_k_f___x_y_z___consts_8h_a05efb309612b7cc8ee622ac491fb495a}} 
+\index{EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}!iXdYd@{iXdYd}}
+\index{iXdYd@{iXdYd}!EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}}
+\doxysubsubsection{iXdYd}
+{\footnotesize\ttfamily \#define i\+Xd\+Yd~(\textbf{ i\+Xd\+Xd} + 1)}
+
+
+
+Definition at line 103 of file E\+K\+F\+\_\+\+X\+Y\+Z\+\_\+\+Consts.\+h.
+
+\mbox{\label{_e_k_f___x_y_z___consts_8h_a7fa2bdfaa7839f6344e26299647a5006}} 
+\index{EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}!iXX@{iXX}}
+\index{iXX@{iXX}!EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}}
+\doxysubsubsection{iXX}
+{\footnotesize\ttfamily \#define i\+XX~\textbf{ iX}}
+
+
+
+Definition at line 93 of file E\+K\+F\+\_\+\+X\+Y\+Z\+\_\+\+Consts.\+h.
+
+\mbox{\label{_e_k_f___x_y_z___consts_8h_a7495f6e457ffd6a0ba918c1ca0b5b5c3}} 
+\index{EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}!iXXd@{iXXd}}
+\index{iXXd@{iXXd}!EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}}
+\doxysubsubsection{iXXd}
+{\footnotesize\ttfamily \#define i\+X\+Xd~(\textbf{ i\+XY} + 1)}
+
+
+
+Definition at line 95 of file E\+K\+F\+\_\+\+X\+Y\+Z\+\_\+\+Consts.\+h.
+
+\mbox{\label{_e_k_f___x_y_z___consts_8h_a03caa43e1158543c4f4a913f301dc239}} 
+\index{EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}!iXY@{iXY}}
+\index{iXY@{iXY}!EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}}
+\doxysubsubsection{iXY}
+{\footnotesize\ttfamily \#define i\+XY~(\textbf{ i\+XX} + 1)}
+
+
+
+Definition at line 94 of file E\+K\+F\+\_\+\+X\+Y\+Z\+\_\+\+Consts.\+h.
+
+\mbox{\label{_e_k_f___x_y_z___consts_8h_a7eb3e1b8b31d904f03d4afad5a7af80b}} 
+\index{EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}!iXYd@{iXYd}}
+\index{iXYd@{iXYd}!EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}}
+\doxysubsubsection{iXYd}
+{\footnotesize\ttfamily \#define i\+X\+Yd~(\textbf{ i\+X\+Xd} + 1)}
+
+
+
+Definition at line 96 of file E\+K\+F\+\_\+\+X\+Y\+Z\+\_\+\+Consts.\+h.
+
+\mbox{\label{_e_k_f___x_y_z___consts_8h_a75aa4ac7915ae69d09f88cec50431e34}} 
+\index{EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}!iY@{iY}}
+\index{iY@{iY}!EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}}
+\doxysubsubsection{iY}
+{\footnotesize\ttfamily \#define iY~1               /$\ast$ Index of y-\/coord  (meters)$\ast$/}
+
+
+
+Definition at line 56 of file E\+K\+F\+\_\+\+X\+Y\+Z\+\_\+\+Consts.\+h.
+
+\mbox{\label{_e_k_f___x_y_z___consts_8h_a72e57802b180f904971fb466cd33b3d3}} 
+\index{EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}!iYd@{iYd}}
+\index{iYd@{iYd}!EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}}
+\doxysubsubsection{iYd}
+{\footnotesize\ttfamily \#define i\+Yd~3              /$\ast$ Index of Speed in y direction (meters/sec)$\ast$/}
+
+
+
+Definition at line 58 of file E\+K\+F\+\_\+\+X\+Y\+Z\+\_\+\+Consts.\+h.
+
+\mbox{\label{_e_k_f___x_y_z___consts_8h_a51ef661fdb1cc0e0b3b68dd7b19af883}} 
+\index{EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}!iYdYd@{iYdYd}}
+\index{iYdYd@{iYdYd}!EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}}
+\doxysubsubsection{iYdYd}
+{\footnotesize\ttfamily \#define i\+Yd\+Yd~(\textbf{ i\+Xd\+Yd} + 1)}
+
+
+
+Definition at line 105 of file E\+K\+F\+\_\+\+X\+Y\+Z\+\_\+\+Consts.\+h.
+
+\mbox{\label{_e_k_f___x_y_z___consts_8h_a5df8ace9978ed7002d85ce0614a202d8}} 
+\index{EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}!iYXd@{iYXd}}
+\index{iYXd@{iYXd}!EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}}
+\doxysubsubsection{iYXd}
+{\footnotesize\ttfamily \#define i\+Y\+Xd~(\textbf{ i\+YY} + 1)}
+
+
+
+Definition at line 99 of file E\+K\+F\+\_\+\+X\+Y\+Z\+\_\+\+Consts.\+h.
+
+\mbox{\label{_e_k_f___x_y_z___consts_8h_aca7e3469f358bd9e254db8d0ed03df0b}} 
+\index{EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}!iYY@{iYY}}
+\index{iYY@{iYY}!EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}}
+\doxysubsubsection{iYY}
+{\footnotesize\ttfamily \#define i\+YY~(\textbf{ i\+X\+Yd} + 1)}
+
+
+
+Definition at line 98 of file E\+K\+F\+\_\+\+X\+Y\+Z\+\_\+\+Consts.\+h.
+
+\mbox{\label{_e_k_f___x_y_z___consts_8h_a48a284da422524a148b23fac1d3de1ac}} 
+\index{EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}!iYYd@{iYYd}}
+\index{iYYd@{iYYd}!EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}}
+\doxysubsubsection{iYYd}
+{\footnotesize\ttfamily \#define i\+Y\+Yd~(\textbf{ i\+Y\+Xd} + 1)}
+
+
+
+Definition at line 100 of file E\+K\+F\+\_\+\+X\+Y\+Z\+\_\+\+Consts.\+h.
+
+\mbox{\label{_e_k_f___x_y_z___consts_8h_a6e1337d848d739316a9dadf7e77f77a0}} 
+\index{EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}!KF\_2D@{KF\_2D}}
+\index{KF\_2D@{KF\_2D}!EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}}
+\doxysubsubsection{KF\_2D}
+{\footnotesize\ttfamily \#define K\+F\+\_\+2D~1}
+
+
+
+Definition at line 45 of file E\+K\+F\+\_\+\+X\+Y\+Z\+\_\+\+Consts.\+h.
+
+\mbox{\label{_e_k_f___x_y_z___consts_8h_a3428b3418b80db15518e2425c5d5a1dd}} 
+\index{EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}!KF\_3D@{KF\_3D}}
+\index{KF\_3D@{KF\_3D}!EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}}
+\doxysubsubsection{KF\_3D}
+{\footnotesize\ttfamily \#define K\+F\+\_\+3D~0}
+
+
+
+Definition at line 46 of file E\+K\+F\+\_\+\+X\+Y\+Z\+\_\+\+Consts.\+h.
+
+\mbox{\label{_e_k_f___x_y_z___consts_8h_a7a582daa93ecc02b1d71137eaf3e60e8}} 
+\index{EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}!MAX\_ACCEL\_X\_M\_P\_SECSQ@{MAX\_ACCEL\_X\_M\_P\_SECSQ}}
+\index{MAX\_ACCEL\_X\_M\_P\_SECSQ@{MAX\_ACCEL\_X\_M\_P\_SECSQ}!EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}}
+\doxysubsubsection{MAX\_ACCEL\_X\_M\_P\_SECSQ}
+{\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+A\+C\+C\+E\+L\+\_\+\+X\+\_\+\+M\+\_\+\+P\+\_\+\+S\+E\+C\+SQ~5 /$\ast$ m/s$^\wedge$2$\ast$/}
+
+
+
+Unmodelled acceleration parameter in the X direction (parallel to the antenna). 
+
+
+
+Definition at line 182 of file E\+K\+F\+\_\+\+X\+Y\+Z\+\_\+\+Consts.\+h.
+
+\mbox{\label{_e_k_f___x_y_z___consts_8h_ac41c84da31a91f56f6781215a8fc7ba3}} 
+\index{EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}!MAX\_ACCEL\_Y\_M\_P\_SECSQ@{MAX\_ACCEL\_Y\_M\_P\_SECSQ}}
+\index{MAX\_ACCEL\_Y\_M\_P\_SECSQ@{MAX\_ACCEL\_Y\_M\_P\_SECSQ}!EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}}
+\doxysubsubsection{MAX\_ACCEL\_Y\_M\_P\_SECSQ}
+{\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+A\+C\+C\+E\+L\+\_\+\+Y\+\_\+\+M\+\_\+\+P\+\_\+\+S\+E\+C\+SQ~12 /$\ast$ m/s$^\wedge$2$\ast$/}
+
+
+
+Unmodelled acceleration parameter in the Y direction (perpendicular to the antenna). 
+
+
+
+Definition at line 180 of file E\+K\+F\+\_\+\+X\+Y\+Z\+\_\+\+Consts.\+h.
+
+\mbox{\label{_e_k_f___x_y_z___consts_8h_af41e7bf6d17a14106e4e48a3d278f917}} 
+\index{EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}!N\_MEASUREMENTS@{N\_MEASUREMENTS}}
+\index{N\_MEASUREMENTS@{N\_MEASUREMENTS}!EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}}
+\doxysubsubsection{N\_MEASUREMENTS}
+{\footnotesize\ttfamily \#define N\+\_\+\+M\+E\+A\+S\+U\+R\+E\+M\+E\+N\+TS~3}
+
+
+
+Definition at line 62 of file E\+K\+F\+\_\+\+X\+Y\+Z\+\_\+\+Consts.\+h.
+
+\mbox{\label{_e_k_f___x_y_z___consts_8h_aead26966d3626590ee9ec5053b139f9b}} 
+\index{EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}!N\_STATES@{N\_STATES}}
+\index{N\_STATES@{N\_STATES}!EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}}
+\doxysubsubsection{N\_STATES}
+{\footnotesize\ttfamily \#define N\+\_\+\+S\+T\+A\+T\+ES~4}
+
+
+
+Definition at line 61 of file E\+K\+F\+\_\+\+X\+Y\+Z\+\_\+\+Consts.\+h.
+
+\mbox{\label{_e_k_f___x_y_z___consts_8h_ac4114e860a750155d4ed585aadd1014c}} 
+\index{EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}!N\_UNIQ\_ELEM\_IN\_HMAT@{N\_UNIQ\_ELEM\_IN\_HMAT}}
+\index{N\_UNIQ\_ELEM\_IN\_HMAT@{N\_UNIQ\_ELEM\_IN\_HMAT}!EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}}
+\doxysubsubsection{N\_UNIQ\_ELEM\_IN\_HMAT}
+{\footnotesize\ttfamily \#define N\+\_\+\+U\+N\+I\+Q\+\_\+\+E\+L\+E\+M\+\_\+\+I\+N\+\_\+\+H\+M\+AT~6}
+
+
+
+Definition at line 64 of file E\+K\+F\+\_\+\+X\+Y\+Z\+\_\+\+Consts.\+h.
+
+\mbox{\label{_e_k_f___x_y_z___consts_8h_a7bd20266a1a6e2a08ca5e68b2c3a7ecf}} 
+\index{EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}!N\_UNIQ\_ELEM\_IN\_SYM\_COVMAT@{N\_UNIQ\_ELEM\_IN\_SYM\_COVMAT}}
+\index{N\_UNIQ\_ELEM\_IN\_SYM\_COVMAT@{N\_UNIQ\_ELEM\_IN\_SYM\_COVMAT}!EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}}
+\doxysubsubsection{N\_UNIQ\_ELEM\_IN\_SYM\_COVMAT}
+{\footnotesize\ttfamily \#define N\+\_\+\+U\+N\+I\+Q\+\_\+\+E\+L\+E\+M\+\_\+\+I\+N\+\_\+\+S\+Y\+M\+\_\+\+C\+O\+V\+M\+AT~(\textbf{ N\+\_\+\+S\+T\+A\+T\+ES}$\ast$(\textbf{ N\+\_\+\+S\+T\+A\+T\+ES}+1)/2)}
+
+
+
+Definition at line 88 of file E\+K\+F\+\_\+\+X\+Y\+Z\+\_\+\+Consts.\+h.
+
+\mbox{\label{_e_k_f___x_y_z___consts_8h_a06942c9fe285cee403020c124c39b969}} 
+\index{EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}!N\_UNIQ\_ELEM\_IN\_SYM\_RESIDCOVMAT@{N\_UNIQ\_ELEM\_IN\_SYM\_RESIDCOVMAT}}
+\index{N\_UNIQ\_ELEM\_IN\_SYM\_RESIDCOVMAT@{N\_UNIQ\_ELEM\_IN\_SYM\_RESIDCOVMAT}!EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}}
+\doxysubsubsection{N\_UNIQ\_ELEM\_IN\_SYM\_RESIDCOVMAT}
+{\footnotesize\ttfamily \#define N\+\_\+\+U\+N\+I\+Q\+\_\+\+E\+L\+E\+M\+\_\+\+I\+N\+\_\+\+S\+Y\+M\+\_\+\+R\+E\+S\+I\+D\+C\+O\+V\+M\+AT~(\textbf{ N\+\_\+\+M\+E\+A\+S\+U\+R\+E\+M\+E\+N\+TS}$\ast$(\textbf{ N\+\_\+\+M\+E\+A\+S\+U\+R\+E\+M\+E\+N\+TS}+1)/2)}
+
+
+
+Definition at line 89 of file E\+K\+F\+\_\+\+X\+Y\+Z\+\_\+\+Consts.\+h.
+
+\mbox{\label{_e_k_f___x_y_z___consts_8h_a4d82bc6ba0fa7a146a61e5d77f85cca0}} 
+\index{EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}!NOT\_ASSOCIATED@{NOT\_ASSOCIATED}}
+\index{NOT\_ASSOCIATED@{NOT\_ASSOCIATED}!EKF\_XYZ\_Consts.h@{EKF\_XYZ\_Consts.h}}
+\doxysubsubsection{NOT\_ASSOCIATED}
+{\footnotesize\ttfamily \#define N\+O\+T\+\_\+\+A\+S\+S\+O\+C\+I\+A\+T\+ED~(-\/1)}
+
+
+
+object has not been associated. 
+
+
+
+Definition at line 171 of file E\+K\+F\+\_\+\+X\+Y\+Z\+\_\+\+Consts.\+h.
+

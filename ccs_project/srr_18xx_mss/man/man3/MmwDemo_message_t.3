@@ -1,0 +1,58 @@
+.TH "MmwDemo_message_t" 3 "Wed May 20 2020" "Version 1.0" "mmWaveFMCWRADAR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MmwDemo_message_t \- DSS/MSS communication messages\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <mmw_messages\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fBMmwDemo_message_type\fP \fBtype\fP"
+.br
+.RI "message type "
+.ti -1c
+.RI "int8_t \fBsubFrameNum\fP"
+.br
+.RI "message length : PROC_TBA does body need to be pointer and not a union structure? "
+.ti -1c
+.RI "\fBMmwDemo_message_body\fP \fBbody\fP"
+.br
+.RI "message body "
+.in -1c
+.SH "Detailed Description"
+.PP 
+DSS/MSS communication messages\&. 
+
+The structure defines the message structure used to commuincate between MSS and DSS\&. 
+.PP
+Definition at line 196 of file mmw_messages\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "\fBMmwDemo_message_body\fP MmwDemo_message_t::body"
+
+.PP
+message body 
+.PP
+Definition at line 212 of file mmw_messages\&.h\&.
+.SS "int8_t MmwDemo_message_t::subFrameNum"
+
+.PP
+message length : PROC_TBA does body need to be pointer and not a union structure? Subframe number for which this message is applicable\&. Valid only when advanced frame config is used\&. When advanced frame config is not used, this field should be set to MMWDEMO_SUBFRAME_NUM_FRAME_LEVEL_CONFIG\&. 
+.PP
+Definition at line 209 of file mmw_messages\&.h\&.
+.SS "\fBMmwDemo_message_type\fP MmwDemo_message_t::type"
+
+.PP
+message type 
+.PP
+Definition at line 199 of file mmw_messages\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mmWaveFMCWRADAR from the source code\&.

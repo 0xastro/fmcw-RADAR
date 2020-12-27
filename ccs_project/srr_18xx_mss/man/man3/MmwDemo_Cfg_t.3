@@ -1,0 +1,88 @@
+.TH "MmwDemo_Cfg_t" 3 "Wed May 20 2020" "Version 1.0" "mmWaveFMCWRADAR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MmwDemo_Cfg_t \- Millimeter Wave Demo configuration\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <mrr_config\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "uint32_t \fBsysClockFrequency\fP"
+.br
+.RI "CPU Clock Frequency\&. "
+.ti -1c
+.RI "uint32_t \fBloggingBaudRate\fP"
+.br
+.RI "UART Logging Baud Rate\&. "
+.ti -1c
+.RI "uint32_t \fBcommandBaudRate\fP"
+.br
+.RI "UART Command Baud Rate\&. "
+.ti -1c
+.RI "MMWave_CtrlCfg \fBctrlCfg\fP"
+.br
+.RI "mmWave Control Configuration\&. "
+.ti -1c
+.RI "MMWave_OpenCfg \fBopenCfg\fP"
+.br
+.RI "mmWave Open Configuration\&. "
+.ti -1c
+.RI "uint8_t \fBdataLogger\fP"
+.br
+.RI "Datapath output loggerSetting 0 (default): MSS UART logger 1: DSS UART logger\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Millimeter Wave Demo configuration\&. 
+
+The structure is used to hold all the relevant configuration which is used to execute the Millimeter Wave Demo\&. 
+.PP
+Definition at line 462 of file mrr_config\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "uint32_t MmwDemo_Cfg_t::commandBaudRate"
+
+.PP
+UART Command Baud Rate\&. 
+.PP
+Definition at line 471 of file mrr_config\&.h\&.
+.SS "MMWave_CtrlCfg MmwDemo_Cfg_t::ctrlCfg"
+
+.PP
+mmWave Control Configuration\&. 
+.PP
+Definition at line 474 of file mrr_config\&.h\&.
+.SS "uint8_t MmwDemo_Cfg_t::dataLogger"
+
+.PP
+Datapath output loggerSetting 0 (default): MSS UART logger 1: DSS UART logger\&. 
+.PP
+Definition at line 483 of file mrr_config\&.h\&.
+.SS "uint32_t MmwDemo_Cfg_t::loggingBaudRate"
+
+.PP
+UART Logging Baud Rate\&. 
+.PP
+Definition at line 468 of file mrr_config\&.h\&.
+.SS "MMWave_OpenCfg MmwDemo_Cfg_t::openCfg"
+
+.PP
+mmWave Open Configuration\&. 
+.PP
+Definition at line 477 of file mrr_config\&.h\&.
+.SS "uint32_t MmwDemo_Cfg_t::sysClockFrequency"
+
+.PP
+CPU Clock Frequency\&. 
+.PP
+Definition at line 465 of file mrr_config\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mmWaveFMCWRADAR from the source code\&.

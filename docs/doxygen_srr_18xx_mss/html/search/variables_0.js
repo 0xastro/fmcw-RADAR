@@ -1,0 +1,7 @@
+var searchData=
+[
+  ['_5f_5ffxns_2724',['__fxns',['../structti__sysbios__gates___gate_mutex___object____.html#a843e47a3031f602728cdaadab03700b3',1,'ti_sysbios_gates_GateMutex_Object__::__fxns()'],['../structti__sysbios__family__arm__v7r__vim___hwi___object____.html#a6f030c20a45de25a9c85b295c165dc15',1,'ti_sysbios_family_arm_v7r_vim_Hwi_Object__::__fxns()'],['../structti__sysbios__gates___gate_hwi___object____.html#a9fab2491fe416a6a4b814e843029a22e',1,'ti_sysbios_gates_GateHwi_Object__::__fxns()'],['../structti__sysbios__hal___hwi___object____.html#ae5ca2f4dbac3b7a9bd127bbab90cef2b',1,'ti_sysbios_hal_Hwi_Object__::__fxns()'],['../structti__sysbios__heaps___heap_buf___object____.html#a2752d7478feb77045914f7cbae441123',1,'ti_sysbios_heaps_HeapBuf_Object__::__fxns()'],['../structti__sysbios__heaps___heap_mem___object____.html#a1b7097488d9d17bea5d316b804d945f4',1,'ti_sysbios_heaps_HeapMem_Object__::__fxns()'],['../structti__sysbios__timers__rti___timer___object____.html#a5e27097d1218d5ec5f3b37bcd859910a',1,'ti_sysbios_timers_rti_Timer_Object__::__fxns()']]],
+  ['_5f_5fti_5fstack_5fbase_2725',['__TI_STACK_BASE',['../mss__per4f_8c.html#a3961f9667ac4ad1ff5ff030f4779b9fd',1,'mss_per4f.c']]],
+  ['_5f_5fti_5fstack_5fsize_2726',['__TI_STACK_SIZE',['../mss__per4f_8c.html#a27c8ca0e7edbb26a4169e384009ec88c',1,'mss_per4f.c']]],
+  ['_5f_5fxdc_5f_5finit_5f_5faddr_2727',['__xdc__init__addr',['../mss__per4f_8c.html#a29d2d0c373afb81bca920da8b206b3d4',1,'mss_per4f.c']]]
+];

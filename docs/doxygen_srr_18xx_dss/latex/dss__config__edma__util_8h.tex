@@ -1,0 +1,173 @@
+\doxysection{dss\+\_\+config\+\_\+edma\+\_\+util.\+h File Reference}
+\label{dss__config__edma__util_8h}\index{dss\_config\_edma\_util.h@{dss\_config\_edma\_util.h}}
+
+
+E\+D\+MA Configuration Utility A\+PI definitions.  
+
+
+{\ttfamily \#include $<$ti/drivers/edma/edma.\+h$>$}\newline
+Include dependency graph for dss\+\_\+config\+\_\+edma\+\_\+util.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=199pt]{dss__config__edma__util_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=306pt]{dss__config__edma__util_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \textbf{ E\+D\+M\+Autil\+\_\+config\+Type1} (E\+D\+M\+A\+\_\+\+Handle handle, uint8\+\_\+t $\ast$src\+Buff, uint8\+\_\+t $\ast$dst\+Buff, uint8\+\_\+t ch\+Id, bool is\+Event\+Triggered, uint16\+\_\+t shadow\+Param\+Id, uint16\+\_\+t a\+Count, uint16\+\_\+t b\+Count, int16\+\_\+t src\+B\+Idx, int16\+\_\+t dst\+B\+Idx, uint8\+\_\+t event\+Queue\+Id, E\+D\+M\+A\+\_\+transfer\+Completion\+Callback\+Fxn\+\_\+t transfer\+Completion\+Callback\+Fxn, uintptr\+\_\+t transfer\+Completion\+Callback\+Fxn\+Arg)
+\item 
+int32\+\_\+t \textbf{ E\+D\+M\+Autil\+\_\+config\+Type2a} (E\+D\+M\+A\+\_\+\+Handle handle, uint8\+\_\+t $\ast$src\+Buff, uint8\+\_\+t $\ast$dst\+Buff, uint8\+\_\+t ch\+Id, bool is\+Event\+Triggered, uint16\+\_\+t shadow\+Param\+Id, uint16\+\_\+t sample\+Len\+In\+Bytes, uint16\+\_\+t num\+Range\+Bins, uint8\+\_\+t num\+Tx\+Ant, uint8\+\_\+t num\+Rx\+Ant, uint16\+\_\+t num\+Doppler\+Bins, uint8\+\_\+t event\+Queue\+Id, E\+D\+M\+A\+\_\+transfer\+Completion\+Callback\+Fxn\+\_\+t transfer\+Completion\+Callback\+Fxn, uintptr\+\_\+t transfer\+Completion\+Callback\+Fxn\+Arg)
+\item 
+int32\+\_\+t \textbf{ E\+D\+M\+Autil\+\_\+config\+Type3} (E\+D\+M\+A\+\_\+\+Handle handle, uint8\+\_\+t $\ast$src\+Buff, uint8\+\_\+t $\ast$dst\+Buff, uint8\+\_\+t ch\+Id, bool is\+Event\+Triggered, uint16\+\_\+t shadow\+Param\+Id, uint16\+\_\+t a\+Count, uint16\+\_\+t b\+Count, int16\+\_\+t src\+B\+Idx, int16\+\_\+t dest\+B\+Idx, uint8\+\_\+t event\+Queue\+Id, E\+D\+M\+A\+\_\+transfer\+Completion\+Callback\+Fxn\+\_\+t transfer\+Completion\+Callback\+Fxn, uintptr\+\_\+t transfer\+Completion\+Callback\+Fxn\+Arg)
+\item 
+int32\+\_\+t \textbf{ E\+D\+M\+Autil\+\_\+trigger\+Type3} (E\+D\+M\+A\+\_\+\+Handle handle, uint8\+\_\+t $\ast$src\+Buff, uint8\+\_\+t $\ast$dst\+Buff, uint8\+\_\+t ch\+Id, uint8\+\_\+t trigger\+Enabled)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+E\+D\+MA Configuration Utility A\+PI definitions. 
+
+\begin{DoxyParagraph}{}
+N\+O\+TE\+: (C) Copyright 2018 Texas Instruments, Inc.
+\end{DoxyParagraph}
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met\+:
+
+Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+Neither the name of Texas Instruments Incorporated nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+T\+H\+IS S\+O\+F\+T\+W\+A\+RE IS P\+R\+O\+V\+I\+D\+ED BY T\+HE C\+O\+P\+Y\+R\+I\+G\+HT H\+O\+L\+D\+E\+RS A\+ND C\+O\+N\+T\+R\+I\+B\+U\+T\+O\+RS \char`\"{}\+A\+S I\+S\char`\"{} A\+ND A\+NY E\+X\+P\+R\+E\+SS OR I\+M\+P\+L\+I\+ED W\+A\+R\+R\+A\+N\+T\+I\+ES, I\+N\+C\+L\+U\+D\+I\+NG, B\+UT N\+OT L\+I\+M\+I\+T\+ED TO, T\+HE I\+M\+P\+L\+I\+ED W\+A\+R\+R\+A\+N\+T\+I\+ES OF M\+E\+R\+C\+H\+A\+N\+T\+A\+B\+I\+L\+I\+TY A\+ND F\+I\+T\+N\+E\+SS F\+OR A P\+A\+R\+T\+I\+C\+U\+L\+AR P\+U\+R\+P\+O\+SE A\+RE D\+I\+S\+C\+L\+A\+I\+M\+ED. IN NO E\+V\+E\+NT S\+H\+A\+LL T\+HE C\+O\+P\+Y\+R\+I\+G\+HT O\+W\+N\+ER OR C\+O\+N\+T\+R\+I\+B\+U\+T\+O\+RS BE L\+I\+A\+B\+LE F\+OR A\+NY D\+I\+R\+E\+CT, I\+N\+D\+I\+R\+E\+CT, I\+N\+C\+I\+D\+E\+N\+T\+AL, S\+P\+E\+C\+I\+AL, E\+X\+E\+M\+P\+L\+A\+RY, OR C\+O\+N\+S\+E\+Q\+U\+E\+N\+T\+I\+AL D\+A\+M\+A\+G\+ES (I\+N\+C\+L\+U\+D\+I\+NG, B\+UT N\+OT L\+I\+M\+I\+T\+ED TO, P\+R\+O\+C\+U\+R\+E\+M\+E\+NT OF S\+U\+B\+S\+T\+I\+T\+U\+TE G\+O\+O\+DS OR S\+E\+R\+V\+I\+C\+ES; L\+O\+SS OF U\+SE, D\+A\+TA, OR P\+R\+O\+F\+I\+TS; OR B\+U\+S\+I\+N\+E\+SS I\+N\+T\+E\+R\+R\+U\+P\+T\+I\+ON) H\+O\+W\+E\+V\+ER C\+A\+U\+S\+ED A\+ND ON A\+NY T\+H\+E\+O\+RY OF L\+I\+A\+B\+I\+L\+I\+TY, W\+H\+E\+T\+H\+ER IN C\+O\+N\+T\+R\+A\+CT, S\+T\+R\+I\+CT L\+I\+A\+B\+I\+L\+I\+TY, OR T\+O\+RT (I\+N\+C\+L\+U\+D\+I\+NG N\+E\+G\+L\+I\+G\+E\+N\+CE OR O\+T\+H\+E\+R\+W\+I\+SE) A\+R\+I\+S\+I\+NG IN A\+NY W\+AY O\+UT OF T\+HE U\+SE OF T\+H\+IS S\+O\+F\+T\+W\+A\+RE, E\+V\+EN IF A\+D\+V\+I\+S\+ED OF T\+HE P\+O\+S\+S\+I\+B\+I\+L\+I\+TY OF S\+U\+CH D\+A\+M\+A\+GE. 
+
+\doxysubsection{Function Documentation}
+\mbox{\label{dss__config__edma__util_8h_a150f2630da81f8aff78617b093f71a91}} 
+\index{dss\_config\_edma\_util.h@{dss\_config\_edma\_util.h}!EDMAutil\_configType1@{EDMAutil\_configType1}}
+\index{EDMAutil\_configType1@{EDMAutil\_configType1}!dss\_config\_edma\_util.h@{dss\_config\_edma\_util.h}}
+\doxysubsubsection{EDMAutil\_configType1()}
+{\footnotesize\ttfamily int32\+\_\+t E\+D\+M\+Autil\+\_\+config\+Type1 (\begin{DoxyParamCaption}\item[{E\+D\+M\+A\+\_\+\+Handle}]{handle,  }\item[{uint8\+\_\+t $\ast$}]{src\+Buff,  }\item[{uint8\+\_\+t $\ast$}]{dst\+Buff,  }\item[{uint8\+\_\+t}]{ch\+Id,  }\item[{bool}]{is\+Event\+Triggered,  }\item[{uint16\+\_\+t}]{shadow\+Param\+Id,  }\item[{uint16\+\_\+t}]{a\+Count,  }\item[{uint16\+\_\+t}]{b\+Count,  }\item[{int16\+\_\+t}]{src\+B\+Idx,  }\item[{int16\+\_\+t}]{dst\+B\+Idx,  }\item[{uint8\+\_\+t}]{event\+Queue\+Id,  }\item[{E\+D\+M\+A\+\_\+transfer\+Completion\+Callback\+Fxn\+\_\+t}]{transfer\+Completion\+Callback\+Fxn,  }\item[{uintptr\+\_\+t}]{transfer\+Completion\+Callback\+Fxn\+Arg }\end{DoxyParamCaption})}
+
+
+
+Definition at line 86 of file dss\+\_\+config\+\_\+edma\+\_\+util.\+c.
+
+
+
+References E\+D\+M\+A\+\_\+setup\+\_\+shadow\+\_\+link().
+
+
+
+Referenced by Mmw\+Demo\+\_\+data\+Path\+Config\+Edma().
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dss__config__edma__util_8h_a150f2630da81f8aff78617b093f71a91_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dss__config__edma__util_8h_a150f2630da81f8aff78617b093f71a91_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{dss__config__edma__util_8h_ae85cd3acee5a1a6cafc9220e4bb76a51}} 
+\index{dss\_config\_edma\_util.h@{dss\_config\_edma\_util.h}!EDMAutil\_configType2a@{EDMAutil\_configType2a}}
+\index{EDMAutil\_configType2a@{EDMAutil\_configType2a}!dss\_config\_edma\_util.h@{dss\_config\_edma\_util.h}}
+\doxysubsubsection{EDMAutil\_configType2a()}
+{\footnotesize\ttfamily int32\+\_\+t E\+D\+M\+Autil\+\_\+config\+Type2a (\begin{DoxyParamCaption}\item[{E\+D\+M\+A\+\_\+\+Handle}]{handle,  }\item[{uint8\+\_\+t $\ast$}]{src\+Buff,  }\item[{uint8\+\_\+t $\ast$}]{dst\+Buff,  }\item[{uint8\+\_\+t}]{ch\+Id,  }\item[{bool}]{is\+Event\+Triggered,  }\item[{uint16\+\_\+t}]{shadow\+Param\+Id,  }\item[{uint16\+\_\+t}]{sample\+Len\+In\+Bytes,  }\item[{uint16\+\_\+t}]{num\+Range\+Bins,  }\item[{uint8\+\_\+t}]{num\+Tx\+Ant,  }\item[{uint8\+\_\+t}]{num\+Rx\+Ant,  }\item[{uint16\+\_\+t}]{num\+Doppler\+Bins,  }\item[{uint8\+\_\+t}]{event\+Queue\+Id,  }\item[{E\+D\+M\+A\+\_\+transfer\+Completion\+Callback\+Fxn\+\_\+t}]{transfer\+Completion\+Callback\+Fxn,  }\item[{uintptr\+\_\+t}]{transfer\+Completion\+Callback\+Fxn\+Arg }\end{DoxyParamCaption})}
+
+
+
+Definition at line 153 of file dss\+\_\+config\+\_\+edma\+\_\+util.\+c.
+
+
+
+References E\+D\+M\+A\+\_\+setup\+\_\+shadow\+\_\+link().
+
+
+
+Referenced by Mmw\+Demo\+\_\+data\+Path\+Config\+Edma().
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dss__config__edma__util_8h_ae85cd3acee5a1a6cafc9220e4bb76a51_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dss__config__edma__util_8h_ae85cd3acee5a1a6cafc9220e4bb76a51_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{dss__config__edma__util_8h_a64366456ee6eb7aa4cd11cb71ace36c5}} 
+\index{dss\_config\_edma\_util.h@{dss\_config\_edma\_util.h}!EDMAutil\_configType3@{EDMAutil\_configType3}}
+\index{EDMAutil\_configType3@{EDMAutil\_configType3}!dss\_config\_edma\_util.h@{dss\_config\_edma\_util.h}}
+\doxysubsubsection{EDMAutil\_configType3()}
+{\footnotesize\ttfamily int32\+\_\+t E\+D\+M\+Autil\+\_\+config\+Type3 (\begin{DoxyParamCaption}\item[{E\+D\+M\+A\+\_\+\+Handle}]{handle,  }\item[{uint8\+\_\+t $\ast$}]{src\+Buff,  }\item[{uint8\+\_\+t $\ast$}]{dst\+Buff,  }\item[{uint8\+\_\+t}]{ch\+Id,  }\item[{bool}]{is\+Event\+Triggered,  }\item[{uint16\+\_\+t}]{shadow\+Param\+Id,  }\item[{uint16\+\_\+t}]{a\+Count,  }\item[{uint16\+\_\+t}]{b\+Count,  }\item[{int16\+\_\+t}]{src\+B\+Idx,  }\item[{int16\+\_\+t}]{dest\+B\+Idx,  }\item[{uint8\+\_\+t}]{event\+Queue\+Id,  }\item[{E\+D\+M\+A\+\_\+transfer\+Completion\+Callback\+Fxn\+\_\+t}]{transfer\+Completion\+Callback\+Fxn,  }\item[{uintptr\+\_\+t}]{transfer\+Completion\+Callback\+Fxn\+Arg }\end{DoxyParamCaption})}
+
+
+
+Definition at line 297 of file dss\+\_\+config\+\_\+edma\+\_\+util.\+c.
+
+
+
+References E\+D\+M\+A\+\_\+setup\+\_\+shadow\+\_\+link().
+
+
+
+Referenced by Mmw\+Demo\+\_\+data\+Path\+Config\+Edma().
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dss__config__edma__util_8h_a64366456ee6eb7aa4cd11cb71ace36c5_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dss__config__edma__util_8h_a64366456ee6eb7aa4cd11cb71ace36c5_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{dss__config__edma__util_8h_a1c927064bc77548e24ad97b91df3186a}} 
+\index{dss\_config\_edma\_util.h@{dss\_config\_edma\_util.h}!EDMAutil\_triggerType3@{EDMAutil\_triggerType3}}
+\index{EDMAutil\_triggerType3@{EDMAutil\_triggerType3}!dss\_config\_edma\_util.h@{dss\_config\_edma\_util.h}}
+\doxysubsubsection{EDMAutil\_triggerType3()}
+{\footnotesize\ttfamily int32\+\_\+t E\+D\+M\+Autil\+\_\+trigger\+Type3 (\begin{DoxyParamCaption}\item[{E\+D\+M\+A\+\_\+\+Handle}]{handle,  }\item[{uint8\+\_\+t $\ast$}]{src\+Buff,  }\item[{uint8\+\_\+t $\ast$}]{dst\+Buff,  }\item[{uint8\+\_\+t}]{ch\+Id,  }\item[{uint8\+\_\+t}]{trigger\+Enabled }\end{DoxyParamCaption})}
+
+
+
+Definition at line 364 of file dss\+\_\+config\+\_\+edma\+\_\+util.\+c.
+
+
+
+Referenced by Mmw\+Demo\+\_\+process\+Chirp().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dss__config__edma__util_8h_a1c927064bc77548e24ad97b91df3186a_icgraph}
+\end{center}
+\end{figure}

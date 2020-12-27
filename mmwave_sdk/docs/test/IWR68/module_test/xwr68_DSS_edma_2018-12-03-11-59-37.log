@@ -1,0 +1,302 @@
+eth008 Board details:
+IP address: 10.218.113.61
+
+Port: 17494
+
+connecting...
+Relay states 8->1 : 01000001
+7 off
+8 off
+Relay states 8->1 : 00000001
+7 on
+Relay states 8->1 : 01000001
+exit
+Disconnected
+Pre-Script returned: Success
+**************************************************
+Testcase mods & parameters invoked:
+**************************************************
+Two core test case: None (this is not a two core testcase)
+
+**************************************************
+Copying test case files from the Build server
+**************************************************
+Testdata possible location 1: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/drivers/edma/test/testdata
+
+
+Testdata directory was not found on Testdata possible location 1
+
+
+Testdata possible location 2: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/drivers/edma/test/xwr68xx/testdata
+
+
+Testdata directory was not found on Testdata possible location 2
+
+Call to copy_testcase_binary:
+TCP: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/drivers/edma/test/xwr68xx; /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr68xx_sdk03.01.00_Test_Plan___jenkins-79_2018_12_03_09_36_35
+
+Copying testcase binary file from http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/drivers/edma/test/xwr68xx/xwr68xx_edma_dss.xe674 to /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr68xx_sdk03.01.00_Test_Plan___jenkins-79_2018_12_03_09_36_35 using command: 
+wget -e robots=off --no-proxy -N -T 30 -t 2 -P /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr68xx_sdk03.01.00_Test_Plan___jenkins-79_2018_12_03_09_36_35 http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/drivers/edma/test/xwr68xx/xwr68xx_edma_dss.xe674
+**************************************************
+Executing Testcase:/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr68xx_sdk03.01.00_Test_Plan___jenkins-79_2018_12_03_09_36_35/xwr68xx_edma_dss.xe674
+**************************************************
+Checking if Py4J Gateway server has started...
+Py4J Gateway Server is Started
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/DEBUGSSM_0
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/IcePick_M_0
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/C674X_0
+DSS test case opening debug session.
+
+cr4ctl = 0x0
+
+efuse/register @0xFFFFE210 = 0x0
+
+efuse/register @0xFFFFE214 = 0x0
+
+efuse/register @0xFFFFE218 = 0x0
+
+efuse/register @0xFFFFE21C = 0x0
+
+Loading binary to the DUT (no binary args updated):/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr68xx_sdk03.01.00_Test_Plan___jenkins-79_2018_12_03_09_36_35/xwr68xx_edma_dss.xe674
+binary path = /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr68xx_sdk03.01.00_Test_Plan___jenkins-79_2018_12_03_09_36_35/xwr68xx_edma_dss.xe674
+
+dt-time: start time = Mon Dec  3 12:00:19 2018
+
+dt-time: end time = Mon Dec  3 12:01:49 2018
+
+
+**************************************************
+CIO Log captured for the testcase
+**************************************************
+Updating the addresses in testConfig for access from EDMA
+
+=====================================================
+============ Testing EDMA instance #0 ==============
+=====================================================
+
+==================================================
+Testing simultaneous unlinked unchained transfers
+==================================================
+
+Test#1..A type single transfer (bCount = 1 AND cCount = 1), mix QDMA and DMA
+Test channel 0 transfer completed successfully
+..transfer time in CPU cycles = 2779
+Test channel 1 transfer completed successfully
+..transfer time in CPU cycles = 5158
+Test channel 2 transfer completed successfully
+..transfer time in CPU cycles = 6726
+Test channel 3 transfer completed successfully
+..transfer time in CPU cycles = 8407
+Feature: A type single transfer (bCount = 1 AND cCount = 1), mix QDMA and DMA: Passed
+
+Test#2..A type multi transfers (bCount != 1 AND cCount != 1)
+Test channel 0 transfer completed successfully
+..transfer time in CPU cycles = 23572
+Test channel 1 transfer completed successfully
+..transfer time in CPU cycles = 25899
+Test channel 2 transfer completed successfully
+..transfer time in CPU cycles = 26934
+Test channel 3 transfer completed successfully
+..transfer time in CPU cycles = 27280
+Feature: A type multi transfers (bCount != 1 AND cCount != 1): Passed
+
+Test#3..AB type multi transfers (cCount != 1)
+Test channel 0 transfer completed successfully
+..transfer time in CPU cycles = 2443
+Test channel 1 transfer completed successfully
+..transfer time in CPU cycles = 4115
+Test channel 2 transfer completed successfully
+..transfer time in CPU cycles = 6934
+Feature: AB type multi transfers (cCount != 1): Passed
+
+Test#4..Mix of A and AB type multi transfers
+Test channel 0 transfer completed successfully
+..transfer time in CPU cycles = 7258
+Test channel 1 transfer completed successfully
+..transfer time in CPU cycles = 17994
+Test channel 2 transfer completed successfully
+..transfer time in CPU cycles = 19124
+Test channel 3 transfer completed successfully
+..transfer time in CPU cycles = 5889
+Feature: Mix of A and AB type multi transfers: Passed
+
+==================================================
+Testing chained transfers
+==================================================
+
+Test#5..Chained Transfers of A type single transfer (bCount = 1 AND cCount = 1)
+Transfers completed successfully
+..transfer time in CPU cycles = 8580
+Feature: Chained Transfers of A type single transfer (bCount = 1 AND cCount = 1): Passed
+
+==================================================
+Testing linked transfers
+==================================================
+
+Test#6..DMA Linked Transfers of A type single transfer (bCount = 1 AND cCount = 1)
+Transfers completed successfully
+..transfer time in CPU cycles = 9546
+Feature: DMA Linked Transfers of A type single transfer (bCount = 1 AND cCount = 1): Passed
+
+Test#7..QDMA Linked Transfers of A type single transfer (bCount = 1 AND cCount = 1)
+Transfers completed successfully
+..transfer time in CPU cycles = 6136
+Feature: QDMA Linked Transfers of A type single transfer (bCount = 1 AND cCount = 1): Passed
+
+==================================================
+Testing Error Detection
+==================================================
+
+Test#8..Missed DMA events
+All expected missed events detected and no false detection
+Feature: Missed DMA events: Passed
+
+Test#9..Invalid source address
+Detected invalid source address
+Feature: Invalid source address: Passed
+
+Test#10..Invalid transfer request
+Detected invalid transfer request
+Feature: Invalid transfer request: Passed
+
+Test#11..Invalid destination address
+Detected invalid destination address
+Feature: Invalid destination address: Passed
+All Tests of Instance 0 PASSED
+
+=====================================================
+============ Testing EDMA instance #1 ==============
+=====================================================
+
+==================================================
+Testing simultaneous unlinked unchained transfers
+==================================================
+
+Test#1..A type single transfer (bCount = 1 AND cCount = 1), mix QDMA and DMA
+Test channel 0 transfer completed successfully
+..transfer time in CPU cycles = 4351
+Test channel 1 transfer completed successfully
+..transfer time in CPU cycles = 8861
+Test channel 2 transfer completed successfully
+..transfer time in CPU cycles = 12270
+Test channel 3 transfer completed successfully
+..transfer time in CPU cycles = 15185
+Feature: A type single transfer (bCount = 1 AND cCount = 1), mix QDMA and DMA: Passed
+
+Test#2..A type multi transfers (bCount != 1 AND cCount != 1)
+Test channel 0 transfer completed successfully
+..transfer time in CPU cycles = 27184
+Test channel 1 transfer completed successfully
+..transfer time in CPU cycles = 28963
+Test channel 2 transfer completed successfully
+..transfer time in CPU cycles = 25012
+Test channel 3 transfer completed successfully
+..transfer time in CPU cycles = 27490
+Feature: A type multi transfers (bCount != 1 AND cCount != 1): Passed
+
+Test#3..AB type multi transfers (cCount != 1)
+Test channel 0 transfer completed successfully
+..transfer time in CPU cycles = 4351
+Test channel 1 transfer completed successfully
+..transfer time in CPU cycles = 7733
+Test channel 2 transfer completed successfully
+..transfer time in CPU cycles = 12363
+Feature: AB type multi transfers (cCount != 1): Passed
+
+Test#4..Mix of A and AB type multi transfers
+Test channel 0 transfer completed successfully
+..transfer time in CPU cycles = 4411
+Test channel 1 transfer completed successfully
+..transfer time in CPU cycles = 22620
+Test channel 2 transfer completed successfully
+..transfer time in CPU cycles = 23791
+Test channel 3 transfer completed successfully
+..transfer time in CPU cycles = 10279
+Feature: Mix of A and AB type multi transfers: Passed
+
+==================================================
+Testing chained transfers
+==================================================
+
+Test#5..Chained Transfers of A type single transfer (bCount = 1 AND cCount = 1)
+Transfers completed successfully
+..transfer time in CPU cycles = 16056
+Feature: Chained Transfers of A type single transfer (bCount = 1 AND cCount = 1): Passed
+
+==================================================
+Testing linked transfers
+==================================================
+
+Test#6..DMA Linked Transfers of A type single transfer (bCount = 1 AND cCount = 1)
+Transfers completed successfully
+..transfer time in CPU cycles = 15006
+Feature: DMA Linked Transfers of A type single transfer (bCount = 1 AND cCount = 1): Passed
+
+Test#7..QDMA Linked Transfers of A type single transfer (bCount = 1 AND cCount = 1)
+Transfers completed successfully
+..transfer time in CPU cycles = 11708
+Feature: QDMA Linked Transfers of A type single transfer (bCount = 1 AND cCount = 1): Passed
+
+==================================================
+Testing Error Detection
+==================================================
+
+Test#8..Missed DMA events
+All expected missed events detected and no false detection
+Feature: Missed DMA events: Passed
+
+Test#9..Invalid source address
+Detected invalid source address
+Feature: Invalid source address: Passed
+
+Test#10..Invalid transfer request
+Detected invalid transfer request
+Feature: Invalid transfer request: Passed
+
+Test#11..Invalid destination address
+Detected invalid destination address
+Feature: Invalid destination address: Passed
+All Tests of Instance 1 PASSED
+edma test finished
+All Tests PASSED
+Value read from Global variable (MCPI_Result): 0
+Test Failure Signature: 0
+Test Log Messages: 
+Feature tested: A type single transfer (bCount = 1 AND cCount = 1), mix QDMA and DMA: Passed
+Feature tested: A type multi transfers (bCount != 1 AND cCount != 1): Passed
+Feature tested: AB type multi transfers (cCount != 1): Passed
+Feature tested: Mix of A and AB type multi transfers: Passed
+Feature tested: Chained Transfers of A type single transfer (bCount = 1 AND cCount = 1): Passed
+Feature tested: DMA Linked Transfers of A type single transfer (bCount = 1 AND cCount = 1): Passed
+Feature tested: QDMA Linked Transfers of A type single transfer (bCount = 1 AND cCount = 1): Passed
+Feature tested: Missed DMA events: Passed
+Feature tested: Invalid source address: Passed
+Feature tested: Invalid transfer request: Passed
+Feature tested: Invalid destination address: Passed
+Feature tested: A type single transfer (bCount = 1 AND cCount = 1), mix QDMA and DMA: Passed
+Feature tested: A type multi transfers (bCount != 1 AND cCount != 1): Passed
+Feature tested: AB type multi transfers (cCount != 1): Passed
+Feature tested: Mix of A and AB type multi transfers: Passed
+Feature tested: Chained Transfers of A type single transfer (bCount = 1 AND cCount = 1): Passed
+Feature tested: DMA Linked Transfers of A type single transfer (bCount = 1 AND cCount = 1): Passed
+Feature tested: QDMA Linked Transfers of A type single transfer (bCount = 1 AND cCount = 1): Passed
+Feature tested: Missed DMA events: Passed
+Feature tested: Invalid source address: Passed
+Feature tested: Invalid transfer request: Passed
+Feature tested: Invalid destination address: Passed
+
+
+shutting down py4j gw server.
+
+
+**************************************************
+Terminating the debug session and Shutting down gateway.
+**************************************************
+
+**************************************************
+Test case execution completed
+**************************************************
+
+**************************************************
+Testcase Result : PASS
+**************************************************

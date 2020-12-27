@@ -1,0 +1,107 @@
+.TH "MmwDemo_output_message_header_t" 3 "Wed May 20 2020" "Version 1.0" "mmWaveFMCWRADAR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MmwDemo_output_message_header_t \- Message header for reporting detection information from data path\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <mrr_output\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "uint16_t \fBmagicWord\fP [4]"
+.br
+.RI "Output buffer magic word (sync word)\&. It is initialized to {0x0102,0x0304,0x0506,0x0708}\&. "
+.ti -1c
+.RI "uint32_t \fBversion\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBtotalPacketLen\fP"
+.br
+.RI "Total packet length including header in Bytes\&. "
+.ti -1c
+.RI "uint32_t \fBplatform\fP"
+.br
+.RI "platform type "
+.ti -1c
+.RI "uint32_t \fBframeNumber\fP"
+.br
+.RI "Frame number\&. "
+.ti -1c
+.RI "uint32_t \fBtimeCpuCycles\fP"
+.br
+.RI "Time in CPU cycles when the message was created\&. For XWR16xx/XWR18xx: DSP CPU cycles, for XWR14xx: R4F CPU cycles\&. "
+.ti -1c
+.RI "uint32_t \fBnumDetectedObj\fP"
+.br
+.RI "Number of detected objects\&. "
+.ti -1c
+.RI "uint32_t \fBnumTLVs\fP"
+.br
+.RI "Number of TLVs\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Message header for reporting detection information from data path\&. 
+
+The structure defines the message header\&. 
+.PP
+Definition at line 87 of file mrr_output\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "uint32_t MmwDemo_output_message_header_t::frameNumber"
+
+.PP
+Frame number\&. 
+.PP
+Definition at line 102 of file mrr_output\&.h\&.
+.SS "uint16_t MmwDemo_output_message_header_t::magicWord"
+
+.PP
+Output buffer magic word (sync word)\&. It is initialized to {0x0102,0x0304,0x0506,0x0708}\&. 
+.PP
+Definition at line 90 of file mrr_output\&.h\&.
+.SS "uint32_t MmwDemo_output_message_header_t::numDetectedObj"
+
+.PP
+Number of detected objects\&. 
+.PP
+Definition at line 108 of file mrr_output\&.h\&.
+.SS "uint32_t MmwDemo_output_message_header_t::numTLVs"
+
+.PP
+Number of TLVs\&. 
+.PP
+Definition at line 111 of file mrr_output\&.h\&.
+.SS "uint32_t MmwDemo_output_message_header_t::platform"
+
+.PP
+platform type 
+.PP
+Definition at line 99 of file mrr_output\&.h\&.
+.SS "uint32_t MmwDemo_output_message_header_t::timeCpuCycles"
+
+.PP
+Time in CPU cycles when the message was created\&. For XWR16xx/XWR18xx: DSP CPU cycles, for XWR14xx: R4F CPU cycles\&. 
+.PP
+Definition at line 105 of file mrr_output\&.h\&.
+.SS "uint32_t MmwDemo_output_message_header_t::totalPacketLen"
+
+.PP
+Total packet length including header in Bytes\&. 
+.PP
+Definition at line 96 of file mrr_output\&.h\&.
+.SS "uint32_t MmwDemo_output_message_header_t::version"
+brief Version: : MajorNum * 2^24 + MinorNum * 2^16 + BugfixNum * 2^8 + BuildNum 
+.br
+ 
+.PP
+Definition at line 93 of file mrr_output\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mmWaveFMCWRADAR from the source code\&.

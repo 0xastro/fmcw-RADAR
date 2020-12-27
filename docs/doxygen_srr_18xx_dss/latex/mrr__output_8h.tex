@@ -1,0 +1,158 @@
+\doxysection{common/mrr\+\_\+output.h File Reference}
+\label{mrr__output_8h}\index{common/mrr\_output.h@{common/mrr\_output.h}}
+
+
+This is the interface/message header file for the Millimeter Wave Demo.  
+
+
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ mm\+Wave\+\_\+\+O\+U\+T\+\_\+\+M\+S\+G\+\_\+header\+\_\+t}
+\begin{DoxyCompactList}\small\item\em The structure defines the message header for reporting detection information from data path. Processed by both M\+SS and D\+SS. \end{DoxyCompactList}\item 
+struct \textbf{ mm\+Wave\+\_\+\+O\+U\+T\+\_\+\+M\+S\+G\+\_\+stats\+\_\+data\+Obj\+Descr\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Structure holds information about detected objects. This information is sent in front of the array of detected objects Sent by D\+SS. \end{DoxyCompactList}\item 
+struct \textbf{ mm\+Wave\+\_\+\+O\+U\+T\+\_\+\+M\+S\+G\+\_\+tl\+\_\+t}
+\begin{DoxyCompactList}\small\item\em The structure defines the message body for reporting detected objects from data path. Processed by both M\+SS and D\+SS. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ M\+M\+W\+D\+E\+M\+O\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+S\+G\+\_\+\+S\+E\+G\+M\+E\+N\+T\+\_\+\+L\+EN}~32
+\begin{DoxyCompactList}\small\item\em Output packet length is a multiple of this value, must be power of 2. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \textbf{ mm\+Wave\+M\+S\+G\+\_\+\+O\+U\+T\+\_\+\+T\+Y\+P\+E\+\_\+e} \textbf{ mm\+Wave\+M\+S\+G\+\_\+\+O\+U\+T\+\_\+\+T\+Y\+PE}
+\begin{DoxyCompactList}\small\item\em Message types used in Millimeter Wave Demo for the communication between target and host, and also for Mailbox communication between M\+SS and D\+SS on the X\+W\+R16xx platform. Message types are used to indicate different type detection information sent out from the target. \end{DoxyCompactList}\item 
+typedef struct \textbf{ mm\+Wave\+\_\+\+O\+U\+T\+\_\+\+M\+S\+G\+\_\+header\+\_\+t} \textbf{ mm\+Wave\+\_\+\+O\+U\+T\+\_\+\+M\+S\+G\+\_\+header}
+\begin{DoxyCompactList}\small\item\em The structure defines the message header for reporting detection information from data path. Processed by both M\+SS and D\+SS. \end{DoxyCompactList}\item 
+typedef struct \textbf{ mm\+Wave\+\_\+\+O\+U\+T\+\_\+\+M\+S\+G\+\_\+stats\+\_\+data\+Obj\+Descr\+\_\+t} \textbf{ mm\+Wave\+\_\+\+O\+U\+T\+\_\+\+M\+S\+G\+\_\+stats\+\_\+data\+Obj\+Descr}
+\begin{DoxyCompactList}\small\item\em Structure holds information about detected objects. This information is sent in front of the array of detected objects Sent by D\+SS. \end{DoxyCompactList}\item 
+typedef struct \textbf{ mm\+Wave\+\_\+\+O\+U\+T\+\_\+\+M\+S\+G\+\_\+tl\+\_\+t} \textbf{ mm\+Wave\+\_\+\+O\+U\+T\+\_\+\+M\+S\+G\+\_\+tl}
+\begin{DoxyCompactList}\small\item\em The structure defines the message body for reporting detected objects from data path. Processed by both M\+SS and D\+SS. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \textbf{ mm\+Wave\+M\+S\+G\+\_\+\+O\+U\+T\+\_\+\+T\+Y\+P\+E\+\_\+e} \{ \newline
+\textbf{ O\+U\+T\+P\+U\+T\+\_\+\+M\+S\+G\+\_\+\+D\+E\+T\+E\+C\+T\+E\+D\+\_\+\+P\+O\+I\+N\+TS} = 1, 
+\textbf{ O\+U\+T\+P\+U\+T\+\_\+\+M\+S\+G\+\_\+\+R\+A\+N\+G\+E\+\_\+\+P\+R\+O\+F\+I\+LE}, 
+\textbf{ O\+U\+T\+P\+U\+T\+\_\+\+M\+S\+G\+\_\+\+N\+O\+I\+S\+E\+\_\+\+P\+R\+O\+F\+I\+LE}, 
+\textbf{ O\+U\+T\+P\+U\+T\+\_\+\+M\+S\+G\+\_\+\+A\+Z\+I\+M\+U\+T\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+H\+E\+A\+T\+\_\+\+M\+AP}, 
+\newline
+\textbf{ O\+U\+T\+P\+U\+T\+\_\+\+M\+S\+G\+\_\+\+R\+A\+N\+G\+E\+\_\+\+D\+O\+P\+P\+L\+E\+R\+\_\+\+H\+E\+A\+T\+\_\+\+M\+AP}, 
+\textbf{ O\+U\+T\+P\+U\+T\+\_\+\+M\+S\+G\+\_\+\+S\+T\+A\+TS}, 
+\textbf{ O\+U\+T\+P\+U\+T\+\_\+\+M\+S\+G\+\_\+\+M\+AX}
+ \}
+\begin{DoxyCompactList}\small\item\em Message types used in Millimeter Wave Demo for the communication between target and host, and also for Mailbox communication between M\+SS and D\+SS on the X\+W\+R16xx platform. Message types are used to indicate different type detection information sent out from the target. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This is the interface/message header file for the Millimeter Wave Demo. 
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\label{mrr__output_8h_aae090cc5dbe777cb4c5a39bb5b76ec9b}} 
+\index{mrr\_output.h@{mrr\_output.h}!MMWDEMO\_OUTPUT\_MSG\_SEGMENT\_LEN@{MMWDEMO\_OUTPUT\_MSG\_SEGMENT\_LEN}}
+\index{MMWDEMO\_OUTPUT\_MSG\_SEGMENT\_LEN@{MMWDEMO\_OUTPUT\_MSG\_SEGMENT\_LEN}!mrr\_output.h@{mrr\_output.h}}
+\doxysubsubsection{MMWDEMO\_OUTPUT\_MSG\_SEGMENT\_LEN}
+{\footnotesize\ttfamily \#define M\+M\+W\+D\+E\+M\+O\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+S\+G\+\_\+\+S\+E\+G\+M\+E\+N\+T\+\_\+\+L\+EN~32}
+
+
+
+Output packet length is a multiple of this value, must be power of 2. 
+
+
+
+Definition at line 15 of file mrr\+\_\+output.\+h.
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\label{mrr__output_8h_a6eba3a10620c06243cd1bcaa145d2fb9}} 
+\index{mrr\_output.h@{mrr\_output.h}!mmWave\_OUT\_MSG\_header@{mmWave\_OUT\_MSG\_header}}
+\index{mmWave\_OUT\_MSG\_header@{mmWave\_OUT\_MSG\_header}!mrr\_output.h@{mrr\_output.h}}
+\doxysubsubsection{mmWave\_OUT\_MSG\_header}
+{\footnotesize\ttfamily typedef struct \textbf{ mm\+Wave\+\_\+\+O\+U\+T\+\_\+\+M\+S\+G\+\_\+header\+\_\+t}  \textbf{ mm\+Wave\+\_\+\+O\+U\+T\+\_\+\+M\+S\+G\+\_\+header}}
+
+
+
+The structure defines the message header for reporting detection information from data path. Processed by both M\+SS and D\+SS. 
+
+\mbox{\label{mrr__output_8h_a1ea62e89a977eda1b0b333f3b2f38e84}} 
+\index{mrr\_output.h@{mrr\_output.h}!mmWave\_OUT\_MSG\_stats\_dataObjDescr@{mmWave\_OUT\_MSG\_stats\_dataObjDescr}}
+\index{mmWave\_OUT\_MSG\_stats\_dataObjDescr@{mmWave\_OUT\_MSG\_stats\_dataObjDescr}!mrr\_output.h@{mrr\_output.h}}
+\doxysubsubsection{mmWave\_OUT\_MSG\_stats\_dataObjDescr}
+{\footnotesize\ttfamily typedef struct \textbf{ mm\+Wave\+\_\+\+O\+U\+T\+\_\+\+M\+S\+G\+\_\+stats\+\_\+data\+Obj\+Descr\+\_\+t}  \textbf{ mm\+Wave\+\_\+\+O\+U\+T\+\_\+\+M\+S\+G\+\_\+stats\+\_\+data\+Obj\+Descr}}
+
+
+
+Structure holds information about detected objects. This information is sent in front of the array of detected objects Sent by D\+SS. 
+
+\mbox{\label{mrr__output_8h_af59b32c6ebd69e0656837b546c99bc99}} 
+\index{mrr\_output.h@{mrr\_output.h}!mmWave\_OUT\_MSG\_tl@{mmWave\_OUT\_MSG\_tl}}
+\index{mmWave\_OUT\_MSG\_tl@{mmWave\_OUT\_MSG\_tl}!mrr\_output.h@{mrr\_output.h}}
+\doxysubsubsection{mmWave\_OUT\_MSG\_tl}
+{\footnotesize\ttfamily typedef struct \textbf{ mm\+Wave\+\_\+\+O\+U\+T\+\_\+\+M\+S\+G\+\_\+tl\+\_\+t}  \textbf{ mm\+Wave\+\_\+\+O\+U\+T\+\_\+\+M\+S\+G\+\_\+tl}}
+
+
+
+The structure defines the message body for reporting detected objects from data path. Processed by both M\+SS and D\+SS. 
+
+\mbox{\label{mrr__output_8h_a0c8c207a6701f1d51671b73961208295}} 
+\index{mrr\_output.h@{mrr\_output.h}!mmWaveMSG\_OUT\_TYPE@{mmWaveMSG\_OUT\_TYPE}}
+\index{mmWaveMSG\_OUT\_TYPE@{mmWaveMSG\_OUT\_TYPE}!mrr\_output.h@{mrr\_output.h}}
+\doxysubsubsection{mmWaveMSG\_OUT\_TYPE}
+{\footnotesize\ttfamily typedef enum \textbf{ mm\+Wave\+M\+S\+G\+\_\+\+O\+U\+T\+\_\+\+T\+Y\+P\+E\+\_\+e}  \textbf{ mm\+Wave\+M\+S\+G\+\_\+\+O\+U\+T\+\_\+\+T\+Y\+PE}}
+
+
+
+Message types used in Millimeter Wave Demo for the communication between target and host, and also for Mailbox communication between M\+SS and D\+SS on the X\+W\+R16xx platform. Message types are used to indicate different type detection information sent out from the target. 
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\label{mrr__output_8h_aed4f19c4a5aca1d5ace79ed347bb10b3}} 
+\index{mrr\_output.h@{mrr\_output.h}!mmWaveMSG\_OUT\_TYPE\_e@{mmWaveMSG\_OUT\_TYPE\_e}}
+\index{mmWaveMSG\_OUT\_TYPE\_e@{mmWaveMSG\_OUT\_TYPE\_e}!mrr\_output.h@{mrr\_output.h}}
+\doxysubsubsection{mmWaveMSG\_OUT\_TYPE\_e}
+{\footnotesize\ttfamily enum \textbf{ mm\+Wave\+M\+S\+G\+\_\+\+O\+U\+T\+\_\+\+T\+Y\+P\+E\+\_\+e}}
+
+
+
+Message types used in Millimeter Wave Demo for the communication between target and host, and also for Mailbox communication between M\+SS and D\+SS on the X\+W\+R16xx platform. Message types are used to indicate different type detection information sent out from the target. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OUTPUT\_MSG\_DETECTED\_POINTS@{OUTPUT\_MSG\_DETECTED\_POINTS}!mrr\_output.h@{mrr\_output.h}}\index{mrr\_output.h@{mrr\_output.h}!OUTPUT\_MSG\_DETECTED\_POINTS@{OUTPUT\_MSG\_DETECTED\_POINTS}}}\mbox{\label{mrr__output_8h_aed4f19c4a5aca1d5ace79ed347bb10b3a17ed2b3a9959db29002c22762e1a09dd}} 
+O\+U\+T\+P\+U\+T\+\_\+\+M\+S\+G\+\_\+\+D\+E\+T\+E\+C\+T\+E\+D\+\_\+\+P\+O\+I\+N\+TS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OUTPUT\_MSG\_RANGE\_PROFILE@{OUTPUT\_MSG\_RANGE\_PROFILE}!mrr\_output.h@{mrr\_output.h}}\index{mrr\_output.h@{mrr\_output.h}!OUTPUT\_MSG\_RANGE\_PROFILE@{OUTPUT\_MSG\_RANGE\_PROFILE}}}\mbox{\label{mrr__output_8h_aed4f19c4a5aca1d5ace79ed347bb10b3a13466cf8797f9be312b473a30353461e}} 
+O\+U\+T\+P\+U\+T\+\_\+\+M\+S\+G\+\_\+\+R\+A\+N\+G\+E\+\_\+\+P\+R\+O\+F\+I\+LE&List of detected points. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OUTPUT\_MSG\_NOISE\_PROFILE@{OUTPUT\_MSG\_NOISE\_PROFILE}!mrr\_output.h@{mrr\_output.h}}\index{mrr\_output.h@{mrr\_output.h}!OUTPUT\_MSG\_NOISE\_PROFILE@{OUTPUT\_MSG\_NOISE\_PROFILE}}}\mbox{\label{mrr__output_8h_aed4f19c4a5aca1d5ace79ed347bb10b3a607522abe91fe9504f8d9397e5232617}} 
+O\+U\+T\+P\+U\+T\+\_\+\+M\+S\+G\+\_\+\+N\+O\+I\+S\+E\+\_\+\+P\+R\+O\+F\+I\+LE&Range profile. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OUTPUT\_MSG\_AZIMUT\_STATIC\_HEAT\_MAP@{OUTPUT\_MSG\_AZIMUT\_STATIC\_HEAT\_MAP}!mrr\_output.h@{mrr\_output.h}}\index{mrr\_output.h@{mrr\_output.h}!OUTPUT\_MSG\_AZIMUT\_STATIC\_HEAT\_MAP@{OUTPUT\_MSG\_AZIMUT\_STATIC\_HEAT\_MAP}}}\mbox{\label{mrr__output_8h_aed4f19c4a5aca1d5ace79ed347bb10b3a7ee7325aa15e8ae27c15610a97edd1e0}} 
+O\+U\+T\+P\+U\+T\+\_\+\+M\+S\+G\+\_\+\+A\+Z\+I\+M\+U\+T\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+H\+E\+A\+T\+\_\+\+M\+AP&Noise floor profile. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OUTPUT\_MSG\_RANGE\_DOPPLER\_HEAT\_MAP@{OUTPUT\_MSG\_RANGE\_DOPPLER\_HEAT\_MAP}!mrr\_output.h@{mrr\_output.h}}\index{mrr\_output.h@{mrr\_output.h}!OUTPUT\_MSG\_RANGE\_DOPPLER\_HEAT\_MAP@{OUTPUT\_MSG\_RANGE\_DOPPLER\_HEAT\_MAP}}}\mbox{\label{mrr__output_8h_aed4f19c4a5aca1d5ace79ed347bb10b3a13a9a95bf65504f445e6824541c842a0}} 
+O\+U\+T\+P\+U\+T\+\_\+\+M\+S\+G\+\_\+\+R\+A\+N\+G\+E\+\_\+\+D\+O\+P\+P\+L\+E\+R\+\_\+\+H\+E\+A\+T\+\_\+\+M\+AP&Samples to calculate static azimuth heatmap. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OUTPUT\_MSG\_STATS@{OUTPUT\_MSG\_STATS}!mrr\_output.h@{mrr\_output.h}}\index{mrr\_output.h@{mrr\_output.h}!OUTPUT\_MSG\_STATS@{OUTPUT\_MSG\_STATS}}}\mbox{\label{mrr__output_8h_aed4f19c4a5aca1d5ace79ed347bb10b3ae56728e263428eb319b11b805014a552}} 
+O\+U\+T\+P\+U\+T\+\_\+\+M\+S\+G\+\_\+\+S\+T\+A\+TS&Range/\+Doppler detection matrix. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OUTPUT\_MSG\_MAX@{OUTPUT\_MSG\_MAX}!mrr\_output.h@{mrr\_output.h}}\index{mrr\_output.h@{mrr\_output.h}!OUTPUT\_MSG\_MAX@{OUTPUT\_MSG\_MAX}}}\mbox{\label{mrr__output_8h_aed4f19c4a5aca1d5ace79ed347bb10b3aea652892e439ef92365314e9d4d1f1c6}} 
+O\+U\+T\+P\+U\+T\+\_\+\+M\+S\+G\+\_\+\+M\+AX&Stats information. Max T\+LV outptut message \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 26 of file mrr\+\_\+output.\+h.
+

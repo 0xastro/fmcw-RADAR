@@ -1,0 +1,154 @@
+This file contains the memory types found in the map file
+given. You can rename the memory types to whatever you want by
+writing a new name on the same line as the old. If you don't want
+to rename a memory type just leave it on the line by itself.
+
+    Example: <old name> <new name>
+             text code
+    This will rename text to code in the analysis output.
+
+*******************************************************************************
+MEMORY TYPES
+------------
+const data
+text code
+reserved
+systemheap heap
+myfiqstack heap
+bss data
+tramp code
+vecs code
+unknown
+xdc
+data data
+common data
+
+hwabufs hw_mem
+l3ram heap
+dpc heap
+
+LIBRARIES
+---------
+(__TI_cinit_table) linker-generated
+libmailbox_xwr16xx.aer4f DRIVERS_CORE
+(.common:ti_sysbios_family_arm_exc_Exception_Module_State_0_excStack_0__A) APP
+sysbios.aer4ft BIOS
+(.cinit.systemHeap.load) linker-generated
+(.common:gGPIOMCB) DRIVERS_OPTIONAL
+libdma_xwr16xx.aer4f DRIVERS_CORE
+(.common:gMmwMssMCB) APP
+(.common:gEsmMCB) DRIVERS_CORE
+mss_main.oer4f APP
+libcli_xwr16xx.aer4f APP
+libcrc_xwr16xx.aer4f DRIVERS_CORE
+libosal_xwr16xx.aer4f BIOS_OSAL
+cli.oer4f APP
+(.cinit..data.load) linker-generated
+(__TI_handler_table) linker-generated
+libsoc_xwr16xx.aer4f DRIVERS_CORE
+(.cinit..myFiqStack.load) linker-generated
+libpinmux_xwr16xx.aer4f DRIVERS_CORE
+(.common:gMMWave_XWR16xxMCB) MMWAVE
+(.common:gMMWave_MCB) MMWAVE
+boot.aer4ft C_RUNTIME
+(.cinit..bss.load) linker-generated
+(.common:gCLI) APP
+auto_init.aer4ft C_RUNTIME
+libmmwave_xwr16xx.aer4f MMWAVE
+libesm_xwr16xx.aer4f DRIVERS_CORE
+(.common:__TI_tmpnams) APP
+libuart_xwr16xx.aer4f DRIVERS_OPTIONAL
+ti.targets.arm.rtsarm.aer4ft C_RUNTIME
+rtsv7R4_T_le_v3D16_eabi.lib C_RUNTIME
+libmmwavelink_xwr16xx.aer4f MMWAVELINK
+libgpio_xwr16xx.aer4f DRIVERS_OPTIONAL
+mss_mmw_per4ft.oer4ft APP
+mmw_per4ft.oer4ft APP
+(.common:parmbuf) APP
+
+(.common:gHWADriverPtr) DRIVERS_CORE
+(.common:gMmwSessionMgmtMCB) APP
+(.common:ti_sysbios_knl_Task_Instance_State_0_hookEnv__A) BIOS
+config_edma_util.oer4f APP
+config_hwa_util.oer4f APP
+data_path.oer4f APP
+libadcbuf_xwr14xx.aer4f DRIVERS_CORE
+libcli_xwr14xx.aer4f APP
+libcrc_xwr14xx.aer4f DRIVERS_CORE
+libedma_xwr14xx.aer4f DRIVERS_CORE
+libesm_xwr14xx.aer4f DRIVERS_CORE
+libgpio_xwr14xx.aer4f DRIVERS_OPTIONAL
+libhwa_xwr14xx.aer4f DRIVERS_CORE
+libmailbox_xwr14xx.aer4f DRIVERS_CORE
+libmmwave_xwr14xx.aer4f MMWAVE
+libmmwavelink_xwr14xx.aer4f MMWAVELINK
+libosal_xwr14xx.aer4f BIOS_OSAL
+libpinmux_xwr14xx.aer4f DRIVERS_CORE
+libsoc_xwr14xx.aer4f DRIVERS_CORE
+libuart_xwr14xx.aer4f DRIVERS_OPTIONAL
+main.oer4f APP
+mmw_cli.oer4f APP 
+mmw_per4f.oer4f APP
+post_processing.oer4f APP
+sensor_mgmt.oer4f APP
+rx_ch_bias_measure.oer4f APP
+mmw_lvds_stream.oer4f APP
+mmwDemo_monitor.oer4f APP
+(.common:gHSIHeaderMCB) DRIVERS_OPTIONAL
+libcbuff_xwr14xx.aer4f DRIVERS_OPTIONAL
+libhsiheader_xwr14xx.aer4f DRIVERS_OPTIONAL
+
+libedma_xwr68xx.aer4f DRIVERS_CORE
+(.cinit..DPC_objDetTcmbHeap.load) APP
+libmathutils.aer4f DPU
+(.common:xdc_runtime_LoggerBuf_Instance_State_0_entryArr__A) APP
+libmmwave_xwr68xx.aer4f MMWAVE
+libdpedma_hwa_xwr68xx.aer4f DPU
+libpinmux_xwr68xx.aer4f DRIVERS_CORE
+libosal_xwr68xx.aer4f BIOS
+libmailbox_xwr68xx.aer4f DRIVERS_CORE
+libcfarcaproc_hwa_xwr68xx.aer4f DPU
+libdpm_xwr68xx.aer4f DPM
+objectdetection.oer4f DPC
+(.cinit..l3ram.load) linker-generated
+data_path.oer4f APP
+(.common:gObjDetObj) DPC
+libaoaproc_hwa_xwr68xx.aer4f DPU
+libdma_xwr68xx.aer4f DRIVERS_OPTIONAL
+(.common:gMMWave_DualcoreMCB) MMWAVE
+(.common:gMmwMCB) APP
+libcrc_xwr68xx.aer4f DRIVERS_CORE
+libhwa_xwr68xx.aer4f DRIVERS_CORE
+libdopplerproc_hwa_xwr68xx.aer4f DPU
+libuart_xwr68xx.aer4f DRIVERS_OPTIONAL
+libgpio_xwr68xx.aer4f DRIVERS_OPTIONAL
+mmwdemo_adcconfig.oer4f APP
+librangeproc_hwa_xwr68xx.aer4f  DPU
+libesm_xwr68xx.aer4f  DRIVERS_CORE
+libstaticclutterproc_xwr68xx.aer4f  DPU
+mmwdemo_rfparser.oer4f APP
+libmmwavelink_xwr68xx.aer4f  MMWAVELINK
+libsoc_xwr68xx.aer4f  DRIVERS_CORE
+libadcbuf_xwr68xx.aer4f  DRIVERS_CORE
+libcli_xwr68xx.aer4f  DRIVERS_OPTIONAL
+
+libmmwavelink_xwr18xx.aer4f MMWAVELINK
+libdpm_xwr18xx.aer4f DPM 
+libdma_xwr18xx.aer4f DRIVERS_OPTIONAL
+mmw_mss_per4ft.oer4ft APP
+libcli_xwr18xx.aer4f DRIVERS_OPTIONAL
+(.common:gMmwMssMCB) APP
+mss_main.oer4f APP
+libcrc_xwr18xx.aer4f DRIVERS_CORE
+mmw_cli.oer4f APP
+libsoc_xwr18xx.aer4f DRIVERS_CORE
+libuart_xwr18xx.aer4f DRIVERS_OPTIONAL
+libosal_xwr18xx.aer4f BIOS
+libpinmux_xwr18xx.aer4f DRIVERS_CORE
+libmailbox_xwr18xx.aer4f DRIVERS_CORE
+libgpio_xwr18xx.aer4f DRIVERS_OPTIONAL
+libmathutils.aer4f DPU
+libesm_xwr18xx.aer4f DRIVERS_CORE
+libadcbuf_xwr18xx.aer4f DRIVERS_CORE
+libmmwave_xwr18xx.aer4f MMWAVE
+

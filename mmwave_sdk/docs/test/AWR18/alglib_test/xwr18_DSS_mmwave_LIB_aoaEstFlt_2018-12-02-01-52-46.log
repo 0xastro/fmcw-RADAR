@@ -1,0 +1,340 @@
+eth008 Board details:
+IP address: 10.218.113.62
+
+Port: 17494
+
+connecting...
+Relay states 8->1 : 00010101
+5 off
+7 off
+6 off
+Relay states 8->1 : 00000101
+5 on
+Relay states 8->1 : 00010101
+exit
+Disconnected
+Pre-Script returned: Success
+**************************************************
+Testcase mods & parameters invoked:
+**************************************************
+Two core test case: None (this is not a two core testcase)
+
+**************************************************
+Copying test case files from the Build server
+**************************************************
+Testdata possible location 1: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/alg/mmwavelib/test/testdata
+
+
+Copy-To local testcase data path is: /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/testdata
+
+Test case data file radarDemo_ref.bin found on server for downloading
+Test case data file windowFlt_test.bin found on server for downloading
+Test case data file floatpoint_test_aoaMultiObj.bin found on server for downloading
+Test case data file radarDemo_test.bin found on server for downloading
+Test case data file radarCase1_512_ref.bin found on server for downloading
+Test case data file radarCase1_test.bin found on server for downloading
+Test case data file peakpruning_test.bin found on server for downloading
+Test case data file floatpoint_test_aoaMultiObj_ref.bin found on server for downloading
+Test case data file dftsinglebinwithwin_test.bin found on server for downloading
+Test case data file dftsinglebinwithwinQI_test.bin found on server for downloading
+Test case data file radarCase1_mulObj_ref.bin found on server for downloading
+Test case data file radarCase2_mulObj_test.bin found on server for downloading
+Test case data file radarDemo_multiObj_neg15_ref.bin found on server for downloading
+Test case data file cfarca_test.bin found on server for downloading
+Test case data file radarDemo_neg15_test.bin found on server for downloading
+Test case data file radarCase2_ref.bin found on server for downloading
+Test case data file floatpoint_test_dbscanCluster_ref.bin found on server for downloading
+Test case data file radarCase2_mulObj_2dfftout_test.bin found on server for downloading
+Test case data file radarDemo_neg10_test.bin found on server for downloading
+Test case data file floatPoint_chain_test.bin found on server for downloading
+Test case data file clustering_test.bin found on server for downloading
+Test case data file radarCase1_512_test.bin found on server for downloading
+Test case data file radarDemo_multiObj_neg15_test.bin found on server for downloading
+Test case data file dftsinglebin_test.bin found on server for downloading
+Test case data file radarCase2_test.bin found on server for downloading
+Test case data file radarDemo_multiObj_neg5_test.bin found on server for downloading
+Test case data file radarCase2_mulObj_ref.bin found on server for downloading
+Test case data file radarDemo_captured_ref.bin found on server for downloading
+Test case data file accumPowerFlt_test.bin found on server for downloading
+Test case data file cfarca_wrap_test.bin found on server for downloading
+Test case data file radarCase1_ref.bin found on server for downloading
+Test case data file radarDemo_neg10_ref.bin found on server for downloading
+Test case data file radarDemo_multiObj_neg5_ref.bin found on server for downloading
+Test case data file floatpoint_test_dbscanCluster.bin found on server for downloading
+Test case data file radarDemo_captured_test.bin found on server for downloading
+Test case data file cfarca_peak_test.bin found on server for downloading
+Test case data file radarCase2_2dfftout_test.bin found on server for downloading
+Test case data file radarCase1_mulObj_test.bin found on server for downloading
+Test case data file radarDemo_multiObj_test.bin found on server for downloading
+Test case data file radarDemo_ref_new.bin found on server for downloading
+Test case data file radarDemo_multiObj_ref.bin found on server for downloading
+Test case data file radarDemo_neg15_ref.bin found on server for downloading
+Test case data file aoaest_test.bin found on server for downloading
+Call to copy_testcase_binary:
+TCP: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/alg/mmwavelib/test/xwr18xx; /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr18xx_sdk03.01.00_mmwave_LIB_full_Test_Plan___jenkins-79_2018_12_01_15_44_54
+
+Copying testcase binary file from http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/alg/mmwavelib/test/xwr18xx/xwr18xx_mmwavealg_aoaEstFlt.xe674 to /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr18xx_sdk03.01.00_mmwave_LIB_full_Test_Plan___jenkins-79_2018_12_01_15_44_54 using command: 
+wget -e robots=off --no-proxy -N -T 30 -t 2 -P /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr18xx_sdk03.01.00_mmwave_LIB_full_Test_Plan___jenkins-79_2018_12_01_15_44_54 http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/alg/mmwavelib/test/xwr18xx/xwr18xx_mmwavealg_aoaEstFlt.xe674
+**************************************************
+Executing Testcase:/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr18xx_sdk03.01.00_mmwave_LIB_full_Test_Plan___jenkins-79_2018_12_01_15_44_54/xwr18xx_mmwavealg_aoaEstFlt.xe674
+**************************************************
+Checking if Py4J Gateway server has started...
+Py4J Gateway Server is Started
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/DEBUGSSM_0
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/IcePick_M_0
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/C674X_0
+DSS test case opening debug session.
+
+cr4ctl = 0x0
+
+efuse/register @0xFFFFE210 = 0x0
+
+efuse/register @0xFFFFE214 = 0x0
+
+efuse/register @0xFFFFE218 = 0x0
+
+efuse/register @0xFFFFE21C = 0x0
+
+Loading binary to the DUT (no binary args updated):/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr18xx_sdk03.01.00_mmwave_LIB_full_Test_Plan___jenkins-79_2018_12_01_15_44_54/xwr18xx_mmwavealg_aoaEstFlt.xe674
+binary path = /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr18xx_sdk03.01.00_mmwave_LIB_full_Test_Plan___jenkins-79_2018_12_01_15_44_54/xwr18xx_mmwavealg_aoaEstFlt.xe674
+
+dt-time: start time = Sun Dec  2 01:53:28 2018
+
+dt-time: end time = Sun Dec  2 01:56:51 2018
+
+
+**************************************************
+CIO Log captured for the testcase
+**************************************************
+..... AOA Estimation using beamforming method test  .......
+AOA estimation using beamforming single peak testing
+angleset=0,numAnt=4,testId=0
+angleset=0,numAnt=4,testId=1
+angleset=0,numAnt=4,testId=2
+angleset=0,numAnt=4,testId=3
+angleset=0,numAnt=4,testId=4
+angleset=0,numAnt=4,testId=5
+angleset=0,numAnt=4,testId=6
+angleset=0,numAnt=4,testId=7
+angleset=0,numAnt=8,testId=0
+angleset=0,numAnt=8,testId=1
+angleset=0,numAnt=8,testId=2
+angleset=0,numAnt=8,testId=3
+angleset=0,numAnt=8,testId=4
+angleset=0,numAnt=8,testId=5
+angleset=0,numAnt=8,testId=6
+angleset=0,numAnt=8,testId=7
+angleset=0,numAnt=16,testId=0
+angleset=0,numAnt=16,testId=1
+angleset=0,numAnt=16,testId=2
+angleset=0,numAnt=16,testId=3
+angleset=0,numAnt=16,testId=4
+angleset=0,numAnt=16,testId=5
+angleset=0,numAnt=16,testId=6
+angleset=0,numAnt=16,testId=7
+angleset=0,numAnt=24,testId=0
+angleset=0,numAnt=24,testId=1
+angleset=0,numAnt=24,testId=2
+angleset=0,numAnt=24,testId=3
+angleset=0,numAnt=24,testId=4
+angleset=0,numAnt=24,testId=5
+angleset=0,numAnt=24,testId=6
+angleset=0,numAnt=24,testId=7
+angleset=1,numAnt=16,testId=0
+angleset=1,numAnt=16,testId=1
+angleset=1,numAnt=16,testId=2
+angleset=1,numAnt=16,testId=3
+angleset=1,numAnt=16,testId=4
+angleset=1,numAnt=16,testId=5
+angleset=1,numAnt=16,testId=6
+angleset=1,numAnt=16,testId=7
+angleset=1,numAnt=24,testId=0
+angleset=1,numAnt=24,testId=1
+angleset=1,numAnt=24,testId=2
+angleset=1,numAnt=24,testId=3
+angleset=1,numAnt=24,testId=4
+angleset=1,numAnt=24,testId=5
+angleset=1,numAnt=24,testId=6
+angleset=1,numAnt=24,testId=7
+Feature: Floating point AOA Beamforming Single Peak tests: Passed
+
+Benchmark AOA beamforming method single peak, AOA detection only 
+number of Ant, number of Steering vector, cycles
+4	51	700
+4	101	1014
+4	151	1377
+4	201	1740
+4	251	2090
+4	301	2426
+8	51	965
+8	101	1639
+8	151	2641
+8	201	3691
+8	251	4517
+8	301	5442
+16	51	6030
+16	101	11736
+16	151	17712
+16	201	25300
+16	251	33822
+16	301	40726
+24	51	9710
+24	101	17434
+24	151	26876
+24	201	38080
+24	251	47522
+24	301	56974
+
+Benchmark aoaEstBeamformingSinglePeak only 
+number of Ant, number of Steering vector, cycles
+4	51	908
+4	101	1246
+4	151	1622
+4	201	1998
+4	251	2373
+4	301	2710
+8	51	1167
+8	101	1896
+8	151	2878
+8	201	3936
+8	251	4776
+8	301	5714
+16	51	6270
+16	101	11961
+16	151	17886
+16	201	25462
+16	251	34002
+16	301	40912
+24	51	10280
+24	101	17976
+24	151	27510
+24	201	38612
+24	251	48020
+24	301	57436
+AOA estimation using beamforming multiple peaks testing
+multiple peak: angleset=0,numAnt=4,testId=0
+multiple peak: angleset=0,numAnt=4,testId=1
+multiple peak: angleset=0,numAnt=4,testId=2
+multiple peak: angleset=0,numAnt=4,testId=3
+multiple peak: angleset=0,numAnt=4,testId=4
+multiple peak: angleset=0,numAnt=4,testId=5
+multiple peak: angleset=0,numAnt=4,testId=6
+multiple peak: angleset=0,numAnt=4,testId=7
+multiple peak: angleset=0,numAnt=8,testId=0
+multiple peak: angleset=0,numAnt=8,testId=1
+multiple peak: angleset=0,numAnt=8,testId=2
+multiple peak: angleset=0,numAnt=8,testId=3
+multiple peak: angleset=0,numAnt=8,testId=4
+multiple peak: angleset=0,numAnt=8,testId=5
+multiple peak: angleset=0,numAnt=8,testId=6
+multiple peak: angleset=0,numAnt=8,testId=7
+multiple peak: angleset=0,numAnt=16,testId=0
+multiple peak: angleset=0,numAnt=16,testId=1
+multiple peak: angleset=0,numAnt=16,testId=2
+multiple peak: angleset=0,numAnt=16,testId=3
+multiple peak: angleset=0,numAnt=16,testId=4
+multiple peak: angleset=0,numAnt=16,testId=5
+multiple peak: angleset=0,numAnt=16,testId=6
+multiple peak: angleset=0,numAnt=16,testId=7
+multiple peak: angleset=0,numAnt=24,testId=0
+multiple peak: angleset=0,numAnt=24,testId=1
+multiple peak: angleset=0,numAnt=24,testId=2
+multiple peak: angleset=0,numAnt=24,testId=3
+multiple peak: angleset=0,numAnt=24,testId=4
+multiple peak: angleset=0,numAnt=24,testId=5
+multiple peak: angleset=0,numAnt=24,testId=6
+multiple peak: angleset=0,numAnt=24,testId=7
+multiple peak: angleset=1,numAnt=16,testId=0
+multiple peak: angleset=1,numAnt=16,testId=1
+multiple peak: angleset=1,numAnt=16,testId=2
+multiple peak: angleset=1,numAnt=16,testId=3
+multiple peak: angleset=1,numAnt=16,testId=4
+multiple peak: angleset=1,numAnt=16,testId=5
+multiple peak: angleset=1,numAnt=16,testId=6
+multiple peak: angleset=1,numAnt=16,testId=7
+multiple peak: angleset=1,numAnt=24,testId=0
+multiple peak: angleset=1,numAnt=24,testId=1
+multiple peak: angleset=1,numAnt=24,testId=2
+multiple peak: angleset=1,numAnt=24,testId=3
+multiple peak: angleset=1,numAnt=24,testId=4
+multiple peak: angleset=1,numAnt=24,testId=5
+multiple peak: angleset=1,numAnt=24,testId=6
+multiple peak: angleset=1,numAnt=24,testId=7
+Feature: Floating point AOA Beamforming Multiple Peaks tests: Passed
+
+Benchmark AOA beamforming method multiple peaks, AOA detection only 
+number of Ant, number of Steering vector, cycles
+4	51	1986
+4	101	3348
+4	151	4781
+4	201	6228
+4	251	7659
+4	301	9104
+8	51	2281
+8	101	4031
+8	151	6198
+8	201	8304
+8	251	10230
+8	301	12342
+16	51	7312
+16	101	14292
+16	151	21448
+16	201	30112
+16	251	39588
+16	301	47630
+24	51	11083
+24	101	19914
+24	151	30622
+24	201	42860
+24	251	53436
+24	301	64010
+
+Benchmark AOA beamforming method multiple peaks
+number of Ant, number of Steering vector, cycles
+4	25	2767
+4	50	5094
+4	75	7290
+4	100	9614
+4	125	11954
+4	150	14182
+8	25	1908
+8	50	3863
+8	75	6055
+8	100	8165
+8	125	10738
+8	150	13326
+16	25	4820
+16	50	9639
+16	75	14513
+16	100	19636
+16	125	24652
+16	150	29817
+24	25	5424
+24	50	10100
+24	75	14358
+24	100	19750
+24	125	26038
+24	150	32765
+========== Floating point AOA ESTIMATION tests all passed! ========== 
+========== AOA Testing completed! ==========
+Value read from Global variable (MCPI_Result): 0
+Test Failure Signature: 0
+Test Log Messages: 
+Feature tested: Floating point AOA Beamforming Single Peak tests: Passed
+Feature tested: Floating point AOA Beamforming Multiple Peaks tests: Passed
+
+
+shutting down py4j gw server.
+
+
+**************************************************
+Terminating the debug session and Shutting down gateway.
+**************************************************
+
+**************************************************
+Test case execution completed
+**************************************************
+
+**************************************************
+Testcase Result : PASS
+**************************************************

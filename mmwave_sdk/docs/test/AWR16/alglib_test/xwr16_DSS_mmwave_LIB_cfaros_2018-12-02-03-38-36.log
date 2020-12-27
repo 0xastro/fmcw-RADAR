@@ -1,0 +1,354 @@
+eth008 Board details:
+IP address: 10.218.113.62
+
+Port: 17494
+
+connecting...
+Relay states 8->1 : 00010101
+1 off
+8 off
+2 off
+Relay states 8->1 : 00010100
+1 on
+Relay states 8->1 : 00010101
+exit
+Disconnected
+Pre-Script returned: Success
+**************************************************
+Testcase mods & parameters invoked:
+**************************************************
+Two core test case: None (this is not a two core testcase)
+
+**************************************************
+Copying test case files from the Build server
+**************************************************
+Testdata possible location 1: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/alg/mmwavelib/test/testdata
+
+
+Copy-To local testcase data path is: /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/testdata
+
+Test case data file radarCase1_mulObj_test.bin found on server for downloading
+Test case data file radarDemo_multiObj_neg5_ref.bin found on server for downloading
+Test case data file floatpoint_test_dbscanCluster.bin found on server for downloading
+Test case data file radarDemo_multiObj_ref.bin found on server for downloading
+Test case data file windowFlt_test.bin found on server for downloading
+Test case data file radarCase1_mulObj_ref.bin found on server for downloading
+Test case data file aoaest_test.bin found on server for downloading
+Test case data file radarDemo_multiObj_neg5_test.bin found on server for downloading
+Test case data file radarDemo_neg15_test.bin found on server for downloading
+Test case data file radarDemo_test.bin found on server for downloading
+Test case data file cfarca_wrap_test.bin found on server for downloading
+Test case data file floatpoint_test_aoaMultiObj_ref.bin found on server for downloading
+Test case data file peakpruning_test.bin found on server for downloading
+Test case data file radarDemo_multiObj_neg15_test.bin found on server for downloading
+Test case data file cfarca_test.bin found on server for downloading
+Test case data file radarCase2_mulObj_test.bin found on server for downloading
+Test case data file clustering_test.bin found on server for downloading
+Test case data file radarDemo_neg10_ref.bin found on server for downloading
+Test case data file dftsinglebin_test.bin found on server for downloading
+Test case data file radarCase2_ref.bin found on server for downloading
+Test case data file radarDemo_neg15_ref.bin found on server for downloading
+Test case data file radarCase2_test.bin found on server for downloading
+Test case data file radarDemo_captured_ref.bin found on server for downloading
+Test case data file radarDemo_multiObj_neg15_ref.bin found on server for downloading
+Test case data file floatpoint_test_aoaMultiObj.bin found on server for downloading
+Test case data file floatpoint_test_dbscanCluster_ref.bin found on server for downloading
+Test case data file radarDemo_neg10_test.bin found on server for downloading
+Test case data file dftsinglebinwithwin_test.bin found on server for downloading
+Test case data file floatPoint_chain_test.bin found on server for downloading
+Test case data file radarCase2_mulObj_ref.bin found on server for downloading
+Test case data file radarDemo_ref_new.bin found on server for downloading
+Test case data file radarCase1_512_test.bin found on server for downloading
+Test case data file accumPowerFlt_test.bin found on server for downloading
+Test case data file radarCase2_2dfftout_test.bin found on server for downloading
+Test case data file radarCase2_mulObj_2dfftout_test.bin found on server for downloading
+Test case data file dftsinglebinwithwinQI_test.bin found on server for downloading
+Test case data file radarDemo_ref.bin found on server for downloading
+Test case data file radarCase1_512_ref.bin found on server for downloading
+Test case data file cfarca_peak_test.bin found on server for downloading
+Test case data file radarDemo_multiObj_test.bin found on server for downloading
+Test case data file radarDemo_captured_test.bin found on server for downloading
+Test case data file radarCase1_ref.bin found on server for downloading
+Test case data file radarCase1_test.bin found on server for downloading
+Call to copy_testcase_binary:
+TCP: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/alg/mmwavelib/test/xwr16xx; /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr16xx_sdk03.01.00_mmwave_LIB_full_Test_Plan___jenkins-79_2018_12_01_15_44_04
+
+Copying testcase binary file from http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/alg/mmwavelib/test/xwr16xx/xwr16xx_mmwavealg_cfaros.xe674 to /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr16xx_sdk03.01.00_mmwave_LIB_full_Test_Plan___jenkins-79_2018_12_01_15_44_04 using command: 
+wget -e robots=off --no-proxy -N -T 30 -t 2 -P /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr16xx_sdk03.01.00_mmwave_LIB_full_Test_Plan___jenkins-79_2018_12_01_15_44_04 http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/alg/mmwavelib/test/xwr16xx/xwr16xx_mmwavealg_cfaros.xe674
+**************************************************
+Executing Testcase:/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr16xx_sdk03.01.00_mmwave_LIB_full_Test_Plan___jenkins-79_2018_12_01_15_44_04/xwr16xx_mmwavealg_cfaros.xe674
+**************************************************
+Checking if Py4J Gateway server has started...
+Py4J Gateway Server is Started
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/DEBUGSSM_0
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/IcePick_M_0
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/C674X_0
+DSS test case opening debug session.
+
+cr4ctl = 0x0
+
+efuse/register @0xFFFFE210 = 0x0
+
+efuse/register @0xFFFFE214 = 0x0
+
+efuse/register @0xFFFFE218 = 0x0
+
+efuse/register @0xFFFFE21C = 0x0
+
+Loading binary to the DUT (no binary args updated):/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr16xx_sdk03.01.00_mmwave_LIB_full_Test_Plan___jenkins-79_2018_12_01_15_44_04/xwr16xx_mmwavealg_cfaros.xe674
+binary path = /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr16xx_sdk03.01.00_mmwave_LIB_full_Test_Plan___jenkins-79_2018_12_01_15_44_04/xwr16xx_mmwavealg_cfaros.xe674
+
+dt-time: start time = Sun Dec  2 03:39:18 2018
+
+dt-time: end time = Sun Dec  2 03:41:24 2018
+
+
+**************************************************
+CIO Log captured for the testcase
+**************************************************
+tsc_overhead = 2 cycles
+
+ ===== Test CFAR-OS =====
+Search Window Size : 32
+
+--- Input Data Length : 256 ---
+
+Test all CUTs' all ordered statistics(k=1 to WINDOW_SIZE) by set threshold to 0:
+Test 1-th ordered stat: Number of detected object =256, ref=256
+Test 2-th ordered stat: Number of detected object =256, ref=256
+Test 3-th ordered stat: Number of detected object =256, ref=256
+Test 4-th ordered stat: Number of detected object =256, ref=256
+Test 5-th ordered stat: Number of detected object =256, ref=256
+Test 6-th ordered stat: Number of detected object =256, ref=256
+Test 7-th ordered stat: Number of detected object =256, ref=256
+Test 8-th ordered stat: Number of detected object =256, ref=256
+Test 9-th ordered stat: Number of detected object =256, ref=256
+Test 10-th ordered stat: Number of detected object =256, ref=256
+Test 11-th ordered stat: Number of detected object =256, ref=256
+Test 12-th ordered stat: Number of detected object =256, ref=256
+Test 13-th ordered stat: Number of detected object =256, ref=256
+Test 14-th ordered stat: Number of detected object =256, ref=256
+Test 15-th ordered stat: Number of detected object =256, ref=256
+Test 16-th ordered stat: Number of detected object =256, ref=256
+Test 17-th ordered stat: Number of detected object =256, ref=256
+Test 18-th ordered stat: Number of detected object =256, ref=256
+Test 19-th ordered stat: Number of detected object =256, ref=256
+Test 20-th ordered stat: Number of detected object =256, ref=256
+Test 21-th ordered stat: Number of detected object =256, ref=256
+Test 22-th ordered stat: Number of detected object =256, ref=256
+Test 23-th ordered stat: Number of detected object =256, ref=256
+Test 24-th ordered stat: Number of detected object =256, ref=256
+Test 25-th ordered stat: Number of detected object =256, ref=256
+Test 26-th ordered stat: Number of detected object =256, ref=256
+Test 27-th ordered stat: Number of detected object =256, ref=256
+Test 28-th ordered stat: Number of detected object =256, ref=256
+Test 29-th ordered stat: Number of detected object =256, ref=256
+Test 30-th ordered stat: Number of detected object =256, ref=256
+Test 31-th ordered stat: Number of detected object =256, ref=256
+Test 32-th ordered stat: Number of detected object =256, ref=256
+CFAR-OS ordered statistics test passed.
+
+Test peak /w thresh= 79/64 = 1.234375:
+use 16-th ordered stat: Number of detected object =1, ref=1
+i=0: detected object index:13; peak=19956; kth os=15056
+use 17-th ordered stat: Number of detected object =1, ref=1
+i=0: detected object index:13; peak=19956; kth os=15200
+use 18-th ordered stat: Number of detected object =1, ref=1
+i=0: detected object index:13; peak=19956; kth os=15264
+use 19-th ordered stat: Number of detected object =1, ref=1
+i=0: detected object index:13; peak=19956; kth os=15276
+use 20-th ordered stat: Number of detected object =1, ref=1
+i=0: detected object index:13; peak=19956; kth os=15318
+use 21-th ordered stat: Number of detected object =1, ref=1
+i=0: detected object index:13; peak=19956; kth os=15336
+use 22-th ordered stat: Number of detected object =1, ref=1
+i=0: detected object index:13; peak=19956; kth os=15455
+use 23-th ordered stat: Number of detected object =1, ref=1
+i=0: detected object index:13; peak=19956; kth os=15932
+use 24-th ordered stat: Number of detected object =1, ref=1
+i=0: detected object index:13; peak=19956; kth os=16150
+CFAR-OS peak test passed.
+
+--- Input Data Length : 512 ---
+
+Test all CUTs' all ordered statistics(k=1 to WINDOW_SIZE) by set threshold to 0:
+Test 1-th ordered stat: Number of detected object =512, ref=512
+Test 2-th ordered stat: Number of detected object =512, ref=512
+Test 3-th ordered stat: Number of detected object =512, ref=512
+Test 4-th ordered stat: Number of detected object =512, ref=512
+Test 5-th ordered stat: Number of detected object =512, ref=512
+Test 6-th ordered stat: Number of detected object =512, ref=512
+Test 7-th ordered stat: Number of detected object =512, ref=512
+Test 8-th ordered stat: Number of detected object =512, ref=512
+Test 9-th ordered stat: Number of detected object =512, ref=512
+Test 10-th ordered stat: Number of detected object =512, ref=512
+Test 11-th ordered stat: Number of detected object =512, ref=512
+Test 12-th ordered stat: Number of detected object =512, ref=512
+Test 13-th ordered stat: Number of detected object =512, ref=512
+Test 14-th ordered stat: Number of detected object =512, ref=512
+Test 15-th ordered stat: Number of detected object =512, ref=512
+Test 16-th ordered stat: Number of detected object =512, ref=512
+Test 17-th ordered stat: Number of detected object =512, ref=512
+Test 18-th ordered stat: Number of detected object =512, ref=512
+Test 19-th ordered stat: Number of detected object =512, ref=512
+Test 20-th ordered stat: Number of detected object =512, ref=512
+Test 21-th ordered stat: Number of detected object =512, ref=512
+Test 22-th ordered stat: Number of detected object =512, ref=512
+Test 23-th ordered stat: Number of detected object =512, ref=512
+Test 24-th ordered stat: Number of detected object =512, ref=512
+Test 25-th ordered stat: Number of detected object =512, ref=512
+Test 26-th ordered stat: Number of detected object =512, ref=512
+Test 27-th ordered stat: Number of detected object =512, ref=512
+Test 28-th ordered stat: Number of detected object =512, ref=512
+Test 29-th ordered stat: Number of detected object =512, ref=512
+Test 30-th ordered stat: Number of detected object =512, ref=512
+Test 31-th ordered stat: Number of detected object =512, ref=512
+Test 32-th ordered stat: Number of detected object =512, ref=512
+CFAR-OS ordered statistics test passed.
+
+Test peak /w thresh= 70/64 = 1.093750:
+use 16-th ordered stat: Number of detected object =5, ref=5
+i=0: detected object index:396; peak=15132; kth os=13685
+i=1: detected object index:397; peak=16068; kth os=13684
+i=2: detected object index:398; peak=17478; kth os=13685
+use 17-th ordered stat: Number of detected object =5, ref=5
+i=0: detected object index:396; peak=15132; kth os=13686
+i=1: detected object index:397; peak=16068; kth os=13685
+i=2: detected object index:398; peak=17478; kth os=13686
+use 18-th ordered stat: Number of detected object =5, ref=5
+i=0: detected object index:396; peak=15132; kth os=13764
+i=1: detected object index:397; peak=16068; kth os=13686
+i=2: detected object index:398; peak=17478; kth os=13777
+use 19-th ordered stat: Number of detected object =5, ref=5
+i=0: detected object index:396; peak=15132; kth os=13777
+i=1: detected object index:397; peak=16068; kth os=13777
+i=2: detected object index:398; peak=17478; kth os=13913
+use 20-th ordered stat: Number of detected object =4, ref=4
+i=0: detected object index:397; peak=16068; kth os=13913
+i=1: detected object index:398; peak=17478; kth os=13914
+i=2: detected object index:399; peak=17968; kth os=13914
+use 21-th ordered stat: Number of detected object =4, ref=4
+i=0: detected object index:397; peak=16068; kth os=13914
+i=1: detected object index:398; peak=17478; kth os=13920
+i=2: detected object index:399; peak=17968; kth os=13920
+use 22-th ordered stat: Number of detected object =4, ref=4
+i=0: detected object index:397; peak=16068; kth os=13920
+i=1: detected object index:398; peak=17478; kth os=14045
+i=2: detected object index:399; peak=17968; kth os=14045
+use 23-th ordered stat: Number of detected object =4, ref=4
+i=0: detected object index:397; peak=16068; kth os=14045
+i=1: detected object index:398; peak=17478; kth os=14101
+i=2: detected object index:399; peak=17968; kth os=14101
+use 24-th ordered stat: Number of detected object =4, ref=4
+i=0: detected object index:397; peak=16068; kth os=14201
+i=1: detected object index:398; peak=17478; kth os=14201
+i=2: detected object index:399; peak=17968; kth os=14201
+CFAR-OS peak test passed.
+
+--- Input Data Length : 1024 ---
+
+Test all CUTs' all ordered statistics(k=1 to WINDOW_SIZE) by set threshold to 0:
+Test 1-th ordered stat: Number of detected object =1024, ref=1024
+Test 2-th ordered stat: Number of detected object =1024, ref=1024
+Test 3-th ordered stat: Number of detected object =1024, ref=1024
+Test 4-th ordered stat: Number of detected object =1024, ref=1024
+Test 5-th ordered stat: Number of detected object =1024, ref=1024
+Test 6-th ordered stat: Number of detected object =1024, ref=1024
+Test 7-th ordered stat: Number of detected object =1024, ref=1024
+Test 8-th ordered stat: Number of detected object =1024, ref=1024
+Test 9-th ordered stat: Number of detected object =1024, ref=1024
+Test 10-th ordered stat: Number of detected object =1024, ref=1024
+Test 11-th ordered stat: Number of detected object =1024, ref=1024
+Test 12-th ordered stat: Number of detected object =1024, ref=1024
+Test 13-th ordered stat: Number of detected object =1024, ref=1024
+Test 14-th ordered stat: Number of detected object =1024, ref=1024
+Test 15-th ordered stat: Number of detected object =1024, ref=1024
+Test 16-th ordered stat: Number of detected object =1024, ref=1024
+Test 17-th ordered stat: Number of detected object =1024, ref=1024
+Test 18-th ordered stat: Number of detected object =1024, ref=1024
+Test 19-th ordered stat: Number of detected object =1024, ref=1024
+Test 20-th ordered stat: Number of detected object =1024, ref=1024
+Test 21-th ordered stat: Number of detected object =1024, ref=1024
+Test 22-th ordered stat: Number of detected object =1024, ref=1024
+Test 23-th ordered stat: Number of detected object =1024, ref=1024
+Test 24-th ordered stat: Number of detected object =1024, ref=1024
+Test 25-th ordered stat: Number of detected object =1024, ref=1024
+Test 26-th ordered stat: Number of detected object =1024, ref=1024
+Test 27-th ordered stat: Number of detected object =1024, ref=1024
+Test 28-th ordered stat: Number of detected object =1024, ref=1024
+Test 29-th ordered stat: Number of detected object =1024, ref=1024
+Test 30-th ordered stat: Number of detected object =1024, ref=1024
+Test 31-th ordered stat: Number of detected object =1024, ref=1024
+Test 32-th ordered stat: Number of detected object =1024, ref=1024
+CFAR-OS ordered statistics test passed.
+
+Test peak /w thresh= 128/64 = 2.000000:
+use 16-th ordered stat: Number of detected object =69, ref=69
+i=0: detected object index:50; peak=31353; kth os=14479
+i=1: detected object index:57; peak=31327; kth os=13990
+i=2: detected object index:61; peak=29983; kth os=13990
+use 17-th ordered stat: Number of detected object =45, ref=45
+i=0: detected object index:50; peak=31353; kth os=15188
+i=1: detected object index:57; peak=31327; kth os=14479
+i=2: detected object index:61; peak=29983; kth os=14479
+use 18-th ordered stat: Number of detected object =31, ref=31
+i=0: detected object index:57; peak=31327; kth os=15188
+i=1: detected object index:70; peak=28606; kth os=13134
+i=2: detected object index:86; peak=29071; kth os=13990
+use 19-th ordered stat: Number of detected object =20, ref=20
+i=0: detected object index:57; peak=31327; kth os=15629
+i=1: detected object index:70; peak=28606; kth os=13306
+i=2: detected object index:86; peak=29071; kth os=14139
+use 20-th ordered stat: Number of detected object =6, ref=6
+i=0: detected object index:70; peak=28606; kth os=13990
+i=1: detected object index:175; peak=32017; kth os=15988
+i=2: detected object index:283; peak=31591; kth os=11863
+use 21-th ordered stat: Number of detected object =1, ref=1
+i=0: detected object index:283; peak=31591; kth os=12388
+use 22-th ordered stat: Number of detected object =1, ref=1
+i=0: detected object index:283; peak=31591; kth os=13192
+use 23-th ordered stat: Number of detected object =0, ref=0
+use 24-th ordered stat: Number of detected object =0, ref=0
+CFAR-OS peak test passed.
+
+Benchmark for mmwavelib_cfarOS /w WINDOW SIZE 32 :
+length(lenCUTend=len) and cfar cycles:
+64	4700
+128	8719
+256	16703
+512	32671
+1024	64607
+Number of detected object: 1024
+
+lenCUTend(=len-WINDOW_SIZE/2) and cfar cycles:
+48	3727
+112	7721
+240	15705
+496	31673
+1008	63609
+Number of detected object: 1008
+
+Feature: CFAR-OS: Passed
+
+========== CFAR-OS tests passed! ========== 
+========== Testing completed! ==========
+Value read from Global variable (MCPI_Result): 0
+Test Failure Signature: 0
+Test Log Messages: 
+Feature tested: CFAR-OS: Passed
+
+
+shutting down py4j gw server.
+
+
+**************************************************
+Terminating the debug session and Shutting down gateway.
+**************************************************
+
+**************************************************
+Test case execution completed
+**************************************************
+
+**************************************************
+Testcase Result : PASS
+**************************************************

@@ -1,0 +1,58 @@
+.TH "MmwDemo_measureRxChannelBiasCfg_t_" 3 "Wed May 20 2020" "Version 1.0" "mmWaveFMCWRADAR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MmwDemo_measureRxChannelBiasCfg_t_ \- Range Bias and rx channel gain/phase measurement configuration\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <mrr_config\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "uint8_t \fBenabled\fP"
+.br
+.RI "1-enabled 0-disabled "
+.ti -1c
+.RI "float \fBtargetDistance\fP"
+.br
+.RI "Target distance during measurement (in meters) "
+.ti -1c
+.RI "float \fBsearchWinSize\fP"
+.br
+.RI "Search window size (in meters), the search is done in range [-searchWinSize/2 + targetDistance, targetDistance + searchWinSize/2]\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Range Bias and rx channel gain/phase measurement configuration\&. 
+
+
+.PP
+Definition at line 414 of file mrr_config\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "uint8_t MmwDemo_measureRxChannelBiasCfg_t_::enabled"
+
+.PP
+1-enabled 0-disabled 
+.PP
+Definition at line 418 of file mrr_config\&.h\&.
+.SS "float MmwDemo_measureRxChannelBiasCfg_t_::searchWinSize"
+
+.PP
+Search window size (in meters), the search is done in range [-searchWinSize/2 + targetDistance, targetDistance + searchWinSize/2]\&. 
+.PP
+Definition at line 425 of file mrr_config\&.h\&.
+.SS "float MmwDemo_measureRxChannelBiasCfg_t_::targetDistance"
+
+.PP
+Target distance during measurement (in meters) 
+.PP
+Definition at line 421 of file mrr_config\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mmWaveFMCWRADAR from the source code\&.

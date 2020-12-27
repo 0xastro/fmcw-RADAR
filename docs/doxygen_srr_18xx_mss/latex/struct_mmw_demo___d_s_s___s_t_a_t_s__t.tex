@@ -1,0 +1,261 @@
+\doxysection{Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+T\+S\+\_\+t Struct Reference}
+\label{struct_mmw_demo___d_s_s___s_t_a_t_s__t}\index{MmwDemo\_DSS\_STATS\_t@{MmwDemo\_DSS\_STATS\_t}}
+
+
+{\ttfamily \#include $<$mm\+Wave\+\_\+\+X\+S\+S.\+h$>$}
+
+
+
+Collaboration diagram for Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+T\+S\+\_\+t\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=215pt]{struct_mmw_demo___d_s_s___s_t_a_t_s__t__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \textbf{ config\+Evt}
+\begin{DoxyCompactList}\small\item\em Counter which tracks the number of config events The config event is triggered in mmwave config callback function when remote sends configuration. \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ start\+Evt}
+\begin{DoxyCompactList}\small\item\em Counter which tracks the number of start events The start event is triggered in mmwave start callback function when remote calls mmwave\+\_\+start() \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ stop\+Evt}
+\begin{DoxyCompactList}\small\item\em Counter which tracks the number of stop events The start event is triggered in mmwave stop callback function when remote calls mmwave\+\_\+stop() \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ chirp\+Int\+Skip\+Counter}
+\begin{DoxyCompactList}\small\item\em Counter which tracks the number of chirp interrupt skipped due to stopped state of sensor. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ frame\+Int\+Skip\+Counter}
+\begin{DoxyCompactList}\small\item\em Counter which tracks the number of chirp interrupt skipped due to stopped state of sensor. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ chirp\+Int\+Counter}
+\begin{DoxyCompactList}\small\item\em Counter which tracks the number of chirp interrupt detected. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ frame\+Start\+Int\+Counter}
+\begin{DoxyCompactList}\small\item\em Counter which tracks the number of frame start interrupt detected. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ chirp\+Evt}
+\begin{DoxyCompactList}\small\item\em Counter which tracks the number of chirp event detected The chirp event is triggered in the I\+SR for chirp interrupt. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ frame\+Start\+Evt}
+\begin{DoxyCompactList}\small\item\em Counter which tracks the number of frame start event detected The frame start event is triggered in the I\+SR for frame start interrupt. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ frame\+Trig\+Evt}
+\begin{DoxyCompactList}\small\item\em Counter which tracks the number of frames triggered in B\+SS detected The frame trigger event is triggered in the mmwave async event callback function. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ num\+Failed\+Timing\+Reports}
+\begin{DoxyCompactList}\small\item\em Counter which tracks the number of Failed Timing Reports received from B\+SS ~\newline
+ \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ num\+Calibration\+Reports}
+\begin{DoxyCompactList}\small\item\em Counter which tracks the number of Calibration Report received from B\+SS ~\newline
+ \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ det\+Obj\+Logging\+Skip}
+\begin{DoxyCompactList}\small\item\em Counter which tracks the number of times saving detected objects in logging buffer is skipped. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ det\+Obj\+Logging\+Err}
+\begin{DoxyCompactList}\small\item\em Counter which tracks the number of times saving detected objects in logging buffer has an error. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 124 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\label{struct_mmw_demo___d_s_s___s_t_a_t_s__t_ad982f6c3bea7dae1a75a9e9eb6e0afd3}} 
+\index{MmwDemo\_DSS\_STATS\_t@{MmwDemo\_DSS\_STATS\_t}!chirpEvt@{chirpEvt}}
+\index{chirpEvt@{chirpEvt}!MmwDemo\_DSS\_STATS\_t@{MmwDemo\_DSS\_STATS\_t}}
+\doxysubsubsection{chirpEvt}
+{\footnotesize\ttfamily uint32\+\_\+t Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+T\+S\+\_\+t\+::chirp\+Evt}
+
+
+
+Counter which tracks the number of chirp event detected The chirp event is triggered in the I\+SR for chirp interrupt. 
+
+
+
+Definition at line 155 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+\mbox{\label{struct_mmw_demo___d_s_s___s_t_a_t_s__t_ae6b30ffe34311033df7b1663f1831ba3}} 
+\index{MmwDemo\_DSS\_STATS\_t@{MmwDemo\_DSS\_STATS\_t}!chirpIntCounter@{chirpIntCounter}}
+\index{chirpIntCounter@{chirpIntCounter}!MmwDemo\_DSS\_STATS\_t@{MmwDemo\_DSS\_STATS\_t}}
+\doxysubsubsection{chirpIntCounter}
+{\footnotesize\ttfamily uint32\+\_\+t Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+T\+S\+\_\+t\+::chirp\+Int\+Counter}
+
+
+
+Counter which tracks the number of chirp interrupt detected. 
+
+
+
+Definition at line 148 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+\mbox{\label{struct_mmw_demo___d_s_s___s_t_a_t_s__t_a1abcec1c203156538e6995282c560e39}} 
+\index{MmwDemo\_DSS\_STATS\_t@{MmwDemo\_DSS\_STATS\_t}!chirpIntSkipCounter@{chirpIntSkipCounter}}
+\index{chirpIntSkipCounter@{chirpIntSkipCounter}!MmwDemo\_DSS\_STATS\_t@{MmwDemo\_DSS\_STATS\_t}}
+\doxysubsubsection{chirpIntSkipCounter}
+{\footnotesize\ttfamily uint32\+\_\+t Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+T\+S\+\_\+t\+::chirp\+Int\+Skip\+Counter}
+
+
+
+Counter which tracks the number of chirp interrupt skipped due to stopped state of sensor. 
+
+
+
+Definition at line 142 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+\mbox{\label{struct_mmw_demo___d_s_s___s_t_a_t_s__t_a33a7c49610dbad70e7b5ee9e6ac95497}} 
+\index{MmwDemo\_DSS\_STATS\_t@{MmwDemo\_DSS\_STATS\_t}!configEvt@{configEvt}}
+\index{configEvt@{configEvt}!MmwDemo\_DSS\_STATS\_t@{MmwDemo\_DSS\_STATS\_t}}
+\doxysubsubsection{configEvt}
+{\footnotesize\ttfamily uint8\+\_\+t Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+T\+S\+\_\+t\+::config\+Evt}
+
+
+
+Counter which tracks the number of config events The config event is triggered in mmwave config callback function when remote sends configuration. 
+
+
+
+Definition at line 129 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+\mbox{\label{struct_mmw_demo___d_s_s___s_t_a_t_s__t_aaa1be170601a4d6d6c89eea2ae640739}} 
+\index{MmwDemo\_DSS\_STATS\_t@{MmwDemo\_DSS\_STATS\_t}!detObjLoggingErr@{detObjLoggingErr}}
+\index{detObjLoggingErr@{detObjLoggingErr}!MmwDemo\_DSS\_STATS\_t@{MmwDemo\_DSS\_STATS\_t}}
+\doxysubsubsection{detObjLoggingErr}
+{\footnotesize\ttfamily uint32\+\_\+t Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+T\+S\+\_\+t\+::det\+Obj\+Logging\+Err}
+
+
+
+Counter which tracks the number of times saving detected objects in logging buffer has an error. 
+
+
+
+Definition at line 177 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+\mbox{\label{struct_mmw_demo___d_s_s___s_t_a_t_s__t_adab7717c08ac8b00c5a963fc46d798b6}} 
+\index{MmwDemo\_DSS\_STATS\_t@{MmwDemo\_DSS\_STATS\_t}!detObjLoggingSkip@{detObjLoggingSkip}}
+\index{detObjLoggingSkip@{detObjLoggingSkip}!MmwDemo\_DSS\_STATS\_t@{MmwDemo\_DSS\_STATS\_t}}
+\doxysubsubsection{detObjLoggingSkip}
+{\footnotesize\ttfamily uint32\+\_\+t Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+T\+S\+\_\+t\+::det\+Obj\+Logging\+Skip}
+
+
+
+Counter which tracks the number of times saving detected objects in logging buffer is skipped. 
+
+
+
+Definition at line 173 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+\mbox{\label{struct_mmw_demo___d_s_s___s_t_a_t_s__t_ae760205011fc1b5efc3f0ee96d7ac697}} 
+\index{MmwDemo\_DSS\_STATS\_t@{MmwDemo\_DSS\_STATS\_t}!frameIntSkipCounter@{frameIntSkipCounter}}
+\index{frameIntSkipCounter@{frameIntSkipCounter}!MmwDemo\_DSS\_STATS\_t@{MmwDemo\_DSS\_STATS\_t}}
+\doxysubsubsection{frameIntSkipCounter}
+{\footnotesize\ttfamily uint32\+\_\+t Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+T\+S\+\_\+t\+::frame\+Int\+Skip\+Counter}
+
+
+
+Counter which tracks the number of chirp interrupt skipped due to stopped state of sensor. 
+
+
+
+Definition at line 145 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+\mbox{\label{struct_mmw_demo___d_s_s___s_t_a_t_s__t_a3908df5b8e672bed1c68aa2d17bef2a9}} 
+\index{MmwDemo\_DSS\_STATS\_t@{MmwDemo\_DSS\_STATS\_t}!frameStartEvt@{frameStartEvt}}
+\index{frameStartEvt@{frameStartEvt}!MmwDemo\_DSS\_STATS\_t@{MmwDemo\_DSS\_STATS\_t}}
+\doxysubsubsection{frameStartEvt}
+{\footnotesize\ttfamily uint32\+\_\+t Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+T\+S\+\_\+t\+::frame\+Start\+Evt}
+
+
+
+Counter which tracks the number of frame start event detected The frame start event is triggered in the I\+SR for frame start interrupt. 
+
+
+
+Definition at line 159 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+\mbox{\label{struct_mmw_demo___d_s_s___s_t_a_t_s__t_aa9b188f251e34706e676c30c046b1f96}} 
+\index{MmwDemo\_DSS\_STATS\_t@{MmwDemo\_DSS\_STATS\_t}!frameStartIntCounter@{frameStartIntCounter}}
+\index{frameStartIntCounter@{frameStartIntCounter}!MmwDemo\_DSS\_STATS\_t@{MmwDemo\_DSS\_STATS\_t}}
+\doxysubsubsection{frameStartIntCounter}
+{\footnotesize\ttfamily uint32\+\_\+t Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+T\+S\+\_\+t\+::frame\+Start\+Int\+Counter}
+
+
+
+Counter which tracks the number of frame start interrupt detected. 
+
+
+
+Definition at line 151 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+\mbox{\label{struct_mmw_demo___d_s_s___s_t_a_t_s__t_afc67fd14b4897f94ddc8f87458ae5ae1}} 
+\index{MmwDemo\_DSS\_STATS\_t@{MmwDemo\_DSS\_STATS\_t}!frameTrigEvt@{frameTrigEvt}}
+\index{frameTrigEvt@{frameTrigEvt}!MmwDemo\_DSS\_STATS\_t@{MmwDemo\_DSS\_STATS\_t}}
+\doxysubsubsection{frameTrigEvt}
+{\footnotesize\ttfamily uint32\+\_\+t Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+T\+S\+\_\+t\+::frame\+Trig\+Evt}
+
+
+
+Counter which tracks the number of frames triggered in B\+SS detected The frame trigger event is triggered in the mmwave async event callback function. 
+
+
+
+Definition at line 163 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+\mbox{\label{struct_mmw_demo___d_s_s___s_t_a_t_s__t_aa2ed344e32bcf18c8d81cc407410c38c}} 
+\index{MmwDemo\_DSS\_STATS\_t@{MmwDemo\_DSS\_STATS\_t}!numCalibrationReports@{numCalibrationReports}}
+\index{numCalibrationReports@{numCalibrationReports}!MmwDemo\_DSS\_STATS\_t@{MmwDemo\_DSS\_STATS\_t}}
+\doxysubsubsection{numCalibrationReports}
+{\footnotesize\ttfamily uint32\+\_\+t Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+T\+S\+\_\+t\+::num\+Calibration\+Reports}
+
+
+
+Counter which tracks the number of Calibration Report received from B\+SS ~\newline
+ 
+
+
+
+Definition at line 169 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+\mbox{\label{struct_mmw_demo___d_s_s___s_t_a_t_s__t_a328a7a152f460c5f530f08c9c6f0ae71}} 
+\index{MmwDemo\_DSS\_STATS\_t@{MmwDemo\_DSS\_STATS\_t}!numFailedTimingReports@{numFailedTimingReports}}
+\index{numFailedTimingReports@{numFailedTimingReports}!MmwDemo\_DSS\_STATS\_t@{MmwDemo\_DSS\_STATS\_t}}
+\doxysubsubsection{numFailedTimingReports}
+{\footnotesize\ttfamily uint32\+\_\+t Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+T\+S\+\_\+t\+::num\+Failed\+Timing\+Reports}
+
+
+
+Counter which tracks the number of Failed Timing Reports received from B\+SS ~\newline
+ 
+
+
+
+Definition at line 166 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+\mbox{\label{struct_mmw_demo___d_s_s___s_t_a_t_s__t_a1850b035dce8b88238117348f0ebac88}} 
+\index{MmwDemo\_DSS\_STATS\_t@{MmwDemo\_DSS\_STATS\_t}!startEvt@{startEvt}}
+\index{startEvt@{startEvt}!MmwDemo\_DSS\_STATS\_t@{MmwDemo\_DSS\_STATS\_t}}
+\doxysubsubsection{startEvt}
+{\footnotesize\ttfamily uint8\+\_\+t Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+T\+S\+\_\+t\+::start\+Evt}
+
+
+
+Counter which tracks the number of start events The start event is triggered in mmwave start callback function when remote calls mmwave\+\_\+start() 
+
+
+
+Definition at line 134 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+\mbox{\label{struct_mmw_demo___d_s_s___s_t_a_t_s__t_a136c739d135da5dfc00171ae54ef0f12}} 
+\index{MmwDemo\_DSS\_STATS\_t@{MmwDemo\_DSS\_STATS\_t}!stopEvt@{stopEvt}}
+\index{stopEvt@{stopEvt}!MmwDemo\_DSS\_STATS\_t@{MmwDemo\_DSS\_STATS\_t}}
+\doxysubsubsection{stopEvt}
+{\footnotesize\ttfamily uint8\+\_\+t Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+T\+S\+\_\+t\+::stop\+Evt}
+
+
+
+Counter which tracks the number of stop events The start event is triggered in mmwave stop callback function when remote calls mmwave\+\_\+stop() 
+
+
+
+Definition at line 139 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ mm\+Wave\+\_\+\+X\+S\+S.\+h}\end{DoxyCompactItemize}

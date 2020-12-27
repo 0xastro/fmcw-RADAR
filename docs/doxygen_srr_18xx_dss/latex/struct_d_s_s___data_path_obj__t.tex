@@ -1,0 +1,1921 @@
+\doxysection{D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t Struct Reference}
+\label{struct_d_s_s___data_path_obj__t}\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+
+
+Millimeter Wave Demo Data Path Information.  
+
+
+
+
+{\ttfamily \#include $<$dss\+\_\+data\+\_\+path.\+h$>$}
+
+
+
+Collaboration diagram for D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_d_s_s___data_path_obj__t__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+A\+D\+C\+Buf\+\_\+\+Handle \textbf{ adcbuf\+Handle}
+\begin{DoxyCompactList}\small\item\em A\+D\+C\+B\+UF handle. \end{DoxyCompactList}\item 
+E\+D\+M\+A\+\_\+\+Handle \textbf{ edma\+Handle} [2]
+\begin{DoxyCompactList}\small\item\em Handle of the E\+D\+MA driver. \end{DoxyCompactList}\item 
+E\+D\+M\+A\+\_\+error\+Info\+\_\+t \textbf{ E\+D\+M\+A\+\_\+error\+Info}
+\begin{DoxyCompactList}\small\item\em E\+D\+MA error Information when there are errors like missing events. \end{DoxyCompactList}\item 
+E\+D\+M\+A\+\_\+transfer\+Controller\+Error\+Info\+\_\+t \textbf{ E\+D\+M\+A\+\_\+transfer\+Controller\+Error\+Info}
+\begin{DoxyCompactList}\small\item\em E\+D\+MA transfer controller error information. \end{DoxyCompactList}\item 
+cmplx16\+Re\+Im\+\_\+t $\ast$ \textbf{ A\+D\+Cdata\+Buf}
+\begin{DoxyCompactList}\small\item\em pointer to A\+DC buffer \end{DoxyCompactList}\item 
+cmplx16\+Re\+Im\+\_\+t $\ast$ \textbf{ twiddle16x16\+\_\+1D}
+\begin{DoxyCompactList}\small\item\em twiddle table for 1D F\+FT \end{DoxyCompactList}\item 
+int16\+\_\+t $\ast$ \textbf{ window1D}
+\begin{DoxyCompactList}\small\item\em window coefficients for 1D F\+FT \end{DoxyCompactList}\item 
+cmplx16\+Re\+Im\+\_\+t $\ast$ \textbf{ adc\+Data\+In}
+\begin{DoxyCompactList}\small\item\em A\+D\+C\+B\+UF input samples in L2 scratch memory. \end{DoxyCompactList}\item 
+cmplx16\+Re\+Im\+\_\+t $\ast$ \textbf{ fft\+Out1D}
+\begin{DoxyCompactList}\small\item\em 1D F\+FT output \end{DoxyCompactList}\item 
+cmplx32\+Re\+Im\+\_\+t $\ast$ \textbf{ twiddle32x32\+\_\+2D}
+\begin{DoxyCompactList}\small\item\em twiddle table for 2D F\+FT \end{DoxyCompactList}\item 
+int32\+\_\+t $\ast$ \textbf{ window2D}
+\begin{DoxyCompactList}\small\item\em window coefficients for 2D F\+FT \end{DoxyCompactList}\item 
+cmplx16\+Re\+Im\+\_\+t $\ast$ \textbf{ dst\+Ping\+Pong}
+\begin{DoxyCompactList}\small\item\em ping pong buffer for 2D from radar Cube \end{DoxyCompactList}\item 
+cmplx32\+Re\+Im\+\_\+t $\ast$ \textbf{ windowing\+Buf2D}
+\begin{DoxyCompactList}\small\item\em window output for 2D F\+FT \end{DoxyCompactList}\item 
+cmplx32\+Re\+Im\+\_\+t $\ast$ \textbf{ fft\+Out2D}
+\begin{DoxyCompactList}\small\item\em 2D F\+FT output \end{DoxyCompactList}\item 
+uint16\+\_\+t $\ast$ \textbf{ log2\+Abs}
+\begin{DoxyCompactList}\small\item\em log2 absolute computation output buffer \end{DoxyCompactList}\item 
+uint16\+\_\+t $\ast$ \textbf{ sum\+Abs}
+\begin{DoxyCompactList}\small\item\em accumulated sum of log2 absolute over the antennae \end{DoxyCompactList}\item 
+uint16\+\_\+t $\ast$ \textbf{ sum\+Abs\+Slow\+Chirp}
+\begin{DoxyCompactList}\small\item\em accumulated sum of log2 absolute over the antennae \end{DoxyCompactList}\item 
+uint16\+\_\+t $\ast$ \textbf{ sum\+Abs\+Range}
+\begin{DoxyCompactList}\small\item\em input buffer for C\+F\+AR processing from the detection matrix \end{DoxyCompactList}\item 
+uint16\+\_\+t $\ast$ \textbf{ cfar\+Det\+Obj\+Index\+Buf}
+\begin{DoxyCompactList}\small\item\em C\+F\+AR output objects index buffer. \end{DoxyCompactList}\item 
+uint16\+\_\+t $\ast$ \textbf{ cfar\+Det\+Obj\+S\+NR}
+\begin{DoxyCompactList}\small\item\em C\+F\+AR output objects\textquotesingle{} S\+NR buffer. \end{DoxyCompactList}\item 
+cmplx32\+Re\+Im\+\_\+t $\ast$ \textbf{ azimuth\+In}
+\begin{DoxyCompactList}\small\item\em input for Azimuth F\+FT \end{DoxyCompactList}\item 
+cmplx32\+Re\+Im\+\_\+t $\ast$ \textbf{ ant\+Inp}
+\begin{DoxyCompactList}\small\item\em input for Azimuth F\+FT \end{DoxyCompactList}\item 
+cmplx32\+Re\+Im\+\_\+t $\ast$ \textbf{ elevation\+In}
+\begin{DoxyCompactList}\small\item\em input for Elevation F\+FT \end{DoxyCompactList}\item 
+cmplx32\+Re\+Im\+\_\+t $\ast$ \textbf{ azimuth\+Out}
+\begin{DoxyCompactList}\small\item\em output of Azimuth F\+FT \end{DoxyCompactList}\item 
+cmplx32\+Re\+Im\+\_\+t $\ast$ \textbf{ elevation\+Out}
+\begin{DoxyCompactList}\small\item\em output of Elevation F\+FT \end{DoxyCompactList}\item 
+float $\ast$ \textbf{ azimuth\+Mag\+Sqr}
+\begin{DoxyCompactList}\small\item\em output of Azimuth F\+FT magnitude squared \end{DoxyCompactList}\item 
+cmplx32\+Re\+Im\+\_\+t $\ast$ \textbf{ azimuth\+Twiddle32x32}
+\begin{DoxyCompactList}\small\item\em twiddle factors table for Azimuth F\+FT \end{DoxyCompactList}\item 
+cmplx16\+Im\+Re\+\_\+t $\ast$ \textbf{ azimuth\+Mod\+Coefs}
+\begin{DoxyCompactList}\small\item\em Pointer to single point D\+FT coefficients used for Azimuth processing. \end{DoxyCompactList}\item 
+cmplx16\+Im\+Re\+\_\+t $\ast$ \textbf{ rx\+Ch\+Phase\+Comp}
+\begin{DoxyCompactList}\small\item\em Pointer to the Rx Gain phase compensation params. \end{DoxyCompactList}\item 
+cmplx32\+Im\+Re\+\_\+t $\ast$ \textbf{ dc\+Range\+Sig\+Mean}
+\begin{DoxyCompactList}\small\item\em Pointer to DC range signature compensation buffer. \end{DoxyCompactList}\item 
+cmplx16\+Re\+Im\+\_\+t $\ast$ \textbf{ radar\+Cube}
+\begin{DoxyCompactList}\small\item\em Pointer to Radar Cube memory in L3 R\+AM. \end{DoxyCompactList}\item 
+uint16\+\_\+t $\ast$ \textbf{ det\+Matrix}
+\begin{DoxyCompactList}\small\item\em Pointer to range/\+Doppler log2 magnitude detection matrix in L3 R\+AM. \end{DoxyCompactList}\item 
+uint8\+\_\+t $\ast$ \textbf{ d\+Bscan\+Scratch\+Pad}
+\begin{DoxyCompactList}\small\item\em Pointer to d\+B\+Scan scratch pad. \end{DoxyCompactList}\item 
+uint16\+\_\+t $\ast$ \textbf{ dbscan\+Output\+Data\+Index\+Array}
+\begin{DoxyCompactList}\small\item\em Pointer to d\+B\+Scan index array. \end{DoxyCompactList}\item 
+\textbf{ clustering\+D\+Bscan\+Report\+\_\+t} $\ast$ \textbf{ dbscan\+Output\+Data\+Report}
+\begin{DoxyCompactList}\small\item\em Pointer to d\+B\+Scan output Report array. \end{DoxyCompactList}\item 
+\textbf{ tracking\+Input\+Report\+\_\+t} $\ast$ \textbf{ tracking\+Input}
+\begin{DoxyCompactList}\small\item\em Pointer to d\+B\+Scan output used as input to the tracker. \end{DoxyCompactList}\item 
+float $\ast$ \textbf{ tracker\+Scratch\+Pad\+Flt}
+\begin{DoxyCompactList}\small\item\em Pointer to tracker scratch pad for floats. \end{DoxyCompactList}\item 
+int16\+\_\+t $\ast$ \textbf{ tracker\+Scratch\+Pad\+Short}
+\begin{DoxyCompactList}\small\item\em Pointer to tracker scratch pad for int16\+\_\+t. \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ processing\+Path}
+\begin{DoxyCompactList}\small\item\em Processing path -\/ either point-\/cloud or max-\/vel enhancement. \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ chirp\+Threshold}
+\begin{DoxyCompactList}\small\item\em Chirp Threshold configuration used for A\+D\+C\+B\+UF driver. \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ dc\+Range\+Sig\+Calib\+Cntr}
+\begin{DoxyCompactList}\small\item\em DC range signature calibration counter. \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ log2\+Num\+Avg\+Chirps}
+\begin{DoxyCompactList}\small\item\em log2 of number of averaged chirps \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ log2\+Num\+Doppler\+Bins}
+\begin{DoxyCompactList}\small\item\em log 2 of number of doppler bins \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ xyz\+Output\+Q\+Format}
+\begin{DoxyCompactList}\small\item\em Q format of the output x/y/z coordinates. \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ subframe\+Indx}
+\begin{DoxyCompactList}\small\item\em index of the subframe to which this object belongs \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ log2num\+Virt\+Ant}
+\begin{DoxyCompactList}\small\item\em log2 of the number of virtual antennas. \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ sin\+Azim\+Q\+Format}
+\begin{DoxyCompactList}\small\item\em Q format of the sin of the azimuth. \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ parking\+Assist\+Num\+Bins}
+\begin{DoxyCompactList}\small\item\em Number of bins for the parking\+Assist module. \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ parking\+Assist\+Num\+Bins\+Log2}
+\begin{DoxyCompactList}\small\item\em log2 of the number of bins for the parking\+Assist module (used for scaling operations). \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ padding}
+\begin{DoxyCompactList}\small\item\em padding. . \end{DoxyCompactList}\item 
+uint16\+\_\+t \textbf{ cfar\+Cfg\+Range\+\_\+min\+Indx\+To\+Ignore\+H\+PF}
+\begin{DoxyCompactList}\small\item\em The H\+PF can mess up the noise floor computation. So for a certain number of indices, we only use the non-\/hpf sides. \end{DoxyCompactList}\item 
+uint16\+\_\+t \textbf{ parking\+Assist\+Max\+Range}
+\begin{DoxyCompactList}\small\item\em maximum range to look for obstacles. . \end{DoxyCompactList}\item 
+uint16\+\_\+t \textbf{ parking\+Assist\+Min\+Range}
+\begin{DoxyCompactList}\small\item\em minimum range to look for obstacles. . \end{DoxyCompactList}\item 
+uint16\+\_\+t \textbf{ num\+Chirps\+Per\+Frame}
+\begin{DoxyCompactList}\small\item\em number of chirps per frame \end{DoxyCompactList}\item 
+uint16\+\_\+t \textbf{ num\+Det\+Obj}
+\begin{DoxyCompactList}\small\item\em Number of detected objects. \end{DoxyCompactList}\item 
+uint16\+\_\+t \textbf{ num\+Det\+Obj\+Raw}
+\begin{DoxyCompactList}\small\item\em Number of detected objects. \end{DoxyCompactList}\item 
+uint16\+\_\+t \textbf{ min\+Range}
+\begin{DoxyCompactList}\small\item\em minimum range at which a target is detected ( in xyz\+Output\+Q\+Format precision). \end{DoxyCompactList}\item 
+uint16\+\_\+t \textbf{ max\+Range}
+\begin{DoxyCompactList}\small\item\em maximum range at which a target is detected ( in xyz\+Output\+Q\+Format precision). \end{DoxyCompactList}\item 
+uint16\+\_\+t \textbf{ num\+Active\+Trackers}
+\begin{DoxyCompactList}\small\item\em number of active trackers. ~\newline
+ \end{DoxyCompactList}\item 
+uint16\+\_\+t \textbf{ max\+Num\+Obj2\+D\+Raw}
+\begin{DoxyCompactList}\small\item\em number of objects to be detected in 2D-\/\+C\+F\+AR. ~\newline
+ \end{DoxyCompactList}\item 
+uint16\+\_\+t \textbf{ num\+Rx\+Antennas}
+\begin{DoxyCompactList}\small\item\em Number of receive channels. \end{DoxyCompactList}\item 
+uint16\+\_\+t \textbf{ num\+Tx\+Antennas}
+\begin{DoxyCompactList}\small\item\em number of transmit antennas \end{DoxyCompactList}\item 
+uint16\+\_\+t \textbf{ num\+Virtual\+Antennas}
+\begin{DoxyCompactList}\small\item\em number of virtual antennas \end{DoxyCompactList}\item 
+uint16\+\_\+t \textbf{ num\+Virtual\+Ant\+Azim}
+\begin{DoxyCompactList}\small\item\em number of virtual azimuth antennas \end{DoxyCompactList}\item 
+uint16\+\_\+t \textbf{ num\+Virtual\+Ant\+Elev}
+\begin{DoxyCompactList}\small\item\em number of virtual elevation antennas \end{DoxyCompactList}\item 
+uint16\+\_\+t \textbf{ num\+Angle\+Bins}
+\begin{DoxyCompactList}\small\item\em number of angle bins \end{DoxyCompactList}\item 
+uint16\+\_\+t \textbf{ num\+Chirps\+Per\+Chirp\+Type}
+\begin{DoxyCompactList}\small\item\em number of chirps per chirp type \end{DoxyCompactList}\item 
+uint16\+\_\+t \textbf{ num\+Doppler\+Bins}
+\begin{DoxyCompactList}\small\item\em number of doppler bins \end{DoxyCompactList}\item 
+uint16\+\_\+t \textbf{ chirp\+Count}
+\begin{DoxyCompactList}\small\item\em chirp counter modulo number of chirps per frame \end{DoxyCompactList}\item 
+uint16\+\_\+t \textbf{ tx\+Antenna\+Count}
+\begin{DoxyCompactList}\small\item\em chirp counter modulo number of tx antennas \end{DoxyCompactList}\item 
+uint16\+\_\+t \textbf{ doppler\+Bin\+Count}
+\begin{DoxyCompactList}\small\item\em chirp counter modulo number of Doppler bins \end{DoxyCompactList}\item 
+uint16\+\_\+t \textbf{ chirp\+Type\+Count}
+\begin{DoxyCompactList}\small\item\em chirp counter modulo number of subframe \end{DoxyCompactList}\item 
+uint16\+\_\+t \textbf{ num\+Adc\+Samples}
+\begin{DoxyCompactList}\small\item\em number of A\+DC samples \end{DoxyCompactList}\item 
+uint16\+\_\+t \textbf{ num\+Range\+Bins}
+\begin{DoxyCompactList}\small\item\em number of range bins \end{DoxyCompactList}\item 
+cmplx16\+Im\+Re\+\_\+t \textbf{ azimuth\+Mod\+Coefs\+Half\+Bin}
+\begin{DoxyCompactList}\small\item\em Half bin needed for doppler correction as part of Azimuth processing. \end{DoxyCompactList}\item 
+cmplx16\+Im\+Re\+\_\+t \textbf{ azimuth\+Mod\+Coefs\+Third\+Bin}
+\begin{DoxyCompactList}\small\item\em Half bin needed for doppler correction as part of Azimuth processing. \end{DoxyCompactList}\item 
+cmplx16\+Im\+Re\+\_\+t \textbf{ azimuth\+Mod\+Coefs\+Two\+Third\+Bin}
+\begin{DoxyCompactList}\small\item\em Half bin needed for doppler correction as part of Azimuth processing. \end{DoxyCompactList}\item 
+float \textbf{ range\+Resolution}
+\begin{DoxyCompactList}\small\item\em range resolution in meters \end{DoxyCompactList}\item 
+float \textbf{ vel\+Resolution}
+\begin{DoxyCompactList}\small\item\em velocity resolution in meters/sec \end{DoxyCompactList}\item 
+float \textbf{ max\+Unambiguous\+Vel}
+\begin{DoxyCompactList}\small\item\em maximum unambiguous velocity (without algorithmic improvements) in meters/sec \end{DoxyCompactList}\item 
+float \textbf{ inv\+One\+Q\+Format}
+\begin{DoxyCompactList}\small\item\em inverse of the one\+Qformat \end{DoxyCompactList}\item 
+float \textbf{ inv\+One\+Sin\+Azim\+Format}
+\begin{DoxyCompactList}\small\item\em inverse of the one\+Qformat \end{DoxyCompactList}\item 
+float \textbf{ inv\+Num\+Angle\+Bins}
+\begin{DoxyCompactList}\small\item\em inverse of the num\+Angle\+Bins \end{DoxyCompactList}\item 
+\textbf{ Range\+Dependant\+Thresh\+\_\+t} \textbf{ S\+N\+R\+Thresholds} [\textbf{ M\+A\+X\+\_\+\+N\+U\+M\+\_\+\+R\+A\+N\+G\+E\+\_\+\+D\+E\+P\+E\+N\+D\+A\+N\+T\+\_\+\+S\+N\+R\+\_\+\+T\+H\+R\+E\+S\+H\+O\+L\+DS}]
+\begin{DoxyCompactList}\small\item\em S\+NR thresholds as a function of range. \end{DoxyCompactList}\item 
+\textbf{ Range\+Dependant\+Thresh\+\_\+t} \textbf{ peak\+Val\+Thresholds} [\textbf{ M\+A\+X\+\_\+\+N\+U\+M\+\_\+\+R\+A\+N\+G\+E\+\_\+\+D\+E\+P\+E\+N\+D\+A\+N\+T\+\_\+\+S\+N\+R\+\_\+\+T\+H\+R\+E\+S\+H\+O\+L\+DS}]
+\begin{DoxyCompactList}\small\item\em S\+NR thresholds as a function of range. \end{DoxyCompactList}\item 
+\textbf{ Mmw\+Demo\+\_\+1\+D\+\_\+\+Doppler\+Lines\+\_\+t} \textbf{ det\+Doppler\+Lines}
+\begin{DoxyCompactList}\small\item\em Detected Doppler lines. \end{DoxyCompactList}\item 
+\textbf{ Mmw\+Demo\+\_\+detected\+Obj\+Actual} $\ast$ \textbf{ det\+Obj2D}
+\begin{DoxyCompactList}\small\item\em Detected objects after second pass in Range direction. These objects are send out as point clouds. \end{DoxyCompactList}\item 
+\textbf{ Mmw\+Demo\+\_\+obj\+Raw1\+D\+\_\+t} $\ast$ \textbf{ det\+Obj1\+D\+Raw}
+\begin{DoxyCompactList}\small\item\em Detected objects after first pass in Doppler direction. \end{DoxyCompactList}\item 
+\textbf{ Mmw\+Demo\+\_\+obj\+Raw2\+D\+\_\+t} $\ast$ \textbf{ det\+Obj2\+D\+Raw}
+\begin{DoxyCompactList}\small\item\em Detected objects before peak grouping. \end{DoxyCompactList}\item 
+\textbf{ Mmw\+Demo\+\_\+\+Cfar\+Cfg} \textbf{ cfar\+Cfg\+Doppler}
+\begin{DoxyCompactList}\small\item\em C\+F\+AR configuration in Doppler direction. \end{DoxyCompactList}\item 
+\textbf{ Mmw\+Demo\+\_\+\+Cfar\+Cfg} \textbf{ cfar\+Cfg\+Range}
+\begin{DoxyCompactList}\small\item\em C\+F\+AR configuration in Range direction. \end{DoxyCompactList}\item 
+\textbf{ Mmw\+Demo\+\_\+\+Multi\+Obj\+Beam\+Forming\+Cfg} \textbf{ multi\+Obj\+Beam\+Forming\+Cfg}
+\begin{DoxyCompactList}\small\item\em Multi object beam forming configuration. \end{DoxyCompactList}\item 
+\textbf{ Mmw\+Demo\+\_\+\+Calib\+Dc\+Range\+Sig\+Cfg} \textbf{ calib\+Dc\+Range\+Sig\+Cfg}
+\begin{DoxyCompactList}\small\item\em DC Range antenna signature callibration configuration. \end{DoxyCompactList}\item 
+\textbf{ Mmw\+Demo\+\_\+timing\+Info\+\_\+t} \textbf{ timing\+Info}
+\begin{DoxyCompactList}\small\item\em Timing information. \end{DoxyCompactList}\item 
+\textbf{ cycle\+Log\+\_\+t} \textbf{ cycle\+Log}
+\begin{DoxyCompactList}\small\item\em D\+SP cycles for chirp and interframe processing and pending on E\+D\+MA data transferes. \end{DoxyCompactList}\item 
+\textbf{ max\+Vel\+Enh\+Struct\+\_\+t} \textbf{ max\+Vel\+Enh\+Struct}
+\begin{DoxyCompactList}\small\item\em Max-\/velocity constants. \end{DoxyCompactList}\item 
+\textbf{ clustering\+D\+Bscan\+Instance\+\_\+t} \textbf{ db\+Scan\+Instance}
+\begin{DoxyCompactList}\small\item\em The d\+Bscan clustering configuration structure. \end{DoxyCompactList}\item 
+\textbf{ clustering\+D\+Bscan\+Output\+\_\+t} \textbf{ db\+Scan\+Report}
+\begin{DoxyCompactList}\small\item\em The d\+Bscan clustering result structures (holds pointers to the result). \end{DoxyCompactList}\item 
+\textbf{ K\+Ftracker\+Instance\+\_\+t} \textbf{ tracker\+Instance}
+\begin{DoxyCompactList}\small\item\em Tracking configuration structure. \end{DoxyCompactList}\item 
+\textbf{ K\+Fstate\+\_\+t} $\ast$ \textbf{ tracker\+State}
+\begin{DoxyCompactList}\small\item\em tracking state. \end{DoxyCompactList}\item 
+float $\ast$ \textbf{ tracker\+Qvec\+List}
+\begin{DoxyCompactList}\small\item\em Process noise constants. \end{DoxyCompactList}\item 
+\textbf{ clustering\+D\+Bscan\+Report\+\_\+t} $\ast$ \textbf{ db\+Scan\+State}
+\begin{DoxyCompactList}\small\item\em Pointer to d\+B\+Scan output Report array. \end{DoxyCompactList}\item 
+\textbf{ Mmw\+Demo\+\_\+detected\+Obj\+For\+Tx} $\ast$ \textbf{ det\+Obj\+Final}
+\begin{DoxyCompactList}\small\item\em Final list of detected object for transmission. \end{DoxyCompactList}\item 
+\textbf{ clustering\+D\+Bscan\+Report\+For\+Tx} $\ast$ \textbf{ cluster\+Op\+Final}
+\begin{DoxyCompactList}\small\item\em Final list of clusters for transmission. \end{DoxyCompactList}\item 
+\textbf{ tracking\+Report\+For\+Tx} $\ast$ \textbf{ tracker\+Op\+Final}
+\begin{DoxyCompactList}\small\item\em Final list of tracked objects for transmission. \end{DoxyCompactList}\item 
+uint16\+\_\+t $\ast$ \textbf{ parking\+Assist\+Bins}
+\begin{DoxyCompactList}\small\item\em Nearest object as a function of azimuth. \end{DoxyCompactList}\item 
+uint16\+\_\+t $\ast$ \textbf{ parking\+Assist\+Bins\+State}
+\begin{DoxyCompactList}\small\item\em Filtered result of the nearest object as a function of azimuth. \end{DoxyCompactList}\item 
+uint16\+\_\+t $\ast$ \textbf{ parking\+Assist\+Bins\+State\+Cnt}
+\begin{DoxyCompactList}\small\item\em The \textquotesingle{}age\textquotesingle{} of the filtered result of the parking state. Added to make the \textquotesingle{}smoother\textquotesingle{} visually. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Millimeter Wave Demo Data Path Information. 
+
+The structure is used to hold all the relevant information for the data path. 
+
+Definition at line 444 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\label{struct_d_s_s___data_path_obj__t_a85c38417270d65ce25d47e1d116f01f5}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!adcbufHandle@{adcbufHandle}}
+\index{adcbufHandle@{adcbufHandle}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{adcbufHandle}
+{\footnotesize\ttfamily A\+D\+C\+Buf\+\_\+\+Handle D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::adcbuf\+Handle}
+
+
+
+A\+D\+C\+B\+UF handle. 
+
+
+
+Definition at line 447 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_aca7647e4e465fa73d266bcd57c98e2fa}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!ADCdataBuf@{ADCdataBuf}}
+\index{ADCdataBuf@{ADCdataBuf}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{ADCdataBuf}
+{\footnotesize\ttfamily cmplx16\+Re\+Im\+\_\+t$\ast$ D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::\+A\+D\+Cdata\+Buf}
+
+
+
+pointer to A\+DC buffer 
+
+
+
+Definition at line 459 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by Mmw\+Demo\+\_\+data\+Path\+Config\+Edma().
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a9bcaa423dc2fe8d0d8ca7806e4d5b445}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!adcDataIn@{adcDataIn}}
+\index{adcDataIn@{adcDataIn}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{adcDataIn}
+{\footnotesize\ttfamily cmplx16\+Re\+Im\+\_\+t$\ast$ D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::adc\+Data\+In}
+
+
+
+A\+D\+C\+B\+UF input samples in L2 scratch memory. 
+
+
+
+Definition at line 468 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by Mmw\+Demo\+\_\+data\+Path\+Config\+Edma().
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a9370c47d3120db66124116cfe77d2d73}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!antInp@{antInp}}
+\index{antInp@{antInp}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{antInp}
+{\footnotesize\ttfamily cmplx32\+Re\+Im\+\_\+t$\ast$ D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::ant\+Inp}
+
+
+
+input for Azimuth F\+FT 
+
+
+
+Definition at line 510 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a419d98936e0e13f83665463d4450210f}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!azimuthIn@{azimuthIn}}
+\index{azimuthIn@{azimuthIn}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{azimuthIn}
+{\footnotesize\ttfamily cmplx32\+Re\+Im\+\_\+t$\ast$ D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::azimuth\+In}
+
+
+
+input for Azimuth F\+FT 
+
+
+
+Definition at line 507 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a8a812ff6ba8dcc9142d5c90d3d7b0592}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!azimuthMagSqr@{azimuthMagSqr}}
+\index{azimuthMagSqr@{azimuthMagSqr}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{azimuthMagSqr}
+{\footnotesize\ttfamily float$\ast$ D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::azimuth\+Mag\+Sqr}
+
+
+
+output of Azimuth F\+FT magnitude squared 
+
+
+
+Definition at line 522 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by Mmw\+Demo\+\_\+\+X\+Yestimation(), and Mmw\+Demo\+\_\+\+X\+Y\+Zestimation().
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a55c38d7815c561e741de2b1790648a9e}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!azimuthModCoefs@{azimuthModCoefs}}
+\index{azimuthModCoefs@{azimuthModCoefs}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{azimuthModCoefs}
+{\footnotesize\ttfamily cmplx16\+Im\+Re\+\_\+t$\ast$ D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::azimuth\+Mod\+Coefs}
+
+
+
+Pointer to single point D\+FT coefficients used for Azimuth processing. 
+
+
+
+Definition at line 528 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a5f06b4cd853473158490526cda3c6b88}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!azimuthModCoefsHalfBin@{azimuthModCoefsHalfBin}}
+\index{azimuthModCoefsHalfBin@{azimuthModCoefsHalfBin}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{azimuthModCoefsHalfBin}
+{\footnotesize\ttfamily cmplx16\+Im\+Re\+\_\+t D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::azimuth\+Mod\+Coefs\+Half\+Bin}
+
+
+
+Half bin needed for doppler correction as part of Azimuth processing. 
+
+
+
+Definition at line 670 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_ab5557c0c04ff409d2a5427bff17462b2}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!azimuthModCoefsThirdBin@{azimuthModCoefsThirdBin}}
+\index{azimuthModCoefsThirdBin@{azimuthModCoefsThirdBin}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{azimuthModCoefsThirdBin}
+{\footnotesize\ttfamily cmplx16\+Im\+Re\+\_\+t D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::azimuth\+Mod\+Coefs\+Third\+Bin}
+
+
+
+Half bin needed for doppler correction as part of Azimuth processing. 
+
+
+
+Definition at line 673 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a82071a1270dafe41e3305dd5924f2fb6}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!azimuthModCoefsTwoThirdBin@{azimuthModCoefsTwoThirdBin}}
+\index{azimuthModCoefsTwoThirdBin@{azimuthModCoefsTwoThirdBin}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{azimuthModCoefsTwoThirdBin}
+{\footnotesize\ttfamily cmplx16\+Im\+Re\+\_\+t D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::azimuth\+Mod\+Coefs\+Two\+Third\+Bin}
+
+
+
+Half bin needed for doppler correction as part of Azimuth processing. 
+
+
+
+Definition at line 676 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_aa6088f15b16cd189ea50b730238a10c4}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!azimuthOut@{azimuthOut}}
+\index{azimuthOut@{azimuthOut}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{azimuthOut}
+{\footnotesize\ttfamily cmplx32\+Re\+Im\+\_\+t$\ast$ D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::azimuth\+Out}
+
+
+
+output of Azimuth F\+FT 
+
+
+
+Definition at line 516 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a0f90495a51abc867eff3fbed4423bd08}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!azimuthTwiddle32x32@{azimuthTwiddle32x32}}
+\index{azimuthTwiddle32x32@{azimuthTwiddle32x32}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{azimuthTwiddle32x32}
+{\footnotesize\ttfamily cmplx32\+Re\+Im\+\_\+t$\ast$ D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::azimuth\+Twiddle32x32}
+
+
+
+twiddle factors table for Azimuth F\+FT 
+
+
+
+Definition at line 525 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_ac6fecef9a8164086be725c452ce435b6}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!calibDcRangeSigCfg@{calibDcRangeSigCfg}}
+\index{calibDcRangeSigCfg@{calibDcRangeSigCfg}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{calibDcRangeSigCfg}
+{\footnotesize\ttfamily \textbf{ Mmw\+Demo\+\_\+\+Calib\+Dc\+Range\+Sig\+Cfg} D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::calib\+Dc\+Range\+Sig\+Cfg}
+
+
+
+DC Range antenna signature callibration configuration. 
+
+
+
+Definition at line 725 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a9f1a89185e45d1e2317846c357266a3a}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!cfarCfgDoppler@{cfarCfgDoppler}}
+\index{cfarCfgDoppler@{cfarCfgDoppler}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{cfarCfgDoppler}
+{\footnotesize\ttfamily \textbf{ Mmw\+Demo\+\_\+\+Cfar\+Cfg} D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::cfar\+Cfg\+Doppler}
+
+
+
+C\+F\+AR configuration in Doppler direction. 
+
+
+
+Definition at line 716 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a9c2f2cf66af1a1009f2836e40d96d3ea}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!cfarCfgRange@{cfarCfgRange}}
+\index{cfarCfgRange@{cfarCfgRange}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{cfarCfgRange}
+{\footnotesize\ttfamily \textbf{ Mmw\+Demo\+\_\+\+Cfar\+Cfg} D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::cfar\+Cfg\+Range}
+
+
+
+C\+F\+AR configuration in Range direction. 
+
+
+
+Definition at line 719 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_aae9a9eb03cb228e940a6d44134c4308b}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!cfarCfgRange\_minIndxToIgnoreHPF@{cfarCfgRange\_minIndxToIgnoreHPF}}
+\index{cfarCfgRange\_minIndxToIgnoreHPF@{cfarCfgRange\_minIndxToIgnoreHPF}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{cfarCfgRange\_minIndxToIgnoreHPF}
+{\footnotesize\ttfamily uint16\+\_\+t D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::cfar\+Cfg\+Range\+\_\+min\+Indx\+To\+Ignore\+H\+PF}
+
+
+
+The H\+PF can mess up the noise floor computation. So for a certain number of indices, we only use the non-\/hpf sides. 
+
+
+
+Definition at line 598 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_ae2896f7d14141a64467cabbc60f551f2}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!cfarDetObjIndexBuf@{cfarDetObjIndexBuf}}
+\index{cfarDetObjIndexBuf@{cfarDetObjIndexBuf}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{cfarDetObjIndexBuf}
+{\footnotesize\ttfamily uint16\+\_\+t$\ast$ D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::cfar\+Det\+Obj\+Index\+Buf}
+
+
+
+C\+F\+AR output objects index buffer. 
+
+
+
+Definition at line 501 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a3d8bacd7726efa591e5cf126fc4396f1}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!cfarDetObjSNR@{cfarDetObjSNR}}
+\index{cfarDetObjSNR@{cfarDetObjSNR}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{cfarDetObjSNR}
+{\footnotesize\ttfamily uint16\+\_\+t$\ast$ D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::cfar\+Det\+Obj\+S\+NR}
+
+
+
+C\+F\+AR output objects\textquotesingle{} S\+NR buffer. 
+
+
+
+Definition at line 504 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a0d85762f869214f7864649b32a580d05}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!chirpCount@{chirpCount}}
+\index{chirpCount@{chirpCount}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{chirpCount}
+{\footnotesize\ttfamily uint16\+\_\+t D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::chirp\+Count}
+
+
+
+chirp counter modulo number of chirps per frame 
+
+
+
+Definition at line 652 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by Mmw\+Demo\+\_\+process\+Chirp().
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a885abb3605155ab096bbecf5265b3c95}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!chirpThreshold@{chirpThreshold}}
+\index{chirpThreshold@{chirpThreshold}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{chirpThreshold}
+{\footnotesize\ttfamily uint8\+\_\+t D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::chirp\+Threshold}
+
+
+
+Chirp Threshold configuration used for A\+D\+C\+B\+UF driver. 
+
+
+
+Definition at line 564 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a5ab526d6d51c8e960cdb9e80a02777b9}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!chirpTypeCount@{chirpTypeCount}}
+\index{chirpTypeCount@{chirpTypeCount}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{chirpTypeCount}
+{\footnotesize\ttfamily uint16\+\_\+t D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::chirp\+Type\+Count}
+
+
+
+chirp counter modulo number of subframe 
+
+
+
+Definition at line 661 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by Mmw\+Demo\+\_\+process\+Chirp().
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a29e8489952e6c3da4a633bce46c4b318}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!clusterOpFinal@{clusterOpFinal}}
+\index{clusterOpFinal@{clusterOpFinal}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{clusterOpFinal}
+{\footnotesize\ttfamily \textbf{ clustering\+D\+Bscan\+Report\+For\+Tx}$\ast$ D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::cluster\+Op\+Final}
+
+
+
+Final list of clusters for transmission. 
+
+
+
+Definition at line 759 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by populate\+Outputs().
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_aeaf927a13ee5455e9b7693ee219005df}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!cycleLog@{cycleLog}}
+\index{cycleLog@{cycleLog}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{cycleLog}
+{\footnotesize\ttfamily \textbf{ cycle\+Log\+\_\+t} D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::cycle\+Log}
+
+
+
+D\+SP cycles for chirp and interframe processing and pending on E\+D\+MA data transferes. 
+
+
+
+Definition at line 732 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a2bc7fdd28e238a1af6ef40d8b25b22f5}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!dbScanInstance@{dbScanInstance}}
+\index{dbScanInstance@{dbScanInstance}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{dbScanInstance}
+{\footnotesize\ttfamily \textbf{ clustering\+D\+Bscan\+Instance\+\_\+t} D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::db\+Scan\+Instance}
+
+
+
+The d\+Bscan clustering configuration structure. 
+
+
+
+Definition at line 738 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by populate\+Outputs().
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_af0f66d2dfe84f476fc5b2e50f19cc04e}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!dbscanOutputDataIndexArray@{dbscanOutputDataIndexArray}}
+\index{dbscanOutputDataIndexArray@{dbscanOutputDataIndexArray}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{dbscanOutputDataIndexArray}
+{\footnotesize\ttfamily uint16\+\_\+t$\ast$ D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::dbscan\+Output\+Data\+Index\+Array}
+
+
+
+Pointer to d\+B\+Scan index array. 
+
+
+
+Definition at line 546 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a8ae310234addb348342705f0756b3c0d}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!dbscanOutputDataReport@{dbscanOutputDataReport}}
+\index{dbscanOutputDataReport@{dbscanOutputDataReport}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{dbscanOutputDataReport}
+{\footnotesize\ttfamily \textbf{ clustering\+D\+Bscan\+Report\+\_\+t}$\ast$ D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::dbscan\+Output\+Data\+Report}
+
+
+
+Pointer to d\+B\+Scan output Report array. 
+
+
+
+Definition at line 549 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a3f03d46486b64acdb16021263545f1ca}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!dbScanReport@{dbScanReport}}
+\index{dbScanReport@{dbScanReport}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{dbScanReport}
+{\footnotesize\ttfamily \textbf{ clustering\+D\+Bscan\+Output\+\_\+t} D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::db\+Scan\+Report}
+
+
+
+The d\+Bscan clustering result structures (holds pointers to the result). 
+
+
+
+Definition at line 741 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by populate\+Outputs().
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a432721d803f0189013ab475f4c3bbf9d}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!dBscanScratchPad@{dBscanScratchPad}}
+\index{dBscanScratchPad@{dBscanScratchPad}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{dBscanScratchPad}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::d\+Bscan\+Scratch\+Pad}
+
+
+
+Pointer to d\+B\+Scan scratch pad. 
+
+
+
+Definition at line 543 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_ac44653892ad50f636dd1030c4ed6bbc0}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!dbScanState@{dbScanState}}
+\index{dbScanState@{dbScanState}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{dbScanState}
+{\footnotesize\ttfamily \textbf{ clustering\+D\+Bscan\+Report\+\_\+t}$\ast$ D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::db\+Scan\+State}
+
+
+
+Pointer to d\+B\+Scan output Report array. 
+
+
+
+Definition at line 753 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by populate\+Outputs().
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a195760bb4c9a281b9d5230fb82f7dcd1}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!dcRangeSigCalibCntr@{dcRangeSigCalibCntr}}
+\index{dcRangeSigCalibCntr@{dcRangeSigCalibCntr}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{dcRangeSigCalibCntr}
+{\footnotesize\ttfamily uint8\+\_\+t D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::dc\+Range\+Sig\+Calib\+Cntr}
+
+
+
+DC range signature calibration counter. 
+
+
+
+Definition at line 567 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_ad8329ff6e636383544037981a55fcea3}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!dcRangeSigMean@{dcRangeSigMean}}
+\index{dcRangeSigMean@{dcRangeSigMean}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{dcRangeSigMean}
+{\footnotesize\ttfamily cmplx32\+Im\+Re\+\_\+t$\ast$ D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::dc\+Range\+Sig\+Mean}
+
+
+
+Pointer to DC range signature compensation buffer. 
+
+
+
+Definition at line 534 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a6c4c71207560b2f6f8ae700cddfa223f}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!detDopplerLines@{detDopplerLines}}
+\index{detDopplerLines@{detDopplerLines}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{detDopplerLines}
+{\footnotesize\ttfamily \textbf{ Mmw\+Demo\+\_\+1\+D\+\_\+\+Doppler\+Lines\+\_\+t} D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::det\+Doppler\+Lines}
+
+
+
+Detected Doppler lines. 
+
+
+
+Definition at line 703 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a14482d11e66eb8e8954b38231f6fa3b8}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!detMatrix@{detMatrix}}
+\index{detMatrix@{detMatrix}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{detMatrix}
+{\footnotesize\ttfamily uint16\+\_\+t$\ast$ D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::det\+Matrix}
+
+
+
+Pointer to range/\+Doppler log2 magnitude detection matrix in L3 R\+AM. 
+
+
+
+Definition at line 540 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a25b049270d195a56e8a0f02b4e3aadd3}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!detObj1DRaw@{detObj1DRaw}}
+\index{detObj1DRaw@{detObj1DRaw}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{detObj1DRaw}
+{\footnotesize\ttfamily \textbf{ Mmw\+Demo\+\_\+obj\+Raw1\+D\+\_\+t}$\ast$ D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::det\+Obj1\+D\+Raw}
+
+
+
+Detected objects after first pass in Doppler direction. 
+
+
+
+Definition at line 710 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_ae32bceac2b0c4a7abb1ead3c3038a88e}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!detObj2D@{detObj2D}}
+\index{detObj2D@{detObj2D}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{detObj2D}
+{\footnotesize\ttfamily \textbf{ Mmw\+Demo\+\_\+detected\+Obj\+Actual}$\ast$ D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::det\+Obj2D}
+
+
+
+Detected objects after second pass in Range direction. These objects are send out as point clouds. 
+
+
+
+Definition at line 707 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by clustering\+D\+Bscan\+Run(), Mmw\+Demo\+\_\+\+X\+Yestimation(), Mmw\+Demo\+\_\+\+X\+Y\+Zestimation(), and populate\+Outputs().
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a2b8f2718d2b668b550d752e79e54ae9c}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!detObj2DRaw@{detObj2DRaw}}
+\index{detObj2DRaw@{detObj2DRaw}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{detObj2DRaw}
+{\footnotesize\ttfamily \textbf{ Mmw\+Demo\+\_\+obj\+Raw2\+D\+\_\+t}$\ast$ D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::det\+Obj2\+D\+Raw}
+
+
+
+Detected objects before peak grouping. 
+
+
+
+Definition at line 713 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a2ac7bd966c1c2b2efec554425f710def}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!detObjFinal@{detObjFinal}}
+\index{detObjFinal@{detObjFinal}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{detObjFinal}
+{\footnotesize\ttfamily \textbf{ Mmw\+Demo\+\_\+detected\+Obj\+For\+Tx}$\ast$ D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::det\+Obj\+Final}
+
+
+
+Final list of detected object for transmission. 
+
+
+
+Definition at line 756 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by populate\+Outputs().
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a2d78777984f8227106375d7e9e0d2703}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!dopplerBinCount@{dopplerBinCount}}
+\index{dopplerBinCount@{dopplerBinCount}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{dopplerBinCount}
+{\footnotesize\ttfamily uint16\+\_\+t D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::doppler\+Bin\+Count}
+
+
+
+chirp counter modulo number of Doppler bins 
+
+
+
+Definition at line 658 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by Mmw\+Demo\+\_\+process\+Chirp().
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_ac54578dd7e2ca38e07133ed7c28d766f}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!dstPingPong@{dstPingPong}}
+\index{dstPingPong@{dstPingPong}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{dstPingPong}
+{\footnotesize\ttfamily cmplx16\+Re\+Im\+\_\+t$\ast$ D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::dst\+Ping\+Pong}
+
+
+
+ping pong buffer for 2D from radar Cube 
+
+
+
+Definition at line 480 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_abd23f4e999bd5b608e55f56ce8a8ebaf}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!EDMA\_errorInfo@{EDMA\_errorInfo}}
+\index{EDMA\_errorInfo@{EDMA\_errorInfo}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{EDMA\_errorInfo}
+{\footnotesize\ttfamily E\+D\+M\+A\+\_\+error\+Info\+\_\+t D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::\+E\+D\+M\+A\+\_\+error\+Info}
+
+
+
+E\+D\+MA error Information when there are errors like missing events. 
+
+
+
+Definition at line 453 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_abc258fcef3e2d2676b031257a0ceb92e}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!EDMA\_transferControllerErrorInfo@{EDMA\_transferControllerErrorInfo}}
+\index{EDMA\_transferControllerErrorInfo@{EDMA\_transferControllerErrorInfo}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{EDMA\_transferControllerErrorInfo}
+{\footnotesize\ttfamily E\+D\+M\+A\+\_\+transfer\+Controller\+Error\+Info\+\_\+t D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::\+E\+D\+M\+A\+\_\+transfer\+Controller\+Error\+Info}
+
+
+
+E\+D\+MA transfer controller error information. 
+
+
+
+Definition at line 456 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a2eefeed81a2c43ef41e431dd53a232da}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!edmaHandle@{edmaHandle}}
+\index{edmaHandle@{edmaHandle}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{edmaHandle}
+{\footnotesize\ttfamily E\+D\+M\+A\+\_\+\+Handle D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::edma\+Handle[2]}
+
+
+
+Handle of the E\+D\+MA driver. 
+
+
+
+Definition at line 450 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by Mmw\+Demo\+\_\+data\+Path\+Config\+Edma(), Mmw\+Demo\+\_\+data\+Path\+Wait1\+D\+Input\+Data(), Mmw\+Demo\+\_\+data\+Path\+Wait1\+D\+Output\+Data(), Mmw\+Demo\+\_\+data\+Path\+Wait2\+D\+Input\+Data(), Mmw\+Demo\+\_\+data\+Path\+Wait3\+D\+Input\+Data(), Mmw\+Demo\+\_\+data\+Path\+Wait\+Trans\+Det\+Matrix(), Mmw\+Demo\+\_\+data\+Path\+Wait\+Trans\+Det\+Matrix2(), and Mmw\+Demo\+\_\+process\+Chirp().
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_ae5cc1e2fc175c5fbfe3cf9b95b890bfd}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!elevationIn@{elevationIn}}
+\index{elevationIn@{elevationIn}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{elevationIn}
+{\footnotesize\ttfamily cmplx32\+Re\+Im\+\_\+t$\ast$ D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::elevation\+In}
+
+
+
+input for Elevation F\+FT 
+
+
+
+Definition at line 513 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_afd466d0a4be4ea8d11fedc6f7bc5b09b}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!elevationOut@{elevationOut}}
+\index{elevationOut@{elevationOut}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{elevationOut}
+{\footnotesize\ttfamily cmplx32\+Re\+Im\+\_\+t$\ast$ D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::elevation\+Out}
+
+
+
+output of Elevation F\+FT 
+
+
+
+Definition at line 519 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a40963d53009addb72cd477f03cca8d89}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!fftOut1D@{fftOut1D}}
+\index{fftOut1D@{fftOut1D}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{fftOut1D}
+{\footnotesize\ttfamily cmplx16\+Re\+Im\+\_\+t$\ast$ D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::fft\+Out1D}
+
+
+
+1D F\+FT output 
+
+
+
+Definition at line 471 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a806324af97a1c60bafcaa697133d40d6}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!fftOut2D@{fftOut2D}}
+\index{fftOut2D@{fftOut2D}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{fftOut2D}
+{\footnotesize\ttfamily cmplx32\+Re\+Im\+\_\+t$\ast$ D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::fft\+Out2D}
+
+
+
+2D F\+FT output 
+
+
+
+Definition at line 486 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_ac7dbfe964d6c561454a0fa9fa35e2bfd}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!invNumAngleBins@{invNumAngleBins}}
+\index{invNumAngleBins@{invNumAngleBins}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{invNumAngleBins}
+{\footnotesize\ttfamily float D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::inv\+Num\+Angle\+Bins}
+
+
+
+inverse of the num\+Angle\+Bins 
+
+
+
+Definition at line 694 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_ad3608aa4a6f6ce665520a3d008324170}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!invOneQFormat@{invOneQFormat}}
+\index{invOneQFormat@{invOneQFormat}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{invOneQFormat}
+{\footnotesize\ttfamily float D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::inv\+One\+Q\+Format}
+
+
+
+inverse of the one\+Qformat 
+
+
+
+Definition at line 688 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a486f34e2244539ede25f60113e78543b}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!invOneSinAzimFormat@{invOneSinAzimFormat}}
+\index{invOneSinAzimFormat@{invOneSinAzimFormat}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{invOneSinAzimFormat}
+{\footnotesize\ttfamily float D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::inv\+One\+Sin\+Azim\+Format}
+
+
+
+inverse of the one\+Qformat 
+
+
+
+Definition at line 691 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_acc94e5cc27664555735df39d6854baff}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!log2Abs@{log2Abs}}
+\index{log2Abs@{log2Abs}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{log2Abs}
+{\footnotesize\ttfamily uint16\+\_\+t$\ast$ D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::log2\+Abs}
+
+
+
+log2 absolute computation output buffer 
+
+
+
+Definition at line 489 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_aba62b253f962cabd48c6e7835d9f039c}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!log2NumAvgChirps@{log2NumAvgChirps}}
+\index{log2NumAvgChirps@{log2NumAvgChirps}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{log2NumAvgChirps}
+{\footnotesize\ttfamily uint8\+\_\+t D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::log2\+Num\+Avg\+Chirps}
+
+
+
+log2 of number of averaged chirps 
+
+
+
+Definition at line 570 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a9c9ef41232d9e1d8b0176db092c8cbb1}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!log2NumDopplerBins@{log2NumDopplerBins}}
+\index{log2NumDopplerBins@{log2NumDopplerBins}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{log2NumDopplerBins}
+{\footnotesize\ttfamily uint8\+\_\+t D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::log2\+Num\+Doppler\+Bins}
+
+
+
+log 2 of number of doppler bins 
+
+
+
+Definition at line 573 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a79f50a5e9b2eaba2fabdcc27964b2625}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!log2numVirtAnt@{log2numVirtAnt}}
+\index{log2numVirtAnt@{log2numVirtAnt}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{log2numVirtAnt}
+{\footnotesize\ttfamily uint8\+\_\+t D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::log2num\+Virt\+Ant}
+
+
+
+log2 of the number of virtual antennas. 
+
+
+
+Definition at line 582 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a8a2116df2bae6ef84f3c96a3378bfc88}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!maxNumObj2DRaw@{maxNumObj2DRaw}}
+\index{maxNumObj2DRaw@{maxNumObj2DRaw}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{maxNumObj2DRaw}
+{\footnotesize\ttfamily uint16\+\_\+t D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::max\+Num\+Obj2\+D\+Raw}
+
+
+
+number of objects to be detected in 2D-\/\+C\+F\+AR. ~\newline
+ 
+
+
+
+Definition at line 625 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a35627a88d15ed49d8e686584f5779fb1}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!maxRange@{maxRange}}
+\index{maxRange@{maxRange}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{maxRange}
+{\footnotesize\ttfamily uint16\+\_\+t D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::max\+Range}
+
+
+
+maximum range at which a target is detected ( in xyz\+Output\+Q\+Format precision). 
+
+
+
+Definition at line 619 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_adbde8e2ccca587df74553c2f84b261fa}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!maxUnambiguousVel@{maxUnambiguousVel}}
+\index{maxUnambiguousVel@{maxUnambiguousVel}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{maxUnambiguousVel}
+{\footnotesize\ttfamily float D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::max\+Unambiguous\+Vel}
+
+
+
+maximum unambiguous velocity (without algorithmic improvements) in meters/sec 
+
+
+
+Definition at line 685 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by Mmw\+Demo\+\_\+\+X\+Yestimation(), and Mmw\+Demo\+\_\+\+X\+Y\+Zestimation().
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_abc94a43d26a192307e33f768f241564d}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!maxVelEnhStruct@{maxVelEnhStruct}}
+\index{maxVelEnhStruct@{maxVelEnhStruct}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{maxVelEnhStruct}
+{\footnotesize\ttfamily \textbf{ max\+Vel\+Enh\+Struct\+\_\+t} D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::max\+Vel\+Enh\+Struct}
+
+
+
+Max-\/velocity constants. 
+
+
+
+Definition at line 735 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a81cf6731566f4b3d1868d24013dacdd8}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!minRange@{minRange}}
+\index{minRange@{minRange}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{minRange}
+{\footnotesize\ttfamily uint16\+\_\+t D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::min\+Range}
+
+
+
+minimum range at which a target is detected ( in xyz\+Output\+Q\+Format precision). 
+
+
+
+Definition at line 616 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_abf55a398eeb9b1f5df171ee2a7282b25}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!multiObjBeamFormingCfg@{multiObjBeamFormingCfg}}
+\index{multiObjBeamFormingCfg@{multiObjBeamFormingCfg}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{multiObjBeamFormingCfg}
+{\footnotesize\ttfamily \textbf{ Mmw\+Demo\+\_\+\+Multi\+Obj\+Beam\+Forming\+Cfg} D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::multi\+Obj\+Beam\+Forming\+Cfg}
+
+
+
+Multi object beam forming configuration. 
+
+
+
+Definition at line 722 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by Mmw\+Demo\+\_\+\+X\+Yestimation(), and Mmw\+Demo\+\_\+\+X\+Y\+Zestimation().
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a76cf0403acc5c3e89189ebe8a658cedf}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!numActiveTrackers@{numActiveTrackers}}
+\index{numActiveTrackers@{numActiveTrackers}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{numActiveTrackers}
+{\footnotesize\ttfamily uint16\+\_\+t D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::num\+Active\+Trackers}
+
+
+
+number of active trackers. ~\newline
+ 
+
+
+
+Definition at line 622 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by populate\+Outputs().
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_adbed34893e119d556c29212c7cf89d8b}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!numAdcSamples@{numAdcSamples}}
+\index{numAdcSamples@{numAdcSamples}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{numAdcSamples}
+{\footnotesize\ttfamily uint16\+\_\+t D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::num\+Adc\+Samples}
+
+
+
+number of A\+DC samples 
+
+
+
+Definition at line 664 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by Mmw\+Demo\+\_\+data\+Path\+Config\+Edma().
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a1f46085dcd851c6aab84c457a5907093}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!numAngleBins@{numAngleBins}}
+\index{numAngleBins@{numAngleBins}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{numAngleBins}
+{\footnotesize\ttfamily uint16\+\_\+t D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::num\+Angle\+Bins}
+
+
+
+number of angle bins 
+
+
+
+Definition at line 643 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by Mmw\+Demo\+\_\+\+X\+Yestimation(), and Mmw\+Demo\+\_\+\+X\+Y\+Zestimation().
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a47a269970c3316b85735afb8dbd88824}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!numChirpsPerChirpType@{numChirpsPerChirpType}}
+\index{numChirpsPerChirpType@{numChirpsPerChirpType}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{numChirpsPerChirpType}
+{\footnotesize\ttfamily uint16\+\_\+t D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::num\+Chirps\+Per\+Chirp\+Type}
+
+
+
+number of chirps per chirp type 
+
+
+
+Definition at line 646 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_ae8b4e7f5be2befb62a44e3ac2df4fa23}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!numChirpsPerFrame@{numChirpsPerFrame}}
+\index{numChirpsPerFrame@{numChirpsPerFrame}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{numChirpsPerFrame}
+{\footnotesize\ttfamily uint16\+\_\+t D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::num\+Chirps\+Per\+Frame}
+
+
+
+number of chirps per frame 
+
+
+
+Definition at line 607 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_ae2bf831900a4205e50b15fbabcc7a81b}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!numDetObj@{numDetObj}}
+\index{numDetObj@{numDetObj}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{numDetObj}
+{\footnotesize\ttfamily uint16\+\_\+t D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::num\+Det\+Obj}
+
+
+
+Number of detected objects. 
+
+
+
+Definition at line 610 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by Mmw\+Demo\+\_\+\+X\+Yestimation(), Mmw\+Demo\+\_\+\+X\+Y\+Zestimation(), and populate\+Outputs().
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a52f31092ffa6a2523b0e89f0f690c14d}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!numDetObjRaw@{numDetObjRaw}}
+\index{numDetObjRaw@{numDetObjRaw}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{numDetObjRaw}
+{\footnotesize\ttfamily uint16\+\_\+t D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::num\+Det\+Obj\+Raw}
+
+
+
+Number of detected objects. 
+
+
+
+Definition at line 613 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_abe9059daf00fe28cc966523ef8de5176}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!numDopplerBins@{numDopplerBins}}
+\index{numDopplerBins@{numDopplerBins}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{numDopplerBins}
+{\footnotesize\ttfamily uint16\+\_\+t D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::num\+Doppler\+Bins}
+
+
+
+number of doppler bins 
+
+
+
+Definition at line 649 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by Mmw\+Demo\+\_\+process\+Chirp().
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a9aea8f84c6bdfd78fdb3e4d7637a8fa2}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!numRangeBins@{numRangeBins}}
+\index{numRangeBins@{numRangeBins}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{numRangeBins}
+{\footnotesize\ttfamily uint16\+\_\+t D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::num\+Range\+Bins}
+
+
+
+number of range bins 
+
+
+
+Definition at line 667 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a3349d61df284c2bd8239f141970a0c43}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!numRxAntennas@{numRxAntennas}}
+\index{numRxAntennas@{numRxAntennas}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{numRxAntennas}
+{\footnotesize\ttfamily uint16\+\_\+t D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::num\+Rx\+Antennas}
+
+
+
+Number of receive channels. 
+
+
+
+Definition at line 628 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by Mmw\+Demo\+\_\+data\+Path\+Config\+Edma(), and Mmw\+Demo\+\_\+process\+Chirp().
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_afafb822cd442bf8a538ddca9d96846d2}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!numTxAntennas@{numTxAntennas}}
+\index{numTxAntennas@{numTxAntennas}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{numTxAntennas}
+{\footnotesize\ttfamily uint16\+\_\+t D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::num\+Tx\+Antennas}
+
+
+
+number of transmit antennas 
+
+
+
+Definition at line 631 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by Mmw\+Demo\+\_\+process\+Chirp().
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_ad8c8688d4ee24be3fdbc4b188b906634}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!numVirtualAntAzim@{numVirtualAntAzim}}
+\index{numVirtualAntAzim@{numVirtualAntAzim}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{numVirtualAntAzim}
+{\footnotesize\ttfamily uint16\+\_\+t D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::num\+Virtual\+Ant\+Azim}
+
+
+
+number of virtual azimuth antennas 
+
+
+
+Definition at line 637 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a4aaf7faa715bef5310d3c41853e4f728}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!numVirtualAntElev@{numVirtualAntElev}}
+\index{numVirtualAntElev@{numVirtualAntElev}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{numVirtualAntElev}
+{\footnotesize\ttfamily uint16\+\_\+t D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::num\+Virtual\+Ant\+Elev}
+
+
+
+number of virtual elevation antennas 
+
+
+
+Definition at line 640 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a684960622467c1fafe9b42de3f03ffd4}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!numVirtualAntennas@{numVirtualAntennas}}
+\index{numVirtualAntennas@{numVirtualAntennas}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{numVirtualAntennas}
+{\footnotesize\ttfamily uint16\+\_\+t D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::num\+Virtual\+Antennas}
+
+
+
+number of virtual antennas 
+
+
+
+Definition at line 634 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a17413e4a8dc47cbae69797186fc0e6ec}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!padding@{padding}}
+\index{padding@{padding}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{padding}
+{\footnotesize\ttfamily uint8\+\_\+t D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::padding}
+
+
+
+padding. . 
+
+
+
+Definition at line 594 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a8f50b12180c7767737561c5a8c396b4f}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!parkingAssistBins@{parkingAssistBins}}
+\index{parkingAssistBins@{parkingAssistBins}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{parkingAssistBins}
+{\footnotesize\ttfamily uint16\+\_\+t$\ast$ D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::parking\+Assist\+Bins}
+
+
+
+Nearest object as a function of azimuth. 
+
+
+
+Definition at line 765 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by populate\+Outputs().
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_ad78fc47c55e61b3bb118b7a8f12d7d0f}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!parkingAssistBinsState@{parkingAssistBinsState}}
+\index{parkingAssistBinsState@{parkingAssistBinsState}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{parkingAssistBinsState}
+{\footnotesize\ttfamily uint16\+\_\+t$\ast$ D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::parking\+Assist\+Bins\+State}
+
+
+
+Filtered result of the nearest object as a function of azimuth. 
+
+
+
+Definition at line 768 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by populate\+Outputs().
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a9f0c719a9af8e6a8e7df2321e29f9656}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!parkingAssistBinsStateCnt@{parkingAssistBinsStateCnt}}
+\index{parkingAssistBinsStateCnt@{parkingAssistBinsStateCnt}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{parkingAssistBinsStateCnt}
+{\footnotesize\ttfamily uint16\+\_\+t$\ast$ D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::parking\+Assist\+Bins\+State\+Cnt}
+
+
+
+The \textquotesingle{}age\textquotesingle{} of the filtered result of the parking state. Added to make the \textquotesingle{}smoother\textquotesingle{} visually. 
+
+
+
+Definition at line 772 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by populate\+Outputs().
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_afed3592028d9ec3ff612079c681318bd}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!parkingAssistMaxRange@{parkingAssistMaxRange}}
+\index{parkingAssistMaxRange@{parkingAssistMaxRange}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{parkingAssistMaxRange}
+{\footnotesize\ttfamily uint16\+\_\+t D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::parking\+Assist\+Max\+Range}
+
+
+
+maximum range to look for obstacles. . 
+
+
+
+Definition at line 601 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by populate\+Outputs().
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a969d6348c381c7c3cbf21af75954eb39}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!parkingAssistMinRange@{parkingAssistMinRange}}
+\index{parkingAssistMinRange@{parkingAssistMinRange}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{parkingAssistMinRange}
+{\footnotesize\ttfamily uint16\+\_\+t D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::parking\+Assist\+Min\+Range}
+
+
+
+minimum range to look for obstacles. . 
+
+
+
+Definition at line 604 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a9a2148d2271dd5bc23983bcf4e447738}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!parkingAssistNumBins@{parkingAssistNumBins}}
+\index{parkingAssistNumBins@{parkingAssistNumBins}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{parkingAssistNumBins}
+{\footnotesize\ttfamily uint8\+\_\+t D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::parking\+Assist\+Num\+Bins}
+
+
+
+Number of bins for the parking\+Assist module. 
+
+
+
+Definition at line 588 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by populate\+Outputs().
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_ac9490e4ddcac6161a28ca228a635df40}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!parkingAssistNumBinsLog2@{parkingAssistNumBinsLog2}}
+\index{parkingAssistNumBinsLog2@{parkingAssistNumBinsLog2}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{parkingAssistNumBinsLog2}
+{\footnotesize\ttfamily uint8\+\_\+t D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::parking\+Assist\+Num\+Bins\+Log2}
+
+
+
+log2 of the number of bins for the parking\+Assist module (used for scaling operations). 
+
+
+
+Definition at line 591 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by populate\+Outputs().
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_aa870bfb6f9e814906b174d09be5f9e8f}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!peakValThresholds@{peakValThresholds}}
+\index{peakValThresholds@{peakValThresholds}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{peakValThresholds}
+{\footnotesize\ttfamily \textbf{ Range\+Dependant\+Thresh\+\_\+t} D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::peak\+Val\+Thresholds[\textbf{ M\+A\+X\+\_\+\+N\+U\+M\+\_\+\+R\+A\+N\+G\+E\+\_\+\+D\+E\+P\+E\+N\+D\+A\+N\+T\+\_\+\+S\+N\+R\+\_\+\+T\+H\+R\+E\+S\+H\+O\+L\+DS}]}
+
+
+
+S\+NR thresholds as a function of range. 
+
+
+
+Definition at line 700 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a263a9182af3d6a159abc7f30b8e33174}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!processingPath@{processingPath}}
+\index{processingPath@{processingPath}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{processingPath}
+{\footnotesize\ttfamily uint8\+\_\+t D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::processing\+Path}
+
+
+
+Processing path -\/ either point-\/cloud or max-\/vel enhancement. 
+
+
+
+Definition at line 561 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by Mmw\+Demo\+\_\+data\+Path\+Config\+Edma(), Mmw\+Demo\+\_\+process\+Chirp(), Mmw\+Demo\+\_\+\+X\+Yestimation(), Mmw\+Demo\+\_\+\+X\+Y\+Zestimation(), populate\+Outputs(), and rx\+Gain\+Phase\+Param\+\_\+\+Init().
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_ac4c57a8e22fb091be1f8f3221dd600ca}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!radarCube@{radarCube}}
+\index{radarCube@{radarCube}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{radarCube}
+{\footnotesize\ttfamily cmplx16\+Re\+Im\+\_\+t$\ast$ D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::radar\+Cube}
+
+
+
+Pointer to Radar Cube memory in L3 R\+AM. 
+
+
+
+Definition at line 537 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by Mmw\+Demo\+\_\+process\+Chirp().
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a3a7d4d44b6ab1a588ba877ca2f733fa9}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!rangeResolution@{rangeResolution}}
+\index{rangeResolution@{rangeResolution}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{rangeResolution}
+{\footnotesize\ttfamily float D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::range\+Resolution}
+
+
+
+range resolution in meters 
+
+
+
+Definition at line 679 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_ad49eb4099821f9733fdc82ac1c96651c}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!rxChPhaseComp@{rxChPhaseComp}}
+\index{rxChPhaseComp@{rxChPhaseComp}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{rxChPhaseComp}
+{\footnotesize\ttfamily cmplx16\+Im\+Re\+\_\+t$\ast$ D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::rx\+Ch\+Phase\+Comp}
+
+
+
+Pointer to the Rx Gain phase compensation params. 
+
+
+
+Definition at line 531 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by rx\+Gain\+Phase\+Param\+\_\+\+Init().
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_ac20a9af79e3f00d8708a168d5173a1ac}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!sinAzimQFormat@{sinAzimQFormat}}
+\index{sinAzimQFormat@{sinAzimQFormat}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{sinAzimQFormat}
+{\footnotesize\ttfamily uint8\+\_\+t D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::sin\+Azim\+Q\+Format}
+
+
+
+Q format of the sin of the azimuth. 
+
+
+
+Definition at line 585 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by populate\+Outputs().
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a3e6ab5ba7edaa5cad4b6465257608ba3}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!SNRThresholds@{SNRThresholds}}
+\index{SNRThresholds@{SNRThresholds}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{SNRThresholds}
+{\footnotesize\ttfamily \textbf{ Range\+Dependant\+Thresh\+\_\+t} D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::\+S\+N\+R\+Thresholds[\textbf{ M\+A\+X\+\_\+\+N\+U\+M\+\_\+\+R\+A\+N\+G\+E\+\_\+\+D\+E\+P\+E\+N\+D\+A\+N\+T\+\_\+\+S\+N\+R\+\_\+\+T\+H\+R\+E\+S\+H\+O\+L\+DS}]}
+
+
+
+S\+NR thresholds as a function of range. 
+
+
+
+Definition at line 697 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a1a6964639827e01378c2227a9accd091}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!subframeIndx@{subframeIndx}}
+\index{subframeIndx@{subframeIndx}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{subframeIndx}
+{\footnotesize\ttfamily uint8\+\_\+t D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::subframe\+Indx}
+
+
+
+index of the subframe to which this object belongs 
+
+
+
+Definition at line 579 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_afa236322a95afe39ff7bcc722b6aa34c}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!sumAbs@{sumAbs}}
+\index{sumAbs@{sumAbs}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{sumAbs}
+{\footnotesize\ttfamily uint16\+\_\+t$\ast$ D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::sum\+Abs}
+
+
+
+accumulated sum of log2 absolute over the antennae 
+
+
+
+Definition at line 492 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_ad5e0c7381ec32071272b31df44fed84b}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!sumAbsRange@{sumAbsRange}}
+\index{sumAbsRange@{sumAbsRange}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{sumAbsRange}
+{\footnotesize\ttfamily uint16\+\_\+t$\ast$ D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::sum\+Abs\+Range}
+
+
+
+input buffer for C\+F\+AR processing from the detection matrix 
+
+
+
+Definition at line 498 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_ac5bd830cb7e2d352cbe2ee585ab7951b}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!sumAbsSlowChirp@{sumAbsSlowChirp}}
+\index{sumAbsSlowChirp@{sumAbsSlowChirp}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{sumAbsSlowChirp}
+{\footnotesize\ttfamily uint16\+\_\+t$\ast$ D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::sum\+Abs\+Slow\+Chirp}
+
+
+
+accumulated sum of log2 absolute over the antennae 
+
+
+
+Definition at line 495 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_ae7ad8693cbc78a7cbe93fa3eb9919327}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!timingInfo@{timingInfo}}
+\index{timingInfo@{timingInfo}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{timingInfo}
+{\footnotesize\ttfamily \textbf{ Mmw\+Demo\+\_\+timing\+Info\+\_\+t} D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::timing\+Info}
+
+
+
+Timing information. 
+
+
+
+Definition at line 728 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a143ea1e99052ea0830daac2c481c1a97}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!trackerInstance@{trackerInstance}}
+\index{trackerInstance@{trackerInstance}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{trackerInstance}
+{\footnotesize\ttfamily \textbf{ K\+Ftracker\+Instance\+\_\+t} D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::tracker\+Instance}
+
+
+
+Tracking configuration structure. 
+
+
+
+Definition at line 744 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by populate\+Outputs().
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_aa034b4008b2a7e3a57ffe93e853da6f0}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!trackerOpFinal@{trackerOpFinal}}
+\index{trackerOpFinal@{trackerOpFinal}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{trackerOpFinal}
+{\footnotesize\ttfamily \textbf{ tracking\+Report\+For\+Tx}$\ast$ D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::tracker\+Op\+Final}
+
+
+
+Final list of tracked objects for transmission. 
+
+
+
+Definition at line 762 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by populate\+Outputs().
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_ae40801b1427ce0a711d8453116e516db}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!trackerQvecList@{trackerQvecList}}
+\index{trackerQvecList@{trackerQvecList}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{trackerQvecList}
+{\footnotesize\ttfamily float$\ast$ D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::tracker\+Qvec\+List}
+
+
+
+Process noise constants. 
+
+
+
+Definition at line 750 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a7f6a8b4660009998565525d58c8fba4f}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!trackerScratchPadFlt@{trackerScratchPadFlt}}
+\index{trackerScratchPadFlt@{trackerScratchPadFlt}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{trackerScratchPadFlt}
+{\footnotesize\ttfamily float$\ast$ D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::tracker\+Scratch\+Pad\+Flt}
+
+
+
+Pointer to tracker scratch pad for floats. 
+
+
+
+Definition at line 555 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a16e087b3752f2202b99af04333679e21}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!trackerScratchPadShort@{trackerScratchPadShort}}
+\index{trackerScratchPadShort@{trackerScratchPadShort}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{trackerScratchPadShort}
+{\footnotesize\ttfamily int16\+\_\+t$\ast$ D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::tracker\+Scratch\+Pad\+Short}
+
+
+
+Pointer to tracker scratch pad for int16\+\_\+t. 
+
+
+
+Definition at line 558 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a328684697d4473ff554e53820887adb1}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!trackerState@{trackerState}}
+\index{trackerState@{trackerState}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{trackerState}
+{\footnotesize\ttfamily \textbf{ K\+Fstate\+\_\+t}$\ast$ D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::tracker\+State}
+
+
+
+tracking state. 
+
+
+
+Definition at line 747 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by populate\+Outputs().
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_ac70dab8b1b7cd614908862c0cf9d97cd}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!trackingInput@{trackingInput}}
+\index{trackingInput@{trackingInput}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{trackingInput}
+{\footnotesize\ttfamily \textbf{ tracking\+Input\+Report\+\_\+t}$\ast$ D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::tracking\+Input}
+
+
+
+Pointer to d\+B\+Scan output used as input to the tracker. 
+
+
+
+Definition at line 552 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a605d8427e9b79b1fb53738cbb282e873}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!twiddle16x16\_1D@{twiddle16x16\_1D}}
+\index{twiddle16x16\_1D@{twiddle16x16\_1D}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{twiddle16x16\_1D}
+{\footnotesize\ttfamily cmplx16\+Re\+Im\+\_\+t$\ast$ D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::twiddle16x16\+\_\+1D}
+
+
+
+twiddle table for 1D F\+FT 
+
+
+
+Definition at line 462 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a1ab3ea33b3f65b97407e3bb0493edeb4}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!twiddle32x32\_2D@{twiddle32x32\_2D}}
+\index{twiddle32x32\_2D@{twiddle32x32\_2D}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{twiddle32x32\_2D}
+{\footnotesize\ttfamily cmplx32\+Re\+Im\+\_\+t$\ast$ D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::twiddle32x32\+\_\+2D}
+
+
+
+twiddle table for 2D F\+FT 
+
+
+
+Definition at line 474 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_ac7c6753ef0dbf611cf1751e373a6d452}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!txAntennaCount@{txAntennaCount}}
+\index{txAntennaCount@{txAntennaCount}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{txAntennaCount}
+{\footnotesize\ttfamily uint16\+\_\+t D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::tx\+Antenna\+Count}
+
+
+
+chirp counter modulo number of tx antennas 
+
+
+
+Definition at line 655 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by Mmw\+Demo\+\_\+process\+Chirp().
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a8d947cdb12bc65781dd279a584eb072d}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!velResolution@{velResolution}}
+\index{velResolution@{velResolution}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{velResolution}
+{\footnotesize\ttfamily float D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::vel\+Resolution}
+
+
+
+velocity resolution in meters/sec 
+
+
+
+Definition at line 682 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a50d3f76d339883159a332d0cc859edcc}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!window1D@{window1D}}
+\index{window1D@{window1D}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{window1D}
+{\footnotesize\ttfamily int16\+\_\+t$\ast$ D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::window1D}
+
+
+
+window coefficients for 1D F\+FT 
+
+
+
+Definition at line 465 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_af5feca1b947928ca43df1de402533ed0}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!window2D@{window2D}}
+\index{window2D@{window2D}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{window2D}
+{\footnotesize\ttfamily int32\+\_\+t$\ast$ D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::window2D}
+
+
+
+window coefficients for 2D F\+FT 
+
+
+
+Definition at line 477 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a7ec2dd33e1347b114c712a3cde25b797}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!windowingBuf2D@{windowingBuf2D}}
+\index{windowingBuf2D@{windowingBuf2D}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{windowingBuf2D}
+{\footnotesize\ttfamily cmplx32\+Re\+Im\+\_\+t$\ast$ D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::windowing\+Buf2D}
+
+
+
+window output for 2D F\+FT 
+
+
+
+Definition at line 483 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_d_s_s___data_path_obj__t_a0565f1405ccd0ef485735943e19e12c7}} 
+\index{DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}!xyzOutputQFormat@{xyzOutputQFormat}}
+\index{xyzOutputQFormat@{xyzOutputQFormat}!DSS\_DataPathObj\_t@{DSS\_DataPathObj\_t}}
+\doxysubsubsection{xyzOutputQFormat}
+{\footnotesize\ttfamily uint8\+\_\+t D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::xyz\+Output\+Q\+Format}
+
+
+
+Q format of the output x/y/z coordinates. 
+
+
+
+Definition at line 576 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by Mmw\+Demo\+\_\+\+X\+Yestimation(), Mmw\+Demo\+\_\+\+X\+Y\+Zestimation(), and populate\+Outputs().
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ dss\+\_\+data\+\_\+path.\+h}\end{DoxyCompactItemize}

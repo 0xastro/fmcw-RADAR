@@ -1,0 +1,311 @@
+\doxysection{M\+C\+B\+\_\+t Struct Reference}
+\label{struct_m_c_b__t}\index{MCB\_t@{MCB\_t}}
+
+
+D\+S\+P-\/\+Subsystem (D\+SS) Master control block (M\+CB) The structure is used to hold handling information, flags and stats relative to the radar design.  
+
+
+
+
+{\ttfamily \#include $<$mm\+Wave\+\_\+\+X\+S\+S.\+h$>$}
+
+
+
+Collaboration diagram for M\+C\+B\+\_\+t\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_m_c_b__t__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+S\+O\+C\+\_\+\+Handle \textbf{ soc\+Handle}
+\item 
+Mbox\+\_\+\+Handle \textbf{ mbox\+Handle}
+\begin{DoxyCompactList}\small\item\em ! Handle to the S\+OC Module \end{DoxyCompactList}\item 
+Semaphore\+\_\+\+Handle \textbf{ mbox\+Sem\+Handle}
+\begin{DoxyCompactList}\small\item\em ! Handle to the peer Mailbox used to exchange messages between the M\+SS and D\+SS \end{DoxyCompactList}\item 
+S\+O\+C\+\_\+\+Sys\+Int\+Listener\+Handle \textbf{ chirp\+Int\+Handle}
+\begin{DoxyCompactList}\small\item\em ! Semaphore handle for the mailbox communication \end{DoxyCompactList}\item 
+S\+O\+C\+\_\+\+Sys\+Int\+Listener\+Handle \textbf{ frame\+Start\+Int\+Handle}
+\begin{DoxyCompactList}\small\item\em ! Handle to the S\+OC chirp interrupt listener Handle \end{DoxyCompactList}\item 
+M\+M\+Wave\+\_\+\+Handle \textbf{ ctrl\+Handle}
+\begin{DoxyCompactList}\small\item\em ! Handle to the S\+OC frame interrupt listener Handle \end{DoxyCompactList}\item 
+A\+D\+C\+Buf\+\_\+\+Handle \textbf{ adc\+Buf\+Handle}
+\begin{DoxyCompactList}\small\item\em mm\+Wave control handle use to initialize the link infrastructure, which allows communication between the M\+SS and B\+SS \end{DoxyCompactList}\item 
+\textbf{ Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+TE} \textbf{ state}
+\begin{DoxyCompactList}\small\item\em ! Handle to the A\+D\+C\+B\+UF Driver \end{DoxyCompactList}\item 
+\textbf{ Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+TS} \textbf{ stats}
+\begin{DoxyCompactList}\small\item\em ! mmw Demo state \end{DoxyCompactList}\item 
+\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} \textbf{ data\+Path\+Obj} [\textbf{ N\+U\+M\+\_\+\+S\+U\+B\+F\+R\+A\+M\+ES}]
+\begin{DoxyCompactList}\small\item\em ! mmw Demo statistics \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ logging\+Buffer\+Available}
+\begin{DoxyCompactList}\small\item\em ! Data Path object \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ subframe\+Indx}
+\begin{DoxyCompactList}\small\item\em ! Logging buffer flag \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ inter\+Frame\+Proc\+Token}
+\begin{DoxyCompactList}\small\item\em ! Subframe index \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ frame\+Start\+Int\+Token}
+\begin{DoxyCompactList}\small\item\em ! inter frame\+Proc token \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ chirp\+Proc\+Token}
+\begin{DoxyCompactList}\small\item\em ! frame start token \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ mbox\+Proc\+Token}
+\begin{DoxyCompactList}\small\item\em ! chirp\+Proc token \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ frame\+Proc\+Token}
+\begin{DoxyCompactList}\small\item\em ! \textquotesingle{}mailbox has a message\textquotesingle{} token \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+D\+S\+P-\/\+Subsystem (D\+SS) Master control block (M\+CB) The structure is used to hold handling information, flags and stats relative to the radar design. 
+
+\DoxyHorRuler
+ \DoxyHorRuler
+ 
+
+Definition at line 210 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\label{struct_m_c_b__t_a47581d107839c7130af52f008d0c6805}} 
+\index{MCB\_t@{MCB\_t}!adcBufHandle@{adcBufHandle}}
+\index{adcBufHandle@{adcBufHandle}!MCB\_t@{MCB\_t}}
+\doxysubsubsection{adcBufHandle}
+{\footnotesize\ttfamily A\+D\+C\+Buf\+\_\+\+Handle M\+C\+B\+\_\+t\+::adc\+Buf\+Handle}
+
+
+
+mm\+Wave control handle use to initialize the link infrastructure, which allows communication between the M\+SS and B\+SS 
+
+
+
+Definition at line 224 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+\mbox{\label{struct_m_c_b__t_a1babf4a12432fce3f2915e053e06c928}} 
+\index{MCB\_t@{MCB\_t}!chirpIntHandle@{chirpIntHandle}}
+\index{chirpIntHandle@{chirpIntHandle}!MCB\_t@{MCB\_t}}
+\doxysubsubsection{chirpIntHandle}
+{\footnotesize\ttfamily S\+O\+C\+\_\+\+Sys\+Int\+Listener\+Handle M\+C\+B\+\_\+t\+::chirp\+Int\+Handle}
+
+
+
+! Semaphore handle for the mailbox communication 
+
+
+
+Definition at line 216 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+\mbox{\label{struct_m_c_b__t_ad606eca2eb0dcd92a9ff0a3b36f7e9a8}} 
+\index{MCB\_t@{MCB\_t}!chirpProcToken@{chirpProcToken}}
+\index{chirpProcToken@{chirpProcToken}!MCB\_t@{MCB\_t}}
+\doxysubsubsection{chirpProcToken}
+{\footnotesize\ttfamily uint8\+\_\+t M\+C\+B\+\_\+t\+::chirp\+Proc\+Token}
+
+
+
+! frame start token 
+
+
+
+Definition at line 232 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+\mbox{\label{struct_m_c_b__t_a3c9d3d957cac0c8ad0b2876f0e7c857d}} 
+\index{MCB\_t@{MCB\_t}!ctrlHandle@{ctrlHandle}}
+\index{ctrlHandle@{ctrlHandle}!MCB\_t@{MCB\_t}}
+\doxysubsubsection{ctrlHandle}
+{\footnotesize\ttfamily M\+M\+Wave\+\_\+\+Handle M\+C\+B\+\_\+t\+::ctrl\+Handle}
+
+
+
+! Handle to the S\+OC frame interrupt listener Handle 
+
+
+
+Definition at line 218 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+\mbox{\label{struct_m_c_b__t_ac17f43d5731ae01ad33a059972125095}} 
+\index{MCB\_t@{MCB\_t}!dataPathObj@{dataPathObj}}
+\index{dataPathObj@{dataPathObj}!MCB\_t@{MCB\_t}}
+\doxysubsubsection{dataPathObj}
+{\footnotesize\ttfamily \textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} M\+C\+B\+\_\+t\+::data\+Path\+Obj[\textbf{ N\+U\+M\+\_\+\+S\+U\+B\+F\+R\+A\+M\+ES}]}
+
+
+
+! mmw Demo statistics 
+
+
+
+Definition at line 227 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+\mbox{\label{struct_m_c_b__t_a56beefe609bda5fbe471d0160efbe078}} 
+\index{MCB\_t@{MCB\_t}!frameProcToken@{frameProcToken}}
+\index{frameProcToken@{frameProcToken}!MCB\_t@{MCB\_t}}
+\doxysubsubsection{frameProcToken}
+{\footnotesize\ttfamily uint8\+\_\+t M\+C\+B\+\_\+t\+::frame\+Proc\+Token}
+
+
+
+! \textquotesingle{}mailbox has a message\textquotesingle{} token 
+
+
+
+Definition at line 234 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+\mbox{\label{struct_m_c_b__t_ace1cdaac20f5318c51abb7efd6efedb5}} 
+\index{MCB\_t@{MCB\_t}!frameStartIntHandle@{frameStartIntHandle}}
+\index{frameStartIntHandle@{frameStartIntHandle}!MCB\_t@{MCB\_t}}
+\doxysubsubsection{frameStartIntHandle}
+{\footnotesize\ttfamily S\+O\+C\+\_\+\+Sys\+Int\+Listener\+Handle M\+C\+B\+\_\+t\+::frame\+Start\+Int\+Handle}
+
+
+
+! Handle to the S\+OC chirp interrupt listener Handle 
+
+
+
+Definition at line 217 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+\mbox{\label{struct_m_c_b__t_aaf5ad0f45cc76770abd343f8ea1b88cc}} 
+\index{MCB\_t@{MCB\_t}!frameStartIntToken@{frameStartIntToken}}
+\index{frameStartIntToken@{frameStartIntToken}!MCB\_t@{MCB\_t}}
+\doxysubsubsection{frameStartIntToken}
+{\footnotesize\ttfamily uint8\+\_\+t M\+C\+B\+\_\+t\+::frame\+Start\+Int\+Token}
+
+
+
+! inter frame\+Proc token 
+
+
+
+Definition at line 231 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+\mbox{\label{struct_m_c_b__t_a3c8b5aab94fa8e26f9fb3e22339fc915}} 
+\index{MCB\_t@{MCB\_t}!interFrameProcToken@{interFrameProcToken}}
+\index{interFrameProcToken@{interFrameProcToken}!MCB\_t@{MCB\_t}}
+\doxysubsubsection{interFrameProcToken}
+{\footnotesize\ttfamily uint8\+\_\+t M\+C\+B\+\_\+t\+::inter\+Frame\+Proc\+Token}
+
+
+
+! Subframe index 
+
+
+
+Definition at line 230 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+\mbox{\label{struct_m_c_b__t_a23050e4e419584236b84a78d45c98f1d}} 
+\index{MCB\_t@{MCB\_t}!loggingBufferAvailable@{loggingBufferAvailable}}
+\index{loggingBufferAvailable@{loggingBufferAvailable}!MCB\_t@{MCB\_t}}
+\doxysubsubsection{loggingBufferAvailable}
+{\footnotesize\ttfamily uint8\+\_\+t M\+C\+B\+\_\+t\+::logging\+Buffer\+Available}
+
+
+
+! Data Path object 
+
+
+
+Definition at line 228 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+\mbox{\label{struct_m_c_b__t_a5f788422b7cd97aba39c9f14a3d710d3}} 
+\index{MCB\_t@{MCB\_t}!mboxHandle@{mboxHandle}}
+\index{mboxHandle@{mboxHandle}!MCB\_t@{MCB\_t}}
+\doxysubsubsection{mboxHandle}
+{\footnotesize\ttfamily Mbox\+\_\+\+Handle M\+C\+B\+\_\+t\+::mbox\+Handle}
+
+
+
+! Handle to the S\+OC Module 
+
+
+
+Definition at line 214 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+\mbox{\label{struct_m_c_b__t_a6b3f2c9b9555a2a299eb7bdf5259ac97}} 
+\index{MCB\_t@{MCB\_t}!mboxProcToken@{mboxProcToken}}
+\index{mboxProcToken@{mboxProcToken}!MCB\_t@{MCB\_t}}
+\doxysubsubsection{mboxProcToken}
+{\footnotesize\ttfamily uint8\+\_\+t M\+C\+B\+\_\+t\+::mbox\+Proc\+Token}
+
+
+
+! chirp\+Proc token 
+
+
+
+Definition at line 233 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+\mbox{\label{struct_m_c_b__t_a9b71b310da976e67dba7866108922ed8}} 
+\index{MCB\_t@{MCB\_t}!mboxSemHandle@{mboxSemHandle}}
+\index{mboxSemHandle@{mboxSemHandle}!MCB\_t@{MCB\_t}}
+\doxysubsubsection{mboxSemHandle}
+{\footnotesize\ttfamily Semaphore\+\_\+\+Handle M\+C\+B\+\_\+t\+::mbox\+Sem\+Handle}
+
+
+
+! Handle to the peer Mailbox used to exchange messages between the M\+SS and D\+SS 
+
+
+
+Definition at line 215 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+\mbox{\label{struct_m_c_b__t_acccae70abdcd213a2832cb5eed42601e}} 
+\index{MCB\_t@{MCB\_t}!socHandle@{socHandle}}
+\index{socHandle@{socHandle}!MCB\_t@{MCB\_t}}
+\doxysubsubsection{socHandle}
+{\footnotesize\ttfamily S\+O\+C\+\_\+\+Handle M\+C\+B\+\_\+t\+::soc\+Handle}
+
+
+
+Definition at line 213 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+\mbox{\label{struct_m_c_b__t_a2c4a00845e545ae5deb62e7bb139f5fe}} 
+\index{MCB\_t@{MCB\_t}!state@{state}}
+\index{state@{state}!MCB\_t@{MCB\_t}}
+\doxysubsubsection{state}
+{\footnotesize\ttfamily \textbf{ Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+TE} M\+C\+B\+\_\+t\+::state}
+
+
+
+! Handle to the A\+D\+C\+B\+UF Driver 
+
+
+
+Definition at line 225 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+\mbox{\label{struct_m_c_b__t_afedfdf69af9370ceac3bdb899c17711c}} 
+\index{MCB\_t@{MCB\_t}!stats@{stats}}
+\index{stats@{stats}!MCB\_t@{MCB\_t}}
+\doxysubsubsection{stats}
+{\footnotesize\ttfamily \textbf{ Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+TS} M\+C\+B\+\_\+t\+::stats}
+
+
+
+! mmw Demo state 
+
+
+
+Definition at line 226 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+\mbox{\label{struct_m_c_b__t_a392f88e31490778a3637d92665110aba}} 
+\index{MCB\_t@{MCB\_t}!subframeIndx@{subframeIndx}}
+\index{subframeIndx@{subframeIndx}!MCB\_t@{MCB\_t}}
+\doxysubsubsection{subframeIndx}
+{\footnotesize\ttfamily uint8\+\_\+t M\+C\+B\+\_\+t\+::subframe\+Indx}
+
+
+
+! Logging buffer flag 
+
+
+
+Definition at line 229 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+common/\textbf{ mm\+Wave\+\_\+\+X\+S\+S.\+h}\end{DoxyCompactItemize}

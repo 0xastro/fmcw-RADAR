@@ -1,0 +1,68 @@
+.TH "MmwDemo_message_body_u" 3 "Wed May 20 2020" "Version 1.0" "mmWaveFMCWRADAR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MmwDemo_message_body_u \- Message body used in Millimeter Wave Demo for passing configuration from MSS to DSS\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <mmw_messages\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fBMmwDemo_detInfoMsg\fP \fBdetObj\fP"
+.br
+.RI "Detectection Information message\&. "
+.ti -1c
+.RI "uint8_t \fBdataLogger\fP"
+.br
+.RI "Datapath output logger setting\&. "
+.ti -1c
+.RI "\fBMmwDemo_dssAssertInfoMsg\fP \fBassertInfo\fP"
+.br
+.RI "DSS assertion information\&. "
+.ti -1c
+.RI "uint32_t \fBdss2mssISRinfoAddress\fP"
+.br
+.RI "Address of DSS to MSS ISR information storage, typically in HSRAM\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Message body used in Millimeter Wave Demo for passing configuration from MSS to DSS\&. 
+
+The union defines the message body for various configuration messages\&. 
+.PP
+Definition at line 168 of file mmw_messages\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "\fBMmwDemo_dssAssertInfoMsg\fP MmwDemo_message_body_u::assertInfo"
+
+.PP
+DSS assertion information\&. 
+.PP
+Definition at line 177 of file mmw_messages\&.h\&.
+.SS "uint8_t MmwDemo_message_body_u::dataLogger"
+
+.PP
+Datapath output logger setting\&. 
+.PP
+Definition at line 175 of file mmw_messages\&.h\&.
+.SS "\fBMmwDemo_detInfoMsg\fP MmwDemo_message_body_u::detObj"
+
+.PP
+Detectection Information message\&. 
+.PP
+Definition at line 172 of file mmw_messages\&.h\&.
+.SS "uint32_t MmwDemo_message_body_u::dss2mssISRinfoAddress"
+
+.PP
+Address of DSS to MSS ISR information storage, typically in HSRAM\&. 
+.PP
+Definition at line 180 of file mmw_messages\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mmWaveFMCWRADAR from the source code\&.

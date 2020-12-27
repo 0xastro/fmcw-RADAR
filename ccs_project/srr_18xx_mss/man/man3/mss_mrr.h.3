@@ -1,0 +1,459 @@
+.TH "mss_mrr.h" 3 "Wed May 20 2020" "Version 1.0" "mmWaveFMCWRADAR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+mss_mrr.h \- This is the main header file for the MSS for the MRR TI Design\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <ti/common/mmwave_error\&.h>\fP
+.br
+\fC#include <ti/drivers/soc/soc\&.h>\fP
+.br
+\fC#include <ti/drivers/crc/crc\&.h>\fP
+.br
+\fC#include <ti/drivers/uart/UART\&.h>\fP
+.br
+\fC#include <ti/drivers/pinmux/pinmux\&.h>\fP
+.br
+\fC#include <ti/drivers/esm/esm\&.h>\fP
+.br
+\fC#include <ti/drivers/mailbox/mailbox\&.h>\fP
+.br
+\fC#include <ti/control/mmwave/mmwave\&.h>\fP
+.br
+\fC#include <ti/drivers/cbuff/cbuff\&.h>\fP
+.br
+\fC#include <ti/drivers/adcbuf/ADCBuf\&.h>\fP
+.br
+\fC#include <ti/drivers/edma/edma\&.h>\fP
+.br
+\fC#include <ti/drivers/osal/DebugP\&.h>\fP
+.br
+\fC#include <ti/sysbios/knl/Semaphore\&.h>\fP
+.br
+\fC#include '\&.\&./common/mrr_config_consts\&.h'\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBMmwDemo_MSS_STATS_t\fP"
+.br
+.RI "Millimeter Wave Demo statistics\&. "
+.ti -1c
+.RI "struct \fBMSS_MCB_t\fP"
+.br
+.RI "MSS MRR TI Design Master control block\&. "
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBMMWDEMO_CLI_SENSORSTART_EVT\fP   Event_Id_00"
+.br
+.RI "sensor start CLI event SYS/BIOS events are a means of communication between Tasks and threads 
+.br
+ SYS/BIOS objects include semaphores, mailboxes, message queues, etc\&. Only tasks can WAIT for events; whereas tasks, Hwis, Swis, or SYS/BIOS objects can POST them\&. "
+.ti -1c
+.RI "#define \fBMMWDEMO_CLI_SENSORSTOP_EVT\fP   Event_Id_01"
+.br
+.RI "sensor stop CLI event "
+.ti -1c
+.RI "#define \fBMMWDEMO_CLI_FRAMESTART_EVT\fP   Event_Id_02"
+.br
+.RI "sensor frame start CLI event "
+.ti -1c
+.RI "#define \fBMMWDEMO_BSS_CPUFAULT_EVT\fP   Event_Id_03"
+.br
+.RI "BSS CPUFAULT event\&. "
+.ti -1c
+.RI "#define \fBMMWDEMO_BSS_ESMFAULT_EVT\fP   Event_Id_04"
+.br
+.RI "BSS ESMFAULT event\&. "
+.ti -1c
+.RI "#define \fBMMWDEMO_BSS_MONITORING_REP_EVT\fP   Event_Id_05"
+.br
+.RI "Monitoring report event\&. "
+.ti -1c
+.RI "#define \fBMMWDEMO_BSS_CALIBRATION_REP_EVT\fP   Event_Id_06"
+.br
+.RI "BSS Calibration report event\&. "
+.ti -1c
+.RI "#define \fBMMWDEMO_DSS_START_COMPLETED_EVT\fP   Event_Id_07"
+.br
+.RI "start completed event from DSS/MSS "
+.ti -1c
+.RI "#define \fBMMWDEMO_DSS_STOP_COMPLETED_EVT\fP   Event_Id_08"
+.br
+.RI "stop completed event from DSS "
+.ti -1c
+.RI "#define \fBMMWDEMO_DSS_START_FAILED_EVT\fP   Event_Id_09"
+.br
+.RI "start failed event from DSS/MSS "
+.ti -1c
+.RI "#define \fBMMWDEMO_CLI_EVENTS\fP"
+.br
+.ti -1c
+.RI "#define \fBMMWDEMO_BSS_FAULT_EVENTS\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBMmwDemo_MSS_STATS_t\fP \fBMmwDemo_MSS_STATS\fP"
+.br
+.RI "Millimeter Wave Demo statistics\&. "
+.ti -1c
+.RI "typedef struct \fBMSS_MCB_t\fP \fBMSS_MCB\fP"
+.br
+.RI "MSS MRR TI Design Master control block\&. "
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int32_t \fBIPC_init\fP (Mailbox_Type remoteEndPoint)"
+.br
+.ti -1c
+.RI "int32_t \fBIPC_sendChannelCfg\fP (rlChanCfg_t *ptrChannelCfg)"
+.br
+.ti -1c
+.RI "int32_t \fBIPC_sendLowPowerModeCfg\fP (rlLowPowerModeCfg_t *ptrLowPowerMode)"
+.br
+.ti -1c
+.RI "int32_t \fBIPC_sendADCOutCfg\fP (rlAdcOutCfg_t *ptrADCOutCfg)"
+.br
+.ti -1c
+.RI "int32_t \fBIPC_sendProfileCfg\fP (rlProfileCfg_t *ptrProfileCfg)"
+.br
+.ti -1c
+.RI "int32_t \fBIPC_sendChirpCfg\fP (rlChirpCfg_t *ptrChirpCfg)"
+.br
+.ti -1c
+.RI "int32_t \fBIPC_sendFrameCfg\fP (rlFrameCfg_t *ptrFrameCfg)"
+.br
+.ti -1c
+.RI "int32_t \fBIPC_sendAdvFrameCfg\fP (rlAdvFrameCfg_t *ptrAdvFrameCfg)"
+.br
+.ti -1c
+.RI "int32_t \fBIPC_sendSensorStart\fP (void)"
+.br
+.ti -1c
+.RI "int32_t \fBIPC_sendSensorStop\fP (void)"
+.br
+.ti -1c
+.RI "void \fBMSS_CLIInit\fP (void)"
+.br
+.ti -1c
+.RI "void \fBCfg_AdvFrameCfgInitParams\fP (rlAdvFrameCfg_t *ptrAdvFrameCfg)"
+.br
+.ti -1c
+.RI "void \fBCfg_FrameCfgInitParams\fP (rlFrameCfg_t *ptrFrameCfg)"
+.br
+.ti -1c
+.RI "void \fBCfg_ProfileCfgInitParams\fP (uint8_t profileNum, rlProfileCfg_t *ptrProfileCfg)"
+.br
+.ti -1c
+.RI "void \fBCfg_ChirpCfgInitParams\fP (uint8_t chirpNum, rlChirpCfg_t *ptrChirpCfg)"
+.br
+.ti -1c
+.RI "void \fBCfg_LowPowerModeInitParams\fP (rlLowPowerModeCfg_t *ptrLowPowerMode)"
+.br
+.ti -1c
+.RI "void \fBCfg_ChannelCfgInitParams\fP (rlChanCfg_t *ptrChannelCfg)"
+.br
+.ti -1c
+.RI "void \fBCfg_ADCOutCfgInitParams\fP (rlAdcOutCfg_t *ptrADCOutCfg)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBMSS_MCB\fP \fBgMSSMCB\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+This is the main header file for the MSS for the MRR TI Design\&. 
+
+
+.PP
+Definition in file \fBmss_mrr\&.h\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define MMWDEMO_BSS_CALIBRATION_REP_EVT   Event_Id_06"
+
+.PP
+BSS Calibration report event\&. 
+.PP
+Definition at line 64 of file mss_mrr\&.h\&.
+.SS "#define MMWDEMO_BSS_CPUFAULT_EVT   Event_Id_03"
+
+.PP
+BSS CPUFAULT event\&. 
+.PP
+Definition at line 58 of file mss_mrr\&.h\&.
+.SS "#define MMWDEMO_BSS_ESMFAULT_EVT   Event_Id_04"
+
+.PP
+BSS ESMFAULT event\&. 
+.PP
+Definition at line 60 of file mss_mrr\&.h\&.
+.SS "#define MMWDEMO_BSS_FAULT_EVENTS"
+\fBValue:\fP
+.PP
+.nf
+(MMWDEMO_BSS_CPUFAULT_EVT | \
+                                                         MMWDEMO_BSS_ESMFAULT_EVT )
+.fi
+.PP
+Definition at line 81 of file mss_mrr\&.h\&.
+.SS "#define MMWDEMO_BSS_MONITORING_REP_EVT   Event_Id_05"
+
+.PP
+Monitoring report event\&. 
+.PP
+Definition at line 62 of file mss_mrr\&.h\&.
+.SS "#define MMWDEMO_CLI_EVENTS"
+\fBValue:\fP
+.PP
+.nf
+(MMWDEMO_CLI_SENSORSTART_EVT    | \
+                                                         MMWDEMO_CLI_SENSORSTOP_EVT     | \
+                                                         MMWDEMO_CLI_FRAMESTART_EVT)
+.fi
+.PP
+Definition at line 75 of file mss_mrr\&.h\&.
+.SS "#define MMWDEMO_CLI_FRAMESTART_EVT   Event_Id_02"
+
+.PP
+sensor frame start CLI event 
+.PP
+Definition at line 56 of file mss_mrr\&.h\&.
+.SS "#define MMWDEMO_CLI_SENSORSTART_EVT   Event_Id_00"
+
+.PP
+sensor start CLI event SYS/BIOS events are a means of communication between Tasks and threads 
+.br
+ SYS/BIOS objects include semaphores, mailboxes, message queues, etc\&. Only tasks can WAIT for events; whereas tasks, Hwis, Swis, or SYS/BIOS objects can POST them\&. \fBhttp://software-dl.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/sysbios/6_41_02_41/exports/bios_6_41_02_41/docs/cdoc/ti/sysbios/knl/Event.html\fP 
+.PP
+Definition at line 52 of file mss_mrr\&.h\&.
+.SS "#define MMWDEMO_CLI_SENSORSTOP_EVT   Event_Id_01"
+
+.PP
+sensor stop CLI event 
+.PP
+Definition at line 54 of file mss_mrr\&.h\&.
+.SS "#define MMWDEMO_DSS_START_COMPLETED_EVT   Event_Id_07"
+
+.PP
+start completed event from DSS/MSS 
+.PP
+Definition at line 66 of file mss_mrr\&.h\&.
+.SS "#define MMWDEMO_DSS_START_FAILED_EVT   Event_Id_09"
+
+.PP
+start failed event from DSS/MSS 
+.PP
+Definition at line 70 of file mss_mrr\&.h\&.
+.SS "#define MMWDEMO_DSS_STOP_COMPLETED_EVT   Event_Id_08"
+
+.PP
+stop completed event from DSS 
+.PP
+Definition at line 68 of file mss_mrr\&.h\&.
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fBMmwDemo_MSS_STATS_t\fP \fBMmwDemo_MSS_STATS\fP"
+
+.PP
+Millimeter Wave Demo statistics\&. The structure is used to hold the statistics information for the Millimeter Wave demo 
+.SS "typedef struct \fBMSS_MCB_t\fP \fBMSS_MCB\fP"
+
+.PP
+MSS MRR TI Design Master control block\&. The structure is used to hold information pertinent to the MSS MRR TI Design\&. 
+.SH "Function Documentation"
+.PP 
+.SS "void Cfg_ADCOutCfgInitParams (rlAdcOutCfg_t * ptrADCOutCfg)"
+\fBDescription\fP 
+.br
+ The function initializes the ADCOut configuration with the default parameters\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIptrADCOutCfg\fP Pointer to the ADCOutput configuration
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP applicable 
+.RE
+.PP
+
+.PP
+Definition at line 367 of file cfg\&.c\&.
+.SS "void Cfg_AdvFrameCfgInitParams (rlAdvFrameCfg_t * ptrAdvFrameCfg)"
+\fBDescription\fP 
+.br
+ The function initializes the frame configuration with the default parameters\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIptrAdvFrameCfg\fP Pointer to the adavance frame configuration
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP applicable 
+.RE
+.PP
+
+.PP
+Definition at line 45 of file cfg\&.c\&.
+.SS "void Cfg_ChannelCfgInitParams (rlChanCfg_t * ptrChannelCfg)"
+\fBDescription\fP 
+.br
+ The function initializes the channel configuration with the default parameters\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIptrChannelCfg\fP Pointer to the channel configuration
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP applicable 
+.RE
+.PP
+
+.PP
+Definition at line 342 of file cfg\&.c\&.
+.SS "void Cfg_ChirpCfgInitParams (uint8_t chirpNum, rlChirpCfg_t * ptrChirpCfg)"
+\fBDescription\fP 
+.br
+ The function initializes the chirp configuration with the default parameters\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIchirpNum\fP Chirp Number to be configured 
+.br
+\fIptrChirpCfg\fP Pointer to the chirp configuration
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP applicable 
+.RE
+.PP
+
+.PP
+Definition at line 231 of file cfg\&.c\&.
+.SS "void Cfg_FrameCfgInitParams (rlFrameCfg_t * ptrFrameCfg)"
+\fBDescription\fP 
+.br
+ The function initializes the frame configuration with the default parameters\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIptrFrameCfg\fP Pointer to the frame configuration
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP applicable 
+.RE
+.PP
+
+.PP
+Definition at line 142 of file cfg\&.c\&.
+.SS "void Cfg_LowPowerModeInitParams (rlLowPowerModeCfg_t * ptrLowPowerMode)"
+\fBDescription\fP 
+.br
+ The function initializes the low power configuration with the default parameters\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIptrLowPowerMode\fP Pointer to the low power mode configuration
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP applicable 
+.RE
+.PP
+
+.PP
+Definition at line 320 of file cfg\&.c\&.
+.SS "void Cfg_ProfileCfgInitParams (uint8_t profileNum, rlProfileCfg_t * ptrProfileCfg)"
+\fBDescription\fP 
+.br
+ The function initializes the profile configuration with the default parameters\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIprofileNum\fP Profile number to be initialized 
+.br
+\fIptrProfileCfg\fP Pointer to the profile configuration
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP applicable 
+.RE
+.PP
+
+.PP
+Definition at line 173 of file cfg\&.c\&.
+.SS "int32_t IPC_init (Mailbox_Type remoteEndPoint)"
+
+.SS "int32_t IPC_sendADCOutCfg (rlAdcOutCfg_t * ptrADCOutCfg)"
+
+.SS "int32_t IPC_sendAdvFrameCfg (rlAdvFrameCfg_t * ptrAdvFrameCfg)"
+
+.SS "int32_t IPC_sendChannelCfg (rlChanCfg_t * ptrChannelCfg)"
+
+.SS "int32_t IPC_sendChirpCfg (rlChirpCfg_t * ptrChirpCfg)"
+
+.SS "int32_t IPC_sendFrameCfg (rlFrameCfg_t * ptrFrameCfg)"
+
+.SS "int32_t IPC_sendLowPowerModeCfg (rlLowPowerModeCfg_t * ptrLowPowerMode)"
+
+.SS "int32_t IPC_sendProfileCfg (rlProfileCfg_t * ptrProfileCfg)"
+
+.SS "int32_t IPC_sendSensorStart (void)"
+
+.SS "int32_t IPC_sendSensorStop (void)"
+
+.SS "void MSS_CLIInit (void)"
+\fBDescription\fP 
+.br
+ This is the CLI Execution Task
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP Applicable\&. 
+.RE
+.PP
+
+.PP
+Definition at line 358 of file mss_mrr_cli\&.c\&.
+.SH "Variable Documentation"
+.PP 
+.SS "\fBMSS_MCB\fP gMSSMCB"
+
+.PP
+ DATA_ALIGN ensures the buffer starts at an address that is evenly divisible by 16\&. \fBspnu151j\&.pdf\fP section #5\&.10\&.6 
+.SS "gMSSMCB: Global Variable for tracking information&mdash;"
+
+.PP
+Definition at line 200 of file mss_main\&.c\&.
+.PP
+Referenced by main(), MmwDemo_mboxCallback(), and MmwDemo_mboxWrite()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mmWaveFMCWRADAR from the source code\&.

@@ -1,0 +1,422 @@
+.TH "C:/Users/astro/workspace_v9_2/mrr_18xx_dss/dss_main.c" 3 "Wed May 20 2020" "Version 1.0" "mmWaveFMCWRADAR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/Users/astro/workspace_v9_2/mrr_18xx_dss/dss_main.c
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdint\&.h>\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include <stddef\&.h>\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <math\&.h>\fP
+.br
+\fC#include <xdc/std\&.h>\fP
+.br
+\fC#include <xdc/cfg/global\&.h>\fP
+.br
+\fC#include <xdc/runtime/IHeap\&.h>\fP
+.br
+\fC#include <xdc/runtime/System\&.h>\fP
+.br
+\fC#include <xdc/runtime/Error\&.h>\fP
+.br
+\fC#include <xdc/runtime/Memory\&.h>\fP
+.br
+\fC#include <ti/sysbios/BIOS\&.h>\fP
+.br
+\fC#include <ti/sysbios/knl/Task\&.h>\fP
+.br
+\fC#include <ti/sysbios/knl/Event\&.h>\fP
+.br
+\fC#include <ti/sysbios/knl/Semaphore\&.h>\fP
+.br
+\fC#include <ti/sysbios/knl/Clock\&.h>\fP
+.br
+\fC#include <ti/sysbios/heaps/HeapBuf\&.h>\fP
+.br
+\fC#include <ti/sysbios/heaps/HeapMem\&.h>\fP
+.br
+\fC#include <ti/sysbios/family/c64p/Cache\&.h>\fP
+.br
+\fC#include <ti/sysbios/family/c64p/Hwi\&.h>\fP
+.br
+\fC#include <ti/sysbios/family/c64p/EventCombiner\&.h>\fP
+.br
+\fC#include <ti/sysbios/utils/Load\&.h>\fP
+.br
+\fC#include <ti/common/sys_common\&.h>\fP
+.br
+\fC#include <ti/common/mmwave_sdk_version\&.h>\fP
+.br
+\fC#include <ti/utils/cycleprofiler/cycle_profiler\&.h>\fP
+.br
+\fC#include <ti/drivers/mailbox/mailbox\&.h>\fP
+.br
+\fC#include <ti/drivers/adcbuf/ADCBuf\&.h>\fP
+.br
+\fC#include <ti/drivers/esm/esm\&.h>\fP
+.br
+\fC#include <ti/drivers/pinmux/pinmux\&.h>\fP
+.br
+\fC#include <ti/drivers/soc/soc\&.h>\fP
+.br
+\fC#include 'dss_mrr\&.h'\fP
+.br
+\fC#include 'dss_data_path\&.h'\fP
+.br
+\fC#include '\&.\&./common/mrr_config_consts\&.h'\fP
+.br
+\fC#include '\&.\&./common/mmw_messages\&.h'\fP
+.br
+\fC#include 'EKF_XYZ_Interface\&.h'\fP
+.br
+\fC#include <cpy_tbl\&.h>\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBMmwDemo_HSRAM_t_\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBSOC_XWR18XX_DSS_HSRAM_SIZE\fP   0x8000U        /* Size: 32KB */"
+.br
+.RI "DSS stores demo output and DSS to MSS ISR information (for fast exception signalling) in HSRAM\&. "
+.ti -1c
+.RI "#define \fBMMW_DATAPATH_DET_PAYLOAD_SIZE\fP   (\fBSOC_XWR18XX_DSS_HSRAM_SIZE\fP \-  sizeof(uint8_t))"
+.br
+.ti -1c
+.RI "#define \fBMMW_NUM_ANGLE_BINS\fP   64"
+.br
+.RI "Azimuth FFT size\&. "
+.ti -1c
+.RI "#define \fBMMWDEMO_SPEED_OF_LIGHT_IN_METERS_PER_SEC\fP   (3\&.0e8)"
+.br
+.ti -1c
+.RI "#define \fBMMWDEMO_SPEED_OF_LIGHT_IN_METERS_PER_USEC\fP   (3\&.0e2)"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBMmwDemo_HSRAM_t_\fP \fBMmwDemo_HSRAM_t\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBMmwDemo_dataPathConfigPopulate\fP (\fBMmwDemo_DSS_DataPathObj\fP *obj)"
+.br
+.ti -1c
+.RI "void \fBMmwDemo_populateMRR\fP (\fBMmwDemo_DSS_DataPathObj\fP *obj, uint16_t subframeIndx)"
+.br
+.ti -1c
+.RI "void \fBMmwDemo_populateUSRR\fP (\fBMmwDemo_DSS_DataPathObj\fP *obj, uint16_t subframeIndx)"
+.br
+.ti -1c
+.RI "void \fBMmwDemo_dBScanConfigBuffers\fP (\fBMmwDemo_DSS_DataPathObj\fP *obj)"
+.br
+.ti -1c
+.RI "int32_t \fBMRR_DSS_DataPathInit\fP (void)"
+.br
+.ti -1c
+.RI "void \fBMmwDemo_mboxCallback\fP (Mbox_Handle handle, Mailbox_Type peer)"
+.br
+.ti -1c
+.RI "void \fBMmwDemo_sleep\fP (void)"
+.br
+.ti -1c
+.RI "uint16_t \fBconvertSNRdBtoThreshold\fP (uint16_t numInteg, float ThresholdIndB, uint16_t bitwidth)"
+.br
+.ti -1c
+.RI "void \fB_MmwDemo_dssAssert\fP (int32_t expression, const char *file, int32_t line)"
+.br
+.ti -1c
+.RI "int32_t \fBmain\fP (void)"
+.br
+.ti -1c
+.RI "void \fBrxGainPhaseParam_Init\fP (\fBMmwDemo_DSS_DataPathObj\fP *obj)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBMmwDemo_HSRAM_t\fP \fBgHSRAM\fP"
+.br
+.ti -1c
+.RI "far COPY_TABLE \fB_MmwDemo_fastCode_L1PSRAM_copy_table\fP"
+.br
+.ti -1c
+.RI "\fBMrr_DSS_MCB\fP \fBgMrrDSSMCB\fP"
+.br
+.RI "Global Variable for tracking information required by the design\&. "
+.ti -1c
+.RI "volatile \fBcycleLog_t\fP \fBgCycleLog\fP"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define MMW_DATAPATH_DET_PAYLOAD_SIZE   (\fBSOC_XWR18XX_DSS_HSRAM_SIZE\fP \-  sizeof(uint8_t))"
+
+.PP
+Definition at line 118 of file dss_main\&.c\&.
+.SS "#define MMW_NUM_ANGLE_BINS   64"
+
+.PP
+Azimuth FFT size\&. 
+.PP
+Definition at line 133 of file dss_main\&.c\&.
+.SS "#define MMWDEMO_SPEED_OF_LIGHT_IN_METERS_PER_SEC   (3\&.0e8)"
+
+.PP
+Definition at line 135 of file dss_main\&.c\&.
+.SS "#define MMWDEMO_SPEED_OF_LIGHT_IN_METERS_PER_USEC   (3\&.0e2)"
+
+.PP
+Definition at line 137 of file dss_main\&.c\&.
+.SS "#define SOC_XWR18XX_DSS_HSRAM_SIZE   0x8000U        /* Size: 32KB */"
+
+.PP
+DSS stores demo output and DSS to MSS ISR information (for fast exception signalling) in HSRAM\&. 
+.PP
+Definition at line 116 of file dss_main\&.c\&.
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fBMmwDemo_HSRAM_t_\fP  \fBMmwDemo_HSRAM_t\fP"
+
+.SH "Function Documentation"
+.PP 
+.SS "void _MmwDemo_dssAssert (int32_t expression, const char * file, int32_t line)"
+\fBDescription\fP 
+.br
+ Sends DSS assert information to MSS
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP Applicable\&. 
+.RE
+.PP
+
+.PP
+Definition at line 349 of file dss_main\&.c\&.
+.SS "uint16_t convertSNRdBtoThreshold (uint16_t numInteg, float ThresholdIndB, uint16_t bitwidth)"
+\fBDescription\fP 
+.br
+ Converts an SNR (in dB) to an SNR Threshold that the CFAR algo can use\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fInumber\fP of integrations in the detection matrix Typically the number of virtual antennas 
+.br
+\fIThreshold\fP in dB (float)
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fIThreshold\fP for CFAR algorithm\&. 
+.RE
+.PP
+
+.PP
+Definition at line 1320 of file dss_main\&.c\&.
+.SS "int32_t main (void)"
+\fBDescription\fP 
+.br
+ Entry point into the DSS MRR TI Design
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP Applicable\&. 
+.RE
+.PP
+
+.PP
+Definition at line 378 of file dss_main\&.c\&.
+.SS "void MmwDemo_dataPathConfigPopulate (\fBMmwDemo_DSS_DataPathObj\fP * obj)"
+\fBDescription\fP 
+.br
+ populates the data path object array with the MRR configuration\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to the data path object\&.
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP Applicable\&. 
+.RE
+.PP
+
+.PP
+Definition at line 667 of file dss_main\&.c\&.
+.SS "void MmwDemo_dBScanConfigBuffers (\fBMmwDemo_DSS_DataPathObj\fP * obj)"
+\fBDescription\fP 
+.br
+ Configures the dBScan buffers\&. 
+.br
+ 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdata\fP path Object
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP applicable\&. 
+.RE
+.PP
+
+.PP
+Definition at line 1337 of file dss_main\&.c\&.
+.SS "void MmwDemo_mboxCallback (Mbox_Handle handle, Mailbox_Type peer)"
+\fBDescription\fP 
+.br
+ This function is a callback function that invoked when a message is received from the peer\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIhandle\fP Handle to the Mailbox on which data was received 
+.br
+\fIpeer\fP Peer from which data was received
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP Applicable\&. 
+.RE
+.PP
+
+.PP
+Definition at line 794 of file dss_main\&.c\&.
+.SS "void MmwDemo_populateMRR (\fBMmwDemo_DSS_DataPathObj\fP * obj, uint16_t subframeIndx)"
+\fBDescription\fP 
+.br
+ Populates the configuration for the MRR max-vel-enhancement subframe\&. 
+.br
+ 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdata\fP path Object
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP applicable\&. 
+.RE
+.PP
+Q format of the output x/y/z coordinates
+.PP
+CFAR configuration in Doppler direction we do a log CFAR-CA-SO (with wrap)
+.PP
+CFAR configuration in Range direction we do a log CFAR-CA-SO (without wrap)
+.PP
+Multi object beam forming configuration
+.PP
+DC Range antenna signature callibration configuration
+.PP
+Min and max range configuration\&.
+.PP
+CFAR thresholds are varied as a function of range
+.PP
+peakVal thresholds are varied as a function of range
+.PP
+Definition at line 1368 of file dss_main\&.c\&.
+.SS "void MmwDemo_populateUSRR (\fBMmwDemo_DSS_DataPathObj\fP * obj, uint16_t subframeIndx)"
+\fBDescription\fP 
+.br
+ Populates the configuration for the USRR point cloud subframe\&. 
+.br
+ 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdata\fP path Object
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP applicable\&. 
+.RE
+.PP
+Q format of the output x/y/z coordinates
+.PP
+CFAR configuration in Doppler direction
+.PP
+CFAR configuration in Range direction
+.PP
+min and max range configuration
+.PP
+Multi object beam forming configuration
+.PP
+DC Range antenna signature calibration configuration\&.
+.PP
+CFAR thresholds are varied as a function of range
+.PP
+peakVal thresholds are varied as a function of range (meant to remove cases of clutter being detected too when we drive the car\&.) Thresholds were derived from experiments\&.
+.PP
+Configuring the dbSCan for car like objects\&. These numbers are derived from field tests
+.PP
+Configuring the 'parking assist' occupancy detect\&.
+.PP
+Definition at line 1518 of file dss_main\&.c\&.
+.SS "void MmwDemo_sleep (void)"
+\fBDescription\fP 
+.br
+ Function to sleep the DSP using IDLE instruction\&. When DSP has no work left to do, the BIOS will be in Idle thread and will call this function\&. The DSP will wake-up on any interrupt (e\&.g chirp interrupt)\&.
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP Applicable\&. 
+.RE
+.PP
+
+.PP
+Definition at line 335 of file dss_main\&.c\&.
+.SS "int32_t MRR_DSS_DataPathInit (void)"
+
+.SS "void rxGainPhaseParam_Init (\fBMmwDemo_DSS_DataPathObj\fP * obj)"
+
+.PP
+Definition at line 447 of file dss_main\&.c\&.
+.SH "Variable Documentation"
+.PP 
+.SS "far COPY_TABLE _MmwDemo_fastCode_L1PSRAM_copy_table"
+
+.SS "volatile \fBcycleLog_t\fP gCycleLog"
+
+.PP
+Definition at line 146 of file dss_main\&.c\&.
+.PP
+Referenced by MmwDemo_processChirp()\&.
+.SS "\fBMmwDemo_HSRAM_t\fP gHSRAM"
+
+.PP
+Definition at line 130 of file dss_main\&.c\&.
+.SS "\fBMrr_DSS_MCB\fP gMrrDSSMCB"
+
+.PP
+Global Variable for tracking information required by the design\&. 
+.PP
+Definition at line 144 of file dss_main\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mmWaveFMCWRADAR from the source code\&.

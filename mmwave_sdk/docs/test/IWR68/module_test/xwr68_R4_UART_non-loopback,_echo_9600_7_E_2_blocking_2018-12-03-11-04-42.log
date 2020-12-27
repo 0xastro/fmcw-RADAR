@@ -1,0 +1,287 @@
+eth008 Board details:
+IP address: 10.218.113.61
+
+Port: 17494
+
+connecting...
+Relay states 8->1 : 01000001
+7 off
+8 off
+Relay states 8->1 : 00000001
+7 on
+Relay states 8->1 : 01000001
+exit
+Disconnected
+Pre-Script returned: Success
+**************************************************
+Copying test case files from the Build server
+**************************************************
+Copying testcase binary file from http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/drivers/uart/test/xwr68xx/xwr68xx_uart_mss.xer4f to /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr68xx_sdk03.01.00_Test_Plan___jenkins-79_2018_12_03_09_36_35 using command: 
+wget -e robots=off --no-proxy -N -T 30 -t 2 -P /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr68xx_sdk03.01.00_Test_Plan___jenkins-79_2018_12_03_09_36_35 http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/drivers/uart/test/xwr68xx/xwr68xx_uart_mss.xer4f
+**************************************************
+Executing Testcase:/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr68xx_sdk03.01.00_Test_Plan___jenkins-79_2018_12_03_09_36_35/xwr68xx_uart_mss.xer4f
+**************************************************
+Checking if Py4J Gateway server has started...
+Py4J Gateway Server is Started
+mss test case.
+
+rtos exec TC - Always ;^) Loading binary to the DUT:/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr68xx_sdk03.01.00_Test_Plan___jenkins-79_2018_12_03_09_36_35/xwr68xx_uart_mss.xer4f
+
+**************************************************
+ Parameters found in the Binary arguments : 
+{'PARITY_VALUE(8)': '2', 'gMCPIUARTEchoTestEnable(8)': '1', 'STOPBITS(8)': '2', 'BAUDRATE(32)': '9600', 'gMCPIUARTPollingModeEnable(8)': '0', 'DATALEN(8)': '7'}
+**************************************************
+Reading address of symbol: PARITY_VALUE
+Address of symbol obtained: 0x800d637
+Write value 2 to address 0x800d637 
+Value updated successfully
+Reading address of symbol: gMCPIUARTEchoTestEnable
+Address of symbol obtained: 0x800d710
+Write value 1 to address 0x800d710 
+Value updated successfully
+Reading address of symbol: STOPBITS
+Address of symbol obtained: 0x800d635
+Write value 2 to address 0x800d635 
+Value updated successfully
+Reading address of symbol: BAUDRATE
+Address of symbol obtained: 0x800d63c
+Write value 9600 to address 0x800d63c 
+Value updated successfully
+Reading address of symbol: gMCPIUARTPollingModeEnable
+Address of symbol obtained: 0x800d634
+Write value 0 to address 0x800d634 
+Value updated successfully
+Reading address of symbol: DATALEN
+Address of symbol obtained: 0x800d636
+Write value 7 to address 0x800d636 
+Value updated successfully
+
+**************************************************
+CIO Log captured for the testcase
+**************************************************
+B:9600_L:2_P:1_S:1
+Starting the UART Echo example
+
+**************************************************
+Validate Result using UART Echo capture/compare
+python3 /home/lte_phy/ti/mcpi_tf/mmwave_sdk_test/mcpitf_scripts/ti_rtos_drivers/ti_rtos_validate_uartecho.py --type uart --cio=/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr68xx_sdk03.01.00_Test_Plan___jenkins-79_2018_12_03_09_36_35/xwr68xx_uart_mss_cio.log --bench="uart_port=/dev/xwr68xx_cfg"
+**************************************************
+Starting UART Echo test script
+Waiting for regex pattern 'Starting.*example'...
+Using external UART parameters B:9600_L:2_P:1_S:1
+P: Test[01]: b'\n'
+P: Test[01]: b'2\n'
+P: Test[01]: b'03\n'
+P: Test[01]: b'04:'
+P: Test[01]: b'05:'
+P: Test[01]: b'06:'
+P: Test[01]: b'07:'
+P: Test[01]: b'08:'
+P: Test[01]: b'09:'
+P: Test[01]: b'10:'
+P: Test[01]: b'11:'
+P: Test[01]: b'12:'
+P: Test[01]: b'13:'
+P: Test[01]: b'14:'
+P: Test[01]: b'15:'
+P: Test[01]: b'16:'
+P: Test[01]: b'17:'
+P: Test[01]: b'18:'
+P: Test[01]: b'19:'
+P: Test[01]: b'20:'
+P: Test[01]: b'21:'
+P: Test[01]: b'22:'
+P: Test[01]: b'23:'
+P: Test[01]: b'24:'
+P: Test[01]: b'25:'
+P: Test[01]: b'26:'
+P: Test[01]: b'27:'
+P: Test[01]: b'28:'
+P: Test[01]: b'29:'
+P: Test[01]: b'30:'
+P: Test[01]: b'31:'
+P: Test[01]: b'32:'
+P: Test[01]: b'33:'
+P: Test[01]: b'34:'
+P: Test[01]: b'35:'
+P: Test[01]: b'36:'
+P: Test[01]: b'37:'
+P: Test[01]: b'38:'
+P: Test[01]: b'39:'
+P: Test[01]: b'40:'
+P: Test[01]: b'41:'
+P: Test[01]: b'42:'
+P: Test[01]: b'43:'
+P: Test[01]: b'44:'
+P: Test[01]: b'45:'
+P: Test[01]: b'46:'
+P: Test[01]: b'47:'
+P: Test[01]: b'48:'
+P: Test[01]: b'49:'
+P: Test[01]: b'50:'
+P: Test[01]: b'51:'
+P: Test[01]: b'52:'
+P: Test[01]: b'53:'
+P: Test[01]: b'54:'
+P: Test[01]: b'55:'
+P: Test[01]: b'56:'
+P: Test[01]: b'57:'
+P: Test[01]: b'58:'
+P: Test[01]: b'59:'
+P: Test[01]: b'60:'
+P: Test[01]: b'61:'
+P: Test[01]: b'62:'
+P: Test[01]: b'63:'
+P: Test[01]: b'64:'
+P: Test[01]: b'65:'
+P: Test[01]: b'66:'
+P: Test[01]: b'67:'
+P: Test[01]: b'68:'
+P: Test[01]: b'69:'
+P: Test[01]: b'70:'
+P: Test[01]: b'71:'
+P: Test[01]: b'72:'
+P: Test[01]: b'73:'
+P: Test[01]: b'74:'
+P: Test[01]: b'75:'
+P: Test[01]: b'76:'
+P: Test[01]: b'77:'
+P: Test[01]: b'78:'
+P: Test[01]: b'79:'
+P: Test[01]: b'80:'
+P: Test[01]: b'81:'
+P: Test[01]: b'82:'
+P: Test[01]: b'83:'
+P: Test[01]: b'84:'
+P: Test[01]: b'85:'
+P: Test[01]: b'86:'
+P: Test[01]: b'87:'
+P: Test[01]: b'88:'
+P: Test[01]: b'89:'
+P: Test[01]: b'90:'
+P: Test[01]: b'91:'
+P: Test[01]: b'92:'
+P: Test[01]: b'93:'
+P: Test[01]: b'94:'
+P: Test[01]: b'95:'
+P: Test[01]: b'96:'
+P: Test[01]: b'97:'
+P: Test[01]: b'98:'
+P: Test[01]: b'99:'
+P: Test[01]: b'100'
+P: Test[02]: b'\n'
+P: Test[02]: b'2\n'
+P: Test[02]: b'03\n'
+P: Test[02]: b'04:'
+P: Test[02]: b'05:'
+P: Test[02]: b'06:'
+P: Test[02]: b'07:'
+P: Test[02]: b'08:'
+P: Test[02]: b'09:'
+P: Test[02]: b'10:'
+P: Test[02]: b'11:'
+P: Test[02]: b'12:'
+P: Test[02]: b'13:'
+P: Test[02]: b'14:'
+P: Test[02]: b'15:'
+P: Test[02]: b'16:'
+P: Test[02]: b'17:'
+P: Test[02]: b'18:'
+P: Test[02]: b'19:'
+P: Test[02]: b'20:'
+P: Test[02]: b'21:'
+P: Test[02]: b'22:'
+P: Test[02]: b'23:'
+P: Test[02]: b'24:'
+P: Test[02]: b'25:'
+P: Test[02]: b'26:'
+P: Test[02]: b'27:'
+P: Test[02]: b'28:'
+P: Test[02]: b'29:'
+P: Test[02]: b'30:'
+P: Test[02]: b'31:'
+P: Test[02]: b'32:'
+P: Test[02]: b'33:'
+P: Test[02]: b'34:'
+P: Test[02]: b'35:'
+P: Test[02]: b'36:'
+P: Test[02]: b'37:'
+P: Test[02]: b'38:'
+P: Test[02]: b'39:'
+P: Test[02]: b'40:'
+P: Test[02]: b'41:'
+P: Test[02]: b'42:'
+P: Test[02]: b'43:'
+P: Test[02]: b'44:'
+P: Test[02]: b'45:'
+P: Test[02]: b'46:'
+P: Test[02]: b'47:'
+P: Test[02]: b'48:'
+P: Test[02]: b'49:'
+P: Test[02]: b'50:'
+P: Test[02]: b'51:'
+P: Test[02]: b'52:'
+P: Test[02]: b'53:'
+P: Test[02]: b'54:'
+P: Test[02]: b'55:'
+P: Test[02]: b'56:'
+P: Test[02]: b'57:'
+P: Test[02]: b'58:'
+P: Test[02]: b'59:'
+P: Test[02]: b'60:'
+P: Test[02]: b'61:'
+P: Test[02]: b'62:'
+P: Test[02]: b'63:'
+P: Test[02]: b'64:'
+P: Test[02]: b'65:'
+P: Test[02]: b'66:'
+P: Test[02]: b'67:'
+P: Test[02]: b'68:'
+P: Test[02]: b'69:'
+P: Test[02]: b'70:'
+P: Test[02]: b'71:'
+P: Test[02]: b'72:'
+P: Test[02]: b'73:'
+P: Test[02]: b'74:'
+P: Test[02]: b'75:'
+P: Test[02]: b'76:'
+P: Test[02]: b'77:'
+P: Test[02]: b'78:'
+P: Test[02]: b'79:'
+P: Test[02]: b'80:'
+P: Test[02]: b'81:'
+P: Test[02]: b'82:'
+P: Test[02]: b'83:'
+P: Test[02]: b'84:'
+P: Test[02]: b'85:'
+P: Test[02]: b'86:'
+P: Test[02]: b'87:'
+P: Test[02]: b'88:'
+P: Test[02]: b'89:'
+P: Test[02]: b'90:'
+P: Test[02]: b'91:'
+P: Test[02]: b'92:'
+P: Test[02]: b'93:'
+P: Test[02]: b'94:'
+P: Test[02]: b'95:'
+P: Test[02]: b'96:'
+P: Test[02]: b'97:'
+P: Test[02]: b'98:'
+P: Test[02]: b'99:'
+P: Test[02]: b'100'
+Total Sent: 10100
+Total Recv: 10100
+PASS: 100.00%
+Test passed
+
+***********************************************
+This is Post-Script for TI-RTOS
+***********************************************
+Post-Script returned: Success
+**************************************************
+Test case execution completed
+**************************************************
+
+**************************************************
+Testcase Result : PASS
+**************************************************

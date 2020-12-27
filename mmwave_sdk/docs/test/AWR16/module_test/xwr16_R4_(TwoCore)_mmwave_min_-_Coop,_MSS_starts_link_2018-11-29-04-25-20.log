@@ -1,0 +1,153 @@
+eth008 Board details:
+IP address: 10.218.113.62
+
+Port: 17494
+
+connecting...
+Relay states 8->1 : 00010101
+1 off
+8 off
+2 off
+Relay states 8->1 : 00010100
+1 on
+Relay states 8->1 : 00010101
+exit
+Disconnected
+Pre-Script returned: Success
+
+**************************************************
+Testcase mods & parameters invoked:
+**************************************************
+TwoCoreTest:: slave_case: True, binary_file is xwr16xx_mmwave_minimal_mss.xer4f, local path is /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13, remote path is http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/control/mmwave/test/xwr16xx/minimal, binary_params is gTestSelection(32)=3
+
+**************************************************
+Copying test case files from the Build server
+**************************************************
+amk: ARGS['TestcasePath']: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/control/mmwave/test/xwr16xx/minimal
+
+amk: remote_datapath: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/control/mmwave/test/xwr16xx/testdata
+
+A testdata directory was not found on build server for this testcase
+
+
+amk: error logging: testcasepath = http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/control/mmwave/test/xwr16xx/minimal
+amk: error logging: binaryfile = xwr16xx_mmwave_minimal_dss.xe674
+Copying testcase binary file from http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/control/mmwave/test/xwr16xx/minimal/xwr16xx_mmwave_minimal_dss.xe674 to /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13 using command: 
+wget -e robots=off --no-proxy -N -T 30 -t 2 -P /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13 http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/control/mmwave/test/xwr16xx/minimal/xwr16xx_mmwave_minimal_dss.xe674
+**************************************************
+Executing Testcase:/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13/xwr16xx_mmwave_minimal_dss.xe674
+**************************************************
+amk: TwoCoreTest:: slave_case: True, binary_file is xwr16xx_mmwave_minimal_mss.xer4f, local path is /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13, remote path is http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/control/mmwave/test/xwr16xx/minimal, binary_params is gTestSelection(32)=3
+
+Checking if Py4J Gateway server has started...
+Py4J Gateway Server is Started
+Two-core test check: dss_execute_obj.two_core_test: True
+
+
+amk: a path in detected cpuList is: Texas Instruments XDS110 USB Debug Probe_1/DEBUGSSM_0
+amk: a path in detected cpuList is: Texas Instruments XDS110 USB Debug Probe_1/IcePick_M_0
+amk: a path in detected cpuList is: Texas Instruments XDS110 USB Debug Probe_1/C674X_0
+amk: a path in detected cpuList is: Texas Instruments XDS110 USB Debug Probe_1/CS_DAP_0
+amk: a path in detected cpuList is: Texas Instruments XDS110 USB Debug Probe_1/CortexR4_0
+Slave core now opening debug session, cpuName = CortexR4_0.
+
+amk: Loading slave core binary:/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13/xwr16xx_mmwave_minimal_mss.xer4f
+amk: Updating slave binary parameters:/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13/xwr16xx_mmwave_minimal_mss.xer4f
+
+**************************************************
+ Parameters found in the Binary arguments : 
+{'gTestSelection(32)': '3'}
+**************************************************
+Reading address of symbol: gTestSelection
+Address of symbol obtained: 0x800da40
+Write value 3 to address 0x800da40 
+Value updated successfully
+amk: a path in detected cpuList is Texas Instruments XDS110 USB Debug Probe_1/DEBUGSSM_0
+amk: a path in detected cpuList is Texas Instruments XDS110 USB Debug Probe_1/IcePick_M_0
+amk: a path in detected cpuList is Texas Instruments XDS110 USB Debug Probe_1/C674X_0
+Master core now opening debug session, cpuName = C674X_0.
+
+Loading binary to the DUT:/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13/xwr16xx_mmwave_minimal_dss.xe674
+
+**************************************************
+ Parameters found in the Binary arguments : 
+{'gTestSelection(32)': '3'}
+**************************************************
+Reading address of symbol: gTestSelection
+Address of symbol obtained: 0x810514
+Write value 3 to address 0x810514 
+Value updated successfully
+binary path = /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13/xwr16xx_mmwave_minimal_dss.xe674
+
+
+**************************************************
+CIO Log captured for the testcase
+**************************************************
+******************************************
+Debug: Launching the mmwaveLink
+******************************************
+Debug: Launching BIOS
+***************************************************
+Waiting for the test selection to be entered by MSS
+In CCS: Set the Global Variable 'gTestSelection'
+***************************************************
+Feature: MMWave DSS [Cooperative Mode] Initialization: Passed
+Feature: MMWave DSS Synchronization: Passed
+Debug: BSS Event MsgId: 128 [Sub Block Id: 4100 Sub Block Length: 20]
+FeatuFeature: MMWave MSS Open: Passed
+Feature: MMWave Feature: MMWave DSS Start Callback: Passed
+Debug: BSS Event MsgId: 128 [Sub Block Id: 4114 Sub Block Length: 20]
+Feature: MMWave DSS Configuration Callback: Passed
+Debug: BSS Event MsgId: 128 [Sub Block Id: 4107 Sub Block Length: 0]
+Feature: MMWave DSS Stop Callback: Passed
+Debug: BSS Event MsgId: 128 [Sub Block Id: 4111 Sub Block Length: 0]
+Feature: MMWave DSS Close Callback: Passed
+Feature: MMWave DSS Deinitialized: Passed
+Debug: mmWave Unit Tests completed successfully
+sed
+Feature: MMWave MSS Stop Callback: Passed
+Feature: MMWave MSS Close: Passed
+Feature: MMWave MSS Close Callback: Passed
+Feature: MMWave MSS Deinitialized: Passed
+Debug: mmWave Unit Tests completed successfully
+Value read from Global variable (MCPI_Result): 0
+Test Failure Signature: 0
+Test Log Messages: 
+Feature tested: MMWave DSS [Cooperative Mode] Initialization: Passed
+Feature tested: MMWave DSS Synchronization: Passed
+Feature tested: MMWave Open Configuration Validation: Passed
+Feature tested: MMWave DSS Start Callback: Passed
+Feature tested: MMWave DSS Configuration Callback: Passed
+Feature tested: MMWave DSS Stop Callback: Passed
+Feature tested: MMWave DSS Close Callback: Passed
+Feature tested: MMWave DSS Deinitialized: Passed
+
+
+shutting down py4j gw server.
+
+
+**************************************************
+Terminating the debug session and Shutting down gateway.
+**************************************************
+
+**************************************************
+Test case execution completed
+**************************************************
+
+**************************************************
+Testcase Result : PASS
+**************************************************
+4 Sub Block Length: 20]
+Feature: MMWave DSS Configuration Callback: Passed
+Debug: BSS Event MsgId: 128 [Sub Block Id: 4107 Sub Block Length: 0]
+Feature: MMWave DSS Stop Callback: Passed
+Debug: BSS Event MsgId: 128 [Sub Block Id: 4111 Sub Block Length: 0]
+Feature: MMWave DSS Close Callback: Passed
+Feature: MMWave DSS Deinitialized: Passed
+Debug: mmWave Unit Tests completed successfully
+sed
+Feature: MMWave MSS Stop Callback: Passed
+Feature: MMWave MSS Close: Passed
+Feature: MMWave MSS Close Callback: Passed
+Feature: MMWave MSS Deinitialized: Passed
+Debug: mmWave Unit Tests completed successfully

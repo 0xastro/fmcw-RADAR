@@ -1,0 +1,199 @@
+eth008 Board details:
+IP address: 10.218.113.62
+
+Port: 17494
+
+connecting...
+Relay states 8->1 : 00010101
+5 off
+7 off
+6 off
+Relay states 8->1 : 00000101
+5 on
+Relay states 8->1 : 00010101
+exit
+Disconnected
+Pre-Script returned: Success
+**************************************************
+Testcase mods & parameters invoked:
+**************************************************
+Two core test case: None (this is not a two core testcase)
+
+**************************************************
+Copying test case files from the Build server
+**************************************************
+Testdata possible location 1: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/alg/mmwavelib/test/testdata
+
+
+Copy-To local testcase data path is: /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/testdata
+
+Test case data file radarDemo_ref.bin found on server for downloading
+Test case data file radarCase1_ref.bin found on server for downloading
+Test case data file windowFlt_test.bin found on server for downloading
+Test case data file radarDemo_neg15_ref.bin found on server for downloading
+Test case data file accumPowerFlt_test.bin found on server for downloading
+Test case data file radarDemo_ref_new.bin found on server for downloading
+Test case data file radarCase1_mulObj_test.bin found on server for downloading
+Test case data file radarCase2_test.bin found on server for downloading
+Test case data file radarCase2_2dfftout_test.bin found on server for downloading
+Test case data file aoaest_test.bin found on server for downloading
+Test case data file radarCase1_512_test.bin found on server for downloading
+Test case data file radarDemo_captured_test.bin found on server for downloading
+Test case data file radarCase1_mulObj_ref.bin found on server for downloading
+Test case data file radarDemo_multiObj_neg5_ref.bin found on server for downloading
+Test case data file dftsinglebin_test.bin found on server for downloading
+Test case data file radarDemo_multiObj_neg15_test.bin found on server for downloading
+Test case data file radarDemo_multiObj_test.bin found on server for downloading
+Test case data file radarCase1_test.bin found on server for downloading
+Test case data file radarDemo_neg10_ref.bin found on server for downloading
+Test case data file radarDemo_neg15_test.bin found on server for downloading
+Test case data file radarCase1_512_ref.bin found on server for downloading
+Test case data file radarCase2_mulObj_test.bin found on server for downloading
+Test case data file cfarca_wrap_test.bin found on server for downloading
+Test case data file dftsinglebinwithwinQI_test.bin found on server for downloading
+Test case data file radarDemo_neg10_test.bin found on server for downloading
+Test case data file radarDemo_multiObj_neg15_ref.bin found on server for downloading
+Test case data file radarCase2_ref.bin found on server for downloading
+Test case data file floatpoint_test_aoaMultiObj.bin found on server for downloading
+Test case data file radarDemo_multiObj_neg5_test.bin found on server for downloading
+Test case data file floatpoint_test_aoaMultiObj_ref.bin found on server for downloading
+Test case data file cfarca_test.bin found on server for downloading
+Test case data file peakpruning_test.bin found on server for downloading
+Test case data file floatpoint_test_dbscanCluster_ref.bin found on server for downloading
+Test case data file clustering_test.bin found on server for downloading
+Test case data file floatPoint_chain_test.bin found on server for downloading
+Test case data file radarCase2_mulObj_2dfftout_test.bin found on server for downloading
+Test case data file dftsinglebinwithwin_test.bin found on server for downloading
+Test case data file cfarca_peak_test.bin found on server for downloading
+Test case data file radarDemo_captured_ref.bin found on server for downloading
+Test case data file radarCase2_mulObj_ref.bin found on server for downloading
+Test case data file radarDemo_multiObj_ref.bin found on server for downloading
+Test case data file floatpoint_test_dbscanCluster.bin found on server for downloading
+Test case data file radarDemo_test.bin found on server for downloading
+Call to copy_testcase_binary:
+TCP: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/alg/mmwavelib/test/xwr18xx; /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr18xx_sdk03.01.00_mmwave_LIB_full_Test_Plan___jenkins-79_2018_12_01_15_44_54
+
+Copying testcase binary file from http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/alg/mmwavelib/test/xwr18xx/xwr18xx_mmwavealg_dftSingleBin.xe674 to /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr18xx_sdk03.01.00_mmwave_LIB_full_Test_Plan___jenkins-79_2018_12_01_15_44_54 using command: 
+wget -e robots=off --no-proxy -N -T 30 -t 2 -P /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr18xx_sdk03.01.00_mmwave_LIB_full_Test_Plan___jenkins-79_2018_12_01_15_44_54 http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/alg/mmwavelib/test/xwr18xx/xwr18xx_mmwavealg_dftSingleBin.xe674
+**************************************************
+Executing Testcase:/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr18xx_sdk03.01.00_mmwave_LIB_full_Test_Plan___jenkins-79_2018_12_01_15_44_54/xwr18xx_mmwavealg_dftSingleBin.xe674
+**************************************************
+Checking if Py4J Gateway server has started...
+Py4J Gateway Server is Started
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/DEBUGSSM_0
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/IcePick_M_0
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/C674X_0
+DSS test case opening debug session.
+
+cr4ctl = 0x0
+
+efuse/register @0xFFFFE210 = 0x0
+
+efuse/register @0xFFFFE214 = 0x0
+
+efuse/register @0xFFFFE218 = 0x0
+
+efuse/register @0xFFFFE21C = 0x0
+
+Loading binary to the DUT (no binary args updated):/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr18xx_sdk03.01.00_mmwave_LIB_full_Test_Plan___jenkins-79_2018_12_01_15_44_54/xwr18xx_mmwavealg_dftSingleBin.xe674
+binary path = /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr18xx_sdk03.01.00_mmwave_LIB_full_Test_Plan___jenkins-79_2018_12_01_15_44_54/xwr18xx_mmwavealg_dftSingleBin.xe674
+
+dt-time: start time = Sun Dec  2 04:11:55 2018
+
+dt-time: end time = Sun Dec  2 04:13:02 2018
+
+
+**************************************************
+CIO Log captured for the testcase
+**************************************************
+
+ Start DFT single bin related functions test ......
+
+Test dftSingleBin :
+Feature: The mmwavelib_dftSingleBin functionality test: Passed
+
+ mmwavelib_dftSingleBin benchmark 
+length, mmwavelib_dftSingleBin cycles:
+4	66
+8	71
+16	81
+32	101
+64	141
+128	221
+
+Test dftSingleBinWithWindow : 
+Feature: The mmwavelib_dftSingleBinWithWindow functionality test: Passed
+
+ mmwavelib_dftSingleBinWithWindow benchmark 
+length, mmwavelib_dftSingleBinWithWindow cycles:
+4	96
+8	79
+16	91
+32	119
+64	175
+128	287
+
+Test dft sin/cos table generation: 
+FFT size 4
+FFT size 8
+FFT size 16
+FFT size 32
+FFT size 64
+FFT size 128
+FFT size 256
+FFT size 512
+FFT size 1024
+Feature: The mmwavelib_dftSinCosTabelGen functionality test: Passed
+
+ mmwavelib_dftSinCosTabelGen benchmark 
+length,  cycles:
+4	74
+8	113
+16	169
+32	281
+64	517
+128	976
+256	1849
+512	3640
+1024	7225
+
+ Test pre-generated dft half bin sin/cos table 
+Feature: The mmwavelib_dftHalfBinExpValue table test: Passed
+
+ Test dftSingleBinWithWindow with input high 16 bits is real, and low 16 bits is imag
+Feature: The mmwavelib_dftSingleBinWithWindow_ReIm functionality test: Passed
+
+ mmwavelib_dftSingleBinWithWindow_ReIm benchmark 
+length, mmwavelib_dftSingleBinWithWindow_ReIm cycles:
+4	70
+8	73
+16	83
+32	107
+64	155
+128	251
+
+ DFT single bin related functions test completed ......
+Value read from Global variable (MCPI_Result): 0
+Test Failure Signature: 0
+Test Log Messages: 
+Feature tested: The mmwavelib_dftSingleBin functionality test: Passed
+Feature tested: The mmwavelib_dftSingleBinWithWindow functionality test: Passed
+Feature tested: The mmwavelib_dftSinCosTabelGen functionality test: Passed
+Feature tested: The mmwavelib_dftHalfBinExpValue table test: Passed
+Feature tested: The mmwavelib_dftSingleBinWithWindow_ReIm functionality test: Passed
+
+
+shutting down py4j gw server.
+
+
+**************************************************
+Terminating the debug session and Shutting down gateway.
+**************************************************
+
+**************************************************
+Test case execution completed
+**************************************************
+
+**************************************************
+Testcase Result : PASS
+**************************************************

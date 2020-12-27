@@ -1,0 +1,123 @@
+\doxysection{clustering\+D\+Bscan\+Config Struct Reference}
+\label{structclustering_d_bscan_config}\index{clusteringDBscanConfig@{clusteringDBscanConfig}}
+
+
+Structure element of the list of descriptors for clustering\+D\+Bscan configuration.  
+
+
+
+
+{\ttfamily \#include $<$dss\+\_\+data\+\_\+path.\+h$>$}
+
+
+
+Collaboration diagram for clustering\+D\+Bscan\+Config\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=200pt]{structclustering_d_bscan_config__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+float \textbf{ epsilon}
+\item 
+float \textbf{ weight}
+\item 
+float \textbf{ v\+Factor}
+\item 
+uint16\+\_\+t \textbf{ min\+Points\+In\+Cluster}
+\item 
+uint16\+\_\+t \textbf{ max\+Clusters}
+\item 
+uint16\+\_\+t \textbf{ fixed\+Point\+Scale}
+\item 
+uint16\+\_\+t \textbf{ max\+Points}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Structure element of the list of descriptors for clustering\+D\+Bscan configuration. 
+
+Definition at line 333 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\label{structclustering_d_bscan_config_a7defa2d23a1a825079119ec51cf6a5e3}} 
+\index{clusteringDBscanConfig@{clusteringDBscanConfig}!epsilon@{epsilon}}
+\index{epsilon@{epsilon}!clusteringDBscanConfig@{clusteringDBscanConfig}}
+\doxysubsubsection{epsilon}
+{\footnotesize\ttfamily float clustering\+D\+Bscan\+Config\+::epsilon}
+
+distance threhold for cluster check 
+
+Definition at line 335 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{structclustering_d_bscan_config_ac0a2a2e2d041b958b216494e4a06ef49}} 
+\index{clusteringDBscanConfig@{clusteringDBscanConfig}!fixedPointScale@{fixedPointScale}}
+\index{fixedPointScale@{fixedPointScale}!clusteringDBscanConfig@{clusteringDBscanConfig}}
+\doxysubsubsection{fixedPointScale}
+{\footnotesize\ttfamily uint16\+\_\+t clustering\+D\+Bscan\+Config\+::fixed\+Point\+Scale}
+
+Block scale value to convert x-\/y from floating-\/point to fixed-\/point. Should be the same the one used in converting r-\/theta to x-\/y, not used for floating-\/point input 
+
+Definition at line 340 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{structclustering_d_bscan_config_a156c58667b00875b33a05dc39e244487}} 
+\index{clusteringDBscanConfig@{clusteringDBscanConfig}!maxClusters@{maxClusters}}
+\index{maxClusters@{maxClusters}!clusteringDBscanConfig@{clusteringDBscanConfig}}
+\doxysubsubsection{maxClusters}
+{\footnotesize\ttfamily uint16\+\_\+t clustering\+D\+Bscan\+Config\+::max\+Clusters}
+
+maximum number of clusters 
+
+Definition at line 339 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{structclustering_d_bscan_config_a7550ee25da326b4ca5ed0b727da30a77}} 
+\index{clusteringDBscanConfig@{clusteringDBscanConfig}!maxPoints@{maxPoints}}
+\index{maxPoints@{maxPoints}!clusteringDBscanConfig@{clusteringDBscanConfig}}
+\doxysubsubsection{maxPoints}
+{\footnotesize\ttfamily uint16\+\_\+t clustering\+D\+Bscan\+Config\+::max\+Points}
+
+Maximum number of points that can be services per dbscan\+Run call 
+
+Definition at line 342 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{structclustering_d_bscan_config_a89da56d2656509230f9f074b42f6d768}} 
+\index{clusteringDBscanConfig@{clusteringDBscanConfig}!minPointsInCluster@{minPointsInCluster}}
+\index{minPointsInCluster@{minPointsInCluster}!clusteringDBscanConfig@{clusteringDBscanConfig}}
+\doxysubsubsection{minPointsInCluster}
+{\footnotesize\ttfamily uint16\+\_\+t clustering\+D\+Bscan\+Config\+::min\+Points\+In\+Cluster}
+
+minimum number of points in a cluster 
+
+Definition at line 338 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{structclustering_d_bscan_config_a2569e1a351ad9fc9a21c5eec8efa3c86}} 
+\index{clusteringDBscanConfig@{clusteringDBscanConfig}!vFactor@{vFactor}}
+\index{vFactor@{vFactor}!clusteringDBscanConfig@{clusteringDBscanConfig}}
+\doxysubsubsection{vFactor}
+{\footnotesize\ttfamily float clustering\+D\+Bscan\+Config\+::v\+Factor}
+
+additional velocity factor for speed delta ~\newline
+ 
+
+Definition at line 337 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{structclustering_d_bscan_config_ad02ada924b256f59b028143b5dc0d2bf}} 
+\index{clusteringDBscanConfig@{clusteringDBscanConfig}!weight@{weight}}
+\index{weight@{weight}!clusteringDBscanConfig@{clusteringDBscanConfig}}
+\doxysubsubsection{weight}
+{\footnotesize\ttfamily float clustering\+D\+Bscan\+Config\+::weight}
+
+the weight between the distance and speed 
+
+Definition at line 336 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ dss\+\_\+data\+\_\+path.\+h}\end{DoxyCompactItemize}

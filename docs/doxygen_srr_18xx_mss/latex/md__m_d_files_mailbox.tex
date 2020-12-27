@@ -1,0 +1,97 @@
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <ti/drivers/mailbox/mailbox.h>}}
+\end{DoxyCode}
+\doxysection{Initialize Mailbox Drivers within the M\+S\+S subsystem}\label{md__m_d_files_mailbox_autotoc_md3}
+\begin{quote}
+The Mailbox initialization and configuration is deployed within the main system T\+A\+SK {\ttfamily M\+S\+S\+\_\+init\+Task} \end{quote}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Mailbox\_Config          mboxCfg;}
+\DoxyCodeLine{}
+\DoxyCodeLine{Mailbox\_init(MAILBOX\_TYPE\_MSS);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{/* Create a binary semaphore to handle mailbox interrupt */}}
+\DoxyCodeLine{Semaphore\_Params\_init(\&semParams);}
+\DoxyCodeLine{semParams.mode           = Semaphore\_Mode\_BINARY;}
+\DoxyCodeLine{gMSSMCB.mboxSemHandle    = Semaphore\_create(0, \&semParams, NULL);}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{/* Setup the default mailbox configuration}}
+\DoxyCodeLine{\textcolor{comment}{   Default VALUES}}
+\DoxyCodeLine{\textcolor{comment}{       readMode         = Mailbox\_MODE\_BLOCKING}}
+\DoxyCodeLine{\textcolor{comment}{       writeMode        = Mailbox\_MODE\_BLOCKING}}
+\DoxyCodeLine{\textcolor{comment}{       readTimeout      = MAILBOX\_WAIT\_FOREVER     }}
+\DoxyCodeLine{\textcolor{comment}{       writeTimeout     = MAILBOX\_WAIT\_FOREVER    }}
+\DoxyCodeLine{\textcolor{comment}{       readCallback     = NULL}}
+\DoxyCodeLine{\textcolor{comment}{       opMode           = MAILBOX\_OPERATION\_MODE\_PARTIAL\_READ\_ALLOWED}}
+\DoxyCodeLine{\textcolor{comment}{       dataTransferMode = MAILBOX\_DATA\_TRANSFER\_MEMCPY}}
+\DoxyCodeLine{\textcolor{comment}{       chType           = MAILBOX\_CHTYPE\_SINGLE}}
+\DoxyCodeLine{\textcolor{comment}{       chId             = MAILBOX\_CH\_ID\_0   }}
+\DoxyCodeLine{\textcolor{comment}{ */}}
+\DoxyCodeLine{Mailbox\_Config\_init(\&mboxCfg);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{/* Setup the configuration */}}
+\DoxyCodeLine{mboxCfg.chType          = MAILBOX\_CHTYPE\_MULTI;}
+\DoxyCodeLine{mboxCfg.chId            = MAILBOX\_CH\_ID\_0;}
+\DoxyCodeLine{mboxCfg.writeMode       = MAILBOX\_MODE\_BLOCKING;}
+\DoxyCodeLine{mboxCfg.readMode        = MAILBOX\_MODE\_CALLBACK;}
+\DoxyCodeLine{mboxCfg.readCallback    = \&mboxCallbackFxn\_MSS\_ch0;}
+\end{DoxyCode}
+
+
+\begin{quote}
+{\ttfamily mbox\+Callback\+Fxn\+\_\+\+M\+S\+S\+\_\+ch0} is callback function defined below in the same file scope. Implementation is below\+: \end{quote}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void} mboxCallbackFxn\_MSS\_ch0(Mbox\_Handle handle, Mailbox\_Type peer)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    Semaphore\_post(gMSSMCB.mboxSemHandle);}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{/*}
+\DoxyCodeLine{ *  Function is invoked for each received messege from the DSS peer endpoint.}
+\DoxyCodeLine{ *  When invoked, release the resources and wakeup the mmWave thread to}
+\DoxyCodeLine{ *  process the received message.}
+\DoxyCodeLine{ *  \(\backslash\)arg[0]  Handle to the Mailbox on which data was received}
+\DoxyCodeLine{ *  \(\backslash\)arg[1]  Peer from which data was received (DSS)}
+\DoxyCodeLine{ *  \(\backslash\)return  void}
+\DoxyCodeLine{ *  Hence: the address of this function is passed to mboxCfg.readCallback}
+\DoxyCodeLine{ *  readCallback is a pointer of a type, named Mailbox\_Callback which is }
+\DoxyCodeLine{ *  a pointer to a function that takes a 2 inputs }
+\DoxyCodeLine{ *  handle: Which is returned by Mailbox\_open}
+\DoxyCodeLine{ *  and  Mailbox\_Type which is could be MAILBOX\_TYPE\_MSS or MAILBOX\_TYPE\_DSS}
+\DoxyCodeLine{ *  and returns nothing, which matches the signature of the function}
+\DoxyCodeLine{ *  mboxCallbackFxn\_MSS\_ch0.}
+\DoxyCodeLine{ *  To use it; we assign the function reference to the pointer readCallback     }
+\DoxyCodeLine{ *  The definition within the mailbox header file mailbox.h}
+\DoxyCodeLine{ *  typedef void(* Mailbox\_Callback) (Mbox\_Handle handle, Mailbox\_Type remoteEndpoint)}
+\DoxyCodeLine{ */}
+\end{DoxyCode}
+\doxysection{Open M\+A\+I\+L\+B\+O\+X Channel}\label{md__m_d_files_mailbox_autotoc_md4}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{gMSSMCB.mboxHandle = Mailbox\_open(MAILBOX\_TYPE\_DSS, \&mboxCfg, \&errCode);}
+\end{DoxyCode}
+\doxysection{Create task to handle mailbox messages}\label{md__m_d_files_mailbox_autotoc_md5}
+\begin{quote}
+The Task {\ttfamily mbox\+In\+\_\+uart\+Out\+\_\+\+T\+A\+SK} is used to handle the recieved mailbox messages from the D\+SS Peer over the mailbox virtual communication channel. \end{quote}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Task\_Params\_init(\&taskParams);}
+\DoxyCodeLine{taskParams.stackSize = 16*1024;}
+\DoxyCodeLine{Task\_create(mboxIn\_uartOut\_TASK, \&taskParams, NULL);}
+\end{DoxyCode}
+
+
+\begin{quote}
+The task is common between U\+A\+RT, C\+AN and Mailbox drivers \end{quote}
+
+
+\begin{quote}
+Refer to \end{quote}
+\doxyref{mbox\+Read\+\_\+uart\+Write.md}{p.}{mbox_read__uart_write_8md} 

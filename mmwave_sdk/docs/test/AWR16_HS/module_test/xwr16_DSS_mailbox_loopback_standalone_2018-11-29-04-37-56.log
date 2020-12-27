@@ -1,0 +1,321 @@
+eth008 Board details:
+IP address: 10.218.113.68
+
+Port: 17494
+
+connecting...
+Relay states 8->1 : 00000001
+1 off
+8 off
+2 off
+Relay states 8->1 : 00000000
+1 on
+Relay states 8->1 : 00000001
+exit
+Disconnected
+Pre-Script returned: Success
+**************************************************
+Testcase mods & parameters invoked:
+**************************************************
+Two core test case: None (this is not a two core testcase)
+
+**************************************************
+Copying test case files from the Build server
+**************************************************
+Testdata possible location 1: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/drivers/mailbox/test/xwr16xx/testdata
+
+
+Testdata directory was not found on Testdata possible location 1
+
+
+Testdata possible location 2: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/drivers/mailbox/test/xwr16xx/test_dss_standalone/testdata
+
+
+Testdata directory was not found on Testdata possible location 2
+
+Call to copy_testcase_binary:
+TCP: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/drivers/mailbox/test/xwr16xx/test_dss_standalone; /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___hs_awr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_50_24
+
+Copying testcase binary file from http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/drivers/mailbox/test/xwr16xx/test_dss_standalone/xwr16xx_mailbox_dss_standalone.xe674 to /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___hs_awr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_50_24 using command: 
+wget -e robots=off --no-proxy -N -T 30 -t 2 -P /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___hs_awr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_50_24 http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/drivers/mailbox/test/xwr16xx/test_dss_standalone/xwr16xx_mailbox_dss_standalone.xe674
+**************************************************
+Executing Testcase:/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___hs_awr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_50_24/xwr16xx_mailbox_dss_standalone.xe674
+**************************************************
+Checking if Py4J Gateway server has started...
+Py4J Gateway Server is Started
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/DEBUGSSM_0
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/IcePick_M_0
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/C674X_0
+DSS test case opening debug session.
+
+cr4ctl = 0x0
+
+efuse/register @0xFFFFE210 = 0x0
+
+efuse/register @0xFFFFE214 = 0x0
+
+efuse/register @0xFFFFE218 = 0x0
+
+efuse/register @0xFFFFE21C = 0x0
+
+Loading binary to the DUT (no binary args updated):/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___hs_awr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_50_24/xwr16xx_mailbox_dss_standalone.xe674
+binary path = /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___hs_awr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_50_24/xwr16xx_mailbox_dss_standalone.xe674
+
+dt-time: start time = Thu Nov 29 04:38:38 2018
+
+dt-time: end time = Thu Nov 29 04:40:34 2018
+
+
+**************************************************
+CIO Log captured for the testcase
+**************************************************
+Debug: Halted the BSS
+Debug: Mailbox Instance 801f98 has been opened successfully
+Expected: Unable to open the Mailbox Instance for same channel ID
+Expected: Unable to open the Mailbox Instance due to different channel type
+Debug: Mailbox Instance 802028 has been opened successfully
+Debug: Mailbox Instance 8020b8 has been opened successfully
+Debug: Mailbox Instance 802148 has been opened successfully
+Debug: Mailbox Instance 8021d8 has been opened successfully
+Debug: Mailbox Instance 802268 has been opened successfully
+Debug: Mailbox Instance 8022f8 has been opened successfully
+Debug: Mailbox Instance 802388 has been opened successfully
+Debug: closed instance 7
+Debug: closed instance 6
+Debug: closed instance 5
+Debug: closed instance 4
+Debug: closed instance 3
+Debug: closed instance 2
+Debug: closed instance 1
+Debug: closed instance 0
+Debug: all instances closed
+Debug: Mailbox Instance 801f98 has been opened successfully
+Debug: Mailbox Instance 802028 has been opened successfully
+Debug: Mailbox Instance 8020b8 has been opened successfully
+Debug: Mailbox Instance 802148 has been opened successfully
+Debug: Mailbox Instance 8021d8 has been opened successfully
+Debug: Mailbox Instance 802268 has been opened successfully
+Debug: Mailbox Instance 8022f8 has been opened successfully
+Debug: Mailbox Instance 802388 has been opened successfully
+Debug: closed instance 0
+Debug: closed instance 1
+Debug: closed instance 2
+Debug: closed instance 3
+Debug: closed instance 4
+Debug: closed instance 5
+Debug: closed instance 6
+Debug: closed instance 7
+Debug: all instances closed
+Debug: Mailbox Instance 801f98 has been opened successfully
+Debug: Mailbox Instance 801fe8 has been opened successfully
+Debug: Mailbox Instance 802038 has been opened successfully
+Debug: Mailbox Instance 802088 has been opened successfully
+Debug: Mailbox Instance 8020d8 has been opened successfully
+Debug: Mailbox Instance 802128 has been opened successfully
+Debug: Mailbox Instance 802178 has been opened successfully
+Debug: Mailbox Instance 8021c8 has been opened successfully
+Debug: Reading from mailbox 0
+size=0
+Debug: Reading from mailbox 1
+size=0
+Debug: Reading from mailbox 2
+size=0
+Debug: Reading from mailbox 3
+size=0
+Debug: Reading from mailbox 4
+size=0
+Debug: Reading from mailbox 5
+size=0
+Debug: Reading from mailbox 6
+size=0
+Debug: Reading from mailbox 7
+size=0
+Debug: Writing to mailbox 7
+size=4
+Debug: Writing to mailbox 0
+size=-2212
+Debug: Writing to mailbox 1
+size=-2212
+Debug: Writing to mailbox 2
+size=-2212
+Debug: Writing to mailbox 3
+size=-2212
+Debug: Writing to mailbox 4
+size=-2212
+Debug: Writing to mailbox 5
+size=-2212
+Debug: Writing to mailbox 6
+size=-2212
+Debug: closed instance 0
+Debug: closed instance 1
+Debug: closed instance 2
+Debug: closed instance 3
+Debug: closed instance 4
+Debug: closed instance 5
+Debug: closed instance 6
+Debug: closed instance 7
+Debug: all instances closed
+Debug: Mailbox Instance 801f98 has been opened successfully
+Debug: Mailbox Instance 801f98 has been closed successfully
+Debug: Mailbox Instance 801f98 has been reopened successfully
+Debug: Mailbox Write with invalid buffer passed
+Debug: Mailbox Write with invalid size passed
+Debug: Mailbox Write with invalid buffer & size passed
+Debug: Mailbox Read with invalid buffer passed
+Debug: Mailbox Read with invalid size passed
+Debug: Mailbox Read with invalid buffer & size passed
+
+************ READ IN CALLBACK MODE ****************
+
+Starting Test_readCallback
+Call back finished
+Size=4 bytes. Val=0xaabbccdd 
+Size=4 bytes. Val=0x1020304 
+Size=4 bytes. Val=0x5060708 
+Flushing read
+After flush size should be zero. Size=0 
+
+************ WRITE IN BLOCKING MODE ****************
+
+Starting Test_writeBlocking
+Test_writeBlockingSendAck: Ack sent
+Ack received. Size=4
+
+Starting Test_writeBlocking
+Test_writeBlockingSendAck: Ack sent
+Ack received. Size=4
+
+Starting Test_writeBlocking
+Test_writeBlockingSendAck: Ack sent
+Ack received. Size=4
+
+************ CLOSE/OPEN AND RE-OPEN ****************
+Close and Open driver
+Debug: Mailbox Instance 801f98 has been opened successfully
+Trying to reopen the driver for the same endpoint 
+OK, could not reopen
+
+************ MULTIPLE READ IN CALLBACK MODE ****************
+
+Starting Test_readCallback
+Call back finished
+Size=4 bytes. Val=0xaabbccde 
+Size=4 bytes. Val=0x1020305 
+Size=4 bytes. Val=0x5060709 
+Flushing read
+After flush size should be zero. Size=0 
+
+Starting Test_readCallback
+Call back finished
+Size=4 bytes. Val=0xaabbccdf 
+Size=4 bytes. Val=0x1020306 
+Size=4 bytes. Val=0x506070a 
+Flushing read
+After flush size should be zero. Size=0 
+
+Starting Test_readCallback
+Call back finished
+Size=4 bytes. Val=0xaabbcce0 
+Size=4 bytes. Val=0x1020307 
+Size=4 bytes. Val=0x506070b 
+Flushing read
+After flush size should be zero. Size=0 
+
+************ MULTIPLE READ IN BLOCKING MODE ****************
+
+Starting Test_readBlocking
+Test_readBlockingSendFullInt: Full interrupt will be sent
+Size=4 bytes. Val=0xaabbcce1 
+Size=4 bytes. Val=0x1020308 
+Size=4 bytes. Val=0x506070c 
+Flushing read
+
+Starting Test_readBlocking
+Test_readBlockingSendFullInt: Full interrupt will be sent
+Size=4 bytes. Val=0xaabbcce2 
+Size=4 bytes. Val=0x1020309 
+Size=4 bytes. Val=0x506070d 
+Flushing read
+
+Starting Test_readBlocking
+Test_readBlockingSendFullInt: Full interrupt will be sent
+Size=4 bytes. Val=0xaabbcce3 
+Size=4 bytes. Val=0x102030a 
+Size=4 bytes. Val=0x506070e 
+Flushing read
+
+************ SEND FULL INTERRUPT BEFORE READ IN BLOCKING MODE IS CALLED ****************
+Test_readBlockingSendFullInt: Full interrupt will be sent
+
+Starting Test_readBlocking
+Size=4 bytes. Val=0xaabbcce4 
+Size=4 bytes. Val=0x102030b 
+Size=4 bytes. Val=0x506070f 
+Flushing read
+
+************ MULTIPLE READs IN POLLING MODE ****************
+
+Starting Test_readPolling
+First two reads should be zero bytes as no interupt has been sent by transmitter 
+Size=0 bytes. Val=0x0 
+Size=0 bytes. Val=0x0 
+Size=4 bytes. Val=0xaabbcce5 
+Size=4 bytes. Val=0x102030c 
+Size=4 bytes. Val=0x5060710 
+Flushing read
+
+Starting Test_readPolling
+First two reads should be zero bytes as no interupt has been sent by transmitter 
+Size=0 bytes. Val=0x0 
+Size=0 bytes. Val=0x0 
+Size=4 bytes. Val=0xaabbcce6 
+Size=4 bytes. Val=0x102030d 
+Size=4 bytes. Val=0x5060711 
+Flushing read
+
+Starting Test_readPolling
+First two reads should be zero bytes as no interupt has been sent by transmitter 
+Size=0 bytes. Val=0x0 
+Size=0 bytes. Val=0x0 
+Size=4 bytes. Val=0xaabbcce7 
+Size=4 bytes. Val=0x102030e 
+Size=4 bytes. Val=0x5060712 
+Flushing read
+
+************ MULTIPLE Writes IN POLLING MODE ****************
+First and third write should work. Second write should fail as interrupt has not arrived
+
+Starting Test_writePolling
+Write done. Size=4
+
+Starting Test_writePolling
+Write done. Size=-2205
+Error, write failed.
+Test_writeBlockingSendAck: Ack sent
+
+Starting Test_writePolling
+Write done. Size=4
+
+************ TEST ENDED ****************
+Feature: DSS_standalone: Passed
+TEST PASSED
+Value read from Global variable (MCPI_Result): 0
+Test Failure Signature: 0
+Test Log Messages: 
+Feature tested: DSS_standalone: Passed
+
+
+shutting down py4j gw server.
+
+
+**************************************************
+Terminating the debug session and Shutting down gateway.
+**************************************************
+
+**************************************************
+Test case execution completed
+**************************************************
+
+**************************************************
+Testcase Result : PASS
+**************************************************

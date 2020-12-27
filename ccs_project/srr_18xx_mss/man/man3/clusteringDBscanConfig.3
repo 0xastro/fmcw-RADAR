@@ -1,0 +1,77 @@
+.TH "clusteringDBscanConfig" 3 "Wed May 20 2020" "Version 1.0" "mmWaveFMCWRADAR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+clusteringDBscanConfig \- Structure element of the list of descriptors for clusteringDBscan configuration\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <dss_data_path\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "float \fBepsilon\fP"
+.br
+.ti -1c
+.RI "float \fBweight\fP"
+.br
+.ti -1c
+.RI "float \fBvFactor\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBminPointsInCluster\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBmaxClusters\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBfixedPointScale\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBmaxPoints\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Structure element of the list of descriptors for clusteringDBscan configuration\&. 
+.PP
+Definition at line 333 of file dss_data_path\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "float clusteringDBscanConfig::epsilon"
+distance threhold for cluster check 
+.PP
+Definition at line 335 of file dss_data_path\&.h\&.
+.SS "uint16_t clusteringDBscanConfig::fixedPointScale"
+Block scale value to convert x-y from floating-point to fixed-point\&. Should be the same the one used in converting r-theta to x-y, not used for floating-point input 
+.PP
+Definition at line 340 of file dss_data_path\&.h\&.
+.SS "uint16_t clusteringDBscanConfig::maxClusters"
+maximum number of clusters 
+.PP
+Definition at line 339 of file dss_data_path\&.h\&.
+.SS "uint16_t clusteringDBscanConfig::maxPoints"
+Maximum number of points that can be services per dbscanRun call 
+.PP
+Definition at line 342 of file dss_data_path\&.h\&.
+.SS "uint16_t clusteringDBscanConfig::minPointsInCluster"
+minimum number of points in a cluster 
+.PP
+Definition at line 338 of file dss_data_path\&.h\&.
+.SS "float clusteringDBscanConfig::vFactor"
+additional velocity factor for speed delta 
+.br
+ 
+.PP
+Definition at line 337 of file dss_data_path\&.h\&.
+.SS "float clusteringDBscanConfig::weight"
+the weight between the distance and speed 
+.PP
+Definition at line 336 of file dss_data_path\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mmWaveFMCWRADAR from the source code\&.

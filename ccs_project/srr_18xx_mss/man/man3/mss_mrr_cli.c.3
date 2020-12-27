@@ -1,0 +1,74 @@
+.TH "mss_mrr_cli.c" 3 "Wed May 20 2020" "Version 1.0" "mmWaveFMCWRADAR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+mss_mrr_cli.c
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdint\&.h>\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include <stddef\&.h>\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <xdc/runtime/System\&.h>\fP
+.br
+\fC#include <ti/sysbios/BIOS\&.h>\fP
+.br
+\fC#include <ti/sysbios/knl/Task\&.h>\fP
+.br
+\fC#include <ti/sysbios/knl/Event\&.h>\fP
+.br
+\fC#include <ti/sysbios/knl/Semaphore\&.h>\fP
+.br
+\fC#include <ti/sysbios/knl/Clock\&.h>\fP
+.br
+\fC#include <ti/sysbios/heaps/HeapBuf\&.h>\fP
+.br
+\fC#include <ti/sysbios/heaps/HeapMem\&.h>\fP
+.br
+\fC#include <ti/common/sys_common\&.h>\fP
+.br
+\fC#include <ti/drivers/uart/UART\&.h>\fP
+.br
+\fC#include <ti/drivers/osal/DebugP\&.h>\fP
+.br
+\fC#include <ti/control/mmwavelink/mmwavelink\&.h>\fP
+.br
+\fC#include <ti/utils/cli/cli\&.h>\fP
+.br
+\fC#include 'mss_mrr\&.h'\fP
+.br
+\fC#include '\&.\&./common/mrr_config_consts\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBMSS_CLIInit\fP (void)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void MSS_CLIInit (void)"
+\fBDescription\fP 
+.br
+ This is the CLI Execution Task
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP Applicable\&. 
+.RE
+.PP
+
+.PP
+Definition at line 358 of file mss_mrr_cli\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mmWaveFMCWRADAR from the source code\&.
