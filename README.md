@@ -31,6 +31,86 @@
 - mmWave Sensing Estimator
 - mmWave Demo Visualizer
 
+# Where to Start #
+
+ *  [System Flow](https://github.com/astro7x/fmcw-RADAR/blob/master/README.md)
+
+# fmcw-RADAR Hierarchy and Repository structure #
+
+The fmcw-RADAR software is composed of the following parts: 
+
+<pre>
+fmcw-RADAR
+└── ccs_project: Contains the ccsv9 project from workspace.
+    ├── srr_18xx_mss
+    ├── srr_18xx_dss
+    └── Import_ME.zip    
+└── src: Source code and common files, headers for both mss and dss.
+    └── srr_18xx_mss
+        ├── mss_main.c
+        ├── mss.cfg
+        ├── mss_linker.cmd	
+        ├── r4f_linker.cmd
+        ├── radar.R4F.Doxyfile
+        └── common
+	        ├── app_cfg.h
+	        ├── frame_cfg.h
+	        ├── device_cfg.h
+	        ├── mmwave_config.h
+	        ├── mmwave_messages.h
+	        ├── mmWave_XSS.h
+	        └── profiles
+	        	├── config_chirp_design_MRR80.h
+	        	├── config_chirp_design_MRR120.h
+	        	├── config_chirp_design_SRR20.h
+	        	└── config_chirp_design_SRR30.h		
+    └── srr_18xx_dss
+        ├── dss_main.c
+        ├── dss.cfg
+        ├── dss_linker.cmd	
+        ├── c674x_linker.cmd
+        ├── dss_data_path.c
+        ├── dss_data_path.h
+        ├── dss_config_edma_util.h
+        ├── dss_config_edma_util.c	
+        ├── EKF_XYZ_Consts.h
+        ├── EKF_XYZ_Interface.h
+        ├── Extended_Kalman_Filter_xyz.c
+        ├── gen_twiddle_fft16x16.h
+        ├── gen_twiddle_fft32x32.c
+        ├── clusteringDBscan.h
+        ├── clusteringDBscan.c
+        └── common
+	        ├── app_cfg.h
+	        ├── frame_cfg.h
+	        ├── device_cfg.h
+	        ├── mmwave_config.h
+	        ├── mmwave_messages.h
+	        ├── mmWave_XSS.h
+	        └── profiles
+	        	├── config_chirp_design_MRR80.h
+	        	├── config_chirp_design_MRR120.h
+	        	├── config_chirp_design_SRR20.h
+	        	└── config_chirp_design_SRR30.h
+└── docker
+        ├── Dockerfile
+        └── Dockerfile.ccs.mmwave.ubuntu18
+
+├── LICENSE
+├── mmwave_sdk
+├── travisCI
+└── docs 
+    └── doxygen_srr_18xx_dss
+    	└── html
+	    ├── index.html
+	└── latex
+	    └── doxygen_srr_18xx_dss.pdf
+    └── doxygen_srr_18xx_mss
+    	└── html
+	    └── index.html
+	└── latex
+	    └── doxygen_srr_18xx_mss.pdf
+
 ## Objective
 Test & Evaluate the performance of TI mmWave Radar system using the AWR1843 EVM development board.
 In this system we detect specifically objects within close proximity the radar and generally evaluate different ranges profiles short, medium and long for further application. We use TI AWR1843 EVM, algorithms run on-board the single-chip device to create Range-Azimuth and Range-Elevation heat-maps, then performs object detection with CFAR, angle of arrival estimation and clustering on configured range rows in the heatmaps.
