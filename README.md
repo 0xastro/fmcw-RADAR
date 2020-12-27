@@ -39,6 +39,7 @@
 
 The fmcw-RADAR software is composed of the following parts: 
 
+<pre>
 fmcw-RADAR
 └── ccs_project: Contains the ccsv9 project from workspace.
     ├── srr_18xx_mss
@@ -109,6 +110,7 @@ fmcw-RADAR
 	    └── index.html
 	└── latex
 	    └── doxygen_srr_18xx_mss.pdf
+</pre>
 
 
 ## Objective
@@ -129,7 +131,7 @@ the main processing elements involved in the processing chain consist of the fol
 
 <p align="center">
 <img  src="https://github.com/astro7x/fmcw-RADAR/blob/master/figs/sysview2.svg" alt="system architicture" class="inline"/>
-</p>
+<\p>
 
 
 
