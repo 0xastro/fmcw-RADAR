@@ -1,5 +1,20 @@
 [![Build Status](https://travis-ci.com/astro7x/fmcw-RADAR.svg?token=gpBqYEnHhMCsw1BpRriN&branch=master)](https://travis-ci.com/astro7x/fmcw-RADAR)
 
+
+<table style="border-collapse: collapse; border: none;">
+  <tr style="border-collapse: collapse; border: none;">
+    <td style="border-collapse: collapse; border: none;">
+      <a href="https://bridgeit.tech/fmcw-RADAR">
+         <img src="https://github.com/astro7x/fmcw-RADAR/blob/master/docs/doxygen_srr_18xx_dss/logo.png" alt="" border=3> <!--height=100 width=20-->
+         </img>
+      </a>
+    </td>
+    <td style="border-collapse: collapse; border: none; vertical-align: center;">
+      <b><font size = "5"> </font></b>
+    </td>
+  </tr>
+</table>
+
 |In this file, there's a minimal explanation for the system design based on TI-AWR1843 SOC. The documentation here only adresses the MSS subsytem, the DSS is not documented here, but as It's mostly designed by TI so you may refer to the Doxygen files for the documentation|
 | --- |
 
