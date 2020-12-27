@@ -1,5 +1,4 @@
-[![fmcw-RADAR](https://travis-ci.com/astro7x/fmcw-RADAR.svg?token=gpBqYEnHhMCsw1BpRriN&branch=master)](https://travis-ci.com/astro7x/fmcw-RADAR.svg?token=gpBqYEnHhMCsw1BpRriN&branch=master)
-
+[![Build Status](https://travis-ci.com/astro7x/fmcw-RADAR.svg?token=gpBqYEnHhMCsw1BpRriN&branch=master)](https://travis-ci.com/astro7x/fmcw-RADAR)
 
 |In this file, there's a minimal explanation for the system design based on TI-AWR1843 SOC. The documentation here only adresses the MSS subsytem, the DSS is not documented here, but as It's mostly designed by TI so you may refer to the Doxygen files for the documentation|
 | --- |
