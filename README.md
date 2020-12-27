@@ -617,46 +617,6 @@ void Cfg_ADCOutCfgInitParams (rlAdcOutCfg_t* ptrADCOutCfg) {
 #define DATA_PATH_CQ_FMT_BITS_14            (1U)
 #define DATA_PATH_CQ_FMT_BITS_16            (2U)
 
-/* LVDS Clock Configuration */
-#define LVDS_LANE_CLOCK_SDR                 (0U)
-#define LVDS_LANE_CLOCK_DDR                 (1U)
-
-#define LVDS_ALL_LANE_EN                    (0xFU)
-
-#define LVDS_DATA_RATE_900                  (0U)
-#define LVDS_DATA_RATE_600                  (1U)
-#define LVDS_DATA_RATE_450                  (2U)
-#define LVDS_DATA_RATE_400                  (3U)
-#define LVDS_DATA_RATE_300                  (4U)
-#define LVDS_DATA_RATE_225                  (5U)
-#define LVDS_DATA_RATE_150                  (6U)
-
-/* LCDS Lane Configuration */
-#define LVDS_LANE1_DISABLE                  (0U)
-#define LVDS_LANE1_FORMAT_0                 (1U)
-#define LVDS_LANE1_FORMAT_1                 (2U)
-
-#define LVDS_LANE2_DISABLE                  (0U)
-#define LVDS_LANE2_FORMAT_0                 (1U)
-#define LVDS_LANE2_FORMAT_1                 (2U)
-
-#define LVDS_LANE3_DISABLE                  (0U)
-#define LVDS_LANE3_FORMAT_0                 (1U)
-#define LVDS_LANE3_FORMAT_1                 (2U)
-
-#define LVDS_LANE4_DISABLE                  (0U)
-#define LVDS_LANE4_FORMAT_0                 (1U)
-#define LVDS_LANE4_FORMAT_1                 (2U)
-
-#define LVDS_LANE_MSB_FIRST_ENABLE          (1U)
-#define LVDS_LANE_MSB_FIRST_DISABLE         (0U)
-#define LVDS_LANE_PACKET_END_PULSE_ENABLE   (1U)
-#define LVDS_LANE_PACKET_END_PULSE_DISABLE  (0U)
-#define LVDS_LANE_CRC_ENABLE                (1U)
-#define LVDS_LANE_CRC_DISABLE               (0U)
-#define LVDS_LANE_TI_MODE_ENABLE            (1U)
-#define LVDS_LANE_TI_MODE_DISABLE           (0U)
-
 /* Advanced configuration */
 #define ANA_CHANNEL_COMPLEX_CHAIN           (0U)
 #define ANA_CHANNEL_REAL_CHAIN              (1U)
@@ -862,6 +822,8 @@ The JTAG DR Integrity scan-test has succeeded.
 Travis CI host our CI/CD flow by building the docker image `Dockerfile.ccs.mmwave.ubuntu18`. So far the test flow is to setup the environment and the dependencies for system development. Travis is triggered by every pull request.
 **TODO1** Add source files using COPY function, and build DSS and MSS
 **TODO2** Add testcases
+
+[https://travis-ci.com/github/astro7x/fmcw-RADAR]
 
 ### Affiliation
  TeCIP Institute, Scuola Superiore Sant'anna.
