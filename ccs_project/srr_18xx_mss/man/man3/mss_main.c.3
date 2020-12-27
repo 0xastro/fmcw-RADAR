@@ -1,0 +1,219 @@
+.TH "mss_main.c" 3 "Wed May 20 2020" "Version 1.0" "mmWaveFMCWRADAR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+mss_main.c
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdint\&.h>\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include <stddef\&.h>\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <math\&.h>\fP
+.br
+\fC#include <xdc/std\&.h>\fP
+.br
+\fC#include <xdc/cfg/global\&.h>\fP
+.br
+\fC#include <xdc/runtime/IHeap\&.h>\fP
+.br
+\fC#include <xdc/runtime/System\&.h>\fP
+.br
+\fC#include <xdc/runtime/Error\&.h>\fP
+.br
+\fC#include <xdc/runtime/Memory\&.h>\fP
+.br
+\fC#include <ti/sysbios/BIOS\&.h>\fP
+.br
+\fC#include <ti/sysbios/knl/Task\&.h>\fP
+.br
+\fC#include <ti/sysbios/knl/Event\&.h>\fP
+.br
+\fC#include <ti/sysbios/knl/Semaphore\&.h>\fP
+.br
+\fC#include <ti/sysbios/knl/Clock\&.h>\fP
+.br
+\fC#include <ti/sysbios/heaps/HeapBuf\&.h>\fP
+.br
+\fC#include <ti/sysbios/heaps/HeapMem\&.h>\fP
+.br
+\fC#include <ti/sysbios/family/arm/v7a/Pmu\&.h>\fP
+.br
+\fC#include <ti/sysbios/family/arm/v7r/vim/Hwi\&.h>\fP
+.br
+\fC#include <ti/control/mmwavelink/mmwavelink\&.h>\fP
+.br
+\fC#include <ti/control/mmwave/mmwave\&.h>\fP
+.br
+\fC#include <ti/control/mmwavelink/include/rl_driver\&.h>\fP
+.br
+\fC#include <ti/common/sys_common\&.h>\fP
+.br
+\fC#include <ti/drivers/soc/soc\&.h>\fP
+.br
+\fC#include <ti/drivers/esm/esm\&.h>\fP
+.br
+\fC#include <ti/drivers/crc/crc\&.h>\fP
+.br
+\fC#include <ti/drivers/uart/UART\&.h>\fP
+.br
+\fC#include <ti/drivers/gpio/gpio\&.h>\fP
+.br
+\fC#include <ti/drivers/mailbox/mailbox\&.h>\fP
+.br
+\fC#include <ti/drivers/pinmux/include/pinmux_xwr18xx\&.h>\fP
+.br
+\fC#include <ti/drivers/osal/DebugP\&.h>\fP
+.br
+\fC#include <ti/drivers/canfd/canfd\&.h>\fP
+.br
+\fC#include <ti/drivers/pinmux/pinmux\&.h>\fP
+.br
+\fC#include <ti/drivers/cbuff/cbuff\&.h>\fP
+.br
+\fC#include <ti/utils/testlogger/logger\&.h>\fP
+.br
+\fC#include <ti/utils/cli/cli\&.h>\fP
+.br
+\fC#include 'mss_mrr\&.h'\fP
+.br
+\fC#include '\&.\&./common/mrr_config_consts\&.h'\fP
+.br
+\fC#include '\&.\&./common/mmw_messages\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBMmwDemo_mboxCallback\fP (Mbox_Handle handle, Mailbox_Type peer)"
+.br
+.ti -1c
+.RI "int32_t \fBMmwDemo_mboxWrite\fP (\fBMmwDemo_message\fP *message)"
+.br
+.ti -1c
+.RI "int8_t \fBmain\fP (void)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBMSS_MCB\fP \fBgMSSMCB\fP"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "int8_t main (void)"
+< define Task_Params instance config structure
+.PP
+< define an integer to retrieve error messeges
+.PP
+< define SOC_Cfg structure to to open & initialize the SOC Driver\&.
+.PP
+Initialize Error Signaling Module MSS_ESM for hardware diagnostics within the MSS core
+.PP
+Initialize the global variables Master Control Block MCB
+.PP
+Initialize the SOC configuration:
+.PP
+Populate the SOC configuration: Set the clock source on 200MHz
+.PP
+Initialize the SOC Module to ensure that the Memory Protection Unit (MPU) settings are correctly configured\&.
+.PP
+Definition at line 1338 of file mss_main\&.c\&.
+.PP
+References gMSSMCB, and MSS_MCB_t::socHandle\&.
+.SS "void MmwDemo_mboxCallback (Mbox_Handle handle, Mailbox_Type peer)"
+
+.PP
+ 
+.SS "@MmwDemo_mboxCallback"
+This function is a callback funciton that invoked when a message is received from the peer\&.
+.PP
+.PD 0
+.IP "\(bu" 2
+[0] Handle to the Mailbox on which data was received 
+.IP "\(bu" 2
+[1] Peer from which data was received (DSS) 
+.PP
+.SS "@return  void"
+\fBDescription\fP 
+.br
+ This function is a callback function that invoked when a message is received from the peer\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIhandle\fP Handle to the Mailbox on which data was received 
+.br
+\fIpeer\fP Peer from which data was received
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP Applicable\&. 
+.RE
+.PP
+
+.PP
+Definition at line 1035 of file mss_main\&.c\&.
+.PP
+References gMSSMCB, and MSS_MCB_t::mboxSemHandle\&.
+.SS "static int32_t MmwDemo_mboxWrite (\fBMmwDemo_message\fP * message)"
+
+.PP
+ 
+.SS "@MmwDemo_mboxWrite-----------------------------&mdash;"
+.PD 0
+.IP "\(bu" 2
+[1] message Pointer to the MMW demo message\&. 
+.br
+
+.PP
+\fBReturn values\fP
+.RS 4
+\fISuccess\fP - 0 
+.RE
+.PP
+.SS "Fail       < -1"
+\fBDescription\fP 
+.br
+ Function to send a message to peer through Mailbox virtural channel
+.PP
+\fBParameters\fP
+.RS 4
+\fImessage\fP Pointer to the Capture demo message\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Success - 0 Fail < -1 
+.RE
+.PP
+
+.PP
+Definition at line 868 of file mss_main\&.c\&.
+.PP
+References gMSSMCB, and MSS_MCB_t::mboxHandle\&.
+.SH "Variable Documentation"
+.PP 
+.SS "\fBMSS_MCB\fP gMSSMCB"
+
+.PP
+ DATA_ALIGN ensures the buffer starts at an address that is evenly divisible by 16\&. \fBspnu151j\&.pdf\fP section #5\&.10\&.6 
+.SS "gMSSMCB: Global Variable for tracking information&mdash;"
+
+.PP
+Definition at line 200 of file mss_main\&.c\&.
+.PP
+Referenced by main(), MmwDemo_mboxCallback(), and MmwDemo_mboxWrite()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mmWaveFMCWRADAR from the source code\&.

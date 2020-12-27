@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['nearfieldcorrectioncfg_2873',['nearFieldCorrectionCfg',['../struct_mmw_demo___cli_cfg__t__.html#aab033046a5d13ab3d2b343574fb59dcb',1,'MmwDemo_CliCfg_t_']]],
+  ['negativebinidx_2874',['negativeBinIdx',['../struct_d_s_s___calib_dc_range_sig_cfg__t.html#a1adb765a00ba5c0020ccffeeefbd082c',1,'DSS_CalibDcRangeSigCfg_t']]],
+  ['nextscheduledtick_2875',['nextScheduledTick',['../structti__sysbios__knl___clock___module___state____.html#a8a3eeee6559ed5d084c708d719ecac80',1,'ti_sysbios_knl_Clock_Module_State__']]],
+  ['nodebase_2876',['nodeBase',['../structxdc__runtime___text___module___state____.html#a073321fad08379f3afcd25c4095fbcd1',1,'xdc_runtime_Text_Module_State__']]],
+  ['noisedivshift_2877',['noiseDivShift',['../struct_d_s_s___cfar_cfg__t.html#afeac102b3b193ceb975af9768905cb11',1,'DSS_CfarCfg_t']]],
+  ['noiseprofile_2878',['noiseProfile',['../struct_mmw_demo___gui_mon_sel__t.html#a6c35c4f3c082766cbf0520bab64c1547',1,'MmwDemo_GuiMonSel_t']]],
+  ['numatexithandlers_2879',['numAtexitHandlers',['../structxdc__runtime___system___module___state____.html#a139fd7aee652094529374dd41334e50f',1,'xdc_runtime_System_Module_State__']]],
+  ['numavgchirps_2880',['numAvgChirps',['../struct_d_s_s___calib_dc_range_sig_cfg__t.html#a750c6625b294e8ea5154d95fde66f31c',1,'DSS_CalibDcRangeSigCfg_t']]],
+  ['numblocks_2881',['numBlocks',['../structti__sysbios__heaps___heap_buf___object____.html#a16c2cebeb3c155a15da4739c335fdd40',1,'ti_sysbios_heaps_HeapBuf_Object__']]],
+  ['numcalibrationreports_2882',['numCalibrationReports',['../structmm_w___m_s_s___s_t_a_t_s__t.html#ad0f6db51353fe993df9fc955e063670f',1,'mmW_MSS_STATS_t']]],
+  ['numchirpspersubframe_2883',['numChirpsPerSubframe',['../struct_m_c_b__t.html#a69f694f78d8e6675193c7e84075390e5',1,'MCB_t']]],
+  ['numdetectedobj_2884',['numDetectedObj',['../structmm_wave___o_u_t___m_s_g__header__t.html#a31063a93ffe632618ad8871d4417afff',1,'mmWave_OUT_MSG_header_t']]],
+  ['numdetetedobj_2885',['numDetetedObj',['../structmm_wave___o_u_t___m_s_g__stats__data_obj_descr__t.html#a69942dd2b2440f79df6b2c34f97ac28d',1,'mmWave_OUT_MSG_stats_dataObjDescr_t']]],
+  ['numfailedtimingreports_2886',['numFailedTimingReports',['../structmm_w___m_s_s___s_t_a_t_s__t.html#a5fd83328b70658eea16c817c3564e6c7',1,'mmW_MSS_STATS_t']]],
+  ['numfreeblocks_2887',['numFreeBlocks',['../structti__sysbios__heaps___heap_buf___object____.html#a5f5627538294adca2c7d5e122bc8c721',1,'ti_sysbios_heaps_HeapBuf_Object__']]],
+  ['numtickskip_2888',['numTickSkip',['../structti__sysbios__knl___clock___module___state____.html#a132738b1c4466c5f8e28c3b78bea3273',1,'ti_sysbios_knl_Clock_Module_State__']]],
+  ['numtlvs_2889',['numTLVs',['../structmm_wave___o_u_t___m_s_g__header__t.html#a8d07e5cd4716d8f35617bb911b7946b1',1,'mmWave_OUT_MSG_header_t']]]
+];

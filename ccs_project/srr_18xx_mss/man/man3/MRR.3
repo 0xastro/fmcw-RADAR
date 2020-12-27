@@ -1,0 +1,439 @@
+.TH "MRR" 3 "Wed May 20 2020" "Version 1.0" "mmWaveFMCWRADAR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MRR \- There are three seperate EDMA allocations in the MRR algorithm\&. the first two are for subbframe 1 and subframe 2, and the third is for CBUFF (LVDS data transfer)\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBMRR_SF0_EDMA_CH_1D_IN_PING\fP   EDMA_TPCC0_REQ_FREE_0"
+.br
+.RI "EDMA configuration table for FFT processing of subframe 0\&. "
+.ti -1c
+.RI "#define \fBMRR_SF0_EDMA_CH_1D_IN_PONG\fP   EDMA_TPCC0_REQ_FREE_1"
+.br
+.ti -1c
+.RI "#define \fBMRR_SF0_EDMA_CH_1D_OUT_PING\fP   EDMA_TPCC0_REQ_FREE_2"
+.br
+.ti -1c
+.RI "#define \fBMRR_SF0_EDMA_CH_1D_OUT_PONG\fP   EDMA_TPCC0_REQ_FREE_3"
+.br
+.ti -1c
+.RI "#define \fBMRR_SF0_EDMA_CH_2D_IN_PING\fP   EDMA_TPCC0_REQ_FREE_4"
+.br
+.ti -1c
+.RI "#define \fBMRR_SF0_EDMA_CH_2D_IN_PONG\fP   EDMA_TPCC0_REQ_FREE_5"
+.br
+.ti -1c
+.RI "#define \fBMRR_SF0_EDMA_CH_DET_MATRIX\fP   EDMA_TPCC0_REQ_FREE_6"
+.br
+.ti -1c
+.RI "#define \fBMRR_SF0_EDMA_CH_DET_MATRIX2\fP   EDMA_TPCC0_REQ_FREE_7"
+.br
+.ti -1c
+.RI "#define \fBMRR_SF0_EDMA_CH_3D_IN_PING\fP   EDMA_TPCC0_REQ_FREE_8"
+.br
+.ti -1c
+.RI "#define \fBMRR_SF0_EDMA_CH_3D_IN_PONG\fP   EDMA_TPCC0_REQ_FREE_9"
+.br
+.ti -1c
+.RI "#define \fBMRR_SF1_EDMA_CH_1D_IN_PING\fP   EDMA_TPCC0_REQ_FREE_10"
+.br
+.RI "EDMA configuration table for FFT processing of subframe 1\&. "
+.ti -1c
+.RI "#define \fBMRR_SF1_EDMA_CH_1D_IN_PONG\fP   EDMA_TPCC0_REQ_FREE_11"
+.br
+.ti -1c
+.RI "#define \fBMRR_SF1_EDMA_CH_1D_OUT_PING\fP   EDMA_TPCC0_REQ_FREE_12"
+.br
+.ti -1c
+.RI "#define \fBMRR_SF1_EDMA_CH_1D_OUT_PONG\fP   EDMA_TPCC0_REQ_FREE_13"
+.br
+.ti -1c
+.RI "#define \fBMRR_SF1_EDMA_CH_2D_IN_PING\fP   EDMA_TPCC0_REQ_FREE_14"
+.br
+.ti -1c
+.RI "#define \fBMRR_SF1_EDMA_CH_2D_IN_PONG\fP   EDMA_TPCC0_REQ_HWACC_7"
+.br
+.ti -1c
+.RI "#define \fBMRR_SF1_EDMA_CH_DET_MATRIX\fP   EDMA_TPCC0_REQ_HWACC_8"
+.br
+.ti -1c
+.RI "#define \fBMRR_SF1_EDMA_CH_DET_MATRIX2\fP   EDMA_TPCC0_REQ_HWACC_9"
+.br
+.ti -1c
+.RI "#define \fBMRR_SF1_EDMA_CH_3D_IN_PING\fP   EDMA_TPCC0_REQ_HWACC_10"
+.br
+.ti -1c
+.RI "#define \fBMRR_SF1_EDMA_CH_3D_IN_PONG\fP   EDMA_TPCC0_REQ_HWACC_11"
+.br
+.ti -1c
+.RI "#define \fBEDMA_INSTANCE_DSS\fP   \fBEDMA_INSTANCE_A\fP"
+.br
+.ti -1c
+.RI "#define \fBEDMA_INSTANCE_MSS\fP   \fBEDMA_INSTANCE_B\fP"
+.br
+.ti -1c
+.RI "#define \fBMRR_CBUFF_EDMA_CH\fP   EDMA_TPCC0_REQ_CBUFF_0"
+.br
+.RI "EDMA configuration table for CBUF\&. (Unused in this configuration)\&. "
+.ti -1c
+.RI "#define \fBMRR_CBUFF_EDMA_SHADOW_CH\fP   (EDMA_NUM_DMA_CHANNELS + 0U)"
+.br
+.ti -1c
+.RI "#define \fBCBUFF_EDMA_INSTANCE\fP   \fBEDMA_INSTANCE_B\fP"
+.br
+.ti -1c
+.RI "#define \fBMRR_EDMA_TRIGGER_ENABLE\fP   1"
+.br
+.ti -1c
+.RI "#define \fBMRR_EDMA_TRIGGER_DISABLE\fP   0"
+.br
+.ti -1c
+.RI "#define \fBMAX_VEL_POINT_CLOUD_PROCESSING_IS_ENABLED\fP   0"
+.br
+.RI "Flag to enable the max velocity enhancement in point cloud processing\&. "
+.ti -1c
+.RI "#define \fBMRR_SF0_EDMA_CH_1D_IN_PING\fP   EDMA_TPCC0_REQ_FREE_0"
+.br
+.RI "EDMA configuration table for FFT processing of subframe 0\&. "
+.ti -1c
+.RI "#define \fBMRR_SF0_EDMA_CH_1D_IN_PONG\fP   EDMA_TPCC0_REQ_FREE_1"
+.br
+.ti -1c
+.RI "#define \fBMRR_SF0_EDMA_CH_1D_OUT_PING\fP   EDMA_TPCC0_REQ_FREE_2"
+.br
+.ti -1c
+.RI "#define \fBMRR_SF0_EDMA_CH_1D_OUT_PONG\fP   EDMA_TPCC0_REQ_FREE_3"
+.br
+.ti -1c
+.RI "#define \fBMRR_SF0_EDMA_CH_2D_IN_PING\fP   EDMA_TPCC0_REQ_FREE_4"
+.br
+.ti -1c
+.RI "#define \fBMRR_SF0_EDMA_CH_2D_IN_PONG\fP   EDMA_TPCC0_REQ_FREE_5"
+.br
+.ti -1c
+.RI "#define \fBMRR_SF0_EDMA_CH_DET_MATRIX\fP   EDMA_TPCC0_REQ_FREE_6"
+.br
+.ti -1c
+.RI "#define \fBMRR_SF0_EDMA_CH_DET_MATRIX2\fP   EDMA_TPCC0_REQ_FREE_7"
+.br
+.ti -1c
+.RI "#define \fBMRR_SF0_EDMA_CH_3D_IN_PING\fP   EDMA_TPCC0_REQ_FREE_8"
+.br
+.ti -1c
+.RI "#define \fBMRR_SF0_EDMA_CH_3D_IN_PONG\fP   EDMA_TPCC0_REQ_FREE_9"
+.br
+.ti -1c
+.RI "#define \fBMRR_SF1_EDMA_CH_1D_IN_PING\fP   EDMA_TPCC0_REQ_FREE_10"
+.br
+.RI "EDMA configuration table for FFT processing of subframe 1\&. "
+.ti -1c
+.RI "#define \fBMRR_SF1_EDMA_CH_1D_IN_PONG\fP   EDMA_TPCC0_REQ_FREE_11"
+.br
+.ti -1c
+.RI "#define \fBMRR_SF1_EDMA_CH_1D_OUT_PING\fP   EDMA_TPCC0_REQ_FREE_12"
+.br
+.ti -1c
+.RI "#define \fBMRR_SF1_EDMA_CH_1D_OUT_PONG\fP   EDMA_TPCC0_REQ_FREE_13"
+.br
+.ti -1c
+.RI "#define \fBMRR_SF1_EDMA_CH_2D_IN_PING\fP   EDMA_TPCC0_REQ_FREE_14"
+.br
+.ti -1c
+.RI "#define \fBMRR_SF1_EDMA_CH_2D_IN_PONG\fP   EDMA_TPCC0_REQ_HWACC_7"
+.br
+.ti -1c
+.RI "#define \fBMRR_SF1_EDMA_CH_DET_MATRIX\fP   EDMA_TPCC0_REQ_HWACC_8"
+.br
+.ti -1c
+.RI "#define \fBMRR_SF1_EDMA_CH_DET_MATRIX2\fP   EDMA_TPCC0_REQ_HWACC_9"
+.br
+.ti -1c
+.RI "#define \fBMRR_SF1_EDMA_CH_3D_IN_PING\fP   EDMA_TPCC0_REQ_HWACC_10"
+.br
+.ti -1c
+.RI "#define \fBMRR_SF1_EDMA_CH_3D_IN_PONG\fP   EDMA_TPCC0_REQ_HWACC_11"
+.br
+.ti -1c
+.RI "#define \fBEDMA_INSTANCE_DSS\fP   \fBEDMA_INSTANCE_A\fP"
+.br
+.ti -1c
+.RI "#define \fBEDMA_INSTANCE_MSS\fP   \fBEDMA_INSTANCE_B\fP"
+.br
+.ti -1c
+.RI "#define \fBMRR_CBUFF_EDMA_CH\fP   EDMA_TPCC0_REQ_CBUFF_0"
+.br
+.RI "EDMA configuration table for CBUF\&. (Unused in this configuration)\&. "
+.ti -1c
+.RI "#define \fBMRR_CBUFF_EDMA_SHADOW_CH\fP   (EDMA_NUM_DMA_CHANNELS + 0U)"
+.br
+.ti -1c
+.RI "#define \fBCBUFF_EDMA_INSTANCE\fP   \fBEDMA_INSTANCE_B\fP"
+.br
+.ti -1c
+.RI "#define \fBMRR_EDMA_TRIGGER_ENABLE\fP   1"
+.br
+.ti -1c
+.RI "#define \fBMRR_EDMA_TRIGGER_DISABLE\fP   0"
+.br
+.ti -1c
+.RI "#define \fBMAX_VEL_POINT_CLOUD_PROCESSING_IS_ENABLED\fP   0"
+.br
+.RI "Flag to enable the max velocity enhancement in point cloud processing\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+There are three seperate EDMA allocations in the MRR algorithm\&. the first two are for subbframe 1 and subframe 2, and the third is for CBUFF (LVDS data transfer)\&. 
+
+
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define CBUFF_EDMA_INSTANCE   \fBEDMA_INSTANCE_B\fP"
+
+.PP
+Definition at line 319 of file mrr_config_consts\&.h\&.
+.SS "#define CBUFF_EDMA_INSTANCE   \fBEDMA_INSTANCE_B\fP"
+
+.PP
+Definition at line 324 of file mrr_config_consts\&.h\&.
+.SS "#define EDMA_INSTANCE_DSS   \fBEDMA_INSTANCE_A\fP"
+
+.PP
+Definition at line 311 of file mrr_config_consts\&.h\&.
+.SS "#define EDMA_INSTANCE_DSS   \fBEDMA_INSTANCE_A\fP"
+
+.PP
+Definition at line 316 of file mrr_config_consts\&.h\&.
+.SS "#define EDMA_INSTANCE_MSS   \fBEDMA_INSTANCE_B\fP"
+
+.PP
+Definition at line 312 of file mrr_config_consts\&.h\&.
+.SS "#define EDMA_INSTANCE_MSS   \fBEDMA_INSTANCE_B\fP"
+
+.PP
+Definition at line 317 of file mrr_config_consts\&.h\&.
+.SS "#define MAX_VEL_POINT_CLOUD_PROCESSING_IS_ENABLED   0"
+
+.PP
+Flag to enable the max velocity enhancement in point cloud processing\&. 
+.PP
+Definition at line 332 of file mrr_config_consts\&.h\&.
+.SS "#define MAX_VEL_POINT_CLOUD_PROCESSING_IS_ENABLED   0"
+
+.PP
+Flag to enable the max velocity enhancement in point cloud processing\&. 
+.PP
+Definition at line 337 of file mrr_config_consts\&.h\&.
+.SS "#define MRR_CBUFF_EDMA_CH   EDMA_TPCC0_REQ_CBUFF_0"
+
+.PP
+EDMA configuration table for CBUF\&. (Unused in this configuration)\&. 
+.PP
+Definition at line 317 of file mrr_config_consts\&.h\&.
+.SS "#define MRR_CBUFF_EDMA_CH   EDMA_TPCC0_REQ_CBUFF_0"
+
+.PP
+EDMA configuration table for CBUF\&. (Unused in this configuration)\&. 
+.PP
+Definition at line 322 of file mrr_config_consts\&.h\&.
+.SS "#define MRR_CBUFF_EDMA_SHADOW_CH   (EDMA_NUM_DMA_CHANNELS + 0U)"
+
+.PP
+Definition at line 318 of file mrr_config_consts\&.h\&.
+.SS "#define MRR_CBUFF_EDMA_SHADOW_CH   (EDMA_NUM_DMA_CHANNELS + 0U)"
+
+.PP
+Definition at line 323 of file mrr_config_consts\&.h\&.
+.SS "#define MRR_EDMA_TRIGGER_DISABLE   0"
+
+.PP
+Definition at line 324 of file mrr_config_consts\&.h\&.
+.SS "#define MRR_EDMA_TRIGGER_DISABLE   0"
+
+.PP
+Definition at line 329 of file mrr_config_consts\&.h\&.
+.SS "#define MRR_EDMA_TRIGGER_ENABLE   1"
+
+.PP
+Definition at line 323 of file mrr_config_consts\&.h\&.
+.SS "#define MRR_EDMA_TRIGGER_ENABLE   1"
+
+.PP
+Definition at line 328 of file mrr_config_consts\&.h\&.
+.SS "#define MRR_SF0_EDMA_CH_1D_IN_PING   EDMA_TPCC0_REQ_FREE_0"
+
+.PP
+EDMA configuration table for FFT processing of subframe 0\&. 
+.PP
+Definition at line 286 of file mrr_config_consts\&.h\&.
+.SS "#define MRR_SF0_EDMA_CH_1D_IN_PING   EDMA_TPCC0_REQ_FREE_0"
+
+.PP
+EDMA configuration table for FFT processing of subframe 0\&. 
+.PP
+Definition at line 291 of file mrr_config_consts\&.h\&.
+.SS "#define MRR_SF0_EDMA_CH_1D_IN_PONG   EDMA_TPCC0_REQ_FREE_1"
+
+.PP
+Definition at line 287 of file mrr_config_consts\&.h\&.
+.SS "#define MRR_SF0_EDMA_CH_1D_IN_PONG   EDMA_TPCC0_REQ_FREE_1"
+
+.PP
+Definition at line 292 of file mrr_config_consts\&.h\&.
+.SS "#define MRR_SF0_EDMA_CH_1D_OUT_PING   EDMA_TPCC0_REQ_FREE_2"
+
+.PP
+Definition at line 288 of file mrr_config_consts\&.h\&.
+.SS "#define MRR_SF0_EDMA_CH_1D_OUT_PING   EDMA_TPCC0_REQ_FREE_2"
+
+.PP
+Definition at line 293 of file mrr_config_consts\&.h\&.
+.SS "#define MRR_SF0_EDMA_CH_1D_OUT_PONG   EDMA_TPCC0_REQ_FREE_3"
+
+.PP
+Definition at line 289 of file mrr_config_consts\&.h\&.
+.SS "#define MRR_SF0_EDMA_CH_1D_OUT_PONG   EDMA_TPCC0_REQ_FREE_3"
+
+.PP
+Definition at line 294 of file mrr_config_consts\&.h\&.
+.SS "#define MRR_SF0_EDMA_CH_2D_IN_PING   EDMA_TPCC0_REQ_FREE_4"
+
+.PP
+Definition at line 290 of file mrr_config_consts\&.h\&.
+.SS "#define MRR_SF0_EDMA_CH_2D_IN_PING   EDMA_TPCC0_REQ_FREE_4"
+
+.PP
+Definition at line 295 of file mrr_config_consts\&.h\&.
+.SS "#define MRR_SF0_EDMA_CH_2D_IN_PONG   EDMA_TPCC0_REQ_FREE_5"
+
+.PP
+Definition at line 291 of file mrr_config_consts\&.h\&.
+.SS "#define MRR_SF0_EDMA_CH_2D_IN_PONG   EDMA_TPCC0_REQ_FREE_5"
+
+.PP
+Definition at line 296 of file mrr_config_consts\&.h\&.
+.SS "#define MRR_SF0_EDMA_CH_3D_IN_PING   EDMA_TPCC0_REQ_FREE_8"
+
+.PP
+Definition at line 294 of file mrr_config_consts\&.h\&.
+.SS "#define MRR_SF0_EDMA_CH_3D_IN_PING   EDMA_TPCC0_REQ_FREE_8"
+
+.PP
+Definition at line 299 of file mrr_config_consts\&.h\&.
+.SS "#define MRR_SF0_EDMA_CH_3D_IN_PONG   EDMA_TPCC0_REQ_FREE_9"
+
+.PP
+Definition at line 295 of file mrr_config_consts\&.h\&.
+.SS "#define MRR_SF0_EDMA_CH_3D_IN_PONG   EDMA_TPCC0_REQ_FREE_9"
+
+.PP
+Definition at line 300 of file mrr_config_consts\&.h\&.
+.SS "#define MRR_SF0_EDMA_CH_DET_MATRIX   EDMA_TPCC0_REQ_FREE_6"
+
+.PP
+Definition at line 292 of file mrr_config_consts\&.h\&.
+.SS "#define MRR_SF0_EDMA_CH_DET_MATRIX   EDMA_TPCC0_REQ_FREE_6"
+
+.PP
+Definition at line 297 of file mrr_config_consts\&.h\&.
+.SS "#define MRR_SF0_EDMA_CH_DET_MATRIX2   EDMA_TPCC0_REQ_FREE_7"
+
+.PP
+Definition at line 293 of file mrr_config_consts\&.h\&.
+.SS "#define MRR_SF0_EDMA_CH_DET_MATRIX2   EDMA_TPCC0_REQ_FREE_7"
+
+.PP
+Definition at line 298 of file mrr_config_consts\&.h\&.
+.SS "#define MRR_SF1_EDMA_CH_1D_IN_PING   EDMA_TPCC0_REQ_FREE_10"
+
+.PP
+EDMA configuration table for FFT processing of subframe 1\&. 
+.PP
+Definition at line 300 of file mrr_config_consts\&.h\&.
+.SS "#define MRR_SF1_EDMA_CH_1D_IN_PING   EDMA_TPCC0_REQ_FREE_10"
+
+.PP
+EDMA configuration table for FFT processing of subframe 1\&. 
+.PP
+Definition at line 305 of file mrr_config_consts\&.h\&.
+.SS "#define MRR_SF1_EDMA_CH_1D_IN_PONG   EDMA_TPCC0_REQ_FREE_11"
+
+.PP
+Definition at line 301 of file mrr_config_consts\&.h\&.
+.SS "#define MRR_SF1_EDMA_CH_1D_IN_PONG   EDMA_TPCC0_REQ_FREE_11"
+
+.PP
+Definition at line 306 of file mrr_config_consts\&.h\&.
+.SS "#define MRR_SF1_EDMA_CH_1D_OUT_PING   EDMA_TPCC0_REQ_FREE_12"
+
+.PP
+Definition at line 302 of file mrr_config_consts\&.h\&.
+.SS "#define MRR_SF1_EDMA_CH_1D_OUT_PING   EDMA_TPCC0_REQ_FREE_12"
+
+.PP
+Definition at line 307 of file mrr_config_consts\&.h\&.
+.SS "#define MRR_SF1_EDMA_CH_1D_OUT_PONG   EDMA_TPCC0_REQ_FREE_13"
+
+.PP
+Definition at line 303 of file mrr_config_consts\&.h\&.
+.SS "#define MRR_SF1_EDMA_CH_1D_OUT_PONG   EDMA_TPCC0_REQ_FREE_13"
+
+.PP
+Definition at line 308 of file mrr_config_consts\&.h\&.
+.SS "#define MRR_SF1_EDMA_CH_2D_IN_PING   EDMA_TPCC0_REQ_FREE_14"
+
+.PP
+Definition at line 304 of file mrr_config_consts\&.h\&.
+.SS "#define MRR_SF1_EDMA_CH_2D_IN_PING   EDMA_TPCC0_REQ_FREE_14"
+
+.PP
+Definition at line 309 of file mrr_config_consts\&.h\&.
+.SS "#define MRR_SF1_EDMA_CH_2D_IN_PONG   EDMA_TPCC0_REQ_HWACC_7"
+
+.PP
+Definition at line 305 of file mrr_config_consts\&.h\&.
+.SS "#define MRR_SF1_EDMA_CH_2D_IN_PONG   EDMA_TPCC0_REQ_HWACC_7"
+
+.PP
+Definition at line 310 of file mrr_config_consts\&.h\&.
+.SS "#define MRR_SF1_EDMA_CH_3D_IN_PING   EDMA_TPCC0_REQ_HWACC_10"
+
+.PP
+Definition at line 308 of file mrr_config_consts\&.h\&.
+.SS "#define MRR_SF1_EDMA_CH_3D_IN_PING   EDMA_TPCC0_REQ_HWACC_10"
+
+.PP
+Definition at line 313 of file mrr_config_consts\&.h\&.
+.SS "#define MRR_SF1_EDMA_CH_3D_IN_PONG   EDMA_TPCC0_REQ_HWACC_11"
+
+.PP
+Definition at line 309 of file mrr_config_consts\&.h\&.
+.SS "#define MRR_SF1_EDMA_CH_3D_IN_PONG   EDMA_TPCC0_REQ_HWACC_11"
+
+.PP
+Definition at line 314 of file mrr_config_consts\&.h\&.
+.SS "#define MRR_SF1_EDMA_CH_DET_MATRIX   EDMA_TPCC0_REQ_HWACC_8"
+
+.PP
+Definition at line 306 of file mrr_config_consts\&.h\&.
+.SS "#define MRR_SF1_EDMA_CH_DET_MATRIX   EDMA_TPCC0_REQ_HWACC_8"
+
+.PP
+Definition at line 311 of file mrr_config_consts\&.h\&.
+.SS "#define MRR_SF1_EDMA_CH_DET_MATRIX2   EDMA_TPCC0_REQ_HWACC_9"
+
+.PP
+Definition at line 307 of file mrr_config_consts\&.h\&.
+.SS "#define MRR_SF1_EDMA_CH_DET_MATRIX2   EDMA_TPCC0_REQ_HWACC_9"
+
+.PP
+Definition at line 312 of file mrr_config_consts\&.h\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mmWaveFMCWRADAR from the source code\&.

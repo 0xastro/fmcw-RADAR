@@ -1,0 +1,116 @@
+.TH "MmwDemo_timingInfo" 3 "Wed May 20 2020" "Version 1.0" "mmWaveFMCWRADAR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MmwDemo_timingInfo \- Timing information\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <dss_data_path\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "uint32_t \fBinterFrameProcCycles\fP"
+.br
+.RI "number of processor cycles between frames excluding processing time to transmit output on UART "
+.ti -1c
+.RI "uint32_t \fBtransmitOutputCycles\fP"
+.br
+.RI "time to transmit out detection information (in DSP cycles) "
+.ti -1c
+.RI "uint32_t \fBchirpProcessingEndTime\fP"
+.br
+.RI "Chirp processing end time\&. "
+.ti -1c
+.RI "uint32_t \fBchirpProcessingEndMarginMin\fP"
+.br
+.RI "Chirp processing end margin in number of cycles before due time to start processing next chirp, minimum value\&. "
+.ti -1c
+.RI "uint32_t \fBchirpProcessingEndMarginMax\fP"
+.br
+.RI "Chirp processing end margin in number of cycles before due time to start processing next chirp, maximum value\&. "
+.ti -1c
+.RI "uint32_t \fBinterFrameProcessingEndTime\fP"
+.br
+.RI "Inter frame processing end time\&. "
+.ti -1c
+.RI "uint32_t \fBinterFrameProcessingEndMargin\fP"
+.br
+.RI "Inter frame processing end margin in number of cycles before due time to start processing first chirp of the next frame\&. "
+.ti -1c
+.RI "uint32_t \fBactiveFrameCPULoad\fP"
+.br
+.RI "CPU Load during active frame period - i\&.e\&. chirping\&. "
+.ti -1c
+.RI "uint32_t \fBinterFrameCPULoad\fP"
+.br
+.RI "CPU Load during inter frame period - i\&.e\&. after chirps are done and before next frame starts\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Timing information\&. 
+.PP
+Definition at line 256 of file dss_data_path\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "uint32_t MmwDemo_timingInfo::activeFrameCPULoad"
+
+.PP
+CPU Load during active frame period - i\&.e\&. chirping\&. 
+.PP
+Definition at line 285 of file dss_data_path\&.h\&.
+.SS "uint32_t MmwDemo_timingInfo::chirpProcessingEndMarginMax"
+
+.PP
+Chirp processing end margin in number of cycles before due time to start processing next chirp, maximum value\&. 
+.PP
+Definition at line 275 of file dss_data_path\&.h\&.
+.SS "uint32_t MmwDemo_timingInfo::chirpProcessingEndMarginMin"
+
+.PP
+Chirp processing end margin in number of cycles before due time to start processing next chirp, minimum value\&. 
+.PP
+Definition at line 271 of file dss_data_path\&.h\&.
+.SS "uint32_t MmwDemo_timingInfo::chirpProcessingEndTime"
+
+.PP
+Chirp processing end time\&. 
+.PP
+Definition at line 267 of file dss_data_path\&.h\&.
+.SS "uint32_t MmwDemo_timingInfo::interFrameCPULoad"
+
+.PP
+CPU Load during inter frame period - i\&.e\&. after chirps are done and before next frame starts\&. 
+.PP
+Definition at line 289 of file dss_data_path\&.h\&.
+.SS "uint32_t MmwDemo_timingInfo::interFrameProcCycles"
+
+.PP
+number of processor cycles between frames excluding processing time to transmit output on UART 
+.PP
+Definition at line 260 of file dss_data_path\&.h\&.
+.SS "uint32_t MmwDemo_timingInfo::interFrameProcessingEndMargin"
+
+.PP
+Inter frame processing end margin in number of cycles before due time to start processing first chirp of the next frame\&. 
+.PP
+Definition at line 282 of file dss_data_path\&.h\&.
+.SS "uint32_t MmwDemo_timingInfo::interFrameProcessingEndTime"
+
+.PP
+Inter frame processing end time\&. 
+.PP
+Definition at line 278 of file dss_data_path\&.h\&.
+.SS "uint32_t MmwDemo_timingInfo::transmitOutputCycles"
+
+.PP
+time to transmit out detection information (in DSP cycles) 
+.PP
+Definition at line 264 of file dss_data_path\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mmWaveFMCWRADAR from the source code\&.

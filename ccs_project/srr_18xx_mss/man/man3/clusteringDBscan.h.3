@@ -1,0 +1,87 @@
+.TH "C:/Users/astro/workspace_v9_2/mrr_18xx_dss/clusteringDBscan.h" 3 "Wed May 20 2020" "Version 1.0" "mmWaveFMCWRADAR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/Users/astro/workspace_v9_2/mrr_18xx_dss/clusteringDBscan.h \- DBscan clustering module\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBPOINT_UNKNOWN\fP   0"
+.br
+.RI "#defines for the state of the detected points w\&.r\&.t to the clustering algorithms\&. "
+.ti -1c
+.RI "#define \fBPOINT_VISITED\fP   1"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "uint16_t \fBclusteringDBscan_findNeighbors2Fixed\fP (\fBMmwDemo_detectedObjActual\fP *restrict detObj2D, uint16_t point, uint16_t *restrict neigh, uint16_t numPoints, int32_t epsilon2, int32_t epsilon, float weight, int32_t vFactor, char *restrict visited, uint16_t *restrict newCount, uint16_t dBScanNeighbourLim)"
+.br
+.ti -1c
+.RI "void \fBclusteringDBscan_calcInfoFixed\fP (uint16_t clusterOriginator, \fBMmwDemo_detectedObjActual\fP *restrict detObj2D, uint16_t *restrict neighStart, uint16_t *restrict neighLast, \fBclusteringDBscanReport_t\fP *restrict report, \fBtrackingInputReport_t\fP *restrict trackingInput, \fBMmwDemo_DSS_DataPathObj\fP *obj)"
+.br
+.ti -1c
+.RI "int32_t \fBclusteringDBscanRun\fP (\fBclusteringDBscanInstance_t\fP *inst, \fBMmwDemo_DSS_DataPathObj\fP *obj, uint16_t numDetetectedObj, \fBclusteringDBscanOutput_t\fP *output, \fBtrackingInputReport_t\fP *trackingInput)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+DBscan clustering module\&. 
+
+Copyright (C) 2017 Texas Instruments Incorporated - http://www.ti.com/
+.PP
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+.PP
+Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer\&.
+.PP
+Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution\&.
+.PP
+Neither the name of Texas Instruments Incorporated nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission\&.
+.PP
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED\&. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE\&. 
+.PP
+Definition in file \fBclusteringDBscan\&.h\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define POINT_UNKNOWN   0"
+
+.PP
+#defines for the state of the detected points w\&.r\&.t to the clustering algorithms\&. 
+.PP
+Definition at line 45 of file clusteringDBscan\&.h\&.
+.SS "#define POINT_VISITED   1"
+
+.PP
+Definition at line 46 of file clusteringDBscan\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "void clusteringDBscan_calcInfoFixed (uint16_t clusterOriginator, \fBMmwDemo_detectedObjActual\fP *restrict detObj2D, uint16_t *restrict neighStart, uint16_t *restrict neighLast, \fBclusteringDBscanReport_t\fP *restrict report, \fBtrackingInputReport_t\fP *restrict trackingInput, \fBMmwDemo_DSS_DataPathObj\fP * obj)"
+
+.PP
+Definition at line 355 of file clusteringDBscan\&.c\&.
+.PP
+Referenced by clusteringDBscanRun()\&.
+.SS "uint16_t clusteringDBscan_findNeighbors2Fixed (\fBMmwDemo_detectedObjActual\fP *restrict detObj2D, uint16_t point, uint16_t *restrict neigh, uint16_t numPoints, int32_t epsilon2, int32_t epsilon, float weight, int32_t vFactor, char *restrict visited, uint16_t *restrict newCount, uint16_t dBScanNeighbourLim)"
+
+.PP
+Definition at line 247 of file clusteringDBscan\&.c\&.
+.PP
+References POINT_VISITED\&.
+.PP
+Referenced by clusteringDBscanRun()\&.
+.SS "int32_t clusteringDBscanRun (\fBclusteringDBscanInstance_t\fP * inst, \fBMmwDemo_DSS_DataPathObj\fP * obj, uint16_t numDetetectedObj, \fBclusteringDBscanOutput_t\fP * output, \fBtrackingInputReport_t\fP * trackingInput)"
+
+.PP
+Definition at line 79 of file clusteringDBscan\&.c\&.
+.PP
+References clusteringDBscan_calcInfoFixed(), clusteringDBscan_findNeighbors2Fixed(), DBSCAN_ERROR_CLUSTER_LIMIT_REACHED, DBSCAN_OK, clusteringDBscanInstance::dBScanNeighbourLim, MmwDemo_DSS_DataPathObj_t::detObj2D, clusteringDBscanInstance::epsilon, clusteringDBscanInstance::fixedPointScale, clusteringDBscanOutput::IndexArray, clusteringDBscanInstance::maxClusters, clusteringDBscanInstance::minPointsInCluster, clusteringDBscanInstance::neighbors, clusteringDBscanOutput::numCluster, POINT_UNKNOWN, POINT_VISITED, clusteringDBscanOutput::report, clusteringDBscanInstance::scope, clusteringDBscanInstance::vFactor, clusteringDBscanInstance::visited, and clusteringDBscanInstance::weight\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mmWaveFMCWRADAR from the source code\&.

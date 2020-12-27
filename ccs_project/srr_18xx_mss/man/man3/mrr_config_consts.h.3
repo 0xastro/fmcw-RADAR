@@ -1,0 +1,519 @@
+.TH "C:/Users/astro/workspace_v9_2/mrr_18xx_dss/common/mrr_config_consts.h" 3 "Wed May 20 2020" "Version 1.0" "mmWaveFMCWRADAR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/Users/astro/workspace_v9_2/mrr_18xx_dss/common/mrr_config_consts.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'mrr_defines\&.h'\fP
+.br
+\fC#include <ti/common/sys_common\&.h>\fP
+.br
+\fC#include 'mrr_config_chirp_design_MRR120\&.h'\fP
+.br
+\fC#include 'mrr_config_chirp_design_USRR30\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBNUM_RX_CHANNELS\fP   (4U)"
+.br
+.ti -1c
+.RI "#define \fBNUM_CHIRP_PROG\fP   (5U) /* Two for MRR80, Three for USRR20 */"
+.br
+.ti -1c
+.RI "#define \fBNUM_PROFILES\fP   (2U) /* one for MRR80, one for USRR20 */"
+.br
+.ti -1c
+.RI "#define \fBSUBFRAME_CONF_MRR_USRR\fP   /* Two subframes, MRR followed by USRR20\&. */"
+.br
+.RI "The multi-mode Radar mode of operation\&. "
+.ti -1c
+.RI "#define \fBNUM_SUBFRAMES\fP   (2U) /* one for MRR80, one for USRR20 */"
+.br
+.RI "The USRR only mode of operation\&. "
+.ti -1c
+.RI "#define \fBADCBUFF_CHIRP_THRESHOLD\fP   (1U)"
+.br
+.RI "Number of chirps to be collected in the ADC buffer, before the chirp available interrupt\&. "
+.ti -1c
+.RI "#define \fBMAX_VEL_ENH_SUBFRAME_IDX\fP   (0U)"
+.br
+.RI "Which subframe is used to do max-vel-enhancement\&. "
+.ti -1c
+.RI "#define \fBFRAME_PERIODICITY_VAL\fP   (\fBSUBFRAME_MRR_PERIODICITY_VAL\fP + \fBSUBFRAME_USRR_PERIODICITY_VAL\fP)"
+.br
+.RI "Add in the MRR 80 chirp design\&. "
+.ti -1c
+.RI "#define \fBFRAME_PERIODICITY_SEC\fP   (\fBFRAME_PERIODICITY_VAL\fP*5e\-9)"
+.br
+.RI "The total frame periodicity in seconds\&. "
+.ti -1c
+.RI "#define \fBMAX_NUM_RANGE_DEPENDANT_SNR_THRESHOLDS\fP   (3U)"
+.br
+.RI "The number of SNR Thresholds - used to vary the SNR requirement as a function of range\&. "
+.ti -1c
+.RI "#define \fBMAX_VEL_ENH_PROCESSING\fP   (0U)"
+.br
+.RI "There are two processing paths in the MRR Demo\&. "
+.ti -1c
+.RI "#define \fBPOINT_CLOUD_PROCESSING\fP   (1U)"
+.br
+.ti -1c
+.RI "#define \fBMAX_NUM_CLUSTER_USRR\fP   (24U)"
+.br
+.RI "The maximum number of clusters out of the dbscan algorithm (for the USRR subframe)\&. "
+.ti -1c
+.RI "#define \fBMAX_NUM_CLUSTER_MRR\fP   (32U)"
+.br
+.RI "The maximum number of clusters out of the dbscan algorithm (for the MRR subframe)\&. "
+.ti -1c
+.RI "#define \fBMAX_TRK_OBJs\fP   (32U)"
+.br
+.RI "The maximum number of tracked objects from the Kalman filter\&. "
+.ti -1c
+.RI "#define \fBREPORT_N_BIT_FRAC\fP   (7U)"
+.br
+.RI "Fractional bit width for most of the report data (range, velocity, x, y, etc)\&. "
+.ti -1c
+.RI "#define \fBCFARTHRESHOLD_N_BIT_FRAC\fP   (8U)"
+.br
+.RI "Fractional bit width for Thresholds for CFAR data (rangeSNRdB, dopplerSNRdB, AzimSNR, etc)\&. "
+.ti -1c
+.RI "#define \fBMIN_RANGE_OFFSET_METERS\fP   (0\&.075f)"
+.br
+.RI "The radar's range estimate has a constant error due to the finite distance from the antenna to the LO\&. "
+.ti -1c
+.RI "#define \fBMIN_TICK_FOR_TX\fP   (10U)"
+.br
+.RI "Wait for MIN_TICK_FOR_TX before letting the tracker results out\&. "
+.ti -1c
+.RI "#define \fBSIN_55_DEGREES\fP   (0\&.8192f)"
+.br
+.RI "We discard objects at extreme angles (greater than 55 degrees) from the tracking procedure\&. "
+.ti -1c
+.RI "#define \fBTRK_SIN_AZIM_THRESH\fP   (1\&.0f/256\&.0f)"
+.br
+.RI "We discard objects with poor azimuth SNR from the tracking procedure\&. "
+.ti -1c
+.RI "#define \fBCHECK_FOR_DET_MATRIX_TX\fP   1"
+.br
+.RI "In processing the max-velocity enhancement subframe we need to check for det matrix transfer only after the second set of chirps are processed\&. "
+.ti -1c
+.RI "#define \fBDO_NOT_CHECK_FOR_DET_MATRIX_TX\fP   0"
+.br
+.ti -1c
+.RI "#define \fBMRR_MAX_OBJ_OUT\fP   200"
+.br
+.RI "The maximum number of objects to be send out per frame\&. This number is upper bounded by the transfer rate to the external device\&. "
+.ti -1c
+.RI "#define \fBMAX_DET_OBJECTS_RAW_MAX_VEL_ENH_PROCESSING\fP   200"
+.br
+.RI "The maximum number of objects detected in the 'Max velocity enhanced' processing path\&. Because of all the pruning, and higher thresholds, and lower resolution, fewer objects are detected in MAX_VEL_ENH_PROCESSING\&. "
+.ti -1c
+.RI "#define \fBMAX_DET_OBJECTS_RAW_POINT_CLOUD_PROCESSING\fP   900"
+.br
+.RI "The maximum number of objects detected in the 'point cloud ' processing path\&. "
+.ti -1c
+.RI "#define \fBMAX_VEL_IMPROVEMENT_ASSOCIATION_THRESH_DB\fP   (3U)"
+.br
+.RI "The two peaks (from the 'fast chirp' and the 'slow chirp' should be within 2 dB\&. "
+.ti -1c
+.RI "#define \fBMAX_VEL_IMPROVEMENT_ASSOCIATION_THRESH\fP   ( (( 1U << \fBCFARTHRESHOLD_N_BIT_FRAC\fP) * \fBNUM_RX_CHANNELS\fP * \fBMAX_VEL_IMPROVEMENT_ASSOCIATION_THRESH_DB\fP) / 6U)"
+.br
+.RI "Convert the threshold to a CFAR magnitude difference\&. "
+.ti -1c
+.RI "#define \fBMAX_VEL_IMPROVEMENT_NUM_SPREAD\fP   (2U)"
+.br
+.RI "Search across 2 bins in the slow chirp\&. "
+.ti -1c
+.RI "#define \fBMAX_VEL_ENH_NUM_NYQUIST\fP   (2U)"
+.br
+.RI "Max velocity improvement of 3x\&. "
+.ti -1c
+.RI "#define \fBMAX_NUM_DET_PER_RANGE_GATE\fP   (3U)"
+.br
+.RI "Restrict the number of detected objects per range-gate to 3\&. "
+.ti -1c
+.RI "#define \fBMRR_SF0_EDMA_CH_1D_IN_PING\fP   EDMA_TPCC0_REQ_FREE_0"
+.br
+.RI "EDMA configuration table for FFT processing of subframe 0\&. "
+.ti -1c
+.RI "#define \fBMRR_SF0_EDMA_CH_1D_IN_PONG\fP   EDMA_TPCC0_REQ_FREE_1"
+.br
+.ti -1c
+.RI "#define \fBMRR_SF0_EDMA_CH_1D_OUT_PING\fP   EDMA_TPCC0_REQ_FREE_2"
+.br
+.ti -1c
+.RI "#define \fBMRR_SF0_EDMA_CH_1D_OUT_PONG\fP   EDMA_TPCC0_REQ_FREE_3"
+.br
+.ti -1c
+.RI "#define \fBMRR_SF0_EDMA_CH_2D_IN_PING\fP   EDMA_TPCC0_REQ_FREE_4"
+.br
+.ti -1c
+.RI "#define \fBMRR_SF0_EDMA_CH_2D_IN_PONG\fP   EDMA_TPCC0_REQ_FREE_5"
+.br
+.ti -1c
+.RI "#define \fBMRR_SF0_EDMA_CH_DET_MATRIX\fP   EDMA_TPCC0_REQ_FREE_6"
+.br
+.ti -1c
+.RI "#define \fBMRR_SF0_EDMA_CH_DET_MATRIX2\fP   EDMA_TPCC0_REQ_FREE_7"
+.br
+.ti -1c
+.RI "#define \fBMRR_SF0_EDMA_CH_3D_IN_PING\fP   EDMA_TPCC0_REQ_FREE_8"
+.br
+.ti -1c
+.RI "#define \fBMRR_SF0_EDMA_CH_3D_IN_PONG\fP   EDMA_TPCC0_REQ_FREE_9"
+.br
+.ti -1c
+.RI "#define \fBMRR_SF1_EDMA_CH_1D_IN_PING\fP   EDMA_TPCC0_REQ_FREE_10"
+.br
+.RI "EDMA configuration table for FFT processing of subframe 1\&. "
+.ti -1c
+.RI "#define \fBMRR_SF1_EDMA_CH_1D_IN_PONG\fP   EDMA_TPCC0_REQ_FREE_11"
+.br
+.ti -1c
+.RI "#define \fBMRR_SF1_EDMA_CH_1D_OUT_PING\fP   EDMA_TPCC0_REQ_FREE_12"
+.br
+.ti -1c
+.RI "#define \fBMRR_SF1_EDMA_CH_1D_OUT_PONG\fP   EDMA_TPCC0_REQ_FREE_13"
+.br
+.ti -1c
+.RI "#define \fBMRR_SF1_EDMA_CH_2D_IN_PING\fP   EDMA_TPCC0_REQ_FREE_14"
+.br
+.ti -1c
+.RI "#define \fBMRR_SF1_EDMA_CH_2D_IN_PONG\fP   EDMA_TPCC0_REQ_HWACC_7"
+.br
+.ti -1c
+.RI "#define \fBMRR_SF1_EDMA_CH_DET_MATRIX\fP   EDMA_TPCC0_REQ_HWACC_8"
+.br
+.ti -1c
+.RI "#define \fBMRR_SF1_EDMA_CH_DET_MATRIX2\fP   EDMA_TPCC0_REQ_HWACC_9"
+.br
+.ti -1c
+.RI "#define \fBMRR_SF1_EDMA_CH_3D_IN_PING\fP   EDMA_TPCC0_REQ_HWACC_10"
+.br
+.ti -1c
+.RI "#define \fBMRR_SF1_EDMA_CH_3D_IN_PONG\fP   EDMA_TPCC0_REQ_HWACC_11"
+.br
+.ti -1c
+.RI "#define \fBEDMA_INSTANCE_DSS\fP   \fBEDMA_INSTANCE_A\fP"
+.br
+.ti -1c
+.RI "#define \fBEDMA_INSTANCE_MSS\fP   \fBEDMA_INSTANCE_B\fP"
+.br
+.ti -1c
+.RI "#define \fBMRR_CBUFF_EDMA_CH\fP   EDMA_TPCC0_REQ_CBUFF_0"
+.br
+.RI "EDMA configuration table for CBUF\&. (Unused in this configuration)\&. "
+.ti -1c
+.RI "#define \fBMRR_CBUFF_EDMA_SHADOW_CH\fP   (EDMA_NUM_DMA_CHANNELS + 0U)"
+.br
+.ti -1c
+.RI "#define \fBCBUFF_EDMA_INSTANCE\fP   \fBEDMA_INSTANCE_B\fP"
+.br
+.ti -1c
+.RI "#define \fBMRR_EDMA_TRIGGER_ENABLE\fP   1"
+.br
+.ti -1c
+.RI "#define \fBMRR_EDMA_TRIGGER_DISABLE\fP   0"
+.br
+.ti -1c
+.RI "#define \fBMAX_VEL_POINT_CLOUD_PROCESSING_IS_ENABLED\fP   0"
+.br
+.RI "Flag to enable the max velocity enhancement in point cloud processing\&. "
+.in -1c
+.PP
+.RI "\fB\fP"
+.br
+
+.in +1c
+.in +1c
+.ti -1c
+.RI "#define \fBMRR_RANGE_120m\fP"
+.br
+.RI "LVDS based object transfer\&. The following line (if uncommented) uses the LVDS lanes to transfer object detection data to the PC\&. Needs an LVDS receiver\&. Hasn't been tested with the TSW1400\&. "
+.in -1c
+.in -1c
+.PP
+.RI "\fB\fP"
+.br
+
+.in +1c
+.in +1c
+.ti -1c
+.RI "#define \fBFRAME_CHIRP_START_IDX\fP   (0U)"
+.br
+.RI "Unused #defines\&. "
+.ti -1c
+.RI "#define \fBFRAME_CHIRP_END_IDX\fP   (1U)"
+.br
+.ti -1c
+.RI "#define \fBFRAME_COUNT_VAL\fP   (0U)"
+.br
+.ti -1c
+.RI "#define \fBFRAME_LOOP_COUNT\fP   (64U)"
+.br
+.ti -1c
+.RI "#define \fBFRAME_TRIGGER_DELAY_VAL\fP   (0U)"
+.br
+.ti -1c
+.RI "#define \fBFRAME_NUM_REAL_ADC_SAMPLES\fP   (512U)"
+.br
+.ti -1c
+.RI "#define \fBFRAME_NUM_CMPLX_ADC_SAMPLES\fP   (256U)"
+.br
+.in -1c
+.in -1c
+.PP
+.RI "\fB\fP"
+.br
+
+.in +1c
+.in +1c
+.ti -1c
+.RI "#define \fBEDMA_INSTANCE_A\fP   (0U)"
+.br
+.RI "There are two TPCCs available on the 16xx\&. "
+.ti -1c
+.RI "#define \fBEDMA_INSTANCE_B\fP   (1U)"
+.br
+.in -1c
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define ADCBUFF_CHIRP_THRESHOLD   (1U)"
+
+.PP
+Number of chirps to be collected in the ADC buffer, before the chirp available interrupt\&. 
+.PP
+Definition at line 117 of file mrr_config_consts\&.h\&.
+.SS "#define CFARTHRESHOLD_N_BIT_FRAC   (8U)"
+
+.PP
+Fractional bit width for Thresholds for CFAR data (rangeSNRdB, dopplerSNRdB, AzimSNR, etc)\&. 
+.PP
+Definition at line 175 of file mrr_config_consts\&.h\&.
+.SS "#define CHECK_FOR_DET_MATRIX_TX   1"
+
+.PP
+In processing the max-velocity enhancement subframe we need to check for det matrix transfer only after the second set of chirps are processed\&. 
+.PP
+Definition at line 193 of file mrr_config_consts\&.h\&.
+.SS "#define DO_NOT_CHECK_FOR_DET_MATRIX_TX   0"
+
+.PP
+Definition at line 194 of file mrr_config_consts\&.h\&.
+.SS "#define EDMA_INSTANCE_A   (0U)"
+
+.PP
+There are two TPCCs available on the 16xx\&. 
+.PP
+Definition at line 229 of file mrr_config_consts\&.h\&.
+.SS "#define EDMA_INSTANCE_B   (1U)"
+
+.PP
+Definition at line 230 of file mrr_config_consts\&.h\&.
+.SS "#define FRAME_CHIRP_END_IDX   (1U)"
+
+.PP
+Definition at line 220 of file mrr_config_consts\&.h\&.
+.SS "#define FRAME_CHIRP_START_IDX   (0U)"
+
+.PP
+Unused #defines\&. 
+.PP
+Definition at line 219 of file mrr_config_consts\&.h\&.
+.SS "#define FRAME_COUNT_VAL   (0U)"
+
+.PP
+Definition at line 221 of file mrr_config_consts\&.h\&.
+.SS "#define FRAME_LOOP_COUNT   (64U)"
+
+.PP
+Definition at line 222 of file mrr_config_consts\&.h\&.
+.SS "#define FRAME_NUM_CMPLX_ADC_SAMPLES   (256U)"
+
+.PP
+Definition at line 225 of file mrr_config_consts\&.h\&.
+.SS "#define FRAME_NUM_REAL_ADC_SAMPLES   (512U)"
+
+.PP
+Definition at line 224 of file mrr_config_consts\&.h\&.
+.SS "#define FRAME_PERIODICITY_SEC   (\fBFRAME_PERIODICITY_VAL\fP*5e\-9)"
+
+.PP
+The total frame periodicity in seconds\&. 
+.PP
+Definition at line 153 of file mrr_config_consts\&.h\&.
+.SS "#define FRAME_PERIODICITY_VAL   (\fBSUBFRAME_MRR_PERIODICITY_VAL\fP + \fBSUBFRAME_USRR_PERIODICITY_VAL\fP)"
+
+.PP
+Add in the MRR 80 chirp design\&. Add in the USRR 20 chirp design\&.
+.PP
+Add in the USRR 30 chirp design\&. 
+.PP
+Definition at line 136 of file mrr_config_consts\&.h\&.
+.SS "#define FRAME_TRIGGER_DELAY_VAL   (0U)"
+
+.PP
+Definition at line 223 of file mrr_config_consts\&.h\&.
+.SS "#define MAX_DET_OBJECTS_RAW_MAX_VEL_ENH_PROCESSING   200"
+
+.PP
+The maximum number of objects detected in the 'Max velocity enhanced' processing path\&. Because of all the pruning, and higher thresholds, and lower resolution, fewer objects are detected in MAX_VEL_ENH_PROCESSING\&. 
+.PP
+Definition at line 204 of file mrr_config_consts\&.h\&.
+.SS "#define MAX_DET_OBJECTS_RAW_POINT_CLOUD_PROCESSING   900"
+
+.PP
+The maximum number of objects detected in the 'point cloud ' processing path\&. 
+.PP
+Definition at line 206 of file mrr_config_consts\&.h\&.
+.SS "#define MAX_NUM_CLUSTER_MRR   (32U)"
+
+.PP
+The maximum number of clusters out of the dbscan algorithm (for the MRR subframe)\&. 
+.PP
+Definition at line 166 of file mrr_config_consts\&.h\&.
+.SS "#define MAX_NUM_CLUSTER_USRR   (24U)"
+
+.PP
+The maximum number of clusters out of the dbscan algorithm (for the USRR subframe)\&. 
+.PP
+Definition at line 163 of file mrr_config_consts\&.h\&.
+.SS "#define MAX_NUM_DET_PER_RANGE_GATE   (3U)"
+
+.PP
+Restrict the number of detected objects per range-gate to 3\&. 
+.PP
+Definition at line 216 of file mrr_config_consts\&.h\&.
+.SS "#define MAX_NUM_RANGE_DEPENDANT_SNR_THRESHOLDS   (3U)"
+
+.PP
+The number of SNR Thresholds - used to vary the SNR requirement as a function of range\&. 
+.PP
+Definition at line 156 of file mrr_config_consts\&.h\&.
+.SS "#define MAX_TRK_OBJs   (32U)"
+
+.PP
+The maximum number of tracked objects from the Kalman filter\&. 
+.PP
+Definition at line 169 of file mrr_config_consts\&.h\&.
+.SS "#define MAX_VEL_ENH_NUM_NYQUIST   (2U)"
+
+.PP
+Max velocity improvement of 3x\&. 
+.PP
+Definition at line 214 of file mrr_config_consts\&.h\&.
+.SS "#define MAX_VEL_ENH_PROCESSING   (0U)"
+
+.PP
+There are two processing paths in the MRR Demo\&. 
+.PP
+Definition at line 159 of file mrr_config_consts\&.h\&.
+.SS "#define MAX_VEL_ENH_SUBFRAME_IDX   (0U)"
+
+.PP
+Which subframe is used to do max-vel-enhancement\&. 
+.PP
+Definition at line 120 of file mrr_config_consts\&.h\&.
+.SS "#define MAX_VEL_IMPROVEMENT_ASSOCIATION_THRESH   ( (( 1U << \fBCFARTHRESHOLD_N_BIT_FRAC\fP) * \fBNUM_RX_CHANNELS\fP * \fBMAX_VEL_IMPROVEMENT_ASSOCIATION_THRESH_DB\fP) / 6U)"
+
+.PP
+Convert the threshold to a CFAR magnitude difference\&. 
+.PP
+Definition at line 210 of file mrr_config_consts\&.h\&.
+.SS "#define MAX_VEL_IMPROVEMENT_ASSOCIATION_THRESH_DB   (3U)"
+
+.PP
+The two peaks (from the 'fast chirp' and the 'slow chirp' should be within 2 dB\&. 
+.PP
+Definition at line 208 of file mrr_config_consts\&.h\&.
+.SS "#define MAX_VEL_IMPROVEMENT_NUM_SPREAD   (2U)"
+
+.PP
+Search across 2 bins in the slow chirp\&. 
+.PP
+Definition at line 212 of file mrr_config_consts\&.h\&.
+.SS "#define MIN_RANGE_OFFSET_METERS   (0\&.075f)"
+
+.PP
+The radar's range estimate has a constant error due to the finite distance from the antenna to the LO\&. 
+.PP
+Definition at line 178 of file mrr_config_consts\&.h\&.
+.SS "#define MIN_TICK_FOR_TX   (10U)"
+
+.PP
+Wait for MIN_TICK_FOR_TX before letting the tracker results out\&. 
+.PP
+Definition at line 181 of file mrr_config_consts\&.h\&.
+.SS "#define MRR_MAX_OBJ_OUT   200"
+
+.PP
+The maximum number of objects to be send out per frame\&. This number is upper bounded by the transfer rate to the external device\&. 
+.PP
+Definition at line 198 of file mrr_config_consts\&.h\&.
+.SS "#define MRR_RANGE_120m"
+
+.PP
+LVDS based object transfer\&. The following line (if uncommented) uses the LVDS lanes to transfer object detection data to the PC\&. Needs an LVDS receiver\&. Hasn't been tested with the TSW1400\&. Universal options for the MRR TI Design\&. These are different compile time options for the MRR TI Design, that modify the base MRR design based on different requirements\&.
+.PP
+Reduced Thresholds\&. The following line (if uncommented) reduces thresholds for the USRR detection algorithm to enable the detection of weak targets\&. 
+.br
+.PP
+120m max range\&. The MRR was initially designed for 80m, but with a slight configuration change will work at 120m (boresight)\&. Uncomment the following line for enabling that config\&. 
+.PP
+Definition at line 70 of file mrr_config_consts\&.h\&.
+.SS "#define NUM_CHIRP_PROG   (5U) /* Two for MRR80, Three for USRR20 */"
+
+.PP
+Definition at line 74 of file mrr_config_consts\&.h\&.
+.SS "#define NUM_PROFILES   (2U) /* one for MRR80, one for USRR20 */"
+
+.PP
+Definition at line 75 of file mrr_config_consts\&.h\&.
+.SS "#define NUM_RX_CHANNELS   (4U)"
+
+.PP
+Definition at line 73 of file mrr_config_consts\&.h\&.
+.SS "#define NUM_SUBFRAMES   (2U) /* one for MRR80, one for USRR20 */"
+
+.PP
+The USRR only mode of operation\&. ! ! The MRR only mode of operation\&. 
+.PP
+Definition at line 112 of file mrr_config_consts\&.h\&.
+.SS "#define POINT_CLOUD_PROCESSING   (1U)"
+
+.PP
+Definition at line 160 of file mrr_config_consts\&.h\&.
+.SS "#define REPORT_N_BIT_FRAC   (7U)"
+
+.PP
+Fractional bit width for most of the report data (range, velocity, x, y, etc)\&. 
+.PP
+Definition at line 172 of file mrr_config_consts\&.h\&.
+.SS "#define SIN_55_DEGREES   (0\&.8192f)"
+
+.PP
+We discard objects at extreme angles (greater than 55 degrees) from the tracking procedure\&. 
+.PP
+Definition at line 185 of file mrr_config_consts\&.h\&.
+.SS "#define SUBFRAME_CONF_MRR_USRR   /* Two subframes, MRR followed by USRR20\&. */"
+
+.PP
+The multi-mode Radar mode of operation\&. ! 
+.PP
+Definition at line 78 of file mrr_config_consts\&.h\&.
+.SS "#define TRK_SIN_AZIM_THRESH   (1\&.0f/256\&.0f)"
+
+.PP
+We discard objects with poor azimuth SNR from the tracking procedure\&. 
+.PP
+Definition at line 189 of file mrr_config_consts\&.h\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mmWaveFMCWRADAR from the source code\&.

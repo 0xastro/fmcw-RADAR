@@ -1,0 +1,106 @@
+\doxysection{cycle\+Log\+\_\+t\+\_\+ Struct Reference}
+\label{structcycle_log__t__}\index{cycleLog\_t\_@{cycleLog\_t\_}}
+
+
+D\+SP cycle profiling structure to accumulate different processing times in chirp and frame processing periods.  
+
+
+
+
+{\ttfamily \#include $<$dss\+\_\+data\+\_\+path.\+h$>$}
+
+
+
+Collaboration diagram for cycle\+Log\+\_\+t\+\_\+\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{structcycle_log__t____coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \textbf{ inter\+Chirp\+Processing\+Time}
+\begin{DoxyCompactList}\small\item\em total processing time during all chirps in a frame excluding E\+D\+MA waiting time \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ inter\+Chirp\+Wait\+Time}
+\begin{DoxyCompactList}\small\item\em total wait time for E\+D\+MA data transfer during all chirps in a frame \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ inter\+Frame\+Processing\+Time}
+\begin{DoxyCompactList}\small\item\em total processing time for 2D and 3D excluding E\+D\+MA waiting time \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ inter\+Frame\+Wait\+Time}
+\begin{DoxyCompactList}\small\item\em total wait time for 2D and 3D E\+D\+MA data transfer \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+D\+SP cycle profiling structure to accumulate different processing times in chirp and frame processing periods. 
+
+Definition at line 99 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\label{structcycle_log__t___a121fcc302bcdb4b08372ec26ddbf954e}} 
+\index{cycleLog\_t\_@{cycleLog\_t\_}!interChirpProcessingTime@{interChirpProcessingTime}}
+\index{interChirpProcessingTime@{interChirpProcessingTime}!cycleLog\_t\_@{cycleLog\_t\_}}
+\doxysubsubsection{interChirpProcessingTime}
+{\footnotesize\ttfamily uint32\+\_\+t cycle\+Log\+\_\+t\+\_\+\+::inter\+Chirp\+Processing\+Time}
+
+
+
+total processing time during all chirps in a frame excluding E\+D\+MA waiting time 
+
+
+
+Definition at line 100 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{structcycle_log__t___a1da2420e05b44be6177d41dfae27e490}} 
+\index{cycleLog\_t\_@{cycleLog\_t\_}!interChirpWaitTime@{interChirpWaitTime}}
+\index{interChirpWaitTime@{interChirpWaitTime}!cycleLog\_t\_@{cycleLog\_t\_}}
+\doxysubsubsection{interChirpWaitTime}
+{\footnotesize\ttfamily uint32\+\_\+t cycle\+Log\+\_\+t\+\_\+\+::inter\+Chirp\+Wait\+Time}
+
+
+
+total wait time for E\+D\+MA data transfer during all chirps in a frame 
+
+
+
+Definition at line 101 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by Mmw\+Demo\+\_\+process\+Chirp().
+
+\mbox{\label{structcycle_log__t___ac9b6d4e0807ea33db3c6e44af452799f}} 
+\index{cycleLog\_t\_@{cycleLog\_t\_}!interFrameProcessingTime@{interFrameProcessingTime}}
+\index{interFrameProcessingTime@{interFrameProcessingTime}!cycleLog\_t\_@{cycleLog\_t\_}}
+\doxysubsubsection{interFrameProcessingTime}
+{\footnotesize\ttfamily uint32\+\_\+t cycle\+Log\+\_\+t\+\_\+\+::inter\+Frame\+Processing\+Time}
+
+
+
+total processing time for 2D and 3D excluding E\+D\+MA waiting time 
+
+
+
+Definition at line 102 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{structcycle_log__t___a6dbf3ba95fa06b93a48dfaccaaa2f6c6}} 
+\index{cycleLog\_t\_@{cycleLog\_t\_}!interFrameWaitTime@{interFrameWaitTime}}
+\index{interFrameWaitTime@{interFrameWaitTime}!cycleLog\_t\_@{cycleLog\_t\_}}
+\doxysubsubsection{interFrameWaitTime}
+{\footnotesize\ttfamily uint32\+\_\+t cycle\+Log\+\_\+t\+\_\+\+::inter\+Frame\+Wait\+Time}
+
+
+
+total wait time for 2D and 3D E\+D\+MA data transfer 
+
+
+
+Definition at line 103 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ dss\+\_\+data\+\_\+path.\+h}\end{DoxyCompactItemize}

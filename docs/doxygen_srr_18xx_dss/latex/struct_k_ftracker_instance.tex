@@ -1,0 +1,314 @@
+\doxysection{K\+Ftracker\+Instance Struct Reference}
+\label{struct_k_ftracker_instance}\index{KFtrackerInstance@{KFtrackerInstance}}
+
+
+Struct for the tracker configuration, and pointers to scratch buffers.  
+
+
+
+
+{\ttfamily \#include $<$dss\+\_\+data\+\_\+path.\+h$>$}
+
+
+
+Collaboration diagram for K\+Ftracker\+Instance\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=195pt]{struct_k_ftracker_instance__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+float \textbf{ range\+Assoc\+Thresh}
+\item 
+float \textbf{ vel\+Assoc\+Thresh}
+\item 
+float \textbf{ azim\+Assoc\+Thresh}
+\item 
+float \textbf{ dist\+Assoc\+Thresh\+Sq}
+\item 
+uint16\+\_\+t \textbf{ max\+Trackers}
+\item 
+uint16\+\_\+t \textbf{ fixed\+Point\+Scale}
+\item 
+float $\ast$ \textbf{ scratch\+Pad\+Flt}
+\item 
+int16\+\_\+t $\ast$ \textbf{ scratch\+Pad\+Short}
+\item 
+int16\+\_\+t $\ast$ \textbf{ assoc\+Meas\+Indx}
+\item 
+int16\+\_\+t $\ast$ \textbf{ free\+Tracker\+Indx\+Array}
+\item 
+int16\+\_\+t $\ast$ \textbf{ selected\+Indx\+Arr}
+\item 
+float $\ast$ \textbf{ state\+Vec\+Rrd}
+\item 
+float $\ast$ \textbf{ resid\+Covmat}
+\item 
+float $\ast$ \textbf{ inv\+Resid\+Covmat}
+\item 
+float $\ast$ \textbf{ h\+Mat}
+\item 
+float $\ast$ \textbf{ kalman\+Gain}
+\item 
+float $\ast$ \textbf{ covmattmp}
+\item 
+float $\ast$ \textbf{ kalman\+Gain\+Temp}
+\item 
+float $\ast$ \textbf{ state\+Cov\+Mattemp}
+\item 
+float $\ast$ \textbf{ state\+Cov\+MattempP}
+\item 
+float $\ast$ \textbf{ meas\+Residual}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Struct for the tracker configuration, and pointers to scratch buffers. 
+
+Definition at line 392 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\label{struct_k_ftracker_instance_a1c2d6d07852e0496059c06614fc6ba89}} 
+\index{KFtrackerInstance@{KFtrackerInstance}!assocMeasIndx@{assocMeasIndx}}
+\index{assocMeasIndx@{assocMeasIndx}!KFtrackerInstance@{KFtrackerInstance}}
+\doxysubsubsection{assocMeasIndx}
+{\footnotesize\ttfamily int16\+\_\+t$\ast$ K\+Ftracker\+Instance\+::assoc\+Meas\+Indx}
+
+
+
+Definition at line 404 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by ekf\+Run().
+
+\mbox{\label{struct_k_ftracker_instance_a437be3b1f86f0e206d190cd425d65783}} 
+\index{KFtrackerInstance@{KFtrackerInstance}!azimAssocThresh@{azimAssocThresh}}
+\index{azimAssocThresh@{azimAssocThresh}!KFtrackerInstance@{KFtrackerInstance}}
+\doxysubsubsection{azimAssocThresh}
+{\footnotesize\ttfamily float K\+Ftracker\+Instance\+::azim\+Assoc\+Thresh}
+
+
+
+Definition at line 396 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_k_ftracker_instance_a325a3689511cd248e8f13dda4f64bc3c}} 
+\index{KFtrackerInstance@{KFtrackerInstance}!covmattmp@{covmattmp}}
+\index{covmattmp@{covmattmp}!KFtrackerInstance@{KFtrackerInstance}}
+\doxysubsubsection{covmattmp}
+{\footnotesize\ttfamily float$\ast$ K\+Ftracker\+Instance\+::covmattmp}
+
+
+
+Definition at line 412 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_k_ftracker_instance_a85ccdfd1b8aa642e68df3a22215ad5c9}} 
+\index{KFtrackerInstance@{KFtrackerInstance}!distAssocThreshSq@{distAssocThreshSq}}
+\index{distAssocThreshSq@{distAssocThreshSq}!KFtrackerInstance@{KFtrackerInstance}}
+\doxysubsubsection{distAssocThreshSq}
+{\footnotesize\ttfamily float K\+Ftracker\+Instance\+::dist\+Assoc\+Thresh\+Sq}
+
+
+
+Definition at line 397 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_k_ftracker_instance_ae329b4e5686e54be821af6c568bdfe40}} 
+\index{KFtrackerInstance@{KFtrackerInstance}!fixedPointScale@{fixedPointScale}}
+\index{fixedPointScale@{fixedPointScale}!KFtrackerInstance@{KFtrackerInstance}}
+\doxysubsubsection{fixedPointScale}
+{\footnotesize\ttfamily uint16\+\_\+t K\+Ftracker\+Instance\+::fixed\+Point\+Scale}
+
+
+
+Definition at line 399 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_k_ftracker_instance_a8c4d8250eede6d7b61db113bb3a70983}} 
+\index{KFtrackerInstance@{KFtrackerInstance}!freeTrackerIndxArray@{freeTrackerIndxArray}}
+\index{freeTrackerIndxArray@{freeTrackerIndxArray}!KFtrackerInstance@{KFtrackerInstance}}
+\doxysubsubsection{freeTrackerIndxArray}
+{\footnotesize\ttfamily int16\+\_\+t$\ast$ K\+Ftracker\+Instance\+::free\+Tracker\+Indx\+Array}
+
+
+
+Definition at line 405 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_k_ftracker_instance_aa8b8276fa15de83e87260e791327001a}} 
+\index{KFtrackerInstance@{KFtrackerInstance}!hMat@{hMat}}
+\index{hMat@{hMat}!KFtrackerInstance@{KFtrackerInstance}}
+\doxysubsubsection{hMat}
+{\footnotesize\ttfamily float$\ast$ K\+Ftracker\+Instance\+::h\+Mat}
+
+
+
+Definition at line 410 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_k_ftracker_instance_a79d370d66c1b50b27e6f5b0015d00657}} 
+\index{KFtrackerInstance@{KFtrackerInstance}!invResidCovmat@{invResidCovmat}}
+\index{invResidCovmat@{invResidCovmat}!KFtrackerInstance@{KFtrackerInstance}}
+\doxysubsubsection{invResidCovmat}
+{\footnotesize\ttfamily float$\ast$ K\+Ftracker\+Instance\+::inv\+Resid\+Covmat}
+
+
+
+Definition at line 409 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_k_ftracker_instance_ab0a196522fdf755c7e84d36491f9591b}} 
+\index{KFtrackerInstance@{KFtrackerInstance}!kalmanGain@{kalmanGain}}
+\index{kalmanGain@{kalmanGain}!KFtrackerInstance@{KFtrackerInstance}}
+\doxysubsubsection{kalmanGain}
+{\footnotesize\ttfamily float$\ast$ K\+Ftracker\+Instance\+::kalman\+Gain}
+
+
+
+Definition at line 411 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_k_ftracker_instance_ab79dc4cf955bc5ec1ebc060dafa68189}} 
+\index{KFtrackerInstance@{KFtrackerInstance}!kalmanGainTemp@{kalmanGainTemp}}
+\index{kalmanGainTemp@{kalmanGainTemp}!KFtrackerInstance@{KFtrackerInstance}}
+\doxysubsubsection{kalmanGainTemp}
+{\footnotesize\ttfamily float$\ast$ K\+Ftracker\+Instance\+::kalman\+Gain\+Temp}
+
+
+
+Definition at line 413 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by kalman\+Gain\+Computation().
+
+\mbox{\label{struct_k_ftracker_instance_ac25dbae3ec537681dcd266cb43166b68}} 
+\index{KFtrackerInstance@{KFtrackerInstance}!maxTrackers@{maxTrackers}}
+\index{maxTrackers@{maxTrackers}!KFtrackerInstance@{KFtrackerInstance}}
+\doxysubsubsection{maxTrackers}
+{\footnotesize\ttfamily uint16\+\_\+t K\+Ftracker\+Instance\+::max\+Trackers}
+
+
+
+Definition at line 398 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by populate\+Outputs().
+
+\mbox{\label{struct_k_ftracker_instance_a4d3f1d0d46dcd0d2477b64b644aa9ebb}} 
+\index{KFtrackerInstance@{KFtrackerInstance}!measResidual@{measResidual}}
+\index{measResidual@{measResidual}!KFtrackerInstance@{KFtrackerInstance}}
+\doxysubsubsection{measResidual}
+{\footnotesize\ttfamily float$\ast$ K\+Ftracker\+Instance\+::meas\+Residual}
+
+
+
+Definition at line 416 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_k_ftracker_instance_a985f684777c5dbefd78cfbd384d2f7fc}} 
+\index{KFtrackerInstance@{KFtrackerInstance}!rangeAssocThresh@{rangeAssocThresh}}
+\index{rangeAssocThresh@{rangeAssocThresh}!KFtrackerInstance@{KFtrackerInstance}}
+\doxysubsubsection{rangeAssocThresh}
+{\footnotesize\ttfamily float K\+Ftracker\+Instance\+::range\+Assoc\+Thresh}
+
+
+
+Definition at line 394 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_k_ftracker_instance_a15c4a73f929dd44877d127385bb01bca}} 
+\index{KFtrackerInstance@{KFtrackerInstance}!residCovmat@{residCovmat}}
+\index{residCovmat@{residCovmat}!KFtrackerInstance@{KFtrackerInstance}}
+\doxysubsubsection{residCovmat}
+{\footnotesize\ttfamily float$\ast$ K\+Ftracker\+Instance\+::resid\+Covmat}
+
+
+
+Definition at line 408 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_k_ftracker_instance_a0ad55c477d16aa44bacaf5c7c983ee48}} 
+\index{KFtrackerInstance@{KFtrackerInstance}!scratchPadFlt@{scratchPadFlt}}
+\index{scratchPadFlt@{scratchPadFlt}!KFtrackerInstance@{KFtrackerInstance}}
+\doxysubsubsection{scratchPadFlt}
+{\footnotesize\ttfamily float$\ast$ K\+Ftracker\+Instance\+::scratch\+Pad\+Flt}
+
+
+
+Definition at line 402 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by ekf\+Init().
+
+\mbox{\label{struct_k_ftracker_instance_a687408d61e884456772f46ed2473c3a0}} 
+\index{KFtrackerInstance@{KFtrackerInstance}!scratchPadShort@{scratchPadShort}}
+\index{scratchPadShort@{scratchPadShort}!KFtrackerInstance@{KFtrackerInstance}}
+\doxysubsubsection{scratchPadShort}
+{\footnotesize\ttfamily int16\+\_\+t$\ast$ K\+Ftracker\+Instance\+::scratch\+Pad\+Short}
+
+
+
+Definition at line 403 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_k_ftracker_instance_a2f6b5e0ef9f87b5963be5d921edef96b}} 
+\index{KFtrackerInstance@{KFtrackerInstance}!selectedIndxArr@{selectedIndxArr}}
+\index{selectedIndxArr@{selectedIndxArr}!KFtrackerInstance@{KFtrackerInstance}}
+\doxysubsubsection{selectedIndxArr}
+{\footnotesize\ttfamily int16\+\_\+t$\ast$ K\+Ftracker\+Instance\+::selected\+Indx\+Arr}
+
+
+
+Definition at line 406 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_k_ftracker_instance_adb6ed0358fc9ad6c9083601b5a8197f1}} 
+\index{KFtrackerInstance@{KFtrackerInstance}!stateCovMattemp@{stateCovMattemp}}
+\index{stateCovMattemp@{stateCovMattemp}!KFtrackerInstance@{KFtrackerInstance}}
+\doxysubsubsection{stateCovMattemp}
+{\footnotesize\ttfamily float$\ast$ K\+Ftracker\+Instance\+::state\+Cov\+Mattemp}
+
+
+
+Definition at line 414 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by state\+Covmat\+Measurement\+Update().
+
+\mbox{\label{struct_k_ftracker_instance_a2dfac51f57589bdae92052a0f0ec4e07}} 
+\index{KFtrackerInstance@{KFtrackerInstance}!stateCovMattempP@{stateCovMattempP}}
+\index{stateCovMattempP@{stateCovMattempP}!KFtrackerInstance@{KFtrackerInstance}}
+\doxysubsubsection{stateCovMattempP}
+{\footnotesize\ttfamily float$\ast$ K\+Ftracker\+Instance\+::state\+Cov\+MattempP}
+
+
+
+Definition at line 415 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+Referenced by state\+Covmat\+Measurement\+Update().
+
+\mbox{\label{struct_k_ftracker_instance_aef9ebf4754b3dab476faf054f4645688}} 
+\index{KFtrackerInstance@{KFtrackerInstance}!stateVecRrd@{stateVecRrd}}
+\index{stateVecRrd@{stateVecRrd}!KFtrackerInstance@{KFtrackerInstance}}
+\doxysubsubsection{stateVecRrd}
+{\footnotesize\ttfamily float$\ast$ K\+Ftracker\+Instance\+::state\+Vec\+Rrd}
+
+
+
+Definition at line 407 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_k_ftracker_instance_a4e70bf2c983c5f5639302a4bc2bc773d}} 
+\index{KFtrackerInstance@{KFtrackerInstance}!velAssocThresh@{velAssocThresh}}
+\index{velAssocThresh@{velAssocThresh}!KFtrackerInstance@{KFtrackerInstance}}
+\doxysubsubsection{velAssocThresh}
+{\footnotesize\ttfamily float K\+Ftracker\+Instance\+::vel\+Assoc\+Thresh}
+
+
+
+Definition at line 395 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ dss\+\_\+data\+\_\+path.\+h}\end{DoxyCompactItemize}

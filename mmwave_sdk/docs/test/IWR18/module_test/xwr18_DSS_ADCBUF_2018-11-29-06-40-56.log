@@ -1,0 +1,216 @@
+eth008 Board details:
+IP address: 10.218.113.61
+
+Port: 17494
+
+connecting...
+Relay states 8->1 : 01010101
+5 off
+6 off
+Relay states 8->1 : 01000101
+5 on
+Relay states 8->1 : 01010101
+exit
+Disconnected
+Pre-Script returned: Success
+**************************************************
+Testcase mods & parameters invoked:
+**************************************************
+Two core test case: None (this is not a two core testcase)
+
+**************************************************
+Copying test case files from the Build server
+**************************************************
+Testdata possible location 1: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/drivers/adcbuf/test/testdata
+
+
+Testdata directory was not found on Testdata possible location 1
+
+
+Testdata possible location 2: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/drivers/adcbuf/test/xwr18xx/testdata
+
+
+Testdata directory was not found on Testdata possible location 2
+
+Call to copy_testcase_binary:
+TCP: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/drivers/adcbuf/test/xwr18xx; /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr18xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_03_55_41
+
+Copying testcase binary file from http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/drivers/adcbuf/test/xwr18xx/xwr18xx_adcbuf_dss.xe674 to /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr18xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_03_55_41 using command: 
+wget -e robots=off --no-proxy -N -T 30 -t 2 -P /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr18xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_03_55_41 http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/drivers/adcbuf/test/xwr18xx/xwr18xx_adcbuf_dss.xe674
+**************************************************
+Executing Testcase:/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr18xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_03_55_41/xwr18xx_adcbuf_dss.xe674
+**************************************************
+Checking if Py4J Gateway server has started...
+Py4J Gateway Server is Started
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/DEBUGSSM_0
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/IcePick_M_0
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/C674X_0
+DSS test case opening debug session.
+
+cr4ctl = 0x0
+
+efuse/register @0xFFFFE210 = 0x0
+
+efuse/register @0xFFFFE214 = 0x0
+
+efuse/register @0xFFFFE218 = 0x0
+
+efuse/register @0xFFFFE21C = 0x0
+
+Loading binary to the DUT (no binary args updated):/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr18xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_03_55_41/xwr18xx_adcbuf_dss.xe674
+binary path = /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr18xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_03_55_41/xwr18xx_adcbuf_dss.xe674
+
+dt-time: start time = Thu Nov 29 06:41:38 2018
+
+dt-time: end time = Thu Nov 29 06:42:49 2018
+
+
+**************************************************
+CIO Log captured for the testcase
+**************************************************
+Debug: SOC Module Initialization succeeded, handle = @00801068
+Debug: ADCBUF Instance(0) @00817cf8 has been opened successfully
+Debug: ADCBUF Instance @00817cf8 has been closed successfully
+Feature: ADCBUF Basic API test: Passed
+Debug: ADCBUF Instance(0) @00817cf8 has been opened successfully
+Debug: Passed the param check for command=0 with arg=5
+Debug: Passed the param check for command=4 with arg=8
+Debug: Passed the param check for command=7 with adcOutFormat=2 
+Debug: Passed the param check for command=7 with sampleInterleave=2
+Debug: Passed the param check for command=7 channelInterleave=2
+Debug: Passed the param check for command=13 with cqDataWidth=5 
+Debug: Passed the param check for command=13 with cqDataWidth=0 
+Debug: Passed the param check for command=5 
+Debug: Passed the param check for command=8 with channel = 6
+Debug: Passed the param check for command=8 with offset = 32768
+Debug: Passed the param check for command=1 with arg = 35, retVal=-2402
+Debug: Passed the param check for command=2 with arg = 35, retVal=-2404
+Debug: Passed the param check for command=3 with arg = 35, retVal=-2404
+Debug: Passed the param check for command=9 with arg = 12, retVal=0
+Debug: Passed the param check for command=9 with arg = 28, retVal=-2404
+Debug: Passed the param check for command=9 with arg = 0, retVal=-2404
+Debug: ADCBUF Instance @00817cf8 has been closed successfully
+Feature: ADCBUF Input Parameters Validation Test: Passed
+Debug: ADCBUF Instance @00817cf8 has been reopened successfully
+Debug: Start ADCBUF Test Pattern with dataFormat=0, sampleSwap=0, interleave=0
+Debug: First 4 32 bit words 0x58024802     0x58024802    0x58024802    0x58024802
+Debug: First 4 32 bit words 0x58024802     0x58024802    0x58024802    0x58024802
+Debug: First 4 32 bit words 0x58024802     0x58024802    0x58024802    0x58024802
+Debug: First 4 32 bit words 0x58024802     0x58024802    0x58024802    0x58024802
+Debug: First 4 32 bit words 0x58024802     0x58024802    0x58024802    0x58024802
+Debug: First 4 32 bit words 0x58024802     0x58024802    0x58024802    0x58024802
+Debug: First 4 32 bit words 0x58024802     0x58024802    0x58024802    0x58024802
+Debug: First 4 32 bit words 0x58024802     0x58024802    0x58024802    0x58024802
+Debug: First 4 32 bit words 0x58024802     0x58024802    0x58024802    0x58024802
+Debug: First 4 32 bit words 0x58024802     0x58024802    0x58024802    0x58024802
+Debug: First 4 32 bit words 0x58024802     0x58024802    0x58024802    0x58024802
+Debug: First 4 32 bit words 0x58024802     0x58024802    0x58024802    0x58024802
+Debug: First 4 32 bit words 0x58024802     0x58024802    0x58024802    0x58024802
+Debug: First 4 32 bit words 0x58024802     0x58024802    0x58024802    0x58024802
+Debug: First 4 32 bit words 0x58024802     0x58024802    0x58024802    0x58024802
+Debug: First 4 32 bit words 0x58024802     0x58024802    0x58024802    0x58024802
+Debug: First 4 32 bit words 0x58024802     0x58024802    0x58024802    0x58024802
+Debug: First 4 32 bit words 0x58024802     0x58024802    0x58024802    0x58024802
+Debug: First 4 32 bit words 0x58024802     0x58024802    0x58024802    0x58024802
+Debug: First 4 32 bit words 0x58024802     0x58024802    0x58024802    0x58024802
+Debug: ADCBUF Instance @00817cf8 has been closed successfully
+Feature: ADCBUF Test Pattern with dataFormat=0, sampleSwap=0, interleave=0: Passed
+Debug: ADCBUF Instance @00817cf8 has been reopened successfully
+Debug: Start ADCBUF Test Pattern with dataFormat=0, sampleSwap=1, interleave=0
+Debug: First 4 32 bit words 0x48025802     0x48025802    0x48025802    0x48025802
+Debug: First 4 32 bit words 0x48025802     0x48025802    0x48025802    0x48025802
+Debug: First 4 32 bit words 0x48025802     0x48025802    0x48025802    0x48025802
+Debug: First 4 32 bit words 0x48025802     0x48025802    0x48025802    0x48025802
+Debug: First 4 32 bit words 0x48025802     0x48025802    0x48025802    0x48025802
+Debug: First 4 32 bit words 0x48025802     0x48025802    0x48025802    0x48025802
+Debug: First 4 32 bit words 0x48025802     0x48025802    0x48025802    0x48025802
+Debug: First 4 32 bit words 0x48025802     0x48025802    0x48025802    0x48025802
+Debug: First 4 32 bit words 0x48025802     0x48025802    0x48025802    0x48025802
+Debug: First 4 32 bit words 0x48025802     0x48025802    0x48025802    0x48025802
+Debug: First 4 32 bit words 0x48025802     0x48025802    0x48025802    0x48025802
+Debug: First 4 32 bit words 0x48025802     0x48025802    0x48025802    0x48025802
+Debug: First 4 32 bit words 0x48025802     0x48025802    0x48025802    0x48025802
+Debug: First 4 32 bit words 0x48025802     0x48025802    0x48025802    0x48025802
+Debug: First 4 32 bit words 0x48025802     0x48025802    0x48025802    0x48025802
+Debug: First 4 32 bit words 0x48025802     0x48025802    0x48025802    0x48025802
+Debug: First 4 32 bit words 0x48025802     0x48025802    0x48025802    0x48025802
+Debug: First 4 32 bit words 0x48025802     0x48025802    0x48025802    0x48025802
+Debug: First 4 32 bit words 0x48025802     0x48025802    0x48025802    0x48025802
+Debug: First 4 32 bit words 0x48025802     0x48025802    0x48025802    0x48025802
+Debug: ADCBUF Instance @00817cf8 has been closed successfully
+Feature: ADCBUF Test Pattern with dataFormat=0, sampleSwap=1, interleave=0: Passed
+Debug: ADCBUF Instance @00817cf8 has been reopened successfully
+Debug: Start ADCBUF Test Pattern with dataFormat=1, sampleSwap=0, interleave=0
+Debug: First 4 32 bit words 0x48024802     0x48024802    0x48044804    0x48044804
+Debug: First 4 32 bit words 0x48024802     0x48024802    0x48044804    0x48044804
+Debug: First 4 32 bit words 0x48024802     0x48024802    0x48044804    0x48044804
+Debug: First 4 32 bit words 0x48024802     0x48024802    0x48044804    0x48044804
+Debug: First 4 32 bit words 0x48024802     0x48024802    0x48044804    0x48044804
+Debug: First 4 32 bit words 0x48024802     0x48024802    0x48044804    0x48044804
+Debug: First 4 32 bit words 0x48024802     0x48024802    0x48044804    0x48044804
+Debug: First 4 32 bit words 0x48024802     0x48024802    0x48044804    0x48044804
+Debug: First 4 32 bit words 0x48024802     0x48024802    0x48044804    0x48044804
+Debug: First 4 32 bit words 0x48024802     0x48024802    0x48044804    0x48044804
+Debug: First 4 32 bit words 0x48024802     0x48024802    0x48044804    0x48044804
+Debug: First 4 32 bit words 0x48024802     0x48024802    0x48044804    0x48044804
+Debug: First 4 32 bit words 0x48024802     0x48024802    0x48044804    0x48044804
+Debug: First 4 32 bit words 0x48024802     0x48024802    0x48044804    0x48044804
+Debug: First 4 32 bit words 0x48024802     0x48024802    0x48044804    0x48044804
+Debug: First 4 32 bit words 0x48024802     0x48024802    0x48044804    0x48044804
+Debug: First 4 32 bit words 0x48024802     0x48024802    0x48044804    0x48044804
+Debug: First 4 32 bit words 0x48024802     0x48024802    0x48044804    0x48044804
+Debug: First 4 32 bit words 0x48024802     0x48024802    0x48044804    0x48044804
+Debug: First 4 32 bit words 0x48024802     0x48024802    0x48044804    0x48044804
+Debug: ADCBUF Instance @00817cf8 has been closed successfully
+Feature: ADCBUF Test Pattern with dataFormat=1, sampleSwap=0, interleave=0: Passed
+Debug: ADCBUF Instance @00817cf8 has been reopened successfully
+Debug: Start ADCBUF Test Pattern with dataFormat=1, sampleSwap=1, interleave=0
+Debug: First 4 32 bit words 0x48024802     0x48024802    0x48044804    0x48044804
+Debug: First 4 32 bit words 0x48024802     0x48024802    0x48044804    0x48044804
+Debug: First 4 32 bit words 0x48024802     0x48024802    0x48044804    0x48044804
+Debug: First 4 32 bit words 0x48024802     0x48024802    0x48044804    0x48044804
+Debug: First 4 32 bit words 0x48024802     0x48024802    0x48044804    0x48044804
+Debug: First 4 32 bit words 0x48024802     0x48024802    0x48044804    0x48044804
+Debug: First 4 32 bit words 0x48024802     0x48024802    0x48044804    0x48044804
+Debug: First 4 32 bit words 0x48024802     0x48024802    0x48044804    0x48044804
+Debug: First 4 32 bit words 0x48024802     0x48024802    0x48044804    0x48044804
+Debug: First 4 32 bit words 0x48024802     0x48024802    0x48044804    0x48044804
+Debug: First 4 32 bit words 0x48024802     0x48024802    0x48044804    0x48044804
+Debug: First 4 32 bit words 0x48024802     0x48024802    0x48044804    0x48044804
+Debug: First 4 32 bit words 0x48024802     0x48024802    0x48044804    0x48044804
+Debug: First 4 32 bit words 0x48024802     0x48024802    0x48044804    0x48044804
+Debug: First 4 32 bit words 0x48024802     0x48024802    0x48044804    0x48044804
+Debug: First 4 32 bit words 0x48024802     0x48024802    0x48044804    0x48044804
+Debug: First 4 32 bit words 0x48024802     0x48024802    0x48044804    0x48044804
+Debug: First 4 32 bit words 0x48024802     0x48024802    0x48044804    0x48044804
+Debug: First 4 32 bit words 0x48024802     0x48024802    0x48044804    0x48044804
+Debug: First 4 32 bit words 0x48024802     0x48024802    0x48044804    0x48044804
+Debug: ADCBUF Instance @00817cf8 has been closed successfully
+Feature: ADCBUF Test Pattern with dataFormat=1, sampleSwap=1, interleave=0: Passed
+Debug: Semaphore Instance @00801250 has been closed successfully
+ADCBuf test finished. 
+Value read from Global variable (MCPI_Result): 0
+Test Failure Signature: 0
+Test Log Messages: 
+Feature tested: ADCBUF Basic API test: Passed
+Feature tested: ADCBUF Input Parameters Validation Test: Passed
+Feature tested: ADCBUF Test Pattern with dataFormat=0, sampleSwap=0, interleave=0: Passed
+Feature tested: ADCBUF Test Pattern with dataFormat=0, sampleSwap=1, interleave=0: Passed
+Feature tested: ADCBUF Test Pattern with dataFormat=1, sampleSwap=0, interleave=0: Passed
+Feature tested: ADCBUF Test Pattern with dataFormat=1, sampleSwap=1, interleave=0: Passed
+
+
+shutting down py4j gw server.
+
+
+**************************************************
+Terminating the debug session and Shutting down gateway.
+**************************************************
+
+**************************************************
+Test case execution completed
+**************************************************
+
+**************************************************
+Testcase Result : PASS
+**************************************************

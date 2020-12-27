@@ -1,0 +1,54 @@
+\form#0:$N_{TxAnt}*N_{RxAnt}*N_{DopplerChirps}*sizeof(cmplx16ImRe\_t) \leq 16\;KB$
+\form#1:$N_{TxAnt}*N_{RxAnt}*N_{DopplerBins}*sizeof(cmplx16ImRe\_t) \leq 32\;KB$
+\form#2:$N_{objPerChunk} \leq 16\;KB / (sizeof(cmplx16ImRe\_t) * N_{AngleFFT})$
+\form#3:$N_{objPerChunk} \leq 16\;KB / (sizeof(uint16\_t) * N_{AngleFFT})$
+\form#4:$w_x$
+\form#5:$w_z$
+\form#6:$AB = \frac{\lambda}{2} \sin (\phi)$
+\form#7:$W_z = \frac{2\pi}{\lambda} \cdot AB$
+\form#8:$W_z = \pi \sin (\phi)$
+\form#9:$CD = \frac{\lambda}{2} \sin (\theta) \cos (\phi)$
+\form#10:$w_x = \frac{2\pi}{\lambda} \cdot CD$
+\form#11:$w_x = \pi \sin (\theta) \cos (\phi)$
+\form#12:$A_1$
+\form#13:$\psi$
+\form#14:\[ A_1 e^{j\psi} [ 1 \; e^{jw_x} \; e^{j2w_x} \; e^{j3w_x} \; e^{j4w_x} \; e^{j5w_x} \; e^{j6w_x} \; e^{j7w_x} ] \]
+\form#15:$P_1$
+\form#16:\[ P_1 = A_1 e^{j\psi} \]
+\form#17:$k_{MAX}$
+\form#18:$[-\frac{N}{2}, \frac{N}{2}-1]$
+\form#19:$ w_x $
+\form#20:\[ w_x = \frac{2\pi}{N}k_{MAX} \]
+\form#21:\[ A_2 e^{j(\psi + 2 w_x - w_z)} [ 1 \; e^{jw_x} \; e^{j2w_x} \; e^{j3w_x}] \]
+\form#22:$P_2$
+\form#23:$\psi + 2w_x - w_z$
+\form#24:\[ P_2 = A_2 e^{j(\psi+ 2 w_x - w_z)} \]
+\form#25:\[ P_1 \cdot P_2^* = A_1 \cdot A_2 e^{j(\psi - (\psi+ 2 w_x - w_z))} \]
+\form#26:\[ w_z=\angle (P_1 \cdot P_2^* \cdot e^{j2w_x}) \]
+\form#27:\[ R=k_r\frac{c \cdot F_{SAMP}}{2 \cdot S \cdot N_{FFT}} \]
+\form#28:$c$
+\form#29:$k_r$
+\form#30:$F_{SAMP}$
+\form#31:$S$
+\form#32:$N_{FFT}$
+\form#33:$R$
+\form#34:$(x,y,z)$
+\form#35:\[ x = R\cos(\phi)\sin(\theta) = R\frac{w_x}{\pi}, \;\;\;\;\; z = R\sin(\phi) = R\frac{w_z}{\pi},\;\;\;\;\; y = \sqrt{R^2-x^2-z^2} \]
+\form#36:$\theta$
+\form#37:$\phi$
+\form#38:$\phi_{min},\;\phi_{max},$
+\form#39:$\theta_{min},\;\theta_{max}$
+\form#40:$W_z$
+\form#41:$W_x$
+\form#42:$W_z = w_z/\pi$
+\form#43:$W_x = w_x/\pi$
+\form#44:$W_z = \sin(\phi)$
+\form#45:$W_x = \cos(\phi) \sin(\theta)$
+\form#46:\[ \sin(\phi_{min}) \leq W_z \leq \sin(\phi_{max}) \]
+\form#47:$\cos(\phi)$
+\form#48:\[ \cos(\phi)\sin(\theta_{min}) \leq W_x \leq \cos(\phi) \sin(\theta_{max}) \]
+\form#49:$\cos(\phi) = \sqrt{1 - \sin(\phi)^2} = \sqrt{1 - W_z^2}$
+\form#50:$\sin(\phi_{min})$
+\form#51:$\sin(\phi_{max})$
+\form#52:$\sin(\theta_{min})$
+\form#53:$\sin(\theta_{max})$

@@ -1,0 +1,1548 @@
+/**
+ *   @file  mmwave_dualcore.c
+ *
+ *   @brief
+ *      The file implements the dual core port for the mmWave control module
+ *
+ *  \par
+ *  NOTE:
+ *      (C) Copyright 2016 Texas Instruments, Inc.
+ *
+ *  Redistribution and use in source and binary forms, with or without
+ *  modification, are permitted provided that the following conditions
+ *  are met:
+ *
+ *    Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ *
+ *    Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the
+ *    distribution.
+ *
+ *    Neither the name of Texas Instruments Incorporated nor the names of
+ *    its contributors may be used to endorse or promote products derived
+ *    from this software without specific prior written permission.
+ *
+ *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ *  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ *  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ *  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ *  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ *  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ *  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ *  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ *  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ *  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+/**************************************************************************
+ *************************** Include Files ********************************
+ **************************************************************************/
+#include <stdio.h>
+#include <stdint.h>
+#include <string.h>
+#include <ti/common/sys_common.h>
+#include <ti/drivers/osal/DebugP.h>
+#include <ti/control/mmwavelink/mmwavelink.h>
+#include <ti/control/mmwave/mmwave.h>
+#include <ti/control/mmwave/include/mmwave_internal.h>
+
+/**************************************************************************
+ ******************** Dual Core mmWave Local Definitions *********************
+ **************************************************************************/
+
+/**
+ * @brief   State definition which defines that the mmWave MSS module is
+ * not operational
+ */
+#define SOC_DUALCORE_MMAVE_MSS_DEAD           0U
+
+/**
+ * @brief   State definition which defines that the mmWave MSS module is
+ * operational
+ */
+#define SOC_DUALCORE_MMAVE_MSS_ALIVE          1U
+
+/**
+ * @brief   State definition which defines that the mmWave DSS module is
+ * not operational
+ */
+#define SOC_DUALCORE_MMAVE_DSS_DEAD           0U
+
+/**
+ * @brief   State definition which defines that the mmWave DSS module is
+ * operational
+ */
+#define SOC_DUALCORE_MMAVE_DSS_ALIVE          1U
+
+/**************************************************************************
+ ********************** Dual Core mmWave Local Functions ********************
+ **************************************************************************/
+static void MMWave_deviceMailboxCallbackFxn(Mbox_Handle handle, Mailbox_Type peerEndpoint);
+
+/**************************************************************************
+ ********************** Dual Core mmWave Local Structures *******************
+ **************************************************************************/
+
+/**
+ * @brief
+ *  mmWave Payload identifier
+ *
+ * @details
+ *  Messages exchanged between the mmWave execution domains have a payload
+ *  identifier which is used to describe the contents of the actual message
+ */
+typedef enum MMWave_PayloadId_e
+{
+    /**
+     * @brief   Identifier which indicates that an mmWave link configuration
+     * is being exchanged between the mmWave domains
+     */
+    MMWave_PayloadId_CONFIG = 0xABCD1234U,
+
+    /**
+     * @brief   Identifier which indicates that the mmWave module has been
+     * opened.
+     */
+    MMWave_PayloadId_OPEN,
+
+    /**
+     * @brief   Identifier which indicates that the mmWave module has been
+     * closed.
+     */
+    MMWave_PayloadId_CLOSE,
+
+    /**
+     * @brief   Identifier which indicates that the mmWave link has been started
+     * and is operational
+     */
+    MMWave_PayloadId_START,
+
+    /**
+     * @brief   Identifier which indicates that the mmWave link has been stopped
+     * and is no longer operational
+     */
+    MMWave_PayloadId_STOP,
+
+    /**
+     * @brief   Identifier which indicates that the mmWave link has reported an
+     * asynchronous event
+     */
+    MMWave_PayloadId_EVENT
+}MMWave_PayloadId;
+
+/**
+ * @brief
+ *  mmWave Message for event
+ *
+ * @details
+ *  The structure defines the message which is used to exchange asynchronus events
+ *  generated by the BSS between the mmWave execution domains.
+ */
+typedef struct MMWave_MsgEvent_t
+{
+    /**
+     * @brief   mmWave link message identifier
+     */
+    uint16_t        msgId;
+
+    /**
+     * @brief   mmWave link sub block identifier
+     */
+    uint16_t        sbId;
+
+    /**
+     * @brief   mmWave link sub block length
+     */
+    uint16_t        sbLen;
+}MMWave_MsgEvent;
+
+/**
+ * @brief
+ *  mmWave Message Header
+ *
+ * @details
+ *  Messages exchanged between the mmWave execution domains have a fixed
+ *  size header added to all the messages which are exchanged.
+ */
+typedef struct MMWave_MsgHeader_t
+{
+    /**
+     * @brief   Identifier which describes the payload being carried in
+     * the message
+     */
+    MMWave_PayloadId        id;
+
+    /**
+     * @brief   Length of the payload message which is being sent across
+     */
+    uint32_t                length;
+}MMWave_MsgHeader;
+
+/**
+ * @brief
+ *  mmWave Message
+ *
+ * @details
+ *  Messages exchanged between the mmWave execution domains have a payload
+ *  identifier which is used to describe the contents of the actual message
+ */
+typedef struct MMWave_Msg_t
+{
+    /**
+     * @brief   Message header which is added to each message
+     */
+    MMWave_MsgHeader    header;
+
+    /**
+     * @brief   Union which describes the actual message which is being
+     * exchanged
+     */
+    union
+    {
+        /**
+         * @brief   This is the message which serializes the profile & chirp
+         * configuration into a flat data buffer. This is *valid* only if the
+         * message id is MMWave_PayloadId_CONFIG
+         */
+        uint8_t                 cfgMessage[MAILBOX_DATA_BUFFER_SIZE - sizeof(MMWave_MsgHeader)];
+
+        /**
+         * @brief   This is the mmWave open message which is passed to the remote
+         * peer once the mmWave module has been opened successfully. This is *valid* only
+         * if the message id is MMWave_PayloadId_OPEN
+         */
+        MMWave_OpenCfg          openCfg;
+
+        /**
+         * @brief   This is the mmWave START message which is passed to the remote
+         * peer once the mmWave module has been started. This is *valid* only
+         * if the message id is MMWave_PayloadId_START
+         */
+        MMWave_CalibrationCfg   calibrationCfg;
+
+        /**
+         * @brief   This is the mmWave event message which is exchanged between
+         * the mmWave execution domains. This is *valid* only if the message id
+         * is MMWave_PayloadId_EVENT
+         */
+        MMWave_MsgEvent         event;
+    }u;
+}MMWave_Msg;
+
+/**
+ * @brief
+ *  mmWave Dual Core
+ *
+ * @details
+ *  The structure is used to keep track of information required for the
+ *  mmWave Dual Core SOC.
+ */
+typedef struct MMWave_Dualcore_t
+{
+    /**
+     * @brief   Mailbox handle to the peer which is used to exchange
+     * mmWave specific messages
+     */
+    Mbox_Handle          peerMailbox;
+
+    /**
+     * @brief   The peer mailbox can be used across multiple threads
+     * and the semaphore is used to protect against concurrent access
+     */
+    SemaphoreP_Handle       mailboxSemHandle;
+}MMWave_Dualcore;
+
+/**************************************************************************
+ ************** Dual Core mmWave Serialization/Deserialization ***************
+ **************************************************************************/
+
+/* Serialization/Deserialization of the configuration: */
+static uint32_t MMWave_serializeCfg (const MMWave_MCB* ptrMMWaveMCB,MMWave_CtrlCfg* ptrControlCfg, MMWave_Msg* ptrMessage);
+static void     MMWave_deserializeCfg (MMWave_MCB* ptrMMWaveMCB, MMWave_Msg* ptrMessage, MMWave_CtrlCfg* ptrControlCfg);
+
+/**************************************************************************
+ ********************** Dual Core mmWave Global Variables ********************
+ **************************************************************************/
+
+/**
+ * @brief   Global Variable which tracks the mmWave Dual Core SOC port
+*/
+MMWave_Dualcore    gMMWave_DualcoreMCB;
+
+/**************************************************************************
+ ********************** Dual Core mmWave Extern Defintions *******************
+ **************************************************************************/
+extern int32_t SOC_isMMWaveDSSOperational (SOC_Handle handle, int32_t* errCode);
+extern int32_t SOC_setMMWaveDSSLinkState(SOC_Handle handle, uint8_t state, int32_t* errCode);
+extern int32_t SOC_isMMWaveMSSOperational (SOC_Handle handle, int32_t* errCode);
+extern int32_t SOC_setMMWaveMSSLinkState(SOC_Handle handle, uint8_t state, int32_t* errCode);
+
+/**************************************************************************
+ *********************** Dual Core mmWave Functions **************************
+ **************************************************************************/
+
+/**
+ *  @b Description
+ *  @n
+ *      The function is used to the de-serialize the control configuration from
+ *      a message received by the remote mmWave peer. 
+ *
+ *  @param[in]  ptrMMWaveMCB
+ *      Pointer to the mmWave control module
+ *  @param[in]  ptrMessage
+ *      Pointer to the received message
+ *  @param[in]  ptrControlCfg
+ *      Pointer to the control configuration which is populated after the message
+ *      has been deserialized.
+ *
+ *  \ingroup MMWAVE_CTRL_INTERNAL_FUNCTION
+ *
+ *  @retval
+ *      Not applicable
+ */
+static void MMWave_deserializeCfg
+(
+    MMWave_MCB*         ptrMMWaveMCB,
+    MMWave_Msg*         ptrMessage,
+    MMWave_CtrlCfg*     ptrControlCfg
+)
+{
+    uint32_t                deserializedMessageSize;
+    rlProfileCfg_t*         ptrProfileCfg;
+    rlChirpCfg_t*           ptrChirpCfg;
+    uint32_t                numChirps;
+    uint32_t                chirpIndex;
+    MMWave_ProfileHandle    profileHandle;
+    MMWave_ChirpHandle      chirpHandle;
+    int32_t                 errCode;
+    uint32_t                index;
+    MMWave_ProfileHandle*   ptrBaseCfgProfileHandle;
+    uint32_t                numBpmChirp;  
+    rlBpmChirpCfg_t*        ptrBpmChirpCfg;
+    MMWave_BpmChirpHandle   bpmChirpHandle;
+
+    /* Initialize the deserialized message size: */
+    deserializedMessageSize = 0U;
+
+    /* Copy over the control configuration from the received message: */
+    memcpy ((void *)ptrControlCfg, (void*)&ptrMessage->u.cfgMessage[deserializedMessageSize], sizeof(MMWave_CtrlCfg));
+
+    /* Are we operating in Continuous Mode? */
+    if (ptrControlCfg->dfeDataOutputMode == MMWave_DFEDataOutputMode_CONTINUOUS)
+    {
+        /*************************************************************************
+         * Continous Mode: Do nothing since the control configuration has been
+         * copied already.
+         *************************************************************************/
+    }
+    else
+    {
+        /*************************************************************************
+         * Chirp & Adavanced Frame Configuration Mode:
+         * Each serialized message has the following properties:
+         * (1) Control
+         * (2) Profile
+         *     - Profile Configuration
+         *     - Number of Chirps
+         *          - For each chirp the Chirp Configuration
+         *
+         * There could be upto N number of profiles.
+         *************************************************************************/
+        deserializedMessageSize = deserializedMessageSize + sizeof(MMWave_CtrlCfg);
+
+        /* Flush the existing profile/chirp configuration: */
+        MMWave_flushCfg (ptrMMWaveMCB, &errCode);
+
+        /**************************************************************************
+         * We now need to recreate the profile & chirp configurations given
+         * the received configuration message
+         **************************************************************************/
+        for (index = 0U; index < MMWAVE_MAX_PROFILE; index++)
+        {
+            /* Which mode are we operating in? */
+           if (ptrControlCfg->dfeDataOutputMode == MMWave_DFEDataOutputMode_FRAME)
+           {
+               ptrBaseCfgProfileHandle = &ptrControlCfg->u.frameCfg.profileHandle[index];
+           }
+           else
+           {
+               ptrBaseCfgProfileHandle = &ptrControlCfg->u.advancedFrameCfg.profileHandle[index];
+           }
+
+            if (*ptrBaseCfgProfileHandle != NULL)
+            {
+                /* YES: Get the profile configuration: */
+                ptrProfileCfg = (rlProfileCfg_t*)&ptrMessage->u.cfgMessage[deserializedMessageSize];
+                deserializedMessageSize = deserializedMessageSize + sizeof(rlProfileCfg_t);
+
+                /* Get the number of chirps: */
+                memcpy ((void *)&numChirps, (void*)&ptrMessage->u.cfgMessage[deserializedMessageSize], sizeof(uint32_t));
+                deserializedMessageSize = deserializedMessageSize + sizeof(uint32_t);
+
+                /* Add the profile: */
+                profileHandle = MMWave_addProfile (ptrMMWaveMCB, ptrProfileCfg, &errCode);
+                DebugP_assert (profileHandle != NULL);
+
+                /* For the profile; cycle through and create all the chirps. */
+                for (chirpIndex = 1U; chirpIndex <= numChirps; chirpIndex++)
+                {
+                    /* Get the chirp configuration: */
+                    ptrChirpCfg = (rlChirpCfg_t*)&ptrMessage->u.cfgMessage[deserializedMessageSize];
+                    deserializedMessageSize = deserializedMessageSize + sizeof(rlChirpCfg_t);
+
+                    /* Add the chirp: */
+                    chirpHandle = MMWave_addChirp (profileHandle, ptrChirpCfg, &errCode);
+                    DebugP_assert (chirpHandle != NULL);
+                }
+
+                /* Update the *new* profile handle in the control configuration: This is what the application
+                 * will see and what it will use to query for profile/chirp configuration. */
+                *ptrBaseCfgProfileHandle = profileHandle;
+            }
+        }
+        /**************************************************************************
+         * We now need to recreate the BPM configurations given
+         * the received configuration message
+         **************************************************************************/
+        /* Get the number of BPM chirp configurations: */
+        memcpy ((void *)&numBpmChirp, (void*)&ptrMessage->u.cfgMessage[deserializedMessageSize], sizeof(uint32_t));
+        deserializedMessageSize = deserializedMessageSize + sizeof(uint32_t);
+        for (index = 0U; index < numBpmChirp; index++)
+        {
+            /* Get the BPM configuration: */
+            ptrBpmChirpCfg = (rlBpmChirpCfg_t*)&ptrMessage->u.cfgMessage[deserializedMessageSize];
+            deserializedMessageSize = deserializedMessageSize + sizeof(rlBpmChirpCfg_t);
+            /* Add the BPM config: */
+            bpmChirpHandle = MMWave_addBpmChirp ((MMWave_Handle)ptrMMWaveMCB, ptrBpmChirpCfg, &errCode);
+            DebugP_assert (bpmChirpHandle != NULL);
+        }         
+    }
+    return;
+}
+
+/**
+ *  @b Description
+ *  @n
+ *      The function is used to the serialize the control configuration into
+ *      a message which can be sent to the remote mmWave peer. Serialization
+ *      of the message would require that all lists (profile, chirp, BPM cfg)
+ *      are placed inline into the message.
+ *
+ *  @param[in]  ptrMMWaveMCB
+ *      Pointer to the mmWave control module
+ *  @param[in]  ptrControlCfg
+ *      Pointer to the control configuration which is to be sent across
+ *  @param[in]  ptrMessage
+ *      Pointer to the serialized message populated by the API
+ *
+ *  \ingroup MMWAVE_CTRL_INTERNAL_FUNCTION
+ *
+ *  @retval
+ *      Size of the serialized message
+ */
+static uint32_t MMWave_serializeCfg
+(
+    const MMWave_MCB*   ptrMMWaveMCB,
+    MMWave_CtrlCfg*     ptrControlCfg,
+    MMWave_Msg*         ptrMessage
+)
+{
+    uint32_t                serializedMessageSize;
+    rlProfileCfg_t          profileCfg;
+    rlChirpCfg_t            chirpCfg;
+    MMWave_ChirpHandle      chirpHandle;
+    uint32_t                totalNumChirps  = 0U;
+    uint32_t                numProfiles     = 0U;
+    uint32_t                numBpmChirp     = 0U;    
+    uint32_t                index;
+    uint32_t                memorySize;
+    uint32_t                chirpIndex;
+    int32_t                 errCode;
+    uint32_t                numChirps;
+    MMWave_ProfileHandle*   ptrBaseCfgProfileHandle;
+    MMWave_BpmChirpHandle   bpmChirpHandle;
+    rlBpmChirpCfg_t         bpmChirpCfg;
+
+    /* Are we operating in Continuous Mode? */
+    if (ptrMMWaveMCB->dfeDataOutputMode == MMWave_DFEDataOutputMode_CONTINUOUS)
+    {
+        /*************************************************************************
+         * Continous Mode: Send the control configuration to the remote peer.
+         *************************************************************************/
+        memcpy ((void *)&ptrMessage->u.cfgMessage[0], (void *)ptrControlCfg, sizeof(MMWave_CtrlCfg));
+
+        /* Setup the serialized message size: */
+        memorySize = sizeof(MMWave_CtrlCfg);
+        goto exit;
+    }
+    else
+    {
+        /*************************************************************************
+         * Chirp or Advanced Frame Mode:
+         *
+         * Send the message to the remote peer which has the control configuration.
+         * The control configuration has information about the DFE output mode
+         * and we will cycle through all the Chirps/Profile and Frame which are
+         * stored in the module to construct the entire message.
+         *
+         * Get the base configuration profile handle.
+         *************************************************************************/
+        if (ptrControlCfg->dfeDataOutputMode == MMWave_DFEDataOutputMode_FRAME)
+        {
+            ptrBaseCfgProfileHandle = &ptrControlCfg->u.frameCfg.profileHandle[0U];
+        }
+        else
+        {
+            ptrBaseCfgProfileHandle = &ptrControlCfg->u.advancedFrameCfg.profileHandle[0U];
+        }
+
+        /* Cycle through all the profiles and compute the total number of chirps:*/
+        for (index = 0U; index < MMWAVE_MAX_PROFILE; index++)
+        {
+            /* Do we have a valid profile? */
+            if (ptrBaseCfgProfileHandle[index] != NULL)
+            {
+                /* YES: Initialize the number of chirps: */
+                numChirps = 0U;
+
+                /* Get the number of chirps associated with the profile. */
+                MMWave_getNumChirps (ptrBaseCfgProfileHandle[index],
+                                     &numChirps, &errCode);
+
+                /* Increment the total number of profiles */
+                numProfiles = numProfiles + 1U;
+
+                /* Increment the total number of chirps */
+                totalNumChirps = totalNumChirps + numChirps;
+            }
+        }
+        
+        /* Find number of BPM configurations*/
+        MMWave_getNumBpmChirp((MMWave_Handle)ptrMMWaveMCB, &numBpmChirp, &errCode);
+
+        /*****************************************************************
+         * Sanity Check: Memory Size checking to ensure that there is
+         * sufficient space to send the message.
+         *
+         * Each serialized message will have the following properties:
+         * (1) Control
+         * (2) Profile
+         *     - Profile Configuration
+         *     - Number of Chirps
+         *          - For each chirp the Chirp Configuration
+         *
+         * There could be upto N number of profiles.
+         *****************************************************************/
+        memorySize = sizeof(MMWave_CtrlCfg) +
+                     (numProfiles * (sizeof(uint32_t) + sizeof(rlProfileCfg_t))) +
+                     (totalNumChirps * sizeof(rlChirpCfg_t)) +
+                     sizeof(uint32_t) + (numBpmChirp * sizeof(rlBpmChirpCfg_t));
+
+        /* Sanity Check: Ensure that the structures are aligned on the 4 byte boundary.
+         * This is required because the messages are being sent between MSS & DSS and we
+         * dont want the tool chain to interpret the structures differently */
+        DebugP_assert (memorySize <= sizeof(ptrMessage->u.cfgMessage));
+        DebugP_assert ((sizeof(MMWave_CtrlCfg)    % 4) == 0);
+        DebugP_assert ((sizeof(rlProfileCfg_t)    % 4) == 0);
+        DebugP_assert ((sizeof(rlChirpCfg_t)      % 4) == 0);
+        DebugP_assert ((sizeof(rlBpmChirpCfg_t)   % 4) == 0);
+
+        /*****************************************************************
+         * Step (1):
+         *  - Populate the control configuration
+         *****************************************************************/
+        serializedMessageSize = 0U;
+
+        /* Copy over the control configuration: */
+        memcpy ((void *)&ptrMessage->u.cfgMessage[serializedMessageSize], (void *)ptrControlCfg, sizeof(MMWave_CtrlCfg));
+        serializedMessageSize = serializedMessageSize + sizeof(MMWave_CtrlCfg);
+
+        /*****************************************************************
+         * Step (2):
+         *  - Cycle through all the profiles and copy over the profile
+         *    configuration & the number of chirps associated with each
+         *    profile
+         *****************************************************************/
+        for (index = 0U; index < MMWAVE_MAX_PROFILE; index++)
+        {
+            /* Do we have a valid profile? */
+            if (ptrBaseCfgProfileHandle[index] != NULL)
+            {
+                /* YES: Get the profile configuration */
+                MMWave_getProfileCfg (ptrBaseCfgProfileHandle[index],
+                                      &profileCfg, &errCode);
+
+                /* Get the number of chirps associated with the profile. */
+                MMWave_getNumChirps (ptrBaseCfgProfileHandle[index],
+                                     &numChirps, &errCode);
+
+                /* Copy over the profile configuration: */
+                memcpy ((void*)&ptrMessage->u.cfgMessage[serializedMessageSize], (void*)&profileCfg, sizeof(rlProfileCfg_t));
+                serializedMessageSize = serializedMessageSize + sizeof(rlProfileCfg_t);
+
+                /* Populate the number of chirps for this profile: */
+                memcpy ((void*)&ptrMessage->u.cfgMessage[serializedMessageSize], (void*)&numChirps, sizeof(uint32_t));
+                serializedMessageSize = serializedMessageSize + sizeof(uint32_t);
+
+                /* Copy over all the chirps */
+                for (chirpIndex = 1U; chirpIndex <= numChirps; chirpIndex++)
+                {
+                    /* Get the chirp handle */
+                    MMWave_getChirpHandle (ptrBaseCfgProfileHandle[index],
+                                           chirpIndex, &chirpHandle, &errCode);
+
+                    /* Get the chirp configuration: */
+                    MMWave_getChirpCfg (chirpHandle, &chirpCfg, &errCode);
+
+                    /* Copy over the chirp configuration: */
+                    memcpy ((void*)&ptrMessage->u.cfgMessage[serializedMessageSize], (void*)&chirpCfg, sizeof(rlChirpCfg_t));
+                    serializedMessageSize = serializedMessageSize + sizeof(rlChirpCfg_t);
+                }
+            }
+        }
+        /*****************************************************************
+         * Step (3):
+         *  - Cycle through all the BPM configurations and copy over 
+         *****************************************************************/
+         /* Populate the number of BPM configurations: */
+         memcpy ((void*)&ptrMessage->u.cfgMessage[serializedMessageSize], (void*)&numBpmChirp, sizeof(uint32_t));
+         serializedMessageSize = serializedMessageSize + sizeof(uint32_t);
+         /* Populating BPM configurations */ 
+        for (index = 1U; index <= numBpmChirp; index++)
+        {
+            /* Get the BPM handle */
+            MMWave_getBpmChirpHandle ((MMWave_Handle)ptrMMWaveMCB, index,
+                                       &bpmChirpHandle, &errCode);
+
+            /* Get the BPM configuration: */
+            MMWave_getBpmChirpCfg (bpmChirpHandle, &bpmChirpCfg, &errCode);
+
+            /* Copy over the BPM configuration: */
+            memcpy ((void*)&ptrMessage->u.cfgMessage[serializedMessageSize], (void*)&bpmChirpCfg, sizeof(rlBpmChirpCfg_t));
+            serializedMessageSize = serializedMessageSize + sizeof(rlBpmChirpCfg_t);
+        }
+
+        goto exit;
+    }
+
+exit:
+    return memorySize;
+}
+
+/**
+ *  @b Description
+ *  @n
+ *      The function is used to the registered callback function which is invoked
+ *      when a message is received from the peer mmWave execution domain.
+ *
+ *  @param[in]  handle
+ *      Handle to the Mailbox on which data was received
+ *  @param[in]  peerEndpoint
+ *      Peer endpoint from which data was received
+ *
+ *  \ingroup MMWAVE_CTRL_INTERNAL_FUNCTION
+ *
+ *  @retval
+ *      Not applicable
+ */
+static void MMWave_deviceMailboxCallbackFxn
+(
+    Mbox_Handle  handle,
+    Mailbox_Type    peerEndpoint
+)
+{
+    /* Message has been received from the peer endpoint. Wakeup the mmWave thread to process
+     * the received message. */
+    SemaphoreP_postFromISR (gMMWave_MCB.linkSemHandle);
+}
+
+/**
+ *  @b Description
+ *  @n
+ *      The function is used to get the mmWave link device information. On Dual core the
+ *      link could execute on either the DSS or MSS. The function is used to handle these
+ *      scenarios
+ *
+ *  @param[in]  ptrMMWaveMCB
+ *      Pointer to the mmWave control block
+ *  @param[out]  devType
+ *      Device Type populated by the API
+ *  @param[out]  platform
+ *      Platform populated by the API
+ *
+ *  \ingroup MMWAVE_CTRL_INTERNAL_FUNCTION
+ *
+ *  @retval
+ *      Not applicable
+ */
+void MMWave_deviceGetDeviceInfo (const MMWave_MCB* ptrMMWaveMCB, rlUInt8_t* devType, rlUInt8_t* platform)
+{
+    /* Select the correct dual core device: */
+#ifdef SOC_XWR16XX 
+    *devType  = RL_AR_DEVICETYPE_16XX;
+#elif (defined (SOC_XWR18XX))
+    *devType  = RL_AR_DEVICETYPE_18XX;
+#elif (defined (SOC_XWR68XX))
+    *devType  = RL_AR_DEVICETYPE_68XX;
+#else
+    #error "Error: dual core device is not defined."
+#endif
+    
+    /* The mmWave link is executing on either the MSS or DSS. */
+    if (ptrMMWaveMCB->initCfg.domain == MMWave_Domain_MSS)
+    {
+        *platform = RL_PLATFORM_MSS;
+    }
+    else
+    {
+        *platform = RL_PLATFORM_DSS;
+    }
+    return;
+}
+
+/**
+ *  @b Description
+ *  @n
+ *      The function is used to configure the asynchronous events. On Dual core
+ *      either the DSS or the MSS could be configured to be the recepient of
+ *      asynchronous events.
+ *      It also configures if the start/stop asynchronous events are 
+ *      enabled or disabled.
+ *
+ *  @param[in]  ptrMMWaveMCB
+ *      Pointer to the mmWave control block
+ *  @param[out]  errCode
+ *      Error code populated on error
+ *
+ *  \ingroup MMWAVE_CTRL_INTERNAL_FUNCTION
+ *
+ *  @retval
+ *      Success -   0
+ *  @retval
+ *      Error   -   <0
+ */
+int32_t MMWave_deviceCfgAsyncEvent(const MMWave_MCB* ptrMMWaveMCB, int32_t* errCode)
+{
+    int32_t         retVal;
+    rlRfDevCfg_t    asyncEventCfg;
+
+    /* Sanity Check: Validate the arguments */
+    if ((ptrMMWaveMCB->openCfg.defaultAsyncEventHandler != MMWave_DefaultAsyncEventHandler_MSS) &&
+        (ptrMMWaveMCB->openCfg.defaultAsyncEventHandler != MMWave_DefaultAsyncEventHandler_DSS))
+    {
+        /* Error: Invalid argument. */
+        *errCode = MMWave_encodeError (MMWave_ErrorLevel_ERROR, MMWAVE_EINVAL, 0);
+        retVal   = MINUS_ONE;
+        goto exit;
+    }
+
+    /* Initialize the configuration: */
+    memset ((void*)&asyncEventCfg, 0, sizeof(rlRfDevCfg_t));
+
+    /* Which domain are we executing on? */
+    if (ptrMMWaveMCB->openCfg.defaultAsyncEventHandler == MMWave_DefaultAsyncEventHandler_MSS)
+    {
+        /* MSS: */
+        asyncEventCfg.aeDirection = 0U;
+    }
+    else
+    {
+        /* DSS: */
+        asyncEventCfg.aeDirection = 0xAU;
+    }
+    
+    /*Disable Frame Start async event? */
+    if(ptrMMWaveMCB->openCfg.disableFrameStartAsyncEvent)
+    {
+        asyncEventCfg.aeControl |= 0x1U;
+    }   
+    
+    /*Disable Frame Stop async event? */
+    if(ptrMMWaveMCB->openCfg.disableFrameStopAsyncEvent)
+    {
+        asyncEventCfg.aeControl |= 0x2U;
+    }   
+
+    /* Set the configuration in the link: */
+    retVal = rlRfSetDeviceCfg(RL_DEVICE_MAP_INTERNAL_BSS, (rlRfDevCfg_t*)&asyncEventCfg);
+    if (retVal != RL_RET_CODE_OK)
+    {
+        /* Error: Set the Async Event Direction Failed */
+        *errCode = MMWave_encodeError (MMWave_ErrorLevel_ERROR, MMWAVE_EASYNCEVENT, retVal);
+        retVal   = MINUS_ONE;
+        goto exit;
+    }
+
+    /* Control comes here implies either of the following:-
+     * - Asynchronous event direction was configured successfully
+     * - We are not the default event handler.
+     * Either case we report success */
+    retVal = 0;
+
+exit:
+    return retVal;
+}
+
+/**
+ *  @b Description
+ *  @n
+ *      The function is used to initialize the mmWave on Dual Core
+ *
+ *  @param[in]  ptrMMWaveMCB
+ *      Pointer to the mmWave MCB
+ *  @param[out] errCode
+ *      Error code populated by the API on an error
+ *
+ *  \ingroup MMWAVE_CTRL_INTERNAL_FUNCTION
+ *
+ *  @retval
+ *      Success -   0
+ *  @retval
+ *      Error   -   <0
+ */
+int32_t MMWave_deviceInitFxn(MMWave_MCB* ptrMMWaveMCB, int32_t* errCode)
+{
+    int32_t             retVal = MINUS_ONE;
+    SemaphoreP_Params   semParams;
+    Mailbox_Config      cfg;
+
+    /* Initialize the SOC Platform specific MCB */
+    memset ((void *)&gMMWave_DualcoreMCB, 0, sizeof(MMWave_Dualcore));
+
+    /* Are we operating in cooperative mode? */
+    if (ptrMMWaveMCB->initCfg.executionMode == MMWave_ExecutionMode_COOPERATIVE)
+    {
+        /* Sanity Check: Validate the configuration */
+        if ((ptrMMWaveMCB->initCfg.cooperativeModeCfg.cfgFxn   == NULL)    ||
+            (ptrMMWaveMCB->initCfg.cooperativeModeCfg.openFxn  == NULL)    ||
+            (ptrMMWaveMCB->initCfg.cooperativeModeCfg.closeFxn == NULL)    ||
+            (ptrMMWaveMCB->initCfg.cooperativeModeCfg.startFxn == NULL)    ||
+            (ptrMMWaveMCB->initCfg.cooperativeModeCfg.stopFxn  == NULL))
+        {
+            /* Error: Application developers need to specify a callback function here */
+            *errCode = MMWave_encodeError (MMWave_ErrorLevel_ERROR, MMWAVE_EINVAL, 0);
+            goto exit;
+        }
+
+        /* Setup the default semaphore parameters */
+        SemaphoreP_Params_init (&semParams);
+
+        /* Configure the semaphore parameters */
+        semParams.name = "MMWave_MailboxSemaphore";
+        semParams.mode = SemaphoreP_Mode_BINARY;
+
+        /* Create the mmWave semaphore: The semaphore is initially marked as available */
+        gMMWave_DualcoreMCB.mailboxSemHandle = SemaphoreP_create(1U, &semParams);
+        if (gMMWave_DualcoreMCB.mailboxSemHandle == NULL)
+        {
+            /* Error: Unable to create the semaphore */
+            *errCode = MMWave_encodeError (MMWave_ErrorLevel_ERROR, MMWAVE_EOS, 0);
+            goto exit;
+        }
+
+        /* Setup the default mailbox configuration */
+        Mailbox_Config_init(&cfg);
+
+        /* Setup the configuration: */
+        cfg.chType       = MAILBOX_CHTYPE_MULTI;
+        cfg.chId         = MAILBOX_CH_ID_7;
+        cfg.writeMode    = MAILBOX_MODE_BLOCKING;
+        cfg.readMode     = MAILBOX_MODE_CALLBACK;
+        cfg.readCallback = &MMWave_deviceMailboxCallbackFxn;
+
+        /* Which domain is the mmWave executing on? */
+        if (ptrMMWaveMCB->initCfg.domain == MMWave_Domain_MSS)
+        {
+            /* MSS: Open the mailbox to the DSS */
+            gMMWave_DualcoreMCB.peerMailbox = Mailbox_open(MAILBOX_TYPE_DSS, &cfg, errCode);
+            if (gMMWave_DualcoreMCB.peerMailbox == NULL)
+            {
+                /* Error: Unable to open the peer mailbox. */
+                *errCode = MMWave_encodeError (MMWave_ErrorLevel_ERROR, MMWAVE_EINIT, *errCode);
+                goto exit;
+            }
+            else
+            {
+                /* Remote Mailbox is operational: Set the MSS Link State */
+                SOC_setMMWaveMSSLinkState (ptrMMWaveMCB->initCfg.socHandle, SOC_DUALCORE_MMAVE_MSS_ALIVE, errCode);
+            }
+        }
+        else
+        {
+            /* DSS: Open the mailbox to the MSS */
+            gMMWave_DualcoreMCB.peerMailbox = Mailbox_open(MAILBOX_TYPE_MSS, &cfg, errCode);
+            if (gMMWave_DualcoreMCB.peerMailbox == NULL)
+            {
+                /* Error: Unable to open the peer mailbox. */
+                *errCode = MMWave_encodeError (MMWave_ErrorLevel_ERROR, MMWAVE_EINIT, *errCode);
+                goto exit;
+            }
+            else
+            {
+                /* Remote Mailbox is operational: Set the DSS Link State */
+                SOC_setMMWaveDSSLinkState (ptrMMWaveMCB->initCfg.socHandle, SOC_DUALCORE_MMAVE_DSS_ALIVE, errCode);
+            }
+        }
+    }
+    else
+    {
+        /* Isolation Mode: We dont need to open the mailbox to the peer domain since
+         * we are not communicating with it. There is no SOC specific initialization which
+         * needs to be done here; so simply fall through... */
+    }
+
+    /* Control comes here implies that the device has been initialized successfully */
+    retVal = 0;
+
+exit:
+    return retVal;
+}
+
+/**
+ *  @b Description
+ *  @n
+ *      The function is used to deinitialize mmWave on Dual Core
+ *
+ *  @param[in]  ptrMMWaveMCB
+ *      Pointer to the mmWave MCB
+ *  @param[out] errCode
+ *      Error code populated by the API on an error
+ *
+ *  \ingroup MMWAVE_CTRL_INTERNAL_FUNCTION
+ *
+ *  @retval
+ *      Success -   0
+ *  @retval
+ *      Error   -   <0
+ */
+int32_t MMWave_deviceDeinitFxn(MMWave_MCB* ptrMMWaveMCB, int32_t* errCode)
+{
+    int32_t     retVal;
+
+    /* Are we operating in cooperative mode? */
+    if (ptrMMWaveMCB->initCfg.executionMode == MMWave_ExecutionMode_COOPERATIVE)
+    {
+        /* YES: We need to close the peer mailbox */
+        retVal = Mailbox_close (gMMWave_DualcoreMCB.peerMailbox);
+        if (retVal < 0)
+        {
+            /* Error: Unable to close the peer mailbox */
+            *errCode = MMWave_encodeError (MMWave_ErrorLevel_ERROR, MMWAVE_EDEINIT, retVal);
+            goto exit;
+        }
+
+        /* Delete the mailbox semaphore handle: */
+        SemaphoreP_delete (gMMWave_DualcoreMCB.mailboxSemHandle);
+
+        /* Reset the operational status of the mmWave Module: */
+        if (ptrMMWaveMCB->initCfg.domain == MMWave_Domain_MSS)
+        {
+            SOC_setMMWaveMSSLinkState (ptrMMWaveMCB->initCfg.socHandle, SOC_DUALCORE_MMAVE_MSS_DEAD, errCode);
+        }
+        else
+        {
+            SOC_setMMWaveDSSLinkState (ptrMMWaveMCB->initCfg.socHandle, SOC_DUALCORE_MMAVE_DSS_DEAD, errCode);
+        }
+    }
+
+    /* Control comes here implies that the module was successfully deinitialized: */
+    retVal = 0;
+
+exit:
+    return retVal;
+}
+
+/**
+ *  @b Description
+ *  @n
+ *      The function is used to open the mmWave control module on Dual Core.
+ *
+ *  @param[in]  ptrMMWaveMCB
+ *      Pointer to the mmWave MCB
+ *  @param[out] errCode
+ *      Error code populated by the API on an error
+ *
+ *  \ingroup MMWAVE_CTRL_INTERNAL_FUNCTION
+ *
+ *  @retval
+ *      Success -   0
+ *  @retval
+ *      Error   -   <0
+ */
+int32_t MMWave_deviceOpenFxn(const MMWave_MCB* ptrMMWaveMCB, int32_t* errCode)
+{
+    MMWave_Msg      message;
+    int32_t         retVal = 0;
+    uint32_t        openMessageSize;
+
+    /* Determine the execution mode? Only in the cooperative mode do we need to send
+     * a message to the peer domain. */
+    if (ptrMMWaveMCB->initCfg.executionMode == MMWave_ExecutionMode_COOPERATIVE)
+    {
+        /* Populate the message: */
+        message.header.id     = MMWave_PayloadId_OPEN;
+        message.header.length = sizeof(MMWave_OpenCfg);
+        memcpy ((void *)&message.u.openCfg, (void*)&ptrMMWaveMCB->openCfg, sizeof(MMWave_OpenCfg));
+
+        /* Compute the total size of the message which is to be sent across to the remote peer */
+        openMessageSize = sizeof(MMWave_MsgHeader) + message.header.length;
+
+        /* Send the open message to the peer domain: The peer mailbox handle is a critical resource
+         * which is shared across multiple threads. */
+        SemaphoreP_pend (gMMWave_DualcoreMCB.mailboxSemHandle, SemaphoreP_WAIT_FOREVER);
+        retVal = Mailbox_write (gMMWave_DualcoreMCB.peerMailbox, (const uint8_t*)&message, openMessageSize);
+        SemaphoreP_post (gMMWave_DualcoreMCB.mailboxSemHandle);
+        if (retVal == (int32_t)openMessageSize)
+        {
+            /* Success: Open message has been successfully sent to the peer execution
+             * domain. Setup the return value appropriately. */
+            retVal = 0;
+        }
+        else
+        {
+            /* Error: Unable to send out the open message to the peer execution domain.
+             * Setup the return values and error code */
+            *errCode = MMWave_encodeError (MMWave_ErrorLevel_ERROR, MMWAVE_EMSG, retVal);
+            retVal   = MINUS_ONE;
+        }
+    }
+    return retVal;
+}
+
+/**
+ *  @b Description
+ *  @n
+ *      The function is used to close the mmWave control module on Dual Core
+ *
+ *  @param[in]  ptrMMWaveMCB
+ *      Pointer to the mmWave MCB
+ *  @param[out] errCode
+ *      Error code populated by the API on an error
+ *
+ *  \ingroup MMWAVE_CTRL_INTERNAL_FUNCTION
+ *
+ *  @retval
+ *      Success -   0
+ *  @retval
+ *      Error   -   <0
+ */
+int32_t MMWave_deviceCloseFxn(const MMWave_MCB* ptrMMWaveMCB, int32_t* errCode)
+{
+    MMWave_Msg      message;
+    int32_t         retVal = 0;
+    uint32_t        closeMessageSize;
+
+    /* Determine the execution mode? Only in the cooperative mode do we need to send
+     * a message to the peer domain. */
+    if (ptrMMWaveMCB->initCfg.executionMode == MMWave_ExecutionMode_COOPERATIVE)
+    {
+        /* Populate the message: */
+        message.header.id     = MMWave_PayloadId_CLOSE;
+        message.header.length = 0U;
+
+        /* Compute the total size of the message which is to be sent across to the remote peer */
+        closeMessageSize = sizeof(MMWave_MsgHeader) + message.header.length;
+
+        /* Send the close message to the peer domain: The peer mailbox handle is a critical resource
+         * which is shared across multiple threads. */
+        SemaphoreP_pend (gMMWave_DualcoreMCB.mailboxSemHandle, SemaphoreP_WAIT_FOREVER);
+        retVal = Mailbox_write (gMMWave_DualcoreMCB.peerMailbox, (const uint8_t*)&message, closeMessageSize);
+        SemaphoreP_post (gMMWave_DualcoreMCB.mailboxSemHandle);
+        if (retVal == (int32_t)closeMessageSize)
+        {
+            /* Success: Close message has been successfully sent to the peer execution
+             * domain. Setup the return value appropriately. */
+            retVal = 0;
+        }
+        else
+        {
+            /* Error: Unable to send out the close message to the peer execution domain.
+             * Setup the return values and error code */
+            *errCode = MMWave_encodeError (MMWave_ErrorLevel_ERROR, MMWAVE_EMSG, retVal);
+            retVal   = MINUS_ONE;
+        }
+    }
+    return retVal;
+}
+
+/**
+ *  @b Description
+ *  @n
+ *      The function is used to synchronize mmWave on Dual Core. The
+ *      function checks the status of the mmWave between the peers.
+ *
+ *  @param[in]  ptrMMWaveMCB
+ *      Pointer to the mmWave MCB
+ *  @param[out] errCode
+ *      Error code populated by the API on an error
+ *
+ *  \ingroup MMWAVE_CTRL_INTERNAL_FUNCTION
+ *
+ *  @retval
+ *      Synchronized    -   1
+ *  @retval
+ *      Unsynchronized  -   0
+ *  @retval
+ *      Error           -   <0
+ */
+int32_t MMWave_deviceSyncFxn(const MMWave_MCB* ptrMMWaveMCB, int32_t* errCode)
+{
+    int32_t retVal;
+
+    /* Determine the execution mode? */
+    if (ptrMMWaveMCB->initCfg.executionMode == MMWave_ExecutionMode_ISOLATION)
+    {
+        /* Isolation Mode: We are always synchronized */
+        retVal = 1;
+    }
+    else
+    {
+        /* Cooperative Mode: Which domain is the mmWave executing on? */
+        if (ptrMMWaveMCB->initCfg.domain == MMWave_Domain_MSS)
+        {
+            /* MSS: Check the status of the DSS */
+            retVal = SOC_isMMWaveDSSOperational (ptrMMWaveMCB->initCfg.socHandle, errCode);
+        }
+        else
+        {
+            /* DSS: Check the status of the MSS */
+            retVal = SOC_isMMWaveMSSOperational (ptrMMWaveMCB->initCfg.socHandle, errCode);
+        }
+    }
+    return retVal;
+}
+
+/**
+ *  @b Description
+ *  @n
+ *      The function is used to handle the configuration for Dual core.
+ *
+ *  @param[in]  ptrMMWaveMCB
+ *      Pointer to the mmWave MCB
+ *  @param[in]  ptrControlCfg
+ *      Pointer to the mmWave control configuration
+ *  @param[out] errCode
+ *      Error code populated by the API on an error
+ *
+ *  \ingroup MMWAVE_CTRL_INTERNAL_FUNCTION
+ *
+ *  @retval
+ *      Success -   0
+ *  @retval
+ *      Error   -   <0
+ */
+int32_t MMWave_deviceCfgFxn(const MMWave_MCB* ptrMMWaveMCB, MMWave_CtrlCfg* ptrControlCfg, int32_t* errCode)
+{
+    MMWave_Msg      message;
+    int32_t         retVal = 0;
+    uint32_t        cfgMessageSize;
+
+    /* Do we need to send the configuration to the remote domain?
+     * - This is only done if we are executing in cooperative mode */
+    if (ptrMMWaveMCB->initCfg.executionMode == MMWave_ExecutionMode_COOPERATIVE)
+    {
+        /* Populate the message and serialize it. */
+        message.header.id     = MMWave_PayloadId_CONFIG;
+        message.header.length = MMWave_serializeCfg (ptrMMWaveMCB, ptrControlCfg, &message);
+
+        /* Compute the total size of the message which is to be sent across to the remote peer */
+        cfgMessageSize = message.header.length + sizeof(MMWave_MsgHeader);
+
+        /* Send the configuration to the peer domain: The peer mailbox handle is a critical resource
+         * which is shared across multiple threads. */
+        SemaphoreP_pend (gMMWave_DualcoreMCB.mailboxSemHandle, SemaphoreP_WAIT_FOREVER);
+        retVal = Mailbox_write (gMMWave_DualcoreMCB.peerMailbox, (const uint8_t*)&message, cfgMessageSize);
+        SemaphoreP_post (gMMWave_DualcoreMCB.mailboxSemHandle);
+        if (retVal == (int32_t)cfgMessageSize)
+        {
+            /* Success: Configuration message has been successfully sent to the peer execution
+             * domain. Setup the return value appropriately. */
+            retVal = 0;
+        }
+        else
+        {
+            /* Error: Unable to send out the configuration message to the peer execution domain.
+             * Setup the return values and error code */
+            *errCode = MMWave_encodeError (MMWave_ErrorLevel_ERROR, MMWAVE_EMSG, retVal);
+            retVal   = MINUS_ONE;
+        }
+    }
+    return retVal;
+}
+
+/**
+ *  @b Description
+ *  @n
+ *      The function is used to handle the link start for Dual core.
+ *
+ *  @param[in]  ptrMMWaveMCB
+ *      Pointer to the mmWave MCB
+ *  @param[out] errCode
+ *      Error code populated by the API on an error
+ *
+ *  \ingroup MMWAVE_CTRL_INTERNAL_FUNCTION
+ *
+ *  @retval
+ *      Success -   0
+ *  @retval
+ *      Error   -   <0
+ */
+int32_t MMWave_deviceStartFxn(const MMWave_MCB* ptrMMWaveMCB, int32_t* errCode)
+{
+    MMWave_Msg      message;
+    int32_t         retVal = 0;
+    uint32_t        startMessageSize;
+
+    /* Determine the execution mode? Only in the cooperative mode do we need to send
+     * a message to the peer domain. */
+    if (ptrMMWaveMCB->initCfg.executionMode == MMWave_ExecutionMode_COOPERATIVE)
+    {
+        /* Populate the message: */
+        message.header.id     = MMWave_PayloadId_START;
+        message.header.length = sizeof(MMWave_CalibrationCfg);
+        memcpy ((void *)&message.u.calibrationCfg, (void*)&ptrMMWaveMCB->calibrationCfg, sizeof(MMWave_CalibrationCfg));
+
+        /* Compute the total size of the message which is to be sent across to the remote peer */
+        startMessageSize = sizeof(MMWave_MsgHeader) + message.header.length;
+
+        /* Send the start message to the peer domain: The peer mailbox handle is a critical resource
+         * which is shared across multiple threads. */
+        SemaphoreP_pend (gMMWave_DualcoreMCB.mailboxSemHandle, SemaphoreP_WAIT_FOREVER);
+        retVal = Mailbox_write (gMMWave_DualcoreMCB.peerMailbox, (const uint8_t*)&message, startMessageSize);
+        SemaphoreP_post (gMMWave_DualcoreMCB.mailboxSemHandle);
+        if (retVal == (int32_t)startMessageSize)
+        {
+            /* Success: Start message has been successfully sent to the peer execution
+             * domain. Setup the return value appropriately. */
+            retVal = 0;
+        }
+        else
+        {
+            /* Error: Unable to send out the start message to the peer execution domain.
+             * Setup the return values and error code */
+            *errCode = MMWave_encodeError (MMWave_ErrorLevel_ERROR, MMWAVE_EMSG, retVal);
+            retVal   = MINUS_ONE;
+        }
+    }
+    return retVal;
+}
+
+/**
+ *  @b Description
+ *  @n
+ *      The function is used to handle the link stop for Dual core.
+ *
+ *  @param[in]  ptrMMWaveMCB
+ *      Pointer to the mmWave MCB
+ *  @param[out] errCode
+ *      Error code populated by the API on an error
+ *
+ *  \ingroup MMWAVE_CTRL_INTERNAL_FUNCTION
+ *
+ *  @retval
+ *      Success -   0
+ *  @retval
+ *      Error   -   <0
+ */
+int32_t MMWave_deviceStopFxn(const MMWave_MCB* ptrMMWaveMCB, int32_t* errCode)
+{
+    MMWave_Msg      message;
+    int32_t         retVal = 0;
+    uint32_t        stopMessageSize;
+
+    /* Determine the execution mode? Only in the cooperative mode do we need to send
+     * a message to the peer domain. */
+    if (ptrMMWaveMCB->initCfg.executionMode == MMWave_ExecutionMode_COOPERATIVE)
+    {
+        /* Populate the message: */
+        message.header.id     = MMWave_PayloadId_STOP;
+        message.header.length = 0U;
+
+        /* Compute the total size of the message which is to be sent across to the remote peer */
+        stopMessageSize = sizeof(MMWave_MsgHeader) + message.header.length;
+
+        /* Send the stop message to the peer domain: The peer mailbox handle is a critical resource
+         * which is shared across multiple threads. */
+        SemaphoreP_pend (gMMWave_DualcoreMCB.mailboxSemHandle, SemaphoreP_WAIT_FOREVER);
+        retVal = Mailbox_write (gMMWave_DualcoreMCB.peerMailbox, (const uint8_t*)&message, stopMessageSize);
+        SemaphoreP_post (gMMWave_DualcoreMCB.mailboxSemHandle);
+        if (retVal == (int32_t)stopMessageSize)
+        {
+            /* Success: Stop message has been successfully sent to the peer execution
+             * domain. Setup the return value appropriately. */
+            retVal = 0;
+        }
+        else
+        {
+            /* Error: Unable to send out the stop message to the peer execution domain.
+             * Setup the return values and error code */
+            *errCode = MMWave_encodeError (MMWave_ErrorLevel_ERROR, MMWAVE_EMSG, retVal);
+            retVal   = MINUS_ONE;
+        }
+    }
+    return retVal;
+}
+
+/**
+ *  @b Description
+ *  @n
+ *      The function is used to handle the link asynchronous events for Dual core.
+ *      On Dual core implementation the mmWave module is responsible for relaying the mmWave 
+ *      link events to the peer execution domain
+ *
+ *  @param[in]  ptrMMWaveMCB
+ *      Pointer to the mmWave control block
+ *  @param[in]  msgId
+ *      Message Identifier
+ *  @param[in]  sbId
+ *      Subblock identifier
+ *  @param[in]  sbLen
+ *      Length of the subblock
+ *  @param[in]  payload
+ *      Pointer to the payload buffer
+ *
+ *  \ingroup MMWAVE_CTRL_INTERNAL_FUNCTION
+ *
+ *  @retval
+ *      Not applicable
+ */
+void MMWave_deviceEventFxn
+(
+    const MMWave_MCB*   ptrMMWaveMCB,
+    uint16_t            msgId,
+    uint16_t            sbId,
+    uint16_t            sbLen,
+    uint8_t*            payload
+)
+{
+    MMWave_Msg      message;
+    int32_t         retVal;
+    uint32_t        eventMessageSize;
+
+    /* Determine the execution mode? Only in the cooperative mode do we need to send
+     * a message to the peer domain. */
+    if (ptrMMWaveMCB->initCfg.executionMode == MMWave_ExecutionMode_COOPERATIVE)
+    {
+        /* Populate the message: */
+        message.header.id     = MMWave_PayloadId_EVENT;
+        message.header.length = sizeof(MMWave_MsgEvent);
+        message.u.event.msgId = msgId;
+        message.u.event.sbId  = sbId;
+        message.u.event.sbLen = sbLen;
+
+        /* Compute the total size of the message which is to be sent across to the remote peer */
+        eventMessageSize = sizeof(MMWave_MsgHeader) + message.header.length;
+
+        /* Send the event message to the peer domain: The peer mailbox handle is a critical resource
+         * which is shared across multiple threads. */
+        SemaphoreP_pend (gMMWave_DualcoreMCB.mailboxSemHandle, SemaphoreP_WAIT_FOREVER);
+        retVal = Mailbox_write (gMMWave_DualcoreMCB.peerMailbox, (const uint8_t*)&message, eventMessageSize);
+        SemaphoreP_post (gMMWave_DualcoreMCB.mailboxSemHandle);
+        if (retVal != (int32_t)eventMessageSize)
+        {
+            /* Error: Unable to send out the event message to the peer execution domain.
+             * The event function is called from the context of the mmWave link event handler
+             * and we need to report this failure to the application so we dont have another
+             * option but to throw an assertion at this stage */
+            DebugP_assert (0);
+        }
+    }
+    return;
+}
+
+/**
+ *  @b Description
+ *  @n
+ *      The function is used to handle the SOC specific execution. On Dual core we
+ *      check if there are any messages which have been received from the peer
+ *      execution domain and process these messages.
+ *
+ *  @param[in]  ptrMMWaveMCB
+ *      Pointer to the mmWave MCB
+ *  @param[out] errCode
+ *      Error code populated by the API on an error
+ *
+ *  \ingroup MMWAVE_CTRL_INTERNAL_FUNCTION
+ *
+ *  @retval
+ *      Success -   0
+ *  @retval
+ *      Error   -   <0
+ */
+int32_t MMWave_deviceExecuteFxn(MMWave_MCB* ptrMMWaveMCB, int32_t* errCode)
+{
+    MMWave_Msg      message;
+    int32_t         retVal        = MINUS_ONE;
+    uint32_t        endProcessing = 0U;
+    MMWave_CtrlCfg  controlCfg;
+
+    /* Initialize the error code: */
+    *errCode = 0;
+
+    /* Determine the execution mode: */
+    if (ptrMMWaveMCB->initCfg.executionMode == MMWave_ExecutionMode_ISOLATION)
+    {
+        /* Isolation Mode: There is no need to monitor the peer domain. We are done. */
+        retVal = 0;
+        goto exit;
+    }
+
+    /* Cooperative Mode: Loop around and process all the messsages received from the peer */
+    while (endProcessing == 0U)
+    {
+        /***************************************************************************
+         * All messages will always have a message header
+         ****************************************************************************/
+        retVal = Mailbox_read (gMMWave_DualcoreMCB.peerMailbox, (uint8_t*)&message.header, sizeof(MMWave_MsgHeader));
+        if (retVal < 0)
+        {
+            /* Error: Unable to read the message. Setup the error code */
+            *errCode = MMWave_encodeError (MMWave_ErrorLevel_ERROR, MMWAVE_EMSG, retVal);
+            endProcessing = 1U;
+        }
+        else if (retVal == 0)
+        {
+            /* We are done: There are no messages available from the peer execution domain. */
+            endProcessing = 1U;
+        }
+        else
+        {
+            /***************************************************************************
+             * Payloads are optional:
+             ****************************************************************************/
+            if (message.header.length > 0U)
+            {
+                /* Read the payload. Use the configuration message to read the entire message length */
+                retVal = Mailbox_read (gMMWave_DualcoreMCB.peerMailbox, (uint8_t*)&message.u.cfgMessage[0], message.header.length);
+                if (retVal < 0)
+                {
+                    /* Error: Unable to read the message. Setup the error code */
+                    *errCode = MMWave_encodeError (MMWave_ErrorLevel_ERROR, MMWAVE_EMSG, retVal);
+                    break;
+                }
+                if (retVal == 0)
+                {
+                    /* Error: There was no payload; while the header indicated that we were expecting data.
+                     * The mmWave is misbehaving; throw off an assertion here. */
+                    DebugP_assert (0);
+                }
+            }
+
+            /* Flush out the contents of the mailbox to indicate that we are done with the message. This will
+             * allow us to receive another message in the mailbox while we process the received message. */
+            Mailbox_readFlush (gMMWave_DualcoreMCB.peerMailbox);
+
+            /* Process the received message: */
+            switch (message.header.id)
+            {
+                case MMWave_PayloadId_CONFIG:
+                {
+                    /* Configuration message received: Deserialize the message into the control configuration */
+                    MMWave_deserializeCfg (ptrMMWaveMCB, &message, &controlCfg);
+
+                    /* Inform the application about the configuration. */
+                    ptrMMWaveMCB->initCfg.cooperativeModeCfg.cfgFxn (&controlCfg);
+
+                    /*****************************************************************************
+                     * Synchronize the local & remote domains:
+                     * - Store the DFE data output mode under which the mmWave is operating.
+                     * - Setup the link status to indicate that the sensor has been configured
+                     ******************************************************************************/
+                    ptrMMWaveMCB->dfeDataOutputMode = controlCfg.dfeDataOutputMode;
+                    ptrMMWaveMCB->status = ptrMMWaveMCB->status | MMWAVE_STATUS_CONFIGURED;
+                    break;
+                }
+                case MMWave_PayloadId_START:
+                {
+                    /* Start message received: Pass this to the application */
+                    ptrMMWaveMCB->initCfg.cooperativeModeCfg.startFxn (&message.u.calibrationCfg);
+
+                    /*****************************************************************************
+                     * Synchronize the local & remote domains:
+                     * - Store the DFE data output mode under which the mmWave is operating.
+                     * - Copy over the received calibration configuration
+                     * - Setup the status to indicate that the sensor has been started
+                     ******************************************************************************/
+                    ptrMMWaveMCB->dfeDataOutputMode = message.u.calibrationCfg.dfeDataOutputMode;
+                    memcpy ((void*)&ptrMMWaveMCB->calibrationCfg, &message.u.calibrationCfg, sizeof(MMWave_CalibrationCfg));
+                    ptrMMWaveMCB->status = ptrMMWaveMCB->status | MMWAVE_STATUS_STARTED;
+                    break;
+                }
+                case MMWave_PayloadId_STOP:
+                {
+                    /* Stop message received: Pass this to the application */
+                    ptrMMWaveMCB->initCfg.cooperativeModeCfg.stopFxn ();
+
+                    /*****************************************************************************
+                     * Synchronize the local & remote domains:
+                     * - Setup the status to indicate that the sensor has been stopped
+                     ******************************************************************************/
+                    ptrMMWaveMCB->status = ptrMMWaveMCB->status & (~(uint32_t)MMWAVE_STATUS_STARTED);
+                    break;
+                }
+                case MMWave_PayloadId_EVENT:
+                {
+                    /* Event message received: Pass this to the application */
+                    ptrMMWaveMCB->initCfg.eventFxn (message.u.event.msgId, message.u.event.sbId,
+                                                    message.u.event.sbLen, NULL);
+                    break;
+                }
+                case MMWave_PayloadId_OPEN:
+                {
+                    /* Open message received: Pass this to the application */
+                    ptrMMWaveMCB->initCfg.cooperativeModeCfg.openFxn (&message.u.openCfg);
+
+                    /*****************************************************************************
+                     * Synchronize the local & remote domains:
+                     * - Copy over the received open configuration
+                     * - Setup the status to indicate that the mmWave has been opened
+                     ******************************************************************************/
+                    memcpy ((void*)&ptrMMWaveMCB->openCfg, &message.u.openCfg, sizeof(MMWave_OpenCfg));
+                    ptrMMWaveMCB->status = ptrMMWaveMCB->status | MMWAVE_STATUS_OPENED;
+                    break;
+                }
+                case MMWave_PayloadId_CLOSE:
+                {
+                    /* Close message received: Pass this to the application */
+                    ptrMMWaveMCB->initCfg.cooperativeModeCfg.closeFxn ();
+
+                    /*****************************************************************************
+                     * Synchronize the local & remote domains:
+                     * - Setup the status to indicate that the mmWave has been stopped
+                     ******************************************************************************/
+                    ptrMMWaveMCB->status = ptrMMWaveMCB->status & (~(uint32_t)MMWAVE_STATUS_OPENED);
+                    break;
+                }
+                default:
+                {
+                    /* Error: This indicates that we received an invalid message identifier. This should NOT
+                     * happen and could indicate the following:-
+                     *  (a) Corrupted message received
+                     *  (b) Mailbox handle was shared between the application and caused the bad message */
+                     DebugP_assert (0);
+                     *errCode = MMWave_encodeError (MMWave_ErrorLevel_ERROR, MMWAVE_EMSG, 0);
+                     endProcessing = 1U;
+                     break;
+                }
+            }
+        }
+    }
+
+exit:
+    /* Determing the error level from the error code? */
+    if (MMWave_decodeErrorLevel (*errCode) == MMWave_ErrorLevel_SUCCESS)
+    {
+        /* Success: Setup the return value */
+        retVal = 0;
+    }
+    else
+    {
+        /* Informational/Error: Setup the return value */
+        retVal = MINUS_ONE;
+    }
+    return retVal;
+}
+

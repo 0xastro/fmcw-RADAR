@@ -1,0 +1,265 @@
+.TH "C:/Users/astro/workspace_v9_2/mrr_18xx_dss/common/mmw_messages.h" 3 "Wed May 20 2020" "Version 1.0" "mmWaveFMCWRADAR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/Users/astro/workspace_v9_2/mrr_18xx_dss/common/mmw_messages.h \- This is the main header file for the Millimeter Wave Demo\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'mrr_output\&.h'\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBMmwDemo_msgTlv_t\fP"
+.br
+.RI "TLV part of the message from DSS to MSS on data path detection information\&. "
+.ti -1c
+.RI "struct \fBMmwDemo_detObjMsg_t\fP"
+.br
+.RI "Message for reporting detection information from data path to MSS\&. "
+.ti -1c
+.RI "struct \fBMmwDemo_dssAssertInfoMsg_t\fP"
+.br
+.RI "Message for reporting DSS assertion information\&. "
+.ti -1c
+.RI "union \fBMmwDemo_message_body_u\fP"
+.br
+.RI "Message body used in Millimeter Wave Demo for passing configuration from MSS to DSS\&. "
+.ti -1c
+.RI "struct \fBMmwDemo_message_t\fP"
+.br
+.RI "DSS/MSS communication messages\&. "
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBMMWDEMO_DSS2MSS_EXCEPTION_SIGNALLING_SW_INT_DSS\fP   1"
+.br
+.RI "Software interrupt number used by DSS to signal exception from DSS to MSS\&. "
+.ti -1c
+.RI "#define \fBMMWDEMO_DSS2MSS_EXCEPTION_SIGNALLING_SW_INT_MSS\fP   SOC_XWR16XX_MSS_DSS2MSS_SW1_INT"
+.br
+.RI "Software interrupt ID on MSS corresponding to \fBMMWDEMO_DSS2MSS_EXCEPTION_SIGNALLING_SW_INT_DSS\fP\&. "
+.ti -1c
+.RI "#define \fBMMWDEMO_DSS2MSS_CHIRP_PROC_DEADLINE_MISS_EXCEPTION\fP   0"
+.br
+.RI "DSS to MSS chirp processing deadline miss exception ID\&. "
+.ti -1c
+.RI "#define \fBMMWDEMO_DSS2MSS_FRAME_PROC_DEADLINE_MISS_EXCEPTION\fP   1"
+.br
+.RI "DSS to MSS frame processing deadline miss exception ID\&. "
+.ti -1c
+.RI "#define \fBMMWDEMO_MAX_FILE_NAME_SIZE\fP   128"
+.br
+.ti -1c
+.RI "#define \fBMMWDEMO_SUBFRAME_NUM_FRAME_LEVEL_CONFIG\fP   (\-1)"
+.br
+.RI "For advanced frame config, below define means the configuration given is global at frame level and therefore it is broadcast to all sub-frames\&. "
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef enum \fBMmwDemo_message_type_e\fP \fBMmwDemo_message_type\fP"
+.br
+.RI "Message types used in Millimeter Wave Demo for Mailbox communication between MSS and DSS\&. "
+.ti -1c
+.RI "typedef struct \fBMmwDemo_msgTlv_t\fP \fBMmwDemo_msgTlv\fP"
+.br
+.RI "TLV part of the message from DSS to MSS on data path detection information\&. "
+.ti -1c
+.RI "typedef struct \fBMmwDemo_detObjMsg_t\fP \fBMmwDemo_detInfoMsg\fP"
+.br
+.RI "Message for reporting detection information from data path to MSS\&. "
+.ti -1c
+.RI "typedef struct \fBMmwDemo_dssAssertInfoMsg_t\fP \fBMmwDemo_dssAssertInfoMsg\fP"
+.br
+.RI "Message for reporting DSS assertion information\&. "
+.ti -1c
+.RI "typedef union \fBMmwDemo_message_body_u\fP \fBMmwDemo_message_body\fP"
+.br
+.RI "Message body used in Millimeter Wave Demo for passing configuration from MSS to DSS\&. "
+.ti -1c
+.RI "typedef struct \fBMmwDemo_message_t\fP \fBMmwDemo_message\fP"
+.br
+.RI "DSS/MSS communication messages\&. "
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBMmwDemo_message_type_e\fP { \fBMMWDEMO_MSS2DSS_GUIMON_CFG\fP = 0xFEED0001, \fBMMWDEMO_MSS2DSS_CFAR_RANGE_CFG\fP, \fBMMWDEMO_MSS2DSS_CFAR_DOPPLER_CFG\fP, \fBMMWDEMO_MSS2DSS_PEAK_GROUPING_CFG\fP, \fBMMWDEMO_MSS2DSS_MULTI_OBJ_BEAM_FORM\fP, \fBMMWDEMO_MSS2DSS_CALIB_DC_RANGE_SIG\fP, \fBMMWDEMO_MSS2DSS_DETOBJ_SHIPPED\fP, \fBMMWDEMO_MSS2DSS_SET_DATALOGGER\fP, \fBMMWDEMO_MSS2DSS_ADCBUFCFG\fP, \fBMMWDEMO_MSS2DSS_EXTENDED_MAX_VELOCITY\fP, \fBMMWDEMO_MSS2DSS_CLUTTER_REMOVAL\fP, \fBMMWDEMO_MSS2DSS_COMP_RANGE_BIAS_AND_RX_CHAN_PHASE\fP, \fBMMWDEMO_MSS2DSS_MEASURE_RANGE_BIAS_AND_RX_CHAN_PHASE\fP, \fBMMWDEMO_DSS2MSS_CONFIGDONE\fP = 0xFEED0100, \fBMMWDEMO_DSS2MSS_DETOBJ_READY\fP, \fBMMWDEMO_DSS2MSS_STOPDONE\fP, \fBMMWDEMO_DSS2MSS_ASSERT_INFO\fP, \fBMMWDEMO_DSS2MSS_ISR_INFO_ADDRESS\fP, \fBMMWDEMO_DSS2MSS_MEASUREMENT_INFO\fP, \fBMMWDEMO_MSS2DSS_GUIMON_CFG\fP = 0xFEED0001, \fBMMWDEMO_MSS2DSS_CFAR_RANGE_CFG\fP, \fBMMWDEMO_MSS2DSS_CFAR_DOPPLER_CFG\fP, \fBMMWDEMO_MSS2DSS_PEAK_GROUPING_CFG\fP, \fBMMWDEMO_MSS2DSS_MULTI_OBJ_BEAM_FORM\fP, \fBMMWDEMO_MSS2DSS_CALIB_DC_RANGE_SIG\fP, \fBMMWDEMO_MSS2DSS_DETOBJ_SHIPPED\fP, \fBMMWDEMO_MSS2DSS_SET_DATALOGGER\fP, \fBMMWDEMO_MSS2DSS_ADCBUFCFG\fP, \fBMMWDEMO_MSS2DSS_EXTENDED_MAX_VELOCITY\fP, \fBMMWDEMO_MSS2DSS_CLUTTER_REMOVAL\fP, \fBMMWDEMO_MSS2DSS_COMP_RANGE_BIAS_AND_RX_CHAN_PHASE\fP, \fBMMWDEMO_MSS2DSS_MEASURE_RANGE_BIAS_AND_RX_CHAN_PHASE\fP, \fBMMWDEMO_DSS2MSS_CONFIGDONE\fP = 0xFEED0100, \fBMMWDEMO_DSS2MSS_DETOBJ_READY\fP, \fBMMWDEMO_DSS2MSS_STOPDONE\fP, \fBMMWDEMO_DSS2MSS_ASSERT_INFO\fP, \fBMMWDEMO_DSS2MSS_ISR_INFO_ADDRESS\fP, \fBMMWDEMO_DSS2MSS_MEASUREMENT_INFO\fP }"
+.br
+.RI "Message types used in Millimeter Wave Demo for Mailbox communication between MSS and DSS\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+This is the main header file for the Millimeter Wave Demo\&. 
+
+
+.PP
+\fB\fP
+.RS 4
+NOTE: (C) Copyright 2018 Texas Instruments, Inc\&.
+.RE
+.PP
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+.PP
+Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer\&.
+.PP
+Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution\&.
+.PP
+Neither the name of Texas Instruments Incorporated nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission\&.
+.PP
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED\&. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE\&. 
+.PP
+Definition in file \fBmmw_messages\&.h\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define MMWDEMO_DSS2MSS_EXCEPTION_SIGNALLING_SW_INT_DSS   1"
+
+.PP
+Software interrupt number used by DSS to signal exception from DSS to MSS\&. 
+.PP
+Definition at line 86 of file mmw_messages\&.h\&.
+.SS "#define MMWDEMO_DSS2MSS_EXCEPTION_SIGNALLING_SW_INT_MSS   SOC_XWR16XX_MSS_DSS2MSS_SW1_INT"
+
+.PP
+Software interrupt ID on MSS corresponding to \fBMMWDEMO_DSS2MSS_EXCEPTION_SIGNALLING_SW_INT_DSS\fP\&. 
+.PP
+Definition at line 89 of file mmw_messages\&.h\&.
+.SS "#define MMWDEMO_MAX_FILE_NAME_SIZE   128"
+
+.PP
+Definition at line 142 of file mmw_messages\&.h\&.
+.SS "#define MMWDEMO_SUBFRAME_NUM_FRAME_LEVEL_CONFIG   (\-1)"
+
+.PP
+For advanced frame config, below define means the configuration given is global at frame level and therefore it is broadcast to all sub-frames\&. 
+.PP
+Definition at line 186 of file mmw_messages\&.h\&.
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fBMmwDemo_detObjMsg_t\fP  \fBMmwDemo_detInfoMsg\fP"
+
+.PP
+Message for reporting detection information from data path to MSS\&. The structure defines the message body for detection information from from data path to MSS\&. 
+.SS "typedef struct \fBMmwDemo_dssAssertInfoMsg_t\fP  \fBMmwDemo_dssAssertInfoMsg\fP"
+
+.PP
+Message for reporting DSS assertion information\&. The structure defines the message body for the information on a DSS exception that should be forwarded to the MSS\&. 
+.SS "typedef struct \fBMmwDemo_message_t\fP  \fBMmwDemo_message\fP"
+
+.PP
+DSS/MSS communication messages\&. The structure defines the message structure used to commuincate between MSS and DSS\&. 
+.SS "typedef union \fBMmwDemo_message_body_u\fP  \fBMmwDemo_message_body\fP"
+
+.PP
+Message body used in Millimeter Wave Demo for passing configuration from MSS to DSS\&. The union defines the message body for various configuration messages\&. 
+.SS "typedef enum \fBMmwDemo_message_type_e\fP \fBMmwDemo_message_type\fP"
+
+.PP
+Message types used in Millimeter Wave Demo for Mailbox communication between MSS and DSS\&. The enum is used to hold all the messages types used for Mailbox communication between MSS and DSS in mmw Demo\&. 
+.SS "typedef struct \fBMmwDemo_msgTlv_t\fP  \fBMmwDemo_msgTlv\fP"
+
+.PP
+TLV part of the message from DSS to MSS on data path detection information\&. The structure describes the message item 
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBMmwDemo_message_type_e\fP"
+
+.PP
+Message types used in Millimeter Wave Demo for Mailbox communication between MSS and DSS\&. The enum is used to hold all the messages types used for Mailbox communication between MSS and DSS in mmw Demo\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIMMWDEMO_MSS2DSS_GUIMON_CFG \fP\fP
+message types for MSS to DSS communication 
+.TP
+\fB\fIMMWDEMO_MSS2DSS_CFAR_RANGE_CFG \fP\fP
+.TP
+\fB\fIMMWDEMO_MSS2DSS_CFAR_DOPPLER_CFG \fP\fP
+.TP
+\fB\fIMMWDEMO_MSS2DSS_PEAK_GROUPING_CFG \fP\fP
+.TP
+\fB\fIMMWDEMO_MSS2DSS_MULTI_OBJ_BEAM_FORM \fP\fP
+.TP
+\fB\fIMMWDEMO_MSS2DSS_CALIB_DC_RANGE_SIG \fP\fP
+.TP
+\fB\fIMMWDEMO_MSS2DSS_DETOBJ_SHIPPED \fP\fP
+.TP
+\fB\fIMMWDEMO_MSS2DSS_SET_DATALOGGER \fP\fP
+.TP
+\fB\fIMMWDEMO_MSS2DSS_ADCBUFCFG \fP\fP
+.TP
+\fB\fIMMWDEMO_MSS2DSS_EXTENDED_MAX_VELOCITY \fP\fP
+.TP
+\fB\fIMMWDEMO_MSS2DSS_CLUTTER_REMOVAL \fP\fP
+.TP
+\fB\fIMMWDEMO_MSS2DSS_COMP_RANGE_BIAS_AND_RX_CHAN_PHASE \fP\fP
+.TP
+\fB\fIMMWDEMO_MSS2DSS_MEASURE_RANGE_BIAS_AND_RX_CHAN_PHASE \fP\fP
+.TP
+\fB\fIMMWDEMO_DSS2MSS_CONFIGDONE \fP\fP
+message types for DSS to MSS communication 
+.TP
+\fB\fIMMWDEMO_DSS2MSS_DETOBJ_READY \fP\fP
+.TP
+\fB\fIMMWDEMO_DSS2MSS_STOPDONE \fP\fP
+.TP
+\fB\fIMMWDEMO_DSS2MSS_ASSERT_INFO \fP\fP
+.TP
+\fB\fIMMWDEMO_DSS2MSS_ISR_INFO_ADDRESS \fP\fP
+.TP
+\fB\fIMMWDEMO_DSS2MSS_MEASUREMENT_INFO \fP\fP
+.TP
+\fB\fIMMWDEMO_MSS2DSS_GUIMON_CFG \fP\fP
+message types for MSS to DSS communication 
+.TP
+\fB\fIMMWDEMO_MSS2DSS_CFAR_RANGE_CFG \fP\fP
+.TP
+\fB\fIMMWDEMO_MSS2DSS_CFAR_DOPPLER_CFG \fP\fP
+.TP
+\fB\fIMMWDEMO_MSS2DSS_PEAK_GROUPING_CFG \fP\fP
+.TP
+\fB\fIMMWDEMO_MSS2DSS_MULTI_OBJ_BEAM_FORM \fP\fP
+.TP
+\fB\fIMMWDEMO_MSS2DSS_CALIB_DC_RANGE_SIG \fP\fP
+.TP
+\fB\fIMMWDEMO_MSS2DSS_DETOBJ_SHIPPED \fP\fP
+.TP
+\fB\fIMMWDEMO_MSS2DSS_SET_DATALOGGER \fP\fP
+.TP
+\fB\fIMMWDEMO_MSS2DSS_ADCBUFCFG \fP\fP
+.TP
+\fB\fIMMWDEMO_MSS2DSS_EXTENDED_MAX_VELOCITY \fP\fP
+.TP
+\fB\fIMMWDEMO_MSS2DSS_CLUTTER_REMOVAL \fP\fP
+.TP
+\fB\fIMMWDEMO_MSS2DSS_COMP_RANGE_BIAS_AND_RX_CHAN_PHASE \fP\fP
+.TP
+\fB\fIMMWDEMO_MSS2DSS_MEASURE_RANGE_BIAS_AND_RX_CHAN_PHASE \fP\fP
+.TP
+\fB\fIMMWDEMO_DSS2MSS_CONFIGDONE \fP\fP
+message types for DSS to MSS communication 
+.TP
+\fB\fIMMWDEMO_DSS2MSS_DETOBJ_READY \fP\fP
+.TP
+\fB\fIMMWDEMO_DSS2MSS_STOPDONE \fP\fP
+.TP
+\fB\fIMMWDEMO_DSS2MSS_ASSERT_INFO \fP\fP
+.TP
+\fB\fIMMWDEMO_DSS2MSS_ISR_INFO_ADDRESS \fP\fP
+.TP
+\fB\fIMMWDEMO_DSS2MSS_MEASUREMENT_INFO \fP\fP
+.PP
+Definition at line 57 of file mmw_messages\&.h\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mmWaveFMCWRADAR from the source code\&.

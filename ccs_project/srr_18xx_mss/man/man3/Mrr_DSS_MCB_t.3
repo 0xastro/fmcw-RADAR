@@ -1,0 +1,198 @@
+.TH "Mrr_DSS_MCB_t" 3 "Wed May 20 2020" "Version 1.0" "mmWaveFMCWRADAR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Mrr_DSS_MCB_t \- DSS MRR TI Design Master control block\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <dss_mrr\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "SOC_Handle \fBsocHandle\fP"
+.br
+.RI "Handle to the SOC Module\&. "
+.ti -1c
+.RI "MMWave_Handle \fBctrlHandle\fP"
+.br
+.RI "mmWave control handle use to initialize the link infrastructure which allows communication between the MSS and BSS "
+.ti -1c
+.RI "ADCBuf_Handle \fBadcBufHandle\fP"
+.br
+.RI "Handle to the ADCBUF Driver\&. "
+.ti -1c
+.RI "SOC_SysIntListenerHandle \fBchirpIntHandle\fP"
+.br
+.RI "Handle to the SOC chirp interrupt listener Handle\&. "
+.ti -1c
+.RI "SOC_SysIntListenerHandle \fBframeStartIntHandle\fP"
+.br
+.RI "Handle to the SOC chirp interrupt listener Handle\&. "
+.ti -1c
+.RI "Semaphore_Handle \fBmboxSemHandle\fP"
+.br
+.RI "Semaphore handle for the mailbox communication Not Used\&. "
+.ti -1c
+.RI "Mbox_Handle \fBpeerMailbox\fP"
+.br
+.RI "Mailbox Handle: This is used to exchange messages between the MSS and DSS\&. "
+.ti -1c
+.RI "\fBMmwDemo_DSS_STATE\fP \fBstate\fP"
+.br
+.RI "mmw Demo state "
+.ti -1c
+.RI "\fBMmwDemo_DSS_STATS\fP \fBstats\fP"
+.br
+.RI "mmw Demo statistics "
+.ti -1c
+.RI "\fBMmwDemo_DSS_DataPathObj\fP \fBdataPathObj\fP [\fBNUM_SUBFRAMES\fP]"
+.br
+.RI "Data Path object\&. "
+.ti -1c
+.RI "uint8_t \fBloggingBufferAvailable\fP"
+.br
+.RI "Logging buffer flag\&. "
+.ti -1c
+.RI "uint8_t \fBsubframeIndx\fP"
+.br
+.RI "Subframe index\&. "
+.ti -1c
+.RI "uint8_t \fBinterFrameProcToken\fP"
+.br
+.RI "inter frameProc token "
+.ti -1c
+.RI "uint8_t \fBframeStartIntToken\fP"
+.br
+.RI "frame start token "
+.ti -1c
+.RI "uint8_t \fBchirpProcToken\fP"
+.br
+.RI "chirpProc token "
+.ti -1c
+.RI "uint8_t \fBmboxProcToken\fP"
+.br
+.RI "'mailbox has a message' token "
+.ti -1c
+.RI "uint8_t \fBframeProcToken\fP"
+.br
+.RI "frame process token "
+.in -1c
+.SH "Detailed Description"
+.PP 
+DSS MRR TI Design Master control block\&. 
+
+The structure is used to hold information pertinent to the DSS MRR TI design\&. 
+.PP
+Definition at line 154 of file dss_mrr\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "ADCBuf_Handle Mrr_DSS_MCB_t::adcBufHandle"
+
+.PP
+Handle to the ADCBUF Driver\&. 
+.PP
+Definition at line 170 of file dss_mrr\&.h\&.
+.SS "SOC_SysIntListenerHandle Mrr_DSS_MCB_t::chirpIntHandle"
+
+.PP
+Handle to the SOC chirp interrupt listener Handle\&. 
+.PP
+Definition at line 175 of file dss_mrr\&.h\&.
+.SS "uint8_t Mrr_DSS_MCB_t::chirpProcToken"
+
+.PP
+chirpProc token 
+.PP
+Definition at line 213 of file dss_mrr\&.h\&.
+.SS "MMWave_Handle Mrr_DSS_MCB_t::ctrlHandle"
+
+.PP
+mmWave control handle use to initialize the link infrastructure which allows communication between the MSS and BSS 
+.PP
+Definition at line 165 of file dss_mrr\&.h\&.
+.SS "\fBMmwDemo_DSS_DataPathObj\fP Mrr_DSS_MCB_t::dataPathObj[\fBNUM_SUBFRAMES\fP]"
+
+.PP
+Data Path object\&. 
+.PP
+Definition at line 198 of file dss_mrr\&.h\&.
+.SS "uint8_t Mrr_DSS_MCB_t::frameProcToken"
+
+.PP
+frame process token 
+.PP
+Definition at line 219 of file dss_mrr\&.h\&.
+.SS "SOC_SysIntListenerHandle Mrr_DSS_MCB_t::frameStartIntHandle"
+
+.PP
+Handle to the SOC chirp interrupt listener Handle\&. 
+.PP
+Definition at line 180 of file dss_mrr\&.h\&.
+.SS "uint8_t Mrr_DSS_MCB_t::frameStartIntToken"
+
+.PP
+frame start token 
+.PP
+Definition at line 210 of file dss_mrr\&.h\&.
+.SS "uint8_t Mrr_DSS_MCB_t::interFrameProcToken"
+
+.PP
+inter frameProc token 
+.PP
+Definition at line 207 of file dss_mrr\&.h\&.
+.SS "uint8_t Mrr_DSS_MCB_t::loggingBufferAvailable"
+
+.PP
+Logging buffer flag\&. 
+.PP
+Definition at line 201 of file dss_mrr\&.h\&.
+.SS "uint8_t Mrr_DSS_MCB_t::mboxProcToken"
+
+.PP
+'mailbox has a message' token 
+.PP
+Definition at line 216 of file dss_mrr\&.h\&.
+.SS "Semaphore_Handle Mrr_DSS_MCB_t::mboxSemHandle"
+
+.PP
+Semaphore handle for the mailbox communication Not Used\&. 
+.PP
+Definition at line 183 of file dss_mrr\&.h\&.
+.SS "Mbox_Handle Mrr_DSS_MCB_t::peerMailbox"
+
+.PP
+Mailbox Handle: This is used to exchange messages between the MSS and DSS\&. 
+.PP
+Definition at line 189 of file dss_mrr\&.h\&.
+.SS "SOC_Handle Mrr_DSS_MCB_t::socHandle"
+
+.PP
+Handle to the SOC Module\&. 
+.PP
+Definition at line 159 of file dss_mrr\&.h\&.
+.SS "\fBMmwDemo_DSS_STATE\fP Mrr_DSS_MCB_t::state"
+
+.PP
+mmw Demo state 
+.PP
+Definition at line 192 of file dss_mrr\&.h\&.
+.SS "\fBMmwDemo_DSS_STATS\fP Mrr_DSS_MCB_t::stats"
+
+.PP
+mmw Demo statistics 
+.PP
+Definition at line 195 of file dss_mrr\&.h\&.
+.SS "uint8_t Mrr_DSS_MCB_t::subframeIndx"
+
+.PP
+Subframe index\&. 
+.PP
+Definition at line 204 of file dss_mrr\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mmWaveFMCWRADAR from the source code\&.

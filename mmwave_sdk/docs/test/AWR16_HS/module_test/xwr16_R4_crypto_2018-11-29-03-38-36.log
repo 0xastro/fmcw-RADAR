@@ -1,0 +1,141 @@
+mss in binary >>> xwr16xx_crypto_mss.xer4f
+eth008 Board details:
+IP address: 10.218.113.68
+
+Port: 17494
+
+connecting...
+Relay states 8->1 : 00000001
+1 off
+8 off
+2 off
+Relay states 8->1 : 00000000
+1 on
+Relay states 8->1 : 00000001
+exit
+Disconnected
+Pre-Script returned: Success
+**************************************************
+Testcase mods & parameters invoked:
+**************************************************
+Two core test case: None (this is not a two core testcase)
+
+**************************************************
+Copying test case files from the Build server
+**************************************************
+Testdata possible location 1: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/drivers/crypto/test/testdata
+
+
+Testdata directory was not found on Testdata possible location 1
+
+
+Testdata possible location 2: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/drivers/crypto/test/xwr16xx/testdata
+
+
+Testdata directory was not found on Testdata possible location 2
+
+Call to copy_testcase_binary:
+TCP: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/drivers/crypto/test/xwr16xx; /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___hs_awr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_50_24
+
+Copying testcase binary file from http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/drivers/crypto/test/xwr16xx/xwr16xx_crypto_mss.xer4f to /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___hs_awr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_50_24 using command: 
+wget -e robots=off --no-proxy -N -T 30 -t 2 -P /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___hs_awr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_50_24 http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/drivers/crypto/test/xwr16xx/xwr16xx_crypto_mss.xer4f
+**************************************************
+Executing Testcase:/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___hs_awr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_50_24/xwr16xx_crypto_mss.xer4f
+**************************************************
+Checking if Py4J Gateway server has started...
+Py4J Gateway Server is Started
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/DEBUGSSM_0
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/IcePick_M_0
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/C674X_0
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/CS_DAP_0
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/CortexR4_0
+DSS test case opening debug session.
+
+cr4ctl = 0xadad00
+
+efuse/register @0xFFFFE210 = 0x300002
+
+efuse/register @0xFFFFE214 = 0x18425b1
+
+efuse/register @0xFFFFE218 = 0x12
+
+efuse/register @0xFFFFE21C = 0x2ee
+
+Loading binary to the DUT (no binary args updated):/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___hs_awr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_50_24/xwr16xx_crypto_mss.xer4f
+binary path = /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___hs_awr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_50_24/xwr16xx_crypto_mss.xer4f
+
+dt-time: start time = Thu Nov 29 03:39:15 2018
+
+dt-time: end time = Thu Nov 29 03:39:58 2018
+
+
+**************************************************
+CIO Log captured for the testcase
+**************************************************
+*******************************************************
+                CRYPTO Unit Test Menu                  
+*******************************************************
+
+Debug: AES testing
+Debug: Crypto test 0: AES Mode - CBC keysize - 128 bit, Datalen - 48 passed
+Debug: Crypto test 1: AES Mode - CBC keysize - 128 bit, Datalen - 64 passed
+Debug: Crypto test 2: AES Mode - CBC keysize - 192 bit, Datalen - 48 passed
+Debug: Crypto test 3: AES Mode - CBC keysize - 256 bit, Datalen - 48 passed
+Debug: Crypto test 4: AES Mode - CBC keysize - 256 bit, Datalen - 64 passed
+Debug: Crypto test 5: AES Mode - CBC keysize - 256 bit, Datalen - 33 passed
+Debug: Crypto test 6: AES Mode - ECB keysize - 128 bit, Datalen - 48 passed
+Debug: Crypto test 7: AES Mode - ECB keysize - 192 bit, Datalen - 48 passed
+Debug: Crypto test 8: AES Mode - ECB keysize - 256 bit, Datalen - 48 passed
+Debug: Crypto test 9: AES Mode - ECB keysize - 256 bit, Datalen - 33 passed
+Debug: Crypto test 10: AES Mode - ICM keysize - 128 bit, Datalen - 16 passed
+Debug: Crypto test 11: AES Mode - CFB keysize - 128 bit, Datalen - 64 passed
+Debug: Crypto test 12: AES Mode - CFB keysize - 192 bit, Datalen - 64 passed
+Debug: Crypto test 13: AES Mode - CFB keysize - 256 bit, Datalen - 64 passed
+Debug: Crypto test 14: AES Mode - CTR keysize - 128 bit, Datalen - 16 passed
+Debug: Crypto test 15: AES Mode - CTR keysize - 128 bit, Datalen - 64 passed
+Debug: Crypto test 16: AES Mode - CTR keysize - 128 bit, Datalen - 16 passed
+Debug: Crypto test 17: AES Mode - CTR keysize - 192 bit, Datalen - 64 passed
+Debug: Crypto test 18: AES Mode - CTR keysize - 256 bit, Datalen - 64 passed
+Debug: Tag Data verification for test 19: AES Mode - GCM keysize - 128 bit, Datalen - 60 passed
+Debug: Crypto test 19: AES Mode - GCM keysize - 128 bit, Datalen - 60 passed
+Debug: Tag Data verification for test 20: AES Mode - CCM keysize - 128 bit, Datalen - 23 passed
+Debug: Crypto test 20: AES Mode - CCM keysize - 128 bit, Datalen - 23 passed
+Feature: AES mode testing: Passed
+Debug: AES testing passed
+
+
+Debug: HMAC testing
+Debug: Crypto Test 0: Mode - MD5 Datalen - 14 passed
+Debug: Crypto Test 1: Mode - MD5 Datalen - 62 passed
+Debug: Crypto Test 2: Mode - SHA1 Datalen - 50 passed
+Debug: Crypto Test 3: Mode - SHA1 Datalen - 300 passed
+Debug: Crypto Test 4: Mode - SHA1 Datalen - 1000 passed
+Debug: Crypto Test 5: Mode - SHA224 Datalen - 50 passed
+Debug: Crypto Test 6: Mode - SHA224 Datalen - 300 passed
+Debug: Crypto Test 7: Mode - SHA224 Datalen - 1000 passed
+Debug: Crypto Test 8: Mode - SHA256 Datalen - 50 passed
+Debug: Crypto Test 9: Mode - SHA256 Datalen - 300 passed
+Debug: Crypto Test 10: Mode - SHA256 Datalen - 1000 passed
+Feature: HMAC mode testing: Passed
+Debug: HMAC testing passed
+Value read from Global variable (MCPI_Result): 0
+Test Failure Signature: 0
+Test Log Messages: 
+Feature tested: AES mode testing: Passed
+Feature tested: HMAC mode testing: Passed
+
+
+shutting down py4j gw server.
+
+
+**************************************************
+Terminating the debug session and Shutting down gateway.
+**************************************************
+
+**************************************************
+Test case execution completed
+**************************************************
+
+**************************************************
+Testcase Result : PASS
+**************************************************

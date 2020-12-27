@@ -1,0 +1,229 @@
+\doxysection{mss\+\_\+mrr\+\_\+cli.\+c File Reference}
+\label{mss__mrr__cli_8c}\index{mss\_mrr\_cli.c@{mss\_mrr\_cli.c}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$xdc/runtime/\+System.\+h$>$}\newline
+{\ttfamily \#include $<$ti/sysbios/\+B\+I\+O\+S.\+h$>$}\newline
+{\ttfamily \#include $<$ti/sysbios/knl/\+Task.\+h$>$}\newline
+{\ttfamily \#include $<$ti/sysbios/knl/\+Event.\+h$>$}\newline
+{\ttfamily \#include $<$ti/sysbios/knl/\+Semaphore.\+h$>$}\newline
+{\ttfamily \#include $<$ti/sysbios/knl/\+Clock.\+h$>$}\newline
+{\ttfamily \#include $<$ti/sysbios/heaps/\+Heap\+Buf.\+h$>$}\newline
+{\ttfamily \#include $<$ti/sysbios/heaps/\+Heap\+Mem.\+h$>$}\newline
+{\ttfamily \#include $<$ti/common/sys\+\_\+common.\+h$>$}\newline
+{\ttfamily \#include $<$ti/drivers/uart/\+U\+A\+R\+T.\+h$>$}\newline
+{\ttfamily \#include $<$ti/drivers/osal/\+Debug\+P.\+h$>$}\newline
+{\ttfamily \#include $<$ti/control/mmwavelink/mmwavelink.\+h$>$}\newline
+{\ttfamily \#include $<$ti/utils/cli/cli.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}common/mrr\+\_\+config\+\_\+consts.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}common/mm\+Wave\+\_\+\+X\+S\+S.\+h\char`\"{}}\newline
+Include dependency graph for mss\+\_\+mrr\+\_\+cli.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mss__mrr__cli_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int32\+\_\+t \textbf{ M\+S\+S\+\_\+\+C\+L\+I\+Sensor\+Start} (int32\+\_\+t argc, char $\ast$argv[$\,$])
+\begin{DoxyCompactList}\small\item\em This is the C\+LI Handler for starting the sensor. \end{DoxyCompactList}\item 
+static int32\+\_\+t \textbf{ M\+S\+S\+\_\+\+C\+L\+I\+Sensor\+Stop} (int32\+\_\+t argc, char $\ast$argv[$\,$])
+\begin{DoxyCompactList}\small\item\em This is the C\+LI Handler for stopping the sensor. \end{DoxyCompactList}\item 
+static int32\+\_\+t \textbf{ M\+S\+S\+\_\+\+C\+L\+I\+Basic\+Cfg} (int32\+\_\+t argc, char $\ast$argv[$\,$])
+\begin{DoxyCompactList}\small\item\em This is the C\+LI Handler for basic configuration. \end{DoxyCompactList}\item 
+static int32\+\_\+t \textbf{ M\+S\+S\+\_\+\+C\+L\+I\+Advanced\+Frame\+Cfg} (int32\+\_\+t argc, char $\ast$argv[$\,$])
+\begin{DoxyCompactList}\small\item\em This is the C\+LI Handler for advanced frame configuration. \end{DoxyCompactList}\item 
+void \textbf{ M\+S\+S\+\_\+\+C\+L\+I\+Init} (void)
+\begin{DoxyCompactList}\small\item\em This is the C\+LI Execution Task. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\label{mss__mrr__cli_8c_a8014abc639fc64829b5605d6325a2dcd}} 
+\index{mss\_mrr\_cli.c@{mss\_mrr\_cli.c}!MSS\_CLIAdvancedFrameCfg@{MSS\_CLIAdvancedFrameCfg}}
+\index{MSS\_CLIAdvancedFrameCfg@{MSS\_CLIAdvancedFrameCfg}!mss\_mrr\_cli.c@{mss\_mrr\_cli.c}}
+\doxysubsubsection{MSS\_CLIAdvancedFrameCfg()}
+{\footnotesize\ttfamily static int32\+\_\+t M\+S\+S\+\_\+\+C\+L\+I\+Advanced\+Frame\+Cfg (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{argc,  }\item[{char $\ast$}]{argv[$\,$] }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+This is the C\+LI Handler for advanced frame configuration. 
+
+\begin{DoxyItemize}
+\item [0] Number of arguments \item [1] Arguments 
+\begin{DoxyRetVals}{Return values}
+{\em Success} & 0 \\
+\hline
+{\em Error} & -\/1 \\
+\hline
+\end{DoxyRetVals}
+\end{DoxyItemize}
+
+
+Definition at line 221 of file mss\+\_\+mrr\+\_\+cli.\+c.
+
+
+
+Referenced by M\+S\+S\+\_\+\+C\+L\+I\+Init().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mss__mrr__cli_8c_a8014abc639fc64829b5605d6325a2dcd_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{mss__mrr__cli_8c_a48799441879815863aaf4f9de037da00}} 
+\index{mss\_mrr\_cli.c@{mss\_mrr\_cli.c}!MSS\_CLIBasicCfg@{MSS\_CLIBasicCfg}}
+\index{MSS\_CLIBasicCfg@{MSS\_CLIBasicCfg}!mss\_mrr\_cli.c@{mss\_mrr\_cli.c}}
+\doxysubsubsection{MSS\_CLIBasicCfg()}
+{\footnotesize\ttfamily static int32\+\_\+t M\+S\+S\+\_\+\+C\+L\+I\+Basic\+Cfg (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{argc,  }\item[{char $\ast$}]{argv[$\,$] }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+This is the C\+LI Handler for basic configuration. 
+
+\begin{DoxyItemize}
+\item [0] Number of arguments \item [1] Arguments 
+\begin{DoxyRetVals}{Return values}
+{\em Success} & 0 \\
+\hline
+{\em Error} & -\/1 \\
+\hline
+\end{DoxyRetVals}
+\end{DoxyItemize}
+
+
+Definition at line 146 of file mss\+\_\+mrr\+\_\+cli.\+c.
+
+
+
+Referenced by M\+S\+S\+\_\+\+C\+L\+I\+Init().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mss__mrr__cli_8c_a48799441879815863aaf4f9de037da00_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{mss__mrr__cli_8c_a7ea0d0d15e4d7da097e286f887e0fe86}} 
+\index{mss\_mrr\_cli.c@{mss\_mrr\_cli.c}!MSS\_CLIInit@{MSS\_CLIInit}}
+\index{MSS\_CLIInit@{MSS\_CLIInit}!mss\_mrr\_cli.c@{mss\_mrr\_cli.c}}
+\doxysubsubsection{MSS\_CLIInit()}
+{\footnotesize\ttfamily void M\+S\+S\+\_\+\+C\+L\+I\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This is the C\+LI Execution Task. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em N/A} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 310 of file mss\+\_\+mrr\+\_\+cli.\+c.
+
+
+
+References M\+C\+B\+\_\+t\+::cfg\+Status, M\+C\+B\+\_\+t\+::command\+Uart\+Handle, M\+C\+B\+\_\+t\+::ctrl\+Handle, g\+M\+CB, M\+C\+B\+\_\+t\+::is\+M\+M\+Wave\+Open, M\+S\+S\+\_\+\+C\+L\+I\+Advanced\+Frame\+Cfg(), M\+S\+S\+\_\+\+C\+L\+I\+Basic\+Cfg(), M\+S\+S\+\_\+\+C\+L\+I\+Sensor\+Start(), M\+S\+S\+\_\+\+C\+L\+I\+Sensor\+Stop(), and M\+C\+B\+\_\+t\+::running\+Status.
+
+
+
+Referenced by M\+S\+S\+\_\+mm\+Wave\+Init\+T\+A\+S\+K().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=329pt]{mss__mrr__cli_8c_a7ea0d0d15e4d7da097e286f887e0fe86_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mss__mrr__cli_8c_a7ea0d0d15e4d7da097e286f887e0fe86_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{mss__mrr__cli_8c_a7c1fc530652ea2ceccb01e6b332eda43}} 
+\index{mss\_mrr\_cli.c@{mss\_mrr\_cli.c}!MSS\_CLISensorStart@{MSS\_CLISensorStart}}
+\index{MSS\_CLISensorStart@{MSS\_CLISensorStart}!mss\_mrr\_cli.c@{mss\_mrr\_cli.c}}
+\doxysubsubsection{MSS\_CLISensorStart()}
+{\footnotesize\ttfamily static int32\+\_\+t M\+S\+S\+\_\+\+C\+L\+I\+Sensor\+Start (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{argc,  }\item[{char $\ast$}]{argv[$\,$] }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+This is the C\+LI Handler for starting the sensor. 
+
+\begin{DoxyItemize}
+\item [0] Number of arguments \item [1] Arguments 
+\begin{DoxyRetVals}{Return values}
+{\em Success} & 0 \\
+\hline
+{\em Error} & -\/1 \\
+\hline
+\end{DoxyRetVals}
+\end{DoxyItemize}
+
+
+Definition at line 59 of file mss\+\_\+mrr\+\_\+cli.\+c.
+
+
+
+Referenced by M\+S\+S\+\_\+\+C\+L\+I\+Init().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mss__mrr__cli_8c_a7c1fc530652ea2ceccb01e6b332eda43_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{mss__mrr__cli_8c_afc0b15057f21e8a704adaded5b30373a}} 
+\index{mss\_mrr\_cli.c@{mss\_mrr\_cli.c}!MSS\_CLISensorStop@{MSS\_CLISensorStop}}
+\index{MSS\_CLISensorStop@{MSS\_CLISensorStop}!mss\_mrr\_cli.c@{mss\_mrr\_cli.c}}
+\doxysubsubsection{MSS\_CLISensorStop()}
+{\footnotesize\ttfamily static int32\+\_\+t M\+S\+S\+\_\+\+C\+L\+I\+Sensor\+Stop (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{argc,  }\item[{char $\ast$}]{argv[$\,$] }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+This is the C\+LI Handler for stopping the sensor. 
+
+\begin{DoxyItemize}
+\item [0] Number of arguments \item [1] Arguments 
+\begin{DoxyRetVals}{Return values}
+{\em Success} & 0 \\
+\hline
+{\em Error} & -\/1 \\
+\hline
+\end{DoxyRetVals}
+\end{DoxyItemize}
+
+
+Definition at line 110 of file mss\+\_\+mrr\+\_\+cli.\+c.
+
+
+
+Referenced by M\+S\+S\+\_\+\+C\+L\+I\+Init().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mss__mrr__cli_8c_afc0b15057f21e8a704adaded5b30373a_icgraph}
+\end{center}
+\end{figure}

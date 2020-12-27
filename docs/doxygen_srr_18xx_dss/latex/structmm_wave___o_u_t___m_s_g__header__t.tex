@@ -1,0 +1,170 @@
+\doxysection{mm\+Wave\+\_\+\+O\+U\+T\+\_\+\+M\+S\+G\+\_\+header\+\_\+t Struct Reference}
+\label{structmm_wave___o_u_t___m_s_g__header__t}\index{mmWave\_OUT\_MSG\_header\_t@{mmWave\_OUT\_MSG\_header\_t}}
+
+
+The structure defines the message header for reporting detection information from data path. Processed by both M\+SS and D\+SS.  
+
+
+
+
+{\ttfamily \#include $<$mmw\+\_\+messages.\+h$>$}
+
+
+
+Collaboration diagram for mm\+Wave\+\_\+\+O\+U\+T\+\_\+\+M\+S\+G\+\_\+header\+\_\+t\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{structmm_wave___o_u_t___m_s_g__header__t__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint16\+\_\+t \textbf{ magic\+Word} [4]
+\begin{DoxyCompactList}\small\item\em Output buffer magic word (sync word). It is initialized to \{0x0102,0x0304,0x0506,0x0708\}. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ version}
+\begin{DoxyCompactList}\small\item\em Version\+: \+: Major\+Num $\ast$ 2$^\wedge$24 + Minor\+Num $\ast$ 2$^\wedge$16 + Bugfix\+Num $\ast$ 2$^\wedge$8 + Build\+Num ~\newline
+ \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ total\+Packet\+Len}
+\begin{DoxyCompactList}\small\item\em Total packet length including header in Bytes. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ platform}
+\begin{DoxyCompactList}\small\item\em platform type \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ frame\+Number}
+\begin{DoxyCompactList}\small\item\em Frame number. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ time\+Cpu\+Cycles}
+\begin{DoxyCompactList}\small\item\em Time in C\+PU cycles when the message was created. For X\+W\+R16xx/\+X\+W\+R18xx\+: D\+SP C\+PU cycles, for X\+W\+R14xx\+: R4F C\+PU cycles. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ num\+Detected\+Obj}
+\begin{DoxyCompactList}\small\item\em Number of detected objects. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ num\+T\+L\+Vs}
+\begin{DoxyCompactList}\small\item\em Number of T\+L\+Vs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The structure defines the message header for reporting detection information from data path. Processed by both M\+SS and D\+SS. 
+
+
+
+Definition at line 53 of file mmw\+\_\+messages.\+h.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\label{structmm_wave___o_u_t___m_s_g__header__t_a1208812488ef6a8db73c7a288f6d939e}} 
+\index{mmWave\_OUT\_MSG\_header\_t@{mmWave\_OUT\_MSG\_header\_t}!frameNumber@{frameNumber}}
+\index{frameNumber@{frameNumber}!mmWave\_OUT\_MSG\_header\_t@{mmWave\_OUT\_MSG\_header\_t}}
+\doxysubsubsection{frameNumber}
+{\footnotesize\ttfamily uint32\+\_\+t mm\+Wave\+\_\+\+O\+U\+T\+\_\+\+M\+S\+G\+\_\+header\+\_\+t\+::frame\+Number}
+
+
+
+Frame number. 
+
+
+
+Definition at line 59 of file mmw\+\_\+messages.\+h.
+
+\mbox{\label{structmm_wave___o_u_t___m_s_g__header__t_aac042a560c4ab060006f41d6f468458e}} 
+\index{mmWave\_OUT\_MSG\_header\_t@{mmWave\_OUT\_MSG\_header\_t}!magicWord@{magicWord}}
+\index{magicWord@{magicWord}!mmWave\_OUT\_MSG\_header\_t@{mmWave\_OUT\_MSG\_header\_t}}
+\doxysubsubsection{magicWord}
+{\footnotesize\ttfamily uint16\+\_\+t mm\+Wave\+\_\+\+O\+U\+T\+\_\+\+M\+S\+G\+\_\+header\+\_\+t\+::magic\+Word[4]}
+
+
+
+Output buffer magic word (sync word). It is initialized to \{0x0102,0x0304,0x0506,0x0708\}. 
+
+
+
+Definition at line 55 of file mmw\+\_\+messages.\+h.
+
+\mbox{\label{structmm_wave___o_u_t___m_s_g__header__t_a31063a93ffe632618ad8871d4417afff}} 
+\index{mmWave\_OUT\_MSG\_header\_t@{mmWave\_OUT\_MSG\_header\_t}!numDetectedObj@{numDetectedObj}}
+\index{numDetectedObj@{numDetectedObj}!mmWave\_OUT\_MSG\_header\_t@{mmWave\_OUT\_MSG\_header\_t}}
+\doxysubsubsection{numDetectedObj}
+{\footnotesize\ttfamily uint32\+\_\+t mm\+Wave\+\_\+\+O\+U\+T\+\_\+\+M\+S\+G\+\_\+header\+\_\+t\+::num\+Detected\+Obj}
+
+
+
+Number of detected objects. 
+
+
+
+Definition at line 61 of file mmw\+\_\+messages.\+h.
+
+\mbox{\label{structmm_wave___o_u_t___m_s_g__header__t_a8d07e5cd4716d8f35617bb911b7946b1}} 
+\index{mmWave\_OUT\_MSG\_header\_t@{mmWave\_OUT\_MSG\_header\_t}!numTLVs@{numTLVs}}
+\index{numTLVs@{numTLVs}!mmWave\_OUT\_MSG\_header\_t@{mmWave\_OUT\_MSG\_header\_t}}
+\doxysubsubsection{numTLVs}
+{\footnotesize\ttfamily uint32\+\_\+t mm\+Wave\+\_\+\+O\+U\+T\+\_\+\+M\+S\+G\+\_\+header\+\_\+t\+::num\+T\+L\+Vs}
+
+
+
+Number of T\+L\+Vs. 
+
+
+
+Definition at line 62 of file mmw\+\_\+messages.\+h.
+
+\mbox{\label{structmm_wave___o_u_t___m_s_g__header__t_a82c2f0a31a10a7721bb32e291ddf069a}} 
+\index{mmWave\_OUT\_MSG\_header\_t@{mmWave\_OUT\_MSG\_header\_t}!platform@{platform}}
+\index{platform@{platform}!mmWave\_OUT\_MSG\_header\_t@{mmWave\_OUT\_MSG\_header\_t}}
+\doxysubsubsection{platform}
+{\footnotesize\ttfamily uint32\+\_\+t mm\+Wave\+\_\+\+O\+U\+T\+\_\+\+M\+S\+G\+\_\+header\+\_\+t\+::platform}
+
+
+
+platform type 
+
+
+
+Definition at line 58 of file mmw\+\_\+messages.\+h.
+
+\mbox{\label{structmm_wave___o_u_t___m_s_g__header__t_a06624aa1c09b1563bdc313047daa0405}} 
+\index{mmWave\_OUT\_MSG\_header\_t@{mmWave\_OUT\_MSG\_header\_t}!timeCpuCycles@{timeCpuCycles}}
+\index{timeCpuCycles@{timeCpuCycles}!mmWave\_OUT\_MSG\_header\_t@{mmWave\_OUT\_MSG\_header\_t}}
+\doxysubsubsection{timeCpuCycles}
+{\footnotesize\ttfamily uint32\+\_\+t mm\+Wave\+\_\+\+O\+U\+T\+\_\+\+M\+S\+G\+\_\+header\+\_\+t\+::time\+Cpu\+Cycles}
+
+
+
+Time in C\+PU cycles when the message was created. For X\+W\+R16xx/\+X\+W\+R18xx\+: D\+SP C\+PU cycles, for X\+W\+R14xx\+: R4F C\+PU cycles. 
+
+
+
+Definition at line 60 of file mmw\+\_\+messages.\+h.
+
+\mbox{\label{structmm_wave___o_u_t___m_s_g__header__t_acbc778d15bb5a8441d8da7c1e0b586cc}} 
+\index{mmWave\_OUT\_MSG\_header\_t@{mmWave\_OUT\_MSG\_header\_t}!totalPacketLen@{totalPacketLen}}
+\index{totalPacketLen@{totalPacketLen}!mmWave\_OUT\_MSG\_header\_t@{mmWave\_OUT\_MSG\_header\_t}}
+\doxysubsubsection{totalPacketLen}
+{\footnotesize\ttfamily uint32\+\_\+t mm\+Wave\+\_\+\+O\+U\+T\+\_\+\+M\+S\+G\+\_\+header\+\_\+t\+::total\+Packet\+Len}
+
+
+
+Total packet length including header in Bytes. 
+
+
+
+Definition at line 57 of file mmw\+\_\+messages.\+h.
+
+\mbox{\label{structmm_wave___o_u_t___m_s_g__header__t_ad5240a55ceab6145adce1f4e24ae2cc5}} 
+\index{mmWave\_OUT\_MSG\_header\_t@{mmWave\_OUT\_MSG\_header\_t}!version@{version}}
+\index{version@{version}!mmWave\_OUT\_MSG\_header\_t@{mmWave\_OUT\_MSG\_header\_t}}
+\doxysubsubsection{version}
+{\footnotesize\ttfamily uint32\+\_\+t mm\+Wave\+\_\+\+O\+U\+T\+\_\+\+M\+S\+G\+\_\+header\+\_\+t\+::version}
+
+
+
+Version\+: \+: Major\+Num $\ast$ 2$^\wedge$24 + Minor\+Num $\ast$ 2$^\wedge$16 + Bugfix\+Num $\ast$ 2$^\wedge$8 + Build\+Num ~\newline
+ 
+
+
+
+Definition at line 56 of file mmw\+\_\+messages.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+common/\textbf{ mmw\+\_\+messages.\+h}\end{DoxyCompactItemize}

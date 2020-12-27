@@ -1,0 +1,212 @@
+/**
+ *  @file    reg_gpcfg_xwr14xx.h
+ *
+ *  @brief
+ *    This file gives register definitions of MSS_GPCFG_REG module.
+ *
+ *  This file is auto-generated on 3/27/2017.
+ *
+ */
+
+ /*
+ *   (C) Copyright 2016, Texas Instruments Incorporated. - TI web address www.ti.com
+ *---------------------------------------------------------------------------------------
+ *
+ *  Redistribution and use in source and binary forms, with or without modification,
+ *  are permitted provided that the following conditions are met:
+ *
+ *    Redistributions of source code must retain the above copyright notice,
+ *    this list of conditions and the following disclaimer.
+ *
+ *    Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution.
+ *
+ *    Neither the name of Texas Instruments Incorporated nor the names of its
+ *    contributors may be used to endorse or promote products derived from this
+ *    software without specific prior written permission.
+ *
+ *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ *  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+ *  THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+ *  PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT  OWNER OR CONTRIBUTORS
+ *  BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ *  CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ *  SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ *  INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ *  CONTRACT,  STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ *  POSSIBILITY OF SUCH DAMAGE.
+ */
+
+#ifndef REG_GPCFG_H
+#define REG_GPCFG_H
+
+/****************************************************************************************
+ * INCLUDE FILES
+ ****************************************************************************************/
+#include <stdint.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+/* Definition for field GPCFG0 in Register GPCFG0 */
+#define GPCFG0_GPCFG0_BIT_START                             0U
+#define GPCFG0_GPCFG0_BIT_END                               31U
+
+/* Definition for field GPCFG1 in Register GPCFG1 */
+#define GPCFG1_GPCFG1_BIT_START                             0U
+#define GPCFG1_GPCFG1_BIT_END                               31U
+
+/* Definition for field GPCFG2 in Register GPCFG2 */
+#define GPCFG2_GPCFG2_BIT_START                             0U
+#define GPCFG2_GPCFG2_BIT_END                               31U
+
+/* Definition for field GPCFG3 in Register GPCFG3 */
+#define GPCFG3_GPCFG3_BIT_START                             0U
+#define GPCFG3_GPCFG3_BIT_END                               31U
+
+/* Definition for field GPCFG4 in Register GPCFG4 */
+#define GPCFG4_GPCFG4_BIT_START                             0U
+#define GPCFG4_GPCFG4_BIT_END                               31U
+
+/* Definition for field GPCFG11 in Register GPCFG11 */
+#define GPCFG11_GPCFG11_BIT_START                           0U
+#define GPCFG11_GPCFG11_BIT_END                             31U
+
+/* Definition for field CLOCK0_SEL in Register CCCACFG0 */
+#define CCCACFG0_CLOCK0_SEL_BIT_START                       0U
+#define CCCACFG0_CLOCK0_SEL_BIT_END                         2U
+
+/* Definition for field CLOCK1_SEL in Register CCCACFG0 */
+#define CCCACFG0_CLOCK1_SEL_BIT_START                       3U
+#define CCCACFG0_CLOCK1_SEL_BIT_END                         5U
+
+/* Definition for field DISABLE_CLOCKS in Register CCCACFG0 */
+#define CCCACFG0_DISABLE_CLOCKS_BIT_START                   6U
+#define CCCACFG0_DISABLE_CLOCKS_BIT_END                     6U
+
+/* Definition for field ENABLE_MODULE in Register CCCACFG0 */
+#define CCCACFG0_ENABLE_MODULE_BIT_START                    7U
+#define CCCACFG0_ENABLE_MODULE_BIT_END                      7U
+
+/* Definition for field SINGLE_SHOT_MODE in Register CCCACFG0 */
+#define CCCACFG0_SINGLE_SHOT_MODE_BIT_START                 8U
+#define CCCACFG0_SINGLE_SHOT_MODE_BIT_END                   8U
+
+/* Definition for field MARGIN_COUNT in Register CCCACFG0 */
+#define CCCACFG0_MARGIN_COUNT_BIT_START                     16U
+#define CCCACFG0_MARGIN_COUNT_BIT_END                       31U
+
+/* Definition for field CCCACFG1 in Register CCCACFG1 */
+#define CCCACFG1_CCCACFG1_BIT_START                         0U
+#define CCCACFG1_CCCACFG1_BIT_END                           31U
+
+/* Definition for field CCCACFG2 in Register CCCACFG2 */
+#define CCCACFG2_CCCACFG2_BIT_START                         0U
+#define CCCACFG2_CCCACFG2_BIT_END                           31U
+
+/* Definition for field CCCACFG3 in Register CCCACFG3 */
+#define CCCACFG3_CCCACFG3_BIT_START                         0U
+#define CCCACFG3_CCCACFG3_BIT_END                           31U
+
+/* Definition for field CLOCK0_SEL in Register CCCBCFG0 */
+#define CCCBCFG0_CLOCK0_SEL_BIT_START                       0U
+#define CCCBCFG0_CLOCK0_SEL_BIT_END                         2U
+
+/* Definition for field CLOCK1_SEL in Register CCCBCFG0 */
+#define CCCBCFG0_CLOCK1_SEL_BIT_START                       3U
+#define CCCBCFG0_CLOCK1_SEL_BIT_END                         5U
+
+/* Definition for field DISABLE_CLOCKS in Register CCCBCFG0 */
+#define CCCBCFG0_DISABLE_CLOCKS_BIT_START                   6U
+#define CCCBCFG0_DISABLE_CLOCKS_BIT_END                     6U
+
+/* Definition for field ENABLE_MODULE in Register CCCBCFG0 */
+#define CCCBCFG0_ENABLE_MODULE_BIT_START                    7U
+#define CCCBCFG0_ENABLE_MODULE_BIT_END                      7U
+
+/* Definition for field SINGLE_SHOT_MODE in Register CCCBCFG0 */
+#define CCCBCFG0_SINGLE_SHOT_MODE_BIT_START                 8U
+#define CCCBCFG0_SINGLE_SHOT_MODE_BIT_END                   8U
+
+/* Definition for field MARGIN_COUNT in Register CCCBCFG0 */
+#define CCCBCFG0_MARGIN_COUNT_BIT_START                     16U
+#define CCCBCFG0_MARGIN_COUNT_BIT_END                       31U
+
+/* Definition for field CCCBCFG1 in Register CCCBCFG1 */
+#define CCCBCFG1_CCCBCFG1_BIT_START                         0U
+#define CCCBCFG1_CCCBCFG1_BIT_END                           31U
+
+/* Definition for field CCCBCFG2 in Register CCCBCFG2 */
+#define CCCBCFG2_CCCBCFG2_BIT_START                         0U
+#define CCCBCFG2_CCCBCFG2_BIT_END                           31U
+
+/* Definition for field CCCBCFG3 in Register CCCBCFG3 */
+#define CCCBCFG3_CCCBCFG3_BIT_START                         0U
+#define CCCBCFG3_CCCBCFG3_BIT_END                           31U
+
+/* Definition for field CCCACNTVAL in Register CCCACNTVAL */
+#define CCCACNTVAL_CCCACNTVAL_BIT_START                     0U
+#define CCCACNTVAL_CCCACNTVAL_BIT_END                       31U
+
+/* Definition for field CCCBCNTVAL in Register CCCBCNTVAL */
+#define CCCBCNTVAL_CCCBCNTVAL_BIT_START                     0U
+#define CCCBCNTVAL_CCCBCNTVAL_BIT_END                       31U
+
+/* Definition for field CCCABERRSTAT in Register CCCABERRSTAT */
+#define CCCABERRSTAT_CCCABERRSTAT_BIT_START                 0U
+#define CCCABERRSTAT_CCCABERRSTAT_BIT_END                   31U
+
+/* Definition for field USERMODEEN in Register USERMODEEN */
+#define USERMODEEN_USERMODEEN_BIT_START                     0U
+#define USERMODEEN_USERMODEEN_BIT_END                       31U
+
+
+
+/**
+ * @struct GPCFGRegs_t
+ * @brief
+ *   Module MSS_GPCFG_REG Register Definition
+ * @details
+ *   This structure is used to access the MSS_GPCFG_REG module registers.
+ */
+/**
+ * @typedef GPCFGRegs
+ * @brief
+ *   Module MSS_GPCFG_REG Register Frame type Definition
+ * @details
+ *   This type is used to access the MSS_GPCFG_REG module registers.
+ */
+typedef volatile struct GPCFGRegs_t
+{
+    uint32_t    GPCFG0                             ;        /* Offset = 0x000 */
+    uint32_t    GPCFG1                             ;        /* Offset = 0x004 */
+    uint32_t    GPCFG2                             ;        /* Offset = 0x008 */
+    uint32_t    GPCFG3                             ;        /* Offset = 0x00C */
+    uint32_t    GPCFG4                             ;        /* Offset = 0x010 */
+    uint32_t    RESTRICTED1[6]                     ;        /* Offset = 0x014 */
+    uint32_t    GPCFG11                            ;        /* Offset = 0x02C */
+    uint32_t    RESTRICTED2[40]                    ;        /* Offset = 0x030 */
+    uint32_t    CCCACFG0                           ;        /* Offset = 0x0D0 */
+    uint32_t    CCCACFG1                           ;        /* Offset = 0x0D4 */
+    uint32_t    CCCACFG2                           ;        /* Offset = 0x0D8 */
+    uint32_t    CCCACFG3                           ;        /* Offset = 0x0DC */
+    uint32_t    CCCBCFG0                           ;        /* Offset = 0x0E0 */
+    uint32_t    CCCBCFG1                           ;        /* Offset = 0x0E4 */
+    uint32_t    CCCBCFG2                           ;        /* Offset = 0x0E8 */
+    uint32_t    CCCBCFG3                           ;        /* Offset = 0x0EC */
+    uint32_t    CCCACNTVAL                         ;        /* Offset = 0x0F0 */
+    uint32_t    CCCBCNTVAL                         ;        /* Offset = 0x0F4 */
+    uint32_t    CCCABERRSTAT                       ;        /* Offset = 0x0F8 */
+    uint32_t    USERMODEEN                         ;        /* Offset = 0x0FC */
+} GPCFGRegs;
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* REG_GPCFG_H */
+/* END OF REG_GPCFG_H */
+

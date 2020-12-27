@@ -1,0 +1,116 @@
+\doxysection{clustering\+D\+Bscan.\+c File Reference}
+\label{clustering_d_bscan_8c}\index{clusteringDBscan.c@{clusteringDBscan.c}}
+
+
+D\+Bscan clustering module.  
+
+
+{\ttfamily \#include $<$ti/mathlib/mathlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}dss\+\_\+data\+\_\+path.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}clustering\+D\+Bscan.\+h\char`\"{}}\newline
+Include dependency graph for clustering\+D\+Bscan.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{clustering_d_bscan_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \textbf{ clustering\+D\+Bscan\+Run} (\textbf{ clustering\+D\+Bscan\+Instance\+\_\+t} $\ast$inst, \textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$obj, uint16\+\_\+t num\+Detetected\+Obj, \textbf{ clustering\+D\+Bscan\+Output\+\_\+t} $\ast$output, \textbf{ tracking\+Input\+Report\+\_\+t} $\ast$tracking\+Input)
+\item 
+uint16\+\_\+t \textbf{ clustering\+D\+Bscan\+\_\+find\+Neighbors2\+Fixed} (\textbf{ Mmw\+Demo\+\_\+detected\+Obj\+Actual} $\ast$restrict det\+Obj2D, uint16\+\_\+t point, uint16\+\_\+t $\ast$restrict neigh, uint16\+\_\+t num\+Points, int32\+\_\+t epsilon2, int32\+\_\+t epsilon, float weight, int32\+\_\+t v\+Factor, char $\ast$restrict visited, uint16\+\_\+t $\ast$restrict new\+Count, uint16\+\_\+t d\+B\+Scan\+Neighbour\+Lim)
+\item 
+void \textbf{ clustering\+D\+Bscan\+\_\+calc\+Info\+Fixed} (uint16\+\_\+t cluster\+Originator, \textbf{ Mmw\+Demo\+\_\+detected\+Obj\+Actual} $\ast$restrict det\+Obj2D, uint16\+\_\+t $\ast$restrict neigh\+Start, uint16\+\_\+t $\ast$restrict neigh\+Last, \textbf{ clustering\+D\+Bscan\+Report\+\_\+t} $\ast$restrict report, \textbf{ tracking\+Input\+Report\+\_\+t} $\ast$restrict tracking\+Input, \textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$obj)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+D\+Bscan clustering module. 
+
+Copyright (C) 2017 Texas Instruments Incorporated -\/ {\texttt{ http\+://www.\+ti.\+com/}}
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met\+:
+
+Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+Neither the name of Texas Instruments Incorporated nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+T\+H\+IS S\+O\+F\+T\+W\+A\+RE IS P\+R\+O\+V\+I\+D\+ED BY T\+HE C\+O\+P\+Y\+R\+I\+G\+HT H\+O\+L\+D\+E\+RS A\+ND C\+O\+N\+T\+R\+I\+B\+U\+T\+O\+RS \char`\"{}\+A\+S I\+S\char`\"{} A\+ND A\+NY E\+X\+P\+R\+E\+SS OR I\+M\+P\+L\+I\+ED W\+A\+R\+R\+A\+N\+T\+I\+ES, I\+N\+C\+L\+U\+D\+I\+NG, B\+UT N\+OT L\+I\+M\+I\+T\+ED TO, T\+HE I\+M\+P\+L\+I\+ED W\+A\+R\+R\+A\+N\+T\+I\+ES OF M\+E\+R\+C\+H\+A\+N\+T\+A\+B\+I\+L\+I\+TY A\+ND F\+I\+T\+N\+E\+SS F\+OR A P\+A\+R\+T\+I\+C\+U\+L\+AR P\+U\+R\+P\+O\+SE A\+RE D\+I\+S\+C\+L\+A\+I\+M\+ED. IN NO E\+V\+E\+NT S\+H\+A\+LL T\+HE C\+O\+P\+Y\+R\+I\+G\+HT O\+W\+N\+ER OR C\+O\+N\+T\+R\+I\+B\+U\+T\+O\+RS BE L\+I\+A\+B\+LE F\+OR A\+NY D\+I\+R\+E\+CT, I\+N\+D\+I\+R\+E\+CT, I\+N\+C\+I\+D\+E\+N\+T\+AL, S\+P\+E\+C\+I\+AL, E\+X\+E\+M\+P\+L\+A\+RY, OR C\+O\+N\+S\+E\+Q\+U\+E\+N\+T\+I\+AL D\+A\+M\+A\+G\+ES (I\+N\+C\+L\+U\+D\+I\+NG, B\+UT N\+OT L\+I\+M\+I\+T\+ED TO, P\+R\+O\+C\+U\+R\+E\+M\+E\+NT OF S\+U\+B\+S\+T\+I\+T\+U\+TE G\+O\+O\+DS OR S\+E\+R\+V\+I\+C\+ES; L\+O\+SS OF U\+SE, D\+A\+TA, OR P\+R\+O\+F\+I\+TS; OR B\+U\+S\+I\+N\+E\+SS I\+N\+T\+E\+R\+R\+U\+P\+T\+I\+ON) H\+O\+W\+E\+V\+ER C\+A\+U\+S\+ED A\+ND ON A\+NY T\+H\+E\+O\+RY OF L\+I\+A\+B\+I\+L\+I\+TY, W\+H\+E\+T\+H\+ER IN C\+O\+N\+T\+R\+A\+CT, S\+T\+R\+I\+CT L\+I\+A\+B\+I\+L\+I\+TY, OR T\+O\+RT (I\+N\+C\+L\+U\+D\+I\+NG N\+E\+G\+L\+I\+G\+E\+N\+CE OR O\+T\+H\+E\+R\+W\+I\+SE) A\+R\+I\+S\+I\+NG IN A\+NY W\+AY O\+UT OF T\+HE U\+SE OF T\+H\+IS S\+O\+F\+T\+W\+A\+RE, E\+V\+EN IF A\+D\+V\+I\+S\+ED OF T\+HE P\+O\+S\+S\+I\+B\+I\+L\+I\+TY OF S\+U\+CH D\+A\+M\+A\+GE. 
+
+\doxysubsection{Function Documentation}
+\mbox{\label{clustering_d_bscan_8c_a5e0a56821a50a3b59923105627e0d158}} 
+\index{clusteringDBscan.c@{clusteringDBscan.c}!clusteringDBscan\_calcInfoFixed@{clusteringDBscan\_calcInfoFixed}}
+\index{clusteringDBscan\_calcInfoFixed@{clusteringDBscan\_calcInfoFixed}!clusteringDBscan.c@{clusteringDBscan.c}}
+\doxysubsubsection{clusteringDBscan\_calcInfoFixed()}
+{\footnotesize\ttfamily void clustering\+D\+Bscan\+\_\+calc\+Info\+Fixed (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{cluster\+Originator,  }\item[{\textbf{ Mmw\+Demo\+\_\+detected\+Obj\+Actual} $\ast$restrict}]{det\+Obj2D,  }\item[{uint16\+\_\+t $\ast$restrict}]{neigh\+Start,  }\item[{uint16\+\_\+t $\ast$restrict}]{neigh\+Last,  }\item[{\textbf{ clustering\+D\+Bscan\+Report\+\_\+t} $\ast$restrict}]{report,  }\item[{\textbf{ tracking\+Input\+Report\+\_\+t} $\ast$restrict}]{tracking\+Input,  }\item[{\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$}]{obj }\end{DoxyParamCaption})}
+
+
+
+Definition at line 355 of file clustering\+D\+Bscan.\+c.
+
+
+
+Referenced by clustering\+D\+Bscan\+Run().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{clustering_d_bscan_8c_a5e0a56821a50a3b59923105627e0d158_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{clustering_d_bscan_8c_a38159261278562e90546d851b1b1f2bb}} 
+\index{clusteringDBscan.c@{clusteringDBscan.c}!clusteringDBscan\_findNeighbors2Fixed@{clusteringDBscan\_findNeighbors2Fixed}}
+\index{clusteringDBscan\_findNeighbors2Fixed@{clusteringDBscan\_findNeighbors2Fixed}!clusteringDBscan.c@{clusteringDBscan.c}}
+\doxysubsubsection{clusteringDBscan\_findNeighbors2Fixed()}
+{\footnotesize\ttfamily uint16\+\_\+t clustering\+D\+Bscan\+\_\+find\+Neighbors2\+Fixed (\begin{DoxyParamCaption}\item[{\textbf{ Mmw\+Demo\+\_\+detected\+Obj\+Actual} $\ast$restrict}]{det\+Obj2D,  }\item[{uint16\+\_\+t}]{point,  }\item[{uint16\+\_\+t $\ast$restrict}]{neigh,  }\item[{uint16\+\_\+t}]{num\+Points,  }\item[{int32\+\_\+t}]{epsilon2,  }\item[{int32\+\_\+t}]{epsilon,  }\item[{float}]{weight,  }\item[{int32\+\_\+t}]{v\+Factor,  }\item[{char $\ast$restrict}]{visited,  }\item[{uint16\+\_\+t $\ast$restrict}]{new\+Count,  }\item[{uint16\+\_\+t}]{d\+B\+Scan\+Neighbour\+Lim }\end{DoxyParamCaption})}
+
+
+
+Definition at line 247 of file clustering\+D\+Bscan.\+c.
+
+
+
+References P\+O\+I\+N\+T\+\_\+\+V\+I\+S\+I\+T\+ED.
+
+
+
+Referenced by clustering\+D\+Bscan\+Run().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{clustering_d_bscan_8c_a38159261278562e90546d851b1b1f2bb_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{clustering_d_bscan_8c_a07a00ae24424be2eca4adeb84c653ece}} 
+\index{clusteringDBscan.c@{clusteringDBscan.c}!clusteringDBscanRun@{clusteringDBscanRun}}
+\index{clusteringDBscanRun@{clusteringDBscanRun}!clusteringDBscan.c@{clusteringDBscan.c}}
+\doxysubsubsection{clusteringDBscanRun()}
+{\footnotesize\ttfamily int32\+\_\+t clustering\+D\+Bscan\+Run (\begin{DoxyParamCaption}\item[{\textbf{ clustering\+D\+Bscan\+Instance\+\_\+t} $\ast$}]{inst,  }\item[{\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$}]{obj,  }\item[{uint16\+\_\+t}]{num\+Detetected\+Obj,  }\item[{\textbf{ clustering\+D\+Bscan\+Output\+\_\+t} $\ast$}]{output,  }\item[{\textbf{ tracking\+Input\+Report\+\_\+t} $\ast$}]{tracking\+Input }\end{DoxyParamCaption})}
+
+
+
+Definition at line 79 of file clustering\+D\+Bscan.\+c.
+
+
+
+References clustering\+D\+Bscan\+\_\+calc\+Info\+Fixed(), clustering\+D\+Bscan\+\_\+find\+Neighbors2\+Fixed(), D\+B\+S\+C\+A\+N\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+L\+U\+S\+T\+E\+R\+\_\+\+L\+I\+M\+I\+T\+\_\+\+R\+E\+A\+C\+H\+ED, D\+B\+S\+C\+A\+N\+\_\+\+OK, clustering\+D\+Bscan\+Instance\+::d\+B\+Scan\+Neighbour\+Lim, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::det\+Obj2D, clustering\+D\+Bscan\+Instance\+::epsilon, clustering\+D\+Bscan\+Instance\+::fixed\+Point\+Scale, clustering\+D\+Bscan\+Output\+::\+Index\+Array, clustering\+D\+Bscan\+Instance\+::max\+Clusters, clustering\+D\+Bscan\+Instance\+::min\+Points\+In\+Cluster, clustering\+D\+Bscan\+Instance\+::neighbors, clustering\+D\+Bscan\+Output\+::num\+Cluster, P\+O\+I\+N\+T\+\_\+\+U\+N\+K\+N\+O\+WN, P\+O\+I\+N\+T\+\_\+\+V\+I\+S\+I\+T\+ED, clustering\+D\+Bscan\+Output\+::report, clustering\+D\+Bscan\+Instance\+::scope, clustering\+D\+Bscan\+Instance\+::v\+Factor, clustering\+D\+Bscan\+Instance\+::visited, and clustering\+D\+Bscan\+Instance\+::weight.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{clustering_d_bscan_8c_a07a00ae24424be2eca4adeb84c653ece_cgraph}
+\end{center}
+\end{figure}

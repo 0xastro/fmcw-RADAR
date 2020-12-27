@@ -1,0 +1,710 @@
+\doxysection{common/mrr\+\_\+config\+\_\+consts.h File Reference}
+\label{mrr__config__consts_8h}\index{common/mrr\_config\_consts.h@{common/mrr\_config\_consts.h}}
+{\ttfamily \#include \char`\"{}mrr\+\_\+defines.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$ti/common/sys\+\_\+common.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}mrr\+\_\+config\+\_\+chirp\+\_\+design\+\_\+\+M\+R\+R120.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mrr\+\_\+config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R30.\+h\char`\"{}}\newline
+Include dependency graph for mrr\+\_\+config\+\_\+consts.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mrr__config__consts_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mrr__config__consts_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ N\+U\+M\+\_\+\+R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+LS}~(4U)
+\item 
+\#define \textbf{ N\+U\+M\+\_\+\+C\+H\+I\+R\+P\+\_\+\+P\+R\+OG}~(5U) /$\ast$ Two for M\+R\+R80, Three for U\+S\+R\+R20 $\ast$/
+\item 
+\#define \textbf{ N\+U\+M\+\_\+\+P\+R\+O\+F\+I\+L\+ES}~(2U) /$\ast$ one for M\+R\+R80, one for U\+S\+R\+R20 $\ast$/
+\item 
+\#define \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+C\+O\+N\+F\+\_\+\+M\+R\+R\+\_\+\+U\+S\+RR}~/$\ast$ Two subframes, M\+RR followed by U\+S\+R\+R20. $\ast$/
+\begin{DoxyCompactList}\small\item\em The multi-\/mode Radar mode of operation. \end{DoxyCompactList}\item 
+\#define \textbf{ N\+U\+M\+\_\+\+S\+U\+B\+F\+R\+A\+M\+ES}~(2U) /$\ast$ one for M\+R\+R80, one for U\+S\+R\+R20 $\ast$/
+\begin{DoxyCompactList}\small\item\em The U\+S\+RR only mode of operation. \end{DoxyCompactList}\item 
+\#define \textbf{ A\+D\+C\+B\+U\+F\+F\+\_\+\+C\+H\+I\+R\+P\+\_\+\+T\+H\+R\+E\+S\+H\+O\+LD}~(1U)
+\begin{DoxyCompactList}\small\item\em Number of chirps to be collected in the A\+DC buffer, before the chirp available interrupt. \end{DoxyCompactList}\item 
+\#define \textbf{ M\+A\+X\+\_\+\+V\+E\+L\+\_\+\+E\+N\+H\+\_\+\+S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+I\+DX}~(0U)
+\begin{DoxyCompactList}\small\item\em Which subframe is used to do max-\/vel-\/enhancement. \end{DoxyCompactList}\item 
+\#define \textbf{ F\+R\+A\+M\+E\+\_\+\+P\+E\+R\+I\+O\+D\+I\+C\+I\+T\+Y\+\_\+\+V\+AL}~(\textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+P\+E\+R\+I\+O\+D\+I\+C\+I\+T\+Y\+\_\+\+V\+AL} + \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+P\+E\+R\+I\+O\+D\+I\+C\+I\+T\+Y\+\_\+\+V\+AL})
+\begin{DoxyCompactList}\small\item\em Add in the M\+RR 80 chirp design. \end{DoxyCompactList}\item 
+\#define \textbf{ F\+R\+A\+M\+E\+\_\+\+P\+E\+R\+I\+O\+D\+I\+C\+I\+T\+Y\+\_\+\+S\+EC}~(\textbf{ F\+R\+A\+M\+E\+\_\+\+P\+E\+R\+I\+O\+D\+I\+C\+I\+T\+Y\+\_\+\+V\+AL}$\ast$5e-\/9)
+\begin{DoxyCompactList}\small\item\em The total frame periodicity in seconds. \end{DoxyCompactList}\item 
+\#define \textbf{ M\+A\+X\+\_\+\+N\+U\+M\+\_\+\+R\+A\+N\+G\+E\+\_\+\+D\+E\+P\+E\+N\+D\+A\+N\+T\+\_\+\+S\+N\+R\+\_\+\+T\+H\+R\+E\+S\+H\+O\+L\+DS}~(3U)
+\begin{DoxyCompactList}\small\item\em The number of S\+NR Thresholds -\/ used to vary the S\+NR requirement as a function of range. \end{DoxyCompactList}\item 
+\#define \textbf{ M\+A\+X\+\_\+\+V\+E\+L\+\_\+\+E\+N\+H\+\_\+\+P\+R\+O\+C\+E\+S\+S\+I\+NG}~(0U)
+\begin{DoxyCompactList}\small\item\em There are two processing paths in the M\+RR Demo. \end{DoxyCompactList}\item 
+\#define \textbf{ P\+O\+I\+N\+T\+\_\+\+C\+L\+O\+U\+D\+\_\+\+P\+R\+O\+C\+E\+S\+S\+I\+NG}~(1U)
+\item 
+\#define \textbf{ M\+A\+X\+\_\+\+N\+U\+M\+\_\+\+C\+L\+U\+S\+T\+E\+R\+\_\+\+U\+S\+RR}~(24U)
+\begin{DoxyCompactList}\small\item\em The maximum number of clusters out of the dbscan algorithm (for the U\+S\+RR subframe). \end{DoxyCompactList}\item 
+\#define \textbf{ M\+A\+X\+\_\+\+N\+U\+M\+\_\+\+C\+L\+U\+S\+T\+E\+R\+\_\+\+M\+RR}~(32U)
+\begin{DoxyCompactList}\small\item\em The maximum number of clusters out of the dbscan algorithm (for the M\+RR subframe). \end{DoxyCompactList}\item 
+\#define \textbf{ M\+A\+X\+\_\+\+T\+R\+K\+\_\+\+O\+B\+Js}~(32U)
+\begin{DoxyCompactList}\small\item\em The maximum number of tracked objects from the Kalman filter. \end{DoxyCompactList}\item 
+\#define \textbf{ R\+E\+P\+O\+R\+T\+\_\+\+N\+\_\+\+B\+I\+T\+\_\+\+F\+R\+AC}~(7U)
+\begin{DoxyCompactList}\small\item\em Fractional bit width for most of the report data (range, velocity, x, y, etc). \end{DoxyCompactList}\item 
+\#define \textbf{ C\+F\+A\+R\+T\+H\+R\+E\+S\+H\+O\+L\+D\+\_\+\+N\+\_\+\+B\+I\+T\+\_\+\+F\+R\+AC}~(8U)
+\begin{DoxyCompactList}\small\item\em Fractional bit width for Thresholds for C\+F\+AR data (range\+S\+N\+RdB, doppler\+S\+N\+RdB, Azim\+S\+NR, etc). \end{DoxyCompactList}\item 
+\#define \textbf{ M\+I\+N\+\_\+\+R\+A\+N\+G\+E\+\_\+\+O\+F\+F\+S\+E\+T\+\_\+\+M\+E\+T\+E\+RS}~(0.\+075f)
+\begin{DoxyCompactList}\small\item\em The radar\textquotesingle{}s range estimate has a constant error due to the finite distance from the antenna to the LO. \end{DoxyCompactList}\item 
+\#define \textbf{ M\+I\+N\+\_\+\+T\+I\+C\+K\+\_\+\+F\+O\+R\+\_\+\+TX}~(10U)
+\begin{DoxyCompactList}\small\item\em Wait for M\+I\+N\+\_\+\+T\+I\+C\+K\+\_\+\+F\+O\+R\+\_\+\+TX before letting the tracker results out. \end{DoxyCompactList}\item 
+\#define \textbf{ S\+I\+N\+\_\+55\+\_\+\+D\+E\+G\+R\+E\+ES}~(0.\+8192f)
+\begin{DoxyCompactList}\small\item\em We discard objects at extreme angles (greater than 55 degrees) from the tracking procedure. \end{DoxyCompactList}\item 
+\#define \textbf{ T\+R\+K\+\_\+\+S\+I\+N\+\_\+\+A\+Z\+I\+M\+\_\+\+T\+H\+R\+E\+SH}~(1.\+0f/256.\+0f)
+\begin{DoxyCompactList}\small\item\em We discard objects with poor azimuth S\+NR from the tracking procedure. \end{DoxyCompactList}\item 
+\#define \textbf{ C\+H\+E\+C\+K\+\_\+\+F\+O\+R\+\_\+\+D\+E\+T\+\_\+\+M\+A\+T\+R\+I\+X\+\_\+\+TX}~1
+\begin{DoxyCompactList}\small\item\em In processing the max-\/velocity enhancement subframe we need to check for det matrix transfer only after the second set of chirps are processed. \end{DoxyCompactList}\item 
+\#define \textbf{ D\+O\+\_\+\+N\+O\+T\+\_\+\+C\+H\+E\+C\+K\+\_\+\+F\+O\+R\+\_\+\+D\+E\+T\+\_\+\+M\+A\+T\+R\+I\+X\+\_\+\+TX}~0
+\item 
+\#define \textbf{ M\+R\+R\+\_\+\+M\+A\+X\+\_\+\+O\+B\+J\+\_\+\+O\+UT}~200
+\begin{DoxyCompactList}\small\item\em The maximum number of objects to be send out per frame. This number is upper bounded by the transfer rate to the external device. \end{DoxyCompactList}\item 
+\#define \textbf{ M\+A\+X\+\_\+\+D\+E\+T\+\_\+\+O\+B\+J\+E\+C\+T\+S\+\_\+\+R\+A\+W\+\_\+\+M\+A\+X\+\_\+\+V\+E\+L\+\_\+\+E\+N\+H\+\_\+\+P\+R\+O\+C\+E\+S\+S\+I\+NG}~200
+\begin{DoxyCompactList}\small\item\em The maximum number of objects detected in the \textquotesingle{}Max velocity enhanced\textquotesingle{} processing path. Because of all the pruning, and higher thresholds, and lower resolution, fewer objects are detected in M\+A\+X\+\_\+\+V\+E\+L\+\_\+\+E\+N\+H\+\_\+\+P\+R\+O\+C\+E\+S\+S\+I\+NG. \end{DoxyCompactList}\item 
+\#define \textbf{ M\+A\+X\+\_\+\+D\+E\+T\+\_\+\+O\+B\+J\+E\+C\+T\+S\+\_\+\+R\+A\+W\+\_\+\+P\+O\+I\+N\+T\+\_\+\+C\+L\+O\+U\+D\+\_\+\+P\+R\+O\+C\+E\+S\+S\+I\+NG}~900
+\begin{DoxyCompactList}\small\item\em The maximum number of objects detected in the \textquotesingle{}point cloud \textquotesingle{} processing path. \end{DoxyCompactList}\item 
+\#define \textbf{ M\+A\+X\+\_\+\+V\+E\+L\+\_\+\+I\+M\+P\+R\+O\+V\+E\+M\+E\+N\+T\+\_\+\+A\+S\+S\+O\+C\+I\+A\+T\+I\+O\+N\+\_\+\+T\+H\+R\+E\+S\+H\+\_\+\+DB}~(3U)
+\begin{DoxyCompactList}\small\item\em The two peaks (from the \textquotesingle{}fast chirp\textquotesingle{} and the \textquotesingle{}slow chirp\textquotesingle{} should be within 2 dB. \end{DoxyCompactList}\item 
+\#define \textbf{ M\+A\+X\+\_\+\+V\+E\+L\+\_\+\+I\+M\+P\+R\+O\+V\+E\+M\+E\+N\+T\+\_\+\+A\+S\+S\+O\+C\+I\+A\+T\+I\+O\+N\+\_\+\+T\+H\+R\+E\+SH}~( (( 1U $<$$<$ \textbf{ C\+F\+A\+R\+T\+H\+R\+E\+S\+H\+O\+L\+D\+\_\+\+N\+\_\+\+B\+I\+T\+\_\+\+F\+R\+AC}) $\ast$ \textbf{ N\+U\+M\+\_\+\+R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+LS} $\ast$ \textbf{ M\+A\+X\+\_\+\+V\+E\+L\+\_\+\+I\+M\+P\+R\+O\+V\+E\+M\+E\+N\+T\+\_\+\+A\+S\+S\+O\+C\+I\+A\+T\+I\+O\+N\+\_\+\+T\+H\+R\+E\+S\+H\+\_\+\+DB}) / 6U)
+\begin{DoxyCompactList}\small\item\em Convert the threshold to a C\+F\+AR magnitude difference. \end{DoxyCompactList}\item 
+\#define \textbf{ M\+A\+X\+\_\+\+V\+E\+L\+\_\+\+I\+M\+P\+R\+O\+V\+E\+M\+E\+N\+T\+\_\+\+N\+U\+M\+\_\+\+S\+P\+R\+E\+AD}~(2U)
+\begin{DoxyCompactList}\small\item\em Search across 2 bins in the slow chirp. \end{DoxyCompactList}\item 
+\#define \textbf{ M\+A\+X\+\_\+\+V\+E\+L\+\_\+\+E\+N\+H\+\_\+\+N\+U\+M\+\_\+\+N\+Y\+Q\+U\+I\+ST}~(2U)
+\begin{DoxyCompactList}\small\item\em Max velocity improvement of 3x. \end{DoxyCompactList}\item 
+\#define \textbf{ M\+A\+X\+\_\+\+N\+U\+M\+\_\+\+D\+E\+T\+\_\+\+P\+E\+R\+\_\+\+R\+A\+N\+G\+E\+\_\+\+G\+A\+TE}~(3U)
+\begin{DoxyCompactList}\small\item\em Restrict the number of detected objects per range-\/gate to 3. \end{DoxyCompactList}\item 
+\#define \textbf{ M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+1\+D\+\_\+\+I\+N\+\_\+\+P\+I\+NG}~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+F\+R\+E\+E\+\_\+0
+\begin{DoxyCompactList}\small\item\em E\+D\+MA configuration table for F\+FT processing of subframe 0. \end{DoxyCompactList}\item 
+\#define \textbf{ M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+1\+D\+\_\+\+I\+N\+\_\+\+P\+O\+NG}~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+F\+R\+E\+E\+\_\+1
+\item 
+\#define \textbf{ M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+1\+D\+\_\+\+O\+U\+T\+\_\+\+P\+I\+NG}~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+F\+R\+E\+E\+\_\+2
+\item 
+\#define \textbf{ M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+1\+D\+\_\+\+O\+U\+T\+\_\+\+P\+O\+NG}~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+F\+R\+E\+E\+\_\+3
+\item 
+\#define \textbf{ M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+2\+D\+\_\+\+I\+N\+\_\+\+P\+I\+NG}~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+F\+R\+E\+E\+\_\+4
+\item 
+\#define \textbf{ M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+2\+D\+\_\+\+I\+N\+\_\+\+P\+O\+NG}~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+F\+R\+E\+E\+\_\+5
+\item 
+\#define \textbf{ M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+\+D\+E\+T\+\_\+\+M\+A\+T\+R\+IX}~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+F\+R\+E\+E\+\_\+6
+\item 
+\#define \textbf{ M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+\+D\+E\+T\+\_\+\+M\+A\+T\+R\+I\+X2}~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+F\+R\+E\+E\+\_\+7
+\item 
+\#define \textbf{ M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+3\+D\+\_\+\+I\+N\+\_\+\+P\+I\+NG}~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+F\+R\+E\+E\+\_\+8
+\item 
+\#define \textbf{ M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+3\+D\+\_\+\+I\+N\+\_\+\+P\+O\+NG}~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+F\+R\+E\+E\+\_\+9
+\item 
+\#define \textbf{ M\+R\+R\+\_\+\+S\+F1\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+1\+D\+\_\+\+I\+N\+\_\+\+P\+I\+NG}~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+F\+R\+E\+E\+\_\+10
+\begin{DoxyCompactList}\small\item\em E\+D\+MA configuration table for F\+FT processing of subframe 1. \end{DoxyCompactList}\item 
+\#define \textbf{ M\+R\+R\+\_\+\+S\+F1\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+1\+D\+\_\+\+I\+N\+\_\+\+P\+O\+NG}~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+F\+R\+E\+E\+\_\+11
+\item 
+\#define \textbf{ M\+R\+R\+\_\+\+S\+F1\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+1\+D\+\_\+\+O\+U\+T\+\_\+\+P\+I\+NG}~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+F\+R\+E\+E\+\_\+12
+\item 
+\#define \textbf{ M\+R\+R\+\_\+\+S\+F1\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+1\+D\+\_\+\+O\+U\+T\+\_\+\+P\+O\+NG}~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+F\+R\+E\+E\+\_\+13
+\item 
+\#define \textbf{ M\+R\+R\+\_\+\+S\+F1\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+2\+D\+\_\+\+I\+N\+\_\+\+P\+I\+NG}~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+F\+R\+E\+E\+\_\+14
+\item 
+\#define \textbf{ M\+R\+R\+\_\+\+S\+F1\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+2\+D\+\_\+\+I\+N\+\_\+\+P\+O\+NG}~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+H\+W\+A\+C\+C\+\_\+7
+\item 
+\#define \textbf{ M\+R\+R\+\_\+\+S\+F1\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+\+D\+E\+T\+\_\+\+M\+A\+T\+R\+IX}~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+H\+W\+A\+C\+C\+\_\+8
+\item 
+\#define \textbf{ M\+R\+R\+\_\+\+S\+F1\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+\+D\+E\+T\+\_\+\+M\+A\+T\+R\+I\+X2}~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+H\+W\+A\+C\+C\+\_\+9
+\item 
+\#define \textbf{ M\+R\+R\+\_\+\+S\+F1\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+3\+D\+\_\+\+I\+N\+\_\+\+P\+I\+NG}~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+H\+W\+A\+C\+C\+\_\+10
+\item 
+\#define \textbf{ M\+R\+R\+\_\+\+S\+F1\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+3\+D\+\_\+\+I\+N\+\_\+\+P\+O\+NG}~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+H\+W\+A\+C\+C\+\_\+11
+\item 
+\#define \textbf{ E\+D\+M\+A\+\_\+\+I\+N\+S\+T\+A\+N\+C\+E\+\_\+\+D\+SS}~\textbf{ E\+D\+M\+A\+\_\+\+I\+N\+S\+T\+A\+N\+C\+E\+\_\+A}
+\item 
+\#define \textbf{ E\+D\+M\+A\+\_\+\+I\+N\+S\+T\+A\+N\+C\+E\+\_\+\+M\+SS}~\textbf{ E\+D\+M\+A\+\_\+\+I\+N\+S\+T\+A\+N\+C\+E\+\_\+B}
+\item 
+\#define \textbf{ M\+R\+R\+\_\+\+C\+B\+U\+F\+F\+\_\+\+E\+D\+M\+A\+\_\+\+CH}~E\+D\+M\+A\+\_\+\+T\+P\+C\+C0\+\_\+\+R\+E\+Q\+\_\+\+C\+B\+U\+F\+F\+\_\+0
+\begin{DoxyCompactList}\small\item\em E\+D\+MA configuration table for C\+B\+UF. (Unused in this configuration). \end{DoxyCompactList}\item 
+\#define \textbf{ M\+R\+R\+\_\+\+C\+B\+U\+F\+F\+\_\+\+E\+D\+M\+A\+\_\+\+S\+H\+A\+D\+O\+W\+\_\+\+CH}~(E\+D\+M\+A\+\_\+\+N\+U\+M\+\_\+\+D\+M\+A\+\_\+\+C\+H\+A\+N\+N\+E\+LS + 0U)
+\item 
+\#define \textbf{ C\+B\+U\+F\+F\+\_\+\+E\+D\+M\+A\+\_\+\+I\+N\+S\+T\+A\+N\+CE}~\textbf{ E\+D\+M\+A\+\_\+\+I\+N\+S\+T\+A\+N\+C\+E\+\_\+B}
+\item 
+\#define \textbf{ M\+R\+R\+\_\+\+E\+D\+M\+A\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+E\+N\+A\+B\+LE}~1
+\item 
+\#define \textbf{ M\+R\+R\+\_\+\+E\+D\+M\+A\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+D\+I\+S\+A\+B\+LE}~0
+\item 
+\#define \textbf{ M\+A\+X\+\_\+\+V\+E\+L\+\_\+\+P\+O\+I\+N\+T\+\_\+\+C\+L\+O\+U\+D\+\_\+\+P\+R\+O\+C\+E\+S\+S\+I\+N\+G\+\_\+\+I\+S\+\_\+\+E\+N\+A\+B\+L\+ED}~0
+\begin{DoxyCompactList}\small\item\em Flag to enable the max velocity enhancement in point cloud processing. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\textbf{ }\par
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ M\+R\+R\+\_\+\+R\+A\+N\+G\+E\+\_\+120m}
+\begin{DoxyCompactList}\small\item\em L\+V\+DS based object transfer. The following line (if uncommented) uses the L\+V\+DS lanes to transfer object detection data to the PC. Needs an L\+V\+DS receiver. Hasn\textquotesingle{}t been tested with the T\+S\+W1400. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+\textbf{ }\par
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ F\+R\+A\+M\+E\+\_\+\+C\+H\+I\+R\+P\+\_\+\+S\+T\+A\+R\+T\+\_\+\+I\+DX}~(0U)
+\begin{DoxyCompactList}\small\item\em Unused \#defines. \end{DoxyCompactList}\item 
+\#define \textbf{ F\+R\+A\+M\+E\+\_\+\+C\+H\+I\+R\+P\+\_\+\+E\+N\+D\+\_\+\+I\+DX}~(1U)
+\item 
+\#define \textbf{ F\+R\+A\+M\+E\+\_\+\+C\+O\+U\+N\+T\+\_\+\+V\+AL}~(0U)
+\item 
+\#define \textbf{ F\+R\+A\+M\+E\+\_\+\+L\+O\+O\+P\+\_\+\+C\+O\+U\+NT}~(64U)
+\item 
+\#define \textbf{ F\+R\+A\+M\+E\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+D\+E\+L\+A\+Y\+\_\+\+V\+AL}~(0U)
+\item 
+\#define \textbf{ F\+R\+A\+M\+E\+\_\+\+N\+U\+M\+\_\+\+R\+E\+A\+L\+\_\+\+A\+D\+C\+\_\+\+S\+A\+M\+P\+L\+ES}~(512U)
+\item 
+\#define \textbf{ F\+R\+A\+M\+E\+\_\+\+N\+U\+M\+\_\+\+C\+M\+P\+L\+X\+\_\+\+A\+D\+C\+\_\+\+S\+A\+M\+P\+L\+ES}~(256U)
+\end{DoxyCompactItemize}
+
+\textbf{ }\par
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ E\+D\+M\+A\+\_\+\+I\+N\+S\+T\+A\+N\+C\+E\+\_\+A}~(0U)
+\begin{DoxyCompactList}\small\item\em There are two T\+P\+C\+Cs available on the 16xx. \end{DoxyCompactList}\item 
+\#define \textbf{ E\+D\+M\+A\+\_\+\+I\+N\+S\+T\+A\+N\+C\+E\+\_\+B}~(1U)
+\end{DoxyCompactItemize}
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\label{mrr__config__consts_8h_a9da4776178fc9fb15b0d1a4bc15bf911}} 
+\index{mrr\_config\_consts.h@{mrr\_config\_consts.h}!ADCBUFF\_CHIRP\_THRESHOLD@{ADCBUFF\_CHIRP\_THRESHOLD}}
+\index{ADCBUFF\_CHIRP\_THRESHOLD@{ADCBUFF\_CHIRP\_THRESHOLD}!mrr\_config\_consts.h@{mrr\_config\_consts.h}}
+\doxysubsubsection{ADCBUFF\_CHIRP\_THRESHOLD}
+{\footnotesize\ttfamily \#define A\+D\+C\+B\+U\+F\+F\+\_\+\+C\+H\+I\+R\+P\+\_\+\+T\+H\+R\+E\+S\+H\+O\+LD~(1U)}
+
+
+
+Number of chirps to be collected in the A\+DC buffer, before the chirp available interrupt. 
+
+
+
+Definition at line 122 of file mrr\+\_\+config\+\_\+consts.\+h.
+
+\mbox{\label{mrr__config__consts_8h_aff559c2dee02f4b3d88501cbe4e8a5a7}} 
+\index{mrr\_config\_consts.h@{mrr\_config\_consts.h}!CFARTHRESHOLD\_N\_BIT\_FRAC@{CFARTHRESHOLD\_N\_BIT\_FRAC}}
+\index{CFARTHRESHOLD\_N\_BIT\_FRAC@{CFARTHRESHOLD\_N\_BIT\_FRAC}!mrr\_config\_consts.h@{mrr\_config\_consts.h}}
+\doxysubsubsection{CFARTHRESHOLD\_N\_BIT\_FRAC}
+{\footnotesize\ttfamily \#define C\+F\+A\+R\+T\+H\+R\+E\+S\+H\+O\+L\+D\+\_\+\+N\+\_\+\+B\+I\+T\+\_\+\+F\+R\+AC~(8U)}
+
+
+
+Fractional bit width for Thresholds for C\+F\+AR data (range\+S\+N\+RdB, doppler\+S\+N\+RdB, Azim\+S\+NR, etc). 
+
+
+
+Definition at line 180 of file mrr\+\_\+config\+\_\+consts.\+h.
+
+\mbox{\label{mrr__config__consts_8h_af86b2afcaffb48e87873e1a7a95d17d7}} 
+\index{mrr\_config\_consts.h@{mrr\_config\_consts.h}!CHECK\_FOR\_DET\_MATRIX\_TX@{CHECK\_FOR\_DET\_MATRIX\_TX}}
+\index{CHECK\_FOR\_DET\_MATRIX\_TX@{CHECK\_FOR\_DET\_MATRIX\_TX}!mrr\_config\_consts.h@{mrr\_config\_consts.h}}
+\doxysubsubsection{CHECK\_FOR\_DET\_MATRIX\_TX}
+{\footnotesize\ttfamily \#define C\+H\+E\+C\+K\+\_\+\+F\+O\+R\+\_\+\+D\+E\+T\+\_\+\+M\+A\+T\+R\+I\+X\+\_\+\+TX~1}
+
+
+
+In processing the max-\/velocity enhancement subframe we need to check for det matrix transfer only after the second set of chirps are processed. 
+
+
+
+Definition at line 198 of file mrr\+\_\+config\+\_\+consts.\+h.
+
+\mbox{\label{mrr__config__consts_8h_a58f03ba61d11f536fca965ce322889a7}} 
+\index{mrr\_config\_consts.h@{mrr\_config\_consts.h}!DO\_NOT\_CHECK\_FOR\_DET\_MATRIX\_TX@{DO\_NOT\_CHECK\_FOR\_DET\_MATRIX\_TX}}
+\index{DO\_NOT\_CHECK\_FOR\_DET\_MATRIX\_TX@{DO\_NOT\_CHECK\_FOR\_DET\_MATRIX\_TX}!mrr\_config\_consts.h@{mrr\_config\_consts.h}}
+\doxysubsubsection{DO\_NOT\_CHECK\_FOR\_DET\_MATRIX\_TX}
+{\footnotesize\ttfamily \#define D\+O\+\_\+\+N\+O\+T\+\_\+\+C\+H\+E\+C\+K\+\_\+\+F\+O\+R\+\_\+\+D\+E\+T\+\_\+\+M\+A\+T\+R\+I\+X\+\_\+\+TX~0}
+
+
+
+Definition at line 199 of file mrr\+\_\+config\+\_\+consts.\+h.
+
+\mbox{\label{mrr__config__consts_8h_a5e9982885e8c2a7302cfed210fe1ebac}} 
+\index{mrr\_config\_consts.h@{mrr\_config\_consts.h}!EDMA\_INSTANCE\_A@{EDMA\_INSTANCE\_A}}
+\index{EDMA\_INSTANCE\_A@{EDMA\_INSTANCE\_A}!mrr\_config\_consts.h@{mrr\_config\_consts.h}}
+\doxysubsubsection{EDMA\_INSTANCE\_A}
+{\footnotesize\ttfamily \#define E\+D\+M\+A\+\_\+\+I\+N\+S\+T\+A\+N\+C\+E\+\_\+A~(0U)}
+
+
+
+There are two T\+P\+C\+Cs available on the 16xx. 
+
+
+
+Definition at line 234 of file mrr\+\_\+config\+\_\+consts.\+h.
+
+\mbox{\label{mrr__config__consts_8h_ae2e9333aef07454f10024bfee583f778}} 
+\index{mrr\_config\_consts.h@{mrr\_config\_consts.h}!EDMA\_INSTANCE\_B@{EDMA\_INSTANCE\_B}}
+\index{EDMA\_INSTANCE\_B@{EDMA\_INSTANCE\_B}!mrr\_config\_consts.h@{mrr\_config\_consts.h}}
+\doxysubsubsection{EDMA\_INSTANCE\_B}
+{\footnotesize\ttfamily \#define E\+D\+M\+A\+\_\+\+I\+N\+S\+T\+A\+N\+C\+E\+\_\+B~(1U)}
+
+
+
+Definition at line 235 of file mrr\+\_\+config\+\_\+consts.\+h.
+
+\mbox{\label{mrr__config__consts_8h_ad49a1093e1e4f80b27fd507df1a96381}} 
+\index{mrr\_config\_consts.h@{mrr\_config\_consts.h}!FRAME\_CHIRP\_END\_IDX@{FRAME\_CHIRP\_END\_IDX}}
+\index{FRAME\_CHIRP\_END\_IDX@{FRAME\_CHIRP\_END\_IDX}!mrr\_config\_consts.h@{mrr\_config\_consts.h}}
+\doxysubsubsection{FRAME\_CHIRP\_END\_IDX}
+{\footnotesize\ttfamily \#define F\+R\+A\+M\+E\+\_\+\+C\+H\+I\+R\+P\+\_\+\+E\+N\+D\+\_\+\+I\+DX~(1U)}
+
+
+
+Definition at line 225 of file mrr\+\_\+config\+\_\+consts.\+h.
+
+\mbox{\label{mrr__config__consts_8h_a76377946938b57f7a078db3523e00459}} 
+\index{mrr\_config\_consts.h@{mrr\_config\_consts.h}!FRAME\_CHIRP\_START\_IDX@{FRAME\_CHIRP\_START\_IDX}}
+\index{FRAME\_CHIRP\_START\_IDX@{FRAME\_CHIRP\_START\_IDX}!mrr\_config\_consts.h@{mrr\_config\_consts.h}}
+\doxysubsubsection{FRAME\_CHIRP\_START\_IDX}
+{\footnotesize\ttfamily \#define F\+R\+A\+M\+E\+\_\+\+C\+H\+I\+R\+P\+\_\+\+S\+T\+A\+R\+T\+\_\+\+I\+DX~(0U)}
+
+
+
+Unused \#defines. 
+
+
+
+Definition at line 224 of file mrr\+\_\+config\+\_\+consts.\+h.
+
+\mbox{\label{mrr__config__consts_8h_a767433cfd03500ed201849cc754198d7}} 
+\index{mrr\_config\_consts.h@{mrr\_config\_consts.h}!FRAME\_COUNT\_VAL@{FRAME\_COUNT\_VAL}}
+\index{FRAME\_COUNT\_VAL@{FRAME\_COUNT\_VAL}!mrr\_config\_consts.h@{mrr\_config\_consts.h}}
+\doxysubsubsection{FRAME\_COUNT\_VAL}
+{\footnotesize\ttfamily \#define F\+R\+A\+M\+E\+\_\+\+C\+O\+U\+N\+T\+\_\+\+V\+AL~(0U)}
+
+
+
+Definition at line 226 of file mrr\+\_\+config\+\_\+consts.\+h.
+
+\mbox{\label{mrr__config__consts_8h_a6a439abfb8cd892d040816755b941353}} 
+\index{mrr\_config\_consts.h@{mrr\_config\_consts.h}!FRAME\_LOOP\_COUNT@{FRAME\_LOOP\_COUNT}}
+\index{FRAME\_LOOP\_COUNT@{FRAME\_LOOP\_COUNT}!mrr\_config\_consts.h@{mrr\_config\_consts.h}}
+\doxysubsubsection{FRAME\_LOOP\_COUNT}
+{\footnotesize\ttfamily \#define F\+R\+A\+M\+E\+\_\+\+L\+O\+O\+P\+\_\+\+C\+O\+U\+NT~(64U)}
+
+
+
+Definition at line 227 of file mrr\+\_\+config\+\_\+consts.\+h.
+
+\mbox{\label{mrr__config__consts_8h_a1265d871faeb283d0a976587e6f456ff}} 
+\index{mrr\_config\_consts.h@{mrr\_config\_consts.h}!FRAME\_NUM\_CMPLX\_ADC\_SAMPLES@{FRAME\_NUM\_CMPLX\_ADC\_SAMPLES}}
+\index{FRAME\_NUM\_CMPLX\_ADC\_SAMPLES@{FRAME\_NUM\_CMPLX\_ADC\_SAMPLES}!mrr\_config\_consts.h@{mrr\_config\_consts.h}}
+\doxysubsubsection{FRAME\_NUM\_CMPLX\_ADC\_SAMPLES}
+{\footnotesize\ttfamily \#define F\+R\+A\+M\+E\+\_\+\+N\+U\+M\+\_\+\+C\+M\+P\+L\+X\+\_\+\+A\+D\+C\+\_\+\+S\+A\+M\+P\+L\+ES~(256U)}
+
+
+
+Definition at line 230 of file mrr\+\_\+config\+\_\+consts.\+h.
+
+\mbox{\label{mrr__config__consts_8h_aa0585aa648a18f5a254ef583493ba9f2}} 
+\index{mrr\_config\_consts.h@{mrr\_config\_consts.h}!FRAME\_NUM\_REAL\_ADC\_SAMPLES@{FRAME\_NUM\_REAL\_ADC\_SAMPLES}}
+\index{FRAME\_NUM\_REAL\_ADC\_SAMPLES@{FRAME\_NUM\_REAL\_ADC\_SAMPLES}!mrr\_config\_consts.h@{mrr\_config\_consts.h}}
+\doxysubsubsection{FRAME\_NUM\_REAL\_ADC\_SAMPLES}
+{\footnotesize\ttfamily \#define F\+R\+A\+M\+E\+\_\+\+N\+U\+M\+\_\+\+R\+E\+A\+L\+\_\+\+A\+D\+C\+\_\+\+S\+A\+M\+P\+L\+ES~(512U)}
+
+
+
+Definition at line 229 of file mrr\+\_\+config\+\_\+consts.\+h.
+
+\mbox{\label{mrr__config__consts_8h_a5745c58a1c156c37e37ba72b9cf5dd7d}} 
+\index{mrr\_config\_consts.h@{mrr\_config\_consts.h}!FRAME\_PERIODICITY\_SEC@{FRAME\_PERIODICITY\_SEC}}
+\index{FRAME\_PERIODICITY\_SEC@{FRAME\_PERIODICITY\_SEC}!mrr\_config\_consts.h@{mrr\_config\_consts.h}}
+\doxysubsubsection{FRAME\_PERIODICITY\_SEC}
+{\footnotesize\ttfamily \#define F\+R\+A\+M\+E\+\_\+\+P\+E\+R\+I\+O\+D\+I\+C\+I\+T\+Y\+\_\+\+S\+EC~(\textbf{ F\+R\+A\+M\+E\+\_\+\+P\+E\+R\+I\+O\+D\+I\+C\+I\+T\+Y\+\_\+\+V\+AL}$\ast$5e-\/9)}
+
+
+
+The total frame periodicity in seconds. 
+
+
+
+Definition at line 158 of file mrr\+\_\+config\+\_\+consts.\+h.
+
+\mbox{\label{mrr__config__consts_8h_aa3e33efef7a7df6a2a4417d4c4e7dfdf}} 
+\index{mrr\_config\_consts.h@{mrr\_config\_consts.h}!FRAME\_PERIODICITY\_VAL@{FRAME\_PERIODICITY\_VAL}}
+\index{FRAME\_PERIODICITY\_VAL@{FRAME\_PERIODICITY\_VAL}!mrr\_config\_consts.h@{mrr\_config\_consts.h}}
+\doxysubsubsection{FRAME\_PERIODICITY\_VAL}
+{\footnotesize\ttfamily \#define F\+R\+A\+M\+E\+\_\+\+P\+E\+R\+I\+O\+D\+I\+C\+I\+T\+Y\+\_\+\+V\+AL~(\textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+P\+E\+R\+I\+O\+D\+I\+C\+I\+T\+Y\+\_\+\+V\+AL} + \textbf{ S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+P\+E\+R\+I\+O\+D\+I\+C\+I\+T\+Y\+\_\+\+V\+AL})}
+
+
+
+Add in the M\+RR 80 chirp design. 
+
+Add in the U\+S\+RR 20 chirp design.
+
+Add in the U\+S\+RR 30 chirp design. 
+
+Definition at line 141 of file mrr\+\_\+config\+\_\+consts.\+h.
+
+\mbox{\label{mrr__config__consts_8h_a563317bc58c4484851db1ff74c4ea11d}} 
+\index{mrr\_config\_consts.h@{mrr\_config\_consts.h}!FRAME\_TRIGGER\_DELAY\_VAL@{FRAME\_TRIGGER\_DELAY\_VAL}}
+\index{FRAME\_TRIGGER\_DELAY\_VAL@{FRAME\_TRIGGER\_DELAY\_VAL}!mrr\_config\_consts.h@{mrr\_config\_consts.h}}
+\doxysubsubsection{FRAME\_TRIGGER\_DELAY\_VAL}
+{\footnotesize\ttfamily \#define F\+R\+A\+M\+E\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+D\+E\+L\+A\+Y\+\_\+\+V\+AL~(0U)}
+
+
+
+Definition at line 228 of file mrr\+\_\+config\+\_\+consts.\+h.
+
+\mbox{\label{mrr__config__consts_8h_a89b89941ee47e97145e60f6dbe5397ff}} 
+\index{mrr\_config\_consts.h@{mrr\_config\_consts.h}!MAX\_DET\_OBJECTS\_RAW\_MAX\_VEL\_ENH\_PROCESSING@{MAX\_DET\_OBJECTS\_RAW\_MAX\_VEL\_ENH\_PROCESSING}}
+\index{MAX\_DET\_OBJECTS\_RAW\_MAX\_VEL\_ENH\_PROCESSING@{MAX\_DET\_OBJECTS\_RAW\_MAX\_VEL\_ENH\_PROCESSING}!mrr\_config\_consts.h@{mrr\_config\_consts.h}}
+\doxysubsubsection{MAX\_DET\_OBJECTS\_RAW\_MAX\_VEL\_ENH\_PROCESSING}
+{\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+D\+E\+T\+\_\+\+O\+B\+J\+E\+C\+T\+S\+\_\+\+R\+A\+W\+\_\+\+M\+A\+X\+\_\+\+V\+E\+L\+\_\+\+E\+N\+H\+\_\+\+P\+R\+O\+C\+E\+S\+S\+I\+NG~200}
+
+
+
+The maximum number of objects detected in the \textquotesingle{}Max velocity enhanced\textquotesingle{} processing path. Because of all the pruning, and higher thresholds, and lower resolution, fewer objects are detected in M\+A\+X\+\_\+\+V\+E\+L\+\_\+\+E\+N\+H\+\_\+\+P\+R\+O\+C\+E\+S\+S\+I\+NG. 
+
+
+
+Definition at line 209 of file mrr\+\_\+config\+\_\+consts.\+h.
+
+\mbox{\label{mrr__config__consts_8h_ae49d950473b7bc5ccfe7ef57aada9857}} 
+\index{mrr\_config\_consts.h@{mrr\_config\_consts.h}!MAX\_DET\_OBJECTS\_RAW\_POINT\_CLOUD\_PROCESSING@{MAX\_DET\_OBJECTS\_RAW\_POINT\_CLOUD\_PROCESSING}}
+\index{MAX\_DET\_OBJECTS\_RAW\_POINT\_CLOUD\_PROCESSING@{MAX\_DET\_OBJECTS\_RAW\_POINT\_CLOUD\_PROCESSING}!mrr\_config\_consts.h@{mrr\_config\_consts.h}}
+\doxysubsubsection{MAX\_DET\_OBJECTS\_RAW\_POINT\_CLOUD\_PROCESSING}
+{\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+D\+E\+T\+\_\+\+O\+B\+J\+E\+C\+T\+S\+\_\+\+R\+A\+W\+\_\+\+P\+O\+I\+N\+T\+\_\+\+C\+L\+O\+U\+D\+\_\+\+P\+R\+O\+C\+E\+S\+S\+I\+NG~900}
+
+
+
+The maximum number of objects detected in the \textquotesingle{}point cloud \textquotesingle{} processing path. 
+
+
+
+Definition at line 211 of file mrr\+\_\+config\+\_\+consts.\+h.
+
+\mbox{\label{mrr__config__consts_8h_abf422cf5eb126d4c36195a0c68c86c49}} 
+\index{mrr\_config\_consts.h@{mrr\_config\_consts.h}!MAX\_NUM\_CLUSTER\_MRR@{MAX\_NUM\_CLUSTER\_MRR}}
+\index{MAX\_NUM\_CLUSTER\_MRR@{MAX\_NUM\_CLUSTER\_MRR}!mrr\_config\_consts.h@{mrr\_config\_consts.h}}
+\doxysubsubsection{MAX\_NUM\_CLUSTER\_MRR}
+{\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+N\+U\+M\+\_\+\+C\+L\+U\+S\+T\+E\+R\+\_\+\+M\+RR~(32U)}
+
+
+
+The maximum number of clusters out of the dbscan algorithm (for the M\+RR subframe). 
+
+
+
+Definition at line 171 of file mrr\+\_\+config\+\_\+consts.\+h.
+
+\mbox{\label{mrr__config__consts_8h_a1b0c9947e2af5e413009205e31c94d6d}} 
+\index{mrr\_config\_consts.h@{mrr\_config\_consts.h}!MAX\_NUM\_CLUSTER\_USRR@{MAX\_NUM\_CLUSTER\_USRR}}
+\index{MAX\_NUM\_CLUSTER\_USRR@{MAX\_NUM\_CLUSTER\_USRR}!mrr\_config\_consts.h@{mrr\_config\_consts.h}}
+\doxysubsubsection{MAX\_NUM\_CLUSTER\_USRR}
+{\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+N\+U\+M\+\_\+\+C\+L\+U\+S\+T\+E\+R\+\_\+\+U\+S\+RR~(24U)}
+
+
+
+The maximum number of clusters out of the dbscan algorithm (for the U\+S\+RR subframe). 
+
+
+
+Definition at line 168 of file mrr\+\_\+config\+\_\+consts.\+h.
+
+\mbox{\label{mrr__config__consts_8h_aee336ef0a3e95f83df4db7b873edd72c}} 
+\index{mrr\_config\_consts.h@{mrr\_config\_consts.h}!MAX\_NUM\_DET\_PER\_RANGE\_GATE@{MAX\_NUM\_DET\_PER\_RANGE\_GATE}}
+\index{MAX\_NUM\_DET\_PER\_RANGE\_GATE@{MAX\_NUM\_DET\_PER\_RANGE\_GATE}!mrr\_config\_consts.h@{mrr\_config\_consts.h}}
+\doxysubsubsection{MAX\_NUM\_DET\_PER\_RANGE\_GATE}
+{\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+N\+U\+M\+\_\+\+D\+E\+T\+\_\+\+P\+E\+R\+\_\+\+R\+A\+N\+G\+E\+\_\+\+G\+A\+TE~(3U)}
+
+
+
+Restrict the number of detected objects per range-\/gate to 3. 
+
+
+
+Definition at line 221 of file mrr\+\_\+config\+\_\+consts.\+h.
+
+\mbox{\label{mrr__config__consts_8h_ab0701dbfe468e80ef21f586bd87b0c69}} 
+\index{mrr\_config\_consts.h@{mrr\_config\_consts.h}!MAX\_NUM\_RANGE\_DEPENDANT\_SNR\_THRESHOLDS@{MAX\_NUM\_RANGE\_DEPENDANT\_SNR\_THRESHOLDS}}
+\index{MAX\_NUM\_RANGE\_DEPENDANT\_SNR\_THRESHOLDS@{MAX\_NUM\_RANGE\_DEPENDANT\_SNR\_THRESHOLDS}!mrr\_config\_consts.h@{mrr\_config\_consts.h}}
+\doxysubsubsection{MAX\_NUM\_RANGE\_DEPENDANT\_SNR\_THRESHOLDS}
+{\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+N\+U\+M\+\_\+\+R\+A\+N\+G\+E\+\_\+\+D\+E\+P\+E\+N\+D\+A\+N\+T\+\_\+\+S\+N\+R\+\_\+\+T\+H\+R\+E\+S\+H\+O\+L\+DS~(3U)}
+
+
+
+The number of S\+NR Thresholds -\/ used to vary the S\+NR requirement as a function of range. 
+
+
+
+Definition at line 161 of file mrr\+\_\+config\+\_\+consts.\+h.
+
+\mbox{\label{mrr__config__consts_8h_a3d29c0d0c155f9dc895732d1cbf8cb42}} 
+\index{mrr\_config\_consts.h@{mrr\_config\_consts.h}!MAX\_TRK\_OBJs@{MAX\_TRK\_OBJs}}
+\index{MAX\_TRK\_OBJs@{MAX\_TRK\_OBJs}!mrr\_config\_consts.h@{mrr\_config\_consts.h}}
+\doxysubsubsection{MAX\_TRK\_OBJs}
+{\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+T\+R\+K\+\_\+\+O\+B\+Js~(32U)}
+
+
+
+The maximum number of tracked objects from the Kalman filter. 
+
+
+
+Definition at line 174 of file mrr\+\_\+config\+\_\+consts.\+h.
+
+\mbox{\label{mrr__config__consts_8h_ae7d0a1f06733537df81ff67f481c274b}} 
+\index{mrr\_config\_consts.h@{mrr\_config\_consts.h}!MAX\_VEL\_ENH\_NUM\_NYQUIST@{MAX\_VEL\_ENH\_NUM\_NYQUIST}}
+\index{MAX\_VEL\_ENH\_NUM\_NYQUIST@{MAX\_VEL\_ENH\_NUM\_NYQUIST}!mrr\_config\_consts.h@{mrr\_config\_consts.h}}
+\doxysubsubsection{MAX\_VEL\_ENH\_NUM\_NYQUIST}
+{\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+V\+E\+L\+\_\+\+E\+N\+H\+\_\+\+N\+U\+M\+\_\+\+N\+Y\+Q\+U\+I\+ST~(2U)}
+
+
+
+Max velocity improvement of 3x. 
+
+
+
+Definition at line 219 of file mrr\+\_\+config\+\_\+consts.\+h.
+
+\mbox{\label{mrr__config__consts_8h_a82424b9ae6e90aa4bcaf7c1b6db2322a}} 
+\index{mrr\_config\_consts.h@{mrr\_config\_consts.h}!MAX\_VEL\_ENH\_PROCESSING@{MAX\_VEL\_ENH\_PROCESSING}}
+\index{MAX\_VEL\_ENH\_PROCESSING@{MAX\_VEL\_ENH\_PROCESSING}!mrr\_config\_consts.h@{mrr\_config\_consts.h}}
+\doxysubsubsection{MAX\_VEL\_ENH\_PROCESSING}
+{\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+V\+E\+L\+\_\+\+E\+N\+H\+\_\+\+P\+R\+O\+C\+E\+S\+S\+I\+NG~(0U)}
+
+
+
+There are two processing paths in the M\+RR Demo. 
+
+
+
+Definition at line 164 of file mrr\+\_\+config\+\_\+consts.\+h.
+
+\mbox{\label{mrr__config__consts_8h_a66fddf9a1692e5245e213038faa34311}} 
+\index{mrr\_config\_consts.h@{mrr\_config\_consts.h}!MAX\_VEL\_ENH\_SUBFRAME\_IDX@{MAX\_VEL\_ENH\_SUBFRAME\_IDX}}
+\index{MAX\_VEL\_ENH\_SUBFRAME\_IDX@{MAX\_VEL\_ENH\_SUBFRAME\_IDX}!mrr\_config\_consts.h@{mrr\_config\_consts.h}}
+\doxysubsubsection{MAX\_VEL\_ENH\_SUBFRAME\_IDX}
+{\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+V\+E\+L\+\_\+\+E\+N\+H\+\_\+\+S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+I\+DX~(0U)}
+
+
+
+Which subframe is used to do max-\/vel-\/enhancement. 
+
+
+
+Definition at line 125 of file mrr\+\_\+config\+\_\+consts.\+h.
+
+\mbox{\label{mrr__config__consts_8h_a24fd6454a816813def8122dd4f44bafa}} 
+\index{mrr\_config\_consts.h@{mrr\_config\_consts.h}!MAX\_VEL\_IMPROVEMENT\_ASSOCIATION\_THRESH@{MAX\_VEL\_IMPROVEMENT\_ASSOCIATION\_THRESH}}
+\index{MAX\_VEL\_IMPROVEMENT\_ASSOCIATION\_THRESH@{MAX\_VEL\_IMPROVEMENT\_ASSOCIATION\_THRESH}!mrr\_config\_consts.h@{mrr\_config\_consts.h}}
+\doxysubsubsection{MAX\_VEL\_IMPROVEMENT\_ASSOCIATION\_THRESH}
+{\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+V\+E\+L\+\_\+\+I\+M\+P\+R\+O\+V\+E\+M\+E\+N\+T\+\_\+\+A\+S\+S\+O\+C\+I\+A\+T\+I\+O\+N\+\_\+\+T\+H\+R\+E\+SH~( (( 1U $<$$<$ \textbf{ C\+F\+A\+R\+T\+H\+R\+E\+S\+H\+O\+L\+D\+\_\+\+N\+\_\+\+B\+I\+T\+\_\+\+F\+R\+AC}) $\ast$ \textbf{ N\+U\+M\+\_\+\+R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+LS} $\ast$ \textbf{ M\+A\+X\+\_\+\+V\+E\+L\+\_\+\+I\+M\+P\+R\+O\+V\+E\+M\+E\+N\+T\+\_\+\+A\+S\+S\+O\+C\+I\+A\+T\+I\+O\+N\+\_\+\+T\+H\+R\+E\+S\+H\+\_\+\+DB}) / 6U)}
+
+
+
+Convert the threshold to a C\+F\+AR magnitude difference. 
+
+
+
+Definition at line 215 of file mrr\+\_\+config\+\_\+consts.\+h.
+
+\mbox{\label{mrr__config__consts_8h_a2e25ad157e76a0d7379e98b213d18582}} 
+\index{mrr\_config\_consts.h@{mrr\_config\_consts.h}!MAX\_VEL\_IMPROVEMENT\_ASSOCIATION\_THRESH\_DB@{MAX\_VEL\_IMPROVEMENT\_ASSOCIATION\_THRESH\_DB}}
+\index{MAX\_VEL\_IMPROVEMENT\_ASSOCIATION\_THRESH\_DB@{MAX\_VEL\_IMPROVEMENT\_ASSOCIATION\_THRESH\_DB}!mrr\_config\_consts.h@{mrr\_config\_consts.h}}
+\doxysubsubsection{MAX\_VEL\_IMPROVEMENT\_ASSOCIATION\_THRESH\_DB}
+{\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+V\+E\+L\+\_\+\+I\+M\+P\+R\+O\+V\+E\+M\+E\+N\+T\+\_\+\+A\+S\+S\+O\+C\+I\+A\+T\+I\+O\+N\+\_\+\+T\+H\+R\+E\+S\+H\+\_\+\+DB~(3U)}
+
+
+
+The two peaks (from the \textquotesingle{}fast chirp\textquotesingle{} and the \textquotesingle{}slow chirp\textquotesingle{} should be within 2 dB. 
+
+
+
+Definition at line 213 of file mrr\+\_\+config\+\_\+consts.\+h.
+
+\mbox{\label{mrr__config__consts_8h_adef7a295a54a4be1bfe0b28e05c48096}} 
+\index{mrr\_config\_consts.h@{mrr\_config\_consts.h}!MAX\_VEL\_IMPROVEMENT\_NUM\_SPREAD@{MAX\_VEL\_IMPROVEMENT\_NUM\_SPREAD}}
+\index{MAX\_VEL\_IMPROVEMENT\_NUM\_SPREAD@{MAX\_VEL\_IMPROVEMENT\_NUM\_SPREAD}!mrr\_config\_consts.h@{mrr\_config\_consts.h}}
+\doxysubsubsection{MAX\_VEL\_IMPROVEMENT\_NUM\_SPREAD}
+{\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+V\+E\+L\+\_\+\+I\+M\+P\+R\+O\+V\+E\+M\+E\+N\+T\+\_\+\+N\+U\+M\+\_\+\+S\+P\+R\+E\+AD~(2U)}
+
+
+
+Search across 2 bins in the slow chirp. 
+
+
+
+Definition at line 217 of file mrr\+\_\+config\+\_\+consts.\+h.
+
+\mbox{\label{mrr__config__consts_8h_a5abe9f5d402aca067eddd527a0e516e1}} 
+\index{mrr\_config\_consts.h@{mrr\_config\_consts.h}!MIN\_RANGE\_OFFSET\_METERS@{MIN\_RANGE\_OFFSET\_METERS}}
+\index{MIN\_RANGE\_OFFSET\_METERS@{MIN\_RANGE\_OFFSET\_METERS}!mrr\_config\_consts.h@{mrr\_config\_consts.h}}
+\doxysubsubsection{MIN\_RANGE\_OFFSET\_METERS}
+{\footnotesize\ttfamily \#define M\+I\+N\+\_\+\+R\+A\+N\+G\+E\+\_\+\+O\+F\+F\+S\+E\+T\+\_\+\+M\+E\+T\+E\+RS~(0.\+075f)}
+
+
+
+The radar\textquotesingle{}s range estimate has a constant error due to the finite distance from the antenna to the LO. 
+
+
+
+Definition at line 183 of file mrr\+\_\+config\+\_\+consts.\+h.
+
+\mbox{\label{mrr__config__consts_8h_a7499da5433c1f7a1910de2c784b72f86}} 
+\index{mrr\_config\_consts.h@{mrr\_config\_consts.h}!MIN\_TICK\_FOR\_TX@{MIN\_TICK\_FOR\_TX}}
+\index{MIN\_TICK\_FOR\_TX@{MIN\_TICK\_FOR\_TX}!mrr\_config\_consts.h@{mrr\_config\_consts.h}}
+\doxysubsubsection{MIN\_TICK\_FOR\_TX}
+{\footnotesize\ttfamily \#define M\+I\+N\+\_\+\+T\+I\+C\+K\+\_\+\+F\+O\+R\+\_\+\+TX~(10U)}
+
+
+
+Wait for M\+I\+N\+\_\+\+T\+I\+C\+K\+\_\+\+F\+O\+R\+\_\+\+TX before letting the tracker results out. 
+
+
+
+Definition at line 186 of file mrr\+\_\+config\+\_\+consts.\+h.
+
+\mbox{\label{mrr__config__consts_8h_aabf65f3351e242cf73bfd3aed6178a91}} 
+\index{mrr\_config\_consts.h@{mrr\_config\_consts.h}!MRR\_MAX\_OBJ\_OUT@{MRR\_MAX\_OBJ\_OUT}}
+\index{MRR\_MAX\_OBJ\_OUT@{MRR\_MAX\_OBJ\_OUT}!mrr\_config\_consts.h@{mrr\_config\_consts.h}}
+\doxysubsubsection{MRR\_MAX\_OBJ\_OUT}
+{\footnotesize\ttfamily \#define M\+R\+R\+\_\+\+M\+A\+X\+\_\+\+O\+B\+J\+\_\+\+O\+UT~200}
+
+
+
+The maximum number of objects to be send out per frame. This number is upper bounded by the transfer rate to the external device. 
+
+
+
+Definition at line 203 of file mrr\+\_\+config\+\_\+consts.\+h.
+
+\mbox{\label{mrr__config__consts_8h_a4c1477db4593b5a360a7df87e4a8dc9d}} 
+\index{mrr\_config\_consts.h@{mrr\_config\_consts.h}!MRR\_RANGE\_120m@{MRR\_RANGE\_120m}}
+\index{MRR\_RANGE\_120m@{MRR\_RANGE\_120m}!mrr\_config\_consts.h@{mrr\_config\_consts.h}}
+\doxysubsubsection{MRR\_RANGE\_120m}
+{\footnotesize\ttfamily \#define M\+R\+R\+\_\+\+R\+A\+N\+G\+E\+\_\+120m}
+
+
+
+L\+V\+DS based object transfer. The following line (if uncommented) uses the L\+V\+DS lanes to transfer object detection data to the PC. Needs an L\+V\+DS receiver. Hasn\textquotesingle{}t been tested with the T\+S\+W1400. 
+
+Universal options for the M\+RR TI Design. These are different compile time options for the M\+RR TI Design, that modify the base M\+RR design based on different requirements.
+
+Reduced Thresholds. The following line (if uncommented) reduces thresholds for the U\+S\+RR detection algorithm to enable the detection of weak targets. ~\newline
+
+
+120m max range. The M\+RR was initially designed for 80m, but with a slight configuration change will work at 120m (boresight). Uncomment the following line for enabling that config. 
+
+Definition at line 75 of file mrr\+\_\+config\+\_\+consts.\+h.
+
+\mbox{\label{mrr__config__consts_8h_ab08bf41c488d910fb59cf16c3cd8fd0f}} 
+\index{mrr\_config\_consts.h@{mrr\_config\_consts.h}!NUM\_CHIRP\_PROG@{NUM\_CHIRP\_PROG}}
+\index{NUM\_CHIRP\_PROG@{NUM\_CHIRP\_PROG}!mrr\_config\_consts.h@{mrr\_config\_consts.h}}
+\doxysubsubsection{NUM\_CHIRP\_PROG}
+{\footnotesize\ttfamily \#define N\+U\+M\+\_\+\+C\+H\+I\+R\+P\+\_\+\+P\+R\+OG~(5U) /$\ast$ Two for M\+R\+R80, Three for U\+S\+R\+R20 $\ast$/}
+
+
+
+Definition at line 79 of file mrr\+\_\+config\+\_\+consts.\+h.
+
+\mbox{\label{mrr__config__consts_8h_a0931aa15c0fb3e1bf5c48fe47fe09511}} 
+\index{mrr\_config\_consts.h@{mrr\_config\_consts.h}!NUM\_PROFILES@{NUM\_PROFILES}}
+\index{NUM\_PROFILES@{NUM\_PROFILES}!mrr\_config\_consts.h@{mrr\_config\_consts.h}}
+\doxysubsubsection{NUM\_PROFILES}
+{\footnotesize\ttfamily \#define N\+U\+M\+\_\+\+P\+R\+O\+F\+I\+L\+ES~(2U) /$\ast$ one for M\+R\+R80, one for U\+S\+R\+R20 $\ast$/}
+
+
+
+Definition at line 80 of file mrr\+\_\+config\+\_\+consts.\+h.
+
+\mbox{\label{mrr__config__consts_8h_a54335318df3476652340fe35e30fe094}} 
+\index{mrr\_config\_consts.h@{mrr\_config\_consts.h}!NUM\_RX\_CHANNELS@{NUM\_RX\_CHANNELS}}
+\index{NUM\_RX\_CHANNELS@{NUM\_RX\_CHANNELS}!mrr\_config\_consts.h@{mrr\_config\_consts.h}}
+\doxysubsubsection{NUM\_RX\_CHANNELS}
+{\footnotesize\ttfamily \#define N\+U\+M\+\_\+\+R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+LS~(4U)}
+
+
+
+Definition at line 78 of file mrr\+\_\+config\+\_\+consts.\+h.
+
+\mbox{\label{mrr__config__consts_8h_af1d474982cda92e9c43e7605e25d0255}} 
+\index{mrr\_config\_consts.h@{mrr\_config\_consts.h}!NUM\_SUBFRAMES@{NUM\_SUBFRAMES}}
+\index{NUM\_SUBFRAMES@{NUM\_SUBFRAMES}!mrr\_config\_consts.h@{mrr\_config\_consts.h}}
+\doxysubsubsection{NUM\_SUBFRAMES}
+{\footnotesize\ttfamily \#define N\+U\+M\+\_\+\+S\+U\+B\+F\+R\+A\+M\+ES~(2U) /$\ast$ one for M\+R\+R80, one for U\+S\+R\+R20 $\ast$/}
+
+
+
+The U\+S\+RR only mode of operation. 
+
+! ! The M\+RR only mode of operation. 
+
+Definition at line 117 of file mrr\+\_\+config\+\_\+consts.\+h.
+
+\mbox{\label{mrr__config__consts_8h_a029b812f38a2f58ddd2323986116a116}} 
+\index{mrr\_config\_consts.h@{mrr\_config\_consts.h}!POINT\_CLOUD\_PROCESSING@{POINT\_CLOUD\_PROCESSING}}
+\index{POINT\_CLOUD\_PROCESSING@{POINT\_CLOUD\_PROCESSING}!mrr\_config\_consts.h@{mrr\_config\_consts.h}}
+\doxysubsubsection{POINT\_CLOUD\_PROCESSING}
+{\footnotesize\ttfamily \#define P\+O\+I\+N\+T\+\_\+\+C\+L\+O\+U\+D\+\_\+\+P\+R\+O\+C\+E\+S\+S\+I\+NG~(1U)}
+
+
+
+Definition at line 165 of file mrr\+\_\+config\+\_\+consts.\+h.
+
+\mbox{\label{mrr__config__consts_8h_a5c84a3f2e2fda7785b77c54d78695fee}} 
+\index{mrr\_config\_consts.h@{mrr\_config\_consts.h}!REPORT\_N\_BIT\_FRAC@{REPORT\_N\_BIT\_FRAC}}
+\index{REPORT\_N\_BIT\_FRAC@{REPORT\_N\_BIT\_FRAC}!mrr\_config\_consts.h@{mrr\_config\_consts.h}}
+\doxysubsubsection{REPORT\_N\_BIT\_FRAC}
+{\footnotesize\ttfamily \#define R\+E\+P\+O\+R\+T\+\_\+\+N\+\_\+\+B\+I\+T\+\_\+\+F\+R\+AC~(7U)}
+
+
+
+Fractional bit width for most of the report data (range, velocity, x, y, etc). 
+
+
+
+Definition at line 177 of file mrr\+\_\+config\+\_\+consts.\+h.
+
+\mbox{\label{mrr__config__consts_8h_a390158917410b12b3aa9239605b82c3d}} 
+\index{mrr\_config\_consts.h@{mrr\_config\_consts.h}!SIN\_55\_DEGREES@{SIN\_55\_DEGREES}}
+\index{SIN\_55\_DEGREES@{SIN\_55\_DEGREES}!mrr\_config\_consts.h@{mrr\_config\_consts.h}}
+\doxysubsubsection{SIN\_55\_DEGREES}
+{\footnotesize\ttfamily \#define S\+I\+N\+\_\+55\+\_\+\+D\+E\+G\+R\+E\+ES~(0.\+8192f)}
+
+
+
+We discard objects at extreme angles (greater than 55 degrees) from the tracking procedure. 
+
+
+
+Definition at line 190 of file mrr\+\_\+config\+\_\+consts.\+h.
+
+\mbox{\label{mrr__config__consts_8h_ac9e097ea947acf09da220d458278043d}} 
+\index{mrr\_config\_consts.h@{mrr\_config\_consts.h}!SUBFRAME\_CONF\_MRR\_USRR@{SUBFRAME\_CONF\_MRR\_USRR}}
+\index{SUBFRAME\_CONF\_MRR\_USRR@{SUBFRAME\_CONF\_MRR\_USRR}!mrr\_config\_consts.h@{mrr\_config\_consts.h}}
+\doxysubsubsection{SUBFRAME\_CONF\_MRR\_USRR}
+{\footnotesize\ttfamily \#define S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+C\+O\+N\+F\+\_\+\+M\+R\+R\+\_\+\+U\+S\+RR~/$\ast$ Two subframes, M\+RR followed by U\+S\+R\+R20. $\ast$/}
+
+
+
+The multi-\/mode Radar mode of operation. 
+
+! 
+
+Definition at line 83 of file mrr\+\_\+config\+\_\+consts.\+h.
+
+\mbox{\label{mrr__config__consts_8h_a1a68358fcbfacec32b91914539bd9f63}} 
+\index{mrr\_config\_consts.h@{mrr\_config\_consts.h}!TRK\_SIN\_AZIM\_THRESH@{TRK\_SIN\_AZIM\_THRESH}}
+\index{TRK\_SIN\_AZIM\_THRESH@{TRK\_SIN\_AZIM\_THRESH}!mrr\_config\_consts.h@{mrr\_config\_consts.h}}
+\doxysubsubsection{TRK\_SIN\_AZIM\_THRESH}
+{\footnotesize\ttfamily \#define T\+R\+K\+\_\+\+S\+I\+N\+\_\+\+A\+Z\+I\+M\+\_\+\+T\+H\+R\+E\+SH~(1.\+0f/256.\+0f)}
+
+
+
+We discard objects with poor azimuth S\+NR from the tracking procedure. 
+
+
+
+Definition at line 194 of file mrr\+\_\+config\+\_\+consts.\+h.
+

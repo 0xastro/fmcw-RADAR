@@ -1,0 +1,27 @@
+
+**************************************************
+Copying test case files from the Build server
+**************************************************
+call to copy_testcase_files:
+TCP: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/../../tools TO /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr68xx_sdk03.01.00_Test_Plan___jenkins-79_2018_12_03_09_36_35
+
+Copying testcase binary file from http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/../../tools/uniflash_linux_64_iwr68.zip to /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr68xx_sdk03.01.00_Test_Plan___jenkins-79_2018_12_03_09_36_35 using command: 
+wget -e robots=off --no-proxy -N -T 30 -t 2 -P /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr68xx_sdk03.01.00_Test_Plan___jenkins-79_2018_12_03_09_36_35 http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/../../tools/uniflash_linux_64_iwr68.zip
+**************************************************
+Executing Testcase:/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr68xx_sdk03.01.00_Test_Plan___jenkins-79_2018_12_03_09_36_35/uniflash_linux_64_iwr68.zip
+**************************************************
+
+Unzip the Uniflash tool on the local test machine
+
+
+
+shutting down py4j gw server.
+
+
+**************************************************
+Test case execution completed
+**************************************************
+
+**************************************************
+Testcase Result : PASS
+**************************************************

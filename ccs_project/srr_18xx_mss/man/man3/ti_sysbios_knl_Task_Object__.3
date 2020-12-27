@@ -1,0 +1,175 @@
+.TH "ti_sysbios_knl_Task_Object__" 3 "Wed May 20 2020" "Version 1.0" "mmWaveFMCWRADAR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ti_sysbios_knl_Task_Object__
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "ti_sysbios_knl_Queue_Elem \fBqElem\fP"
+.br
+.ti -1c
+.RI "volatile xdc_Int \fBpriority\fP"
+.br
+.ti -1c
+.RI "xdc_UInt \fBmask\fP"
+.br
+.ti -1c
+.RI "xdc_Ptr \fBcontext\fP"
+.br
+.ti -1c
+.RI "ti_sysbios_knl_Task_Mode \fBmode\fP"
+.br
+.ti -1c
+.RI "ti_sysbios_knl_Task_PendElem * \fBpendElem\fP"
+.br
+.ti -1c
+.RI "xdc_SizeT \fBstackSize\fP"
+.br
+.ti -1c
+.RI "__TA_ti_sysbios_knl_Task_Instance_State__stack \fBstack\fP"
+.br
+.ti -1c
+.RI "xdc_runtime_IHeap_Handle \fBstackHeap\fP"
+.br
+.ti -1c
+.RI "ti_sysbios_knl_Task_FuncPtr \fBfxn\fP"
+.br
+.ti -1c
+.RI "xdc_UArg \fBarg0\fP"
+.br
+.ti -1c
+.RI "xdc_UArg \fBarg1\fP"
+.br
+.ti -1c
+.RI "xdc_Ptr \fBenv\fP"
+.br
+.ti -1c
+.RI "__TA_ti_sysbios_knl_Task_Instance_State__hookEnv \fBhookEnv\fP"
+.br
+.ti -1c
+.RI "xdc_Bool \fBvitalTaskFlag\fP"
+.br
+.ti -1c
+.RI "ti_sysbios_knl_Queue_Handle \fBreadyQ\fP"
+.br
+.ti -1c
+.RI "xdc_UInt \fBcurCoreId\fP"
+.br
+.ti -1c
+.RI "xdc_UInt \fBaffinity\fP"
+.br
+.ti -1c
+.RI "xdc_Bool \fBprivileged\fP"
+.br
+.ti -1c
+.RI "xdc_Ptr \fBdomain\fP"
+.br
+.ti -1c
+.RI "xdc_UInt32 \fBcheckValue\fP"
+.br
+.ti -1c
+.RI "xdc_Ptr \fBtls\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 604 of file mss_mrr_per4f\&.c\&.
+.SH "Field Documentation"
+.PP 
+.SS "xdc_UInt ti_sysbios_knl_Task_Object__::affinity"
+
+.PP
+Definition at line 622 of file mss_mrr_per4f\&.c\&.
+.SS "xdc_UArg ti_sysbios_knl_Task_Object__::arg0"
+
+.PP
+Definition at line 615 of file mss_mrr_per4f\&.c\&.
+.SS "xdc_UArg ti_sysbios_knl_Task_Object__::arg1"
+
+.PP
+Definition at line 616 of file mss_mrr_per4f\&.c\&.
+.SS "xdc_UInt32 ti_sysbios_knl_Task_Object__::checkValue"
+
+.PP
+Definition at line 625 of file mss_mrr_per4f\&.c\&.
+.SS "xdc_Ptr ti_sysbios_knl_Task_Object__::context"
+
+.PP
+Definition at line 608 of file mss_mrr_per4f\&.c\&.
+.SS "xdc_UInt ti_sysbios_knl_Task_Object__::curCoreId"
+
+.PP
+Definition at line 621 of file mss_mrr_per4f\&.c\&.
+.SS "xdc_Ptr ti_sysbios_knl_Task_Object__::domain"
+
+.PP
+Definition at line 624 of file mss_mrr_per4f\&.c\&.
+.SS "xdc_Ptr ti_sysbios_knl_Task_Object__::env"
+
+.PP
+Definition at line 617 of file mss_mrr_per4f\&.c\&.
+.SS "ti_sysbios_knl_Task_FuncPtr ti_sysbios_knl_Task_Object__::fxn"
+
+.PP
+Definition at line 614 of file mss_mrr_per4f\&.c\&.
+.SS "__TA_ti_sysbios_knl_Task_Instance_State__hookEnv ti_sysbios_knl_Task_Object__::hookEnv"
+
+.PP
+Definition at line 618 of file mss_mrr_per4f\&.c\&.
+.SS "xdc_UInt ti_sysbios_knl_Task_Object__::mask"
+
+.PP
+Definition at line 607 of file mss_mrr_per4f\&.c\&.
+.SS "ti_sysbios_knl_Task_Mode ti_sysbios_knl_Task_Object__::mode"
+
+.PP
+Definition at line 609 of file mss_mrr_per4f\&.c\&.
+.SS "ti_sysbios_knl_Task_PendElem * ti_sysbios_knl_Task_Object__::pendElem"
+
+.PP
+Definition at line 610 of file mss_mrr_per4f\&.c\&.
+.SS "volatile xdc_Int ti_sysbios_knl_Task_Object__::priority"
+
+.PP
+Definition at line 606 of file mss_mrr_per4f\&.c\&.
+.SS "xdc_Bool ti_sysbios_knl_Task_Object__::privileged"
+
+.PP
+Definition at line 623 of file mss_mrr_per4f\&.c\&.
+.SS "ti_sysbios_knl_Queue_Elem ti_sysbios_knl_Task_Object__::qElem"
+
+.PP
+Definition at line 605 of file mss_mrr_per4f\&.c\&.
+.SS "ti_sysbios_knl_Queue_Handle ti_sysbios_knl_Task_Object__::readyQ"
+
+.PP
+Definition at line 620 of file mss_mrr_per4f\&.c\&.
+.SS "__TA_ti_sysbios_knl_Task_Instance_State__stack ti_sysbios_knl_Task_Object__::stack"
+
+.PP
+Definition at line 612 of file mss_mrr_per4f\&.c\&.
+.SS "xdc_runtime_IHeap_Handle ti_sysbios_knl_Task_Object__::stackHeap"
+
+.PP
+Definition at line 613 of file mss_mrr_per4f\&.c\&.
+.SS "xdc_SizeT ti_sysbios_knl_Task_Object__::stackSize"
+
+.PP
+Definition at line 611 of file mss_mrr_per4f\&.c\&.
+.SS "xdc_Ptr ti_sysbios_knl_Task_Object__::tls"
+
+.PP
+Definition at line 626 of file mss_mrr_per4f\&.c\&.
+.SS "xdc_Bool ti_sysbios_knl_Task_Object__::vitalTaskFlag"
+
+.PP
+Definition at line 619 of file mss_mrr_per4f\&.c\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mmWaveFMCWRADAR from the source code\&.

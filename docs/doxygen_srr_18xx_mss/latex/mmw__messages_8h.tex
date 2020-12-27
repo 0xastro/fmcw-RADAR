@@ -1,0 +1,447 @@
+\doxysection{common/mmw\+\_\+messages.h File Reference}
+\label{mmw__messages_8h}\index{common/mmw\_messages.h@{common/mmw\_messages.h}}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=219pt]{mmw__messages_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ mm\+Wave\+\_\+\+O\+U\+T\+\_\+\+M\+S\+G\+\_\+header\+\_\+t}
+\begin{DoxyCompactList}\small\item\em The structure defines the message header for reporting detection information from data path. Processed by both M\+SS and D\+SS. \end{DoxyCompactList}\item 
+struct \textbf{ mm\+Wave\+\_\+\+O\+U\+T\+\_\+\+M\+S\+G\+\_\+stats\+\_\+data\+Obj\+Descr\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Structure holds information about detected objects. This information is sent in front of the array of detected objects Sent by D\+SS. \end{DoxyCompactList}\item 
+struct \textbf{ mm\+Wave\+\_\+\+O\+U\+T\+\_\+\+M\+S\+G\+\_\+tl\+\_\+t}
+\begin{DoxyCompactList}\small\item\em The structure defines the message body for reporting detected objects from data path. Processed by both M\+SS and D\+SS. \end{DoxyCompactList}\item 
+struct \textbf{ mm\+Wave\+M\+S\+G\+\_\+\+T\+L\+V\+\_\+t}
+\begin{DoxyCompactList}\small\item\em The structure describes the T\+LV part of the message from D\+SS to M\+SS on data path detection information. \end{DoxyCompactList}\item 
+struct \textbf{ mm\+Wave\+\_\+det\+Obj\+Msg\+\_\+t}
+\begin{DoxyCompactList}\small\item\em The structure defines the message body for for reporting detection information from data path to M\+SS. \end{DoxyCompactList}\item 
+struct \textbf{ mm\+Wave\+\_\+dss\+Assert\+Info\+Msg\+\_\+t}
+\begin{DoxyCompactList}\small\item\em The structure defines the message body for the information on a D\+SS exception that should be forwarded to the M\+SS reporting the D\+SS assertion information. \end{DoxyCompactList}\item 
+union \textbf{ mm\+Wave\+M\+S\+G\+\_\+body\+\_\+u}
+\begin{DoxyCompactList}\small\item\em The union defines the message body for various configuration messages. For passing configuration from M\+SS to D\+SS. \end{DoxyCompactList}\item 
+struct \textbf{ mm\+Wave\+M\+S\+G\+\_\+t}
+\begin{DoxyCompactList}\small\item\em The structure defines the message structure used for communication between M\+SS and D\+SS. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ M\+M\+W\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+S\+G\+\_\+\+S\+E\+G\+M\+E\+N\+T\+\_\+\+L\+EN}~32
+\begin{DoxyCompactList}\small\item\em Output packet length is a multiple of this value, must be power of 2. \end{DoxyCompactList}\item 
+\#define \textbf{ M\+M\+W\+\_\+\+D\+S\+S2\+M\+S\+S\+\_\+\+E\+X\+C\+E\+P\+T\+I\+O\+N\+\_\+\+S\+I\+G\+N\+A\+L\+L\+I\+N\+G\+\_\+\+S\+W\+\_\+\+I\+N\+T\+\_\+\+D\+SS}~1
+\begin{DoxyCompactList}\small\item\em Software interrupt number used by D\+SS to signal exception from D\+SS to M\+SS. \end{DoxyCompactList}\item 
+\#define \textbf{ M\+M\+W\+\_\+\+D\+S\+S2\+M\+S\+S\+\_\+\+E\+X\+C\+E\+P\+T\+I\+O\+N\+\_\+\+S\+I\+G\+N\+A\+L\+L\+I\+N\+G\+\_\+\+S\+W\+\_\+\+I\+N\+T\+\_\+\+M\+SS}~S\+O\+C\+\_\+\+X\+W\+R16\+X\+X\+\_\+\+M\+S\+S\+\_\+\+D\+S\+S2\+M\+S\+S\+\_\+\+S\+W1\+\_\+\+I\+NT
+\begin{DoxyCompactList}\small\item\em Software interrupt ID on M\+SS corresponding to \doxyref{M\+M\+W\+\_\+\+D\+S\+S2\+M\+S\+S\+\_\+\+E\+X\+C\+E\+P\+T\+I\+O\+N\+\_\+\+S\+I\+G\+N\+A\+L\+L\+I\+N\+G\+\_\+\+S\+W\+\_\+\+I\+N\+T\+\_\+\+D\+SS}{p.}{mmw__messages_8h_ace360213fbde56c4985b8100379d1a5e}. \end{DoxyCompactList}\item 
+\#define \textbf{ M\+M\+W\+\_\+\+D\+S\+S2\+M\+S\+S\+\_\+\+C\+H\+I\+R\+P\+\_\+\+P\+R\+O\+C\+\_\+\+D\+E\+A\+D\+L\+I\+N\+E\+\_\+\+M\+I\+S\+S\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON}~0
+\begin{DoxyCompactList}\small\item\em Exception ID definitions for D\+SS to M\+SS urgent exception signalling through software interrupt. D\+SS to M\+SS chirp processing deadline miss exception ID. \end{DoxyCompactList}\item 
+\#define \textbf{ M\+M\+W\+\_\+\+D\+S\+S2\+M\+S\+S\+\_\+\+F\+R\+A\+M\+E\+\_\+\+P\+R\+O\+C\+\_\+\+D\+E\+A\+D\+L\+I\+N\+E\+\_\+\+M\+I\+S\+S\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON}~1
+\begin{DoxyCompactList}\small\item\em Exception ID definitions for D\+SS to M\+SS urgent exception signalling through software interrupt. D\+SS to M\+SS frame processing deadline miss exception ID. \end{DoxyCompactList}\item 
+\#define \textbf{ M\+M\+W\+A\+V\+E\+\_\+\+M\+A\+X\+\_\+\+F\+I\+L\+E\+\_\+\+N\+A\+M\+E\+\_\+\+S\+I\+ZE}~128
+\item 
+\#define \textbf{ M\+M\+W\+\_\+\+S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+N\+U\+M\+\_\+\+F\+R\+A\+M\+E\+\_\+\+L\+E\+V\+E\+L\+\_\+\+C\+O\+N\+F\+IG}~(-\/1)
+\begin{DoxyCompactList}\small\item\em For advanced frame config, below define means the configuration given is global at frame level and therefore it is broadcast to all sub-\/frames. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \textbf{ mm\+Wave\+M\+S\+G\+\_\+\+O\+U\+T\+\_\+\+T\+Y\+P\+E\+\_\+e} \textbf{ mm\+Wave\+M\+S\+G\+\_\+\+O\+U\+T\+\_\+\+T\+Y\+PE}
+\begin{DoxyCompactList}\small\item\em Message types used in Millimeter Wave Demo for the communication between target and host, and also for Mailbox communication between M\+SS and D\+SS on the X\+W\+R16xx platform. Message types are used to indicate different type detection information sent out from the target. \end{DoxyCompactList}\item 
+typedef struct \textbf{ mm\+Wave\+\_\+\+O\+U\+T\+\_\+\+M\+S\+G\+\_\+header\+\_\+t} \textbf{ mm\+Wave\+\_\+\+O\+U\+T\+\_\+\+M\+S\+G\+\_\+header}
+\begin{DoxyCompactList}\small\item\em The structure defines the message header for reporting detection information from data path. Processed by both M\+SS and D\+SS. \end{DoxyCompactList}\item 
+typedef struct \textbf{ mm\+Wave\+\_\+\+O\+U\+T\+\_\+\+M\+S\+G\+\_\+stats\+\_\+data\+Obj\+Descr\+\_\+t} \textbf{ mm\+Wave\+\_\+\+O\+U\+T\+\_\+\+M\+S\+G\+\_\+stats\+\_\+data\+Obj\+Descr}
+\begin{DoxyCompactList}\small\item\em Structure holds information about detected objects. This information is sent in front of the array of detected objects Sent by D\+SS. \end{DoxyCompactList}\item 
+typedef struct \textbf{ mm\+Wave\+\_\+\+O\+U\+T\+\_\+\+M\+S\+G\+\_\+tl\+\_\+t} \textbf{ mm\+Wave\+\_\+\+O\+U\+T\+\_\+\+M\+S\+G\+\_\+tl}
+\begin{DoxyCompactList}\small\item\em The structure defines the message body for reporting detected objects from data path. Processed by both M\+SS and D\+SS. \end{DoxyCompactList}\item 
+typedef enum \textbf{ mbox\+\_\+message\+\_\+type\+\_\+e} \textbf{ mbox\+\_\+message\+\_\+type}
+\begin{DoxyCompactList}\small\item\em The enum is used to hold all the messages types used for Mailbox communication between M\+SS and D\+SS in mmw Demo. \end{DoxyCompactList}\item 
+typedef struct \textbf{ mm\+Wave\+M\+S\+G\+\_\+\+T\+L\+V\+\_\+t} \textbf{ mm\+Wave\+M\+S\+G\+\_\+\+T\+LV}
+\begin{DoxyCompactList}\small\item\em The structure describes the T\+LV part of the message from D\+SS to M\+SS on data path detection information. \end{DoxyCompactList}\item 
+typedef struct \textbf{ mm\+Wave\+\_\+det\+Obj\+Msg\+\_\+t} \textbf{ mm\+Wave\+\_\+det\+Info\+Msg}
+\begin{DoxyCompactList}\small\item\em The structure defines the message body for for reporting detection information from data path to M\+SS. \end{DoxyCompactList}\item 
+typedef struct \textbf{ mm\+Wave\+\_\+dss\+Assert\+Info\+Msg\+\_\+t} \textbf{ mm\+Wave\+\_\+dss\+Assert\+Info\+Msg}
+\begin{DoxyCompactList}\small\item\em The structure defines the message body for the information on a D\+SS exception that should be forwarded to the M\+SS reporting the D\+SS assertion information. \end{DoxyCompactList}\item 
+typedef union \textbf{ mm\+Wave\+M\+S\+G\+\_\+body\+\_\+u} \textbf{ mm\+Wave\+M\+S\+G\+\_\+body}
+\begin{DoxyCompactList}\small\item\em The union defines the message body for various configuration messages. For passing configuration from M\+SS to D\+SS. \end{DoxyCompactList}\item 
+typedef struct \textbf{ mm\+Wave\+M\+S\+G\+\_\+t} \textbf{ mm\+Wave\+M\+SG}
+\begin{DoxyCompactList}\small\item\em The structure defines the message structure used for communication between M\+SS and D\+SS. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \textbf{ mm\+Wave\+M\+S\+G\+\_\+\+O\+U\+T\+\_\+\+T\+Y\+P\+E\+\_\+e} \{ \newline
+\textbf{ O\+U\+T\+P\+U\+T\+\_\+\+M\+S\+G\+\_\+\+D\+E\+T\+E\+C\+T\+E\+D\+\_\+\+P\+O\+I\+N\+TS} = 1, 
+\textbf{ O\+U\+T\+P\+U\+T\+\_\+\+M\+S\+G\+\_\+\+R\+A\+N\+G\+E\+\_\+\+P\+R\+O\+F\+I\+LE}, 
+\textbf{ O\+U\+T\+P\+U\+T\+\_\+\+M\+S\+G\+\_\+\+N\+O\+I\+S\+E\+\_\+\+P\+R\+O\+F\+I\+LE}, 
+\textbf{ O\+U\+T\+P\+U\+T\+\_\+\+M\+S\+G\+\_\+\+A\+Z\+I\+M\+U\+T\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+H\+E\+A\+T\+\_\+\+M\+AP}, 
+\newline
+\textbf{ O\+U\+T\+P\+U\+T\+\_\+\+M\+S\+G\+\_\+\+R\+A\+N\+G\+E\+\_\+\+D\+O\+P\+P\+L\+E\+R\+\_\+\+H\+E\+A\+T\+\_\+\+M\+AP}, 
+\textbf{ O\+U\+T\+P\+U\+T\+\_\+\+M\+S\+G\+\_\+\+S\+T\+A\+TS}, 
+\textbf{ O\+U\+T\+P\+U\+T\+\_\+\+M\+S\+G\+\_\+\+M\+AX}
+ \}
+\begin{DoxyCompactList}\small\item\em Message types used in Millimeter Wave Demo for the communication between target and host, and also for Mailbox communication between M\+SS and D\+SS on the X\+W\+R16xx platform. Message types are used to indicate different type detection information sent out from the target. \end{DoxyCompactList}\item 
+enum \textbf{ mbox\+\_\+message\+\_\+type\+\_\+e} \{ \newline
+\textbf{ M\+B\+O\+X\+\_\+\+M\+S\+S2\+D\+S\+S\+\_\+\+G\+U\+I\+M\+O\+N\+\_\+\+C\+FG} = 0x\+F\+E\+E\+D0001, 
+\textbf{ M\+B\+O\+X\+\_\+\+M\+S\+S2\+D\+S\+S\+\_\+\+C\+F\+A\+R\+\_\+\+R\+A\+N\+G\+E\+\_\+\+C\+FG}, 
+\textbf{ M\+B\+O\+X\+\_\+\+M\+S\+S2\+D\+S\+S\+\_\+\+C\+F\+A\+R\+\_\+\+D\+O\+P\+P\+L\+E\+R\+\_\+\+C\+FG}, 
+\textbf{ M\+B\+O\+X\+\_\+\+M\+S\+S2\+D\+S\+S\+\_\+\+P\+E\+A\+K\+\_\+\+G\+R\+O\+U\+P\+I\+N\+G\+\_\+\+C\+FG}, 
+\newline
+\textbf{ M\+B\+O\+X\+\_\+\+M\+S\+S2\+D\+S\+S\+\_\+\+M\+U\+L\+T\+I\+\_\+\+O\+B\+J\+\_\+\+B\+E\+A\+M\+\_\+\+F\+O\+RM}, 
+\textbf{ M\+B\+O\+X\+\_\+\+M\+S\+S2\+D\+S\+S\+\_\+\+C\+A\+L\+I\+B\+\_\+\+D\+C\+\_\+\+R\+A\+N\+G\+E\+\_\+\+S\+IG}, 
+\textbf{ M\+B\+O\+X\+\_\+\+M\+S\+S2\+D\+S\+S\+\_\+\+D\+E\+T\+O\+B\+J\+\_\+\+S\+H\+I\+P\+P\+ED}, 
+\textbf{ M\+B\+O\+X\+\_\+\+M\+S\+S2\+D\+S\+S\+\_\+\+S\+E\+T\+\_\+\+D\+A\+T\+A\+L\+O\+G\+G\+ER}, 
+\newline
+\textbf{ M\+B\+O\+X\+\_\+\+M\+S\+S2\+D\+S\+S\+\_\+\+A\+D\+C\+B\+U\+F\+C\+FG}, 
+\textbf{ M\+B\+O\+X\+\_\+\+M\+S\+S2\+D\+S\+S\+\_\+\+E\+X\+T\+E\+N\+D\+E\+D\+\_\+\+M\+A\+X\+\_\+\+V\+E\+L\+O\+C\+I\+TY}, 
+\textbf{ M\+B\+O\+X\+\_\+\+M\+S\+S2\+D\+S\+S\+\_\+\+C\+L\+U\+T\+T\+E\+R\+\_\+\+R\+E\+M\+O\+V\+AL}, 
+\textbf{ M\+B\+O\+X\+\_\+\+M\+S\+S2\+D\+S\+S\+\_\+\+C\+O\+M\+P\+\_\+\+R\+A\+N\+G\+E\+\_\+\+B\+I\+A\+S\+\_\+\+A\+N\+D\+\_\+\+R\+X\+\_\+\+C\+H\+A\+N\+\_\+\+P\+H\+A\+SE}, 
+\newline
+\textbf{ M\+B\+O\+X\+\_\+\+M\+S\+S2\+D\+S\+S\+\_\+\+M\+E\+A\+S\+U\+R\+E\+\_\+\+R\+A\+N\+G\+E\+\_\+\+B\+I\+A\+S\+\_\+\+A\+N\+D\+\_\+\+R\+X\+\_\+\+C\+H\+A\+N\+\_\+\+P\+H\+A\+SE}, 
+\textbf{ M\+B\+O\+X\+\_\+\+D\+S\+S2\+M\+S\+S\+\_\+\+C\+O\+N\+F\+I\+G\+D\+O\+NE} = 0x\+F\+E\+E\+D0100, 
+\textbf{ M\+B\+O\+X\+\_\+\+D\+S\+S2\+M\+S\+S\+\_\+\+D\+E\+T\+O\+B\+J\+\_\+\+R\+E\+A\+DY}, 
+\textbf{ M\+B\+O\+X\+\_\+\+D\+S\+S2\+M\+S\+S\+\_\+\+S\+T\+O\+P\+D\+O\+NE}, 
+\newline
+\textbf{ M\+B\+O\+X\+\_\+\+D\+S\+S2\+M\+S\+S\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+I\+N\+FO}, 
+\textbf{ M\+B\+O\+X\+\_\+\+D\+S\+S2\+M\+S\+S\+\_\+\+I\+S\+R\+\_\+\+I\+N\+F\+O\+\_\+\+A\+D\+D\+R\+E\+SS}, 
+\textbf{ M\+B\+O\+X\+\_\+\+D\+S\+S2\+M\+S\+S\+\_\+\+M\+E\+A\+S\+U\+R\+E\+M\+E\+N\+T\+\_\+\+I\+N\+FO}
+ \}
+\begin{DoxyCompactList}\small\item\em The enum is used to hold all the messages types used for Mailbox communication between M\+SS and D\+SS in mmw Demo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\label{mmw__messages_8h_a9e44c6acb53d9819d80ed9e9727940eb}} 
+\index{mmw\_messages.h@{mmw\_messages.h}!MMW\_DSS2MSS\_CHIRP\_PROC\_DEADLINE\_MISS\_EXCEPTION@{MMW\_DSS2MSS\_CHIRP\_PROC\_DEADLINE\_MISS\_EXCEPTION}}
+\index{MMW\_DSS2MSS\_CHIRP\_PROC\_DEADLINE\_MISS\_EXCEPTION@{MMW\_DSS2MSS\_CHIRP\_PROC\_DEADLINE\_MISS\_EXCEPTION}!mmw\_messages.h@{mmw\_messages.h}}
+\doxysubsubsection{MMW\_DSS2MSS\_CHIRP\_PROC\_DEADLINE\_MISS\_EXCEPTION}
+{\footnotesize\ttfamily \#define M\+M\+W\+\_\+\+D\+S\+S2\+M\+S\+S\+\_\+\+C\+H\+I\+R\+P\+\_\+\+P\+R\+O\+C\+\_\+\+D\+E\+A\+D\+L\+I\+N\+E\+\_\+\+M\+I\+S\+S\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON~0}
+
+
+
+Exception ID definitions for D\+SS to M\+SS urgent exception signalling through software interrupt. D\+SS to M\+SS chirp processing deadline miss exception ID. 
+
+
+
+Definition at line 160 of file mmw\+\_\+messages.\+h.
+
+\mbox{\label{mmw__messages_8h_ace360213fbde56c4985b8100379d1a5e}} 
+\index{mmw\_messages.h@{mmw\_messages.h}!MMW\_DSS2MSS\_EXCEPTION\_SIGNALLING\_SW\_INT\_DSS@{MMW\_DSS2MSS\_EXCEPTION\_SIGNALLING\_SW\_INT\_DSS}}
+\index{MMW\_DSS2MSS\_EXCEPTION\_SIGNALLING\_SW\_INT\_DSS@{MMW\_DSS2MSS\_EXCEPTION\_SIGNALLING\_SW\_INT\_DSS}!mmw\_messages.h@{mmw\_messages.h}}
+\doxysubsubsection{MMW\_DSS2MSS\_EXCEPTION\_SIGNALLING\_SW\_INT\_DSS}
+{\footnotesize\ttfamily \#define M\+M\+W\+\_\+\+D\+S\+S2\+M\+S\+S\+\_\+\+E\+X\+C\+E\+P\+T\+I\+O\+N\+\_\+\+S\+I\+G\+N\+A\+L\+L\+I\+N\+G\+\_\+\+S\+W\+\_\+\+I\+N\+T\+\_\+\+D\+SS~1}
+
+
+
+Software interrupt number used by D\+SS to signal exception from D\+SS to M\+SS. 
+
+
+
+Definition at line 149 of file mmw\+\_\+messages.\+h.
+
+\mbox{\label{mmw__messages_8h_afb3e4a831b6f17259b9a29bea4443d2e}} 
+\index{mmw\_messages.h@{mmw\_messages.h}!MMW\_DSS2MSS\_EXCEPTION\_SIGNALLING\_SW\_INT\_MSS@{MMW\_DSS2MSS\_EXCEPTION\_SIGNALLING\_SW\_INT\_MSS}}
+\index{MMW\_DSS2MSS\_EXCEPTION\_SIGNALLING\_SW\_INT\_MSS@{MMW\_DSS2MSS\_EXCEPTION\_SIGNALLING\_SW\_INT\_MSS}!mmw\_messages.h@{mmw\_messages.h}}
+\doxysubsubsection{MMW\_DSS2MSS\_EXCEPTION\_SIGNALLING\_SW\_INT\_MSS}
+{\footnotesize\ttfamily \#define M\+M\+W\+\_\+\+D\+S\+S2\+M\+S\+S\+\_\+\+E\+X\+C\+E\+P\+T\+I\+O\+N\+\_\+\+S\+I\+G\+N\+A\+L\+L\+I\+N\+G\+\_\+\+S\+W\+\_\+\+I\+N\+T\+\_\+\+M\+SS~S\+O\+C\+\_\+\+X\+W\+R16\+X\+X\+\_\+\+M\+S\+S\+\_\+\+D\+S\+S2\+M\+S\+S\+\_\+\+S\+W1\+\_\+\+I\+NT}
+
+
+
+Software interrupt ID on M\+SS corresponding to \doxyref{M\+M\+W\+\_\+\+D\+S\+S2\+M\+S\+S\+\_\+\+E\+X\+C\+E\+P\+T\+I\+O\+N\+\_\+\+S\+I\+G\+N\+A\+L\+L\+I\+N\+G\+\_\+\+S\+W\+\_\+\+I\+N\+T\+\_\+\+D\+SS}{p.}{mmw__messages_8h_ace360213fbde56c4985b8100379d1a5e}. 
+
+
+
+Definition at line 152 of file mmw\+\_\+messages.\+h.
+
+\mbox{\label{mmw__messages_8h_a4796a95789753f6160b109f1835476b4}} 
+\index{mmw\_messages.h@{mmw\_messages.h}!MMW\_DSS2MSS\_FRAME\_PROC\_DEADLINE\_MISS\_EXCEPTION@{MMW\_DSS2MSS\_FRAME\_PROC\_DEADLINE\_MISS\_EXCEPTION}}
+\index{MMW\_DSS2MSS\_FRAME\_PROC\_DEADLINE\_MISS\_EXCEPTION@{MMW\_DSS2MSS\_FRAME\_PROC\_DEADLINE\_MISS\_EXCEPTION}!mmw\_messages.h@{mmw\_messages.h}}
+\doxysubsubsection{MMW\_DSS2MSS\_FRAME\_PROC\_DEADLINE\_MISS\_EXCEPTION}
+{\footnotesize\ttfamily \#define M\+M\+W\+\_\+\+D\+S\+S2\+M\+S\+S\+\_\+\+F\+R\+A\+M\+E\+\_\+\+P\+R\+O\+C\+\_\+\+D\+E\+A\+D\+L\+I\+N\+E\+\_\+\+M\+I\+S\+S\+\_\+\+E\+X\+C\+E\+P\+T\+I\+ON~1}
+
+
+
+Exception ID definitions for D\+SS to M\+SS urgent exception signalling through software interrupt. D\+SS to M\+SS frame processing deadline miss exception ID. 
+
+
+
+Definition at line 167 of file mmw\+\_\+messages.\+h.
+
+\mbox{\label{mmw__messages_8h_aa42464990bf7ad27a206a3a2a18e4b20}} 
+\index{mmw\_messages.h@{mmw\_messages.h}!MMW\_OUTPUT\_MSG\_SEGMENT\_LEN@{MMW\_OUTPUT\_MSG\_SEGMENT\_LEN}}
+\index{MMW\_OUTPUT\_MSG\_SEGMENT\_LEN@{MMW\_OUTPUT\_MSG\_SEGMENT\_LEN}!mmw\_messages.h@{mmw\_messages.h}}
+\doxysubsubsection{MMW\_OUTPUT\_MSG\_SEGMENT\_LEN}
+{\footnotesize\ttfamily \#define M\+M\+W\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+S\+G\+\_\+\+S\+E\+G\+M\+E\+N\+T\+\_\+\+L\+EN~32}
+
+
+
+Output packet length is a multiple of this value, must be power of 2. 
+
+
+
+Definition at line 17 of file mmw\+\_\+messages.\+h.
+
+\mbox{\label{mmw__messages_8h_ac5b4f78b02816ce9d4544803cbf3f281}} 
+\index{mmw\_messages.h@{mmw\_messages.h}!MMW\_SUBFRAME\_NUM\_FRAME\_LEVEL\_CONFIG@{MMW\_SUBFRAME\_NUM\_FRAME\_LEVEL\_CONFIG}}
+\index{MMW\_SUBFRAME\_NUM\_FRAME\_LEVEL\_CONFIG@{MMW\_SUBFRAME\_NUM\_FRAME\_LEVEL\_CONFIG}!mmw\_messages.h@{mmw\_messages.h}}
+\doxysubsubsection{MMW\_SUBFRAME\_NUM\_FRAME\_LEVEL\_CONFIG}
+{\footnotesize\ttfamily \#define M\+M\+W\+\_\+\+S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+N\+U\+M\+\_\+\+F\+R\+A\+M\+E\+\_\+\+L\+E\+V\+E\+L\+\_\+\+C\+O\+N\+F\+IG~(-\/1)}
+
+
+
+For advanced frame config, below define means the configuration given is global at frame level and therefore it is broadcast to all sub-\/frames. 
+
+
+
+Definition at line 221 of file mmw\+\_\+messages.\+h.
+
+\mbox{\label{mmw__messages_8h_aa1f363508ece9c3d369b21b194f47a74}} 
+\index{mmw\_messages.h@{mmw\_messages.h}!MMWAVE\_MAX\_FILE\_NAME\_SIZE@{MMWAVE\_MAX\_FILE\_NAME\_SIZE}}
+\index{MMWAVE\_MAX\_FILE\_NAME\_SIZE@{MMWAVE\_MAX\_FILE\_NAME\_SIZE}!mmw\_messages.h@{mmw\_messages.h}}
+\doxysubsubsection{MMWAVE\_MAX\_FILE\_NAME\_SIZE}
+{\footnotesize\ttfamily \#define M\+M\+W\+A\+V\+E\+\_\+\+M\+A\+X\+\_\+\+F\+I\+L\+E\+\_\+\+N\+A\+M\+E\+\_\+\+S\+I\+ZE~128}
+
+
+
+Definition at line 192 of file mmw\+\_\+messages.\+h.
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\label{mmw__messages_8h_a0dcae01ec669ffc3b529bd809188a719}} 
+\index{mmw\_messages.h@{mmw\_messages.h}!mbox\_message\_type@{mbox\_message\_type}}
+\index{mbox\_message\_type@{mbox\_message\_type}!mmw\_messages.h@{mmw\_messages.h}}
+\doxysubsubsection{mbox\_message\_type}
+{\footnotesize\ttfamily typedef enum \textbf{ mbox\+\_\+message\+\_\+type\+\_\+e} \textbf{ mbox\+\_\+message\+\_\+type}}
+
+
+
+The enum is used to hold all the messages types used for Mailbox communication between M\+SS and D\+SS in mmw Demo. 
+
+\mbox{\label{mmw__messages_8h_acbed92fd5a92afabb3aa865f64e247cd}} 
+\index{mmw\_messages.h@{mmw\_messages.h}!mmWave\_detInfoMsg@{mmWave\_detInfoMsg}}
+\index{mmWave\_detInfoMsg@{mmWave\_detInfoMsg}!mmw\_messages.h@{mmw\_messages.h}}
+\doxysubsubsection{mmWave\_detInfoMsg}
+{\footnotesize\ttfamily typedef struct \textbf{ mm\+Wave\+\_\+det\+Obj\+Msg\+\_\+t}  \textbf{ mm\+Wave\+\_\+det\+Info\+Msg}}
+
+
+
+The structure defines the message body for for reporting detection information from data path to M\+SS. 
+
+\mbox{\label{mmw__messages_8h_ae94778aa250e658793e2ab07dae54214}} 
+\index{mmw\_messages.h@{mmw\_messages.h}!mmWave\_dssAssertInfoMsg@{mmWave\_dssAssertInfoMsg}}
+\index{mmWave\_dssAssertInfoMsg@{mmWave\_dssAssertInfoMsg}!mmw\_messages.h@{mmw\_messages.h}}
+\doxysubsubsection{mmWave\_dssAssertInfoMsg}
+{\footnotesize\ttfamily typedef struct \textbf{ mm\+Wave\+\_\+dss\+Assert\+Info\+Msg\+\_\+t} \textbf{ mm\+Wave\+\_\+dss\+Assert\+Info\+Msg}}
+
+
+
+The structure defines the message body for the information on a D\+SS exception that should be forwarded to the M\+SS reporting the D\+SS assertion information. 
+
+\mbox{\label{mmw__messages_8h_a6eba3a10620c06243cd1bcaa145d2fb9}} 
+\index{mmw\_messages.h@{mmw\_messages.h}!mmWave\_OUT\_MSG\_header@{mmWave\_OUT\_MSG\_header}}
+\index{mmWave\_OUT\_MSG\_header@{mmWave\_OUT\_MSG\_header}!mmw\_messages.h@{mmw\_messages.h}}
+\doxysubsubsection{mmWave\_OUT\_MSG\_header}
+{\footnotesize\ttfamily typedef struct \textbf{ mm\+Wave\+\_\+\+O\+U\+T\+\_\+\+M\+S\+G\+\_\+header\+\_\+t}  \textbf{ mm\+Wave\+\_\+\+O\+U\+T\+\_\+\+M\+S\+G\+\_\+header}}
+
+
+
+The structure defines the message header for reporting detection information from data path. Processed by both M\+SS and D\+SS. 
+
+\mbox{\label{mmw__messages_8h_a1ea62e89a977eda1b0b333f3b2f38e84}} 
+\index{mmw\_messages.h@{mmw\_messages.h}!mmWave\_OUT\_MSG\_stats\_dataObjDescr@{mmWave\_OUT\_MSG\_stats\_dataObjDescr}}
+\index{mmWave\_OUT\_MSG\_stats\_dataObjDescr@{mmWave\_OUT\_MSG\_stats\_dataObjDescr}!mmw\_messages.h@{mmw\_messages.h}}
+\doxysubsubsection{mmWave\_OUT\_MSG\_stats\_dataObjDescr}
+{\footnotesize\ttfamily typedef struct \textbf{ mm\+Wave\+\_\+\+O\+U\+T\+\_\+\+M\+S\+G\+\_\+stats\+\_\+data\+Obj\+Descr\+\_\+t}  \textbf{ mm\+Wave\+\_\+\+O\+U\+T\+\_\+\+M\+S\+G\+\_\+stats\+\_\+data\+Obj\+Descr}}
+
+
+
+Structure holds information about detected objects. This information is sent in front of the array of detected objects Sent by D\+SS. 
+
+\mbox{\label{mmw__messages_8h_af59b32c6ebd69e0656837b546c99bc99}} 
+\index{mmw\_messages.h@{mmw\_messages.h}!mmWave\_OUT\_MSG\_tl@{mmWave\_OUT\_MSG\_tl}}
+\index{mmWave\_OUT\_MSG\_tl@{mmWave\_OUT\_MSG\_tl}!mmw\_messages.h@{mmw\_messages.h}}
+\doxysubsubsection{mmWave\_OUT\_MSG\_tl}
+{\footnotesize\ttfamily typedef struct \textbf{ mm\+Wave\+\_\+\+O\+U\+T\+\_\+\+M\+S\+G\+\_\+tl\+\_\+t}  \textbf{ mm\+Wave\+\_\+\+O\+U\+T\+\_\+\+M\+S\+G\+\_\+tl}}
+
+
+
+The structure defines the message body for reporting detected objects from data path. Processed by both M\+SS and D\+SS. 
+
+\mbox{\label{mmw__messages_8h_ab6fbcd0597ab2ca3175dbf06ff01e76e}} 
+\index{mmw\_messages.h@{mmw\_messages.h}!mmWaveMSG@{mmWaveMSG}}
+\index{mmWaveMSG@{mmWaveMSG}!mmw\_messages.h@{mmw\_messages.h}}
+\doxysubsubsection{mmWaveMSG}
+{\footnotesize\ttfamily typedef struct \textbf{ mm\+Wave\+M\+S\+G\+\_\+t} \textbf{ mm\+Wave\+M\+SG}}
+
+
+
+The structure defines the message structure used for communication between M\+SS and D\+SS. 
+
+\mbox{\label{mmw__messages_8h_ac76f21a4139fbed79cb23bf24e531e6e}} 
+\index{mmw\_messages.h@{mmw\_messages.h}!mmWaveMSG\_body@{mmWaveMSG\_body}}
+\index{mmWaveMSG\_body@{mmWaveMSG\_body}!mmw\_messages.h@{mmw\_messages.h}}
+\doxysubsubsection{mmWaveMSG\_body}
+{\footnotesize\ttfamily typedef union \textbf{ mm\+Wave\+M\+S\+G\+\_\+body\+\_\+u} \textbf{ mm\+Wave\+M\+S\+G\+\_\+body}}
+
+
+
+The union defines the message body for various configuration messages. For passing configuration from M\+SS to D\+SS. 
+
+\mbox{\label{mmw__messages_8h_a0c8c207a6701f1d51671b73961208295}} 
+\index{mmw\_messages.h@{mmw\_messages.h}!mmWaveMSG\_OUT\_TYPE@{mmWaveMSG\_OUT\_TYPE}}
+\index{mmWaveMSG\_OUT\_TYPE@{mmWaveMSG\_OUT\_TYPE}!mmw\_messages.h@{mmw\_messages.h}}
+\doxysubsubsection{mmWaveMSG\_OUT\_TYPE}
+{\footnotesize\ttfamily typedef enum \textbf{ mm\+Wave\+M\+S\+G\+\_\+\+O\+U\+T\+\_\+\+T\+Y\+P\+E\+\_\+e}  \textbf{ mm\+Wave\+M\+S\+G\+\_\+\+O\+U\+T\+\_\+\+T\+Y\+PE}}
+
+
+
+Message types used in Millimeter Wave Demo for the communication between target and host, and also for Mailbox communication between M\+SS and D\+SS on the X\+W\+R16xx platform. Message types are used to indicate different type detection information sent out from the target. 
+
+\mbox{\label{mmw__messages_8h_a6eca7e40c92e2d8ee10e18e94be4f5a4}} 
+\index{mmw\_messages.h@{mmw\_messages.h}!mmWaveMSG\_TLV@{mmWaveMSG\_TLV}}
+\index{mmWaveMSG\_TLV@{mmWaveMSG\_TLV}!mmw\_messages.h@{mmw\_messages.h}}
+\doxysubsubsection{mmWaveMSG\_TLV}
+{\footnotesize\ttfamily typedef struct \textbf{ mm\+Wave\+M\+S\+G\+\_\+\+T\+L\+V\+\_\+t}  \textbf{ mm\+Wave\+M\+S\+G\+\_\+\+T\+LV}}
+
+
+
+The structure describes the T\+LV part of the message from D\+SS to M\+SS on data path detection information. 
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\label{mmw__messages_8h_a3f52838e5b1c1127cd15b22b49793e2b}} 
+\index{mmw\_messages.h@{mmw\_messages.h}!mbox\_message\_type\_e@{mbox\_message\_type\_e}}
+\index{mbox\_message\_type\_e@{mbox\_message\_type\_e}!mmw\_messages.h@{mmw\_messages.h}}
+\doxysubsubsection{mbox\_message\_type\_e}
+{\footnotesize\ttfamily enum \textbf{ mbox\+\_\+message\+\_\+type\+\_\+e}}
+
+
+
+The enum is used to hold all the messages types used for Mailbox communication between M\+SS and D\+SS in mmw Demo. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MBOX\_MSS2DSS\_GUIMON\_CFG@{MBOX\_MSS2DSS\_GUIMON\_CFG}!mmw\_messages.h@{mmw\_messages.h}}\index{mmw\_messages.h@{mmw\_messages.h}!MBOX\_MSS2DSS\_GUIMON\_CFG@{MBOX\_MSS2DSS\_GUIMON\_CFG}}}\mbox{\label{mmw__messages_8h_a3f52838e5b1c1127cd15b22b49793e2bab0738a6c3630a75e10ed85d99b24de35}} 
+M\+B\+O\+X\+\_\+\+M\+S\+S2\+D\+S\+S\+\_\+\+G\+U\+I\+M\+O\+N\+\_\+\+C\+FG&message types for M\+SS to D\+SS communication \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MBOX\_MSS2DSS\_CFAR\_RANGE\_CFG@{MBOX\_MSS2DSS\_CFAR\_RANGE\_CFG}!mmw\_messages.h@{mmw\_messages.h}}\index{mmw\_messages.h@{mmw\_messages.h}!MBOX\_MSS2DSS\_CFAR\_RANGE\_CFG@{MBOX\_MSS2DSS\_CFAR\_RANGE\_CFG}}}\mbox{\label{mmw__messages_8h_a3f52838e5b1c1127cd15b22b49793e2ba4e468738cf90eca74741e70cfdaa7229}} 
+M\+B\+O\+X\+\_\+\+M\+S\+S2\+D\+S\+S\+\_\+\+C\+F\+A\+R\+\_\+\+R\+A\+N\+G\+E\+\_\+\+C\+FG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MBOX\_MSS2DSS\_CFAR\_DOPPLER\_CFG@{MBOX\_MSS2DSS\_CFAR\_DOPPLER\_CFG}!mmw\_messages.h@{mmw\_messages.h}}\index{mmw\_messages.h@{mmw\_messages.h}!MBOX\_MSS2DSS\_CFAR\_DOPPLER\_CFG@{MBOX\_MSS2DSS\_CFAR\_DOPPLER\_CFG}}}\mbox{\label{mmw__messages_8h_a3f52838e5b1c1127cd15b22b49793e2baa0f824cbaa67a57f52f70169f76b6527}} 
+M\+B\+O\+X\+\_\+\+M\+S\+S2\+D\+S\+S\+\_\+\+C\+F\+A\+R\+\_\+\+D\+O\+P\+P\+L\+E\+R\+\_\+\+C\+FG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MBOX\_MSS2DSS\_PEAK\_GROUPING\_CFG@{MBOX\_MSS2DSS\_PEAK\_GROUPING\_CFG}!mmw\_messages.h@{mmw\_messages.h}}\index{mmw\_messages.h@{mmw\_messages.h}!MBOX\_MSS2DSS\_PEAK\_GROUPING\_CFG@{MBOX\_MSS2DSS\_PEAK\_GROUPING\_CFG}}}\mbox{\label{mmw__messages_8h_a3f52838e5b1c1127cd15b22b49793e2ba89ad402fb1da33dddf84cdb3668d9690}} 
+M\+B\+O\+X\+\_\+\+M\+S\+S2\+D\+S\+S\+\_\+\+P\+E\+A\+K\+\_\+\+G\+R\+O\+U\+P\+I\+N\+G\+\_\+\+C\+FG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MBOX\_MSS2DSS\_MULTI\_OBJ\_BEAM\_FORM@{MBOX\_MSS2DSS\_MULTI\_OBJ\_BEAM\_FORM}!mmw\_messages.h@{mmw\_messages.h}}\index{mmw\_messages.h@{mmw\_messages.h}!MBOX\_MSS2DSS\_MULTI\_OBJ\_BEAM\_FORM@{MBOX\_MSS2DSS\_MULTI\_OBJ\_BEAM\_FORM}}}\mbox{\label{mmw__messages_8h_a3f52838e5b1c1127cd15b22b49793e2ba71650bd4aed486bf4d9b52df53f1bc65}} 
+M\+B\+O\+X\+\_\+\+M\+S\+S2\+D\+S\+S\+\_\+\+M\+U\+L\+T\+I\+\_\+\+O\+B\+J\+\_\+\+B\+E\+A\+M\+\_\+\+F\+O\+RM&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MBOX\_MSS2DSS\_CALIB\_DC\_RANGE\_SIG@{MBOX\_MSS2DSS\_CALIB\_DC\_RANGE\_SIG}!mmw\_messages.h@{mmw\_messages.h}}\index{mmw\_messages.h@{mmw\_messages.h}!MBOX\_MSS2DSS\_CALIB\_DC\_RANGE\_SIG@{MBOX\_MSS2DSS\_CALIB\_DC\_RANGE\_SIG}}}\mbox{\label{mmw__messages_8h_a3f52838e5b1c1127cd15b22b49793e2ba89f2f968fec06ca2f87b3505ae63bf2c}} 
+M\+B\+O\+X\+\_\+\+M\+S\+S2\+D\+S\+S\+\_\+\+C\+A\+L\+I\+B\+\_\+\+D\+C\+\_\+\+R\+A\+N\+G\+E\+\_\+\+S\+IG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MBOX\_MSS2DSS\_DETOBJ\_SHIPPED@{MBOX\_MSS2DSS\_DETOBJ\_SHIPPED}!mmw\_messages.h@{mmw\_messages.h}}\index{mmw\_messages.h@{mmw\_messages.h}!MBOX\_MSS2DSS\_DETOBJ\_SHIPPED@{MBOX\_MSS2DSS\_DETOBJ\_SHIPPED}}}\mbox{\label{mmw__messages_8h_a3f52838e5b1c1127cd15b22b49793e2ba53c24ca5732830a2a02b0fdf7ce1b01f}} 
+M\+B\+O\+X\+\_\+\+M\+S\+S2\+D\+S\+S\+\_\+\+D\+E\+T\+O\+B\+J\+\_\+\+S\+H\+I\+P\+P\+ED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MBOX\_MSS2DSS\_SET\_DATALOGGER@{MBOX\_MSS2DSS\_SET\_DATALOGGER}!mmw\_messages.h@{mmw\_messages.h}}\index{mmw\_messages.h@{mmw\_messages.h}!MBOX\_MSS2DSS\_SET\_DATALOGGER@{MBOX\_MSS2DSS\_SET\_DATALOGGER}}}\mbox{\label{mmw__messages_8h_a3f52838e5b1c1127cd15b22b49793e2ba0e21c82929c8d6836705e5a1e6bc4fd8}} 
+M\+B\+O\+X\+\_\+\+M\+S\+S2\+D\+S\+S\+\_\+\+S\+E\+T\+\_\+\+D\+A\+T\+A\+L\+O\+G\+G\+ER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MBOX\_MSS2DSS\_ADCBUFCFG@{MBOX\_MSS2DSS\_ADCBUFCFG}!mmw\_messages.h@{mmw\_messages.h}}\index{mmw\_messages.h@{mmw\_messages.h}!MBOX\_MSS2DSS\_ADCBUFCFG@{MBOX\_MSS2DSS\_ADCBUFCFG}}}\mbox{\label{mmw__messages_8h_a3f52838e5b1c1127cd15b22b49793e2baa667378625bbf3464b92c96921938057}} 
+M\+B\+O\+X\+\_\+\+M\+S\+S2\+D\+S\+S\+\_\+\+A\+D\+C\+B\+U\+F\+C\+FG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MBOX\_MSS2DSS\_EXTENDED\_MAX\_VELOCITY@{MBOX\_MSS2DSS\_EXTENDED\_MAX\_VELOCITY}!mmw\_messages.h@{mmw\_messages.h}}\index{mmw\_messages.h@{mmw\_messages.h}!MBOX\_MSS2DSS\_EXTENDED\_MAX\_VELOCITY@{MBOX\_MSS2DSS\_EXTENDED\_MAX\_VELOCITY}}}\mbox{\label{mmw__messages_8h_a3f52838e5b1c1127cd15b22b49793e2ba62b0f2c5d42904f0a31f6f688e5717d5}} 
+M\+B\+O\+X\+\_\+\+M\+S\+S2\+D\+S\+S\+\_\+\+E\+X\+T\+E\+N\+D\+E\+D\+\_\+\+M\+A\+X\+\_\+\+V\+E\+L\+O\+C\+I\+TY&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MBOX\_MSS2DSS\_CLUTTER\_REMOVAL@{MBOX\_MSS2DSS\_CLUTTER\_REMOVAL}!mmw\_messages.h@{mmw\_messages.h}}\index{mmw\_messages.h@{mmw\_messages.h}!MBOX\_MSS2DSS\_CLUTTER\_REMOVAL@{MBOX\_MSS2DSS\_CLUTTER\_REMOVAL}}}\mbox{\label{mmw__messages_8h_a3f52838e5b1c1127cd15b22b49793e2ba2ce7d14af7c34fb6b8cb9a25a14a832f}} 
+M\+B\+O\+X\+\_\+\+M\+S\+S2\+D\+S\+S\+\_\+\+C\+L\+U\+T\+T\+E\+R\+\_\+\+R\+E\+M\+O\+V\+AL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MBOX\_MSS2DSS\_COMP\_RANGE\_BIAS\_AND\_RX\_CHAN\_PHASE@{MBOX\_MSS2DSS\_COMP\_RANGE\_BIAS\_AND\_RX\_CHAN\_PHASE}!mmw\_messages.h@{mmw\_messages.h}}\index{mmw\_messages.h@{mmw\_messages.h}!MBOX\_MSS2DSS\_COMP\_RANGE\_BIAS\_AND\_RX\_CHAN\_PHASE@{MBOX\_MSS2DSS\_COMP\_RANGE\_BIAS\_AND\_RX\_CHAN\_PHASE}}}\mbox{\label{mmw__messages_8h_a3f52838e5b1c1127cd15b22b49793e2ba05b70d682e1c929761a7bbebe15dfb2f}} 
+M\+B\+O\+X\+\_\+\+M\+S\+S2\+D\+S\+S\+\_\+\+C\+O\+M\+P\+\_\+\+R\+A\+N\+G\+E\+\_\+\+B\+I\+A\+S\+\_\+\+A\+N\+D\+\_\+\+R\+X\+\_\+\+C\+H\+A\+N\+\_\+\+P\+H\+A\+SE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MBOX\_MSS2DSS\_MEASURE\_RANGE\_BIAS\_AND\_RX\_CHAN\_PHASE@{MBOX\_MSS2DSS\_MEASURE\_RANGE\_BIAS\_AND\_RX\_CHAN\_PHASE}!mmw\_messages.h@{mmw\_messages.h}}\index{mmw\_messages.h@{mmw\_messages.h}!MBOX\_MSS2DSS\_MEASURE\_RANGE\_BIAS\_AND\_RX\_CHAN\_PHASE@{MBOX\_MSS2DSS\_MEASURE\_RANGE\_BIAS\_AND\_RX\_CHAN\_PHASE}}}\mbox{\label{mmw__messages_8h_a3f52838e5b1c1127cd15b22b49793e2ba939f2f2232e40796db069989af0fd8f9}} 
+M\+B\+O\+X\+\_\+\+M\+S\+S2\+D\+S\+S\+\_\+\+M\+E\+A\+S\+U\+R\+E\+\_\+\+R\+A\+N\+G\+E\+\_\+\+B\+I\+A\+S\+\_\+\+A\+N\+D\+\_\+\+R\+X\+\_\+\+C\+H\+A\+N\+\_\+\+P\+H\+A\+SE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MBOX\_DSS2MSS\_CONFIGDONE@{MBOX\_DSS2MSS\_CONFIGDONE}!mmw\_messages.h@{mmw\_messages.h}}\index{mmw\_messages.h@{mmw\_messages.h}!MBOX\_DSS2MSS\_CONFIGDONE@{MBOX\_DSS2MSS\_CONFIGDONE}}}\mbox{\label{mmw__messages_8h_a3f52838e5b1c1127cd15b22b49793e2ba58642fedd4a449637a6c05705f3a5136}} 
+M\+B\+O\+X\+\_\+\+D\+S\+S2\+M\+S\+S\+\_\+\+C\+O\+N\+F\+I\+G\+D\+O\+NE&message types for D\+SS to M\+SS communication \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MBOX\_DSS2MSS\_DETOBJ\_READY@{MBOX\_DSS2MSS\_DETOBJ\_READY}!mmw\_messages.h@{mmw\_messages.h}}\index{mmw\_messages.h@{mmw\_messages.h}!MBOX\_DSS2MSS\_DETOBJ\_READY@{MBOX\_DSS2MSS\_DETOBJ\_READY}}}\mbox{\label{mmw__messages_8h_a3f52838e5b1c1127cd15b22b49793e2bad94799c72d5034a141fb1bdfdf397a82}} 
+M\+B\+O\+X\+\_\+\+D\+S\+S2\+M\+S\+S\+\_\+\+D\+E\+T\+O\+B\+J\+\_\+\+R\+E\+A\+DY&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MBOX\_DSS2MSS\_STOPDONE@{MBOX\_DSS2MSS\_STOPDONE}!mmw\_messages.h@{mmw\_messages.h}}\index{mmw\_messages.h@{mmw\_messages.h}!MBOX\_DSS2MSS\_STOPDONE@{MBOX\_DSS2MSS\_STOPDONE}}}\mbox{\label{mmw__messages_8h_a3f52838e5b1c1127cd15b22b49793e2bac672d3471dcd572392009bf4b753a281}} 
+M\+B\+O\+X\+\_\+\+D\+S\+S2\+M\+S\+S\+\_\+\+S\+T\+O\+P\+D\+O\+NE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MBOX\_DSS2MSS\_ASSERT\_INFO@{MBOX\_DSS2MSS\_ASSERT\_INFO}!mmw\_messages.h@{mmw\_messages.h}}\index{mmw\_messages.h@{mmw\_messages.h}!MBOX\_DSS2MSS\_ASSERT\_INFO@{MBOX\_DSS2MSS\_ASSERT\_INFO}}}\mbox{\label{mmw__messages_8h_a3f52838e5b1c1127cd15b22b49793e2bada1ef167db797e27ccb823635b4234d7}} 
+M\+B\+O\+X\+\_\+\+D\+S\+S2\+M\+S\+S\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+I\+N\+FO&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MBOX\_DSS2MSS\_ISR\_INFO\_ADDRESS@{MBOX\_DSS2MSS\_ISR\_INFO\_ADDRESS}!mmw\_messages.h@{mmw\_messages.h}}\index{mmw\_messages.h@{mmw\_messages.h}!MBOX\_DSS2MSS\_ISR\_INFO\_ADDRESS@{MBOX\_DSS2MSS\_ISR\_INFO\_ADDRESS}}}\mbox{\label{mmw__messages_8h_a3f52838e5b1c1127cd15b22b49793e2ba764f1f12db9fecad2f712731a1111504}} 
+M\+B\+O\+X\+\_\+\+D\+S\+S2\+M\+S\+S\+\_\+\+I\+S\+R\+\_\+\+I\+N\+F\+O\+\_\+\+A\+D\+D\+R\+E\+SS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MBOX\_DSS2MSS\_MEASUREMENT\_INFO@{MBOX\_DSS2MSS\_MEASUREMENT\_INFO}!mmw\_messages.h@{mmw\_messages.h}}\index{mmw\_messages.h@{mmw\_messages.h}!MBOX\_DSS2MSS\_MEASUREMENT\_INFO@{MBOX\_DSS2MSS\_MEASUREMENT\_INFO}}}\mbox{\label{mmw__messages_8h_a3f52838e5b1c1127cd15b22b49793e2baf60fb294027f3204d7552c0ee633c899}} 
+M\+B\+O\+X\+\_\+\+D\+S\+S2\+M\+S\+S\+\_\+\+M\+E\+A\+S\+U\+R\+E\+M\+E\+N\+T\+\_\+\+I\+N\+FO&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 121 of file mmw\+\_\+messages.\+h.
+
+\mbox{\label{mmw__messages_8h_aed4f19c4a5aca1d5ace79ed347bb10b3}} 
+\index{mmw\_messages.h@{mmw\_messages.h}!mmWaveMSG\_OUT\_TYPE\_e@{mmWaveMSG\_OUT\_TYPE\_e}}
+\index{mmWaveMSG\_OUT\_TYPE\_e@{mmWaveMSG\_OUT\_TYPE\_e}!mmw\_messages.h@{mmw\_messages.h}}
+\doxysubsubsection{mmWaveMSG\_OUT\_TYPE\_e}
+{\footnotesize\ttfamily enum \textbf{ mm\+Wave\+M\+S\+G\+\_\+\+O\+U\+T\+\_\+\+T\+Y\+P\+E\+\_\+e}}
+
+
+
+Message types used in Millimeter Wave Demo for the communication between target and host, and also for Mailbox communication between M\+SS and D\+SS on the X\+W\+R16xx platform. Message types are used to indicate different type detection information sent out from the target. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OUTPUT\_MSG\_DETECTED\_POINTS@{OUTPUT\_MSG\_DETECTED\_POINTS}!mmw\_messages.h@{mmw\_messages.h}}\index{mmw\_messages.h@{mmw\_messages.h}!OUTPUT\_MSG\_DETECTED\_POINTS@{OUTPUT\_MSG\_DETECTED\_POINTS}}}\mbox{\label{mmw__messages_8h_aed4f19c4a5aca1d5ace79ed347bb10b3a17ed2b3a9959db29002c22762e1a09dd}} 
+O\+U\+T\+P\+U\+T\+\_\+\+M\+S\+G\+\_\+\+D\+E\+T\+E\+C\+T\+E\+D\+\_\+\+P\+O\+I\+N\+TS&List of detected points. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OUTPUT\_MSG\_RANGE\_PROFILE@{OUTPUT\_MSG\_RANGE\_PROFILE}!mmw\_messages.h@{mmw\_messages.h}}\index{mmw\_messages.h@{mmw\_messages.h}!OUTPUT\_MSG\_RANGE\_PROFILE@{OUTPUT\_MSG\_RANGE\_PROFILE}}}\mbox{\label{mmw__messages_8h_aed4f19c4a5aca1d5ace79ed347bb10b3a13466cf8797f9be312b473a30353461e}} 
+O\+U\+T\+P\+U\+T\+\_\+\+M\+S\+G\+\_\+\+R\+A\+N\+G\+E\+\_\+\+P\+R\+O\+F\+I\+LE&Range profile. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OUTPUT\_MSG\_NOISE\_PROFILE@{OUTPUT\_MSG\_NOISE\_PROFILE}!mmw\_messages.h@{mmw\_messages.h}}\index{mmw\_messages.h@{mmw\_messages.h}!OUTPUT\_MSG\_NOISE\_PROFILE@{OUTPUT\_MSG\_NOISE\_PROFILE}}}\mbox{\label{mmw__messages_8h_aed4f19c4a5aca1d5ace79ed347bb10b3a607522abe91fe9504f8d9397e5232617}} 
+O\+U\+T\+P\+U\+T\+\_\+\+M\+S\+G\+\_\+\+N\+O\+I\+S\+E\+\_\+\+P\+R\+O\+F\+I\+LE&Noise floor profile. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OUTPUT\_MSG\_AZIMUT\_STATIC\_HEAT\_MAP@{OUTPUT\_MSG\_AZIMUT\_STATIC\_HEAT\_MAP}!mmw\_messages.h@{mmw\_messages.h}}\index{mmw\_messages.h@{mmw\_messages.h}!OUTPUT\_MSG\_AZIMUT\_STATIC\_HEAT\_MAP@{OUTPUT\_MSG\_AZIMUT\_STATIC\_HEAT\_MAP}}}\mbox{\label{mmw__messages_8h_aed4f19c4a5aca1d5ace79ed347bb10b3a7ee7325aa15e8ae27c15610a97edd1e0}} 
+O\+U\+T\+P\+U\+T\+\_\+\+M\+S\+G\+\_\+\+A\+Z\+I\+M\+U\+T\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+H\+E\+A\+T\+\_\+\+M\+AP&Samples to calculate static azimuth heatmap. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OUTPUT\_MSG\_RANGE\_DOPPLER\_HEAT\_MAP@{OUTPUT\_MSG\_RANGE\_DOPPLER\_HEAT\_MAP}!mmw\_messages.h@{mmw\_messages.h}}\index{mmw\_messages.h@{mmw\_messages.h}!OUTPUT\_MSG\_RANGE\_DOPPLER\_HEAT\_MAP@{OUTPUT\_MSG\_RANGE\_DOPPLER\_HEAT\_MAP}}}\mbox{\label{mmw__messages_8h_aed4f19c4a5aca1d5ace79ed347bb10b3a13a9a95bf65504f445e6824541c842a0}} 
+O\+U\+T\+P\+U\+T\+\_\+\+M\+S\+G\+\_\+\+R\+A\+N\+G\+E\+\_\+\+D\+O\+P\+P\+L\+E\+R\+\_\+\+H\+E\+A\+T\+\_\+\+M\+AP&Range/\+Doppler detection matrix. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OUTPUT\_MSG\_STATS@{OUTPUT\_MSG\_STATS}!mmw\_messages.h@{mmw\_messages.h}}\index{mmw\_messages.h@{mmw\_messages.h}!OUTPUT\_MSG\_STATS@{OUTPUT\_MSG\_STATS}}}\mbox{\label{mmw__messages_8h_aed4f19c4a5aca1d5ace79ed347bb10b3ae56728e263428eb319b11b805014a552}} 
+O\+U\+T\+P\+U\+T\+\_\+\+M\+S\+G\+\_\+\+S\+T\+A\+TS&Stats information. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OUTPUT\_MSG\_MAX@{OUTPUT\_MSG\_MAX}!mmw\_messages.h@{mmw\_messages.h}}\index{mmw\_messages.h@{mmw\_messages.h}!OUTPUT\_MSG\_MAX@{OUTPUT\_MSG\_MAX}}}\mbox{\label{mmw__messages_8h_aed4f19c4a5aca1d5ace79ed347bb10b3aea652892e439ef92365314e9d4d1f1c6}} 
+O\+U\+T\+P\+U\+T\+\_\+\+M\+S\+G\+\_\+\+M\+AX&Max T\+LV outptut message. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 27 of file mmw\+\_\+messages.\+h.
+

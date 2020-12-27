@@ -1,0 +1,191 @@
+.TH "C:/Users/astro/workspace_v9_2/mrr_18xx_dss/common/cfg.c" 3 "Wed May 20 2020" "Version 1.0" "mmWaveFMCWRADAR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/Users/astro/workspace_v9_2/mrr_18xx_dss/common/cfg.c
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdint\&.h>\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include <stddef\&.h>\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <xdc/runtime/System\&.h>\fP
+.br
+\fC#include <ti/common/sys_common\&.h>\fP
+.br
+\fC#include <ti/drivers/uart/UART\&.h>\fP
+.br
+\fC#include <ti/control/mmwavelink/mmwavelink\&.h>\fP
+.br
+\fC#include <ti/utils/cli/cli\&.h>\fP
+.br
+\fC#include 'mrr_config_consts\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBCfg_AdvFrameCfgInitParams\fP (rlAdvFrameCfg_t *ptrAdvFrameCfg)"
+.br
+.ti -1c
+.RI "void \fBCfg_FrameCfgInitParams\fP (rlFrameCfg_t *ptrFrameCfg)"
+.br
+.ti -1c
+.RI "void \fBCfg_ProfileCfgInitParams\fP (uint8_t profileNum, rlProfileCfg_t *ptrProfileCfg)"
+.br
+.ti -1c
+.RI "void \fBCfg_ChirpCfgInitParams\fP (uint8_t chirpNum, rlChirpCfg_t *ptrChirpCfg)"
+.br
+.ti -1c
+.RI "void \fBCfg_LowPowerModeInitParams\fP (rlLowPowerModeCfg_t *ptrLowPowerMode)"
+.br
+.ti -1c
+.RI "void \fBCfg_ChannelCfgInitParams\fP (rlChanCfg_t *ptrChannelCfg)"
+.br
+.ti -1c
+.RI "void \fBCfg_ADCOutCfgInitParams\fP (rlAdcOutCfg_t *ptrADCOutCfg)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void Cfg_ADCOutCfgInitParams (rlAdcOutCfg_t * ptrADCOutCfg)"
+\fBDescription\fP 
+.br
+ The function initializes the ADCOut configuration with the default parameters\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIptrADCOutCfg\fP Pointer to the ADCOutput configuration
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP applicable 
+.RE
+.PP
+
+.PP
+Definition at line 367 of file cfg\&.c\&.
+.SS "void Cfg_AdvFrameCfgInitParams (rlAdvFrameCfg_t * ptrAdvFrameCfg)"
+\fBDescription\fP 
+.br
+ The function initializes the frame configuration with the default parameters\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIptrAdvFrameCfg\fP Pointer to the adavance frame configuration
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP applicable 
+.RE
+.PP
+
+.PP
+Definition at line 45 of file cfg\&.c\&.
+.SS "void Cfg_ChannelCfgInitParams (rlChanCfg_t * ptrChannelCfg)"
+\fBDescription\fP 
+.br
+ The function initializes the channel configuration with the default parameters\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIptrChannelCfg\fP Pointer to the channel configuration
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP applicable 
+.RE
+.PP
+
+.PP
+Definition at line 342 of file cfg\&.c\&.
+.SS "void Cfg_ChirpCfgInitParams (uint8_t chirpNum, rlChirpCfg_t * ptrChirpCfg)"
+\fBDescription\fP 
+.br
+ The function initializes the chirp configuration with the default parameters\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIchirpNum\fP Chirp Number to be configured 
+.br
+\fIptrChirpCfg\fP Pointer to the chirp configuration
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP applicable 
+.RE
+.PP
+
+.PP
+Definition at line 231 of file cfg\&.c\&.
+.SS "void Cfg_FrameCfgInitParams (rlFrameCfg_t * ptrFrameCfg)"
+\fBDescription\fP 
+.br
+ The function initializes the frame configuration with the default parameters\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIptrFrameCfg\fP Pointer to the frame configuration
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP applicable 
+.RE
+.PP
+
+.PP
+Definition at line 142 of file cfg\&.c\&.
+.SS "void Cfg_LowPowerModeInitParams (rlLowPowerModeCfg_t * ptrLowPowerMode)"
+\fBDescription\fP 
+.br
+ The function initializes the low power configuration with the default parameters\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIptrLowPowerMode\fP Pointer to the low power mode configuration
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP applicable 
+.RE
+.PP
+
+.PP
+Definition at line 320 of file cfg\&.c\&.
+.SS "void Cfg_ProfileCfgInitParams (uint8_t profileNum, rlProfileCfg_t * ptrProfileCfg)"
+\fBDescription\fP 
+.br
+ The function initializes the profile configuration with the default parameters\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIprofileNum\fP Profile number to be initialized 
+.br
+\fIptrProfileCfg\fP Pointer to the profile configuration
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP applicable 
+.RE
+.PP
+
+.PP
+Definition at line 173 of file cfg\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mmWaveFMCWRADAR from the source code\&.

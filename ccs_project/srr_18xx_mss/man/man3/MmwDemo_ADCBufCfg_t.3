@@ -1,0 +1,59 @@
+.TH "MmwDemo_ADCBufCfg_t" 3 "Wed May 20 2020" "Version 1.0" "mmWaveFMCWRADAR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MmwDemo_ADCBufCfg_t \- ADCBUF configuration\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <mrr_config\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "uint8_t \fBadcFmt\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBiqSwapSel\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBchInterleave\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBchirpThreshold\fP"
+.br
+.RI "Chirp Threshold configuration used for ADCBUF buffer\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+ADCBUF configuration\&. 
+
+The structure is used to hold all the relevant configuration which is used to configure ADCBUF\&. 
+.PP
+Definition at line 243 of file mrr_config\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "uint8_t MmwDemo_ADCBufCfg_t::adcFmt"
+ADCBUF out format: 0-Complex, 1-Real 
+.PP
+Definition at line 248 of file mrr_config\&.h\&.
+.SS "uint8_t MmwDemo_ADCBufCfg_t::chInterleave"
+ADCBUF channel interleave configuration: 0-interleaved(not supported on XWR16xx), 1- non-interleaved 
+.PP
+Definition at line 258 of file mrr_config\&.h\&.
+.SS "uint8_t MmwDemo_ADCBufCfg_t::chirpThreshold"
+
+.PP
+Chirp Threshold configuration used for ADCBUF buffer\&. 
+.PP
+Definition at line 263 of file mrr_config\&.h\&.
+.SS "uint8_t MmwDemo_ADCBufCfg_t::iqSwapSel"
+ADCBUF IQ swap selection: 0-I in LSB, Q in MSB, 1-Q in LSB, I in MSB 
+.PP
+Definition at line 253 of file mrr_config\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mmWaveFMCWRADAR from the source code\&.

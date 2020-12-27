@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<!--  This file conforms to the DTD xdc/bld/build.dtd -->
+<package name="configPkg" version="" producerId="undefined">
+    <units>
+    </units>
+    <sources>
+        <srcFile name="package/cfg/mss_per4f.c"/>
+    </sources>
+    <configscripts>
+        <srcFile name="C:/Users/astro/workspace_v9_2/srr_18xx_mss/mss.cfg"/>
+    </configscripts>
+    <makefiles>
+        <srcFile name="package.mak" src="package.bld"/>
+        <srcFile name="package/package.xdc.dep" src="package.xdc"/>
+        <srcFile name="package/cfg/mss_per4f.mak" src="package.bld"/>
+        <srcFile name="package/cfg/mss_per4f.oer4f.dep" src="package/cfg/mss_per4f.c"/>
+        <srcFile name="package/cfg/mss_per4f.dep" src="package/cfg/mss_per4f.cfg"/>
+        <srcFile name="package/cfg/mss.xer4f.mak" src="package.bld"/>
+        <srcFile name="package/rel/configPkg.tar.dep" src="package/rel/configPkg.xdc.inc"/>
+    </makefiles>
+    <targets>
+        <target name="ti.targets.arm.elf.R4F"
+            version="ti.targets.arm.elf.R4F{1,0,18.12,3"
+            rawVersion="18.12.3"
+            platform="ti.platforms.cortexR:AWR14XX:1"
+            isa="v7R"
+            suffix="er4f"
+            rootDir="C:/ti/ccs920/ccs/tools/compiler/ti-cgt-arm_18.12.3.LTS"
+            os="undefined"
+            rts="ti.targets.arm.rtsarm">
+            <model endian="little"
+                codeModel="undefined"
+                dataModel="undefined"/>
+        </target>
+    </targets>
+    <libraries>
+    </libraries>
+    <configurations>
+    <configuration name="mss"
+        pname="mss.per4f"
+        target="ti.targets.arm.elf.R4F"
+        platform="ti.platforms.cortexR:AWR16XX:false:200"
+        profile="release"
+        isPartial="false"
+        xCfgScript="package/cfg/mss_per4f.cfg"
+        xCfgPrefix="package/cfg/mss_per4f"
+        cfgScript="C:/Users/astro/workspace_v9_2/srr_18xx_mss/mss.cfg"
+        cfgArgs="null"
+        />
+    </configurations>
+    <executables>
+    <executable name="mss"
+        pname="mss.xer4f"
+        target="ti.targets.arm.elf.R4F"
+        platform="ti.platforms.cortexR:AWR16XX:false:200"
+        profile="release"
+        xCfgScript="package/cfg/mss_per4f.cfg"
+        xCfgPrefix="package/cfg/mss_per4f"
+        cfgScript="C:/Users/astro/workspace_v9_2/srr_18xx_mss/mss.cfg"
+        cfgArgs="null"
+        />
+    </executables>
+    <tests>
+    <test exeName="mss.xer4f"
+        args=""
+        groupName="mss.xer4f"
+        refOutput="undefined"
+        refExitCode="0"
+        execArgs=""
+        />
+    </tests>
+    <releases relDir="package/rel/">
+    <release name="configPkg"
+        pname="configPkg.tar"
+        label="default"
+    >
+        <file name="package/package.bld.xml"/>
+        <file name="package/build.cfg"/>
+        <file name="package/package.xdc.inc"/>
+    </release>
+    </releases>
+    <repositories>
+    </repositories>
+</package>

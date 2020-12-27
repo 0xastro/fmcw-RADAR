@@ -1,0 +1,182 @@
+\doxysection{Mmw\+Demo\+\_\+timing\+Info Struct Reference}
+\label{struct_mmw_demo__timing_info}\index{MmwDemo\_timingInfo@{MmwDemo\_timingInfo}}
+
+
+Timing information.  
+
+
+
+
+{\ttfamily \#include $<$dss\+\_\+data\+\_\+path.\+h$>$}
+
+
+
+Collaboration diagram for Mmw\+Demo\+\_\+timing\+Info\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=247pt]{struct_mmw_demo__timing_info__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \textbf{ inter\+Frame\+Proc\+Cycles}
+\begin{DoxyCompactList}\small\item\em number of processor cycles between frames excluding processing time to transmit output on U\+A\+RT \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ transmit\+Output\+Cycles}
+\begin{DoxyCompactList}\small\item\em time to transmit out detection information (in D\+SP cycles) \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ chirp\+Processing\+End\+Time}
+\begin{DoxyCompactList}\small\item\em Chirp processing end time. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ chirp\+Processing\+End\+Margin\+Min}
+\begin{DoxyCompactList}\small\item\em Chirp processing end margin in number of cycles before due time to start processing next chirp, minimum value. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ chirp\+Processing\+End\+Margin\+Max}
+\begin{DoxyCompactList}\small\item\em Chirp processing end margin in number of cycles before due time to start processing next chirp, maximum value. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ inter\+Frame\+Processing\+End\+Time}
+\begin{DoxyCompactList}\small\item\em Inter frame processing end time. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ inter\+Frame\+Processing\+End\+Margin}
+\begin{DoxyCompactList}\small\item\em Inter frame processing end margin in number of cycles before due time to start processing first chirp of the next frame. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ active\+Frame\+C\+P\+U\+Load}
+\begin{DoxyCompactList}\small\item\em C\+PU Load during active frame period -\/ i.\+e. chirping. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ inter\+Frame\+C\+P\+U\+Load}
+\begin{DoxyCompactList}\small\item\em C\+PU Load during inter frame period -\/ i.\+e. after chirps are done and before next frame starts. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Timing information. 
+
+Definition at line 256 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\label{struct_mmw_demo__timing_info_affdf1c65458d73698b97fc753db56375}} 
+\index{MmwDemo\_timingInfo@{MmwDemo\_timingInfo}!activeFrameCPULoad@{activeFrameCPULoad}}
+\index{activeFrameCPULoad@{activeFrameCPULoad}!MmwDemo\_timingInfo@{MmwDemo\_timingInfo}}
+\doxysubsubsection{activeFrameCPULoad}
+{\footnotesize\ttfamily uint32\+\_\+t Mmw\+Demo\+\_\+timing\+Info\+::active\+Frame\+C\+P\+U\+Load}
+
+
+
+C\+PU Load during active frame period -\/ i.\+e. chirping. 
+
+
+
+Definition at line 285 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_mmw_demo__timing_info_a2607fd9d14ba662b984e188759e250fc}} 
+\index{MmwDemo\_timingInfo@{MmwDemo\_timingInfo}!chirpProcessingEndMarginMax@{chirpProcessingEndMarginMax}}
+\index{chirpProcessingEndMarginMax@{chirpProcessingEndMarginMax}!MmwDemo\_timingInfo@{MmwDemo\_timingInfo}}
+\doxysubsubsection{chirpProcessingEndMarginMax}
+{\footnotesize\ttfamily uint32\+\_\+t Mmw\+Demo\+\_\+timing\+Info\+::chirp\+Processing\+End\+Margin\+Max}
+
+
+
+Chirp processing end margin in number of cycles before due time to start processing next chirp, maximum value. 
+
+
+
+Definition at line 275 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_mmw_demo__timing_info_a265fab1d92fbfec4dd963f6fdd58ab86}} 
+\index{MmwDemo\_timingInfo@{MmwDemo\_timingInfo}!chirpProcessingEndMarginMin@{chirpProcessingEndMarginMin}}
+\index{chirpProcessingEndMarginMin@{chirpProcessingEndMarginMin}!MmwDemo\_timingInfo@{MmwDemo\_timingInfo}}
+\doxysubsubsection{chirpProcessingEndMarginMin}
+{\footnotesize\ttfamily uint32\+\_\+t Mmw\+Demo\+\_\+timing\+Info\+::chirp\+Processing\+End\+Margin\+Min}
+
+
+
+Chirp processing end margin in number of cycles before due time to start processing next chirp, minimum value. 
+
+
+
+Definition at line 271 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_mmw_demo__timing_info_a0aff7031553c743462440324f1cc11af}} 
+\index{MmwDemo\_timingInfo@{MmwDemo\_timingInfo}!chirpProcessingEndTime@{chirpProcessingEndTime}}
+\index{chirpProcessingEndTime@{chirpProcessingEndTime}!MmwDemo\_timingInfo@{MmwDemo\_timingInfo}}
+\doxysubsubsection{chirpProcessingEndTime}
+{\footnotesize\ttfamily uint32\+\_\+t Mmw\+Demo\+\_\+timing\+Info\+::chirp\+Processing\+End\+Time}
+
+
+
+Chirp processing end time. 
+
+
+
+Definition at line 267 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_mmw_demo__timing_info_af0c1af9fc99f5ff487d1529f7b499d1a}} 
+\index{MmwDemo\_timingInfo@{MmwDemo\_timingInfo}!interFrameCPULoad@{interFrameCPULoad}}
+\index{interFrameCPULoad@{interFrameCPULoad}!MmwDemo\_timingInfo@{MmwDemo\_timingInfo}}
+\doxysubsubsection{interFrameCPULoad}
+{\footnotesize\ttfamily uint32\+\_\+t Mmw\+Demo\+\_\+timing\+Info\+::inter\+Frame\+C\+P\+U\+Load}
+
+
+
+C\+PU Load during inter frame period -\/ i.\+e. after chirps are done and before next frame starts. 
+
+
+
+Definition at line 289 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_mmw_demo__timing_info_a7912f83a57776b9012d2a60e20e59bdd}} 
+\index{MmwDemo\_timingInfo@{MmwDemo\_timingInfo}!interFrameProcCycles@{interFrameProcCycles}}
+\index{interFrameProcCycles@{interFrameProcCycles}!MmwDemo\_timingInfo@{MmwDemo\_timingInfo}}
+\doxysubsubsection{interFrameProcCycles}
+{\footnotesize\ttfamily uint32\+\_\+t Mmw\+Demo\+\_\+timing\+Info\+::inter\+Frame\+Proc\+Cycles}
+
+
+
+number of processor cycles between frames excluding processing time to transmit output on U\+A\+RT 
+
+
+
+Definition at line 260 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_mmw_demo__timing_info_ae9c23b07e2784ea8129cec289a6a6e90}} 
+\index{MmwDemo\_timingInfo@{MmwDemo\_timingInfo}!interFrameProcessingEndMargin@{interFrameProcessingEndMargin}}
+\index{interFrameProcessingEndMargin@{interFrameProcessingEndMargin}!MmwDemo\_timingInfo@{MmwDemo\_timingInfo}}
+\doxysubsubsection{interFrameProcessingEndMargin}
+{\footnotesize\ttfamily uint32\+\_\+t Mmw\+Demo\+\_\+timing\+Info\+::inter\+Frame\+Processing\+End\+Margin}
+
+
+
+Inter frame processing end margin in number of cycles before due time to start processing first chirp of the next frame. 
+
+
+
+Definition at line 282 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_mmw_demo__timing_info_a22109cbb958d33dc6503a7a773d79a2e}} 
+\index{MmwDemo\_timingInfo@{MmwDemo\_timingInfo}!interFrameProcessingEndTime@{interFrameProcessingEndTime}}
+\index{interFrameProcessingEndTime@{interFrameProcessingEndTime}!MmwDemo\_timingInfo@{MmwDemo\_timingInfo}}
+\doxysubsubsection{interFrameProcessingEndTime}
+{\footnotesize\ttfamily uint32\+\_\+t Mmw\+Demo\+\_\+timing\+Info\+::inter\+Frame\+Processing\+End\+Time}
+
+
+
+Inter frame processing end time. 
+
+
+
+Definition at line 278 of file dss\+\_\+data\+\_\+path.\+h.
+
+\mbox{\label{struct_mmw_demo__timing_info_ae844cb7d8eac28207d103c07dc5fbc8f}} 
+\index{MmwDemo\_timingInfo@{MmwDemo\_timingInfo}!transmitOutputCycles@{transmitOutputCycles}}
+\index{transmitOutputCycles@{transmitOutputCycles}!MmwDemo\_timingInfo@{MmwDemo\_timingInfo}}
+\doxysubsubsection{transmitOutputCycles}
+{\footnotesize\ttfamily uint32\+\_\+t Mmw\+Demo\+\_\+timing\+Info\+::transmit\+Output\+Cycles}
+
+
+
+time to transmit out detection information (in D\+SP cycles) 
+
+
+
+Definition at line 264 of file dss\+\_\+data\+\_\+path.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ dss\+\_\+data\+\_\+path.\+h}\end{DoxyCompactItemize}

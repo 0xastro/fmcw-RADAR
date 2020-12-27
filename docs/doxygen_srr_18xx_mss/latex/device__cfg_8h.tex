@@ -1,0 +1,1190 @@
+\doxysection{common/device\+\_\+cfg.h File Reference}
+\label{device__cfg_8h}\index{common/device\_cfg.h@{common/device\_cfg.h}}
+
+
+This file holds constants related to the system chirp configuration as well as the calling the profiles configs such as\+: \doxyref{config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h}{p.}{config__chirp__design___u_s_r_r20_8h} \doxyref{config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R30.\+h}{p.}{config__chirp__design___u_s_r_r30_8h} To Add profiles, create the profile in the following path common/profiles/ under the following name convention\+: config\+\_\+chirp\+\_\+design\+\_\+\+X\+R\+Rxx.\+h X where S\+:Short, M\+: Medium, US\+: Ultrashort .. etc xx is the number of chips within the frame.  
+
+
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{device__cfg_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ T\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+1\+\_\+\+E\+N\+A\+B\+LE}~(1U $<$$<$ 0U)
+\item 
+\#define \textbf{ T\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+2\+\_\+\+E\+N\+A\+B\+LE}~(1U $<$$<$ 1U)
+\item 
+\#define \textbf{ T\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+3\+\_\+\+E\+N\+A\+B\+LE}~(1U $<$$<$ 2U)
+\item 
+\#define \textbf{ T\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+1\+\_\+2\+\_\+\+E\+N\+A\+B\+LE}~(\textbf{ T\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+1\+\_\+\+E\+N\+A\+B\+LE} $\vert$ \textbf{ T\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+2\+\_\+\+E\+N\+A\+B\+LE})
+\item 
+\#define \textbf{ T\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+2\+\_\+3\+\_\+\+E\+N\+A\+B\+LE}~(\textbf{ T\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+2\+\_\+\+E\+N\+A\+B\+LE} $\vert$ \textbf{ T\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+3\+\_\+\+E\+N\+A\+B\+LE})
+\item 
+\#define \textbf{ T\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+1\+\_\+3\+\_\+\+E\+N\+A\+B\+LE}~(\textbf{ T\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+1\+\_\+\+E\+N\+A\+B\+LE} $\vert$ \textbf{ T\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+3\+\_\+\+E\+N\+A\+B\+LE})
+\item 
+\#define \textbf{ T\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+1\+\_\+2\+\_\+3\+\_\+\+E\+N\+A\+B\+LE}~(\textbf{ T\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+1\+\_\+\+E\+N\+A\+B\+LE} $\vert$ \textbf{ T\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+2\+\_\+\+E\+N\+A\+B\+LE} $\vert$ \textbf{ T\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+3\+\_\+\+E\+N\+A\+B\+LE})
+\item 
+\#define \textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+1\+\_\+\+E\+N\+A\+B\+LE}~(1U $<$$<$ 0U)
+\item 
+\#define \textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+2\+\_\+\+E\+N\+A\+B\+LE}~(1U $<$$<$ 1U)
+\item 
+\#define \textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+3\+\_\+\+E\+N\+A\+B\+LE}~(1U $<$$<$ 2U)
+\item 
+\#define \textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+4\+\_\+\+E\+N\+A\+B\+LE}~(1U $<$$<$ 3U)
+\item 
+\#define \textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+1\+\_\+2\+\_\+\+E\+N\+A\+B\+LE}~(\textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+1\+\_\+\+E\+N\+A\+B\+LE} $\vert$ \textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+2\+\_\+\+E\+N\+A\+B\+LE})
+\item 
+\#define \textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+1\+\_\+3\+\_\+\+E\+N\+A\+B\+LE}~(\textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+1\+\_\+\+E\+N\+A\+B\+LE} $\vert$ \textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+3\+\_\+\+E\+N\+A\+B\+LE})
+\item 
+\#define \textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+1\+\_\+4\+\_\+\+E\+N\+A\+B\+LE}~(\textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+1\+\_\+\+E\+N\+A\+B\+LE} $\vert$ \textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+4\+\_\+\+E\+N\+A\+B\+LE})
+\item 
+\#define \textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+2\+\_\+3\+\_\+\+E\+N\+A\+B\+LE}~(\textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+2\+\_\+\+E\+N\+A\+B\+LE} $\vert$ \textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+3\+\_\+\+E\+N\+A\+B\+LE})
+\item 
+\#define \textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+2\+\_\+4\+\_\+\+E\+N\+A\+B\+LE}~(\textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+2\+\_\+\+E\+N\+A\+B\+LE} $\vert$ \textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+4\+\_\+\+E\+N\+A\+B\+LE})
+\item 
+\#define \textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+3\+\_\+4\+\_\+\+E\+N\+A\+B\+LE}~(\textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+3\+\_\+\+E\+N\+A\+B\+LE} $\vert$ \textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+4\+\_\+\+E\+N\+A\+B\+LE})
+\item 
+\#define \textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+1\+\_\+2\+\_\+3\+\_\+\+E\+N\+A\+B\+LE}~(\textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+1\+\_\+\+E\+N\+A\+B\+LE} $\vert$ \textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+2\+\_\+\+E\+N\+A\+B\+LE} $\vert$ \textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+3\+\_\+\+E\+N\+A\+B\+LE})
+\item 
+\#define \textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+2\+\_\+3\+\_\+4\+\_\+\+E\+N\+A\+B\+LE}~(\textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+2\+\_\+\+E\+N\+A\+B\+LE} $\vert$ \textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+3\+\_\+\+E\+N\+A\+B\+LE} $\vert$ \textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+4\+\_\+\+E\+N\+A\+B\+LE})
+\item 
+\#define \textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+1\+\_\+3\+\_\+4\+\_\+\+E\+N\+A\+B\+LE}~(\textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+1\+\_\+\+E\+N\+A\+B\+LE} $\vert$ \textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+3\+\_\+\+E\+N\+A\+B\+LE} $\vert$ \textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+4\+\_\+\+E\+N\+A\+B\+LE})
+\item 
+\#define \textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+1\+\_\+2\+\_\+3\+\_\+4\+\_\+\+E\+N\+A\+B\+LE}~(\textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+1\+\_\+\+E\+N\+A\+B\+LE} $\vert$ \textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+2\+\_\+\+E\+N\+A\+B\+LE} $\vert$ \textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+3\+\_\+\+E\+N\+A\+B\+LE} $\vert$ \textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+4\+\_\+\+E\+N\+A\+B\+LE})
+\item 
+\#define \textbf{ A\+D\+C\+\_\+\+B\+I\+T\+S\+\_\+12}~(0U)
+\item 
+\#define \textbf{ A\+D\+C\+\_\+\+B\+I\+T\+S\+\_\+14}~(1U)
+\item 
+\#define \textbf{ A\+D\+C\+\_\+\+B\+I\+T\+S\+\_\+16}~(2U)
+\item 
+\#define \textbf{ A\+D\+C\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+R\+E\+AL}~(0U)
+\item 
+\#define \textbf{ A\+D\+C\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+C\+O\+M\+P\+L\+EX}~(1U)
+\item 
+\#define \textbf{ A\+D\+C\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+C\+P\+M\+L\+E\+X\+\_\+\+W\+I\+T\+H\+\_\+\+I\+M\+G\+\_\+\+B\+A\+ND}~(2U)
+\item 
+\#define \textbf{ A\+D\+C\+\_\+\+I\+\_\+\+F\+I\+R\+ST}~(0U)
+\item 
+\#define \textbf{ A\+D\+C\+\_\+\+Q\+\_\+\+F\+I\+R\+ST}~(1U)
+\item 
+\#define \textbf{ A\+D\+C\+\_\+\+I\+N\+T\+E\+R\+L\+E\+A\+V\+E\+D\+\_\+\+M\+O\+DE}~(0U)
+\item 
+\#define \textbf{ A\+D\+C\+\_\+\+N\+O\+N\+\_\+\+I\+N\+T\+E\+R\+L\+E\+A\+V\+E\+D\+\_\+\+M\+O\+DE}~(1U)
+\item 
+\#define \textbf{ D\+A\+T\+A\+\_\+\+P\+A\+T\+H\+\_\+\+C\+S\+I2}~(0U)
+\item 
+\#define \textbf{ D\+A\+T\+A\+\_\+\+P\+A\+T\+H\+\_\+\+L\+V\+DS}~(1U)
+\item 
+\#define \textbf{ D\+A\+T\+A\+\_\+\+P\+A\+T\+H\+\_\+\+F\+M\+T1\+\_\+\+S\+U\+P\+R\+E\+SS}~(0U)
+\item 
+\#define \textbf{ D\+A\+T\+A\+\_\+\+P\+A\+T\+H\+\_\+\+F\+M\+T1\+\_\+\+C\+P\+\_\+\+CQ}~(1U)
+\item 
+\#define \textbf{ D\+A\+T\+A\+\_\+\+P\+A\+T\+H\+\_\+\+F\+M\+T1\+\_\+\+C\+Q\+\_\+\+CP}~(2U)
+\item 
+\#define \textbf{ D\+A\+T\+A\+\_\+\+P\+A\+T\+H\+\_\+\+F\+M\+T0\+\_\+\+A\+D\+C\+\_\+\+D\+A\+T\+A\+\_\+\+O\+N\+LY}~(0U)
+\item 
+\#define \textbf{ D\+A\+T\+A\+\_\+\+P\+A\+T\+H\+\_\+\+F\+M\+T0\+\_\+\+C\+P\+\_\+\+A\+D\+C\+\_\+\+D\+A\+TA}~(1U)
+\item 
+\#define \textbf{ D\+A\+T\+A\+\_\+\+P\+A\+T\+H\+\_\+\+F\+M\+T0\+\_\+\+A\+D\+C\+\_\+\+C\+P\+\_\+\+D\+A\+TA}~(2U)
+\item 
+\#define \textbf{ D\+A\+T\+A\+\_\+\+P\+A\+T\+H\+\_\+\+F\+M\+T0\+\_\+\+C\+P\+\_\+\+A\+D\+C\+\_\+\+C\+Q\+\_\+\+D\+A\+TA}~(3U)
+\item 
+\#define \textbf{ D\+A\+T\+A\+\_\+\+P\+A\+T\+H\+\_\+\+C\+Q\+\_\+\+F\+M\+T\+\_\+\+B\+I\+T\+S\+\_\+12}~(0U)
+\item 
+\#define \textbf{ D\+A\+T\+A\+\_\+\+P\+A\+T\+H\+\_\+\+C\+Q\+\_\+\+F\+M\+T\+\_\+\+B\+I\+T\+S\+\_\+14}~(1U)
+\item 
+\#define \textbf{ D\+A\+T\+A\+\_\+\+P\+A\+T\+H\+\_\+\+C\+Q\+\_\+\+F\+M\+T\+\_\+\+B\+I\+T\+S\+\_\+16}~(2U)
+\item 
+\#define \textbf{ L\+V\+D\+S\+\_\+\+L\+A\+N\+E\+\_\+\+C\+L\+O\+C\+K\+\_\+\+S\+DR}~(0U)
+\item 
+\#define \textbf{ L\+V\+D\+S\+\_\+\+L\+A\+N\+E\+\_\+\+C\+L\+O\+C\+K\+\_\+\+D\+DR}~(1U)
+\item 
+\#define \textbf{ L\+V\+D\+S\+\_\+\+A\+L\+L\+\_\+\+L\+A\+N\+E\+\_\+\+EN}~(0x\+FU)
+\item 
+\#define \textbf{ L\+V\+D\+S\+\_\+\+D\+A\+T\+A\+\_\+\+R\+A\+T\+E\+\_\+900}~(0U)
+\item 
+\#define \textbf{ L\+V\+D\+S\+\_\+\+D\+A\+T\+A\+\_\+\+R\+A\+T\+E\+\_\+600}~(1U)
+\item 
+\#define \textbf{ L\+V\+D\+S\+\_\+\+D\+A\+T\+A\+\_\+\+R\+A\+T\+E\+\_\+450}~(2U)
+\item 
+\#define \textbf{ L\+V\+D\+S\+\_\+\+D\+A\+T\+A\+\_\+\+R\+A\+T\+E\+\_\+400}~(3U)
+\item 
+\#define \textbf{ L\+V\+D\+S\+\_\+\+D\+A\+T\+A\+\_\+\+R\+A\+T\+E\+\_\+300}~(4U)
+\item 
+\#define \textbf{ L\+V\+D\+S\+\_\+\+D\+A\+T\+A\+\_\+\+R\+A\+T\+E\+\_\+225}~(5U)
+\item 
+\#define \textbf{ L\+V\+D\+S\+\_\+\+D\+A\+T\+A\+\_\+\+R\+A\+T\+E\+\_\+150}~(6U)
+\item 
+\#define \textbf{ L\+V\+D\+S\+\_\+\+L\+A\+N\+E1\+\_\+\+D\+I\+S\+A\+B\+LE}~(0U)
+\item 
+\#define \textbf{ L\+V\+D\+S\+\_\+\+L\+A\+N\+E1\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+0}~(1U)
+\item 
+\#define \textbf{ L\+V\+D\+S\+\_\+\+L\+A\+N\+E1\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+1}~(2U)
+\item 
+\#define \textbf{ L\+V\+D\+S\+\_\+\+L\+A\+N\+E2\+\_\+\+D\+I\+S\+A\+B\+LE}~(0U)
+\item 
+\#define \textbf{ L\+V\+D\+S\+\_\+\+L\+A\+N\+E2\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+0}~(1U)
+\item 
+\#define \textbf{ L\+V\+D\+S\+\_\+\+L\+A\+N\+E2\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+1}~(2U)
+\item 
+\#define \textbf{ L\+V\+D\+S\+\_\+\+L\+A\+N\+E3\+\_\+\+D\+I\+S\+A\+B\+LE}~(0U)
+\item 
+\#define \textbf{ L\+V\+D\+S\+\_\+\+L\+A\+N\+E3\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+0}~(1U)
+\item 
+\#define \textbf{ L\+V\+D\+S\+\_\+\+L\+A\+N\+E3\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+1}~(2U)
+\item 
+\#define \textbf{ L\+V\+D\+S\+\_\+\+L\+A\+N\+E4\+\_\+\+D\+I\+S\+A\+B\+LE}~(0U)
+\item 
+\#define \textbf{ L\+V\+D\+S\+\_\+\+L\+A\+N\+E4\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+0}~(1U)
+\item 
+\#define \textbf{ L\+V\+D\+S\+\_\+\+L\+A\+N\+E4\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+1}~(2U)
+\item 
+\#define \textbf{ L\+V\+D\+S\+\_\+\+L\+A\+N\+E\+\_\+\+M\+S\+B\+\_\+\+F\+I\+R\+S\+T\+\_\+\+E\+N\+A\+B\+LE}~(1U)
+\item 
+\#define \textbf{ L\+V\+D\+S\+\_\+\+L\+A\+N\+E\+\_\+\+M\+S\+B\+\_\+\+F\+I\+R\+S\+T\+\_\+\+D\+I\+S\+A\+B\+LE}~(0U)
+\item 
+\#define \textbf{ L\+V\+D\+S\+\_\+\+L\+A\+N\+E\+\_\+\+P\+A\+C\+K\+E\+T\+\_\+\+E\+N\+D\+\_\+\+P\+U\+L\+S\+E\+\_\+\+E\+N\+A\+B\+LE}~(1U)
+\item 
+\#define \textbf{ L\+V\+D\+S\+\_\+\+L\+A\+N\+E\+\_\+\+P\+A\+C\+K\+E\+T\+\_\+\+E\+N\+D\+\_\+\+P\+U\+L\+S\+E\+\_\+\+D\+I\+S\+A\+B\+LE}~(0U)
+\item 
+\#define \textbf{ L\+V\+D\+S\+\_\+\+L\+A\+N\+E\+\_\+\+C\+R\+C\+\_\+\+E\+N\+A\+B\+LE}~(1U)
+\item 
+\#define \textbf{ L\+V\+D\+S\+\_\+\+L\+A\+N\+E\+\_\+\+C\+R\+C\+\_\+\+D\+I\+S\+A\+B\+LE}~(0U)
+\item 
+\#define \textbf{ L\+V\+D\+S\+\_\+\+L\+A\+N\+E\+\_\+\+T\+I\+\_\+\+M\+O\+D\+E\+\_\+\+E\+N\+A\+B\+LE}~(1U)
+\item 
+\#define \textbf{ L\+V\+D\+S\+\_\+\+L\+A\+N\+E\+\_\+\+T\+I\+\_\+\+M\+O\+D\+E\+\_\+\+D\+I\+S\+A\+B\+LE}~(0U)
+\item 
+\#define \textbf{ A\+N\+A\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+C\+O\+M\+P\+L\+E\+X\+\_\+\+C\+H\+A\+IN}~(0U)
+\item 
+\#define \textbf{ A\+N\+A\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+R\+E\+A\+L\+\_\+\+C\+H\+A\+IN}~(1U)
+\item 
+\#define \textbf{ L\+P\+\_\+\+A\+D\+C\+\_\+\+M\+O\+D\+E\+\_\+\+R\+E\+G\+U\+L\+AR}~(0U)
+\item 
+\#define \textbf{ L\+P\+\_\+\+A\+D\+C\+\_\+\+M\+O\+D\+E\+\_\+\+L\+O\+W\+\_\+\+P\+O\+W\+ER}~(1U)
+\item 
+\#define \textbf{ N\+O\+I\+S\+E\+\_\+\+F\+I\+G\+U\+R\+E\+\_\+\+L\+OW}~(0U)
+\item 
+\#define \textbf{ N\+O\+I\+S\+E\+\_\+\+F\+I\+G\+U\+R\+E\+\_\+\+H\+I\+GH}~(1U)
+\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+H\+P\+F1\+\_\+\+C\+O\+R\+N\+E\+R\+\_\+\+F\+R\+E\+Q\+\_\+175K}~(0U)
+\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+H\+P\+F1\+\_\+\+C\+O\+R\+N\+E\+R\+\_\+\+F\+R\+E\+Q\+\_\+235K}~(1U)
+\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+H\+P\+F1\+\_\+\+C\+O\+R\+N\+E\+R\+\_\+\+F\+R\+E\+Q\+\_\+350K}~(2U)
+\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+H\+P\+F1\+\_\+\+C\+O\+R\+N\+E\+R\+\_\+\+F\+R\+E\+Q\+\_\+700K}~(3U)
+\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+H\+P\+F2\+\_\+\+C\+O\+R\+N\+E\+R\+\_\+\+F\+R\+E\+Q\+\_\+350K}~(0U)
+\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+H\+P\+F2\+\_\+\+C\+O\+R\+N\+E\+R\+\_\+\+F\+R\+E\+Q\+\_\+700K}~(1U)
+\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+H\+P\+F2\+\_\+\+C\+O\+R\+N\+E\+R\+\_\+\+F\+R\+E\+Q\+\_\+1\+\_\+4M}~(2U)
+\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+H\+P\+F2\+\_\+\+C\+O\+R\+N\+E\+R\+\_\+\+F\+R\+E\+Q\+\_\+2\+\_\+8M}~(3U)
+\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+H\+P\+F2\+\_\+\+C\+O\+R\+N\+E\+R\+\_\+\+F\+R\+E\+Q\+\_\+5M}~(4U)
+\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+H\+P\+F2\+\_\+\+C\+O\+R\+N\+E\+R\+\_\+\+F\+R\+E\+Q\+\_\+7\+\_\+5M}~(5U)
+\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+H\+P\+F2\+\_\+\+C\+O\+R\+N\+E\+R\+\_\+\+F\+R\+E\+Q\+\_\+10M}~(6U)
+\item 
+\#define \textbf{ C\+H\+I\+R\+P\+\_\+\+H\+P\+F2\+\_\+\+C\+O\+R\+N\+E\+R\+\_\+\+F\+R\+E\+Q\+\_\+15M}~(7U)
+\item 
+\#define \textbf{ R\+O\+U\+N\+D\+\_\+\+T\+O\+\_\+\+I\+N\+T32}(X)~((int32\+\_\+t) (X))
+\item 
+\#define \textbf{ C\+O\+N\+V\+\_\+\+F\+R\+E\+Q\+\_\+\+G\+H\+Z\+\_\+\+T\+O\+\_\+\+C\+O\+D\+E\+W\+O\+RD}(X)~\textbf{ R\+O\+U\+N\+D\+\_\+\+T\+O\+\_\+\+I\+N\+T32}(X $\ast$ (1.\+0e9/53.\+644))
+\item 
+\#define \textbf{ C\+O\+N\+V\+\_\+\+S\+L\+O\+P\+E\+\_\+\+M\+H\+Z\+\_\+\+P\+E\+R\+\_\+\+U\+S\+\_\+\+T\+O\+\_\+\+C\+O\+D\+E\+W\+O\+RD}(X)~(\textbf{ R\+O\+U\+N\+D\+\_\+\+T\+O\+\_\+\+I\+N\+T32}(X $\ast$ (1000.\+0/48.\+279)))
+\item 
+\#define \textbf{ L\+O\+G2\+\_\+\+A\+P\+P\+R\+OX}(X)~((X $<$= 1)? 0\+:((X $<$= 2)? 1\+:((X $<$= 4)? 2\+:((X $<$= 8)? 3\+:((X $<$= 16)? 4\+:((X $<$= 32)? 5\+:((X $<$= 64)? 6\+:((X $<$= 128)? 7\+:((X $<$= 256)? 8\+:((X $<$= 512)? 9\+:((X $<$= 1024)? 10\+:11)))))))))))
+\item 
+\#define \textbf{ S\+P\+E\+E\+D\+\_\+\+O\+F\+\_\+\+L\+I\+G\+H\+T\+\_\+\+I\+N\+\_\+\+M\+E\+T\+E\+R\+S\+\_\+\+P\+E\+R\+\_\+\+S\+EC}~(3.\+0e8)
+\item 
+\#define \textbf{ S\+P\+E\+E\+D\+\_\+\+O\+F\+\_\+\+L\+I\+G\+H\+T\+\_\+\+I\+N\+\_\+\+M\+E\+T\+E\+R\+S\+\_\+\+P\+E\+R\+\_\+\+U\+S\+EC}~(3.\+0e2)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file holds constants related to the system chirp configuration as well as the calling the profiles configs such as\+: \doxyref{config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R20.\+h}{p.}{config__chirp__design___u_s_r_r20_8h} \doxyref{config\+\_\+chirp\+\_\+design\+\_\+\+U\+S\+R\+R30.\+h}{p.}{config__chirp__design___u_s_r_r30_8h} To Add profiles, create the profile in the following path common/profiles/ under the following name convention\+: config\+\_\+chirp\+\_\+design\+\_\+\+X\+R\+Rxx.\+h X where S\+:Short, M\+: Medium, US\+: Ultrashort .. etc xx is the number of chips within the frame. 
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\label{device__cfg_8h_aedfbc3c3558b7ea2fa097e0a4baeac8a}} 
+\index{device\_cfg.h@{device\_cfg.h}!ADC\_BITS\_12@{ADC\_BITS\_12}}
+\index{ADC\_BITS\_12@{ADC\_BITS\_12}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{ADC\_BITS\_12}
+{\footnotesize\ttfamily \#define A\+D\+C\+\_\+\+B\+I\+T\+S\+\_\+12~(0U)}
+
+
+
+Definition at line 31 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a758cf5dd98c1aa1f67833462618faa38}} 
+\index{device\_cfg.h@{device\_cfg.h}!ADC\_BITS\_14@{ADC\_BITS\_14}}
+\index{ADC\_BITS\_14@{ADC\_BITS\_14}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{ADC\_BITS\_14}
+{\footnotesize\ttfamily \#define A\+D\+C\+\_\+\+B\+I\+T\+S\+\_\+14~(1U)}
+
+
+
+Definition at line 32 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a2de21b062c7ecb05cb8a111c171dc99b}} 
+\index{device\_cfg.h@{device\_cfg.h}!ADC\_BITS\_16@{ADC\_BITS\_16}}
+\index{ADC\_BITS\_16@{ADC\_BITS\_16}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{ADC\_BITS\_16}
+{\footnotesize\ttfamily \#define A\+D\+C\+\_\+\+B\+I\+T\+S\+\_\+16~(2U)}
+
+
+
+Definition at line 33 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_aa15b20c8d39ba4a1ca263c6c64bc0945}} 
+\index{device\_cfg.h@{device\_cfg.h}!ADC\_FORMAT\_COMPLEX@{ADC\_FORMAT\_COMPLEX}}
+\index{ADC\_FORMAT\_COMPLEX@{ADC\_FORMAT\_COMPLEX}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{ADC\_FORMAT\_COMPLEX}
+{\footnotesize\ttfamily \#define A\+D\+C\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+C\+O\+M\+P\+L\+EX~(1U)}
+
+
+
+Definition at line 36 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_ae56832fa8baad745264a946be4ec62a2}} 
+\index{device\_cfg.h@{device\_cfg.h}!ADC\_FORMAT\_CPMLEX\_WITH\_IMG\_BAND@{ADC\_FORMAT\_CPMLEX\_WITH\_IMG\_BAND}}
+\index{ADC\_FORMAT\_CPMLEX\_WITH\_IMG\_BAND@{ADC\_FORMAT\_CPMLEX\_WITH\_IMG\_BAND}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{ADC\_FORMAT\_CPMLEX\_WITH\_IMG\_BAND}
+{\footnotesize\ttfamily \#define A\+D\+C\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+C\+P\+M\+L\+E\+X\+\_\+\+W\+I\+T\+H\+\_\+\+I\+M\+G\+\_\+\+B\+A\+ND~(2U)}
+
+
+
+Definition at line 37 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_aa5c319c7e91653eaf5e18b11e4ce4410}} 
+\index{device\_cfg.h@{device\_cfg.h}!ADC\_FORMAT\_REAL@{ADC\_FORMAT\_REAL}}
+\index{ADC\_FORMAT\_REAL@{ADC\_FORMAT\_REAL}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{ADC\_FORMAT\_REAL}
+{\footnotesize\ttfamily \#define A\+D\+C\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+R\+E\+AL~(0U)}
+
+
+
+Definition at line 35 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a10fed03f29c09b641e1a4cd574beedee}} 
+\index{device\_cfg.h@{device\_cfg.h}!ADC\_I\_FIRST@{ADC\_I\_FIRST}}
+\index{ADC\_I\_FIRST@{ADC\_I\_FIRST}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{ADC\_I\_FIRST}
+{\footnotesize\ttfamily \#define A\+D\+C\+\_\+\+I\+\_\+\+F\+I\+R\+ST~(0U)}
+
+
+
+Definition at line 39 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_ab5afe4f665d118a918080495bc0630eb}} 
+\index{device\_cfg.h@{device\_cfg.h}!ADC\_INTERLEAVED\_MODE@{ADC\_INTERLEAVED\_MODE}}
+\index{ADC\_INTERLEAVED\_MODE@{ADC\_INTERLEAVED\_MODE}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{ADC\_INTERLEAVED\_MODE}
+{\footnotesize\ttfamily \#define A\+D\+C\+\_\+\+I\+N\+T\+E\+R\+L\+E\+A\+V\+E\+D\+\_\+\+M\+O\+DE~(0U)}
+
+
+
+Definition at line 42 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_ab37b3480b3a421ebe15c67329f455426}} 
+\index{device\_cfg.h@{device\_cfg.h}!ADC\_NON\_INTERLEAVED\_MODE@{ADC\_NON\_INTERLEAVED\_MODE}}
+\index{ADC\_NON\_INTERLEAVED\_MODE@{ADC\_NON\_INTERLEAVED\_MODE}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{ADC\_NON\_INTERLEAVED\_MODE}
+{\footnotesize\ttfamily \#define A\+D\+C\+\_\+\+N\+O\+N\+\_\+\+I\+N\+T\+E\+R\+L\+E\+A\+V\+E\+D\+\_\+\+M\+O\+DE~(1U)}
+
+
+
+Definition at line 43 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a11434749d31db9adfa73252423bd4347}} 
+\index{device\_cfg.h@{device\_cfg.h}!ADC\_Q\_FIRST@{ADC\_Q\_FIRST}}
+\index{ADC\_Q\_FIRST@{ADC\_Q\_FIRST}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{ADC\_Q\_FIRST}
+{\footnotesize\ttfamily \#define A\+D\+C\+\_\+\+Q\+\_\+\+F\+I\+R\+ST~(1U)}
+
+
+
+Definition at line 40 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a776be3f87a676a72a6eb62407004b23e}} 
+\index{device\_cfg.h@{device\_cfg.h}!ANA\_CHANNEL\_COMPLEX\_CHAIN@{ANA\_CHANNEL\_COMPLEX\_CHAIN}}
+\index{ANA\_CHANNEL\_COMPLEX\_CHAIN@{ANA\_CHANNEL\_COMPLEX\_CHAIN}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{ANA\_CHANNEL\_COMPLEX\_CHAIN}
+{\footnotesize\ttfamily \#define A\+N\+A\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+C\+O\+M\+P\+L\+E\+X\+\_\+\+C\+H\+A\+IN~(0U)}
+
+
+
+Definition at line 104 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_abf9fbb3347c3064a5ebf4a336c7390bd}} 
+\index{device\_cfg.h@{device\_cfg.h}!ANA\_CHANNEL\_REAL\_CHAIN@{ANA\_CHANNEL\_REAL\_CHAIN}}
+\index{ANA\_CHANNEL\_REAL\_CHAIN@{ANA\_CHANNEL\_REAL\_CHAIN}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{ANA\_CHANNEL\_REAL\_CHAIN}
+{\footnotesize\ttfamily \#define A\+N\+A\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+R\+E\+A\+L\+\_\+\+C\+H\+A\+IN~(1U)}
+
+
+
+Definition at line 105 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_aa882af8a45072b49118c74ac4b1e270b}} 
+\index{device\_cfg.h@{device\_cfg.h}!CHIRP\_HPF1\_CORNER\_FREQ\_175K@{CHIRP\_HPF1\_CORNER\_FREQ\_175K}}
+\index{CHIRP\_HPF1\_CORNER\_FREQ\_175K@{CHIRP\_HPF1\_CORNER\_FREQ\_175K}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{CHIRP\_HPF1\_CORNER\_FREQ\_175K}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+H\+P\+F1\+\_\+\+C\+O\+R\+N\+E\+R\+\_\+\+F\+R\+E\+Q\+\_\+175K~(0U)}
+
+
+
+Definition at line 114 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_ab26e7f480f7411287ede0569eae650be}} 
+\index{device\_cfg.h@{device\_cfg.h}!CHIRP\_HPF1\_CORNER\_FREQ\_235K@{CHIRP\_HPF1\_CORNER\_FREQ\_235K}}
+\index{CHIRP\_HPF1\_CORNER\_FREQ\_235K@{CHIRP\_HPF1\_CORNER\_FREQ\_235K}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{CHIRP\_HPF1\_CORNER\_FREQ\_235K}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+H\+P\+F1\+\_\+\+C\+O\+R\+N\+E\+R\+\_\+\+F\+R\+E\+Q\+\_\+235K~(1U)}
+
+
+
+Definition at line 115 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a2c2dfd07ab7c12e47340019267f676e0}} 
+\index{device\_cfg.h@{device\_cfg.h}!CHIRP\_HPF1\_CORNER\_FREQ\_350K@{CHIRP\_HPF1\_CORNER\_FREQ\_350K}}
+\index{CHIRP\_HPF1\_CORNER\_FREQ\_350K@{CHIRP\_HPF1\_CORNER\_FREQ\_350K}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{CHIRP\_HPF1\_CORNER\_FREQ\_350K}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+H\+P\+F1\+\_\+\+C\+O\+R\+N\+E\+R\+\_\+\+F\+R\+E\+Q\+\_\+350K~(2U)}
+
+
+
+Definition at line 116 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a5159243760090578e5ce62ee527546ed}} 
+\index{device\_cfg.h@{device\_cfg.h}!CHIRP\_HPF1\_CORNER\_FREQ\_700K@{CHIRP\_HPF1\_CORNER\_FREQ\_700K}}
+\index{CHIRP\_HPF1\_CORNER\_FREQ\_700K@{CHIRP\_HPF1\_CORNER\_FREQ\_700K}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{CHIRP\_HPF1\_CORNER\_FREQ\_700K}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+H\+P\+F1\+\_\+\+C\+O\+R\+N\+E\+R\+\_\+\+F\+R\+E\+Q\+\_\+700K~(3U)}
+
+
+
+Definition at line 117 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a32d1d05b01ff1ff04a3bf0460c192982}} 
+\index{device\_cfg.h@{device\_cfg.h}!CHIRP\_HPF2\_CORNER\_FREQ\_10M@{CHIRP\_HPF2\_CORNER\_FREQ\_10M}}
+\index{CHIRP\_HPF2\_CORNER\_FREQ\_10M@{CHIRP\_HPF2\_CORNER\_FREQ\_10M}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{CHIRP\_HPF2\_CORNER\_FREQ\_10M}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+H\+P\+F2\+\_\+\+C\+O\+R\+N\+E\+R\+\_\+\+F\+R\+E\+Q\+\_\+10M~(6U)}
+
+
+
+Definition at line 125 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a3aef0ab0506b531a3a474bd5a890f377}} 
+\index{device\_cfg.h@{device\_cfg.h}!CHIRP\_HPF2\_CORNER\_FREQ\_15M@{CHIRP\_HPF2\_CORNER\_FREQ\_15M}}
+\index{CHIRP\_HPF2\_CORNER\_FREQ\_15M@{CHIRP\_HPF2\_CORNER\_FREQ\_15M}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{CHIRP\_HPF2\_CORNER\_FREQ\_15M}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+H\+P\+F2\+\_\+\+C\+O\+R\+N\+E\+R\+\_\+\+F\+R\+E\+Q\+\_\+15M~(7U)}
+
+
+
+Definition at line 126 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a818a5f589ebcfbec248a0e2e13a5a3b1}} 
+\index{device\_cfg.h@{device\_cfg.h}!CHIRP\_HPF2\_CORNER\_FREQ\_1\_4M@{CHIRP\_HPF2\_CORNER\_FREQ\_1\_4M}}
+\index{CHIRP\_HPF2\_CORNER\_FREQ\_1\_4M@{CHIRP\_HPF2\_CORNER\_FREQ\_1\_4M}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{CHIRP\_HPF2\_CORNER\_FREQ\_1\_4M}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+H\+P\+F2\+\_\+\+C\+O\+R\+N\+E\+R\+\_\+\+F\+R\+E\+Q\+\_\+1\+\_\+4M~(2U)}
+
+
+
+Definition at line 121 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a83ff03c955173e1b036b5d0f8b3e88cd}} 
+\index{device\_cfg.h@{device\_cfg.h}!CHIRP\_HPF2\_CORNER\_FREQ\_2\_8M@{CHIRP\_HPF2\_CORNER\_FREQ\_2\_8M}}
+\index{CHIRP\_HPF2\_CORNER\_FREQ\_2\_8M@{CHIRP\_HPF2\_CORNER\_FREQ\_2\_8M}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{CHIRP\_HPF2\_CORNER\_FREQ\_2\_8M}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+H\+P\+F2\+\_\+\+C\+O\+R\+N\+E\+R\+\_\+\+F\+R\+E\+Q\+\_\+2\+\_\+8M~(3U)}
+
+
+
+Definition at line 122 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a46eb2ba260955fc2f25b0dda386b2085}} 
+\index{device\_cfg.h@{device\_cfg.h}!CHIRP\_HPF2\_CORNER\_FREQ\_350K@{CHIRP\_HPF2\_CORNER\_FREQ\_350K}}
+\index{CHIRP\_HPF2\_CORNER\_FREQ\_350K@{CHIRP\_HPF2\_CORNER\_FREQ\_350K}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{CHIRP\_HPF2\_CORNER\_FREQ\_350K}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+H\+P\+F2\+\_\+\+C\+O\+R\+N\+E\+R\+\_\+\+F\+R\+E\+Q\+\_\+350K~(0U)}
+
+
+
+Definition at line 119 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a9452f4a6f473ba62edbf64921a9bb79c}} 
+\index{device\_cfg.h@{device\_cfg.h}!CHIRP\_HPF2\_CORNER\_FREQ\_5M@{CHIRP\_HPF2\_CORNER\_FREQ\_5M}}
+\index{CHIRP\_HPF2\_CORNER\_FREQ\_5M@{CHIRP\_HPF2\_CORNER\_FREQ\_5M}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{CHIRP\_HPF2\_CORNER\_FREQ\_5M}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+H\+P\+F2\+\_\+\+C\+O\+R\+N\+E\+R\+\_\+\+F\+R\+E\+Q\+\_\+5M~(4U)}
+
+
+
+Definition at line 123 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a1269d9e534b5cd225aac7e0e633b9a9d}} 
+\index{device\_cfg.h@{device\_cfg.h}!CHIRP\_HPF2\_CORNER\_FREQ\_700K@{CHIRP\_HPF2\_CORNER\_FREQ\_700K}}
+\index{CHIRP\_HPF2\_CORNER\_FREQ\_700K@{CHIRP\_HPF2\_CORNER\_FREQ\_700K}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{CHIRP\_HPF2\_CORNER\_FREQ\_700K}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+H\+P\+F2\+\_\+\+C\+O\+R\+N\+E\+R\+\_\+\+F\+R\+E\+Q\+\_\+700K~(1U)}
+
+
+
+Definition at line 120 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a0540bcf00908d12f6789ce8feb91adff}} 
+\index{device\_cfg.h@{device\_cfg.h}!CHIRP\_HPF2\_CORNER\_FREQ\_7\_5M@{CHIRP\_HPF2\_CORNER\_FREQ\_7\_5M}}
+\index{CHIRP\_HPF2\_CORNER\_FREQ\_7\_5M@{CHIRP\_HPF2\_CORNER\_FREQ\_7\_5M}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{CHIRP\_HPF2\_CORNER\_FREQ\_7\_5M}
+{\footnotesize\ttfamily \#define C\+H\+I\+R\+P\+\_\+\+H\+P\+F2\+\_\+\+C\+O\+R\+N\+E\+R\+\_\+\+F\+R\+E\+Q\+\_\+7\+\_\+5M~(5U)}
+
+
+
+Definition at line 124 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a0e07f0d39d904d736b5fe949c3afd674}} 
+\index{device\_cfg.h@{device\_cfg.h}!CONV\_FREQ\_GHZ\_TO\_CODEWORD@{CONV\_FREQ\_GHZ\_TO\_CODEWORD}}
+\index{CONV\_FREQ\_GHZ\_TO\_CODEWORD@{CONV\_FREQ\_GHZ\_TO\_CODEWORD}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{CONV\_FREQ\_GHZ\_TO\_CODEWORD}
+{\footnotesize\ttfamily \#define C\+O\+N\+V\+\_\+\+F\+R\+E\+Q\+\_\+\+G\+H\+Z\+\_\+\+T\+O\+\_\+\+C\+O\+D\+E\+W\+O\+RD(\begin{DoxyParamCaption}\item[{}]{X }\end{DoxyParamCaption})~\textbf{ R\+O\+U\+N\+D\+\_\+\+T\+O\+\_\+\+I\+N\+T32}(X $\ast$ (1.\+0e9/53.\+644))}
+
+
+
+Definition at line 130 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a4af47e272b7fce418572d55298c3a23e}} 
+\index{device\_cfg.h@{device\_cfg.h}!CONV\_SLOPE\_MHZ\_PER\_US\_TO\_CODEWORD@{CONV\_SLOPE\_MHZ\_PER\_US\_TO\_CODEWORD}}
+\index{CONV\_SLOPE\_MHZ\_PER\_US\_TO\_CODEWORD@{CONV\_SLOPE\_MHZ\_PER\_US\_TO\_CODEWORD}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{CONV\_SLOPE\_MHZ\_PER\_US\_TO\_CODEWORD}
+{\footnotesize\ttfamily \#define C\+O\+N\+V\+\_\+\+S\+L\+O\+P\+E\+\_\+\+M\+H\+Z\+\_\+\+P\+E\+R\+\_\+\+U\+S\+\_\+\+T\+O\+\_\+\+C\+O\+D\+E\+W\+O\+RD(\begin{DoxyParamCaption}\item[{}]{X }\end{DoxyParamCaption})~(\textbf{ R\+O\+U\+N\+D\+\_\+\+T\+O\+\_\+\+I\+N\+T32}(X $\ast$ (1000.\+0/48.\+279)))}
+
+
+
+Definition at line 131 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a2464a6a75ac3038b5b7e1598019d962c}} 
+\index{device\_cfg.h@{device\_cfg.h}!DATA\_PATH\_CQ\_FMT\_BITS\_12@{DATA\_PATH\_CQ\_FMT\_BITS\_12}}
+\index{DATA\_PATH\_CQ\_FMT\_BITS\_12@{DATA\_PATH\_CQ\_FMT\_BITS\_12}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{DATA\_PATH\_CQ\_FMT\_BITS\_12}
+{\footnotesize\ttfamily \#define D\+A\+T\+A\+\_\+\+P\+A\+T\+H\+\_\+\+C\+Q\+\_\+\+F\+M\+T\+\_\+\+B\+I\+T\+S\+\_\+12~(0U)}
+
+
+
+Definition at line 59 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a4cc3e1e27154c17ce54e5cbeb7345c10}} 
+\index{device\_cfg.h@{device\_cfg.h}!DATA\_PATH\_CQ\_FMT\_BITS\_14@{DATA\_PATH\_CQ\_FMT\_BITS\_14}}
+\index{DATA\_PATH\_CQ\_FMT\_BITS\_14@{DATA\_PATH\_CQ\_FMT\_BITS\_14}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{DATA\_PATH\_CQ\_FMT\_BITS\_14}
+{\footnotesize\ttfamily \#define D\+A\+T\+A\+\_\+\+P\+A\+T\+H\+\_\+\+C\+Q\+\_\+\+F\+M\+T\+\_\+\+B\+I\+T\+S\+\_\+14~(1U)}
+
+
+
+Definition at line 60 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a03ff20b9506ced8ff3f36850ac695d59}} 
+\index{device\_cfg.h@{device\_cfg.h}!DATA\_PATH\_CQ\_FMT\_BITS\_16@{DATA\_PATH\_CQ\_FMT\_BITS\_16}}
+\index{DATA\_PATH\_CQ\_FMT\_BITS\_16@{DATA\_PATH\_CQ\_FMT\_BITS\_16}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{DATA\_PATH\_CQ\_FMT\_BITS\_16}
+{\footnotesize\ttfamily \#define D\+A\+T\+A\+\_\+\+P\+A\+T\+H\+\_\+\+C\+Q\+\_\+\+F\+M\+T\+\_\+\+B\+I\+T\+S\+\_\+16~(2U)}
+
+
+
+Definition at line 61 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a8a27b71a63bce05fbe0a457c711d6e06}} 
+\index{device\_cfg.h@{device\_cfg.h}!DATA\_PATH\_CSI2@{DATA\_PATH\_CSI2}}
+\index{DATA\_PATH\_CSI2@{DATA\_PATH\_CSI2}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{DATA\_PATH\_CSI2}
+{\footnotesize\ttfamily \#define D\+A\+T\+A\+\_\+\+P\+A\+T\+H\+\_\+\+C\+S\+I2~(0U)}
+
+
+
+Definition at line 46 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_ab6fe8403164c91cf7bcd7e9e4d9218ba}} 
+\index{device\_cfg.h@{device\_cfg.h}!DATA\_PATH\_FMT0\_ADC\_CP\_DATA@{DATA\_PATH\_FMT0\_ADC\_CP\_DATA}}
+\index{DATA\_PATH\_FMT0\_ADC\_CP\_DATA@{DATA\_PATH\_FMT0\_ADC\_CP\_DATA}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{DATA\_PATH\_FMT0\_ADC\_CP\_DATA}
+{\footnotesize\ttfamily \#define D\+A\+T\+A\+\_\+\+P\+A\+T\+H\+\_\+\+F\+M\+T0\+\_\+\+A\+D\+C\+\_\+\+C\+P\+\_\+\+D\+A\+TA~(2U)}
+
+
+
+Definition at line 56 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_ab40b7403d7872c98e8d039661229aaa1}} 
+\index{device\_cfg.h@{device\_cfg.h}!DATA\_PATH\_FMT0\_ADC\_DATA\_ONLY@{DATA\_PATH\_FMT0\_ADC\_DATA\_ONLY}}
+\index{DATA\_PATH\_FMT0\_ADC\_DATA\_ONLY@{DATA\_PATH\_FMT0\_ADC\_DATA\_ONLY}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{DATA\_PATH\_FMT0\_ADC\_DATA\_ONLY}
+{\footnotesize\ttfamily \#define D\+A\+T\+A\+\_\+\+P\+A\+T\+H\+\_\+\+F\+M\+T0\+\_\+\+A\+D\+C\+\_\+\+D\+A\+T\+A\+\_\+\+O\+N\+LY~(0U)}
+
+
+
+Definition at line 54 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a8f20763ef7267f70a375a69062ca2264}} 
+\index{device\_cfg.h@{device\_cfg.h}!DATA\_PATH\_FMT0\_CP\_ADC\_CQ\_DATA@{DATA\_PATH\_FMT0\_CP\_ADC\_CQ\_DATA}}
+\index{DATA\_PATH\_FMT0\_CP\_ADC\_CQ\_DATA@{DATA\_PATH\_FMT0\_CP\_ADC\_CQ\_DATA}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{DATA\_PATH\_FMT0\_CP\_ADC\_CQ\_DATA}
+{\footnotesize\ttfamily \#define D\+A\+T\+A\+\_\+\+P\+A\+T\+H\+\_\+\+F\+M\+T0\+\_\+\+C\+P\+\_\+\+A\+D\+C\+\_\+\+C\+Q\+\_\+\+D\+A\+TA~(3U)}
+
+
+
+Definition at line 57 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a39e4832aff69023075c2988da4fae7c9}} 
+\index{device\_cfg.h@{device\_cfg.h}!DATA\_PATH\_FMT0\_CP\_ADC\_DATA@{DATA\_PATH\_FMT0\_CP\_ADC\_DATA}}
+\index{DATA\_PATH\_FMT0\_CP\_ADC\_DATA@{DATA\_PATH\_FMT0\_CP\_ADC\_DATA}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{DATA\_PATH\_FMT0\_CP\_ADC\_DATA}
+{\footnotesize\ttfamily \#define D\+A\+T\+A\+\_\+\+P\+A\+T\+H\+\_\+\+F\+M\+T0\+\_\+\+C\+P\+\_\+\+A\+D\+C\+\_\+\+D\+A\+TA~(1U)}
+
+
+
+Definition at line 55 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a85eff203c9a7e5f90b5241edabd99542}} 
+\index{device\_cfg.h@{device\_cfg.h}!DATA\_PATH\_FMT1\_CP\_CQ@{DATA\_PATH\_FMT1\_CP\_CQ}}
+\index{DATA\_PATH\_FMT1\_CP\_CQ@{DATA\_PATH\_FMT1\_CP\_CQ}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{DATA\_PATH\_FMT1\_CP\_CQ}
+{\footnotesize\ttfamily \#define D\+A\+T\+A\+\_\+\+P\+A\+T\+H\+\_\+\+F\+M\+T1\+\_\+\+C\+P\+\_\+\+CQ~(1U)}
+
+
+
+Definition at line 51 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a2eefe22ce3eec8ea316e84e2ff37826d}} 
+\index{device\_cfg.h@{device\_cfg.h}!DATA\_PATH\_FMT1\_CQ\_CP@{DATA\_PATH\_FMT1\_CQ\_CP}}
+\index{DATA\_PATH\_FMT1\_CQ\_CP@{DATA\_PATH\_FMT1\_CQ\_CP}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{DATA\_PATH\_FMT1\_CQ\_CP}
+{\footnotesize\ttfamily \#define D\+A\+T\+A\+\_\+\+P\+A\+T\+H\+\_\+\+F\+M\+T1\+\_\+\+C\+Q\+\_\+\+CP~(2U)}
+
+
+
+Definition at line 52 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_aadba0e68e578c71636dd10fe229ca3af}} 
+\index{device\_cfg.h@{device\_cfg.h}!DATA\_PATH\_FMT1\_SUPRESS@{DATA\_PATH\_FMT1\_SUPRESS}}
+\index{DATA\_PATH\_FMT1\_SUPRESS@{DATA\_PATH\_FMT1\_SUPRESS}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{DATA\_PATH\_FMT1\_SUPRESS}
+{\footnotesize\ttfamily \#define D\+A\+T\+A\+\_\+\+P\+A\+T\+H\+\_\+\+F\+M\+T1\+\_\+\+S\+U\+P\+R\+E\+SS~(0U)}
+
+
+
+Definition at line 50 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a7bcac747ec8a2ff43455915bb2958284}} 
+\index{device\_cfg.h@{device\_cfg.h}!DATA\_PATH\_LVDS@{DATA\_PATH\_LVDS}}
+\index{DATA\_PATH\_LVDS@{DATA\_PATH\_LVDS}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{DATA\_PATH\_LVDS}
+{\footnotesize\ttfamily \#define D\+A\+T\+A\+\_\+\+P\+A\+T\+H\+\_\+\+L\+V\+DS~(1U)}
+
+
+
+Definition at line 47 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a24a9ae7102a59fac77eff2376c46e6e7}} 
+\index{device\_cfg.h@{device\_cfg.h}!LOG2\_APPROX@{LOG2\_APPROX}}
+\index{LOG2\_APPROX@{LOG2\_APPROX}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{LOG2\_APPROX}
+{\footnotesize\ttfamily \#define L\+O\+G2\+\_\+\+A\+P\+P\+R\+OX(\begin{DoxyParamCaption}\item[{}]{X }\end{DoxyParamCaption})~((X $<$= 1)? 0\+:((X $<$= 2)? 1\+:((X $<$= 4)? 2\+:((X $<$= 8)? 3\+:((X $<$= 16)? 4\+:((X $<$= 32)? 5\+:((X $<$= 64)? 6\+:((X $<$= 128)? 7\+:((X $<$= 256)? 8\+:((X $<$= 512)? 9\+:((X $<$= 1024)? 10\+:11)))))))))))}
+
+
+
+Definition at line 133 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a24cd3151af306398b62939861be0239c}} 
+\index{device\_cfg.h@{device\_cfg.h}!LP\_ADC\_MODE\_LOW\_POWER@{LP\_ADC\_MODE\_LOW\_POWER}}
+\index{LP\_ADC\_MODE\_LOW\_POWER@{LP\_ADC\_MODE\_LOW\_POWER}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{LP\_ADC\_MODE\_LOW\_POWER}
+{\footnotesize\ttfamily \#define L\+P\+\_\+\+A\+D\+C\+\_\+\+M\+O\+D\+E\+\_\+\+L\+O\+W\+\_\+\+P\+O\+W\+ER~(1U)}
+
+
+
+Definition at line 108 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_ab12fcfc4afb62cdb10b80b9d9395cab6}} 
+\index{device\_cfg.h@{device\_cfg.h}!LP\_ADC\_MODE\_REGULAR@{LP\_ADC\_MODE\_REGULAR}}
+\index{LP\_ADC\_MODE\_REGULAR@{LP\_ADC\_MODE\_REGULAR}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{LP\_ADC\_MODE\_REGULAR}
+{\footnotesize\ttfamily \#define L\+P\+\_\+\+A\+D\+C\+\_\+\+M\+O\+D\+E\+\_\+\+R\+E\+G\+U\+L\+AR~(0U)}
+
+
+
+Definition at line 107 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_aa69cfff4b21f4a3e69af3f80687b94e8}} 
+\index{device\_cfg.h@{device\_cfg.h}!LVDS\_ALL\_LANE\_EN@{LVDS\_ALL\_LANE\_EN}}
+\index{LVDS\_ALL\_LANE\_EN@{LVDS\_ALL\_LANE\_EN}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{LVDS\_ALL\_LANE\_EN}
+{\footnotesize\ttfamily \#define L\+V\+D\+S\+\_\+\+A\+L\+L\+\_\+\+L\+A\+N\+E\+\_\+\+EN~(0x\+FU)}
+
+
+
+Definition at line 67 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a8f3d7086c324c94e62482f322ee47ed0}} 
+\index{device\_cfg.h@{device\_cfg.h}!LVDS\_DATA\_RATE\_150@{LVDS\_DATA\_RATE\_150}}
+\index{LVDS\_DATA\_RATE\_150@{LVDS\_DATA\_RATE\_150}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{LVDS\_DATA\_RATE\_150}
+{\footnotesize\ttfamily \#define L\+V\+D\+S\+\_\+\+D\+A\+T\+A\+\_\+\+R\+A\+T\+E\+\_\+150~(6U)}
+
+
+
+Definition at line 75 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a7d6009305baa1efc9a71390d026c4e44}} 
+\index{device\_cfg.h@{device\_cfg.h}!LVDS\_DATA\_RATE\_225@{LVDS\_DATA\_RATE\_225}}
+\index{LVDS\_DATA\_RATE\_225@{LVDS\_DATA\_RATE\_225}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{LVDS\_DATA\_RATE\_225}
+{\footnotesize\ttfamily \#define L\+V\+D\+S\+\_\+\+D\+A\+T\+A\+\_\+\+R\+A\+T\+E\+\_\+225~(5U)}
+
+
+
+Definition at line 74 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a423c66c5f84f8b71e5f82b0e30672abc}} 
+\index{device\_cfg.h@{device\_cfg.h}!LVDS\_DATA\_RATE\_300@{LVDS\_DATA\_RATE\_300}}
+\index{LVDS\_DATA\_RATE\_300@{LVDS\_DATA\_RATE\_300}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{LVDS\_DATA\_RATE\_300}
+{\footnotesize\ttfamily \#define L\+V\+D\+S\+\_\+\+D\+A\+T\+A\+\_\+\+R\+A\+T\+E\+\_\+300~(4U)}
+
+
+
+Definition at line 73 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_ad4ac274ec347d4ed285016f744fbd573}} 
+\index{device\_cfg.h@{device\_cfg.h}!LVDS\_DATA\_RATE\_400@{LVDS\_DATA\_RATE\_400}}
+\index{LVDS\_DATA\_RATE\_400@{LVDS\_DATA\_RATE\_400}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{LVDS\_DATA\_RATE\_400}
+{\footnotesize\ttfamily \#define L\+V\+D\+S\+\_\+\+D\+A\+T\+A\+\_\+\+R\+A\+T\+E\+\_\+400~(3U)}
+
+
+
+Definition at line 72 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_aadeda2d2a84775838784f735067905de}} 
+\index{device\_cfg.h@{device\_cfg.h}!LVDS\_DATA\_RATE\_450@{LVDS\_DATA\_RATE\_450}}
+\index{LVDS\_DATA\_RATE\_450@{LVDS\_DATA\_RATE\_450}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{LVDS\_DATA\_RATE\_450}
+{\footnotesize\ttfamily \#define L\+V\+D\+S\+\_\+\+D\+A\+T\+A\+\_\+\+R\+A\+T\+E\+\_\+450~(2U)}
+
+
+
+Definition at line 71 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_abf8ca6c3aa3d7bb4c8c986f875d56de9}} 
+\index{device\_cfg.h@{device\_cfg.h}!LVDS\_DATA\_RATE\_600@{LVDS\_DATA\_RATE\_600}}
+\index{LVDS\_DATA\_RATE\_600@{LVDS\_DATA\_RATE\_600}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{LVDS\_DATA\_RATE\_600}
+{\footnotesize\ttfamily \#define L\+V\+D\+S\+\_\+\+D\+A\+T\+A\+\_\+\+R\+A\+T\+E\+\_\+600~(1U)}
+
+
+
+Definition at line 70 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a2a403cf52f96034063c7eba017af7c5b}} 
+\index{device\_cfg.h@{device\_cfg.h}!LVDS\_DATA\_RATE\_900@{LVDS\_DATA\_RATE\_900}}
+\index{LVDS\_DATA\_RATE\_900@{LVDS\_DATA\_RATE\_900}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{LVDS\_DATA\_RATE\_900}
+{\footnotesize\ttfamily \#define L\+V\+D\+S\+\_\+\+D\+A\+T\+A\+\_\+\+R\+A\+T\+E\+\_\+900~(0U)}
+
+
+
+Definition at line 69 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a74e7874b916e410fb5720dd6bee41704}} 
+\index{device\_cfg.h@{device\_cfg.h}!LVDS\_LANE1\_DISABLE@{LVDS\_LANE1\_DISABLE}}
+\index{LVDS\_LANE1\_DISABLE@{LVDS\_LANE1\_DISABLE}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{LVDS\_LANE1\_DISABLE}
+{\footnotesize\ttfamily \#define L\+V\+D\+S\+\_\+\+L\+A\+N\+E1\+\_\+\+D\+I\+S\+A\+B\+LE~(0U)}
+
+
+
+Definition at line 78 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_ab5ac084204228b1d75f4b9874c1c4f67}} 
+\index{device\_cfg.h@{device\_cfg.h}!LVDS\_LANE1\_FORMAT\_0@{LVDS\_LANE1\_FORMAT\_0}}
+\index{LVDS\_LANE1\_FORMAT\_0@{LVDS\_LANE1\_FORMAT\_0}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{LVDS\_LANE1\_FORMAT\_0}
+{\footnotesize\ttfamily \#define L\+V\+D\+S\+\_\+\+L\+A\+N\+E1\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+0~(1U)}
+
+
+
+Definition at line 79 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a30680a667f7a6be0a9bfbae19899e6be}} 
+\index{device\_cfg.h@{device\_cfg.h}!LVDS\_LANE1\_FORMAT\_1@{LVDS\_LANE1\_FORMAT\_1}}
+\index{LVDS\_LANE1\_FORMAT\_1@{LVDS\_LANE1\_FORMAT\_1}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{LVDS\_LANE1\_FORMAT\_1}
+{\footnotesize\ttfamily \#define L\+V\+D\+S\+\_\+\+L\+A\+N\+E1\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+1~(2U)}
+
+
+
+Definition at line 80 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a218701c90b47c3448cf4d33921a6aafd}} 
+\index{device\_cfg.h@{device\_cfg.h}!LVDS\_LANE2\_DISABLE@{LVDS\_LANE2\_DISABLE}}
+\index{LVDS\_LANE2\_DISABLE@{LVDS\_LANE2\_DISABLE}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{LVDS\_LANE2\_DISABLE}
+{\footnotesize\ttfamily \#define L\+V\+D\+S\+\_\+\+L\+A\+N\+E2\+\_\+\+D\+I\+S\+A\+B\+LE~(0U)}
+
+
+
+Definition at line 82 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a33bb0fc766d014b88b5df9dea66f2fe8}} 
+\index{device\_cfg.h@{device\_cfg.h}!LVDS\_LANE2\_FORMAT\_0@{LVDS\_LANE2\_FORMAT\_0}}
+\index{LVDS\_LANE2\_FORMAT\_0@{LVDS\_LANE2\_FORMAT\_0}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{LVDS\_LANE2\_FORMAT\_0}
+{\footnotesize\ttfamily \#define L\+V\+D\+S\+\_\+\+L\+A\+N\+E2\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+0~(1U)}
+
+
+
+Definition at line 83 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a1318c20ece421263ab8b6dd268c1377d}} 
+\index{device\_cfg.h@{device\_cfg.h}!LVDS\_LANE2\_FORMAT\_1@{LVDS\_LANE2\_FORMAT\_1}}
+\index{LVDS\_LANE2\_FORMAT\_1@{LVDS\_LANE2\_FORMAT\_1}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{LVDS\_LANE2\_FORMAT\_1}
+{\footnotesize\ttfamily \#define L\+V\+D\+S\+\_\+\+L\+A\+N\+E2\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+1~(2U)}
+
+
+
+Definition at line 84 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a5a3ef6d5e6bf7e75e90a30880cd98c74}} 
+\index{device\_cfg.h@{device\_cfg.h}!LVDS\_LANE3\_DISABLE@{LVDS\_LANE3\_DISABLE}}
+\index{LVDS\_LANE3\_DISABLE@{LVDS\_LANE3\_DISABLE}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{LVDS\_LANE3\_DISABLE}
+{\footnotesize\ttfamily \#define L\+V\+D\+S\+\_\+\+L\+A\+N\+E3\+\_\+\+D\+I\+S\+A\+B\+LE~(0U)}
+
+
+
+Definition at line 86 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a9a466f4deef5bf1730514b3010c0558c}} 
+\index{device\_cfg.h@{device\_cfg.h}!LVDS\_LANE3\_FORMAT\_0@{LVDS\_LANE3\_FORMAT\_0}}
+\index{LVDS\_LANE3\_FORMAT\_0@{LVDS\_LANE3\_FORMAT\_0}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{LVDS\_LANE3\_FORMAT\_0}
+{\footnotesize\ttfamily \#define L\+V\+D\+S\+\_\+\+L\+A\+N\+E3\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+0~(1U)}
+
+
+
+Definition at line 87 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a48cfcc2bc91d66d267d9006722e94fea}} 
+\index{device\_cfg.h@{device\_cfg.h}!LVDS\_LANE3\_FORMAT\_1@{LVDS\_LANE3\_FORMAT\_1}}
+\index{LVDS\_LANE3\_FORMAT\_1@{LVDS\_LANE3\_FORMAT\_1}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{LVDS\_LANE3\_FORMAT\_1}
+{\footnotesize\ttfamily \#define L\+V\+D\+S\+\_\+\+L\+A\+N\+E3\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+1~(2U)}
+
+
+
+Definition at line 88 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a4b86cd72d5f2e632dd96c9c4556deeb0}} 
+\index{device\_cfg.h@{device\_cfg.h}!LVDS\_LANE4\_DISABLE@{LVDS\_LANE4\_DISABLE}}
+\index{LVDS\_LANE4\_DISABLE@{LVDS\_LANE4\_DISABLE}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{LVDS\_LANE4\_DISABLE}
+{\footnotesize\ttfamily \#define L\+V\+D\+S\+\_\+\+L\+A\+N\+E4\+\_\+\+D\+I\+S\+A\+B\+LE~(0U)}
+
+
+
+Definition at line 90 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a8a9fab127b7d7a1d1fd7175ea81a87c0}} 
+\index{device\_cfg.h@{device\_cfg.h}!LVDS\_LANE4\_FORMAT\_0@{LVDS\_LANE4\_FORMAT\_0}}
+\index{LVDS\_LANE4\_FORMAT\_0@{LVDS\_LANE4\_FORMAT\_0}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{LVDS\_LANE4\_FORMAT\_0}
+{\footnotesize\ttfamily \#define L\+V\+D\+S\+\_\+\+L\+A\+N\+E4\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+0~(1U)}
+
+
+
+Definition at line 91 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a7faf236d36839338e7e6606abbdd071a}} 
+\index{device\_cfg.h@{device\_cfg.h}!LVDS\_LANE4\_FORMAT\_1@{LVDS\_LANE4\_FORMAT\_1}}
+\index{LVDS\_LANE4\_FORMAT\_1@{LVDS\_LANE4\_FORMAT\_1}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{LVDS\_LANE4\_FORMAT\_1}
+{\footnotesize\ttfamily \#define L\+V\+D\+S\+\_\+\+L\+A\+N\+E4\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+1~(2U)}
+
+
+
+Definition at line 92 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a0b839d85c21b1a9b7d71696799b3aa4a}} 
+\index{device\_cfg.h@{device\_cfg.h}!LVDS\_LANE\_CLOCK\_DDR@{LVDS\_LANE\_CLOCK\_DDR}}
+\index{LVDS\_LANE\_CLOCK\_DDR@{LVDS\_LANE\_CLOCK\_DDR}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{LVDS\_LANE\_CLOCK\_DDR}
+{\footnotesize\ttfamily \#define L\+V\+D\+S\+\_\+\+L\+A\+N\+E\+\_\+\+C\+L\+O\+C\+K\+\_\+\+D\+DR~(1U)}
+
+
+
+Definition at line 65 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_af0e2db2d54f8ee181df4a86a287043da}} 
+\index{device\_cfg.h@{device\_cfg.h}!LVDS\_LANE\_CLOCK\_SDR@{LVDS\_LANE\_CLOCK\_SDR}}
+\index{LVDS\_LANE\_CLOCK\_SDR@{LVDS\_LANE\_CLOCK\_SDR}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{LVDS\_LANE\_CLOCK\_SDR}
+{\footnotesize\ttfamily \#define L\+V\+D\+S\+\_\+\+L\+A\+N\+E\+\_\+\+C\+L\+O\+C\+K\+\_\+\+S\+DR~(0U)}
+
+
+
+Definition at line 64 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_afd34619b049499a879690c6fe3d65651}} 
+\index{device\_cfg.h@{device\_cfg.h}!LVDS\_LANE\_CRC\_DISABLE@{LVDS\_LANE\_CRC\_DISABLE}}
+\index{LVDS\_LANE\_CRC\_DISABLE@{LVDS\_LANE\_CRC\_DISABLE}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{LVDS\_LANE\_CRC\_DISABLE}
+{\footnotesize\ttfamily \#define L\+V\+D\+S\+\_\+\+L\+A\+N\+E\+\_\+\+C\+R\+C\+\_\+\+D\+I\+S\+A\+B\+LE~(0U)}
+
+
+
+Definition at line 99 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_abcfb78c6263b12ceaa80dace09fbcf83}} 
+\index{device\_cfg.h@{device\_cfg.h}!LVDS\_LANE\_CRC\_ENABLE@{LVDS\_LANE\_CRC\_ENABLE}}
+\index{LVDS\_LANE\_CRC\_ENABLE@{LVDS\_LANE\_CRC\_ENABLE}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{LVDS\_LANE\_CRC\_ENABLE}
+{\footnotesize\ttfamily \#define L\+V\+D\+S\+\_\+\+L\+A\+N\+E\+\_\+\+C\+R\+C\+\_\+\+E\+N\+A\+B\+LE~(1U)}
+
+
+
+Definition at line 98 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a30812aefef955d7e88772f39f9f729e6}} 
+\index{device\_cfg.h@{device\_cfg.h}!LVDS\_LANE\_MSB\_FIRST\_DISABLE@{LVDS\_LANE\_MSB\_FIRST\_DISABLE}}
+\index{LVDS\_LANE\_MSB\_FIRST\_DISABLE@{LVDS\_LANE\_MSB\_FIRST\_DISABLE}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{LVDS\_LANE\_MSB\_FIRST\_DISABLE}
+{\footnotesize\ttfamily \#define L\+V\+D\+S\+\_\+\+L\+A\+N\+E\+\_\+\+M\+S\+B\+\_\+\+F\+I\+R\+S\+T\+\_\+\+D\+I\+S\+A\+B\+LE~(0U)}
+
+
+
+Definition at line 95 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a86a1f6b3e1d8611ca41b994a1e19316c}} 
+\index{device\_cfg.h@{device\_cfg.h}!LVDS\_LANE\_MSB\_FIRST\_ENABLE@{LVDS\_LANE\_MSB\_FIRST\_ENABLE}}
+\index{LVDS\_LANE\_MSB\_FIRST\_ENABLE@{LVDS\_LANE\_MSB\_FIRST\_ENABLE}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{LVDS\_LANE\_MSB\_FIRST\_ENABLE}
+{\footnotesize\ttfamily \#define L\+V\+D\+S\+\_\+\+L\+A\+N\+E\+\_\+\+M\+S\+B\+\_\+\+F\+I\+R\+S\+T\+\_\+\+E\+N\+A\+B\+LE~(1U)}
+
+
+
+Definition at line 94 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a553c1eecf74a92e45064950d9e7a4aae}} 
+\index{device\_cfg.h@{device\_cfg.h}!LVDS\_LANE\_PACKET\_END\_PULSE\_DISABLE@{LVDS\_LANE\_PACKET\_END\_PULSE\_DISABLE}}
+\index{LVDS\_LANE\_PACKET\_END\_PULSE\_DISABLE@{LVDS\_LANE\_PACKET\_END\_PULSE\_DISABLE}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{LVDS\_LANE\_PACKET\_END\_PULSE\_DISABLE}
+{\footnotesize\ttfamily \#define L\+V\+D\+S\+\_\+\+L\+A\+N\+E\+\_\+\+P\+A\+C\+K\+E\+T\+\_\+\+E\+N\+D\+\_\+\+P\+U\+L\+S\+E\+\_\+\+D\+I\+S\+A\+B\+LE~(0U)}
+
+
+
+Definition at line 97 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a1b9cc02cfff081fed0670b88a00c8dda}} 
+\index{device\_cfg.h@{device\_cfg.h}!LVDS\_LANE\_PACKET\_END\_PULSE\_ENABLE@{LVDS\_LANE\_PACKET\_END\_PULSE\_ENABLE}}
+\index{LVDS\_LANE\_PACKET\_END\_PULSE\_ENABLE@{LVDS\_LANE\_PACKET\_END\_PULSE\_ENABLE}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{LVDS\_LANE\_PACKET\_END\_PULSE\_ENABLE}
+{\footnotesize\ttfamily \#define L\+V\+D\+S\+\_\+\+L\+A\+N\+E\+\_\+\+P\+A\+C\+K\+E\+T\+\_\+\+E\+N\+D\+\_\+\+P\+U\+L\+S\+E\+\_\+\+E\+N\+A\+B\+LE~(1U)}
+
+
+
+Definition at line 96 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_adc068f0fd7cc36ac77d822442ce11e4c}} 
+\index{device\_cfg.h@{device\_cfg.h}!LVDS\_LANE\_TI\_MODE\_DISABLE@{LVDS\_LANE\_TI\_MODE\_DISABLE}}
+\index{LVDS\_LANE\_TI\_MODE\_DISABLE@{LVDS\_LANE\_TI\_MODE\_DISABLE}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{LVDS\_LANE\_TI\_MODE\_DISABLE}
+{\footnotesize\ttfamily \#define L\+V\+D\+S\+\_\+\+L\+A\+N\+E\+\_\+\+T\+I\+\_\+\+M\+O\+D\+E\+\_\+\+D\+I\+S\+A\+B\+LE~(0U)}
+
+
+
+Definition at line 101 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_aa6056b9784b50a0fe84b5d510e95c5fa}} 
+\index{device\_cfg.h@{device\_cfg.h}!LVDS\_LANE\_TI\_MODE\_ENABLE@{LVDS\_LANE\_TI\_MODE\_ENABLE}}
+\index{LVDS\_LANE\_TI\_MODE\_ENABLE@{LVDS\_LANE\_TI\_MODE\_ENABLE}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{LVDS\_LANE\_TI\_MODE\_ENABLE}
+{\footnotesize\ttfamily \#define L\+V\+D\+S\+\_\+\+L\+A\+N\+E\+\_\+\+T\+I\+\_\+\+M\+O\+D\+E\+\_\+\+E\+N\+A\+B\+LE~(1U)}
+
+
+
+Definition at line 100 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a8ac8a5cbe86e45e208749512349be96a}} 
+\index{device\_cfg.h@{device\_cfg.h}!NOISE\_FIGURE\_HIGH@{NOISE\_FIGURE\_HIGH}}
+\index{NOISE\_FIGURE\_HIGH@{NOISE\_FIGURE\_HIGH}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{NOISE\_FIGURE\_HIGH}
+{\footnotesize\ttfamily \#define N\+O\+I\+S\+E\+\_\+\+F\+I\+G\+U\+R\+E\+\_\+\+H\+I\+GH~(1U)}
+
+
+
+Definition at line 111 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a342d0342b59fb92adcd7709b2faf3052}} 
+\index{device\_cfg.h@{device\_cfg.h}!NOISE\_FIGURE\_LOW@{NOISE\_FIGURE\_LOW}}
+\index{NOISE\_FIGURE\_LOW@{NOISE\_FIGURE\_LOW}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{NOISE\_FIGURE\_LOW}
+{\footnotesize\ttfamily \#define N\+O\+I\+S\+E\+\_\+\+F\+I\+G\+U\+R\+E\+\_\+\+L\+OW~(0U)}
+
+
+
+Definition at line 110 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a437968baff761e9f494039737d7c4c94}} 
+\index{device\_cfg.h@{device\_cfg.h}!ROUND\_TO\_INT32@{ROUND\_TO\_INT32}}
+\index{ROUND\_TO\_INT32@{ROUND\_TO\_INT32}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{ROUND\_TO\_INT32}
+{\footnotesize\ttfamily \#define R\+O\+U\+N\+D\+\_\+\+T\+O\+\_\+\+I\+N\+T32(\begin{DoxyParamCaption}\item[{}]{X }\end{DoxyParamCaption})~((int32\+\_\+t) (X))}
+
+
+
+Definition at line 129 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a510876f9d6afb32fb946e073f02983f5}} 
+\index{device\_cfg.h@{device\_cfg.h}!RX\_CHANNEL\_1\_2\_3\_4\_ENABLE@{RX\_CHANNEL\_1\_2\_3\_4\_ENABLE}}
+\index{RX\_CHANNEL\_1\_2\_3\_4\_ENABLE@{RX\_CHANNEL\_1\_2\_3\_4\_ENABLE}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{RX\_CHANNEL\_1\_2\_3\_4\_ENABLE}
+{\footnotesize\ttfamily \#define R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+1\+\_\+2\+\_\+3\+\_\+4\+\_\+\+E\+N\+A\+B\+LE~(\textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+1\+\_\+\+E\+N\+A\+B\+LE} $\vert$ \textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+2\+\_\+\+E\+N\+A\+B\+LE} $\vert$ \textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+3\+\_\+\+E\+N\+A\+B\+LE} $\vert$ \textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+4\+\_\+\+E\+N\+A\+B\+LE})}
+
+
+
+Definition at line 28 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a9e285d565b6d6fa4336828f78bb97fbb}} 
+\index{device\_cfg.h@{device\_cfg.h}!RX\_CHANNEL\_1\_2\_3\_ENABLE@{RX\_CHANNEL\_1\_2\_3\_ENABLE}}
+\index{RX\_CHANNEL\_1\_2\_3\_ENABLE@{RX\_CHANNEL\_1\_2\_3\_ENABLE}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{RX\_CHANNEL\_1\_2\_3\_ENABLE}
+{\footnotesize\ttfamily \#define R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+1\+\_\+2\+\_\+3\+\_\+\+E\+N\+A\+B\+LE~(\textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+1\+\_\+\+E\+N\+A\+B\+LE} $\vert$ \textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+2\+\_\+\+E\+N\+A\+B\+LE} $\vert$ \textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+3\+\_\+\+E\+N\+A\+B\+LE})}
+
+
+
+Definition at line 25 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a89c7623dba3a753507c444db892cf3d2}} 
+\index{device\_cfg.h@{device\_cfg.h}!RX\_CHANNEL\_1\_2\_ENABLE@{RX\_CHANNEL\_1\_2\_ENABLE}}
+\index{RX\_CHANNEL\_1\_2\_ENABLE@{RX\_CHANNEL\_1\_2\_ENABLE}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{RX\_CHANNEL\_1\_2\_ENABLE}
+{\footnotesize\ttfamily \#define R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+1\+\_\+2\+\_\+\+E\+N\+A\+B\+LE~(\textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+1\+\_\+\+E\+N\+A\+B\+LE} $\vert$ \textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+2\+\_\+\+E\+N\+A\+B\+LE})}
+
+
+
+Definition at line 19 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a0bca8373b5ada403a6b6dca947dad43e}} 
+\index{device\_cfg.h@{device\_cfg.h}!RX\_CHANNEL\_1\_3\_4\_ENABLE@{RX\_CHANNEL\_1\_3\_4\_ENABLE}}
+\index{RX\_CHANNEL\_1\_3\_4\_ENABLE@{RX\_CHANNEL\_1\_3\_4\_ENABLE}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{RX\_CHANNEL\_1\_3\_4\_ENABLE}
+{\footnotesize\ttfamily \#define R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+1\+\_\+3\+\_\+4\+\_\+\+E\+N\+A\+B\+LE~(\textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+1\+\_\+\+E\+N\+A\+B\+LE} $\vert$ \textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+3\+\_\+\+E\+N\+A\+B\+LE} $\vert$ \textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+4\+\_\+\+E\+N\+A\+B\+LE})}
+
+
+
+Definition at line 27 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a3b1de8cc11e4fec0b1c9c2a5a1a22e7f}} 
+\index{device\_cfg.h@{device\_cfg.h}!RX\_CHANNEL\_1\_3\_ENABLE@{RX\_CHANNEL\_1\_3\_ENABLE}}
+\index{RX\_CHANNEL\_1\_3\_ENABLE@{RX\_CHANNEL\_1\_3\_ENABLE}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{RX\_CHANNEL\_1\_3\_ENABLE}
+{\footnotesize\ttfamily \#define R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+1\+\_\+3\+\_\+\+E\+N\+A\+B\+LE~(\textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+1\+\_\+\+E\+N\+A\+B\+LE} $\vert$ \textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+3\+\_\+\+E\+N\+A\+B\+LE})}
+
+
+
+Definition at line 20 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a5548d3776bba65cb1e18a0727bbda7f9}} 
+\index{device\_cfg.h@{device\_cfg.h}!RX\_CHANNEL\_1\_4\_ENABLE@{RX\_CHANNEL\_1\_4\_ENABLE}}
+\index{RX\_CHANNEL\_1\_4\_ENABLE@{RX\_CHANNEL\_1\_4\_ENABLE}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{RX\_CHANNEL\_1\_4\_ENABLE}
+{\footnotesize\ttfamily \#define R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+1\+\_\+4\+\_\+\+E\+N\+A\+B\+LE~(\textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+1\+\_\+\+E\+N\+A\+B\+LE} $\vert$ \textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+4\+\_\+\+E\+N\+A\+B\+LE})}
+
+
+
+Definition at line 21 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a4f4d452db8952b21950676d29c7043e3}} 
+\index{device\_cfg.h@{device\_cfg.h}!RX\_CHANNEL\_1\_ENABLE@{RX\_CHANNEL\_1\_ENABLE}}
+\index{RX\_CHANNEL\_1\_ENABLE@{RX\_CHANNEL\_1\_ENABLE}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{RX\_CHANNEL\_1\_ENABLE}
+{\footnotesize\ttfamily \#define R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+1\+\_\+\+E\+N\+A\+B\+LE~(1U $<$$<$ 0U)}
+
+
+
+Definition at line 15 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a577b98f517d8cdfc36f5a19dc1e091e7}} 
+\index{device\_cfg.h@{device\_cfg.h}!RX\_CHANNEL\_2\_3\_4\_ENABLE@{RX\_CHANNEL\_2\_3\_4\_ENABLE}}
+\index{RX\_CHANNEL\_2\_3\_4\_ENABLE@{RX\_CHANNEL\_2\_3\_4\_ENABLE}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{RX\_CHANNEL\_2\_3\_4\_ENABLE}
+{\footnotesize\ttfamily \#define R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+2\+\_\+3\+\_\+4\+\_\+\+E\+N\+A\+B\+LE~(\textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+2\+\_\+\+E\+N\+A\+B\+LE} $\vert$ \textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+3\+\_\+\+E\+N\+A\+B\+LE} $\vert$ \textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+4\+\_\+\+E\+N\+A\+B\+LE})}
+
+
+
+Definition at line 26 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a4c3b45a867d04ab94d6c91968b216a5c}} 
+\index{device\_cfg.h@{device\_cfg.h}!RX\_CHANNEL\_2\_3\_ENABLE@{RX\_CHANNEL\_2\_3\_ENABLE}}
+\index{RX\_CHANNEL\_2\_3\_ENABLE@{RX\_CHANNEL\_2\_3\_ENABLE}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{RX\_CHANNEL\_2\_3\_ENABLE}
+{\footnotesize\ttfamily \#define R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+2\+\_\+3\+\_\+\+E\+N\+A\+B\+LE~(\textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+2\+\_\+\+E\+N\+A\+B\+LE} $\vert$ \textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+3\+\_\+\+E\+N\+A\+B\+LE})}
+
+
+
+Definition at line 22 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a2738d4f07337c8a2e76a8495a30a4aa8}} 
+\index{device\_cfg.h@{device\_cfg.h}!RX\_CHANNEL\_2\_4\_ENABLE@{RX\_CHANNEL\_2\_4\_ENABLE}}
+\index{RX\_CHANNEL\_2\_4\_ENABLE@{RX\_CHANNEL\_2\_4\_ENABLE}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{RX\_CHANNEL\_2\_4\_ENABLE}
+{\footnotesize\ttfamily \#define R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+2\+\_\+4\+\_\+\+E\+N\+A\+B\+LE~(\textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+2\+\_\+\+E\+N\+A\+B\+LE} $\vert$ \textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+4\+\_\+\+E\+N\+A\+B\+LE})}
+
+
+
+Definition at line 23 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a34be0aec490f2732881799d0ee9a666a}} 
+\index{device\_cfg.h@{device\_cfg.h}!RX\_CHANNEL\_2\_ENABLE@{RX\_CHANNEL\_2\_ENABLE}}
+\index{RX\_CHANNEL\_2\_ENABLE@{RX\_CHANNEL\_2\_ENABLE}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{RX\_CHANNEL\_2\_ENABLE}
+{\footnotesize\ttfamily \#define R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+2\+\_\+\+E\+N\+A\+B\+LE~(1U $<$$<$ 1U)}
+
+
+
+Definition at line 16 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a0b49e124bcc00ccd4b8b8661fac54732}} 
+\index{device\_cfg.h@{device\_cfg.h}!RX\_CHANNEL\_3\_4\_ENABLE@{RX\_CHANNEL\_3\_4\_ENABLE}}
+\index{RX\_CHANNEL\_3\_4\_ENABLE@{RX\_CHANNEL\_3\_4\_ENABLE}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{RX\_CHANNEL\_3\_4\_ENABLE}
+{\footnotesize\ttfamily \#define R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+3\+\_\+4\+\_\+\+E\+N\+A\+B\+LE~(\textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+3\+\_\+\+E\+N\+A\+B\+LE} $\vert$ \textbf{ R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+4\+\_\+\+E\+N\+A\+B\+LE})}
+
+
+
+Definition at line 24 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a79ac1810e146d970c2b63a673f72d2cc}} 
+\index{device\_cfg.h@{device\_cfg.h}!RX\_CHANNEL\_3\_ENABLE@{RX\_CHANNEL\_3\_ENABLE}}
+\index{RX\_CHANNEL\_3\_ENABLE@{RX\_CHANNEL\_3\_ENABLE}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{RX\_CHANNEL\_3\_ENABLE}
+{\footnotesize\ttfamily \#define R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+3\+\_\+\+E\+N\+A\+B\+LE~(1U $<$$<$ 2U)}
+
+
+
+Definition at line 17 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a1d11aeefd78d005acb87b764219a3d0b}} 
+\index{device\_cfg.h@{device\_cfg.h}!RX\_CHANNEL\_4\_ENABLE@{RX\_CHANNEL\_4\_ENABLE}}
+\index{RX\_CHANNEL\_4\_ENABLE@{RX\_CHANNEL\_4\_ENABLE}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{RX\_CHANNEL\_4\_ENABLE}
+{\footnotesize\ttfamily \#define R\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+4\+\_\+\+E\+N\+A\+B\+LE~(1U $<$$<$ 3U)}
+
+
+
+Definition at line 18 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a18acd357f55b477ebe646b62aa7b2850}} 
+\index{device\_cfg.h@{device\_cfg.h}!SPEED\_OF\_LIGHT\_IN\_METERS\_PER\_SEC@{SPEED\_OF\_LIGHT\_IN\_METERS\_PER\_SEC}}
+\index{SPEED\_OF\_LIGHT\_IN\_METERS\_PER\_SEC@{SPEED\_OF\_LIGHT\_IN\_METERS\_PER\_SEC}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{SPEED\_OF\_LIGHT\_IN\_METERS\_PER\_SEC}
+{\footnotesize\ttfamily \#define S\+P\+E\+E\+D\+\_\+\+O\+F\+\_\+\+L\+I\+G\+H\+T\+\_\+\+I\+N\+\_\+\+M\+E\+T\+E\+R\+S\+\_\+\+P\+E\+R\+\_\+\+S\+EC~(3.\+0e8)}
+
+
+
+Definition at line 135 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a3752bcaa979b853facfb28d2d9304003}} 
+\index{device\_cfg.h@{device\_cfg.h}!SPEED\_OF\_LIGHT\_IN\_METERS\_PER\_USEC@{SPEED\_OF\_LIGHT\_IN\_METERS\_PER\_USEC}}
+\index{SPEED\_OF\_LIGHT\_IN\_METERS\_PER\_USEC@{SPEED\_OF\_LIGHT\_IN\_METERS\_PER\_USEC}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{SPEED\_OF\_LIGHT\_IN\_METERS\_PER\_USEC}
+{\footnotesize\ttfamily \#define S\+P\+E\+E\+D\+\_\+\+O\+F\+\_\+\+L\+I\+G\+H\+T\+\_\+\+I\+N\+\_\+\+M\+E\+T\+E\+R\+S\+\_\+\+P\+E\+R\+\_\+\+U\+S\+EC~(3.\+0e2)}
+
+
+
+Definition at line 137 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a42e22cec858dac4023184d4df75d809c}} 
+\index{device\_cfg.h@{device\_cfg.h}!TX\_CHANNEL\_1\_2\_3\_ENABLE@{TX\_CHANNEL\_1\_2\_3\_ENABLE}}
+\index{TX\_CHANNEL\_1\_2\_3\_ENABLE@{TX\_CHANNEL\_1\_2\_3\_ENABLE}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{TX\_CHANNEL\_1\_2\_3\_ENABLE}
+{\footnotesize\ttfamily \#define T\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+1\+\_\+2\+\_\+3\+\_\+\+E\+N\+A\+B\+LE~(\textbf{ T\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+1\+\_\+\+E\+N\+A\+B\+LE} $\vert$ \textbf{ T\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+2\+\_\+\+E\+N\+A\+B\+LE} $\vert$ \textbf{ T\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+3\+\_\+\+E\+N\+A\+B\+LE})}
+
+
+
+Definition at line 12 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a99068d9e24e6eb2627b6dbe67d478688}} 
+\index{device\_cfg.h@{device\_cfg.h}!TX\_CHANNEL\_1\_2\_ENABLE@{TX\_CHANNEL\_1\_2\_ENABLE}}
+\index{TX\_CHANNEL\_1\_2\_ENABLE@{TX\_CHANNEL\_1\_2\_ENABLE}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{TX\_CHANNEL\_1\_2\_ENABLE}
+{\footnotesize\ttfamily \#define T\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+1\+\_\+2\+\_\+\+E\+N\+A\+B\+LE~(\textbf{ T\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+1\+\_\+\+E\+N\+A\+B\+LE} $\vert$ \textbf{ T\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+2\+\_\+\+E\+N\+A\+B\+LE})}
+
+
+
+Definition at line 9 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a5d8bf26c8ea66a0954f5a5200147c42e}} 
+\index{device\_cfg.h@{device\_cfg.h}!TX\_CHANNEL\_1\_3\_ENABLE@{TX\_CHANNEL\_1\_3\_ENABLE}}
+\index{TX\_CHANNEL\_1\_3\_ENABLE@{TX\_CHANNEL\_1\_3\_ENABLE}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{TX\_CHANNEL\_1\_3\_ENABLE}
+{\footnotesize\ttfamily \#define T\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+1\+\_\+3\+\_\+\+E\+N\+A\+B\+LE~(\textbf{ T\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+1\+\_\+\+E\+N\+A\+B\+LE} $\vert$ \textbf{ T\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+3\+\_\+\+E\+N\+A\+B\+LE})}
+
+
+
+Definition at line 11 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a84f31dd7303ec64f7a370ef20d7b909c}} 
+\index{device\_cfg.h@{device\_cfg.h}!TX\_CHANNEL\_1\_ENABLE@{TX\_CHANNEL\_1\_ENABLE}}
+\index{TX\_CHANNEL\_1\_ENABLE@{TX\_CHANNEL\_1\_ENABLE}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{TX\_CHANNEL\_1\_ENABLE}
+{\footnotesize\ttfamily \#define T\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+1\+\_\+\+E\+N\+A\+B\+LE~(1U $<$$<$ 0U)}
+
+
+
+Definition at line 6 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_af9de0bed35785a4220c040b9dbaa31bd}} 
+\index{device\_cfg.h@{device\_cfg.h}!TX\_CHANNEL\_2\_3\_ENABLE@{TX\_CHANNEL\_2\_3\_ENABLE}}
+\index{TX\_CHANNEL\_2\_3\_ENABLE@{TX\_CHANNEL\_2\_3\_ENABLE}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{TX\_CHANNEL\_2\_3\_ENABLE}
+{\footnotesize\ttfamily \#define T\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+2\+\_\+3\+\_\+\+E\+N\+A\+B\+LE~(\textbf{ T\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+2\+\_\+\+E\+N\+A\+B\+LE} $\vert$ \textbf{ T\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+3\+\_\+\+E\+N\+A\+B\+LE})}
+
+
+
+Definition at line 10 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a1377f45594cf96a7e35c6a81ec0e747d}} 
+\index{device\_cfg.h@{device\_cfg.h}!TX\_CHANNEL\_2\_ENABLE@{TX\_CHANNEL\_2\_ENABLE}}
+\index{TX\_CHANNEL\_2\_ENABLE@{TX\_CHANNEL\_2\_ENABLE}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{TX\_CHANNEL\_2\_ENABLE}
+{\footnotesize\ttfamily \#define T\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+2\+\_\+\+E\+N\+A\+B\+LE~(1U $<$$<$ 1U)}
+
+
+
+Definition at line 7 of file device\+\_\+cfg.\+h.
+
+\mbox{\label{device__cfg_8h_a5f961c7f484f830086be63944164ca54}} 
+\index{device\_cfg.h@{device\_cfg.h}!TX\_CHANNEL\_3\_ENABLE@{TX\_CHANNEL\_3\_ENABLE}}
+\index{TX\_CHANNEL\_3\_ENABLE@{TX\_CHANNEL\_3\_ENABLE}!device\_cfg.h@{device\_cfg.h}}
+\doxysubsubsection{TX\_CHANNEL\_3\_ENABLE}
+{\footnotesize\ttfamily \#define T\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+3\+\_\+\+E\+N\+A\+B\+LE~(1U $<$$<$ 2U)}
+
+
+
+Definition at line 8 of file device\+\_\+cfg.\+h.
+

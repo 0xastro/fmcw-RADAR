@@ -1,0 +1,135 @@
+mss in binary >>> xwr18xx_mmwave_minimal_mss.xer4f
+eth008 Board details:
+IP address: 10.218.113.62
+
+Port: 17494
+
+connecting...
+Relay states 8->1 : 00010101
+5 off
+7 off
+6 off
+Relay states 8->1 : 00000101
+5 on
+Relay states 8->1 : 00010101
+exit
+Disconnected
+Pre-Script returned: Success
+**************************************************
+Testcase mods & parameters invoked:
+**************************************************
+Two core test case: None (this is not a two core testcase)
+
+**************************************************
+Copying test case files from the Build server
+**************************************************
+Testdata possible location 1: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/control/mmwave/test/xwr18xx/testdata
+
+
+Testdata directory was not found on Testdata possible location 1
+
+
+Testdata possible location 2: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/control/mmwave/test/xwr18xx/minimal/testdata
+
+
+Testdata directory was not found on Testdata possible location 2
+
+Call to copy_testcase_binary:
+TCP: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/control/mmwave/test/xwr18xx/minimal; /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr18xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_02_17_52
+
+Copying testcase binary file from http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/control/mmwave/test/xwr18xx/minimal/xwr18xx_mmwave_minimal_mss.xer4f to /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr18xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_02_17_52 using command: 
+wget -e robots=off --no-proxy -N -T 30 -t 2 -P /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr18xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_02_17_52 http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/control/mmwave/test/xwr18xx/minimal/xwr18xx_mmwave_minimal_mss.xer4f
+**************************************************
+Executing Testcase:/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr18xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_02_17_52/xwr18xx_mmwave_minimal_mss.xer4f
+**************************************************
+Checking if Py4J Gateway server has started...
+Py4J Gateway Server is Started
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/DEBUGSSM_0
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/IcePick_M_0
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/C674X_0
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/CS_DAP_0
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/CortexR4_0
+DSS test case opening debug session.
+
+cr4ctl = 0xadad00
+
+efuse/register @0xFFFFE210 = 0x300002
+
+efuse/register @0xFFFFE214 = 0x1c0048d
+
+efuse/register @0xFFFFE218 = 0x12
+
+efuse/register @0xFFFFE21C = 0x32e
+
+Loading binary to the DUT:/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr18xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_02_17_52/xwr18xx_mmwave_minimal_mss.xer4f
+
+**************************************************
+ Parameters found in the Binary arguments : 
+{'gTestSelection(32)': '1'}
+**************************************************
+Reading address of symbol: gTestSelection
+Address of symbol obtained: 0x800da40
+Write value 1 to address 0x800da40 
+Value updated successfully
+binary path = /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr18xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_02_17_52/xwr18xx_mmwave_minimal_mss.xer4f
+
+dt-time: start time = Thu Nov 29 04:45:58 2018
+
+dt-time: end time = Thu Nov 29 04:46:22 2018
+
+
+**************************************************
+CIO Log captured for the testcase
+**************************************************
+*************************************************
+Enter the test to execute:
+1. [Isolation Mode]   MSS executes the mmWave link
+2. [Isolation Mode]   DSS executes the mmWave link
+3. [Cooperative Mode] MSS executes the mmWave link
+4. [Cooperative Mode] DSS executes the mmWave link
+*************************************************
+Enter your choice: Feature: MMWave MSS [Isolation Mode] Initialization: Passed
+Feature: MMWave MSS Synchronization: Passed
+Debug: BSS Event MsgId: 128 [Sub Block Id: 4100 Sub Block Length: 20]
+Feature: MMWave MSS Open: Passed
+Feature: MMWave Link Profile API Usage: Passed
+Feature: MMWave Link Chirp API Usage: Passed
+Feature: MMWave Link Frame API Usage: Passed
+Debug: BSS Event MsgId: 128 [Sub Block Id: 4114 Sub Block Length: 20]
+Feature: MMWave MSS Start: Passed
+Debug: BSS Event MsgId: 128 [Sub Block Id: 4107 Sub Block Length: 0]
+Feature: MMWave MSS Stop: Passed
+Feature: MMWave MSS Close: Passed
+Feature: MMWave MSS Close Callback: Passed
+Feature: MMWave MSS Deinitialized: Passed
+Debug: mmWave Unit Tests completed successfully
+Value read from Global variable (MCPI_Result): 0
+Test Failure Signature: 0
+Test Log Messages: 
+Feature tested: MMWave MSS [Isolation Mode] Initialization: Passed
+Feature tested: MMWave MSS Synchronization: Passed
+Feature tested: MMWave MSS Open: Passed
+Feature tested: MMWave Link Profile API Usage: Passed
+Feature tested: MMWave Link Chirp API Usage: Passed
+Feature tested: MMWave Link Frame API Usage: Passed
+Feature tested: MMWave MSS Start: Passed
+Feature tested: MMWave MSS Stop: Passed
+Feature tested: MMWave MSS Close: Passed
+Feature tested: MMWave MSS Close Callback: Passed
+Feature tested: MMWave MSS Deinitialized: Passed
+
+
+shutting down py4j gw server.
+
+
+**************************************************
+Terminating the debug session and Shutting down gateway.
+**************************************************
+
+**************************************************
+Test case execution completed
+**************************************************
+
+**************************************************
+Testcase Result : PASS
+**************************************************

@@ -1,0 +1,1858 @@
+.TH "C:/Users/astro/workspace_v9_2/mrr_18xx_dss/dss_data_path.c" 3 "Wed May 20 2020" "Version 1.0" "mmWaveFMCWRADAR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/Users/astro/workspace_v9_2/mrr_18xx_dss/dss_data_path.c \- Implements Data path processing functionality\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdint\&.h>\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include <stddef\&.h>\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <math\&.h>\fP
+.br
+\fC#include <xdc/std\&.h>\fP
+.br
+\fC#include <xdc/cfg/global\&.h>\fP
+.br
+\fC#include <xdc/runtime/IHeap\&.h>\fP
+.br
+\fC#include <xdc/runtime/System\&.h>\fP
+.br
+\fC#include <xdc/runtime/Error\&.h>\fP
+.br
+\fC#include <xdc/runtime/Memory\&.h>\fP
+.br
+\fC#include <ti/sysbios/BIOS\&.h>\fP
+.br
+\fC#include <ti/sysbios/knl/Task\&.h>\fP
+.br
+\fC#include <ti/sysbios/knl/Event\&.h>\fP
+.br
+\fC#include <ti/sysbios/knl/Semaphore\&.h>\fP
+.br
+\fC#include <ti/sysbios/knl/Clock\&.h>\fP
+.br
+\fC#include <ti/sysbios/heaps/HeapBuf\&.h>\fP
+.br
+\fC#include <ti/sysbios/heaps/HeapMem\&.h>\fP
+.br
+\fC#include <ti/drivers/osal/DebugP\&.h>\fP
+.br
+\fC#include <assert\&.h>\fP
+.br
+\fC#include <ti/common/sys_common\&.h>\fP
+.br
+\fC#include <ti/drivers/osal/SemaphoreP\&.h>\fP
+.br
+\fC#include <ti/drivers/edma/edma\&.h>\fP
+.br
+\fC#include <ti/drivers/esm/esm\&.h>\fP
+.br
+\fC#include <ti/drivers/soc/soc\&.h>\fP
+.br
+\fC#include <ti/utils/cycleprofiler/cycle_profiler\&.h>\fP
+.br
+\fC#include <ti/alg/mmwavelib/mmwavelib\&.h>\fP
+.br
+\fC#include 'gen_twiddle_fft32x32\&.h'\fP
+.br
+\fC#include 'gen_twiddle_fft16x16\&.h'\fP
+.br
+\fC#include 'DSP_fft32x32\&.h'\fP
+.br
+\fC#include 'DSP_fft16x16\&.h'\fP
+.br
+\fC#include <ti/mathlib/mathlib\&.h>\fP
+.br
+\fC#include '\&.\&./common/mrr_config_consts\&.h'\fP
+.br
+\fC#include 'dss_data_path\&.h'\fP
+.br
+\fC#include 'dss_config_edma_util\&.h'\fP
+.br
+\fC#include 'clusteringDBscan\&.h'\fP
+.br
+\fC#include 'EKF_XYZ_Interface\&.h'\fP
+.br
+\fC#include 'dss_mrr\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBDebugP_ASSERT_ENABLED\fP   1"
+.br
+.ti -1c
+.RI "#define \fBROUND\fP(x)   ((x) < 0 ? ((x) \- 0\&.5) : ((x) + 0\&.5) )"
+.br
+.ti -1c
+.RI "#define \fBSOC_XWR18XX_DSS_L3RAM_SIZE\fP   0x100000"
+.br
+.ti -1c
+.RI "#define \fBMMW_ADCBUF_SIZE\fP   0x4000U"
+.br
+.ti -1c
+.RI "#define \fBMMW_L2_HEAP_SIZE\fP   0x19000U"
+.br
+.RI "L2 heap used for allocating buffers in L2 SRAM, mostly scratch buffers\&. "
+.ti -1c
+.RI "#define \fBMMW_L1_HEAP_SIZE\fP   0x4000U"
+.br
+.RI "L1 heap used for allocating buffers in L1D SRAM, mostly scratch buffers\&. "
+.ti -1c
+.RI "#define \fBFFT_WINDOW_INT16\fP   0"
+.br
+.ti -1c
+.RI "#define \fBFFT_WINDOW_INT32\fP   1"
+.br
+.ti -1c
+.RI "#define \fBMMW_WIN_HAMMING\fP   0"
+.br
+.ti -1c
+.RI "#define \fBMMW_WIN_BLACKMAN\fP   1"
+.br
+.ti -1c
+.RI "#define \fBMMW_WIN_RECT\fP   2"
+.br
+.ti -1c
+.RI "#define \fBMMW_WIN_HANNING_RECT\fP   3"
+.br
+.ti -1c
+.RI "#define \fBROUNDF\fP(x)   ((x) < 0 ? ((x) \- 0\&.5f) : ((x) + 0\&.5f) )"
+.br
+.ti -1c
+.RI "#define \fBpingPongId\fP(x)   ((x) & 0x1U)"
+.br
+.ti -1c
+.RI "#define \fBisPong\fP(x)   (\fBpingPongId\fP(x))"
+.br
+.ti -1c
+.RI "#define \fBSOC_MAX_NUM_RX_ANTENNAS\fP   4"
+.br
+.ti -1c
+.RI "#define \fBSOC_MAX_NUM_TX_ANTENNAS\fP   3"
+.br
+.ti -1c
+.RI "#define \fBALIGN\fP(x,  a)   (((x)+((a)\-1))&~((a)\-1))"
+.br
+.ti -1c
+.RI "#define \fBMMW_ALLOC_BUF\fP(name,  nameType,  startAddr,  alignment,  size)"
+.br
+.ti -1c
+.RI "#define \fBN_HYPOTHESIS\fP   ((2 * (\fBMAX_VEL_ENH_NUM_NYQUIST\fP \- 1)) + 1)"
+.br
+.ti -1c
+.RI "#define \fBTWENTY_TWO_DB_DOPPLER_SNR\fP   ((22 *(256))/6)"
+.br
+.ti -1c
+.RI "#define \fBEIGHTEEN_DB_DOPPLER_SNR\fP   ((18 *(256))/6)"
+.br
+.ti -1c
+.RI "#define \fBZERO_POINT_FIVE_METERS\fP   (0\&.5f * 128)"
+.br
+.ti -1c
+.RI "#define \fBFOUR_POINT_ZERO_METERS\fP   (4 * 128)"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBMmwDemo_genWindow\fP (void *win, uint32_t windowDatumType, uint32_t winLen, uint32_t winGenLen, int32_t oneQformat, uint32_t winType)"
+.br
+.ti -1c
+.RI "int16_t \fBdisambiguateVel\fP (uint16_t *restrict sumAbs, float fastChirpVel, uint16_t fastChirpPeakVal, \fBMmwDemo_DSS_DataPathObj\fP *obj)"
+.br
+.ti -1c
+.RI "uint32_t \fBfindKLargestPeaks\fP (uint16_t *restrict cfarDetObjIndexBuf, uint16_t *restrict cfarDetObjSNR, uint32_t numDetObjPerCfar, uint16_t *restrict sumAbs, uint16_t numBins, uint16_t K)"
+.br
+.ti -1c
+.RI "uint32_t \fBpruneToPeaks\fP (uint16_t *restrict cfarDetObjIndexBuf, uint16_t *restrict cfarDetObjSNR, uint32_t numDetObjPerCfar, uint16_t *restrict sumAbs, uint16_t numBins)"
+.br
+.ti -1c
+.RI "uint32_t \fBpruneToPeaksOrNeighbourOfPeaks\fP (uint16_t *restrict cfarDetObjIndexBuf, uint16_t *restrict cfarDetObjSNR, uint32_t numDetObjPerCfar, uint16_t *restrict sumAbs, uint16_t numBins)"
+.br
+.ti -1c
+.RI "uint32_t \fBfindandPopulateIntersectionOfDetectedObjects\fP (\fBMmwDemo_DSS_DataPathObj\fP *restrict obj, uint32_t numDetObjPerCfar, uint16_t dopplerLine, uint32_t numDetObj2D, uint16_t *restrict sumAbsRange)"
+.br
+.ti -1c
+.RI "uint32_t \fBfindandPopulateDetectedObjects\fP (\fBMmwDemo_DSS_DataPathObj\fP *restrict obj, uint32_t numDetObjPerCfar, uint16_t dopplerLine, uint32_t numDetObj2D, uint16_t *restrict sumAbsRange)"
+.br
+.ti -1c
+.RI "uint32_t \fBMmwDemo_cfarPeakGrouping\fP (\fBMmwDemo_detectedObjActual\fP *objOut, uint32_t numDetectedObjects, uint16_t *detMatrix, uint32_t numRangeBins, uint32_t numDopplerBins, uint32_t groupInDopplerDirection, uint32_t groupInRangeDirection)"
+.br
+.ti -1c
+.RI "uint32_t \fBsecondDimFFTandLog2Computation\fP (\fBMmwDemo_DSS_DataPathObj\fP *obj, uint16_t *sumAbs, uint16_t checkDetMatrixTx, uint16_t rangeIdx, uint32_t *pingPongIdxPtr)"
+.br
+.ti -1c
+.RI "uint32_t \fBcfarCa_SO_dBwrap_withSNR\fP (const uint16_t inp[restrict], uint16_t out[restrict], uint16_t outSNR[restrict], uint32_t len, uint32_t const1, uint32_t const2, uint32_t guardLen, uint32_t noiseLen)"
+.br
+.RI "Function Name : cfarCa_SO_dBwrap_withSNR\&. "
+.ti -1c
+.RI "uint32_t \fBcfarCadB_SO_withSNR\fP (const uint16_t inp[restrict], uint16_t out[restrict], uint16_t outSNR[restrict], uint32_t len, uint32_t const1, uint32_t const2, uint32_t guardLen, uint32_t noiseLen, uint32_t minIndxToIgnoreHPF)"
+.br
+.RI "Function Name : cfarCadB_SO_withSNR\&. "
+.ti -1c
+.RI "uint32_t \fBaziEleProcessing\fP (\fBMmwDemo_DSS_DataPathObj\fP *obj, uint32_t subframeIndx)"
+.br
+.ti -1c
+.RI "uint16_t \fBcomputeSinAzimSNR\fP (float *azimuthMagSqr, uint16_t azimIdx, uint16_t numVirtualAntAzim, uint16_t numAngleBins, uint16_t xyzOutputQFormat)"
+.br
+.ti -1c
+.RI "float \fBantilog2\fP (int32_t inputActual, uint16_t fracBitIn)"
+.br
+.ti -1c
+.RI "void \fBassociateClustering\fP (\fBclusteringDBscanOutput_t\fP *restrict output, \fBclusteringDBscanReport_t\fP *restrict state, uint16_t maxNumTrackers, int32_t epsilon2, int32_t vFactor)"
+.br
+.ti -1c
+.RI "uint32_t \fBcfarPeakGroupingAlongDoppler\fP (\fBMmwDemo_objRaw2D_t\fP *restrict objOut, uint32_t numDetectedObjects, uint16_t *detMatrix, uint32_t numRangeBins, uint32_t numDopplerBins)"
+.br
+.ti -1c
+.RI "void \fBpopulateOutputs\fP (\fBMmwDemo_DSS_DataPathObj\fP *obj)"
+.br
+.ti -1c
+.RI "uint32_t \fBpruneTrackingInput\fP (\fBtrackingInputReport_t\fP *trackingInput, uint32_t numCluster)"
+.br
+.ti -1c
+.RI "float \fBquadraticInterpFltPeakLoc\fP (float *restrict y, int32_t len, int32_t indx)"
+.br
+.ti -1c
+.RI "float \fBquadraticInterpLog2ShortPeakLoc\fP (uint16_t *restrict y, int32_t len, int32_t indx, uint16_t fracBitIn)"
+.br
+.ti -1c
+.RI "void \fBMmwDemo_XYcalc\fP (\fBMmwDemo_DSS_DataPathObj\fP *obj, uint32_t objIndex, uint16_t azimIdx, float *azimuthMagSqr)"
+.br
+.ti -1c
+.RI "void \fBMmwDemo_addDopplerCompensation\fP (int32_t dopplerIdx, int32_t numDopplerBins, uint32_t *azimuthModCoefs, uint32_t *azimuthModCoefsThirdBin, uint32_t *azimuthModCoefsTwoThirdBin, int64_t *azimuthIn, uint32_t numAnt, uint32_t numTxAnt, uint16_t txAntIdx)"
+.br
+.RI "Function Name : MmwDemo_DopplerCompensation\&. "
+.ti -1c
+.RI "uint8_t \fBselect_channel\fP (uint8_t subframeIndx, uint8_t \fBpingPongId\fP, uint8_t option0ping, uint8_t option1ping, uint8_t option0pong, uint8_t option1pong)"
+.br
+.ti -1c
+.RI "void \fBMmwDemo_startDmaTransfer\fP (EDMA_Handle handle, uint8_t channelId0, uint8_t channelId1, uint8_t subframeIndx)"
+.br
+.ti -1c
+.RI "void \fBMmwDemo_resetDopplerLines\fP (\fBMmwDemo_1D_DopplerLines_t\fP *ths)"
+.br
+.ti -1c
+.RI "void \fBMmwDemo_setDopplerLine\fP (\fBMmwDemo_1D_DopplerLines_t\fP *ths, uint16_t dopplerIndex)"
+.br
+.ti -1c
+.RI "uint32_t \fBMmwDemo_isSetDopplerLine\fP (\fBMmwDemo_1D_DopplerLines_t\fP *ths, uint16_t index)"
+.br
+.ti -1c
+.RI "int32_t \fBMmwDemo_getDopplerLine\fP (\fBMmwDemo_1D_DopplerLines_t\fP *ths)"
+.br
+.ti -1c
+.RI "uint32_t \fBMmwDemo_pow2roundup\fP (uint32_t x)"
+.br
+.ti -1c
+.RI "void \fBMmwDemo_XYestimation\fP (\fBMmwDemo_DSS_DataPathObj\fP *obj, uint32_t objIndex)"
+.br
+.ti -1c
+.RI "void \fBMmwDemo_XYZestimation\fP (\fBMmwDemo_DSS_DataPathObj\fP *obj, uint32_t objIndex)"
+.br
+.ti -1c
+.RI "void \fBMmwDemo_dataPathWait1DInputData\fP (\fBMmwDemo_DSS_DataPathObj\fP *obj, uint32_t \fBpingPongId\fP, uint32_t subframeIndx)"
+.br
+.ti -1c
+.RI "void \fBMmwDemo_dataPathWait1DOutputData\fP (\fBMmwDemo_DSS_DataPathObj\fP *obj, uint32_t \fBpingPongId\fP, uint32_t subframeIndx)"
+.br
+.ti -1c
+.RI "void \fBMmwDemo_dataPathWait2DInputData\fP (\fBMmwDemo_DSS_DataPathObj\fP *obj, uint32_t \fBpingPongId\fP, uint32_t subframeIndx)"
+.br
+.ti -1c
+.RI "void \fBMmwDemo_dataPathWait3DInputData\fP (\fBMmwDemo_DSS_DataPathObj\fP *obj, uint32_t \fBpingPongId\fP, uint32_t subframeIndx)"
+.br
+.ti -1c
+.RI "void \fBMmwDemo_dataPathWaitTransDetMatrix\fP (\fBMmwDemo_DSS_DataPathObj\fP *obj, uint8_t subframeIndx)"
+.br
+.ti -1c
+.RI "void \fBMmwDemo_dataPathWaitTransDetMatrix2\fP (\fBMmwDemo_DSS_DataPathObj\fP *obj, uint32_t subframeIndx)"
+.br
+.ti -1c
+.RI "int32_t \fBMmwDemo_dataPathConfigEdma\fP (\fBMmwDemo_DSS_DataPathObj\fP *obj)"
+.br
+.ti -1c
+.RI "uint32_t \fBrangeBasedPruning\fP (\fBMmwDemo_detectedObjActual\fP *restrict objOut, \fBMmwDemo_objRaw2D_t\fP *restrict objRaw, \fBRangeDependantThresh_t\fP *restrict SNRThresh, \fBRangeDependantThresh_t\fP *restrict peakValThresh, uint32_t numDetectedObjects, uint32_t numDopplerBins, uint32_t maxRange, uint32_t minRange)"
+.br
+.ti -1c
+.RI "void \fBMmwDemo_magnitudeSquared\fP (cmplx32ReIm_t *restrict inpBuff, float *restrict magSqrdBuff, uint32_t numSamples)"
+.br
+.ti -1c
+.RI "void \fBMmwDemo_dcRangeSignatureCompensation\fP (\fBMmwDemo_DSS_DataPathObj\fP *obj, uint8_t chirpPingPongId)"
+.br
+.ti -1c
+.RI "void \fBMmwDemo_interChirpProcessing\fP (\fBMmwDemo_DSS_DataPathObj\fP *obj, uint32_t chirpPingPongId, uint8_t subframeIndx)"
+.br
+.ti -1c
+.RI "void \fBMmwDemo_interFrameProcessing\fP (\fBMmwDemo_DSS_DataPathObj\fP *obj, uint8_t subframeIndx)"
+.br
+.ti -1c
+.RI "void \fBMmwDemo_processChirp\fP (\fBMmwDemo_DSS_DataPathObj\fP *obj, uint8_t subframeIndx)"
+.br
+.ti -1c
+.RI "void \fBMmwDemo_waitEndOfChirps\fP (\fBMmwDemo_DSS_DataPathObj\fP *obj, uint8_t subframeIndx)"
+.br
+.ti -1c
+.RI "void \fBcalc_cmplx_exp\fP (cmplx16ImRe_t *dftSinCos, float i, uint32_t dftLen)"
+.br
+.ti -1c
+.RI "void \fBMmwDemo_genDftSinCosTable\fP (cmplx16ImRe_t *dftSinCosTable, cmplx16ImRe_t *dftHalfBinVal, cmplx16ImRe_t *dftThirdBinVal, cmplx16ImRe_t *dftTwoThirdBinVal, uint32_t dftLen)"
+.br
+.ti -1c
+.RI "void \fBMmwDemo_edmaErrorCallbackFxn\fP (EDMA_Handle handle, EDMA_errorInfo_t *errorInfo)"
+.br
+.ti -1c
+.RI "void \fBMmwDemo_edmaTransferControllerErrorCallbackFxn\fP (EDMA_Handle handle, EDMA_transferControllerErrorInfo_t *errorInfo)"
+.br
+.ti -1c
+.RI "void \fBMmwDemo_dataPathInit1Dstate\fP (\fBMmwDemo_DSS_DataPathObj\fP *obj)"
+.br
+.ti -1c
+.RI "int32_t \fBMmwDemo_dataPathInitEdma\fP (\fBMmwDemo_DSS_DataPathObj\fP *obj)"
+.br
+.ti -1c
+.RI "int32_t \fBMmwDemo_dataPathCopyEdmaHandle\fP (\fBMmwDemo_DSS_DataPathObj\fP *objOutput, \fBMmwDemo_DSS_DataPathObj\fP *objInput)"
+.br
+.ti -1c
+.RI "void \fBMmwDemo_printHeapStats\fP (char *name, uint32_t heapUsed, uint32_t heapSize)"
+.br
+.ti -1c
+.RI "void \fBMmwDemo_dataPathConfigBuffers\fP (\fBMmwDemo_DSS_DataPathObj\fP *objIn, uint32_t adcBufAddress)"
+.br
+.ti -1c
+.RI "void \fBMmwDemo_dataPathConfigFFTs\fP (\fBMmwDemo_DSS_DataPathObj\fP *obj)"
+.br
+.ti -1c
+.RI "uint32_t \fBsecondDimFFTandLog2Computation\fP (\fBMmwDemo_DSS_DataPathObj\fP *restrict obj, uint16_t *restrict sumAbs, uint16_t checkDetMatrixTx, uint16_t rangeIdx, uint32_t *pingPongIdxPtr)"
+.br
+.ti -1c
+.RI "uint32_t \fBcfarPeakGroupingAlongDoppler\fP (\fBMmwDemo_objRaw2D_t\fP *restrict objOut, uint32_t numDetectedObjects, uint16_t *restrict detMatrix, uint32_t numRangeBins, uint32_t numDopplerBins)"
+.br
+.ti -1c
+.RI "float \fBconvertSNRdBToVar\fP (uint16_t SNRdB, uint16_t bitW, uint16_t n_samples, float resolution)"
+.br
+.ti -1c
+.RI "float \fBconvertSNRLinToVar\fP (uint16_t SNRLin, uint16_t bitW, uint16_t n_samples, float resolution)"
+.br
+.ti -1c
+.RI "void \fBMmwDemo_XYZcalc\fP (\fBMmwDemo_DSS_DataPathObj\fP *obj, uint32_t objIndex, uint16_t azimIdx, float *azimuthMagSqr)"
+.br
+.ti -1c
+.RI "void \fBparkingAssistInit\fP (\fBMmwDemo_DSS_DataPathObj\fP *obj)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "uint8_t \fBgMmwL3\fP [\fBSOC_XWR18XX_DSS_L3RAM_SIZE\fP]"
+.br
+.ti -1c
+.RI "uint8_t \fBgMmwL2\fP [\fBMMW_L2_HEAP_SIZE\fP]"
+.br
+.ti -1c
+.RI "uint8_t \fBgMmwL1\fP [\fBMMW_L1_HEAP_SIZE\fP]"
+.br
+.ti -1c
+.RI "\fBMrr_DSS_MCB\fP \fBgMrrDSSMCB\fP"
+.br
+.RI "Global Variable for tracking information required by the design\&. "
+.ti -1c
+.RI "volatile \fBcycleLog_t\fP \fBgCycleLog\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Implements Data path processing functionality\&. 
+
+
+.PP
+\fB\fP
+.RS 4
+NOTE: (C) Copyright 2018 Texas Instruments, Inc\&.
+.RE
+.PP
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+.PP
+Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer\&.
+.PP
+Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution\&.
+.PP
+Neither the name of Texas Instruments Incorporated nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission\&.
+.PP
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED\&. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE\&. 
+.PP
+Definition in file \fBdss_data_path\&.c\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define ALIGN(x, a)   (((x)+((a)\-1))&~((a)\-1))"
+
+.SS "#define DebugP_ASSERT_ENABLED   1"
+
+.PP
+Definition at line 70 of file dss_data_path\&.c\&.
+.SS "#define EIGHTEEN_DB_DOPPLER_SNR   ((18 *(256))/6)"
+
+.PP
+Definition at line 4626 of file dss_data_path\&.c\&.
+.SS "#define FFT_WINDOW_INT16   0"
+Types of FFT window
+.PP
+FFT window 16 - samples format is int16_t 
+.PP
+Definition at line 140 of file dss_data_path\&.c\&.
+.SS "#define FFT_WINDOW_INT32   1"
+FFT window 32 - samples format is int32_t 
+.PP
+Definition at line 142 of file dss_data_path\&.c\&.
+.SS "#define FOUR_POINT_ZERO_METERS   (4 * 128)"
+
+.PP
+Definition at line 4628 of file dss_data_path\&.c\&.
+.SS "#define isPong(x)   (\fBpingPongId\fP(x))"
+
+.PP
+Definition at line 159 of file dss_data_path\&.c\&.
+.SS "#define MMW_ADCBUF_SIZE   0x4000U"
+
+.PP
+Definition at line 113 of file dss_data_path\&.c\&.
+.SS "#define MMW_ALLOC_BUF(name, nameType, startAddr, alignment, size)"
+\fBValue:\fP
+.PP
+.nf
+obj->name = (nameType *) ALIGN(startAddr, alignment); \
+                uint32_t name##_end = (uint32_t)obj->name + (size) * sizeof(nameType);
+.fi
+.SS "#define MMW_L1_HEAP_SIZE   0x4000U"
+
+.PP
+L1 heap used for allocating buffers in L1D SRAM, mostly scratch buffers\&. 
+.PP
+Definition at line 121 of file dss_data_path\&.c\&.
+.SS "#define MMW_L2_HEAP_SIZE   0x19000U"
+
+.PP
+L2 heap used for allocating buffers in L2 SRAM, mostly scratch buffers\&. 
+.PP
+Definition at line 117 of file dss_data_path\&.c\&.
+.SS "#define MMW_WIN_BLACKMAN   1"
+Blackman window 
+.PP
+Definition at line 148 of file dss_data_path\&.c\&.
+.SS "#define MMW_WIN_HAMMING   0"
+Hamming window 
+.PP
+Definition at line 146 of file dss_data_path\&.c\&.
+.SS "#define MMW_WIN_HANNING_RECT   3"
+rectangularized Hanning window 
+.PP
+Definition at line 152 of file dss_data_path\&.c\&.
+.SS "#define MMW_WIN_RECT   2"
+Rectangular window 
+.PP
+Definition at line 150 of file dss_data_path\&.c\&.
+.SS "#define N_HYPOTHESIS   ((2 * (\fBMAX_VEL_ENH_NUM_NYQUIST\fP \- 1)) + 1)"
+\fBDescription\fP 
+.br
+The MRR subframe achieves a maximum unambiguous velocity of 90kmph by using signal processing techniques that help disambiguate velocity\&. This method works by using two different estimates of velocity from the two kinds of chirps (‘fast chirps’ and ‘slow chirps’) transmitted in the MRR subframe\&. If the two velocity estimates do not agree, then velocity disambiguation is necessary\&. To disambiguate it is necessary to rationalize the two velocity measurements, and find out the disambiguation factor, k\&. If the naive maximum unambiguous velocity of the 'fast chirp' is v_f, and that of the 'slow chirp' is v_s\&. Then after the disambiguation process, the disambiguated velocity would 〖2kv〗_f+v, where v is the naïve estimated velocity from the ‘fast chirps’\&.
+.PP
+The disambiguation process works by using the 'fast chirp' velocity to compute different disambiguated velocity hypotheses\&. This is done by taking the 'fast chirp' velocity and adding 2k v_f, where k ∈ {-1,0,1} (an unwrapping process on the velocity estimate)\&. These hypotheses are then converted to indices of the 'slow chirp' by finding the equivalent estimated velocities in the 'slow chirp' configuration ( essentially, undoing the unwrapping using v_s as the maximum unambiguous velocity)\&.
+.PP
+If the index corresponding to one of the hypotheses has significant energy, then that hypothesis is considered to be valid\&. Disambiguation of up to 3x of the naive max-velocity is possible with this method, however, testing has only been done up to 90 kmph\&. 
+.br
+.PP
+\fBParameters\fP
+.RS 4
+\fIsumAbs\fP The slow chirps doppler bins at a certain range\&. 
+.br
+ 
+.br
+\fIfastChirpVel\fP The velocity estimate using the fast chirps (pre-disambiguation)\&. 
+.br
+ 
+.br
+\fIfastChirpPeakVal\fP The peak value of the index of the detected object from the fast chirp\&. 
+.br
+\fIobj\fP data path object\&.
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fIAmbiguity\fP index\&. 
+.RE
+.PP
+
+.PP
+Definition at line 3381 of file dss_data_path\&.c\&.
+.SS "#define pingPongId(x)   ((x) & 0x1U)"
+
+.PP
+Definition at line 158 of file dss_data_path\&.c\&.
+.SS "#define ROUND(x)   ((x) < 0 ? ((x) \- 0\&.5) : ((x) + 0\&.5) )"
+
+.PP
+Definition at line 109 of file dss_data_path\&.c\&.
+.SS "#define ROUNDF(x)   ((x) < 0 ? ((x) \- 0\&.5f) : ((x) + 0\&.5f) )"
+simple rounding function for float 
+.PP
+Definition at line 154 of file dss_data_path\&.c\&.
+.SS "#define SOC_MAX_NUM_RX_ANTENNAS   4"
+\fBDescription\fP 
+.br
+ This function assigns memory locations to the different data buffers used in the MRR design\&.
+.PP
+Processing radar signals require a large number of scratch buffers for each step each of the processing stages (be it 1D-FFT, 2D-FFT, 3D-FFT, detection, angle estimation etc\&. However, since these stages occur serially, the memory assigned to a scratch buffer used in a previous stage can be re-used in the current stage\&. The Macro MMW_ALLOC_BUF in the following code allows specifying the start addresses such that the memory locations can be overlaid for efficient memory utilization\&.
+.PP
+In the MRR TI Design, there are two sub-frames per frame, and both sub-frames are processed separately\&. Therefore, nearly every scratch buffer memory location can be overlaid between the two\&. The allocation code is called twice to allocate memory for both sub-frames\&.
+.PP
+Certain memory locations are only necessary for a given processing path and are left unassigned for different programming paths\&.
+.PP
+Memory locations that correspond to the windowing functions, and twiddle factors, and estimated mean chirp need to be saved between sub-frames and as such cannot be overlaid\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP data path object\&.
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fIna\&.\fP 
+.RE
+.PP
+
+.PP
+Definition at line 2340 of file dss_data_path\&.c\&.
+.SS "#define SOC_MAX_NUM_TX_ANTENNAS   3"
+
+.PP
+Definition at line 2341 of file dss_data_path\&.c\&.
+.SS "#define SOC_XWR18XX_DSS_L3RAM_SIZE   0x100000"
+
+.PP
+Definition at line 111 of file dss_data_path\&.c\&.
+.SS "#define TWENTY_TWO_DB_DOPPLER_SNR   ((22 *(256))/6)"
+\fBDescription\fP 
+.br
+ The function populates the object location arrays for transmission to MSS\&. The reason we do this additional step is to minimize the size of the the transmission because it shouldn't saturate the hold only the minimum information necessary for the external GUI are populated\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP data path object\&.
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fInone\fP 
+.RE
+.PP
+
+.PP
+Definition at line 4625 of file dss_data_path\&.c\&.
+.SS "#define ZERO_POINT_FIVE_METERS   (0\&.5f * 128)"
+
+.PP
+Definition at line 4627 of file dss_data_path\&.c\&.
+.SH "Function Documentation"
+.PP 
+.SS "float antilog2 (int32_t inputActual, uint16_t fracBitIn)"
+\fBDescription\fP 
+.br
+ The function computes an antilog2 on the input which has a0 specified bitwidth\&. 
+.br
+ 
+.PP
+\fBParameters\fP
+.RS 4
+\fIinput\fP 16 bit input with specified bitwidth\&. 
+.br
+\fIfracBitIn\fP input fractional bitwidth\&.
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fI2^(input/(2^fracBitIn))\fP 
+.RE
+.PP
+
+.PP
+Definition at line 4212 of file dss_data_path\&.c\&.
+.SS "void associateClustering (\fBclusteringDBscanOutput_t\fP *restrict output, \fBclusteringDBscanReport_t\fP *restrict state, uint16_t maxNumClusters, int32_t epsilon2, int32_t vFactor)"
+\fBDescription\fP 
+.br
+ The function performs an association between the pre-existing clusters and the new clusters, with the intent that the cluster sizes are filtered\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIoutput\fP The output of the clustering algorithm\&. 
+.br
+\fIstate\fP The previous clustering output\&. 
+.br
+\fImaxNumTrackers\fP The maximum number of trackers\&. 
+.br
+\fIepsilon2\fP distance metric param for association\&.
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fInone\fP 
+.RE
+.PP
+
+.PP
+Definition at line 4499 of file dss_data_path\&.c\&.
+.SS "uint32_t aziEleProcessing (\fBMmwDemo_DSS_DataPathObj\fP * obj, uint32_t subframeIndx)"
+\fBDescription\fP 
+.br
+ The function performs the third dimension processing, including the computation of the azimuth, and the x and y co-ordinate\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIinput\fP data path object\&.
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fInone\fP 
+.RE
+.PP
+Azimuth calculation
+.PP
+Definition at line 4234 of file dss_data_path\&.c\&.
+.SS "void calc_cmplx_exp (cmplx16ImRe_t * dftSinCos, float i, uint32_t dftLen)"
+
+.PP
+Definition at line 2101 of file dss_data_path\&.c\&.
+.SS "uint32_t cfarCa_SO_dBwrap_withSNR (const uint16_t inp[restrict], uint16_t out[restrict], uint16_t outSNR[restrict], uint32_t len, uint32_t const1, uint32_t const2, uint32_t guardLen, uint32_t noiseLen)"
+
+.PP
+Function Name : cfarCa_SO_dBwrap_withSNR\&. 
+.PP
+ 
+.PP
+\fB\fP
+.RS 4
+\fBDescription\fP : Performs a CFAR on an 16-bit unsigned input vector (CFAR-CA)\&. The input values are assumed to be in logarithmic scale\&. So the comparison between the CUT and the noise samples is additive rather than multiplicative\&. Comparison is two-sided (wrap around when needed) for all CUTs\&.
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIinp\fP : input array (16 bit unsigned numbers) 
+.br
+\fIout\fP : output array (indices of detected peaks (zero based counting)) 
+.br
+\fIoutSNR\fP : SNR array (SNR of detected peaks) 
+.br
+\fIlen\fP : number of elements in input array 
+.br
+\fIconst1,const2\fP : used to compare the Cell Under Test (CUT) to the sum of the noise cells: [noise sum /(2^(const2))] +const1 for two sided comparison\&. 
+.br
+\fIguardLen\fP : one sided guard length 
+.br
+\fInoiseLen\fP : one sided Noise length
+.br
+\fIout\fP : output array with indices of the detected peaks
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Number of detected peaks (i\&.e length of out)
+.RE
+.PP
+\fBPrecondition\fP
+.RS 4
+Input (inp) and Output (out) arrays are non-aliased\&. 
+.RE
+.PP
+
+.PP
+Definition at line 3721 of file dss_data_path\&.c\&.
+.SS "uint32_t cfarCadB_SO_withSNR (const uint16_t inp[restrict], uint16_t out[restrict], uint16_t outSNR[restrict], uint32_t len, uint32_t const1, uint32_t const2, uint32_t guardLen, uint32_t noiseLen, uint32_t minIndxToIgnoreHPF)"
+
+.PP
+Function Name : cfarCadB_SO_withSNR\&. 
+.PP
+ 
+.PP
+\fB\fP
+.RS 4
+\fBDescription\fP : Performs a CFAR SO on an 16-bit unsigned input vector\&. The input values are assumed to be in lograthimic scale\&. So the comparision between the CUT and the noise samples is additive rather than multiplicative\&.
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIinp\fP : input array (16 bit unsigned numbers) 
+.br
+\fIout\fP : output array (indices of detected peaks (zero based counting)) 
+.br
+\fIoutSNR\fP : output array (SNR of detected peaks) 
+.br
+\fIlen\fP : number of elements in input array 
+.br
+\fIconst1,const2\fP : used to compare the Cell Under Test (CUT) to the sum of the noise cells: [noise sum /(2^(const2-1))]+const1 for one sided comparison (at the begining and end of the input vector)\&. [noise sum /(2^(const2))]+const1 for two sided comparison 
+.br
+\fIguardLen\fP : one sided guard length 
+.br
+\fInoiseLen\fP : one sided noise length 
+.br
+\fIminIndxToIgnoreHPF\fP : the number of indices to force one sided CFAR, so as to avoid false detections due to effect of the HPF\&. 
+.br
+\fIout\fP : output array with indices of the detected peaks
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Number of detected peaks (i\&.e length of out)
+.RE
+.PP
+\fBPrecondition\fP
+.RS 4
+Input (inp) and Output (out) arrays are non-aliased\&. 
+.RE
+.PP
+
+.PP
+Definition at line 3575 of file dss_data_path\&.c\&.
+.SS "uint32_t cfarPeakGroupingAlongDoppler (\fBMmwDemo_objRaw2D_t\fP *restrict objOut, uint32_t numDetectedObjects, uint16_t * detMatrix, uint32_t numRangeBins, uint32_t numDopplerBins)"
+
+.SS "uint32_t cfarPeakGroupingAlongDoppler (\fBMmwDemo_objRaw2D_t\fP *restrict objOut, uint32_t numDetectedObjects, uint16_t *restrict detMatrix, uint32_t numRangeBins, uint32_t numDopplerBins)"
+\fBDescription\fP 
+.br
+ The function groups neighboring peaks (only in the doppler direction) into one\&. For each 
+.br
+ detected peak the function checks if the peak is greater than its neighbors\&. If this is true, the peak is copied to the output list of detected objects\&. The neighboring peaks that are used for checking are taken from the detection matrix and copied into 1x3 kernel regardless of whether they are CFAR detected or not\&.
+.PP
+Note: Function always reads 3 samples per detected object from L3 memory into local array\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIobjOut\fP Output array of detected objects after peak grouping 
+.br
+\fIobjRaw\fP Array of detected objects after CFAR detection 
+.br
+\fInumDetectedObjects\fP Number of detected objects by CFAR 
+.br
+\fIdetMatrix\fP Detection Range/Doppler matrix 
+.br
+\fInumDopplerBins\fP Number of Doppler bins3401
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINumber\fP of detected objects after grouping 
+.RE
+.PP
+
+.PP
+Definition at line 4020 of file dss_data_path\&.c\&.
+.SS "uint16_t computeSinAzimSNR (float * azimuthMagSqr, uint16_t azimIdx, uint16_t numVirtualAntAzim, uint16_t numAngleBins, uint16_t xyzOutputQFormat)"
+\fBDescription\fP 
+.br
+ The function 
+.PP
+\fBParameters\fP
+.RS 4
+\fIazimuthMagSqr\fP Input array of the sum of the squares of the zero padded FFT output\&. 
+.br
+\fIazimIdx\fP The location of the peak of the detected object\&. 
+.br
+\fInumVirtualAntAzim\fP the size of the FFT input\&. 
+.br
+\fInumAngleBins\fP The size of the FFT output\&. 
+.br
+\fIxyzOutputQFormat\fP number of fractional bits in the output\&.
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fISNRlinear\fP with the programmed fractional bitwidth 
+.RE
+.PP
+
+.PP
+Definition at line 4094 of file dss_data_path\&.c\&.
+.SS "float convertSNRdBToVar (uint16_t SNRdB, uint16_t bitW, uint16_t n_samples, float resolution)"
+\fBDescription\fP 
+.br
+ The function computes the CRLB of the given estimate given an SNR input (dB) and the number of samples used in the estimate, and the resolution of the estimate\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fISNRdB\fP 16 bit input with specified bitwidth\&. 
+.br
+\fIbitW\fP input fractional bitwidth (for SNR in dB)\&. 
+.br
+\fIn_samples\fP number of samples per chirp\&. 
+.br
+\fIresolution\fP range resolution in meters\&.
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fICRLB\fP in the specified resolution (with some lower bounds)\&. 
+.RE
+.PP
+
+.PP
+Definition at line 4146 of file dss_data_path\&.c\&.
+.SS "float convertSNRLinToVar (uint16_t SNRLin, uint16_t bitW, uint16_t n_samples, float resolution)"
+\fBDescription\fP 
+.br
+ The function computes the CRLB of the given estimate given an SNR input (linear) and the number of samples used in the estimate, and the resolution of the estimate\&.
+.PP
+The CRLB is lower bounded by the resolution\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fISNRdB\fP 16 bit input with specified bitwidth\&. 
+.br
+\fIbitW\fP input fractional bitwidth\&. 
+.br
+\fIn_samples\fP number of samples per chirp\&. 
+.br
+\fIresolution\fP resolution in meters\&.
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fI2^(input/(2^fracBitIn))\fP 
+.RE
+.PP
+
+.PP
+Definition at line 4183 of file dss_data_path\&.c\&.
+.SS "int16_t disambiguateVel (uint16_t *restrict sumAbs, float fastChirpVel, uint16_t fastChirpPeakVal, \fBMmwDemo_DSS_DataPathObj\fP * obj)"
+
+.PP
+Definition at line 3382 of file dss_data_path\&.c\&.
+.SS "uint32_t findandPopulateDetectedObjects (\fBMmwDemo_DSS_DataPathObj\fP *restrict obj, uint32_t numDetObjPerCfar, uint16_t dopplerLine, uint32_t numDetObj2D, uint16_t *restrict sumAbsRange)"
+\fBDescription\fP 
+.br
+ This function populates the 2D cfar object
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP data path object\&. 
+.br
+\fInumDetObjPerCfar\fP number of detected objects from the CFAR function\&. 
+.br
+\fIdopplerLine\fP The index of the doppler gate being processed\&. 
+.br
+\fInumDetObj2D\fP The total number of detected objects\&. 
+.br
+\fIsumAbsRange\fP The sumAbs Array for the range dimension\&. It is used to populate the 'peakVal' on a per object basis\&. 
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fIThe\fP total number of detected objects (including the results of the current intersection)\&. 
+.RE
+.PP
+
+.PP
+Definition at line 3143 of file dss_data_path\&.c\&.
+.SS "uint32_t findandPopulateIntersectionOfDetectedObjects (\fBMmwDemo_DSS_DataPathObj\fP *restrict obj, uint32_t numDetObjPerCfar, uint16_t dopplerLine, uint32_t numDetObj2D, uint16_t *restrict sumAbsRange)"
+\fBDescription\fP 
+.br
+ This function finds the intersection of the 1D cfar objects (computed previously) and the outputs of the 2D CFAR function\&. The purpose is to select only those objects which have been detected in both the 1D and 2D CFARs\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP data path object\&. 
+.br
+\fInumDetObjPerCfar\fP number of detected objects from the CFAR function\&. 
+.br
+\fIdopplerLine\fP The index of the doppler gate being processed\&. 
+.br
+\fInumDetObj2D\fP The total number of detected objects\&. 
+.br
+\fIsumAbsRange\fP The sumAbs Array for the range dimension\&. It is used to populate the 'peakVal' on a per object basis\&. 
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fIThe\fP total number of detected objects (including the results of the current intersection)\&. 
+.RE
+.PP
+
+.PP
+Definition at line 3044 of file dss_data_path\&.c\&.
+.SS "uint32_t findKLargestPeaks (uint16_t *restrict cfarDetObjIndexBuf, uint16_t *restrict cfarDetObjSNR, uint32_t numDetObjPerCfar, uint16_t *restrict sumAbs, uint16_t numBins, uint16_t K)"
+\fBDescription\fP 
+.br
+ This function finds the K strongest objects in a given list of objects\&. The 'strength' of an object is its 'peak value' corresponding to its index in the sumAbs Array\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIcfarDetObjIndexBuf\fP The indices of the detected objects\&. 
+.br
+\fIcfarDetObjSNR\fP The SNR of the detected objects\&. 
+.br
+\fInumDetObjPerCfar\fP The number of detected objects\&. 
+.br
+\fIsumAbs\fP The sumAbs array on which the CFAR was run\&. 
+.br
+\fInumBins\fP The length of the cfarDetObjSNR and cfarDetObjIndexBuf array\&. 
+.br
+\fIK\fP The maximum number of objects to be returned by this function\&.
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fImin(K,numDetObjPerCfar)\&.\fP 
+.RE
+.PP
+
+.PP
+Definition at line 3289 of file dss_data_path\&.c\&.
+.SS "void MmwDemo_addDopplerCompensation (int32_t dopplerIdx, int32_t numDopplerBins, uint32_t * azimuthModCoefs, uint32_t * azimuthModCoefsThirdBin, uint32_t * azimuthModCoefsTwoThirdBin, int64_t * azimuthIn, uint32_t numAnt, uint32_t numTxAnt, uint16_t txAntIdx)"
+
+.PP
+Function Name : MmwDemo_DopplerCompensation\&. 
+.PP
+ 
+.PP
+\fB\fP
+.RS 4
+\fBDescription\fP : Compensation of Doppler phase shift in the virtual antennas, (corresponding to second Tx antenna chirps)\&. Symbols corresponding to virtual antennas, are rotated by half of the Doppler phase shift measured by Doppler FFT\&. The phase shift read from the table using half of the object Doppler index value\&. If the Doppler index is odd, an extra half of the bin phase shift is added\&.
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIdopplerIdx\fP : Doppler index of the object 
+.br
+\fInumDopplerBins\fP : Number of Doppler bins 
+.br
+\fIazimuthModCoefs\fP Table with cos/sin values SIN in even position, COS in odd position exp(1j*2*pi*k/N) for k=0,\&.\&.\&.,N-1 where N is number of Doppler bins\&. 
+.br
+\fIazimuthModCoefsHalfBin\fP : exp(1j*2*pi* 0\&.5 /N) //TODO change to 1/3 instead of 1/2 for the correction\&. 
+.br
+\fIazimuthIn\fP :Pointer to antenna symbols to be Doppler compensated 
+.br
+\fInumAnt\fP : Number of antenna symbols to be Doppler compensated
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 5043 of file dss_data_path\&.c\&.
+.SS "uint32_t MmwDemo_cfarPeakGrouping (\fBMmwDemo_detectedObjActual\fP * objOut, uint32_t numDetectedObjects, uint16_t * detMatrix, uint32_t numRangeBins, uint32_t numDopplerBins, uint32_t groupInDopplerDirection, uint32_t groupInRangeDirection)"
+\fBDescription\fP 
+.br
+ The function groups neighboring peaks into one\&. The grouping is done according to two input flags: groupInDopplerDirection and groupInDopplerDirection\&. For each detected peak the function checks if the peak is greater than its neighbors\&. If this is true, the peak is copied to the output list of detected objects\&. The neighboring peaks that are used for checking are taken from the detection matrix and copied into 3x3 kernel regardless of whether they are CFAR detected or not\&. Note: Function always reads 9 samples per detected object from L3 memory into local array tempBuff, but it only needs to read according to input flags\&. For example if only the groupInDopplerDirection flag is set, it only needs to read middle row of the kernel, i\&.e\&. 3 samples per target from detection matrix\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobjOut\fP Output array of detected objects after peak grouping 
+.br
+\fIobjRaw\fP Array of detected objects after CFAR detection 
+.br
+\fInumDetectedObjects\fP Number of detected objects by CFAR 
+.br
+\fIdetMatrix\fP Detection Range/Doppler matrix 
+.br
+\fInumDopplerBins\fP Number of Doppler bins 
+.br
+\fIgroupInDopplerDirection\fP Flag enables grouping in Doppler directiuon 
+.br
+\fIgroupInRangeDirection\fP Flag enables grouping in Range directiuon
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINumber\fP of detected objects after grouping 
+.RE
+.PP
+
+.PP
+Definition at line 3885 of file dss_data_path\&.c\&.
+.SS "void MmwDemo_dataPathConfigBuffers (\fBMmwDemo_DSS_DataPathObj\fP * obj, uint32_t adcBufAddress)"
+\fBDescription\fP 
+.br
+ Creates heap in L2 and L3 and allocates data path buffers, The heap is destroyed at the end of the function\&.
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP Applicable\&. 
+.RE
+.PP
+
+.PP
+Definition at line 2342 of file dss_data_path\&.c\&.
+.SS "int32_t MmwDemo_dataPathConfigEdma (\fBMmwDemo_DSS_DataPathObj\fP * obj)"
+\fBDescription\fP 
+.br
+ Configures all EDMA channels and param sets used in data path processing
+.PP
+This function is very similar to the dataPathConfigEDMA from the OOB demo, but with the difference that we have two subframes, and one subframe can support the maximum velocity enhancement modification\&. In this method , the 2nd dimension has two kinds of chirps and each chirp is repeated 'numDopplerBins' times, and each chirp has the same number of adc samples\&.
+.PP
+We would also like to ensure that when the data is transferred to L3 RAM, a range gate (i\&.e\&. doppler bins corresponding to a range bin) of each 'chirptype' is contiguous, so that a single EDMA can pull them both out in the 2nd dimension processing\&.
+.PP
+Hence the EDMAs corresponding to the transfer of 1D data to L3 and the transfer of data from L3 to L2 are modified\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP Pointer to data path object array\&.
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fI-1\fP if error, 0 for no error 
+.RE
+.PP
+
+.PP
+Definition at line 944 of file dss_data_path\&.c\&.
+.PP
+References MmwDemo_DSS_DataPathObj_t::ADCdataBuf, MmwDemo_DSS_DataPathObj_t::adcDataIn, BYTES_PER_SAMP_1D, BYTES_PER_SAMP_DET, EDMA_INSTANCE_DSS, MmwDemo_DSS_DataPathObj_t::edmaHandle, EDMAutil_configType1(), EDMAutil_configType2a(), EDMAutil_configType3(), MAX, MAX_VEL_ENH_PROCESSING, MRR_SF0_EDMA_CH_1D_IN_PING, MRR_SF0_EDMA_CH_1D_IN_PONG, MRR_SF0_EDMA_CH_1D_OUT_PING, MRR_SF0_EDMA_CH_1D_OUT_PONG, MRR_SF0_EDMA_CH_2D_IN_PING, MRR_SF0_EDMA_CH_2D_IN_PONG, MRR_SF0_EDMA_CH_3D_IN_PING, MRR_SF0_EDMA_CH_3D_IN_PONG, MRR_SF0_EDMA_CH_DET_MATRIX, MRR_SF0_EDMA_CH_DET_MATRIX2, MRR_SF1_EDMA_CH_1D_IN_PING, MRR_SF1_EDMA_CH_1D_IN_PONG, MRR_SF1_EDMA_CH_1D_OUT_PING, MRR_SF1_EDMA_CH_1D_OUT_PONG, MRR_SF1_EDMA_CH_2D_IN_PING, MRR_SF1_EDMA_CH_2D_IN_PONG, MRR_SF1_EDMA_CH_3D_IN_PING, MRR_SF1_EDMA_CH_3D_IN_PONG, MRR_SF1_EDMA_CH_DET_MATRIX, MRR_SF1_EDMA_CH_DET_MATRIX2, NUM_SUBFRAMES, MmwDemo_DSS_DataPathObj_t::numAdcSamples, MmwDemo_DSS_DataPathObj_t::numRxAntennas, and MmwDemo_DSS_DataPathObj_t::processingPath\&.
+.SS "void MmwDemo_dataPathConfigFFTs (\fBMmwDemo_DSS_DataPathObj\fP * obj)"
+\fBDescription\fP 
+.br
+ Function to populate the twiddle factors for FFTS needed for the data path object\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP data path object\&.
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fIwaitingTime\&.\fP 
+.RE
+.PP
+
+.PP
+Definition at line 2757 of file dss_data_path\&.c\&.
+.SS "int32_t MmwDemo_dataPathCopyEdmaHandle (\fBMmwDemo_DSS_DataPathObj\fP * objOutput, \fBMmwDemo_DSS_DataPathObj\fP * objInput)"
+\fBDescription\fP 
+.br
+ This function copies the EDMA handles to all of the remaining data path objects\&. 
+.br
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP data path object\&.
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fIsuccess\&.\fP 
+.RE
+.PP
+
+.PP
+Definition at line 2283 of file dss_data_path\&.c\&.
+.SS "void MmwDemo_dataPathInit1Dstate (\fBMmwDemo_DSS_DataPathObj\fP * obj)"
+\fBDescription\fP 
+.br
+ This function initializes some of the states (counters) used for 1D processing\&. 
+.br
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP data path object\&.
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fIsuccess/failure\&.\fP 
+.RE
+.PP
+
+.PP
+Definition at line 2209 of file dss_data_path\&.c\&.
+.SS "int32_t MmwDemo_dataPathInitEdma (\fBMmwDemo_DSS_DataPathObj\fP * obj)"
+\fBDescription\fP 
+.br
+ This function copies the EDMA handles to all of the remaining data path objects\&. 
+.br
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP data path object\&.
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fIsuccess/failure\&.\fP 
+.RE
+.PP
+
+.PP
+Definition at line 2234 of file dss_data_path\&.c\&.
+.SS "void MmwDemo_dataPathWait1DInputData (\fBMmwDemo_DSS_DataPathObj\fP * obj, uint32_t pingPongId, uint32_t subframeIndx)"
+\fBDescription\fP 
+.br
+ Waits for 1D FFT data to be transferrd to input buffer\&. This is a blocking function\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP Pointer to data path object 
+.br
+\fIpingPongId\fP ping-pong id (ping is 0 and pong is 1) 
+.br
+\fIsubframeIndx\fP 
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINONE\fP 
+.RE
+.PP
+
+.PP
+Definition at line 709 of file dss_data_path\&.c\&.
+.PP
+References EDMA_INSTANCE_DSS, MmwDemo_DSS_DataPathObj_t::edmaHandle, MmwDemo_dssAssert, MRR_SF0_EDMA_CH_1D_IN_PING, MRR_SF0_EDMA_CH_1D_IN_PONG, MRR_SF1_EDMA_CH_1D_IN_PING, MRR_SF1_EDMA_CH_1D_IN_PONG, and pingPongId\&.
+.SS "void MmwDemo_dataPathWait1DOutputData (\fBMmwDemo_DSS_DataPathObj\fP * obj, uint32_t pingPongId, uint32_t subframeIndx)"
+\fBDescription\fP 
+.br
+ Waits for 1D FFT data to be transferred to output buffer\&. This is a blocking function\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP Pointer to data path object 
+.br
+\fIpingPongId\fP ping-pong id (ping is 0 and pong is 1) 
+.br
+\fIsubframeIndx\fP 
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINONE\fP 
+.RE
+.PP
+
+.PP
+Definition at line 761 of file dss_data_path\&.c\&.
+.PP
+References EDMA_INSTANCE_DSS, MmwDemo_DSS_DataPathObj_t::edmaHandle, MmwDemo_dssAssert, MRR_SF0_EDMA_CH_1D_OUT_PING, MRR_SF0_EDMA_CH_1D_OUT_PONG, MRR_SF1_EDMA_CH_1D_OUT_PING, MRR_SF1_EDMA_CH_1D_OUT_PONG, pingPongId, and select_channel()\&.
+.PP
+Referenced by MmwDemo_processChirp()\&.
+.SS "void MmwDemo_dataPathWait2DInputData (\fBMmwDemo_DSS_DataPathObj\fP * obj, uint32_t pingPongId, uint32_t subframeIndx)"
+\fBDescription\fP 
+.br
+ Waits for 1D FFT data to be transferred to input buffer for 2D-FFT caclulation\&. This is a blocking function\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP Pointer to data path object 
+.br
+\fIpingPongId\fP ping-pong id (ping is 0 and pong is 1) 
+.br
+\fIsubframe\fP Index
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINONE\fP 
+.RE
+.PP
+
+.PP
+Definition at line 793 of file dss_data_path\&.c\&.
+.PP
+References EDMA_INSTANCE_DSS, MmwDemo_DSS_DataPathObj_t::edmaHandle, MmwDemo_dssAssert, MRR_SF0_EDMA_CH_2D_IN_PING, MRR_SF0_EDMA_CH_2D_IN_PONG, MRR_SF1_EDMA_CH_2D_IN_PING, MRR_SF1_EDMA_CH_2D_IN_PONG, pingPongId, and select_channel()\&.
+.SS "void MmwDemo_dataPathWait3DInputData (\fBMmwDemo_DSS_DataPathObj\fP * obj, uint32_t pingPongId, uint32_t subframeIndx)"
+\fBDescription\fP 
+.br
+ Waits for 1D FFT data to be transferred to input buffer for 3D-FFT calculation\&. This is a blocking function\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP Pointer to data path object 
+.br
+\fIpingPongId\fP ping-pong id (ping is 0 and pong is 1) 
+.br
+\fIsubframeIndx\fP 
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINONE\fP 
+.RE
+.PP
+
+.PP
+Definition at line 826 of file dss_data_path\&.c\&.
+.PP
+References EDMA_INSTANCE_DSS, MmwDemo_DSS_DataPathObj_t::edmaHandle, MmwDemo_dssAssert, MRR_SF0_EDMA_CH_3D_IN_PING, MRR_SF0_EDMA_CH_3D_IN_PONG, MRR_SF1_EDMA_CH_3D_IN_PING, MRR_SF1_EDMA_CH_3D_IN_PONG, pingPongId, and select_channel()\&.
+.SS "void MmwDemo_dataPathWaitTransDetMatrix (\fBMmwDemo_DSS_DataPathObj\fP * obj, uint8_t subframeIndx)"
+\fBDescription\fP 
+.br
+ Waits for 2D FFT calculated data to be transferred out from L2 memory to detection matrix located in L3 memory\&. This is a blocking function\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP Pointer to data path object 
+.br
+\fIsubframeIndx\fP 
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINONE\fP 
+.RE
+.PP
+
+.PP
+Definition at line 857 of file dss_data_path\&.c\&.
+.PP
+References EDMA_INSTANCE_DSS, MmwDemo_DSS_DataPathObj_t::edmaHandle, MmwDemo_dssAssert, MRR_SF0_EDMA_CH_DET_MATRIX, and MRR_SF1_EDMA_CH_DET_MATRIX\&.
+.SS "void MmwDemo_dataPathWaitTransDetMatrix2 (\fBMmwDemo_DSS_DataPathObj\fP * obj, uint32_t subframeIndx)"
+\fBDescription\fP 
+.br
+ Waits for 2D FFT data to be transferred from detection matrix in L3 memory to L2 memory for CFAR detection in range direction\&. This is a blocking function\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP Pointer to data path object 
+.br
+\fIsubframeIndx\fP 
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINONE\fP 
+.RE
+.PP
+
+.PP
+Definition at line 894 of file dss_data_path\&.c\&.
+.PP
+References EDMA_INSTANCE_DSS, MmwDemo_DSS_DataPathObj_t::edmaHandle, MmwDemo_dssAssert, MRR_SF0_EDMA_CH_DET_MATRIX2, and MRR_SF1_EDMA_CH_DET_MATRIX2\&.
+.SS "void MmwDemo_dcRangeSignatureCompensation (\fBMmwDemo_DSS_DataPathObj\fP * obj, uint8_t chirpPingPongId)"
+\fBDescription\fP 
+.br
+ Compensation of DC range antenna signature (unused currently)
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP Applicable\&. 
+.RE
+.PP
+
+.PP
+Definition at line 1454 of file dss_data_path\&.c\&.
+.SS "void MmwDemo_edmaErrorCallbackFxn (EDMA_Handle handle, EDMA_errorInfo_t * errorInfo)"
+\fBDescription\fP 
+.br
+ This is a callback function for EDMA errors\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIhandle\fP EDMA Handle\&. 
+.br
+\fIerrorInfo\fP EDMA error info\&.
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fIn/a\&.\fP 
+.RE
+.PP
+
+.PP
+Definition at line 2174 of file dss_data_path\&.c\&.
+.SS "void MmwDemo_edmaTransferControllerErrorCallbackFxn (EDMA_Handle handle, EDMA_transferControllerErrorInfo_t * errorInfo)"
+\fBDescription\fP 
+.br
+ This is a callback function for EDMA TC errors\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIhandle\fP EDMA Handle\&. 
+.br
+\fIerrorInfo\fP EDMA TC error info\&.
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fIn/a\&.\fP 
+.RE
+.PP
+
+.PP
+Definition at line 2189 of file dss_data_path\&.c\&.
+.SS "void MmwDemo_genDftSinCosTable (cmplx16ImRe_t * dftSinCosTable, cmplx16ImRe_t * dftHalfBinVal, cmplx16ImRe_t * dftThirdBinVal, cmplx16ImRe_t * dftTwoThirdBinVal, uint32_t dftLen)"
+\fBDescription\fP 
+.br
+Generate SIN/COS table in Q15 (SIN to even int16 location, COS to odd int16 location\&. Also generates Sin/Cos at half the bin value The table is generated as T[i]=cos[2*pi*i/N] - 1j*sin[2*pi*i/N] for i=0,\&.\&.\&.,N where N is dftLen The half bn value is calculated as: TH = cos[2*pi*0\&.5/N] - 1j*sin[2*pi*0\&.5/N]
+.PP
+\fBParameters\fP
+.RS 4
+\fIdftSinCosTable\fP Array with generated Sin Cos table 
+.br
+\fIdftHalfBinVal\fP Sin/Cos value at half the bin 
+.br
+\fIdftLen\fP Length of the DFT
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP Applicable\&. 
+.RE
+.PP
+
+.PP
+Definition at line 2141 of file dss_data_path\&.c\&.
+.SS "void MmwDemo_genWindow (void * win, uint32_t windowDatumType, uint32_t winLen, uint32_t winGenLen, int32_t oneQformat, uint32_t winType)"
+\fBDescription\fP 
+.br
+ Function to generate a single FFT window sample\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIwin\fP Pointer to calculated window samples\&. 
+.br
+\fIwindowDatumType\fP Window samples data format\&. For windowDatumType = \fBFFT_WINDOW_INT16\fP, the samples format is int16_t\&. For windowDatumType = \fBFFT_WINDOW_INT32\fP, the samples format is int32_t\&. 
+.br
+\fIwinLen\fP Nominal window length 
+.br
+\fIwinGenLen\fP Number of generated samples 
+.br
+\fIoneQformat\fP Q format of samples, oneQformat is the value of one in the desired format\&. 
+.br
+\fIwinType\fP Type of window, one of \fBMMW_WIN_BLACKMAN\fP, \fBMMW_WIN_HANNING\fP, or \fBMMW_WIN_RECT\fP\&. 
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fInone\&.\fP 
+.RE
+.PP
+
+.PP
+Definition at line 2807 of file dss_data_path\&.c\&.
+.SS "int32_t MmwDemo_getDopplerLine (\fBMmwDemo_1D_DopplerLines_t\fP * ths)"
+\fBDescription\fP 
+.br
+ Gets the Doppler index from the Doppler line bit mask, starting from the smallest active Doppler lin (bin)\&. Subsequent calls return the next active Doppler line\&. 
+.PP
+\fBSee also\fP
+.RS 4
+\fBMmwDemo_resetDopplerLines\fP 
+.RE
+.PP
+
+.PP
+Definition at line 383 of file dss_data_path\&.c\&.
+.PP
+References MmwDemo_1D_DopplerLines::currentIndex, and MmwDemo_1D_DopplerLines::dopplerLineMask\&.
+.SS "void MmwDemo_interChirpProcessing (\fBMmwDemo_DSS_DataPathObj\fP * obj, uint32_t chirpPingPongId, uint8_t subframeIndx)"
+\fBDescription\fP 
+.br
+ Interchirp processing\&. It is executed per chirp event, after ADC buffer is filled with chirp samples\&.
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP Applicable\&. 
+.RE
+.PP
+
+.PP
+Definition at line 1569 of file dss_data_path\&.c\&.
+.PP
+Referenced by MmwDemo_processChirp()\&.
+.SS "void MmwDemo_interFrameProcessing (\fBMmwDemo_DSS_DataPathObj\fP * obj, uint8_t subframeIndx)"
+\fBDescription\fP 
+.br
+ Interframe processing\&. It is called from MmwDemo_dssDataPathProcessEvents after all chirps of the frame have been received and 1D FFT processing on them has been completed\&.
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP Applicable\&. 
+.RE
+.PP
+
+.PP
+Definition at line 1643 of file dss_data_path\&.c\&.
+.SS "uint32_t MmwDemo_isSetDopplerLine (\fBMmwDemo_1D_DopplerLines_t\fP * ths, uint16_t index)"
+\fBDescription\fP 
+.br
+ Checks whether Doppler line is active in the observed frame\&. It checks whether the bit is set in the Doppler line bit mask corresponding to Doppler line on which CFAR in Doppler direction detected object\&. 
+.PP
+\fBSee also\fP
+.RS 4
+\fBMmwDemo_resetDopplerLines\fP 
+.RE
+.PP
+
+.PP
+Definition at line 358 of file dss_data_path\&.c\&.
+.PP
+References MmwDemo_1D_DopplerLines::dopplerLineMask\&.
+.SS "void MmwDemo_magnitudeSquared (cmplx32ReIm_t *restrict inpBuff, float *restrict magSqrdBuff, uint32_t numSamples)"
+\fBDescription\fP 
+.br
+ Outputs magnitude squared float array of input complex32 array
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP Applicable\&. 
+.RE
+.PP
+
+.PP
+Definition at line 1435 of file dss_data_path\&.c\&.
+.SS "uint32_t MmwDemo_pow2roundup (uint32_t x)"
+\fBDescription\fP 
+.br
+ Power of 2 round up function\&. 
+.PP
+Definition at line 410 of file dss_data_path\&.c\&.
+.SS "void MmwDemo_printHeapStats (char * name, uint32_t heapUsed, uint32_t heapSize)"
+\fBDescription\fP 
+.br
+ This function holds the last remaining 'printf' in the entire MRR, and prints the space remaining in the global heap\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP data path object\&.
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fIna\&.\fP 
+.RE
+.PP
+
+.PP
+Definition at line 2308 of file dss_data_path\&.c\&.
+.SS "void MmwDemo_processChirp (\fBMmwDemo_DSS_DataPathObj\fP * obj, uint8_t subframeIndx)"
+\fBDescription\fP 
+.br
+ Chirp processing\&. It is called from MmwDemo_dssDataPathProcessEvents\&. It is executed per chirp\&.
+.PP
+The range FFT output is transferred in a transpose manner to L3 using an EDMA\&. This is done so that the 2nd FFT data can be pulled out using a non-transpose EDMA (which is more efficient)
+.PP
+The EDMA transfer requires a destination offset (radarCubeOffset) that is proportional with the chirp number\&.
+.PP
+For the MAX_VEL_ENH chirp, there are two chirp types (fast and slow), they are stored consecutively ( for e\&.g\&. chirp 1 of the fast chirp is directly followed by chirp 1 of the slow chirp\&.
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP Applicable\&. 
+.RE
+.PP
+
+.IP "1." 4
+Book keeping\&.
+.IP "2." 4
+Range processing\&.
+.PP
+
+.PP
+Definition at line 1985 of file dss_data_path\&.c\&.
+.PP
+References MmwDemo_DSS_DataPathObj_t::chirpCount, MmwDemo_DSS_DataPathObj_t::chirpTypeCount, MmwDemo_DSS_DataPathObj_t::dopplerBinCount, EDMA_INSTANCE_DSS, MmwDemo_DSS_DataPathObj_t::edmaHandle, EDMAutil_triggerType3(), gCycleLog, cycleLog_t_::interChirpWaitTime, isPong, MAX_VEL_ENH_PROCESSING, MmwDemo_dataPathWait1DOutputData(), MmwDemo_interChirpProcessing(), MRR_EDMA_TRIGGER_ENABLE, MRR_SF0_EDMA_CH_1D_OUT_PING, MRR_SF0_EDMA_CH_1D_OUT_PONG, MRR_SF1_EDMA_CH_1D_OUT_PING, MRR_SF1_EDMA_CH_1D_OUT_PONG, MmwDemo_DSS_DataPathObj_t::numDopplerBins, MmwDemo_DSS_DataPathObj_t::numRxAntennas, MmwDemo_DSS_DataPathObj_t::numTxAntennas, pingPongId, MmwDemo_DSS_DataPathObj_t::processingPath, MmwDemo_DSS_DataPathObj_t::radarCube, SUBFRAME_MRR_NUM_CHIRPTYPES, and MmwDemo_DSS_DataPathObj_t::txAntennaCount\&.
+.SS "void MmwDemo_resetDopplerLines (\fBMmwDemo_1D_DopplerLines_t\fP * ths)"
+\fBDescription\fP 
+.br
+ Resets the Doppler line bit mask\&. Doppler line bit mask indicates Doppler lines (bins) on wich the CFAR in Doppler direction detected objects\&. After the CFAR in Doppler direction is completed for all range bins, the CFAR in range direction is performed on indicated Doppler lines\&. The array dopplerLineMask is uint32_t array\&. The LSB bit of the first word corresponds to Doppler line (bin) zero\&. 
+.PP
+Definition at line 329 of file dss_data_path\&.c\&.
+.PP
+References MmwDemo_1D_DopplerLines::currentIndex, MmwDemo_1D_DopplerLines::dopplerLineMask, and MmwDemo_1D_DopplerLines::dopplerLineMaskLen\&.
+.SS "void MmwDemo_setDopplerLine (\fBMmwDemo_1D_DopplerLines_t\fP * ths, uint16_t dopplerIndex)"
+\fBDescription\fP 
+.br
+ Sets the bit in the Doppler line bit mask dopplerLineMask corresponding to Doppler line on which CFAR in Doppler direction detected object\&. Indicating the Doppler line being active in observed frame\&. 
+.PP
+\fBSee also\fP
+.RS 4
+\fBMmwDemo_resetDopplerLines\fP 
+.RE
+.PP
+
+.PP
+Definition at line 342 of file dss_data_path\&.c\&.
+.PP
+References MmwDemo_1D_DopplerLines::dopplerLineMask\&.
+.SS "void MmwDemo_startDmaTransfer (EDMA_Handle handle, uint8_t channelId0, uint8_t channelId1, uint8_t subframeIndx)"
+\fBDescription\fP 
+.br
+ Starts a DMA transfer on a specifed channel corresponding to a given subframe\&. 
+.PP
+Definition at line 306 of file dss_data_path\&.c\&.
+.SS "void MmwDemo_waitEndOfChirps (\fBMmwDemo_DSS_DataPathObj\fP * obj, uint8_t subframeIndx)"
+\fBDescription\fP 
+.br
+Wait for transfer of data corresponding to the last 2 chirps (ping/pong) to the radarCube matrix before starting interframe processing\&. 
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP Applicable\&. 
+.RE
+.PP
+
+.PP
+Definition at line 2090 of file dss_data_path\&.c\&.
+.SS "void MmwDemo_XYcalc (\fBMmwDemo_DSS_DataPathObj\fP * obj, uint32_t objIndex, uint16_t azimIdx, float * azimuthMagSqr)"
+\fBDescription\fP 
+.br
+ Calculates X/Y coordinates in meters based on the maximum position in the magnitude square of the azimuth FFT output\&. The function is called per detected object\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP Pointer to data path object 
+.br
+\fIobjIndex\fP Detected object index 
+.br
+\fIazimIdx\fP Index of the peak position in Azimuth FFT output 
+.br
+\fIazimuthMagSqr\fP azimuth energy array
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINONE\fP 
+.RE
+.PP
+
+.PP
+Definition at line 5159 of file dss_data_path\&.c\&.
+.PP
+Referenced by MmwDemo_XYestimation()\&.
+.SS "void MmwDemo_XYestimation (\fBMmwDemo_DSS_DataPathObj\fP * obj, uint32_t objIndex)"
+\fBDescription\fP 
+.br
+ Calculates X/Y coordinates in meters based on the maximum position in the magnitude square of the azimuth FFT output\&. The function is called per detected object\&. The detected object structure already has populated range and doppler indices\&. This function finds maximum index in the azimuth FFT, calculates X and Y and coordinates and stores them into object fields along with the peak height\&. Also it populates the azimuth index in azimuthMagSqr array\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP Pointer to data path object 
+.br
+\fIobjIndex\fP Detected object index
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINONE\fP 
+.RE
+.PP
+
+.PP
+Definition at line 437 of file dss_data_path\&.c\&.
+.PP
+References MmwDemo_DSS_DataPathObj_t::azimuthMagSqr, MmwDemo_DSS_DataPathObj_t::detObj2D, MmwDemo_MultiObjBeamFormingCfg_t::enabled, MmwDemo_DSS_DataPathObj_t::maxUnambiguousVel, MmwDemo_XYcalc(), MRR_MAX_OBJ_OUT, MmwDemo_DSS_DataPathObj_t::multiObjBeamFormingCfg, MmwDemo_MultiObjBeamFormingCfg_t::multiPeakThrsScal, MmwDemo_DSS_DataPathObj_t::numAngleBins, MmwDemo_DSS_DataPathObj_t::numDetObj, POINT_CLOUD_PROCESSING, MmwDemo_DSS_DataPathObj_t::processingPath, MmwDemo_detectedObjActual_t::speed, and MmwDemo_DSS_DataPathObj_t::xyzOutputQFormat\&.
+.SS "void MmwDemo_XYZcalc (\fBMmwDemo_DSS_DataPathObj\fP * obj, uint32_t objIndex, uint16_t azimIdx, float * azimuthMagSqr)"
+\fBDescription\fP 
+.br
+ Calculates X/Y coordinates in meters based on the maximum position in the magnitude square of the azimuth FFT output\&. The function is called per detected object\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP Pointer to data path object 
+.br
+\fIobjIndex\fP Detected object index 
+.br
+\fIazimIdx\fP Index of the peak position in Azimuth FFT output 
+.br
+\fIazimuthMagSqr\fP azimuth energy array
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINONE\fP 
+.RE
+.PP
+
+.PP
+Definition at line 5229 of file dss_data_path\&.c\&.
+.PP
+Referenced by MmwDemo_XYZestimation()\&.
+.SS "void MmwDemo_XYZestimation (\fBMmwDemo_DSS_DataPathObj\fP * obj, uint32_t objIndex)"
+\fBDescription\fP 
+.br
+ Calculates X/Y coordinates in meters based on the maximum position in the magnitude square of the azimuth FFT output\&. The function is called per detected object\&. The detected object structure already has populated range and doppler indices\&. This function finds maximum index in the azimuth FFT, calculates X and Y and coordinates and stores them into object fields along with the peak height\&. Also it populates the azimuth index in azimuthMagSqr array\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP Pointer to data path object 
+.br
+\fIobjIndex\fP Detected object index
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINONE\fP 
+.RE
+.PP
+
+.PP
+Definition at line 569 of file dss_data_path\&.c\&.
+.PP
+References MmwDemo_DSS_DataPathObj_t::azimuthMagSqr, MmwDemo_DSS_DataPathObj_t::detObj2D, MmwDemo_MultiObjBeamFormingCfg_t::enabled, MAX_VEL_POINT_CLOUD_PROCESSING_IS_ENABLED, MmwDemo_DSS_DataPathObj_t::maxUnambiguousVel, MmwDemo_XYZcalc(), MRR_MAX_OBJ_OUT, MmwDemo_DSS_DataPathObj_t::multiObjBeamFormingCfg, MmwDemo_MultiObjBeamFormingCfg_t::multiPeakThrsScal, MmwDemo_DSS_DataPathObj_t::numAngleBins, MmwDemo_DSS_DataPathObj_t::numDetObj, POINT_CLOUD_PROCESSING, MmwDemo_DSS_DataPathObj_t::processingPath, MmwDemo_detectedObjActual_t::speed, and MmwDemo_DSS_DataPathObj_t::xyzOutputQFormat\&.
+.SS "void parkingAssistInit (\fBMmwDemo_DSS_DataPathObj\fP * obj)"
+\fBDescription\fP 
+.br
+ Initialize the 'parking assist bins' state which is essentially the closest obstruction upper bounded by its maximum value\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP Pointer to data path object
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINONE\fP 
+.RE
+.PP
+
+.PP
+Definition at line 5323 of file dss_data_path\&.c\&.
+.SS "void populateOutputs (\fBMmwDemo_DSS_DataPathObj\fP * obj)"
+\fBDescription\fP 
+.br
+ The function populates the object location arrays for transmission to MSS\&. The reason we do this additional step is to minimize the size of the the transmission by populating new structure which hold only the minimum information necessary for the GUI\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIinput\fP data path object\&.
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fInone\fP 
+.RE
+.PP
+
+.PP
+Definition at line 4629 of file dss_data_path\&.c\&.
+.PP
+References AGED_OBJ_DELETION_THRESH, MmwDemo_DSS_DataPathObj_t::clusterOpFinal, MmwDemo_DSS_DataPathObj_t::dbScanInstance, MmwDemo_DSS_DataPathObj_t::dbScanReport, MmwDemo_DSS_DataPathObj_t::dbScanState, MmwDemo_DSS_DataPathObj_t::detObj2D, MmwDemo_DSS_DataPathObj_t::detObjFinal, EIGHTEEN_DB_DOPPLER_SNR, FOUR_POINT_ZERO_METERS, iX, iXd, iY, iYd, MAX_VEL_ENH_PROCESSING, clusteringDBscanInstance::maxClusters, KFtrackerInstance::maxTrackers, MIN_TICK_FOR_TX, MmwDemo_dssAssert, MmwDemo_DSS_DataPathObj_t::numActiveTrackers, clusteringDBscanOutput::numCluster, MmwDemo_DSS_DataPathObj_t::numDetObj, MmwDemo_DSS_DataPathObj_t::parkingAssistBins, MmwDemo_DSS_DataPathObj_t::parkingAssistBinsState, MmwDemo_DSS_DataPathObj_t::parkingAssistBinsStateCnt, MmwDemo_DSS_DataPathObj_t::parkingAssistMaxRange, MmwDemo_DSS_DataPathObj_t::parkingAssistNumBins, MmwDemo_DSS_DataPathObj_t::parkingAssistNumBinsLog2, POINT_CLOUD_PROCESSING, MmwDemo_DSS_DataPathObj_t::processingPath, MmwDemo_DSS_DataPathObj_t::sinAzimQFormat, MmwDemo_DSS_DataPathObj_t::trackerInstance, MmwDemo_DSS_DataPathObj_t::trackerOpFinal, MmwDemo_DSS_DataPathObj_t::trackerState, TWENTY_TWO_DB_DOPPLER_SNR, KFstate::vec, KFstate::xSize, MmwDemo_DSS_DataPathObj_t::xyzOutputQFormat, KFstate::ySize, and ZERO_POINT_FIVE_METERS\&.
+.SS "uint32_t pruneToPeaks (uint16_t *restrict cfarDetObjIndexBuf, uint16_t *restrict cfarDetObjSNR, uint32_t numDetObjPerCfar, uint16_t *restrict sumAbs, uint16_t numBins)"
+\fBDescription\fP 
+.br
+ This function pruneToPeaks selects the peaks from within the list of objects detected by CFAR\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIcfarDetObjIndexBuf\fP The indices of the detected objects\&. 
+.br
+\fIcfarDetObjSNR\fP The SNR of the detected objects\&. 
+.br
+\fInumDetObjPerCfar\fP The number of detected objects\&. 
+.br
+\fIsumAbs\fP The sumAbs array on which the CFAR was run\&.
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fIThe\fP number of detected objects that are peaks\&. 
+.RE
+.PP
+
+.PP
+Definition at line 3221 of file dss_data_path\&.c\&.
+.SS "uint32_t pruneToPeaksOrNeighbourOfPeaks (uint16_t *restrict cfarDetObjIndexBuf, uint16_t *restrict cfarDetObjSNR, uint32_t numDetObjPerCfar, uint16_t *restrict sumAbs, uint16_t numBins)"
+\fBDescription\fP 
+.br
+ A slightly weaker implementation of the 'pruneToPeaks' algorithm\&. This variation passes peaks as well as their largest neighbour\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIcfarDetObjIndexBuf\fP The indices of the detected objects\&. 
+.br
+\fIcfarDetObjSNR\fP The SNR of the detected objects\&. 
+.br
+\fInumDetObjPerCfar\fP The number of detected objects\&. 
+.br
+\fIsumAbs\fP The sumAbs array on which the CFAR was run\&. 
+.br
+\fInumBins\fP The length of the sumAbs array\&.
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINONE\fP 
+.RE
+.PP
+
+.PP
+Definition at line 5350 of file dss_data_path\&.c\&.
+.SS "uint32_t pruneTrackingInput (\fBtrackingInputReport_t\fP * trackingInput, const uint32_t numCluster)"
+\fBDescription\fP 
+.br
+ The function removes objects from extreme angles and with poor angle SNR from the tracking input\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fItrackinginput\fP List of tracking inputs\&. 
+.br
+\fInumClusters\fP number of tracking inputs (from the clustering output)\&. 
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fInumber\fP of tracking inputs after pruning\&. 
+.RE
+.PP
+
+.PP
+Definition at line 4883 of file dss_data_path\&.c\&.
+.SS "float quadraticInterpFltPeakLoc (float *restrict y, int32_t len, int32_t indx)"
+\fBDescription\fP 
+.br
+ The function performs a quadractic peak interpolation to compute the fractional offset of the peak location\&. It is primarily intended to be used in oversampled FFTs\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIy\fP the array of data\&. 
+.br
+\fIlen\fP length of the array\&. 
+.br
+\fIindx\fP coarse peak location\&.
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fIinterpolated\fP peak location (varies from -1 to +1)\&. 
+.RE
+.PP
+
+.PP
+Definition at line 4918 of file dss_data_path\&.c\&.
+.SS "float quadraticInterpLog2ShortPeakLoc (uint16_t *restrict y, int32_t len, int32_t indx, uint16_t fracBitIn)"
+\fBDescription\fP 
+.br
+ The function performs a quadractic peak interpolation to compute the fractional offset of the peak location\&. It is primarily intended to be used in oversampled FFTs\&. The input is assumed to be an unsigned short\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIy\fP the array of data\&. 
+.br
+\fIlen\fP length of the array\&. 
+.br
+\fIindx\fP coarse peak location\&. 
+.br
+\fIfracBitIn\fP fractional bits in the input array\&. 
+.br
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fIinterpolated\fP peak location (varies from -1 to +1)\&. 
+.RE
+.PP
+
+.PP
+Definition at line 4972 of file dss_data_path\&.c\&.
+.SS "uint32_t rangeBasedPruning (\fBMmwDemo_detectedObjActual\fP *restrict objOut, \fBMmwDemo_objRaw2D_t\fP *restrict objRaw, \fBRangeDependantThresh_t\fP *restrict SNRThresh, \fBRangeDependantThresh_t\fP *restrict peakValThresh, uint32_t numDetectedObjects, uint32_t numDopplerBins, uint32_t maxRange, uint32_t minRange)"
+\fBDescription\fP 
+.br
+ This function populates the ObjOut based on the objRaw\&. It includes one more layer of pruning which prevent objects beyond the maximum range or minimum range from being populated\&. Additionally we change the SNR requirement as a function of the range, requiring larger SNR for objects closer to the car, and lower SNR for objects farther from the car\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobjOut\fP Output array of detected objects after peak grouping 
+.br
+\fIobjRaw\fP Array of detected objects after CFAR detection 
+.br
+\fISNRThresh\fP A list of SNR thresholds for a list of ranges\&. 
+.br
+\fISNRThresh\fP A list of peakVal thresholds for a list of ranges\&. 
+.br
+\fInumDetectedObjects\fP Number of detected objects by CFAR 
+.br
+\fInumDopplerBins\fP Number of Doppler bins 
+.br
+\fImaxRange\fP Maximum range (in ONE_QFORMAT) 
+.br
+\fIminRange\fP Minimum range (in ONE_QFORMAT)
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINumber\fP of detected objects after grouping 
+.RE
+.PP
+
+.PP
+Definition at line 1324 of file dss_data_path\&.c\&.
+.SS "uint32_t secondDimFFTandLog2Computation (\fBMmwDemo_DSS_DataPathObj\fP * obj, uint16_t * sumAbs, uint16_t checkDetMatrixTx, uint16_t rangeIdx, uint32_t * pingPongIdxPtr)"
+
+.SS "uint32_t secondDimFFTandLog2Computation (\fBMmwDemo_DSS_DataPathObj\fP *restrict obj, uint16_t *restrict sumAbs, uint16_t checkDetMatrixTx, uint16_t rangeIdx, uint32_t * pingPongIdxPtr)"
+\fBDescription\fP 
+.br
+ Function to perform 2D-FFT on all Rxs corresponding to one range gatewindow sample\&. Following the FFT it computes the Log2 Abs and optionally stores it in detMatrix\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP Data path object\&. 
+.br
+\fIsumAbs\fP Sum of the log2 of absolute value\&. 
+.br
+\fIcheckDetMatrixTx\fP Optionally check whether the detection matrix has been transferred to L3\&. 
+.br
+\fIrangeIdx\fP The index of the range gate being processed\&. 
+.br
+\fIpingPongIdxPtr\fP Pointer to the current ping-pong indx
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fIwaitingTime\&.\fP 
+.RE
+.PP
+
+.PP
+Definition at line 2937 of file dss_data_path\&.c\&.
+.SS "uint8_t select_channel (uint8_t subframeIndx, uint8_t pingPongId, uint8_t option0ping, uint8_t option1ping, uint8_t option0pong, uint8_t option1pong)"
+\fBDescription\fP 
+.br
+ selects one of four channels based on the subframe and the 'ping pong' ID 
+.PP
+Definition at line 267 of file dss_data_path\&.c\&.
+.PP
+References pingPongId\&.
+.PP
+Referenced by MmwDemo_dataPathWait1DOutputData(), MmwDemo_dataPathWait2DInputData(), and MmwDemo_dataPathWait3DInputData()\&.
+.SH "Variable Documentation"
+.PP 
+.SS "volatile \fBcycleLog_t\fP gCycleLog"
+
+.PP
+Definition at line 146 of file dss_main\&.c\&.
+.PP
+Referenced by MmwDemo_processChirp()\&.
+.SS "uint8_t gMmwL1[\fBMMW_L1_HEAP_SIZE\fP]"
+L1 Heap 
+.PP
+Definition at line 136 of file dss_data_path\&.c\&.
+.SS "uint8_t gMmwL2[\fBMMW_L2_HEAP_SIZE\fP]"
+L2 Heap 
+.PP
+Definition at line 131 of file dss_data_path\&.c\&.
+.SS "uint8_t gMmwL3[\fBSOC_XWR18XX_DSS_L3RAM_SIZE\fP]"
+L3 RAM buffer 
+.PP
+Definition at line 126 of file dss_data_path\&.c\&.
+.SS "\fBMrr_DSS_MCB\fP gMrrDSSMCB"
+
+.PP
+Global Variable for tracking information required by the design\&. 
+.PP
+Definition at line 144 of file dss_main\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mmWaveFMCWRADAR from the source code\&.

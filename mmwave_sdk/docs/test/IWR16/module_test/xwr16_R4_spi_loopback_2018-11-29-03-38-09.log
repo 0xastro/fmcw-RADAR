@@ -1,0 +1,508 @@
+mss in binary >>> xwr16xx_spi_mss.xer4f
+eth008 Board details:
+IP address: 10.218.113.61
+
+Port: 17494
+
+connecting...
+Relay states 8->1 : 01010101
+1 off
+2 off
+Relay states 8->1 : 01010100
+1 on
+Relay states 8->1 : 01010101
+exit
+Disconnected
+Pre-Script returned: Success
+**************************************************
+Testcase mods & parameters invoked:
+**************************************************
+Two core test case: None (this is not a two core testcase)
+
+**************************************************
+Copying test case files from the Build server
+**************************************************
+Testdata possible location 1: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/drivers/spi/test/testdata
+
+
+Testdata directory was not found on Testdata possible location 1
+
+
+Testdata possible location 2: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/drivers/spi/test/xwr16xx/testdata
+
+
+Testdata directory was not found on Testdata possible location 2
+
+Call to copy_testcase_binary:
+TCP: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/drivers/spi/test/xwr16xx; /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13
+
+Copying testcase binary file from http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/drivers/spi/test/xwr16xx/xwr16xx_spi_mss.xer4f to /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13 using command: 
+wget -e robots=off --no-proxy -N -T 30 -t 2 -P /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13 http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/drivers/spi/test/xwr16xx/xwr16xx_spi_mss.xer4f
+**************************************************
+Executing Testcase:/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13/xwr16xx_spi_mss.xer4f
+**************************************************
+Checking if Py4J Gateway server has started...
+Py4J Gateway Server is Started
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/DEBUGSSM_0
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/IcePick_M_0
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/C674X_0
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/CS_DAP_0
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/CortexR4_0
+DSS test case opening debug session.
+
+cr4ctl = 0xadad00
+
+efuse/register @0xFFFFE210 = 0x300002
+
+efuse/register @0xFFFFE214 = 0x30005b0
+
+efuse/register @0xFFFFE218 = 0x12
+
+efuse/register @0xFFFFE21C = 0x300
+
+Loading binary to the DUT:/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13/xwr16xx_spi_mss.xer4f
+
+**************************************************
+ Parameters found in the Binary arguments : 
+{'gXWR1xxxSlaveReady(8)': '0', 'gXWR1xxxLoopbackTest(8)': '1', 'gXWR1xxxMasterWithMSPTest(8)': '0', 'gXWR1xxxSlaveWithMSPTest(8)': '0', 'gXWR1xxxSlaveWithFTDITest(8)': '0'}
+**************************************************
+Reading address of symbol: gXWR1xxxSlaveReady
+Address of symbol obtained: 0x8010010
+Write value 0 to address 0x8010010 
+Value updated successfully
+Reading address of symbol: gXWR1xxxLoopbackTest
+Address of symbol obtained: 0x800ffcc
+Write value 1 to address 0x800ffcc 
+Value updated successfully
+Reading address of symbol: gXWR1xxxMasterWithMSPTest
+Address of symbol obtained: 0x800ffcd
+Write value 0 to address 0x800ffcd 
+Value updated successfully
+Reading address of symbol: gXWR1xxxSlaveWithMSPTest
+Address of symbol obtained: 0x800ffce
+Write value 0 to address 0x800ffce 
+Value updated successfully
+Reading address of symbol: gXWR1xxxSlaveWithFTDITest
+Address of symbol obtained: 0x800ffcf
+Write value 0 to address 0x800ffcf 
+Value updated successfully
+binary path = /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13/xwr16xx_spi_mss.xer4f
+
+dt-time: start time = Thu Nov 29 03:38:48 2018
+
+dt-time: end time = Thu Nov 29 03:44:39 2018
+
+
+**************************************************
+CIO Log captured for the testcase
+**************************************************
+******************************************
+Debug: MibSPI Driver Test Application Start 
+******************************************
+Feature: SPI_open API test (instance=0): Passed
+Debug: SPI Instance @0800fe64 has been opened successfully
+Debug: SPI Instance @0800fe64 has been closed successfully
+Debug: Passed DMA channel number check
+Feature: SPI_open API test - DMA channel validation (instance=0): Passed
+Feature: SPI_open API test - chip select validation (instance=0): Passed
+Feature: SPI_open API test - data size validation (instance=0): Passed
+Feature: SPI_open API test - bit rate validation (instance=0): Passed
+Debug: Open the SPI Instance for SPI transfer parameter check test
+Debug: SPI_transfer with data size = 1 failed with error=6.
+Feature: SPI_transfer API test - data size=1 validation (instance=0): Passed
+Debug: SPI_transfer with data size = 11 failed with error=6. 
+Feature: SPI_transfer API test - data size=11 validation (instance=0): Passed
+Debug: SPI_transfer failed with NULL pointers for both TX and RX. 
+Feature: SPI_transfer API test - buffer address validation (instance=0): Passed
+Debug: SPI Instance @0800fe64 has been closed successfully
+Debug: Finished API Test for SPIA!
+Feature: SPI_open API test (instance=1): Passed
+Debug: SPI Instance @0800fe70 has been opened successfully
+Debug: SPI Instance @0800fe70 has been closed successfully
+Debug: Passed DMA channel number check
+Feature: SPI_open API test - DMA channel validation (instance=1): Passed
+Feature: SPI_open API test - chip select validation (instance=1): Passed
+Feature: SPI_open API test - data size validation (instance=1): Passed
+Feature: SPI_open API test - bit rate validation (instance=1): Passed
+Debug: Open the SPI Instance for SPI transfer parameter check test
+Debug: SPI_transfer with data size = 1 failed with error=6.
+Feature: SPI_transfer API test - data size=1 validation (instance=1): Passed
+Debug: SPI_transfer with data size = 11 failed with error=6. 
+Feature: SPI_transfer API test - data size=11 validation (instance=1): Passed
+Debug: SPI_transfer failed with NULL pointers for both TX and RX. 
+Feature: SPI_transfer API test - buffer address validation (instance=1): Passed
+Debug: SPI Instance @0800fe70 has been closed successfully
+Debug: Finished API Test for SPIB!
+Debug: SPI Instance(0) @0800fe64 has been opened successfully
+Debug: SPI Instance(1) @0800fe70 has been opened successfully
+Feature: SPI_open API test for two instances: Passed
+Debug: SPI Instance(0) @0800fe64 has been closed successfully
+Debug: SPI Instance(1) @0800fe70 has been closed successfully
+Debug: SPI Instance(0) @0800fe64 has been opened successfully
+Debug: passed DMA channel number check for two SPI instances.
+Feature: SPI_open API test for two instances: DMA channel validation: Passed
+Debug: SPI Instance @0800fe64 has been closed successfully
+Debug: Finished API Test for SPIA + SPIB!
+Debug: SPI loopback Test for SPIA!
+Debug: SPI Instance @0800fe64 has been reopened in master mode successfully
+Debug: Finished Digital loopback with various length test,  failed 0 out of 64 times
+Feature: SPI loopback test - instance(0), 16bits DMA mode: Passed
+Debug: SPI Instance @0800fe64 has been closed successfully
+Debug: SPI Instance @0800fe64 has been opened successfully
+Debug: Finished Digital loopback with various length test,  failed 0 out of 64 times
+Feature: SPI loopback test - instance(0), 16bits non-DMA mode: Passed
+Debug: SPI Instance @0800fe64 has been closed successfully
+Debug: SPI Instance @0800fe64 has been opened successfully
+Debug: Finished Digital loopback with various length test,  failed 0 out of 64 times
+Feature: SPI loopback test - instance(0), 8bits DMA mode: Passed
+Debug: SPI Instance @0800fe64 has been closed successfully
+Debug: SPI Instance @0800fe64 has been opened successfully
+Debug: Finished Digital loopback with various length test,  failed 0 out of 64 times
+Feature: SPI loopback test - instance(0), 8bits non-DMA mode: Passed
+Debug: SPI Instance @0800fe64 has been closed successfully
+Debug: Finished Digital loopback througput test,  failed 0 out of 1000 times
+Feature: SPI throughput at bitRate 1000 Kbps : 0.970940 Mbps: Passed
+SPI hardware stats:
+datalen Error    = 0
+timeout          = 0
+Parity Error     = 0
+Desync error     = 0
+Tx bit error     = 0
+RX overrun       = 0
+Debug: Finished Digital loopback througput test,  failed 0 out of 1000 times
+Feature: SPI throughput at bitRate 2000 Kbps : 1.887391 Mbps: Passed
+SPI hardware stats:
+datalen Error    = 0
+timeout          = 0
+Parity Error     = 0
+Desync error     = 0
+Tx bit error     = 0
+RX overrun       = 0
+Debug: Finished Digital loopback througput test,  failed 0 out of 1000 times
+Feature: SPI throughput at bitRate 6000 Kbps : 5.120444 Mbps: Passed
+SPI hardware stats:
+datalen Error    = 0
+timeout          = 0
+Parity Error     = 0
+Desync error     = 0
+Tx bit error     = 0
+RX overrun       = 0
+Debug: Finished Digital loopback througput test,  failed 0 out of 1000 times
+Feature: SPI throughput at bitRate 10000 Kbps : 7.700303 Mbps: Passed
+SPI hardware stats:
+datalen Error    = 0
+timeout          = 0
+Parity Error     = 0
+Desync error     = 0
+Tx bit error     = 0
+RX overrun       = 0
+Debug: Finished Digital loopback througput test,  failed 0 out of 1000 times
+Feature: SPI throughput at bitRate 20000 Kbps : 12.540723 Mbps: Passed
+SPI hardware stats:
+datalen Error    = 0
+timeout          = 0
+Parity Error     = 0
+Desync error     = 0
+Tx bit error     = 0
+RX overrun       = 0
+Debug: Finished Digital loopback througput test,  failed 0 out of 1000 times
+Feature: SPI throughput at bitRate 40000 Kbps : 18.279337 Mbps: Passed
+SPI hardware stats:
+datalen Error    = 0
+timeout          = 0
+Parity Error     = 0
+Desync error     = 0
+Tx bit error     = 0
+RX overrun       = 0
+Debug: SPI loopback Test for SPIB on Slave 0!
+Debug: SPI Instance @0800fe70 has been reopened in master mode successfully
+Debug: Finished Digital loopback with various length test,  failed 0 out of 32 times
+Feature: SPI loopback test - instance(1), 16bits DMA mode: Passed
+Debug: SPI Instance @0800fe70 has been closed successfully
+Debug: SPI Instance @0800fe70 has been opened successfully
+Debug: Finished Digital loopback with various length test,  failed 0 out of 32 times
+Feature: SPI loopback test - instance(1), 16bits non-DMA mode: Passed
+Debug: SPI Instance @0800fe70 has been closed successfully
+Debug: SPI Instance @0800fe70 has been opened successfully
+Debug: Finished Digital loopback with various length test,  failed 0 out of 32 times
+Feature: SPI loopback test - instance(1), 8bits DMA mode: Passed
+Debug: SPI Instance @0800fe70 has been closed successfully
+Debug: SPI Instance @0800fe70 has been opened successfully
+Debug: Finished Digital loopback with various length test,  failed 0 out of 32 times
+Feature: SPI loopback test - instance(1), 8bits non-DMA mode: Passed
+Debug: SPI Instance @0800fe70 has been closed successfully
+Debug: Finished Digital loopback througput test,  failed 0 out of 1000 times
+Feature: SPI throughput at bitRate 1000 Kbps : 0.970939 Mbps: Passed
+SPI hardware stats:
+datalen Error    = 0
+timeout          = 0
+Parity Error     = 0
+Desync error     = 0
+Tx bit error     = 0
+RX overrun       = 0
+Debug: Finished Digital loopback througput test,  failed 0 out of 1000 times
+Feature: SPI throughput at bitRate 2000 Kbps : 1.887316 Mbps: Passed
+SPI hardware stats:
+datalen Error    = 0
+timeout          = 0
+Parity Error     = 0
+Desync error     = 0
+Tx bit error     = 0
+RX overrun       = 0
+Debug: Finished Digital loopback througput test,  failed 0 out of 1000 times
+Feature: SPI throughput at bitRate 6000 Kbps : 5.121422 Mbps: Passed
+SPI hardware stats:
+datalen Error    = 0
+timeout          = 0
+Parity Error     = 0
+Desync error     = 0
+Tx bit error     = 0
+RX overrun       = 0
+Debug: Finished Digital loopback througput test,  failed 0 out of 1000 times
+Feature: SPI throughput at bitRate 10000 Kbps : 7.701759 Mbps: Passed
+SPI hardware stats:
+datalen Error    = 0
+timeout          = 0
+Parity Error     = 0
+Desync error     = 0
+Tx bit error     = 0
+RX overrun       = 0
+Debug: Finished Digital loopback througput test,  failed 0 out of 1000 times
+Feature: SPI throughput at bitRate 20000 Kbps : 12.543500 Mbps: Passed
+SPI hardware stats:
+datalen Error    = 0
+timeout          = 0
+Parity Error     = 0
+Desync error     = 0
+Tx bit error     = 0
+RX overrun       = 0
+Debug: Finished Digital loopback througput test,  failed 0 out of 1000 times
+Feature: SPI throughput at bitRate 40000 Kbps : 18.275709 Mbps: Passed
+SPI hardware stats:
+datalen Error    = 0
+timeout          = 0
+Parity Error     = 0
+Desync error     = 0
+Tx bit error     = 0
+RX overrun       = 0
+Debug: SPI loopback Test for SPIB on Slave 1!
+Debug: SPI Instance @0800fe70 has been reopened in master mode successfully
+Debug: Finished Digital loopback with various length test,  failed 0 out of 16 times
+Feature: SPI loopback test - instance(1), 16bits DMA mode: Passed
+Debug: SPI Instance @0800fe70 has been closed successfully
+Debug: SPI Instance @0800fe70 has been opened successfully
+Debug: Finished Digital loopback with various length test,  failed 0 out of 16 times
+Feature: SPI loopback test - instance(1), 16bits non-DMA mode: Passed
+Debug: SPI Instance @0800fe70 has been closed successfully
+Debug: SPI Instance @0800fe70 has been opened successfully
+Debug: Finished Digital loopback with various length test,  failed 0 out of 16 times
+Feature: SPI loopback test - instance(1), 8bits DMA mode: Passed
+Debug: SPI Instance @0800fe70 has been closed successfully
+Debug: SPI Instance @0800fe70 has been opened successfully
+Debug: Finished Digital loopback with various length test,  failed 0 out of 16 times
+Feature: SPI loopback test - instance(1), 8bits non-DMA mode: Passed
+Debug: SPI Instance @0800fe70 has been closed successfully
+Debug: Finished Digital loopback througput test,  failed 0 out of 1000 times
+Feature: SPI throughput at bitRate 1000 Kbps : 0.970942 Mbps: Passed
+SPI hardware stats:
+datalen Error    = 0
+timeout          = 0
+Parity Error     = 0
+Desync error     = 0
+Tx bit error     = 0
+RX overrun       = 0
+Debug: Finished Digital loopback througput test,  failed 0 out of 1000 times
+Feature: SPI throughput at bitRate 2000 Kbps : 1.887363 Mbps: Passed
+SPI hardware stats:
+datalen Error    = 0
+timeout          = 0
+Parity Error     = 0
+Desync error     = 0
+Tx bit error     = 0
+RX overrun       = 0
+Debug: Finished Digital loopback througput test,  failed 0 out of 1000 times
+Feature: SPI throughput at bitRate 6000 Kbps : 5.123587 Mbps: Passed
+SPI hardware stats:
+datalen Error    = 0
+timeout          = 0
+Parity Error     = 0
+Desync error     = 0
+Tx bit error     = 0
+RX overrun       = 0
+Debug: Finished Digital loopback througput test,  failed 0 out of 1000 times
+Feature: SPI throughput at bitRate 10000 Kbps : 7.701574 Mbps: Passed
+SPI hardware stats:
+datalen Error    = 0
+timeout          = 0
+Parity Error     = 0
+Desync error     = 0
+Tx bit error     = 0
+RX overrun       = 0
+Debug: Finished Digital loopback througput test,  failed 0 out of 1000 times
+Feature: SPI throughput at bitRate 20000 Kbps : 12.540430 Mbps: Passed
+SPI hardware stats:
+datalen Error    = 0
+timeout          = 0
+Parity Error     = 0
+Desync error     = 0
+Tx bit error     = 0
+RX overrun       = 0
+Debug: Finished Digital loopback througput test,  failed 0 out of 1000 times
+Feature: SPI throughput at bitRate 40000 Kbps : 18.276728 Mbps: Passed
+SPI hardware stats:
+datalen Error    = 0
+timeout          = 0
+Parity Error     = 0
+Desync error     = 0
+Tx bit error     = 0
+RX overrun       = 0
+Debug: SPI loopback Test for SPIB on Slave 2!
+Debug: SPI Instance @0800fe70 has been reopened in master mode successfully
+Debug: Finished Digital loopback with various length test,  failed 0 out of 16 times
+Feature: SPI loopback test - instance(1), 16bits DMA mode: Passed
+Debug: SPI Instance @0800fe70 has been closed successfully
+Debug: SPI Instance @0800fe70 has been opened successfully
+Debug: Finished Digital loopback with various length test,  failed 0 out of 16 times
+Feature: SPI loopback test - instance(1), 16bits non-DMA mode: Passed
+Debug: SPI Instance @0800fe70 has been closed successfully
+Debug: SPI Instance @0800fe70 has been opened successfully
+Debug: Finished Digital loopback with various length test,  failed 0 out of 16 times
+Feature: SPI loopback test - instance(1), 8bits DMA mode: Passed
+Debug: SPI Instance @0800fe70 has been closed successfully
+Debug: SPI Instance @0800fe70 has been opened successfully
+Debug: Finished Digital loopback with various length test,  failed 0 out of 16 times
+Feature: SPI loopback test - instance(1), 8bits non-DMA mode: Passed
+Debug: SPI Instance @0800fe70 has been closed successfully
+Debug: Finished Digital loopback througput test,  failed 0 out of 1000 times
+Feature: SPI throughput at bitRate 1000 Kbps : 0.970931 Mbps: Passed
+SPI hardware stats:
+datalen Error    = 0
+timeout          = 0
+Parity Error     = 0
+Desync error     = 0
+Tx bit error     = 0
+RX overrun       = 0
+Debug: Finished Digital loopback througput test,  failed 0 out of 1000 times
+Feature: SPI throughput at bitRate 2000 Kbps : 1.887357 Mbps: Passed
+SPI hardware stats:
+datalen Error    = 0
+timeout          = 0
+Parity Error     = 0
+Desync error     = 0
+Tx bit error     = 0
+RX overrun       = 0
+Debug: Finished Digital loopback througput test,  failed 0 out of 1000 times
+Feature: SPI throughput at bitRate 6000 Kbps : 5.122576 Mbps: Passed
+SPI hardware stats:
+datalen Error    = 0
+timeout          = 0
+Parity Error     = 0
+Desync error     = 0
+Tx bit error     = 0
+RX overrun       = 0
+Debug: Finished Digital loopback througput test,  failed 0 out of 1000 times
+Feature: SPI throughput at bitRate 10000 Kbps : 7.690808 Mbps: Passed
+SPI hardware stats:
+datalen Error    = 0
+timeout          = 0
+Parity Error     = 0
+Desync error     = 0
+Tx bit error     = 0
+RX overrun       = 0
+Debug: Finished Digital loopback througput test,  failed 0 out of 1000 times
+Feature: SPI throughput at bitRate 20000 Kbps : 12.540379 Mbps: Passed
+SPI hardware stats:
+datalen Error    = 0
+timeout          = 0
+Parity Error     = 0
+Desync error     = 0
+Tx bit error     = 0
+RX overrun       = 0
+Debug: Finished Digital loopback througput test,  failed 0 out of 1000 times
+Feature: SPI throughput at bitRate 40000 Kbps : 18.280781 Mbps: Passed
+SPI hardware stats:
+datalen Error    = 0
+timeout          = 0
+Parity Error     = 0
+Desync error     = 0
+Tx bit error     = 0
+RX overrun       = 0
+Debug: Loopback test finished!
+Debug: SPI Test is done!
+Value read from Global variable (MCPI_Result): 0
+Test Failure Signature: 0
+Test Log Messages: 
+Feature tested: SPI_open API test (instance=0): Passed
+Feature tested: SPI_open API test - DMA channel validation (instance=0): Passed
+Feature tested: SPI_open API test - chip select validation (instance=0): Passed
+Feature tested: SPI_open API test - data size validation (instance=0): Passed
+Feature tested: SPI_open API test - bit rate validation (instance=0): Passed
+Feature tested: SPI_transfer API test - data size=1 validation (instance=0): Passed
+Feature tested: SPI_transfer API test - data size=11 validation (instance=0): Passed
+Feature tested: SPI_transfer API test - buffer address validation (instance=0): Passed
+Feature tested: SPI_open API test (instance=1): Passed
+Feature tested: SPI_open API test - DMA channel validation (instance=1): Passed
+Feature tested: SPI_open API test - chip select validation (instance=1): Passed
+Feature tested: SPI_open API test - data size validation (instance=1): Passed
+Feature tested: SPI_open API test - bit rate validation (instance=1): Passed
+Feature tested: SPI_transfer API test - data size=1 validation (instance=1): Passed
+Feature tested: SPI_transfer API test - data size=11 validation (instance=1): Passed
+Feature tested: SPI_transfer API test - buffer address validation (instance=1): Passed
+Feature tested: SPI_open API test for two instances: Passed
+Feature tested: SPI_open API test for two instances: DMA channel validation: Passed
+Feature tested: SPI loopback test - instance(0), 16bits DMA mode: Passed
+Feature tested: SPI loopback test - instance(0), 16bits non-DMA mode: Passed
+Feature tested: SPI loopback test - instance(0), 8bits DMA mode: Passed
+Feature tested: SPI loopback test - instance(0), 8bits non-DMA mode: Passed
+Feature tested: SPI throughput at bitRate 1000 Kbps : 0.970940 Mbps: Passed
+Feature tested: SPI throughput at bitRate 2000 Kbps : 1.887391 Mbps: Passed
+Feature tested: SPI throughput at bitRate 6000 Kbps : 5.120444 Mbps: Passed
+Feature tested: SPI throughput at bitRate 10000 Kbps : 7.700303 Mbps: Passed
+Feature tested: SPI throughput at bitRate 20000 Kbps : 12.540723 Mbps: Passed
+Feature tested: SPI throughput at bitRate 40000 Kbps : 18.279337 Mbps: Passed
+Feature tested: SPI loopback test - instance(1), 16bits DMA mode: Passed
+Feature tested: SPI loopback test - instance(1), 16bits non-DMA mode: Passed
+Feature tested: SPI loopback test - instance(1), 8bits DMA mode: Passed
+Feature tested: SPI loopback test - instance(1), 8bits non-DMA mode: Passed
+Feature tested: SPI throughput at bitRate 1000 Kbps : 0.970939 Mbps: Passed
+Feature tested: SPI throughput at bitRate 2000 Kbps : 1.887316 Mbps: Passed
+Feature tested: SPI throughput at bitRate 6000 Kbps : 5.121422 Mbps: Passed
+Feature tested: SPI throughput at bitRate 10000 Kbps : 7.701759 Mbps: Passed
+Feature tested: SPI throughput at bitRate 20000 Kbps : 12.543500 Mbps: Passed
+Feature tested: SPI throughput at bitRate 40000 Kbps : 18.275709 Mbps: Passed
+Feature tested: SPI loopback test - instance(1), 16bits DMA mode: Passed
+Feature tested: SPI loopback test - instance(1), 16bits non-DMA mode: Passed
+Feature tested: SPI loopback test - instance(1), 8bits DMA mode: Passed
+Feature tested: SPI loopback test - instance(1), 8bits non-DMA mode: Passed
+Feature tested: SPI throughput at bitRate 1000 Kbps : 0.970942 Mbps: Passed
+Feature tested: SPI throughput at bitRate 2000 Kbps : 1.887363 Mbps: Passed
+Feature tested: SPI throughput at bitRate 6000 Kbps : 5.123587 Mbps: Passed
+Feature tested: SPI throughput at bitRate 10000 Kbps : 7.701574 Mbps: Passed
+Feature tested: SPI throughput at bitRate 20000 Kbps : 12.540430 Mbps: Passed
+Feature tested: SPI throughput at bitRate 40000 Kbps : 18.276728 Mbps: Passed
+Feature tested: SPI loopback test - instance(1), 16bits DMA mode: Passed
+Feature tested: SPI loopback test - instance(1), 16bits non-DMA mode: Passed
+Feature tested: SPI loopback test - instance(1), 8bits DMA mode: Passed
+Feature tested: SPI loopback test - instance(1), 8bits non-DMA mode: Passed
+Feature tested: SPI throughput at bitRate 1000 Kbps : 0.970931 Mbps: Passed
+Feature tested: SPI throughput at bitRate 2000 Kbps : 1.887357 Mbps: Passed
+Feature tested: SPI throughput at bitRate 6000 Kbps : 5.122576 Mbps: Passed
+Feature tested: SPI throughput at bitRate 10000 Kbps : 7.690808 Mbps: Passed
+Feature tested: SPI throughput at bitRate 20000 Kbps : 12.540379 Mbps: Passed
+Feature tested: SPI throughput at bitRate 40000 Kbps : 18.280781 Mbps: Passed
+
+
+shutting down py4j gw server.
+
+
+**************************************************
+Terminating the debug session and Shutting down gateway.
+**************************************************
+
+**************************************************
+Test case execution completed
+**************************************************
+
+**************************************************
+Testcase Result : PASS
+**************************************************

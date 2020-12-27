@@ -1,0 +1,175 @@
+mss in binary >>> xwr14xx_crc_mss.xer4f
+eth008 Board details:
+IP address: 10.218.113.62
+
+Port: 17494
+
+connecting...
+Relay states 8->1 : 00010101
+3 off
+7 off
+4 off
+Relay states 8->1 : 00010001
+3 on
+Relay states 8->1 : 00010101
+exit
+Disconnected
+Pre-Script returned: Success
+**************************************************
+Testcase mods & parameters invoked:
+**************************************************
+Two core test case: None (this is not a two core testcase)
+
+**************************************************
+Copying test case files from the Build server
+**************************************************
+Testdata possible location 1: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/drivers/crc/test/testdata
+
+
+Testdata directory was not found on Testdata possible location 1
+
+
+Testdata possible location 2: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/drivers/crc/test/xwr14xx/testdata
+
+
+Testdata directory was not found on Testdata possible location 2
+
+Call to copy_testcase_binary:
+TCP: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/drivers/crc/test/xwr14xx; /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr14xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_50_24
+
+Copying testcase binary file from http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/drivers/crc/test/xwr14xx/xwr14xx_crc_mss.xer4f to /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr14xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_50_24 using command: 
+wget -e robots=off --no-proxy -N -T 30 -t 2 -P /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr14xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_50_24 http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/drivers/crc/test/xwr14xx/xwr14xx_crc_mss.xer4f
+**************************************************
+Executing Testcase:/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr14xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_50_24/xwr14xx_crc_mss.xer4f
+**************************************************
+Checking if Py4J Gateway server has started...
+Py4J Gateway Server is Started
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_0/CS_DAP_0
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_0/Master_R4
+DSS test case opening debug session.
+
+cr4ctl = 0xadad00
+
+efuse/register @0xFFFFE210 = 0x100001
+
+efuse/register @0xFFFFE214 = 0x1002480
+
+efuse/register @0xFFFFE218 = 0x13
+
+efuse/register @0xFFFFE21C = 0x300
+
+Loading binary to the DUT (no binary args updated):/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr14xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_50_24/xwr14xx_crc_mss.xer4f
+binary path = /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr14xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_50_24/xwr14xx_crc_mss.xer4f
+
+dt-time: start time = Thu Nov 29 02:53:33 2018
+
+dt-time: end time = Thu Nov 29 02:54:35 2018
+
+
+**************************************************
+CIO Log captured for the testcase
+**************************************************
+***********************************************
+************** CRC Unit Tests *****************
+***********************************************
+Debug: CRC Open/Close Test Passed
+Feature: Basic CRC API: Passed
+Debug: Compute Signature API with invalid transaction id Passed.
+Debug: Compute Signature API with valid transaction id Passed
+Feature: Compute CRC Signature: Passed
+Debug: Get Signature with Invalid Transaction Id Passed
+Debug: Get Signature API with Valid Transaction Id Passed
+Feature: Get CRC Signature: Passed
+Debug: CRC Driver cancel signature with invalid transaction id Passed
+Debug: CRC Driver cancel signature with valid transaction id Passed
+Feature: Cancel CRC Signature: Passed
+Debug: 16 Bit Software CRC is 0x5139
+Debug: Testing CRC Functionality Polynomial [CCIT(16 Bit Polynomial)] for Pointer Data 8001320 Data Length 16 bits
+Debug: CRC Driver signature is 0000000000005139
+Debug: CRC Driver signature is 0000000000005139
+Debug: Testing CRC Functionality Polynomial [CCIT(16 Bit Polynomial)] for Data Length 16 bits Passed
+Feature: CRC Type: 16bit Data Length: 16bit: Passed
+Debug: 16 Bit Software CRC is 0x5139
+Debug: Testing CRC Functionality Polynomial [CCIT(16 Bit Polynomial)] for Pointer Data 8001320 Data Length 32 bits
+Debug: CRC Driver signature is 0000000000005139
+Debug: CRC Driver signature is 0000000000005139
+Debug: Testing CRC Functionality Polynomial [CCIT(16 Bit Polynomial)] for Data Length 32 bits Passed
+Feature: CRC Type: 16bit Data Length: 32bit: Passed
+Debug: 16 Bit Software CRC is 0x5139
+Debug: Testing CRC Functionality Polynomial [CCIT(16 Bit Polynomial)] for Pointer Data 8001320 Data Length 64 bits
+Debug: CRC Driver signature is 0000000000005139
+Debug: CRC Driver signature is 0000000000005139
+Debug: Testing CRC Functionality Polynomial [CCIT(16 Bit Polynomial)] for Data Length 64 bits Passed
+Feature: CRC Type: 16bit Data Length: 64bit: Passed
+Debug: 32 Bit Software CRC is 0xdc254701
+Debug: Testing CRC Functionality Polynomial [Ethernet(32 Bit Polynomial)] for Pointer Data 8001320 Data Length 16 bits
+Debug: CRC Driver signature is 00000000dc254701
+Debug: CRC Driver signature is 00000000dc254701
+Debug: Testing CRC Functionality Polynomial [Ethernet(32 Bit Polynomial)] for Data Length 16 bits Passed
+Feature: CRC Type: 32bit Data Length: 16bit: Passed
+Debug: 32 Bit Software CRC is 0xdc254701
+Debug: Testing CRC Functionality Polynomial [Ethernet(32 Bit Polynomial)] for Pointer Data 8001320 Data Length 32 bits
+Debug: CRC Driver signature is 00000000dc254701
+Debug: CRC Driver signature is 00000000dc254701
+Debug: Testing CRC Functionality Polynomial [Ethernet(32 Bit Polynomial)] for Data Length 32 bits Passed
+Feature: CRC Type: 32bit Data Length: 32bit: Passed
+Debug: 32 Bit Software CRC is 0xdc254701
+Debug: Testing CRC Functionality Polynomial [Ethernet(32 Bit Polynomial)] for Pointer Data 8001320 Data Length 64 bits
+Debug: CRC Driver signature is 00000000dc254701
+Debug: CRC Driver signature is 00000000dc254701
+Debug: Testing CRC Functionality Polynomial [Ethernet(32 Bit Polynomial)] for Data Length 64 bits Passed
+Feature: CRC Type: 32bit Data Length: 64bit: Passed
+Debug: 64 Bit Software CRC is 77c41a42f112ad04
+Debug: Bit Swap: MSB Byte Swap: Enabled
+Debug: Testing CRC Functionality Polynomial [ISO 3309(64 Bit Polynomial)] for Pointer Data 8001380 Data Length 16 bits
+Debug: CRC Driver signature is 77c41a42f112ad04
+Debug: CRC Driver signature is 77c41a42f112ad04
+Debug: Testing CRC Functionality Polynomial [ISO 3309(64 Bit Polynomial)] for Data Length 16 bits Passed
+Feature: CRC Type: 64bit Data Length: 16bit: Passed
+Debug: 64 Bit Software CRC is 77c41a42f112ad04
+Debug: Bit Swap: MSB Byte Swap: Enabled
+Debug: Testing CRC Functionality Polynomial [ISO 3309(64 Bit Polynomial)] for Pointer Data 8001380 Data Length 32 bits
+Debug: CRC Driver signature is 77c41a42f112ad04
+Debug: CRC Driver signature is 77c41a42f112ad04
+Debug: Testing CRC Functionality Polynomial [ISO 3309(64 Bit Polynomial)] for Data Length 32 bits Passed
+Feature: CRC Type: 64bit Data Length: 32bit: Passed
+Debug: 64 Bit Software CRC is 77c41a42f112ad04
+Debug: Bit Swap: MSB Byte Swap: Enabled
+Debug: Testing CRC Functionality Polynomial [ISO 3309(64 Bit Polynomial)] for Pointer Data 8001380 Data Length 64 bits
+Debug: CRC Driver signature is 77c41a42f112ad04
+Debug: CRC Driver signature is 77c41a42f112ad04
+Debug: Testing CRC Functionality Polynomial [ISO 3309(64 Bit Polynomial)] for Data Length 64 bits Passed
+Feature: CRC Type: 64bit Data Length: 64bit: Passed
+Debug: CRC Unit Tests completed successfully
+Value read from Global variable (MCPI_Result): 0
+Test Failure Signature: 0
+Test Log Messages: 
+Feature tested: Basic CRC API: Passed
+Feature tested: Compute CRC Signature: Passed
+Feature tested: Get CRC Signature: Passed
+Feature tested: Cancel CRC Signature: Passed
+Feature tested: CRC Type: 16bit Data Length: 16bit: Passed
+Feature tested: CRC Type: 16bit Data Length: 32bit: Passed
+Feature tested: CRC Type: 16bit Data Length: 64bit: Passed
+Feature tested: CRC Type: 32bit Data Length: 16bit: Passed
+Feature tested: CRC Type: 32bit Data Length: 32bit: Passed
+Feature tested: CRC Type: 32bit Data Length: 64bit: Passed
+Feature tested: CRC Type: 64bit Data Length: 16bit: Passed
+Feature tested: CRC Type: 64bit Data Length: 32bit: Passed
+Feature tested: CRC Type: 64bit Data Length: 64bit: Passed
+
+
+shutting down py4j gw server.
+
+
+**************************************************
+Terminating the debug session and Shutting down gateway.
+**************************************************
+
+**************************************************
+Test case execution completed
+**************************************************
+
+**************************************************
+Testcase Result : PASS
+**************************************************

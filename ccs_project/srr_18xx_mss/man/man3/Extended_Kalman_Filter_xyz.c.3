@@ -1,0 +1,752 @@
+.TH "C:/Users/astro/workspace_v9_2/mrr_18xx_dss/Extended_Kalman_Filter_xyz.c" 3 "Wed May 20 2020" "Version 1.0" "mmWaveFMCWRADAR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/Users/astro/workspace_v9_2/mrr_18xx_dss/Extended_Kalman_Filter_xyz.c \- Implements an 'Extended Kalman Filter' for radar tracking\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include <math\&.h>\fP
+.br
+\fC#include <ti/mathlib/mathlib\&.h>\fP
+.br
+\fC#include <ti/drivers/osal/DebugP\&.h>\fP
+.br
+\fC#include <assert\&.h>\fP
+.br
+\fC#include 'dss_data_path\&.h'\fP
+.br
+\fC#include 'EKF_XYZ_Consts\&.h'\fP
+.br
+\fC#include 'EKF_XYZ_Interface\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBDebugP_ASSERT_ENABLED\fP   1"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBInitAssociatedMeasurementIndx\fP (int16_t *restrict assocMeasIndx, const int32_t numMeas)"
+.br
+.ti -1c
+.RI "void \fBinitAssociatedTrackerIndx\fP (int16_t *restrict assocObjIndx, const int32_t numObj)"
+.br
+.ti -1c
+.RI "int32_t \fBstateVecTimeUpdate\fP (float *restrict state, const float td)"
+.br
+.ti -1c
+.RI "void \fBstateCovmatTimeUpdate\fP (float *restrict covmat, float const *restrict Qvec, const float td, \fBKFtrackerInstance_t\fP *restrict inst)"
+.br
+.ti -1c
+.RI "int32_t \fBcomputePredictedMeas\fP (float *restrict rrd, float const *restrict xyz, float *restrict p_invRange)"
+.br
+.ti -1c
+.RI "int32_t \fBisTargetWithinDataAssociationThresh\fP (float *restrict measResidual, float const *restrict state_rrd, float const *restrict meas_rrd, float const *restrict state_xyz, \fBKFtrackerInstance_t\fP *restrict inst, float *restrict pdistSq, int32_t tick, int32_t age)"
+.br
+.ti -1c
+.RI "int32_t \fBsymMatInv\fP (float *restrict inv, float const *restrict m)"
+.br
+.ti -1c
+.RI "void \fBcomputeHmat\fP (float *restrict hMat, float const *restrict statevec_xyz, float const *restrict stateVec, const float invrange)"
+.br
+.ti -1c
+.RI "void \fBresidualCovarianceComputation\fP (float *restrict residCovmat, float const *restrict state_covmat, float const *restrict measCovVec, float const *restrict hMat)"
+.br
+.ti -1c
+.RI "void \fBkalmanGainComputation\fP (float *restrict kalmanGain, float const *restrict state_covmat, float const *restrict hMat, float const *restrict invResidCovmat, \fBKFtrackerInstance_t\fP *inst)"
+.br
+.ti -1c
+.RI "int32_t \fBstateVecMeasurementUpdate\fP (float *restrict state, float const *restrict kalmanGain, float const *restrict measResidual)"
+.br
+.ti -1c
+.RI "void \fBstateCovmatMeasurementUpdate\fP (float *restrict covmat, float const *restrict kalmanGain, float const *restrict hMat, \fBKFtrackerInstance_t\fP *inst)"
+.br
+.ti -1c
+.RI "int32_t \fBselectMeas\fP (int16_t *restrict selectedMeas, \fBtrackingInputReport_t\fP const *restrict measArray, int16_t *restrict assocMeasIndx, const int32_t nFree, const int32_t numUnassociatedMeas, const int32_t numMeasTotal)"
+.br
+.ti -1c
+.RI "void \fBcreateNewTracks\fP (\fBMmwDemo_DSS_DataPathObj\fP *restrict dataPathObj, \fBtrackingInputReport_t\fP const *restrict measArray, int16_t const *restrict freeTrackerIndxArray, int16_t const *restrict selectedIndxArr, const int32_t numSelected)"
+.br
+.ti -1c
+.RI "void \fBinitNewTracker\fP (\fBKFstate_t\fP *restrict obj, \fBtrackingInputReport_t\fP const *restrict meas)"
+.br
+.ti -1c
+.RI "float * \fBselect_QVec\fP (float const *restrict QvecList, uint8_t tick, uint8_t age, const float range)"
+.br
+.ti -1c
+.RI "uint32_t \fBisWithinBoundingBox\fP (\fBKFstate_t\fP *restrict currTrack, \fBMmwDemo_DSS_DataPathObj\fP *restrict dataPathObj)"
+.br
+.ti -1c
+.RI "void \fBarrangeTracksByAge\fP (\fBKFstate_t\fP *restrict TrackList, const uint32_t numTracksTotal)"
+.br
+.ti -1c
+.RI "int32_t \fBinvalidateCurrTrack\fP (\fBKFstate_t\fP *restrict currTrack, int16_t *restrict freeTrackerIndxArray, int32_t nFree, int32_t iTrack)"
+.br
+.ti -1c
+.RI "void \fBekfInit\fP (\fBMmwDemo_DSS_DataPathObj\fP *restrict dataPathObj)"
+.br
+.ti -1c
+.RI "void \fBekfRun\fP (const int32_t numMeas, \fBtrackingInputReport_t\fP const *restrict measArray, \fBMmwDemo_DSS_DataPathObj\fP *restrict dataPathObj, float const *restrict QvecList, const float td)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Implements an 'Extended Kalman Filter' for radar tracking\&. 
+
+
+.PP
+\fB\fP
+.RS 4
+NOTE: (C) Copyright 2018 Texas Instruments, Inc\&.
+.RE
+.PP
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+.PP
+Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer\&.
+.PP
+Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution\&.
+.PP
+Neither the name of Texas Instruments Incorporated nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission\&.
+.PP
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED\&. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE\&. 
+.PP
+Definition in file \fBExtended_Kalman_Filter_xyz\&.c\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define DebugP_ASSERT_ENABLED   1"
+
+.PP
+Definition at line 44 of file Extended_Kalman_Filter_xyz\&.c\&.
+.SH "Function Documentation"
+.PP 
+.SS "void arrangeTracksByAge (\fBKFstate_t\fP *restrict TrackList, const uint32_t numTracksTotal)"
+\fBDescription\fP 
+.br
+ Since we use a greedy algorithm to associate tracks and measurements, it is important that stable (older) tracks are associated before the newer (more unstable) tracks\&. This will ensure that newer tracks do not associate with measurements that would have better associated with older tracks\&.
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP Applicable\&. 
+.RE
+.PP
+
+.PP
+Definition at line 400 of file Extended_Kalman_Filter_xyz\&.c\&.
+.PP
+References IS_VALID, KFstate::tick, and KFstate::validity\&.
+.PP
+Referenced by ekfRun()\&.
+.SS "void computeHmat (float *restrict hMat, float const *restrict statevec_xyz, float const *restrict stateVecRrd, const float invrange)"
+\fBDescription\fP 
+.br
+ This function computes the observation matrix (hMat)\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIhMat\fP a vector containing the non-zero elements of the hmat\&. 
+.br
+ 
+.br
+\fIstatevec_xyz\fP predicted state (in x y co-ordinates) 
+.br
+\fIstateVecRrd\fP predicted measurents\&. 
+.br
+\fIinvrange\fP 1/r - computed in the computePredictedMeas function\&.
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP Applicable\&. 
+.RE
+.PP
+
+.PP
+Definition at line 819 of file Extended_Kalman_Filter_xyz\&.c\&.
+.PP
+References iRANGE_RATE, iSIN_AZIM, iXd, iY, and iYd\&.
+.PP
+Referenced by ekfRun()\&.
+.SS "int32_t computePredictedMeas (float *restrict rrd, float const *restrict xyz, float *restrict p_invRange)"
+\fBDescription\fP 
+.br
+ This function computes the predicted measurements from the state vector\&. i\&.e\&. R = H(x);
+.PP
+\fBParameters\fP
+.RS 4
+\fIrrd\fP predicted measurement\&. 
+.br
+ 
+.br
+\fIxyz\fP state\&. 
+.br
+\fIp_invRange\fP The inv sqrt of the range is also computed and used in the hMat computation\&.
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP Applicable\&. 
+.RE
+.PP
+
+.PP
+Definition at line 595 of file Extended_Kalman_Filter_xyz\&.c\&.
+.PP
+References iRANGE, iRANGE_RATE, IS_INVALID, IS_VALID, iSIN_AZIM, iX, iXd, iY, and iYd\&.
+.PP
+Referenced by ekfRun()\&.
+.SS "void createNewTracks (\fBMmwDemo_DSS_DataPathObj\fP *restrict dataPathObj, \fBtrackingInputReport_t\fP const *restrict measArray, int16_t const *restrict freeTrackerIndxArray, int16_t const *restrict selectedIndxArr, const int32_t numSelected)"
+\fBDescription\fP 
+.br
+ This function creates new tracks\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIdataPathObj\fP Data path object - for the 'trackerState' struct array\&. 
+.br
+ 
+.br
+\fImeasArray\fP List of input measurements 
+.br
+\fIfreeTrackerIndexArray\fP Number of free tracks\&. 
+.br
+\fIselectedIndxArr\fP An array of the selected measurements for new tracks\&. 
+.br
+\fInumSelected\&.\fP number of selected measurements\&. 
+.br
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fInot\fP applicable 
+.RE
+.PP
+
+.PP
+Definition at line 1313 of file Extended_Kalman_Filter_xyz\&.c\&.
+.PP
+References initNewTracker(), and IS_VALID\&.
+.PP
+Referenced by ekfRun()\&.
+.SS "void ekfInit (\fBMmwDemo_DSS_DataPathObj\fP *restrict dataPathObj)"
+\fBDescription\fP 
+.br
+ This function initializes the memory used by the tracking function\&. It also initializes all the trackers to an invalid state, and then populates the 'process noise matrix' or 'Qmat'\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIdataPathObj\fP data path object
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP Applicable\&. 
+.RE
+.PP
+
+.PP
+Definition at line 86 of file Extended_Kalman_Filter_xyz\&.c\&.
+.PP
+References FRAME_PERIODICITY_SEC, IS_INVALID, iX, iXd, iY, iYd, MAX_ACCEL_X_M_P_SECSQ, MAX_ACCEL_Y_M_P_SECSQ, MAX_TRK_OBJs, MRR_MAX_OBJ_OUT, N_MEASUREMENTS, N_STATES, N_UNIQ_ELEM_IN_HMAT, N_UNIQ_ELEM_IN_SYM_COVMAT, N_UNIQ_ELEM_IN_SYM_RESIDCOVMAT, and KFtrackerInstance::scratchPadFlt\&.
+.SS "void ekfRun (const int32_t numMeas, \fBtrackingInputReport_t\fP const *restrict measArray, \fBMmwDemo_DSS_DataPathObj\fP *restrict dataPathObj, float const *restrict QvecList, const float td)"
+\fBDescription\fP 
+.br
+ This function runs the kalmanfilter on a list of input data 
+.br
+.PP
+\fBParameters\fP
+.RS 4
+\fInumMeas\fP The number of tracking inputs\&. 
+.br
+\fImeasArray\fP An array of structures holding the measurements\&. 
+.br
+ 
+.br
+\fIdataPathObj\fP data path object 
+.br
+\fIQvecList\fP A array of structures holding the 'process noise matrix\&. 
+.br
+\fItd\fP The update rate of the measurement\&.
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP Applicable\&. 
+.RE
+.PP
+
+.PP
+Definition at line 166 of file Extended_Kalman_Filter_xyz\&.c\&.
+.PP
+References AGED_OBJ_DELETION_THRESH, arrangeTracksByAge(), KFtrackerInstance::assocMeasIndx, computeHmat(), computePredictedMeas(), createNewTracks(), InitAssociatedMeasurementIndx(), initAssociatedTrackerIndx(), invalidateCurrTrack(), iRANGE, iRANGE_RATE, IS_ASSOCIATED, IS_INVALID, iSIN_AZIM, isTargetWithinDataAssociationThresh(), isWithinBoundingBox(), iY, kalmanGainComputation(), MAX_TRK_OBJs, NOT_ASSOCIATED, residualCovarianceComputation(), select_QVec(), selectMeas(), stateCovmatMeasurementUpdate(), stateCovmatTimeUpdate(), stateVecMeasurementUpdate(), stateVecTimeUpdate(), and symMatInv()\&.
+.SS "void InitAssociatedMeasurementIndx (int16_t *restrict assocMeasIndx, const int32_t numMeas)"
+\fBDescription\fP 
+.br
+ This function initializes the assocMeasIndx to state that no measurements have been associated to an existing tracker\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIassocMeasIndx\fP An array that will hold the mapping of the incoming measurement to the existing tracker to which it is associated to\&. 
+.br
+ 
+.br
+\fInuMeas\fP number of measurement (for this epoch)\&.
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP Applicable\&. 
+.RE
+.PP
+
+.PP
+Definition at line 454 of file Extended_Kalman_Filter_xyz\&.c\&.
+.PP
+References NOT_ASSOCIATED\&.
+.PP
+Referenced by ekfRun()\&.
+.SS "void initAssociatedTrackerIndx (int16_t *restrict freeTrackerIndxArray, const int32_t numObj)"
+\fBDescription\fP 
+.br
+ This function initializes the freeTrackerIndxArray to state that no objects have been associated to an existing measurement\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIfreeTrackerIndxArray\fP An array that will hold the mapping of the existing tracker to a measurement\&. 
+.br
+ 
+.br
+\fInumObj\fP number of trackers (for this epoch)\&.
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP Applicable\&. 
+.RE
+.PP
+
+.PP
+Definition at line 477 of file Extended_Kalman_Filter_xyz\&.c\&.
+.PP
+References NOT_ASSOCIATED\&.
+.PP
+Referenced by ekfRun()\&.
+.SS "void initNewTracker (\fBKFstate_t\fP *restrict obj, \fBtrackingInputReport_t\fP const *restrict meas)"
+\fBDescription\fP 
+.br
+ This function initialzes a new tracker\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to the new tracker's state\&. 
+.br
+ 
+.br
+\fImeas\fP set of measurements to initialize the tracker\&. 
+.br
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fInot\fP applicable 
+.RE
+.PP
+
+.PP
+Definition at line 1354 of file Extended_Kalman_Filter_xyz\&.c\&.
+.PP
+References iRANGE, iRANGE_RATE, iSIN_AZIM, iX, iXd, iXdXd, iXX, iY, iYd, iYdYd, iYY, and N_UNIQ_ELEM_IN_SYM_COVMAT\&.
+.PP
+Referenced by createNewTracks()\&.
+.SS "int32_t invalidateCurrTrack (\fBKFstate_t\fP *restrict currTrack, int16_t *restrict freeTrackerIndxArray, int32_t nFree, int32_t iTrack)"
+\fBDescription\fP 
+.br
+ This function invalidates a track by marking it as invalid, marking its index as invalid, incrementing the number of free tracks\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIcurrTrack\fP pointer to the tracker's state\&. 
+.br
+ 
+.br
+\fIfreeTrackerIndxArray\fP List of unassociated trackers\&. 
+.br
+ 
+.br
+\fInFree\fP current number of free trackers\&. 
+.br
+ 
+.br
+\fIiTrack\fP current track Index\&. 
+.br
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fIupdated\fP number of free trackers\&. 
+.RE
+.PP
+
+.PP
+Definition at line 1518 of file Extended_Kalman_Filter_xyz\&.c\&.
+.PP
+References IS_INVALID\&.
+.PP
+Referenced by ekfRun()\&.
+.SS "int32_t isTargetWithinDataAssociationThresh (float *restrict measResidual, float const *restrict state_rrd, float const *restrict meas_rrd, float const *restrict state_xyz, \fBKFtrackerInstance_t\fP *restrict inst, float *restrict pdistSq, int32_t tick, int32_t age)"
+\fBDescription\fP 
+.br
+ This function checks whether the predicted measurements are close to the new measurements ( i\&.e\&. can they be associated)\&. If they can be then the mean sq distance between the predicted and the new is passed back, so that the closest measurement is used\&.
+.PP
+Track association is not a traditional part of Kalman filtering, and hence our approach (based on experiment) is ad-hoc\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fImeasResidual\fP measurement residual\&. 
+.br
+ 
+.br
+\fIstate_rrd\fP predicted measurents\&. 
+.br
+\fImeas_rrd\fP new measurements\&. 
+.br
+\fIstate_xyz\fP predicted state (in x y co-ordinates) 
+.br
+\fIinst\fP KFtrackerInstance_t object (for scratchpad\&.) 
+.br
+\fIpdistSq\fP The distance sq between predicted and new measurement\&. Only valid if the measurement is deemed to be 'associatable'\&. 
+.br
+\fItick\fP age of the Track\&. Newer tracks are given more leeway & in associating, as they take some time to converge\&.
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fIIS_ASSOCIATED\fP or NOT_ASSOCIATED\&. 
+.RE
+.PP
+
+.PP
+Definition at line 648 of file Extended_Kalman_Filter_xyz\&.c\&.
+.PP
+References iRANGE, iRANGE_RATE, IS_ASSOCIATED, iSIN_AZIM, iX, iY, and NOT_ASSOCIATED\&.
+.PP
+Referenced by ekfRun()\&.
+.SS "uint32_t isWithinBoundingBox (\fBKFstate_t\fP *restrict currTrack, \fBMmwDemo_DSS_DataPathObj\fP *restrict dataPathObj)"
+\fBDescription\fP 
+.br
+ This function validates a state by checking whether it is within a specific bounding box\&. For e\&.g if an object is behind the radar, there is no need to track it\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIcurrTrack\fP pointer to the tracker's state\&. 
+.br
+ 
+.br
+\fIdataPathObj\fP data path object -> for max range\&. 
+.br
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fItrue/false\fP 
+.RE
+.PP
+
+.PP
+Definition at line 1455 of file Extended_Kalman_Filter_xyz\&.c\&.
+.PP
+References IS_INVALID, IS_VALID, iX, iY, N_STATES, and N_UNIQ_ELEM_IN_SYM_COVMAT\&.
+.PP
+Referenced by ekfRun()\&.
+.SS "void kalmanGainComputation (float *restrict kalmanGain, float const *restrict state_covmat, float const *restrict hMat, float const *restrict invResidCovmat, \fBKFtrackerInstance_t\fP * inst)"
+\fBDescription\fP 
+.br
+ This function performs the (near-optimal) kalman gain computation\&. i\&.e\&. in matlab kalmanGain = state_covmat*transpose(hMat)*inv(residCovmat)
+.PP
+\fBParameters\fP
+.RS 4
+\fIkalmanGain\fP kalman gain matrix\&. 
+.br
+ 
+.br
+\fIstate_covmat\fP state covariance matrix\&. 
+.br
+\fIhMat\fP (observation matrix) Hmat 
+.br
+\fImeasCovVec\fP inverse of the residual covMat\&. 
+.br
+\fIinst\fP KFtrackerInstance_t object (for scratchpad\&.) 
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP Applicable\&. 
+.RE
+.PP
+
+.PP
+Definition at line 962 of file Extended_Kalman_Filter_xyz\&.c\&.
+.PP
+References iAzAz, iRAz, iRdAz, iRdRd, iRR, iRRd, iXdXd, iXdYd, iXX, iXXd, iXY, iXYd, iYdYd, iYXd, iYY, iYYd, and KFtrackerInstance::kalmanGainTemp\&.
+.PP
+Referenced by ekfRun()\&.
+.SS "void residualCovarianceComputation (float *restrict residCovmat, float const *restrict state_covmat, float const *restrict measCovVec, float const *restrict hMat)"
+\fBDescription\fP 
+.br
+ This function performs the residual covariance matrix computation\&. i\&.e\&. residCovmat = hMat*state_covmat*transpose(hMat) + measCovVec 
+.br
+.PP
+\fBParameters\fP
+.RS 4
+\fIresidCovmat\fP residual covariance matrix\&. 
+.br
+ 
+.br
+\fIstate_covmat\fP state covariance matrix\&. 
+.br
+\fImeasCovVec\fP variance of the measurement\&. 
+.br
+\fIhMat\fP (observation matrix) Hmat
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP Applicable\&. 
+.RE
+.PP
+
+.PP
+Definition at line 861 of file Extended_Kalman_Filter_xyz\&.c\&.
+.PP
+References iAzAz, iRANGE, iRANGE_RATE, iRAz, iRdAz, iRdRd, iRR, iRRd, iSIN_AZIM, iXdXd, iXdYd, iXX, iXXd, iXY, iXYd, iYdYd, iYXd, iYY, and iYYd\&.
+.PP
+Referenced by ekfRun()\&.
+.SS "float * select_QVec (float const *restrict QvecList, uint8_t tick, uint8_t age, const float range)"
+\fBDescription\fP 
+.br
+ This function selects a 'process noise matrix' based on the age of the tracker\&. If the tracker is new, then the 'process noise' is assumed to be high, so as to allow faster convergence\&. If the tracker is old, the process noise is computed as per the the unmodeled parameters\&. We also allow higher 'process noise' for closer objects, assuming that their higher SNR will compensate for the noisier measurements\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIQvecList\fP 3 arrays [N_STATES] long\&. A list of possible Qvec matrices\&. 
+.br
+\fItick\fP the number of valid association of the tracker\&. 
+.br
+ 
+.br
+\fIage\fP the age of the tracker (i\&.e\&. the number of ticks before the last associated measurement)\&. 
+.br
+ 
+.br
+\fIrange\fP the distance of the target being tracked\&. 
+.br
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fIpointer\fP to the 'process noise diagonal' 
+.RE
+.PP
+
+.PP
+Definition at line 1418 of file Extended_Kalman_Filter_xyz\&.c\&.
+.PP
+References N_STATES\&.
+.PP
+Referenced by ekfRun()\&.
+.SS "int32_t selectMeas (int16_t *restrict selectedMeas, \fBtrackingInputReport_t\fP const *restrict measArray, int16_t *restrict assocMeasIndx, const int32_t nFree, const int32_t numUnassociatedMeas, const int32_t numMeasTotal)"
+\fBDescription\fP 
+.br
+ This function selects the unassociated measurements that are to be used to create the new tracks\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIselectedMeas\fP The unassociated measurements selected for tracking\&. 
+.br
+ 
+.br
+\fImeasArray\fP List of input measurements 
+.br
+\fIassocMeasIndx\fP An array declaring whether a measurement has been associated or not\&. 
+.br
+\fInFree\fP Number of free tracks\&. 
+.br
+\fInumUnassociatedMeas\fP Number of unassociated measurements\&. 
+.br
+\fInumMeasTotal\&.\fP Total number of measurements\&.
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fInumber\fP of selected measurements\&. \&. 
+.RE
+.PP
+
+.PP
+Definition at line 1244 of file Extended_Kalman_Filter_xyz\&.c\&.
+.PP
+References HIGH_SNR_RVAR_THRESH, iRANGE, IS_ASSOCIATED, and NOT_ASSOCIATED\&.
+.PP
+Referenced by ekfRun()\&.
+.SS "void stateCovmatMeasurementUpdate (float *restrict covmat, float const *restrict const kalmanGain, float const *restrict const hMat, \fBKFtrackerInstance_t\fP * inst)"
+\fBDescription\fP 
+.br
+ This function performs the state covariance matrix update\&. i\&.e\&. in matlab P = (I - KH)*P 
+.br
+.PP
+\fBParameters\fP
+.RS 4
+\fIcovmat\fP updated state covariance matrix (P)\&. 
+.br
+ 
+.br
+\fIkalmanGain\fP Kalman gain (K)\&. 
+.br
+ 
+.br
+\fIhMat\fP observation matrix (H)\&. 
+.br
+ 
+.br
+\fIKFtrackerInstance_t\fP scratchpad pointers\&.
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP Applicable\&. 
+.RE
+.PP
+
+.PP
+Definition at line 1129 of file Extended_Kalman_Filter_xyz\&.c\&.
+.PP
+References iXdXd, iXdYd, iXX, iXXd, iXY, iXYd, iYdYd, iYXd, iYY, iYYd, N_MEASUREMENTS, N_STATES, N_UNIQ_ELEM_IN_SYM_COVMAT, KFtrackerInstance::stateCovMattemp, and KFtrackerInstance::stateCovMattempP\&.
+.PP
+Referenced by ekfRun()\&.
+.SS "void stateCovmatTimeUpdate (float *restrict covmat, float const *restrict Q, const float td, \fBKFtrackerInstance_t\fP *restrict inst)"
+\fBDescription\fP 
+.br
+ This function updates the state covariance matrix\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIcovmat\fP state covariance matrix\&. 
+.br
+ 
+.br
+\fIQ\fP process noise diagonal \&. 
+.br
+ 
+.br
+\fItd\fP time delta\&. 
+.br
+\fIinst\fP KFtrackerInstance_t (for scratchpad)\&.
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP Applicable\&. 
+.RE
+.PP
+
+.PP
+Definition at line 526 of file Extended_Kalman_Filter_xyz\&.c\&.
+.PP
+References iX, iXd, iXdXd, iXdYd, iXX, iXXd, iXY, iXYd, iY, iYd, iYdYd, iYXd, iYY, iYYd, and N_UNIQ_ELEM_IN_SYM_COVMAT\&.
+.PP
+Referenced by ekfRun()\&.
+.SS "int32_t stateVecMeasurementUpdate (float *restrict state, float const *restrict kalmanGain, float const *restrict meas_residual)"
+\fBDescription\fP 
+.br
+ This function performs the state measurement update\&. i\&.e\&. in matlab state = state + kalmanGain*measResidual
+.PP
+\fBParameters\fP
+.RS 4
+\fIstate\fP updated state \&. 
+.br
+ 
+.br
+\fIkalmanGain\fP kalman gain matrix\&. 
+.br
+ 
+.br
+\fImeas_residual\fP measurement residual\&.
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP Applicable\&. 
+.RE
+.PP
+
+.PP
+Definition at line 1089 of file Extended_Kalman_Filter_xyz\&.c\&.
+.PP
+References IS_INVALID, IS_VALID, iY, N_MEASUREMENTS, and N_STATES\&.
+.PP
+Referenced by ekfRun()\&.
+.SS "int32_t stateVecTimeUpdate (float *restrict state, const float td)"
+\fBDescription\fP 
+.br
+ This function updates the state vector\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIstate\fP state vector\&. 
+.br
+ 
+.br
+\fItd\fP time delta\&.
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fIIs\fP the object behind the radar?\&. 
+.RE
+.PP
+
+.PP
+Definition at line 497 of file Extended_Kalman_Filter_xyz\&.c\&.
+.PP
+References IS_INVALID, IS_VALID, iX, iXd, iY, and iYd\&.
+.PP
+Referenced by ekfRun()\&.
+.SS "int32_t symMatInv (float *restrict inv, float const *restrict m)"
+\fBDescription\fP 
+.br
+ This function computes the inverse of a symettric N_MEASUREMENTS x N_MEASUREMENTS matrix\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIinv\fP inverted matrix\&. 
+.br
+ 
+.br
+\fIm\fP input matrix\&.
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP Applicable\&. 
+.RE
+.PP
+
+.PP
+Definition at line 752 of file Extended_Kalman_Filter_xyz\&.c\&.
+.PP
+References EPS, and N_UNIQ_ELEM_IN_SYM_RESIDCOVMAT\&.
+.PP
+Referenced by ekfRun()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mmWaveFMCWRADAR from the source code\&.

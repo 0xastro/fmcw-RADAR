@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['report_5fn_5fbit_5ffrac_4307',['REPORT_N_BIT_FRAC',['../app__cfg_8h.html#a5c84a3f2e2fda7785b77c54d78695fee',1,'app_cfg.h']]],
+  ['round_5fto_5fint32_4308',['ROUND_TO_INT32',['../device__cfg_8h.html#a437968baff761e9f494039737d7c4c94',1,'device_cfg.h']]],
+  ['rx_5fchannel_5f1_5f2_5f3_5f4_5fenable_4309',['RX_CHANNEL_1_2_3_4_ENABLE',['../device__cfg_8h.html#a510876f9d6afb32fb946e073f02983f5',1,'device_cfg.h']]],
+  ['rx_5fchannel_5f1_5f2_5f3_5fenable_4310',['RX_CHANNEL_1_2_3_ENABLE',['../device__cfg_8h.html#a9e285d565b6d6fa4336828f78bb97fbb',1,'device_cfg.h']]],
+  ['rx_5fchannel_5f1_5f2_5fenable_4311',['RX_CHANNEL_1_2_ENABLE',['../device__cfg_8h.html#a89c7623dba3a753507c444db892cf3d2',1,'device_cfg.h']]],
+  ['rx_5fchannel_5f1_5f3_5f4_5fenable_4312',['RX_CHANNEL_1_3_4_ENABLE',['../device__cfg_8h.html#a0bca8373b5ada403a6b6dca947dad43e',1,'device_cfg.h']]],
+  ['rx_5fchannel_5f1_5f3_5fenable_4313',['RX_CHANNEL_1_3_ENABLE',['../device__cfg_8h.html#a3b1de8cc11e4fec0b1c9c2a5a1a22e7f',1,'device_cfg.h']]],
+  ['rx_5fchannel_5f1_5f4_5fenable_4314',['RX_CHANNEL_1_4_ENABLE',['../device__cfg_8h.html#a5548d3776bba65cb1e18a0727bbda7f9',1,'device_cfg.h']]],
+  ['rx_5fchannel_5f1_5fenable_4315',['RX_CHANNEL_1_ENABLE',['../device__cfg_8h.html#a4f4d452db8952b21950676d29c7043e3',1,'device_cfg.h']]],
+  ['rx_5fchannel_5f2_5f3_5f4_5fenable_4316',['RX_CHANNEL_2_3_4_ENABLE',['../device__cfg_8h.html#a577b98f517d8cdfc36f5a19dc1e091e7',1,'device_cfg.h']]],
+  ['rx_5fchannel_5f2_5f3_5fenable_4317',['RX_CHANNEL_2_3_ENABLE',['../device__cfg_8h.html#a4c3b45a867d04ab94d6c91968b216a5c',1,'device_cfg.h']]],
+  ['rx_5fchannel_5f2_5f4_5fenable_4318',['RX_CHANNEL_2_4_ENABLE',['../device__cfg_8h.html#a2738d4f07337c8a2e76a8495a30a4aa8',1,'device_cfg.h']]],
+  ['rx_5fchannel_5f2_5fenable_4319',['RX_CHANNEL_2_ENABLE',['../device__cfg_8h.html#a34be0aec490f2732881799d0ee9a666a',1,'device_cfg.h']]],
+  ['rx_5fchannel_5f3_5f4_5fenable_4320',['RX_CHANNEL_3_4_ENABLE',['../device__cfg_8h.html#a0b49e124bcc00ccd4b8b8661fac54732',1,'device_cfg.h']]],
+  ['rx_5fchannel_5f3_5fenable_4321',['RX_CHANNEL_3_ENABLE',['../device__cfg_8h.html#a79ac1810e146d970c2b63a673f72d2cc',1,'device_cfg.h']]],
+  ['rx_5fchannel_5f4_5fenable_4322',['RX_CHANNEL_4_ENABLE',['../device__cfg_8h.html#a1d11aeefd78d005acb87b764219a3d0b',1,'device_cfg.h']]]
+];

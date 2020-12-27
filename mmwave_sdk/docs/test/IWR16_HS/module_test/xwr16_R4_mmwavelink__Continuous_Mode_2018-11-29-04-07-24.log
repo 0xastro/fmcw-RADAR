@@ -1,0 +1,213 @@
+mss in binary >>> xwr16xx_link_mss.xer4f
+eth008 Board details:
+IP address: 10.218.113.67
+
+Port: 17494
+
+connecting...
+Relay states 8->1 : 00000001
+1 off
+2 off
+Relay states 8->1 : 00000000
+1 on
+Relay states 8->1 : 00000001
+exit
+Disconnected
+Pre-Script returned: Success
+**************************************************
+Testcase mods & parameters invoked:
+**************************************************
+Two core test case: None (this is not a two core testcase)
+
+**************************************************
+Copying test case files from the Build server
+**************************************************
+Testdata possible location 1: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/control/mmwavelink/test/testdata
+
+
+Testdata directory was not found on Testdata possible location 1
+
+
+Testdata possible location 2: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/control/mmwavelink/test/xwr16xx/testdata
+
+
+Testdata directory was not found on Testdata possible location 2
+
+Call to copy_testcase_binary:
+TCP: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/control/mmwavelink/test/xwr16xx; /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___hs_iwr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13
+
+Copying testcase binary file from http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/control/mmwavelink/test/xwr16xx/xwr16xx_link_mss.xer4f to /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___hs_iwr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13 using command: 
+wget -e robots=off --no-proxy -N -T 30 -t 2 -P /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___hs_iwr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13 http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/control/mmwavelink/test/xwr16xx/xwr16xx_link_mss.xer4f
+**************************************************
+Executing Testcase:/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___hs_iwr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13/xwr16xx_link_mss.xer4f
+**************************************************
+Checking if Py4J Gateway server has started...
+Py4J Gateway Server is Started
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/DEBUGSSM_0
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/IcePick_M_0
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/C674X_0
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/CS_DAP_0
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/CortexR4_0
+DSS test case opening debug session.
+
+cr4ctl = 0xadad00
+
+efuse/register @0xFFFFE210 = 0x300002
+
+efuse/register @0xFFFFE214 = 0x30405b0
+
+efuse/register @0xFFFFE218 = 0x12
+
+efuse/register @0xFFFFE21C = 0x300
+
+Loading binary to the DUT:/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___hs_iwr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13/xwr16xx_link_mss.xer4f
+
+**************************************************
+ Parameters found in the Binary arguments : 
+{'gLinkSubFrameTrigTest(8)': '0', 'gLinkContModeTest(8)': '1', 'gDynamicChirpTest(8)': '0', 'gLinkProgFiltTest(8)': '0', 'gLinkCalibTest(8)': '0', 'gLinkAdvanceFrameTest(8)': '0', 'gLinkMonitoringTest(8)': '0', 'cqDataVerifyTest(8)': '0', 'gLinkBpmEnableTest(8)': '0'}
+**************************************************
+Reading address of symbol: gLinkSubFrameTrigTest
+Address of symbol obtained: 0x800d58a
+Write value 0 to address 0x800d58a 
+Value updated successfully
+Reading address of symbol: gLinkContModeTest
+Address of symbol obtained: 0x800d584
+Write value 1 to address 0x800d584 
+Value updated successfully
+Reading address of symbol: gDynamicChirpTest
+Address of symbol obtained: 0x800d585
+Write value 0 to address 0x800d585 
+Value updated successfully
+Reading address of symbol: gLinkProgFiltTest
+Address of symbol obtained: 0x800d587
+Write value 0 to address 0x800d587 
+Value updated successfully
+Reading address of symbol: gLinkCalibTest
+Address of symbol obtained: 0x800d581
+Write value 0 to address 0x800d581 
+Value updated successfully
+Reading address of symbol: gLinkAdvanceFrameTest
+Address of symbol obtained: 0x800d582
+Write value 0 to address 0x800d582 
+Value updated successfully
+Reading address of symbol: gLinkMonitoringTest
+Address of symbol obtained: 0x800d580
+Write value 0 to address 0x800d580 
+Value updated successfully
+Reading address of symbol: cqDataVerifyTest
+Address of symbol obtained: 0x800d583
+Write value 0 to address 0x800d583 
+Value updated successfully
+Reading address of symbol: gLinkBpmEnableTest
+Address of symbol obtained: 0x800d586
+Write value 0 to address 0x800d586 
+Value updated successfully
+binary path = /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___hs_iwr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13/xwr16xx_link_mss.xer4f
+
+dt-time: start time = Thu Nov 29 04:08:04 2018
+
+dt-time: end time = Thu Nov 29 04:09:09 2018
+
+
+**************************************************
+CIO Log captured for the testcase
+**************************************************
+Debug: ADCBUF Instance @0800d878 has been reopened successfully
+******************************************
+Debug: Launching the mmwaveLink
+******************************************
+Debug: Launched the mmwaveLink Initialization Task
+Debug: CRC Channel @08000b50 has been opened successfully
+Debug: BSS Mailbox Handle @08001420
+Debug: Power on request successfully passed to the BSS
+Feature: mmWave Link Initialization: Passed
+Debug: Launched the mmwaveLink Management Task
+Debug: Finished get radarSS bootup status to BSS
+Feature: Get radarSS bootup status: Passed
+RF H/W Version    : 02.00
+RF F/W Version    : 02.00.00.01.17.10.05
+RF F/W Patch Version : 01.02.00.03.18.10.24
+mmWaveLink Version: 01.02.00.01
+Feature: Get mmWave Link Version: Passed
+Debug: Die ID Status
+Lot no : 4211953, Wafer no: 2
+Die cordinates in wafer. X : 16 , Y : 25
+Feature: Get Device Die ID Status: Passed
+Debug: Finished set channel configurations to BSS
+Feature: Set mmWave Link Channel Config: Passed
+Debug: Finished setAdcOutConfig to BSS
+Feature: Set mmWave Link ADC Out Config: Passed
+Debug: Finished setLowPowerMode
+Feature: Set mmWave Link Low Power Mode config: Passed
+Debug: Finished rlRfSetDeviceCfg
+Feature: Set Async event config: Passed
+Debug: Set HSI clock successfully
+Feature: Set HSI clock: Passed
+Feature: mmWave Link Enable/Disable Calibration: Passed
+Debug: Init time calibration status [0x800017fe] 
+Debug: RF start successfully
+Feature: mmWave Link RF Calibration: Passed
+Debug: Finished rlRfCalibDataStore
+Feature: mmWave Link Calibration Data Store config: Passed
+Feature: mmWave Link Enable/Disable Calibration: Passed
+Debug: Init time calibration status [0x800017f2] 
+Debug: Finished rlRfCalibDataRestore
+Feature: mmWave Link Calibration Data Restore config: Passed
+Debug: Init time calibration status [0x800017fe] 
+Debug: RF start successfully
+Feature: mmWave Link RF Calibration: Passed
+Debug: Finished rlSetGpAdcConfig
+Feature: mmWave Link Set GPAdc: Passed
+Debug: Finished rlRfSetLdoBypassConfig
+Feature: mmWave Link Set LDO bypass: Passed
+Feature: mmWave Link Calib/Monitoring config: Passed
+Debug: Finished rlSetContModeConfig
+Feature: Set mmWave Link Continous Mode config: Passed
+Debug: Finished rlEnableContMode
+Feature: Enable/Disable mmWave Link Continous modeg: Passed
+Debug: ADCbuf configuration is done!!
+Debug: Finished rlEnableContMode
+Feature: Enable/Disable mmWave Link Continous modeg: Passed
+******************************************
+Debug: MmwaveLink Test completed
+******************************************
+Value read from Global variable (MCPI_Result): 0
+Test Failure Signature: 0
+Test Log Messages: 
+Feature tested: mmWave Link Initialization: Passed
+Feature tested: Get radarSS bootup status: Passed
+Feature tested: Get mmWave Link Version: Passed
+Feature tested: Get Device Die ID Status: Passed
+Feature tested: Set mmWave Link Channel Config: Passed
+Feature tested: Set mmWave Link ADC Out Config: Passed
+Feature tested: Set mmWave Link Low Power Mode config: Passed
+Feature tested: Set Async event config: Passed
+Feature tested: Set HSI clock: Passed
+Feature tested: mmWave Link Enable/Disable Calibration: Passed
+Feature tested: mmWave Link RF Calibration: Passed
+Feature tested: mmWave Link Calibration Data Store config: Passed
+Feature tested: mmWave Link Enable/Disable Calibration: Passed
+Feature tested: mmWave Link Calibration Data Restore config: Passed
+Feature tested: mmWave Link RF Calibration: Passed
+Feature tested: mmWave Link Set GPAdc: Passed
+Feature tested: mmWave Link Set LDO bypass: Passed
+Feature tested: mmWave Link Calib/Monitoring config: Passed
+Feature tested: Set mmWave Link Continous Mode config: Passed
+Feature tested: Enable/Disable mmWave Link Continous modeg: Passed
+Feature tested: Enable/Disable mmWave Link Continous modeg: Passed
+
+
+shutting down py4j gw server.
+
+
+**************************************************
+Terminating the debug session and Shutting down gateway.
+**************************************************
+
+**************************************************
+Test case execution completed
+**************************************************
+
+**************************************************
+Testcase Result : PASS
+**************************************************

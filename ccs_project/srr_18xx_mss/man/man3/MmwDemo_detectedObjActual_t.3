@@ -1,0 +1,154 @@
+.TH "MmwDemo_detectedObjActual_t" 3 "Wed May 20 2020" "Version 1.0" "mmWaveFMCWRADAR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MmwDemo_detectedObjActual_t \- Detected object estimated parameters\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <dss_data_path\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "uint16_t \fBrangeIdx\fP"
+.br
+.RI "Range index\&. "
+.ti -1c
+.RI "uint16_t \fBdopplerIdx\fP"
+.br
+.RI "Doppler index\&. "
+.ti -1c
+.RI "uint16_t \fBrange\fP"
+.br
+.RI "Range (meters in oneQformat) "
+.ti -1c
+.RI "int16_t \fBspeed\fP"
+.br
+.RI "Doppler (m/s in oneQformat) "
+.ti -1c
+.RI "int16_t \fBsinAzim\fP"
+.br
+.RI "wx sin(Azim)\&. Q format provides the bitwidth\&. "
+.ti -1c
+.RI "uint16_t \fBpeakVal\fP"
+.br
+.RI "Peak value\&. "
+.ti -1c
+.RI "uint16_t \fBrangeSNRdB\fP"
+.br
+.RI "Range SNR (dB) 
+.br
+ "
+.ti -1c
+.RI "uint16_t \fBdopplerSNRdB\fP"
+.br
+.RI "Doppler SNR (dB) "
+.ti -1c
+.RI "uint16_t \fBsinAzimSNRLin\fP"
+.br
+.RI "omega SNR (linear scale) "
+.ti -1c
+.RI "int16_t \fBx\fP"
+.br
+.RI "x - coordinate in meters\&. Q format provides the bitwidth\&. "
+.ti -1c
+.RI "int16_t \fBy\fP"
+.br
+.RI "y - coordinate in meters\&. Q format provides the bitwidth\&. "
+.ti -1c
+.RI "int16_t \fBz\fP"
+.br
+.RI "z - coordinate in meters\&. Q format provides the bitwidth\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Detected object estimated parameters\&. 
+
+
+.PP
+Definition at line 153 of file dss_data_path\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "uint16_t MmwDemo_detectedObjActual_t::dopplerIdx"
+
+.PP
+Doppler index\&. 
+.PP
+Definition at line 156 of file dss_data_path\&.h\&.
+.SS "uint16_t MmwDemo_detectedObjActual_t::dopplerSNRdB"
+
+.PP
+Doppler SNR (dB) 
+.PP
+Definition at line 165 of file dss_data_path\&.h\&.
+.SS "uint16_t MmwDemo_detectedObjActual_t::peakVal"
+
+.PP
+Peak value\&. 
+.PP
+Definition at line 162 of file dss_data_path\&.h\&.
+.SS "uint16_t MmwDemo_detectedObjActual_t::range"
+
+.PP
+Range (meters in oneQformat) 
+.PP
+Definition at line 158 of file dss_data_path\&.h\&.
+.SS "uint16_t MmwDemo_detectedObjActual_t::rangeIdx"
+
+.PP
+Range index\&. 
+.PP
+Definition at line 155 of file dss_data_path\&.h\&.
+.SS "uint16_t MmwDemo_detectedObjActual_t::rangeSNRdB"
+
+.PP
+Range SNR (dB) 
+.br
+ 
+.PP
+Definition at line 164 of file dss_data_path\&.h\&.
+.SS "int16_t MmwDemo_detectedObjActual_t::sinAzim"
+
+.PP
+wx sin(Azim)\&. Q format provides the bitwidth\&. 
+.PP
+Definition at line 160 of file dss_data_path\&.h\&.
+.SS "uint16_t MmwDemo_detectedObjActual_t::sinAzimSNRLin"
+
+.PP
+omega SNR (linear scale) 
+.PP
+Definition at line 166 of file dss_data_path\&.h\&.
+.SS "int16_t MmwDemo_detectedObjActual_t::speed"
+
+.PP
+Doppler (m/s in oneQformat) 
+.PP
+Definition at line 159 of file dss_data_path\&.h\&.
+.PP
+Referenced by MmwDemo_XYestimation(), and MmwDemo_XYZestimation()\&.
+.SS "int16_t MmwDemo_detectedObjActual_t::x"
+
+.PP
+x - coordinate in meters\&. Q format provides the bitwidth\&. 
+.PP
+Definition at line 168 of file dss_data_path\&.h\&.
+.SS "int16_t MmwDemo_detectedObjActual_t::y"
+
+.PP
+y - coordinate in meters\&. Q format provides the bitwidth\&. 
+.PP
+Definition at line 169 of file dss_data_path\&.h\&.
+.SS "int16_t MmwDemo_detectedObjActual_t::z"
+
+.PP
+z - coordinate in meters\&. Q format provides the bitwidth\&. 
+.PP
+Definition at line 170 of file dss_data_path\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mmWaveFMCWRADAR from the source code\&.

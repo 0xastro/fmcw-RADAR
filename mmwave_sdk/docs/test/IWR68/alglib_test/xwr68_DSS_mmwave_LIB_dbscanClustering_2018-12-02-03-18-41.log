@@ -1,0 +1,286 @@
+eth008 Board details:
+IP address: 10.218.113.61
+
+Port: 17494
+
+connecting...
+Relay states 8->1 : 01010101
+7 off
+8 off
+Relay states 8->1 : 00010101
+7 on
+Relay states 8->1 : 01010101
+exit
+Disconnected
+Pre-Script returned: Success
+**************************************************
+Testcase mods & parameters invoked:
+**************************************************
+Two core test case: None (this is not a two core testcase)
+
+**************************************************
+Copying test case files from the Build server
+**************************************************
+Testdata possible location 1: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/alg/mmwavelib/test/testdata
+
+
+Copy-To local testcase data path is: /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/testdata
+
+Test case data file floatpoint_test_aoaMultiObj_ref.bin found on server for downloading
+Test case data file radarCase1_mulObj_ref.bin found on server for downloading
+Test case data file radarDemo_multiObj_neg5_test.bin found on server for downloading
+Test case data file radarDemo_captured_test.bin found on server for downloading
+Test case data file radarCase2_test.bin found on server for downloading
+Test case data file dftsinglebinwithwin_test.bin found on server for downloading
+Test case data file radarCase2_mulObj_2dfftout_test.bin found on server for downloading
+Test case data file radarDemo_ref_new.bin found on server for downloading
+Test case data file radarDemo_multiObj_ref.bin found on server for downloading
+Test case data file aoaest_test.bin found on server for downloading
+Test case data file floatpoint_test_dbscanCluster_ref.bin found on server for downloading
+Test case data file radarDemo_multiObj_neg5_ref.bin found on server for downloading
+Test case data file radarDemo_multiObj_neg15_ref.bin found on server for downloading
+Test case data file radarDemo_multiObj_neg15_test.bin found on server for downloading
+Test case data file cfarca_test.bin found on server for downloading
+Test case data file floatpoint_test_aoaMultiObj.bin found on server for downloading
+Test case data file radarCase1_ref.bin found on server for downloading
+Test case data file radarCase1_512_test.bin found on server for downloading
+Test case data file radarCase2_2dfftout_test.bin found on server for downloading
+Test case data file radarDemo_multiObj_test.bin found on server for downloading
+Test case data file radarCase1_test.bin found on server for downloading
+Test case data file cfarca_peak_test.bin found on server for downloading
+Test case data file radarDemo_neg15_test.bin found on server for downloading
+Test case data file radarCase1_mulObj_test.bin found on server for downloading
+Test case data file radarDemo_ref.bin found on server for downloading
+Test case data file radarCase1_512_ref.bin found on server for downloading
+Test case data file dftsinglebinwithwinQI_test.bin found on server for downloading
+Test case data file floatPoint_chain_test.bin found on server for downloading
+Test case data file radarDemo_captured_ref.bin found on server for downloading
+Test case data file radarCase2_ref.bin found on server for downloading
+Test case data file accumPowerFlt_test.bin found on server for downloading
+Test case data file radarCase2_mulObj_ref.bin found on server for downloading
+Test case data file radarCase2_mulObj_test.bin found on server for downloading
+Test case data file radarDemo_neg15_ref.bin found on server for downloading
+Test case data file floatpoint_test_dbscanCluster.bin found on server for downloading
+Test case data file radarDemo_test.bin found on server for downloading
+Test case data file radarDemo_neg10_ref.bin found on server for downloading
+Test case data file windowFlt_test.bin found on server for downloading
+Test case data file dftsinglebin_test.bin found on server for downloading
+Test case data file cfarca_wrap_test.bin found on server for downloading
+Test case data file peakpruning_test.bin found on server for downloading
+Test case data file radarDemo_neg10_test.bin found on server for downloading
+Test case data file clustering_test.bin found on server for downloading
+Call to copy_testcase_binary:
+TCP: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/alg/mmwavelib/test/xwr68xx; /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr68xx_sdk03.01.00_mmwave_LIB_full_Test_Plan___jenkins-79_2018_12_01_15_47_21
+
+Copying testcase binary file from http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/alg/mmwavelib/test/xwr68xx/xwr68xx_mmwavealg_dbscanClustering.xe674 to /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr68xx_sdk03.01.00_mmwave_LIB_full_Test_Plan___jenkins-79_2018_12_01_15_47_21 using command: 
+wget -e robots=off --no-proxy -N -T 30 -t 2 -P /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr68xx_sdk03.01.00_mmwave_LIB_full_Test_Plan___jenkins-79_2018_12_01_15_47_21 http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/alg/mmwavelib/test/xwr68xx/xwr68xx_mmwavealg_dbscanClustering.xe674
+**************************************************
+Executing Testcase:/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr68xx_sdk03.01.00_mmwave_LIB_full_Test_Plan___jenkins-79_2018_12_01_15_47_21/xwr68xx_mmwavealg_dbscanClustering.xe674
+**************************************************
+Checking if Py4J Gateway server has started...
+Py4J Gateway Server is Started
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/DEBUGSSM_0
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/IcePick_M_0
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/C674X_0
+DSS test case opening debug session.
+
+cr4ctl = 0x0
+
+efuse/register @0xFFFFE210 = 0x0
+
+efuse/register @0xFFFFE214 = 0x0
+
+efuse/register @0xFFFFE218 = 0x0
+
+efuse/register @0xFFFFE21C = 0x0
+
+Loading binary to the DUT (no binary args updated):/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr68xx_sdk03.01.00_mmwave_LIB_full_Test_Plan___jenkins-79_2018_12_01_15_47_21/xwr68xx_mmwavealg_dbscanClustering.xe674
+binary path = /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr68xx_sdk03.01.00_mmwave_LIB_full_Test_Plan___jenkins-79_2018_12_01_15_47_21/xwr68xx_mmwavealg_dbscanClustering.xe674
+
+dt-time: start time = Sun Dec  2 03:19:23 2018
+
+dt-time: end time = Sun Dec  2 03:25:28 2018
+
+
+**************************************************
+CIO Log captured for the testcase
+**************************************************
+..... Clustering dbscan test  .......
+Clustering DBSCAN test using modulated symbols
+modulated data test 0
+modulated data test 1
+modulated data test 2
+modulated data test 3
+modulated data test 4
+Clustering DBSCN test using random data
+random data test 0
+random data test 1
+random data test 2
+random data test 3
+random data test 4
+random data test 5
+random data test 6
+random data test 7
+DBSCAN find neighbor benchmark
+numOfPoints, cycles
+100	317
+150	458
+200	491
+250	658
+300	703
+350	846
+400	903
+450	1071
+500	1115
+550	1258
+600	1303
+650	1446
+700	1491
+750	1646
+800	1691
+850	1847
+900	1891
+950	2046
+DBSCAN calculate cluster infor benchmark
+numOfPointsInCluster, cycles
+100	1265
+150	1789
+200	2316
+250	2839
+300	3366
+350	3889
+400	4416
+450	4939
+500	5466
+550	5989
+600	6516
+650	7039
+700	7566
+750	8089
+800	8616
+850	9139
+900	9666
+950	10189
+DBSCAN benchmark
+numOfClustersEst, numOfPoints, cycles
+1	200	123774
+1	300	253369
+1	400	427957
+1	500	647606
+1	600	912251
+1	700	1221938
+1	800	1576560
+1	900	1976177
+1	1000	2420822
+DBSCAN with skipped neighbors benchmark
+numOfCluster, numOfPoints, cycles
+1	200	106746
+1	300	219966
+1	400	373148
+1	500	566399
+1	600	799652
+1	700	1072903
+1	800	1386115
+1	900	1739306
+1	1000	2132589
+DBSCAN benchmark
+numOfClustersEst, numOfPoints, cycles
+2	200	123040
+2	300	252664
+2	400	427408
+2	500	646962
+2	600	911464
+2	700	1221166
+2	800	1575646
+2	900	1975316
+2	1000	2419860
+DBSCAN with skipped neighbors benchmark
+numOfCluster, numOfPoints, cycles
+2	200	105963
+2	300	220297
+2	400	373195
+2	500	566274
+2	600	799385
+2	700	1072535
+2	800	1385534
+2	900	1738643
+2	1000	2131784
+DBSCAN benchmark
+numOfClustersEst, numOfPoints, cycles
+4	200	121460
+4	300	251310
+4	400	425852
+4	500	645406
+4	600	909902
+4	700	1219374
+4	800	1574064
+4	900	1973662
+4	1000	2418138
+DBSCAN with skipped neighbors benchmark
+numOfCluster, numOfPoints, cycles
+4	200	107045
+4	300	219851
+4	400	372850
+4	500	565929
+4	600	799059
+4	700	1072190
+4	800	1385301
+4	900	1738339
+4	1000	2131338
+DBSCAN benchmark
+numOfClustersEst, numOfPoints, cycles
+5	300	250734
+5	400	425182
+5	500	644658
+5	600	909224
+5	700	1218774
+5	800	1573324
+5	900	1972702
+5	1000	2417334
+DBSCAN with skipped neighbors benchmark
+numOfCluster, numOfPoints, cycles
+5	300	220702
+5	400	373802
+5	500	567094
+5	600	800246
+5	700	1073385
+5	800	1386679
+5	900	1739878
+5	1000	2133071
+DBSCAN benchmark
+numOfClustersEst, numOfPoints, cycles
+8	500	642348
+8	600	906780
+8	700	1216278
+8	800	1570476
+8	900	1969986
+8	1000	2414646
+DBSCAN with skipped neighbors benchmark
+numOfCluster, numOfPoints, cycles
+8	500	567222
+8	600	800303
+8	700	1073412
+8	800	1386553
+8	900	1739815
+8	1000	2132934
+========== Fixed point dbscan clustering tests all passed! ========== 
+========== dbscan Fixed-point clustering Testing completed! ==========
+Value read from Global variable (MCPI_Result): 0
+Test Failure Signature: 0
+Test Log Messages: 
+
+
+shutting down py4j gw server.
+
+
+**************************************************
+Terminating the debug session and Shutting down gateway.
+**************************************************
+
+**************************************************
+Test case execution completed
+**************************************************
+
+**************************************************
+Testcase Result : PASS
+**************************************************

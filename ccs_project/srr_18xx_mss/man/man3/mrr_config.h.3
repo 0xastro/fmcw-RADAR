@@ -1,0 +1,234 @@
+.TH "C:/Users/astro/workspace_v9_2/mrr_18xx_dss/common/mrr_config.h" 3 "Wed May 20 2020" "Version 1.0" "mmWaveFMCWRADAR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/Users/astro/workspace_v9_2/mrr_18xx_dss/common/mrr_config.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <ti/control/mmwave/mmwave\&.h>\fP
+.br
+\fC#include <ti/common/sys_common\&.h>\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBMmwDemo_CfarCfg_t\fP"
+.br
+.RI "Millimeter Wave Demo CFAR Configuration\&. "
+.ti -1c
+.RI "struct \fBMmwDemo_PeakGroupingCfg_t\fP"
+.br
+.RI "Millimeter Wave Demo Peak grouping Configuration\&. "
+.ti -1c
+.RI "struct \fBMmwDemo_MultiObjBeamFormingCfg_t\fP"
+.br
+.RI "Millimeter Wave Demo multi object beam formaing Configuration\&. "
+.ti -1c
+.RI "struct \fBMmwDemo_ExtendedMaxVelocityCfg_t\fP"
+.br
+.RI "Millimeter Wave Demo Velocity Disambiguation\&. "
+.ti -1c
+.RI "struct \fBMmwDemo_NearFieldCorrectionCfg_t\fP"
+.br
+.RI "Millimeter Wave Demo near field correction\&. "
+.ti -1c
+.RI "struct \fBMmwDemo_ClutterRemovalCfg_t\fP"
+.br
+.RI "Clutter removal configuration\&. "
+.ti -1c
+.RI "struct \fBMmwDemo_CalibDcRangeSigCfg_t\fP"
+.br
+.RI "Millimeter Wave Demo DC range signature compensation\&. "
+.ti -1c
+.RI "struct \fBMmwDemo_ADCBufCfg_t\fP"
+.br
+.RI "ADCBUF configuration\&. "
+.ti -1c
+.RI "struct \fBMmwDemo_LvdsStreamCfg_t\fP"
+.br
+.RI "LVDS streaming configuration\&. "
+.ti -1c
+.RI "struct \fBMmwDemo_AnaMonitorCfg_t\fP"
+.br
+.RI "Millimeter Wave Demo analog monitor configuration\&. "
+.ti -1c
+.RI "struct \fBMmwDemo_GuiMonSel_t\fP"
+.br
+.RI "Millimeter Wave Demo Gui Monitor Selection\&. "
+.ti -1c
+.RI "struct \fBMmwDemo_CliCfg_t_\fP"
+.br
+.RI "Millimeter Wave Demo CLI related configuration\&. "
+.ti -1c
+.RI "struct \fBMmwDemo_compRxChannelBiasCfg_t_\fP"
+.br
+.RI "Range Bias and rx channel gain/phase compensation configuration\&. "
+.ti -1c
+.RI "struct \fBMmwDemo_measureRxChannelBiasCfg_t_\fP"
+.br
+.RI "Range Bias and rx channel gain/phase measurement configuration\&. "
+.ti -1c
+.RI "struct \fBMmwDemo_CliCommonCfg_t_\fP"
+.br
+.RI "Millimeter Wave Demo CLI related configuration common across all subframes\&. "
+.ti -1c
+.RI "struct \fBMmwDemo_Cfg_t\fP"
+.br
+.RI "Millimeter Wave Demo configuration\&. "
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBDC_RANGE_SIGNATURE_COMP_MAX_BIN_SIZE\fP   32"
+.br
+.RI "Maximum number of 1D FFT bins in DC range antenna signature compensation\&. "
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBMmwDemo_CfarCfg_t\fP \fBMmwDemo_CfarCfg\fP"
+.br
+.RI "Millimeter Wave Demo CFAR Configuration\&. "
+.ti -1c
+.RI "typedef struct \fBMmwDemo_PeakGroupingCfg_t\fP \fBMmwDemo_PeakGroupingCfg\fP"
+.br
+.RI "Millimeter Wave Demo Peak grouping Configuration\&. "
+.ti -1c
+.RI "typedef struct \fBMmwDemo_MultiObjBeamFormingCfg_t\fP \fBMmwDemo_MultiObjBeamFormingCfg\fP"
+.br
+.RI "Millimeter Wave Demo multi object beam formaing Configuration\&. "
+.ti -1c
+.RI "typedef struct \fBMmwDemo_ExtendedMaxVelocityCfg_t\fP \fBMmwDemo_ExtendedMaxVelocityCfg\fP"
+.br
+.RI "Millimeter Wave Demo Velocity Disambiguation\&. "
+.ti -1c
+.RI "typedef struct \fBMmwDemo_NearFieldCorrectionCfg_t\fP \fBMmwDemo_NearFieldCorrectionCfg\fP"
+.br
+.RI "Millimeter Wave Demo near field correction\&. "
+.ti -1c
+.RI "typedef struct \fBMmwDemo_ClutterRemovalCfg_t\fP \fBMmwDemo_ClutterRemovalCfg\fP"
+.br
+.RI "Clutter removal configuration\&. "
+.ti -1c
+.RI "typedef struct \fBMmwDemo_CalibDcRangeSigCfg_t\fP \fBMmwDemo_CalibDcRangeSigCfg\fP"
+.br
+.RI "Millimeter Wave Demo DC range signature compensation\&. "
+.ti -1c
+.RI "typedef struct \fBMmwDemo_ADCBufCfg_t\fP \fBMmwDemo_ADCBufCfg\fP"
+.br
+.RI "ADCBUF configuration\&. "
+.ti -1c
+.RI "typedef struct \fBMmwDemo_LvdsStreamCfg_t\fP \fBMmwDemo_LvdsStreamCfg\fP"
+.br
+.RI "LVDS streaming configuration\&. "
+.ti -1c
+.RI "typedef struct \fBMmwDemo_AnaMonitorCfg_t\fP \fBMmwDemo_AnaMonitorCfg\fP"
+.br
+.RI "Millimeter Wave Demo analog monitor configuration\&. "
+.ti -1c
+.RI "typedef struct \fBMmwDemo_GuiMonSel_t\fP \fBMmwDemo_GuiMonSel\fP"
+.br
+.RI "Millimeter Wave Demo Gui Monitor Selection\&. "
+.ti -1c
+.RI "typedef struct \fBMmwDemo_CliCfg_t_\fP \fBMmwDemo_CliCfg_t\fP"
+.br
+.RI "Millimeter Wave Demo CLI related configuration\&. "
+.ti -1c
+.RI "typedef struct \fBMmwDemo_compRxChannelBiasCfg_t_\fP \fBMmwDemo_compRxChannelBiasCfg_t\fP"
+.br
+.RI "Range Bias and rx channel gain/phase compensation configuration\&. "
+.ti -1c
+.RI "typedef struct \fBMmwDemo_measureRxChannelBiasCfg_t_\fP \fBMmwDemo_measureRxChannelBiasCfg_t\fP"
+.br
+.RI "Range Bias and rx channel gain/phase measurement configuration\&. "
+.ti -1c
+.RI "typedef struct \fBMmwDemo_CliCommonCfg_t_\fP \fBMmwDemo_CliCommonCfg_t\fP"
+.br
+.RI "Millimeter Wave Demo CLI related configuration common across all subframes\&. "
+.ti -1c
+.RI "typedef struct \fBMmwDemo_Cfg_t\fP \fBMmwDemo_Cfg\fP"
+.br
+.RI "Millimeter Wave Demo configuration\&. "
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define DC_RANGE_SIGNATURE_COMP_MAX_BIN_SIZE   32"
+
+.PP
+Maximum number of 1D FFT bins in DC range antenna signature compensation\&. 
+.PP
+Definition at line 52 of file mrr_config\&.h\&.
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fBMmwDemo_ADCBufCfg_t\fP \fBMmwDemo_ADCBufCfg\fP"
+
+.PP
+ADCBUF configuration\&. The structure is used to hold all the relevant configuration which is used to configure ADCBUF\&. 
+.SS "typedef struct \fBMmwDemo_AnaMonitorCfg_t\fP  \fBMmwDemo_AnaMonitorCfg\fP"
+
+.PP
+Millimeter Wave Demo analog monitor configuration\&. The structure contains the flags that select analog monitors to be enabled\&. 
+.SS "typedef struct \fBMmwDemo_CalibDcRangeSigCfg_t\fP  \fBMmwDemo_CalibDcRangeSigCfg\fP"
+
+.PP
+Millimeter Wave Demo DC range signature compensation\&. The structure contains the DC range antenna signature removeal configuration used in data path 
+.SS "typedef struct \fBMmwDemo_CfarCfg_t\fP  \fBMmwDemo_CfarCfg\fP"
+
+.PP
+Millimeter Wave Demo CFAR Configuration\&. The structure contains the cfar configuration used in data path 
+.SS "typedef struct \fBMmwDemo_Cfg_t\fP  \fBMmwDemo_Cfg\fP"
+
+.PP
+Millimeter Wave Demo configuration\&. The structure is used to hold all the relevant configuration which is used to execute the Millimeter Wave Demo\&. 
+.SS "typedef struct \fBMmwDemo_CliCfg_t_\fP  \fBMmwDemo_CliCfg_t\fP"
+
+.PP
+Millimeter Wave Demo CLI related configuration\&. 
+.SS "typedef struct \fBMmwDemo_CliCommonCfg_t_\fP  \fBMmwDemo_CliCommonCfg_t\fP"
+
+.PP
+Millimeter Wave Demo CLI related configuration common across all subframes\&. 
+.SS "typedef struct \fBMmwDemo_ClutterRemovalCfg_t\fP  \fBMmwDemo_ClutterRemovalCfg\fP"
+
+.PP
+Clutter removal configuration\&. The structure contains clutter removal configuration 
+.SS "typedef struct \fBMmwDemo_compRxChannelBiasCfg_t_\fP  \fBMmwDemo_compRxChannelBiasCfg_t\fP"
+
+.PP
+Range Bias and rx channel gain/phase compensation configuration\&. 
+.SS "typedef struct \fBMmwDemo_ExtendedMaxVelocityCfg_t\fP  \fBMmwDemo_ExtendedMaxVelocityCfg\fP"
+
+.PP
+Millimeter Wave Demo Velocity Disambiguation\&. The structure contains Velocity Disambiguation configuration 
+.SS "typedef struct \fBMmwDemo_GuiMonSel_t\fP  \fBMmwDemo_GuiMonSel\fP"
+
+.PP
+Millimeter Wave Demo Gui Monitor Selection\&. The structure contains the flags which select what information is placed to the output packet, and sent out to GUI\&. If the flag is set to 1, information is sent out\&. If the flag is set to 0, information is not sent out\&. 
+.SS "typedef struct \fBMmwDemo_LvdsStreamCfg_t\fP \fBMmwDemo_LvdsStreamCfg\fP"
+
+.PP
+LVDS streaming configuration\&. The structure is used to hold all the relevant configuration for the LVDS streaming\&. 
+.SS "typedef struct \fBMmwDemo_measureRxChannelBiasCfg_t_\fP  \fBMmwDemo_measureRxChannelBiasCfg_t\fP"
+
+.PP
+Range Bias and rx channel gain/phase measurement configuration\&. 
+.SS "typedef struct \fBMmwDemo_MultiObjBeamFormingCfg_t\fP  \fBMmwDemo_MultiObjBeamFormingCfg\fP"
+
+.PP
+Millimeter Wave Demo multi object beam formaing Configuration\&. The structure contains the Peak grouping configuration used in data path 
+.SS "typedef struct \fBMmwDemo_NearFieldCorrectionCfg_t\fP  \fBMmwDemo_NearFieldCorrectionCfg\fP"
+
+.PP
+Millimeter Wave Demo near field correction\&. The structure contains Near Field Correction configuration 
+.SS "typedef struct \fBMmwDemo_PeakGroupingCfg_t\fP  \fBMmwDemo_PeakGroupingCfg\fP"
+
+.PP
+Millimeter Wave Demo Peak grouping Configuration\&. The structure contains the Peak grouping configuration used in data path 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mmWaveFMCWRADAR from the source code\&.

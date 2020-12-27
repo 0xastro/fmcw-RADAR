@@ -1,0 +1,180 @@
+eth008 Board details:
+IP address: 10.218.113.61
+
+Port: 17494
+
+connecting...
+Relay states 8->1 : 01010101
+5 off
+6 off
+Relay states 8->1 : 01000101
+5 on
+Relay states 8->1 : 01010101
+exit
+Disconnected
+Pre-Script returned: Success
+**************************************************
+Testcase mods & parameters invoked:
+**************************************************
+Two core test case: None (this is not a two core testcase)
+
+**************************************************
+Copying test case files from the Build server
+**************************************************
+Testdata possible location 1: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/alg/mmwavelib/test/testdata
+
+
+Copy-To local testcase data path is: /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/testdata
+
+Test case data file radarDemo_multiObj_neg15_test.bin found on server for downloading
+Test case data file radarDemo_neg15_test.bin found on server for downloading
+Test case data file radarDemo_multiObj_neg5_ref.bin found on server for downloading
+Test case data file radarCase1_512_test.bin found on server for downloading
+Test case data file cfarca_peak_test.bin found on server for downloading
+Test case data file radarDemo_multiObj_test.bin found on server for downloading
+Test case data file cfarca_test.bin found on server for downloading
+Test case data file peakpruning_test.bin found on server for downloading
+Test case data file radarCase1_ref.bin found on server for downloading
+Test case data file radarDemo_neg10_test.bin found on server for downloading
+Test case data file aoaest_test.bin found on server for downloading
+Test case data file dftsinglebinwithwinQI_test.bin found on server for downloading
+Test case data file radarCase2_2dfftout_test.bin found on server for downloading
+Test case data file radarCase2_mulObj_2dfftout_test.bin found on server for downloading
+Test case data file radarCase2_mulObj_test.bin found on server for downloading
+Test case data file radarCase2_test.bin found on server for downloading
+Test case data file radarDemo_multiObj_neg5_test.bin found on server for downloading
+Test case data file radarCase1_mulObj_test.bin found on server for downloading
+Test case data file radarDemo_ref_new.bin found on server for downloading
+Test case data file radarDemo_ref.bin found on server for downloading
+Test case data file cfarca_wrap_test.bin found on server for downloading
+Test case data file accumPowerFlt_test.bin found on server for downloading
+Test case data file windowFlt_test.bin found on server for downloading
+Test case data file radarDemo_test.bin found on server for downloading
+Test case data file radarDemo_multiObj_neg15_ref.bin found on server for downloading
+Test case data file radarCase1_512_ref.bin found on server for downloading
+Test case data file radarDemo_captured_test.bin found on server for downloading
+Test case data file radarDemo_captured_ref.bin found on server for downloading
+Test case data file floatPoint_chain_test.bin found on server for downloading
+Test case data file floatpoint_test_dbscanCluster_ref.bin found on server for downloading
+Test case data file floatpoint_test_aoaMultiObj.bin found on server for downloading
+Test case data file floatpoint_test_dbscanCluster.bin found on server for downloading
+Test case data file clustering_test.bin found on server for downloading
+Test case data file radarCase2_mulObj_ref.bin found on server for downloading
+Test case data file radarDemo_multiObj_ref.bin found on server for downloading
+Test case data file floatpoint_test_aoaMultiObj_ref.bin found on server for downloading
+Test case data file radarDemo_neg10_ref.bin found on server for downloading
+Test case data file radarCase1_test.bin found on server for downloading
+Test case data file dftsinglebin_test.bin found on server for downloading
+Test case data file dftsinglebinwithwin_test.bin found on server for downloading
+Test case data file radarDemo_neg15_ref.bin found on server for downloading
+Test case data file radarCase1_mulObj_ref.bin found on server for downloading
+Test case data file radarCase2_ref.bin found on server for downloading
+Call to copy_testcase_binary:
+TCP: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/alg/mmwavelib/test/xwr18xx; /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr18xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_03_55_41
+
+Copying testcase binary file from http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/alg/mmwavelib/test/xwr18xx/xwr18xx_mmwavealg_accumPowerFlt.xe674 to /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr18xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_03_55_41 using command: 
+wget -e robots=off --no-proxy -N -T 30 -t 2 -P /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr18xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_03_55_41 http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/alg/mmwavelib/test/xwr18xx/xwr18xx_mmwavealg_accumPowerFlt.xe674
+**************************************************
+Executing Testcase:/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr18xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_03_55_41/xwr18xx_mmwavealg_accumPowerFlt.xe674
+**************************************************
+Checking if Py4J Gateway server has started...
+Py4J Gateway Server is Started
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/DEBUGSSM_0
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/IcePick_M_0
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/C674X_0
+DSS test case opening debug session.
+
+cr4ctl = 0x0
+
+efuse/register @0xFFFFE210 = 0x0
+
+efuse/register @0xFFFFE214 = 0x0
+
+efuse/register @0xFFFFE218 = 0x0
+
+efuse/register @0xFFFFE21C = 0x0
+
+Loading binary to the DUT (no binary args updated):/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr18xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_03_55_41/xwr18xx_mmwavealg_accumPowerFlt.xe674
+binary path = /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr18xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_03_55_41/xwr18xx_mmwavealg_accumPowerFlt.xe674
+
+dt-time: start time = Thu Nov 29 08:17:04 2018
+
+dt-time: end time = Thu Nov 29 08:23:15 2018
+
+
+**************************************************
+CIO Log captured for the testcase
+**************************************************
+
+------ accumPowerFltpAllAnt and accumPowerFltpPerAnt feature test
+ Feature: The accumPowerFltpAllAnt and accumPowerFltpPerAnt functionality test: Passed
+
+------ accumPowerFltpAllAnt benchmark
+ fftsize, numRxAnt, cycles
+16	1	75
+16	2	129
+16	4	122
+16	8	212
+32	1	92
+32	2	170
+32	4	187
+32	8	357
+64	1	123
+64	2	249
+64	4	314
+64	8	644
+128	1	187
+128	2	409
+128	4	570
+128	8	1220
+256	1	315
+256	2	729
+256	4	1082
+256	8	2456
+512	1	571
+512	2	1369
+512	4	2182
+512	8	39532
+1024	1	1083
+1024	2	4224
+1024	4	27076
+1024	8	83316
+
+------ accumPowerFltpPerAnt benchmark
+ fftsize, antIdx, cycles
+16	0	52
+16	1	73
+32	0	68
+32	1	97
+64	0	100
+64	1	145
+128	0	164
+128	1	241
+256	0	292
+256	1	433
+512	0	548
+512	1	817
+1024	0	1060
+1024	1	1585
+========== Floating point Power accumulation tests passed! ========== 
+========== Testing completed! ==========
+Value read from Global variable (MCPI_Result): 0
+Test Failure Signature: 0
+Test Log Messages: 
+Feature tested: The accumPowerFltpAllAnt and accumPowerFltpPerAnt functionality test: Passed
+
+
+shutting down py4j gw server.
+
+
+**************************************************
+Terminating the debug session and Shutting down gateway.
+**************************************************
+
+**************************************************
+Test case execution completed
+**************************************************
+
+**************************************************
+Testcase Result : PASS
+**************************************************

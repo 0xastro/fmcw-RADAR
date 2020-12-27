@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<!--  This file conforms to the DTD xdc/bld/build.dtd -->
+<package name="configPkg" version="" producerId="undefined">
+    <units>
+    </units>
+    <sources>
+        <srcFile name="package/cfg/dss_pe674.c"/>
+    </sources>
+    <configscripts>
+        <srcFile name="C:/Users/astro/workspace_v9_2/srr_18xx_dss/dss.cfg"/>
+    </configscripts>
+    <makefiles>
+        <srcFile name="package.mak" src="package.bld"/>
+        <srcFile name="package/package.xdc.dep" src="package.xdc"/>
+        <srcFile name="package/cfg/dss_pe674.mak" src="package.bld"/>
+        <srcFile name="package/cfg/dss_pe674.oe674.dep" src="package/cfg/dss_pe674.c"/>
+        <srcFile name="package/cfg/dss_pe674.dep" src="package/cfg/dss_pe674.cfg"/>
+        <srcFile name="package/cfg/dss.xe674.mak" src="package.bld"/>
+        <srcFile name="package/rel/configPkg.tar.dep" src="package/rel/configPkg.xdc.inc"/>
+    </makefiles>
+    <targets>
+        <target name="ti.targets.elf.C674"
+            version="ti.targets.elf.C674{1,0,8.3,4"
+            rawVersion="8.3.4"
+            platform="ti.platforms.evmDA830"
+            isa="674"
+            suffix="e674"
+            rootDir="C:/ti/ccs920/ccs/tools/compiler/ti-cgt-c6000_8.3.4"
+            os="undefined"
+            rts="ti.targets.rts6000">
+            <model endian="little"
+                codeModel="undefined"
+                dataModel="undefined"/>
+        </target>
+    </targets>
+    <libraries>
+    </libraries>
+    <configurations>
+    <configuration name="dss"
+        pname="dss.pe674"
+        target="ti.targets.elf.C674"
+        platform="ti.platforms.c6x:AWR16XX:false:600"
+        profile="release"
+        isPartial="false"
+        xCfgScript="package/cfg/dss_pe674.cfg"
+        xCfgPrefix="package/cfg/dss_pe674"
+        cfgScript="C:/Users/astro/workspace_v9_2/srr_18xx_dss/dss.cfg"
+        cfgArgs="null"
+        />
+    </configurations>
+    <executables>
+    <executable name="dss"
+        pname="dss.xe674"
+        target="ti.targets.elf.C674"
+        platform="ti.platforms.c6x:AWR16XX:false:600"
+        profile="release"
+        xCfgScript="package/cfg/dss_pe674.cfg"
+        xCfgPrefix="package/cfg/dss_pe674"
+        cfgScript="C:/Users/astro/workspace_v9_2/srr_18xx_dss/dss.cfg"
+        cfgArgs="null"
+        />
+    </executables>
+    <tests>
+    <test exeName="dss.xe674"
+        args=""
+        groupName="dss.xe674"
+        refOutput="undefined"
+        refExitCode="0"
+        execArgs=""
+        />
+    </tests>
+    <releases relDir="package/rel/">
+    <release name="configPkg"
+        pname="configPkg.tar"
+        label="default"
+    >
+        <file name="package/package.bld.xml"/>
+        <file name="package/build.cfg"/>
+        <file name="package/package.xdc.inc"/>
+    </release>
+    </releases>
+    <repositories>
+    </repositories>
+</package>

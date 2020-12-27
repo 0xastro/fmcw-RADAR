@@ -1,0 +1,161 @@
+\doxysection{ti\+\_\+sysbios\+\_\+knl\+\_\+\+Clock\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+ Struct Reference}
+\label{structti__sysbios__knl___clock___module___state____}\index{ti\_sysbios\_knl\_Clock\_Module\_State\_\_@{ti\_sysbios\_knl\_Clock\_Module\_State\_\_}}
+
+
+Collaboration diagram for ti\+\_\+sysbios\+\_\+knl\+\_\+\+Clock\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{structti__sysbios__knl___clock___module___state______coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+volatile xdc\+\_\+\+U\+Int32 \textbf{ ticks}
+\item 
+xdc\+\_\+\+U\+Int \textbf{ swi\+Count}
+\item 
+ti\+\_\+sysbios\+\_\+knl\+\_\+\+Clock\+\_\+\+Timer\+Proxy\+\_\+\+Handle \textbf{ timer}
+\item 
+ti\+\_\+sysbios\+\_\+knl\+\_\+\+Swi\+\_\+\+Handle \textbf{ swi}
+\item 
+volatile xdc\+\_\+\+U\+Int \textbf{ num\+Tick\+Skip}
+\item 
+xdc\+\_\+\+U\+Int32 \textbf{ next\+Scheduled\+Tick}
+\item 
+xdc\+\_\+\+U\+Int32 \textbf{ max\+Skippable}
+\item 
+xdc\+\_\+\+Bool \textbf{ in\+Work\+Func}
+\item 
+volatile xdc\+\_\+\+Bool \textbf{ start\+During\+Work\+Func}
+\item 
+xdc\+\_\+\+Bool \textbf{ ticking}
+\item 
+\textbf{ ti\+\_\+sysbios\+\_\+knl\+\_\+\+Queue\+\_\+\+Object\+\_\+\+\_\+} \textbf{ Object\+\_\+field\+\_\+clockQ}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 1234 of file mss\+\_\+per4f.\+c.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\label{structti__sysbios__knl___clock___module___state_____af370cd7f3100c3df0244b0f9cb52615a}} 
+\index{ti\_sysbios\_knl\_Clock\_Module\_State\_\_@{ti\_sysbios\_knl\_Clock\_Module\_State\_\_}!inWorkFunc@{inWorkFunc}}
+\index{inWorkFunc@{inWorkFunc}!ti\_sysbios\_knl\_Clock\_Module\_State\_\_@{ti\_sysbios\_knl\_Clock\_Module\_State\_\_}}
+\doxysubsubsection{inWorkFunc}
+{\footnotesize\ttfamily xdc\+\_\+\+Bool ti\+\_\+sysbios\+\_\+knl\+\_\+\+Clock\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+\+::in\+Work\+Func}
+
+
+
+Definition at line 1242 of file mss\+\_\+per4f.\+c.
+
+\mbox{\label{structti__sysbios__knl___clock___module___state_____a5cda25c718be8e97d1408da28e5b99fa}} 
+\index{ti\_sysbios\_knl\_Clock\_Module\_State\_\_@{ti\_sysbios\_knl\_Clock\_Module\_State\_\_}!maxSkippable@{maxSkippable}}
+\index{maxSkippable@{maxSkippable}!ti\_sysbios\_knl\_Clock\_Module\_State\_\_@{ti\_sysbios\_knl\_Clock\_Module\_State\_\_}}
+\doxysubsubsection{maxSkippable}
+{\footnotesize\ttfamily xdc\+\_\+\+U\+Int32 ti\+\_\+sysbios\+\_\+knl\+\_\+\+Clock\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+\+::max\+Skippable}
+
+
+
+Definition at line 1241 of file mss\+\_\+per4f.\+c.
+
+\mbox{\label{structti__sysbios__knl___clock___module___state_____a8a3eeee6559ed5d084c708d719ecac80}} 
+\index{ti\_sysbios\_knl\_Clock\_Module\_State\_\_@{ti\_sysbios\_knl\_Clock\_Module\_State\_\_}!nextScheduledTick@{nextScheduledTick}}
+\index{nextScheduledTick@{nextScheduledTick}!ti\_sysbios\_knl\_Clock\_Module\_State\_\_@{ti\_sysbios\_knl\_Clock\_Module\_State\_\_}}
+\doxysubsubsection{nextScheduledTick}
+{\footnotesize\ttfamily xdc\+\_\+\+U\+Int32 ti\+\_\+sysbios\+\_\+knl\+\_\+\+Clock\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+\+::next\+Scheduled\+Tick}
+
+
+
+Definition at line 1240 of file mss\+\_\+per4f.\+c.
+
+\mbox{\label{structti__sysbios__knl___clock___module___state_____a132738b1c4466c5f8e28c3b78bea3273}} 
+\index{ti\_sysbios\_knl\_Clock\_Module\_State\_\_@{ti\_sysbios\_knl\_Clock\_Module\_State\_\_}!numTickSkip@{numTickSkip}}
+\index{numTickSkip@{numTickSkip}!ti\_sysbios\_knl\_Clock\_Module\_State\_\_@{ti\_sysbios\_knl\_Clock\_Module\_State\_\_}}
+\doxysubsubsection{numTickSkip}
+{\footnotesize\ttfamily volatile xdc\+\_\+\+U\+Int ti\+\_\+sysbios\+\_\+knl\+\_\+\+Clock\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+\+::num\+Tick\+Skip}
+
+
+
+Definition at line 1239 of file mss\+\_\+per4f.\+c.
+
+\mbox{\label{structti__sysbios__knl___clock___module___state_____ae80bab07dc687f132154332f1df03556}} 
+\index{ti\_sysbios\_knl\_Clock\_Module\_State\_\_@{ti\_sysbios\_knl\_Clock\_Module\_State\_\_}!Object\_field\_clockQ@{Object\_field\_clockQ}}
+\index{Object\_field\_clockQ@{Object\_field\_clockQ}!ti\_sysbios\_knl\_Clock\_Module\_State\_\_@{ti\_sysbios\_knl\_Clock\_Module\_State\_\_}}
+\doxysubsubsection{Object\_field\_clockQ}
+{\footnotesize\ttfamily \textbf{ ti\+\_\+sysbios\+\_\+knl\+\_\+\+Queue\+\_\+\+Object\+\_\+\+\_\+} ti\+\_\+sysbios\+\_\+knl\+\_\+\+Clock\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+\+::\+Object\+\_\+field\+\_\+clockQ}
+
+
+
+Definition at line 1245 of file mss\+\_\+per4f.\+c.
+
+\mbox{\label{structti__sysbios__knl___clock___module___state_____abe0684811bf7b16255791088825b80ec}} 
+\index{ti\_sysbios\_knl\_Clock\_Module\_State\_\_@{ti\_sysbios\_knl\_Clock\_Module\_State\_\_}!startDuringWorkFunc@{startDuringWorkFunc}}
+\index{startDuringWorkFunc@{startDuringWorkFunc}!ti\_sysbios\_knl\_Clock\_Module\_State\_\_@{ti\_sysbios\_knl\_Clock\_Module\_State\_\_}}
+\doxysubsubsection{startDuringWorkFunc}
+{\footnotesize\ttfamily volatile xdc\+\_\+\+Bool ti\+\_\+sysbios\+\_\+knl\+\_\+\+Clock\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+\+::start\+During\+Work\+Func}
+
+
+
+Definition at line 1243 of file mss\+\_\+per4f.\+c.
+
+\mbox{\label{structti__sysbios__knl___clock___module___state_____aee2597c0f2c0e657178e35c9ec49f223}} 
+\index{ti\_sysbios\_knl\_Clock\_Module\_State\_\_@{ti\_sysbios\_knl\_Clock\_Module\_State\_\_}!swi@{swi}}
+\index{swi@{swi}!ti\_sysbios\_knl\_Clock\_Module\_State\_\_@{ti\_sysbios\_knl\_Clock\_Module\_State\_\_}}
+\doxysubsubsection{swi}
+{\footnotesize\ttfamily ti\+\_\+sysbios\+\_\+knl\+\_\+\+Swi\+\_\+\+Handle ti\+\_\+sysbios\+\_\+knl\+\_\+\+Clock\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+\+::swi}
+
+
+
+Definition at line 1238 of file mss\+\_\+per4f.\+c.
+
+\mbox{\label{structti__sysbios__knl___clock___module___state_____abc51c0f7cf4b606da47a75e498f72433}} 
+\index{ti\_sysbios\_knl\_Clock\_Module\_State\_\_@{ti\_sysbios\_knl\_Clock\_Module\_State\_\_}!swiCount@{swiCount}}
+\index{swiCount@{swiCount}!ti\_sysbios\_knl\_Clock\_Module\_State\_\_@{ti\_sysbios\_knl\_Clock\_Module\_State\_\_}}
+\doxysubsubsection{swiCount}
+{\footnotesize\ttfamily xdc\+\_\+\+U\+Int ti\+\_\+sysbios\+\_\+knl\+\_\+\+Clock\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+\+::swi\+Count}
+
+
+
+Definition at line 1236 of file mss\+\_\+per4f.\+c.
+
+\mbox{\label{structti__sysbios__knl___clock___module___state_____a8a6e994618c86097546c46e145888172}} 
+\index{ti\_sysbios\_knl\_Clock\_Module\_State\_\_@{ti\_sysbios\_knl\_Clock\_Module\_State\_\_}!ticking@{ticking}}
+\index{ticking@{ticking}!ti\_sysbios\_knl\_Clock\_Module\_State\_\_@{ti\_sysbios\_knl\_Clock\_Module\_State\_\_}}
+\doxysubsubsection{ticking}
+{\footnotesize\ttfamily xdc\+\_\+\+Bool ti\+\_\+sysbios\+\_\+knl\+\_\+\+Clock\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+\+::ticking}
+
+
+
+Definition at line 1244 of file mss\+\_\+per4f.\+c.
+
+\mbox{\label{structti__sysbios__knl___clock___module___state_____ad0777bc1dbfe2a404e220d90ad05f252}} 
+\index{ti\_sysbios\_knl\_Clock\_Module\_State\_\_@{ti\_sysbios\_knl\_Clock\_Module\_State\_\_}!ticks@{ticks}}
+\index{ticks@{ticks}!ti\_sysbios\_knl\_Clock\_Module\_State\_\_@{ti\_sysbios\_knl\_Clock\_Module\_State\_\_}}
+\doxysubsubsection{ticks}
+{\footnotesize\ttfamily volatile xdc\+\_\+\+U\+Int32 ti\+\_\+sysbios\+\_\+knl\+\_\+\+Clock\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+\+::ticks}
+
+
+
+Definition at line 1235 of file mss\+\_\+per4f.\+c.
+
+\mbox{\label{structti__sysbios__knl___clock___module___state_____aa02e6bb3b4cf77576d5afbda2f7e4e05}} 
+\index{ti\_sysbios\_knl\_Clock\_Module\_State\_\_@{ti\_sysbios\_knl\_Clock\_Module\_State\_\_}!timer@{timer}}
+\index{timer@{timer}!ti\_sysbios\_knl\_Clock\_Module\_State\_\_@{ti\_sysbios\_knl\_Clock\_Module\_State\_\_}}
+\doxysubsubsection{timer}
+{\footnotesize\ttfamily ti\+\_\+sysbios\+\_\+knl\+\_\+\+Clock\+\_\+\+Timer\+Proxy\+\_\+\+Handle ti\+\_\+sysbios\+\_\+knl\+\_\+\+Clock\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+\+::timer}
+
+
+
+Definition at line 1237 of file mss\+\_\+per4f.\+c.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Debug/config\+Pkg/package/cfg/\textbf{ mss\+\_\+per4f.\+c}\end{DoxyCompactItemize}

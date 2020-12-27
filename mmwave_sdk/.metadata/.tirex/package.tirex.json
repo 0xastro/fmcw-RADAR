@@ -1,0 +1,14 @@
+[
+    {
+        "id": "com.ti.MMWAVE_SDK",
+        "name": "mmWave SDK",
+        "version": "03.01.00.02",
+        "type": "software",
+        "image": "./mmwave_sdk_logo.jpg",
+        "description": "mmWave SDK is a unified software platform for the TI mmWave Sensing Portfolio",
+        "allowPartialDownload": "false",
+        "devices": [ "IWR1443", "IWR1642", "IWR1843", "IWR6843", "AWR1443", "AWR1642", "AWR1843" ],
+        "metadataVersion": "3.0.0"
+    }
+]
+

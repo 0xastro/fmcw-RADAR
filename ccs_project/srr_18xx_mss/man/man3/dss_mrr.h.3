@@ -1,0 +1,334 @@
+.TH "C:/Users/astro/workspace_v9_2/mrr_18xx_dss/dss_mrr.h" 3 "Wed May 20 2020" "Version 1.0" "mmWaveFMCWRADAR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/Users/astro/workspace_v9_2/mrr_18xx_dss/dss_mrr.h \- This is the main header file for the DSS MRR TI Design\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <ti/common/mmwave_error\&.h>\fP
+.br
+\fC#include <ti/drivers/uart/UART\&.h>\fP
+.br
+\fC#include <ti/drivers/mailbox/mailbox\&.h>\fP
+.br
+\fC#include <ti/drivers/adcbuf/ADCBuf\&.h>\fP
+.br
+\fC#include <ti/drivers/edma/edma\&.h>\fP
+.br
+\fC#include <ti/drivers/osal/DebugP\&.h>\fP
+.br
+\fC#include <ti/sysbios/knl/Semaphore\&.h>\fP
+.br
+\fC#include <ti/control/mmwave/mmwave\&.h>\fP
+.br
+\fC#include 'dss_data_path\&.h'\fP
+.br
+\fC#include '\&.\&./common/mrr_config_consts\&.h'\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBMmwDemo_DSS_STATS_t\fP"
+.br
+.ti -1c
+.RI "struct \fBMrr_DSS_MCB_t\fP"
+.br
+.RI "DSS MRR TI Design Master control block\&. "
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBMmwDemo_dssAssert\fP(expression)"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef enum \fBMmwDemo_DSS_STATE_e\fP \fBMmwDemo_DSS_STATE\fP"
+.br
+.RI "Millimeter Wave Demo state\&. "
+.ti -1c
+.RI "typedef struct \fBMmwDemo_DSS_STATS_t\fP \fBMmwDemo_DSS_STATS\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBMrr_DSS_MCB_t\fP \fBMrr_DSS_MCB\fP"
+.br
+.RI "DSS MRR TI Design Master control block\&. "
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBMmwDemo_DSS_STATE_e\fP { \fBMmwDemo_DSS_STATE_INIT\fP = 0, \fBMmwDemo_DSS_STATE_STARTED\fP, \fBMmwDemo_DSS_STATE_STOPPED\fP, \fBMmwDemo_DSS_STATE_STOP_PENDING\fP }"
+.br
+.RI "Millimeter Wave Demo state\&. "
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fB_MmwDemo_dssAssert\fP (int32_t expression, const char *file, int32_t line)"
+.br
+.ti -1c
+.RI "void \fBCfg_AdvFrameCfgInitParams\fP (rlAdvFrameCfg_t *ptrAdvFrameCfg)"
+.br
+.ti -1c
+.RI "void \fBCfg_FrameCfgInitParams\fP (rlFrameCfg_t *ptrFrameCfg)"
+.br
+.ti -1c
+.RI "void \fBCfg_ProfileCfgInitParams\fP (uint8_t profileNum, rlProfileCfg_t *ptrProfileCfg)"
+.br
+.ti -1c
+.RI "void \fBCfg_ChirpCfgInitParams\fP (uint8_t chirpNum, rlChirpCfg_t *ptrChirpCfg)"
+.br
+.ti -1c
+.RI "void \fBCfg_LowPowerModeInitParams\fP (rlLowPowerModeCfg_t *ptrLowPowerMode)"
+.br
+.ti -1c
+.RI "void \fBCfg_ChannelCfgInitParams\fP (rlChanCfg_t *ptrChannelCfg)"
+.br
+.ti -1c
+.RI "void \fBCfg_ADCOutCfgInitParams\fP (rlAdcOutCfg_t *ptrADCOutCfg)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBMrr_DSS_MCB\fP \fBgMrrDSSMCB\fP"
+.br
+.RI "Global Variable for tracking information required by the design\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+This is the main header file for the DSS MRR TI Design\&. 
+
+
+.PP
+\fB\fP
+.RS 4
+NOTE: (C) Copyright 2017 Texas Instruments, Inc\&.
+.RE
+.PP
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+.PP
+Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer\&.
+.PP
+Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution\&.
+.PP
+Neither the name of Texas Instruments Incorporated nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission\&.
+.PP
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED\&. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE\&. 
+.PP
+Definition in file \fBdss_mrr\&.h\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define MmwDemo_dssAssert(expression)"
+\fBValue:\fP
+.PP
+.nf
+{                                      \
+                                    _MmwDemo_dssAssert(expression,           \
+                                             __FILE__, __LINE__);         \
+                                    DebugP_assert(expression);            \
+                                   }
+.fi
+.PP
+Definition at line 228 of file dss_mrr\&.h\&.
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef enum \fBMmwDemo_DSS_STATE_e\fP \fBMmwDemo_DSS_STATE\fP"
+
+.PP
+Millimeter Wave Demo state\&. The enumeration is used to hold the data path states for the Millimeter Wave demo 
+.SS "typedef struct \fBMmwDemo_DSS_STATS_t\fP \fBMmwDemo_DSS_STATS\fP"
+
+.SS "typedef struct \fBMrr_DSS_MCB_t\fP \fBMrr_DSS_MCB\fP"
+
+.PP
+DSS MRR TI Design Master control block\&. The structure is used to hold information pertinent to the DSS MRR TI design\&. 
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBMmwDemo_DSS_STATE_e\fP"
+
+.PP
+Millimeter Wave Demo state\&. The enumeration is used to hold the data path states for the Millimeter Wave demo 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIMmwDemo_DSS_STATE_INIT \fP\fP
+State after data path is initialized\&. 
+.TP
+\fB\fIMmwDemo_DSS_STATE_STARTED \fP\fP
+State after data path is started\&. 
+.TP
+\fB\fIMmwDemo_DSS_STATE_STOPPED \fP\fP
+State after data path is stopped\&. 
+.TP
+\fB\fIMmwDemo_DSS_STATE_STOP_PENDING \fP\fP
+State after STOP request was received by DSP but complete stop is on-going\&. 
+.PP
+Definition at line 72 of file dss_mrr\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "void _MmwDemo_dssAssert (int32_t expression, const char * file, int32_t line)"
+\fBDescription\fP 
+.br
+ Sends DSS assert information to MSS
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP Applicable\&. 
+.RE
+.PP
+
+.PP
+Definition at line 349 of file dss_main\&.c\&.
+.SS "void Cfg_ADCOutCfgInitParams (rlAdcOutCfg_t * ptrADCOutCfg)"
+\fBDescription\fP 
+.br
+ The function initializes the ADCOut configuration with the default parameters\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIptrADCOutCfg\fP Pointer to the ADCOutput configuration
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP applicable 
+.RE
+.PP
+
+.PP
+Definition at line 367 of file cfg\&.c\&.
+.SS "void Cfg_AdvFrameCfgInitParams (rlAdvFrameCfg_t * ptrAdvFrameCfg)"
+\fBDescription\fP 
+.br
+ The function initializes the frame configuration with the default parameters\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIptrAdvFrameCfg\fP Pointer to the adavance frame configuration
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP applicable 
+.RE
+.PP
+
+.PP
+Definition at line 45 of file cfg\&.c\&.
+.SS "void Cfg_ChannelCfgInitParams (rlChanCfg_t * ptrChannelCfg)"
+\fBDescription\fP 
+.br
+ The function initializes the channel configuration with the default parameters\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIptrChannelCfg\fP Pointer to the channel configuration
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP applicable 
+.RE
+.PP
+
+.PP
+Definition at line 342 of file cfg\&.c\&.
+.SS "void Cfg_ChirpCfgInitParams (uint8_t chirpNum, rlChirpCfg_t * ptrChirpCfg)"
+\fBDescription\fP 
+.br
+ The function initializes the chirp configuration with the default parameters\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIchirpNum\fP Chirp Number to be configured 
+.br
+\fIptrChirpCfg\fP Pointer to the chirp configuration
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP applicable 
+.RE
+.PP
+
+.PP
+Definition at line 231 of file cfg\&.c\&.
+.SS "void Cfg_FrameCfgInitParams (rlFrameCfg_t * ptrFrameCfg)"
+\fBDescription\fP 
+.br
+ The function initializes the frame configuration with the default parameters\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIptrFrameCfg\fP Pointer to the frame configuration
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP applicable 
+.RE
+.PP
+
+.PP
+Definition at line 142 of file cfg\&.c\&.
+.SS "void Cfg_LowPowerModeInitParams (rlLowPowerModeCfg_t * ptrLowPowerMode)"
+\fBDescription\fP 
+.br
+ The function initializes the low power configuration with the default parameters\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIptrLowPowerMode\fP Pointer to the low power mode configuration
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP applicable 
+.RE
+.PP
+
+.PP
+Definition at line 320 of file cfg\&.c\&.
+.SS "void Cfg_ProfileCfgInitParams (uint8_t profileNum, rlProfileCfg_t * ptrProfileCfg)"
+\fBDescription\fP 
+.br
+ The function initializes the profile configuration with the default parameters\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIprofileNum\fP Profile number to be initialized 
+.br
+\fIptrProfileCfg\fP Pointer to the profile configuration
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINot\fP applicable 
+.RE
+.PP
+
+.PP
+Definition at line 173 of file cfg\&.c\&.
+.SH "Variable Documentation"
+.PP 
+.SS "\fBMrr_DSS_MCB\fP gMrrDSSMCB"
+
+.PP
+Global Variable for tracking information required by the design\&. 
+.PP
+Definition at line 144 of file dss_main\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mmWaveFMCWRADAR from the source code\&.

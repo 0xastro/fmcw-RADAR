@@ -1,0 +1,41 @@
+.TH "MmwDemo_HSRAM_t_" 3 "Wed May 20 2020" "Version 1.0" "mmWaveFMCWRADAR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MmwDemo_HSRAM_t_
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "uint8_t \fBdataPathDetectionPayload\fP [\fBMMW_DATAPATH_DET_PAYLOAD_SIZE\fP]"
+.br
+.RI "data path processing/detection related message payloads, these messages are signalled through DSS to MSS mailbox "
+.ti -1c
+.RI "uint8_t \fBdss2MssIsrInfo\fP"
+.br
+.RI "Information relayed through DSS triggering software interrupt to MSS\&. It stores one of the exception IDs \fBDSS to MSS Exception IDs\fP\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 117 of file dss_main\&.c\&.
+.SH "Field Documentation"
+.PP 
+.SS "uint8_t MmwDemo_HSRAM_t_::dataPathDetectionPayload[\fBMMW_DATAPATH_DET_PAYLOAD_SIZE\fP]"
+
+.PP
+data path processing/detection related message payloads, these messages are signalled through DSS to MSS mailbox 
+.PP
+Definition at line 121 of file dss_main\&.c\&.
+.SS "uint8_t MmwDemo_HSRAM_t_::dss2MssIsrInfo"
+
+.PP
+Information relayed through DSS triggering software interrupt to MSS\&. It stores one of the exception IDs \fBDSS to MSS Exception IDs\fP\&. 
+.PP
+Definition at line 125 of file dss_main\&.c\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mmWaveFMCWRADAR from the source code\&.

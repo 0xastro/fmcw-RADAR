@@ -1,0 +1,119 @@
+\doxysection{E\+K\+F\+\_\+\+X\+Y\+Z\+\_\+\+Interface.\+h File Reference}
+\label{_e_k_f___x_y_z___interface_8h}\index{EKF\_XYZ\_Interface.h@{EKF\_XYZ\_Interface.h}}
+
+
+Interface the Extended Kalman Filter.  
+
+
+{\ttfamily \#include \char`\"{}E\+K\+F\+\_\+\+X\+Y\+Z\+\_\+\+Consts.\+h\char`\"{}}\newline
+Include dependency graph for E\+K\+F\+\_\+\+X\+Y\+Z\+\_\+\+Interface.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=189pt]{_e_k_f___x_y_z___interface_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_e_k_f___x_y_z___interface_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ ekf\+Init} (\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$restrict obj)
+\item 
+void \textbf{ ekf\+Run} (const int32\+\_\+t num\+Meas, \textbf{ tracking\+Input\+Report\+\_\+t} const $\ast$restrict meas\+Array, \textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$restrict obj, float const $\ast$restrict Qvec\+List, const float td)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface the Extended Kalman Filter. 
+
+Copyright (C) 2017 Texas Instruments Incorporated -\/ {\texttt{ http\+://www.\+ti.\+com/}}
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met\+:
+
+Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+Neither the name of Texas Instruments Incorporated nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+T\+H\+IS S\+O\+F\+T\+W\+A\+RE IS P\+R\+O\+V\+I\+D\+ED BY T\+HE C\+O\+P\+Y\+R\+I\+G\+HT H\+O\+L\+D\+E\+RS A\+ND C\+O\+N\+T\+R\+I\+B\+U\+T\+O\+RS \char`\"{}\+A\+S I\+S\char`\"{} A\+ND A\+NY E\+X\+P\+R\+E\+SS OR I\+M\+P\+L\+I\+ED W\+A\+R\+R\+A\+N\+T\+I\+ES, I\+N\+C\+L\+U\+D\+I\+NG, B\+UT N\+OT L\+I\+M\+I\+T\+ED TO, T\+HE I\+M\+P\+L\+I\+ED W\+A\+R\+R\+A\+N\+T\+I\+ES OF M\+E\+R\+C\+H\+A\+N\+T\+A\+B\+I\+L\+I\+TY A\+ND F\+I\+T\+N\+E\+SS F\+OR A P\+A\+R\+T\+I\+C\+U\+L\+AR P\+U\+R\+P\+O\+SE A\+RE D\+I\+S\+C\+L\+A\+I\+M\+ED. IN NO E\+V\+E\+NT S\+H\+A\+LL T\+HE C\+O\+P\+Y\+R\+I\+G\+HT O\+W\+N\+ER OR C\+O\+N\+T\+R\+I\+B\+U\+T\+O\+RS BE L\+I\+A\+B\+LE F\+OR A\+NY D\+I\+R\+E\+CT, I\+N\+D\+I\+R\+E\+CT, I\+N\+C\+I\+D\+E\+N\+T\+AL, S\+P\+E\+C\+I\+AL, E\+X\+E\+M\+P\+L\+A\+RY, OR C\+O\+N\+S\+E\+Q\+U\+E\+N\+T\+I\+AL D\+A\+M\+A\+G\+ES (I\+N\+C\+L\+U\+D\+I\+NG, B\+UT N\+OT L\+I\+M\+I\+T\+ED TO, P\+R\+O\+C\+U\+R\+E\+M\+E\+NT OF S\+U\+B\+S\+T\+I\+T\+U\+TE G\+O\+O\+DS OR S\+E\+R\+V\+I\+C\+ES; L\+O\+SS OF U\+SE, D\+A\+TA, OR P\+R\+O\+F\+I\+TS; OR B\+U\+S\+I\+N\+E\+SS I\+N\+T\+E\+R\+R\+U\+P\+T\+I\+ON) H\+O\+W\+E\+V\+ER C\+A\+U\+S\+ED A\+ND ON A\+NY T\+H\+E\+O\+RY OF L\+I\+A\+B\+I\+L\+I\+TY, W\+H\+E\+T\+H\+ER IN C\+O\+N\+T\+R\+A\+CT, S\+T\+R\+I\+CT L\+I\+A\+B\+I\+L\+I\+TY, OR T\+O\+RT (I\+N\+C\+L\+U\+D\+I\+NG N\+E\+G\+L\+I\+G\+E\+N\+CE OR O\+T\+H\+E\+R\+W\+I\+SE) A\+R\+I\+S\+I\+NG IN A\+NY W\+AY O\+UT OF T\+HE U\+SE OF T\+H\+IS S\+O\+F\+T\+W\+A\+RE, E\+V\+EN IF A\+D\+V\+I\+S\+ED OF T\+HE P\+O\+S\+S\+I\+B\+I\+L\+I\+TY OF S\+U\+CH D\+A\+M\+A\+GE. 
+
+\doxysubsection{Function Documentation}
+\mbox{\label{_e_k_f___x_y_z___interface_8h_a5b2f81c5872fc3691df658b12d18235a}} 
+\index{EKF\_XYZ\_Interface.h@{EKF\_XYZ\_Interface.h}!ekfInit@{ekfInit}}
+\index{ekfInit@{ekfInit}!EKF\_XYZ\_Interface.h@{EKF\_XYZ\_Interface.h}}
+\doxysubsubsection{ekfInit()}
+{\footnotesize\ttfamily void ekf\+Init (\begin{DoxyParamCaption}\item[{\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$restrict}]{data\+Path\+Obj }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ This function initializes the memory used by the tracking function. It also initializes all the trackers to an invalid state, and then populates the \textquotesingle{}process noise matrix\textquotesingle{} or \textquotesingle{}Qmat\textquotesingle{}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em data\+Path\+Obj} & data path object\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Not} & Applicable. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 86 of file Extended\+\_\+\+Kalman\+\_\+\+Filter\+\_\+xyz.\+c.
+
+
+
+References F\+R\+A\+M\+E\+\_\+\+P\+E\+R\+I\+O\+D\+I\+C\+I\+T\+Y\+\_\+\+S\+EC, I\+S\+\_\+\+I\+N\+V\+A\+L\+ID, iX, i\+Xd, iY, i\+Yd, M\+A\+X\+\_\+\+A\+C\+C\+E\+L\+\_\+\+X\+\_\+\+M\+\_\+\+P\+\_\+\+S\+E\+C\+SQ, M\+A\+X\+\_\+\+A\+C\+C\+E\+L\+\_\+\+Y\+\_\+\+M\+\_\+\+P\+\_\+\+S\+E\+C\+SQ, M\+A\+X\+\_\+\+T\+R\+K\+\_\+\+O\+B\+Js, M\+R\+R\+\_\+\+M\+A\+X\+\_\+\+O\+B\+J\+\_\+\+O\+UT, N\+\_\+\+M\+E\+A\+S\+U\+R\+E\+M\+E\+N\+TS, N\+\_\+\+S\+T\+A\+T\+ES, N\+\_\+\+U\+N\+I\+Q\+\_\+\+E\+L\+E\+M\+\_\+\+I\+N\+\_\+\+H\+M\+AT, N\+\_\+\+U\+N\+I\+Q\+\_\+\+E\+L\+E\+M\+\_\+\+I\+N\+\_\+\+S\+Y\+M\+\_\+\+C\+O\+V\+M\+AT, N\+\_\+\+U\+N\+I\+Q\+\_\+\+E\+L\+E\+M\+\_\+\+I\+N\+\_\+\+S\+Y\+M\+\_\+\+R\+E\+S\+I\+D\+C\+O\+V\+M\+AT, and K\+Ftracker\+Instance\+::scratch\+Pad\+Flt.
+
+\mbox{\label{_e_k_f___x_y_z___interface_8h_ac12f601c9ca38cd37c421696068e5060}} 
+\index{EKF\_XYZ\_Interface.h@{EKF\_XYZ\_Interface.h}!ekfRun@{ekfRun}}
+\index{ekfRun@{ekfRun}!EKF\_XYZ\_Interface.h@{EKF\_XYZ\_Interface.h}}
+\doxysubsubsection{ekfRun()}
+{\footnotesize\ttfamily void ekf\+Run (\begin{DoxyParamCaption}\item[{const int32\+\_\+t}]{num\+Meas,  }\item[{\textbf{ tracking\+Input\+Report\+\_\+t} const $\ast$restrict}]{meas\+Array,  }\item[{\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$restrict}]{data\+Path\+Obj,  }\item[{float const $\ast$restrict}]{Qvec\+List,  }\item[{const float}]{td }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ This function runs the kalmanfilter on a list of input data ~\newline
+
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em num\+Meas} & The number of tracking inputs. \\
+\hline
+\mbox{\texttt{ in}}  & {\em meas\+Array} & An array of structures holding the measurements. ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em data\+Path\+Obj} & data path object \\
+\hline
+\mbox{\texttt{ in}}  & {\em Qvec\+List} & A array of structures holding the \textquotesingle{}process noise matrix. \\
+\hline
+\mbox{\texttt{ in}}  & {\em td} & The update rate of the measurement.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Not} & Applicable. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 166 of file Extended\+\_\+\+Kalman\+\_\+\+Filter\+\_\+xyz.\+c.
+
+
+
+References A\+G\+E\+D\+\_\+\+O\+B\+J\+\_\+\+D\+E\+L\+E\+T\+I\+O\+N\+\_\+\+T\+H\+R\+E\+SH, arrange\+Tracks\+By\+Age(), K\+Ftracker\+Instance\+::assoc\+Meas\+Indx, compute\+Hmat(), compute\+Predicted\+Meas(), create\+New\+Tracks(), Init\+Associated\+Measurement\+Indx(), init\+Associated\+Tracker\+Indx(), invalidate\+Curr\+Track(), i\+R\+A\+N\+GE, i\+R\+A\+N\+G\+E\+\_\+\+R\+A\+TE, I\+S\+\_\+\+A\+S\+S\+O\+C\+I\+A\+T\+ED, I\+S\+\_\+\+I\+N\+V\+A\+L\+ID, i\+S\+I\+N\+\_\+\+A\+Z\+IM, is\+Target\+Within\+Data\+Association\+Thresh(), is\+Within\+Bounding\+Box(), iY, kalman\+Gain\+Computation(), M\+A\+X\+\_\+\+T\+R\+K\+\_\+\+O\+B\+Js, N\+O\+T\+\_\+\+A\+S\+S\+O\+C\+I\+A\+T\+ED, residual\+Covariance\+Computation(), select\+\_\+\+Q\+Vec(), select\+Meas(), state\+Covmat\+Measurement\+Update(), state\+Covmat\+Time\+Update(), state\+Vec\+Measurement\+Update(), state\+Vec\+Time\+Update(), and sym\+Mat\+Inv().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{_e_k_f___x_y_z___interface_8h_ac12f601c9ca38cd37c421696068e5060_cgraph}
+\end{center}
+\end{figure}

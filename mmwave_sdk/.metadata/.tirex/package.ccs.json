@@ -1,0 +1,8 @@
+[
+    {
+        "rootMacroName": "COM_TI_MMWAVE_SDK_INSTALL_DIR",
+        "compilerIncludePath": [ ],
+        "compilerSymbols": [ ],
+        "linkerSearchPath": [ ],
+    }
+]

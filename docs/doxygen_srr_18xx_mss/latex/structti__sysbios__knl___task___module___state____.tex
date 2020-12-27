@@ -1,0 +1,221 @@
+\doxysection{ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+ Struct Reference}
+\label{structti__sysbios__knl___task___module___state____}\index{ti\_sysbios\_knl\_Task\_Module\_State\_\_@{ti\_sysbios\_knl\_Task\_Module\_State\_\_}}
+
+
+Collaboration diagram for ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=253pt]{structti__sysbios__knl___task___module___state______coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+volatile xdc\+\_\+\+Bool \textbf{ locked}
+\item 
+volatile xdc\+\_\+\+U\+Int \textbf{ cur\+Set}
+\item 
+volatile xdc\+\_\+\+Bool \textbf{ work\+Flag}
+\item 
+xdc\+\_\+\+U\+Int \textbf{ vital\+Tasks}
+\item 
+ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Handle \textbf{ cur\+Task}
+\item 
+ti\+\_\+sysbios\+\_\+knl\+\_\+\+Queue\+\_\+\+Handle \textbf{ curQ}
+\item 
+\+\_\+\+\_\+\+T\+A\+\_\+ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+readyQ \textbf{ readyQ}
+\item 
+\+\_\+\+\_\+\+T\+A\+\_\+ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+smp\+Cur\+Set \textbf{ smp\+Cur\+Set}
+\item 
+\+\_\+\+\_\+\+T\+A\+\_\+ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+smp\+Cur\+Mask \textbf{ smp\+Cur\+Mask}
+\item 
+\+\_\+\+\_\+\+T\+A\+\_\+ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+smp\+Cur\+Task \textbf{ smp\+Cur\+Task}
+\item 
+\+\_\+\+\_\+\+T\+A\+\_\+ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+smp\+ReadyQ \textbf{ smp\+ReadyQ}
+\item 
+\+\_\+\+\_\+\+T\+A\+\_\+ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+idle\+Task \textbf{ idle\+Task}
+\item 
+\+\_\+\+\_\+\+T\+A\+\_\+ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+constructed\+Tasks \textbf{ constructed\+Tasks}
+\item 
+xdc\+\_\+\+Bool \textbf{ cur\+Task\+Privileged}
+\item 
+\textbf{ ti\+\_\+sysbios\+\_\+knl\+\_\+\+Queue\+\_\+\+Object\+\_\+\+\_\+} \textbf{ Object\+\_\+field\+\_\+inactiveQ}
+\item 
+\textbf{ ti\+\_\+sysbios\+\_\+knl\+\_\+\+Queue\+\_\+\+Object\+\_\+\+\_\+} \textbf{ Object\+\_\+field\+\_\+terminatedQ}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 1360 of file mss\+\_\+per4f.\+c.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\label{structti__sysbios__knl___task___module___state_____a8b67439cf004f9a6ff5c7f3ac65a3aaa}} 
+\index{ti\_sysbios\_knl\_Task\_Module\_State\_\_@{ti\_sysbios\_knl\_Task\_Module\_State\_\_}!constructedTasks@{constructedTasks}}
+\index{constructedTasks@{constructedTasks}!ti\_sysbios\_knl\_Task\_Module\_State\_\_@{ti\_sysbios\_knl\_Task\_Module\_State\_\_}}
+\doxysubsubsection{constructedTasks}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+T\+A\+\_\+ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+constructed\+Tasks ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+\+::constructed\+Tasks}
+
+
+
+Definition at line 1373 of file mss\+\_\+per4f.\+c.
+
+\mbox{\label{structti__sysbios__knl___task___module___state_____adf91bec7124edc8d0d7b74377370efe0}} 
+\index{ti\_sysbios\_knl\_Task\_Module\_State\_\_@{ti\_sysbios\_knl\_Task\_Module\_State\_\_}!curQ@{curQ}}
+\index{curQ@{curQ}!ti\_sysbios\_knl\_Task\_Module\_State\_\_@{ti\_sysbios\_knl\_Task\_Module\_State\_\_}}
+\doxysubsubsection{curQ}
+{\footnotesize\ttfamily ti\+\_\+sysbios\+\_\+knl\+\_\+\+Queue\+\_\+\+Handle ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+\+::curQ}
+
+
+
+Definition at line 1366 of file mss\+\_\+per4f.\+c.
+
+\mbox{\label{structti__sysbios__knl___task___module___state_____ab23e451d2428ae00148e58c1ab05c8b6}} 
+\index{ti\_sysbios\_knl\_Task\_Module\_State\_\_@{ti\_sysbios\_knl\_Task\_Module\_State\_\_}!curSet@{curSet}}
+\index{curSet@{curSet}!ti\_sysbios\_knl\_Task\_Module\_State\_\_@{ti\_sysbios\_knl\_Task\_Module\_State\_\_}}
+\doxysubsubsection{curSet}
+{\footnotesize\ttfamily volatile xdc\+\_\+\+U\+Int ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+\+::cur\+Set}
+
+
+
+Definition at line 1362 of file mss\+\_\+per4f.\+c.
+
+\mbox{\label{structti__sysbios__knl___task___module___state_____ae21993f7a2a9e4116f18b5131734f846}} 
+\index{ti\_sysbios\_knl\_Task\_Module\_State\_\_@{ti\_sysbios\_knl\_Task\_Module\_State\_\_}!curTask@{curTask}}
+\index{curTask@{curTask}!ti\_sysbios\_knl\_Task\_Module\_State\_\_@{ti\_sysbios\_knl\_Task\_Module\_State\_\_}}
+\doxysubsubsection{curTask}
+{\footnotesize\ttfamily ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Handle ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+\+::cur\+Task}
+
+
+
+Definition at line 1365 of file mss\+\_\+per4f.\+c.
+
+\mbox{\label{structti__sysbios__knl___task___module___state_____a4b942c0c8ecc21143ad0a5243f3e0080}} 
+\index{ti\_sysbios\_knl\_Task\_Module\_State\_\_@{ti\_sysbios\_knl\_Task\_Module\_State\_\_}!curTaskPrivileged@{curTaskPrivileged}}
+\index{curTaskPrivileged@{curTaskPrivileged}!ti\_sysbios\_knl\_Task\_Module\_State\_\_@{ti\_sysbios\_knl\_Task\_Module\_State\_\_}}
+\doxysubsubsection{curTaskPrivileged}
+{\footnotesize\ttfamily xdc\+\_\+\+Bool ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+\+::cur\+Task\+Privileged}
+
+
+
+Definition at line 1374 of file mss\+\_\+per4f.\+c.
+
+\mbox{\label{structti__sysbios__knl___task___module___state_____ae11e3331b7f24933e4a049c16549300a}} 
+\index{ti\_sysbios\_knl\_Task\_Module\_State\_\_@{ti\_sysbios\_knl\_Task\_Module\_State\_\_}!idleTask@{idleTask}}
+\index{idleTask@{idleTask}!ti\_sysbios\_knl\_Task\_Module\_State\_\_@{ti\_sysbios\_knl\_Task\_Module\_State\_\_}}
+\doxysubsubsection{idleTask}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+T\+A\+\_\+ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+idle\+Task ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+\+::idle\+Task}
+
+
+
+Definition at line 1372 of file mss\+\_\+per4f.\+c.
+
+\mbox{\label{structti__sysbios__knl___task___module___state_____a371ceda678af3157dcc1889f7c066a3b}} 
+\index{ti\_sysbios\_knl\_Task\_Module\_State\_\_@{ti\_sysbios\_knl\_Task\_Module\_State\_\_}!locked@{locked}}
+\index{locked@{locked}!ti\_sysbios\_knl\_Task\_Module\_State\_\_@{ti\_sysbios\_knl\_Task\_Module\_State\_\_}}
+\doxysubsubsection{locked}
+{\footnotesize\ttfamily volatile xdc\+\_\+\+Bool ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+\+::locked}
+
+
+
+Definition at line 1361 of file mss\+\_\+per4f.\+c.
+
+\mbox{\label{structti__sysbios__knl___task___module___state_____a60b737b8af76011a66a5a2a4f3f13e0a}} 
+\index{ti\_sysbios\_knl\_Task\_Module\_State\_\_@{ti\_sysbios\_knl\_Task\_Module\_State\_\_}!Object\_field\_inactiveQ@{Object\_field\_inactiveQ}}
+\index{Object\_field\_inactiveQ@{Object\_field\_inactiveQ}!ti\_sysbios\_knl\_Task\_Module\_State\_\_@{ti\_sysbios\_knl\_Task\_Module\_State\_\_}}
+\doxysubsubsection{Object\_field\_inactiveQ}
+{\footnotesize\ttfamily \textbf{ ti\+\_\+sysbios\+\_\+knl\+\_\+\+Queue\+\_\+\+Object\+\_\+\+\_\+} ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+\+::\+Object\+\_\+field\+\_\+inactiveQ}
+
+
+
+Definition at line 1375 of file mss\+\_\+per4f.\+c.
+
+\mbox{\label{structti__sysbios__knl___task___module___state_____a339cbc8017d7003b2df6f428f1f66de1}} 
+\index{ti\_sysbios\_knl\_Task\_Module\_State\_\_@{ti\_sysbios\_knl\_Task\_Module\_State\_\_}!Object\_field\_terminatedQ@{Object\_field\_terminatedQ}}
+\index{Object\_field\_terminatedQ@{Object\_field\_terminatedQ}!ti\_sysbios\_knl\_Task\_Module\_State\_\_@{ti\_sysbios\_knl\_Task\_Module\_State\_\_}}
+\doxysubsubsection{Object\_field\_terminatedQ}
+{\footnotesize\ttfamily \textbf{ ti\+\_\+sysbios\+\_\+knl\+\_\+\+Queue\+\_\+\+Object\+\_\+\+\_\+} ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+\+::\+Object\+\_\+field\+\_\+terminatedQ}
+
+
+
+Definition at line 1376 of file mss\+\_\+per4f.\+c.
+
+\mbox{\label{structti__sysbios__knl___task___module___state_____a628925b4c7af05c9cbb34bdafa943102}} 
+\index{ti\_sysbios\_knl\_Task\_Module\_State\_\_@{ti\_sysbios\_knl\_Task\_Module\_State\_\_}!readyQ@{readyQ}}
+\index{readyQ@{readyQ}!ti\_sysbios\_knl\_Task\_Module\_State\_\_@{ti\_sysbios\_knl\_Task\_Module\_State\_\_}}
+\doxysubsubsection{readyQ}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+T\+A\+\_\+ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+readyQ ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+\+::readyQ}
+
+
+
+Definition at line 1367 of file mss\+\_\+per4f.\+c.
+
+\mbox{\label{structti__sysbios__knl___task___module___state_____aaaa5412ee7732cc892b5a4a70fa417f2}} 
+\index{ti\_sysbios\_knl\_Task\_Module\_State\_\_@{ti\_sysbios\_knl\_Task\_Module\_State\_\_}!smpCurMask@{smpCurMask}}
+\index{smpCurMask@{smpCurMask}!ti\_sysbios\_knl\_Task\_Module\_State\_\_@{ti\_sysbios\_knl\_Task\_Module\_State\_\_}}
+\doxysubsubsection{smpCurMask}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+T\+A\+\_\+ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+smp\+Cur\+Mask ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+\+::smp\+Cur\+Mask}
+
+
+
+Definition at line 1369 of file mss\+\_\+per4f.\+c.
+
+\mbox{\label{structti__sysbios__knl___task___module___state_____a830bd096ad9411a3ac15b3ac505b3b7a}} 
+\index{ti\_sysbios\_knl\_Task\_Module\_State\_\_@{ti\_sysbios\_knl\_Task\_Module\_State\_\_}!smpCurSet@{smpCurSet}}
+\index{smpCurSet@{smpCurSet}!ti\_sysbios\_knl\_Task\_Module\_State\_\_@{ti\_sysbios\_knl\_Task\_Module\_State\_\_}}
+\doxysubsubsection{smpCurSet}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+T\+A\+\_\+ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+smp\+Cur\+Set ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+\+::smp\+Cur\+Set}
+
+
+
+Definition at line 1368 of file mss\+\_\+per4f.\+c.
+
+\mbox{\label{structti__sysbios__knl___task___module___state_____a1fbce81808a6225bd22e460c8d9e66e6}} 
+\index{ti\_sysbios\_knl\_Task\_Module\_State\_\_@{ti\_sysbios\_knl\_Task\_Module\_State\_\_}!smpCurTask@{smpCurTask}}
+\index{smpCurTask@{smpCurTask}!ti\_sysbios\_knl\_Task\_Module\_State\_\_@{ti\_sysbios\_knl\_Task\_Module\_State\_\_}}
+\doxysubsubsection{smpCurTask}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+T\+A\+\_\+ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+smp\+Cur\+Task ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+\+::smp\+Cur\+Task}
+
+
+
+Definition at line 1370 of file mss\+\_\+per4f.\+c.
+
+\mbox{\label{structti__sysbios__knl___task___module___state_____aa1dd2883f96a9c5cd6c8eac6cbb28114}} 
+\index{ti\_sysbios\_knl\_Task\_Module\_State\_\_@{ti\_sysbios\_knl\_Task\_Module\_State\_\_}!smpReadyQ@{smpReadyQ}}
+\index{smpReadyQ@{smpReadyQ}!ti\_sysbios\_knl\_Task\_Module\_State\_\_@{ti\_sysbios\_knl\_Task\_Module\_State\_\_}}
+\doxysubsubsection{smpReadyQ}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+T\+A\+\_\+ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+smp\+ReadyQ ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+\+::smp\+ReadyQ}
+
+
+
+Definition at line 1371 of file mss\+\_\+per4f.\+c.
+
+\mbox{\label{structti__sysbios__knl___task___module___state_____a91517e16db8ab936d002dacfb2267055}} 
+\index{ti\_sysbios\_knl\_Task\_Module\_State\_\_@{ti\_sysbios\_knl\_Task\_Module\_State\_\_}!vitalTasks@{vitalTasks}}
+\index{vitalTasks@{vitalTasks}!ti\_sysbios\_knl\_Task\_Module\_State\_\_@{ti\_sysbios\_knl\_Task\_Module\_State\_\_}}
+\doxysubsubsection{vitalTasks}
+{\footnotesize\ttfamily xdc\+\_\+\+U\+Int ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+\+::vital\+Tasks}
+
+
+
+Definition at line 1364 of file mss\+\_\+per4f.\+c.
+
+\mbox{\label{structti__sysbios__knl___task___module___state_____aed68f06857513ef5545422a219d83995}} 
+\index{ti\_sysbios\_knl\_Task\_Module\_State\_\_@{ti\_sysbios\_knl\_Task\_Module\_State\_\_}!workFlag@{workFlag}}
+\index{workFlag@{workFlag}!ti\_sysbios\_knl\_Task\_Module\_State\_\_@{ti\_sysbios\_knl\_Task\_Module\_State\_\_}}
+\doxysubsubsection{workFlag}
+{\footnotesize\ttfamily volatile xdc\+\_\+\+Bool ti\+\_\+sysbios\+\_\+knl\+\_\+\+Task\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+\+::work\+Flag}
+
+
+
+Definition at line 1363 of file mss\+\_\+per4f.\+c.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Debug/config\+Pkg/package/cfg/\textbf{ mss\+\_\+per4f.\+c}\end{DoxyCompactItemize}

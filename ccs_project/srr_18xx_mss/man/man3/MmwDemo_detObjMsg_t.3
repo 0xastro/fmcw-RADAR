@@ -1,0 +1,48 @@
+.TH "MmwDemo_detObjMsg_t" 3 "Wed May 20 2020" "Version 1.0" "mmWaveFMCWRADAR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MmwDemo_detObjMsg_t \- Message for reporting detection information from data path to MSS\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <mmw_messages\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fBMmwDemo_output_message_header\fP \fBheader\fP"
+.br
+.RI "\fBHeader\fP of the detection information message\&. "
+.ti -1c
+.RI "\fBMmwDemo_msgTlv\fP \fBtlv\fP [\fBMMWDEMO_OUTPUT_MSG_MAX\fP]"
+.br
+.RI "TLVs of the detection information\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Message for reporting detection information from data path to MSS\&. 
+
+The structure defines the message body for detection information from from data path to MSS\&. 
+.PP
+Definition at line 133 of file mmw_messages\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "\fBMmwDemo_output_message_header\fP MmwDemo_detObjMsg_t::header"
+
+.PP
+\fBHeader\fP of the detection information message\&. 
+.PP
+Definition at line 136 of file mmw_messages\&.h\&.
+.SS "\fBMmwDemo_msgTlv\fP MmwDemo_detObjMsg_t::tlv"
+
+.PP
+TLVs of the detection information\&. 
+.PP
+Definition at line 139 of file mmw_messages\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mmWaveFMCWRADAR from the source code\&.

@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['nearfieldcorrectioncfg_487',['nearFieldCorrectionCfg',['../struct_mmw_demo___cli_cfg__t__.html#aab033046a5d13ab3d2b343574fb59dcb',1,'MmwDemo_CliCfg_t_']]],
+  ['negativebinidx_488',['negativeBinIdx',['../struct_d_s_s___calib_dc_range_sig_cfg__t.html#a1adb765a00ba5c0020ccffeeefbd082c',1,'DSS_CalibDcRangeSigCfg_t']]],
+  ['nextscheduledtick_489',['nextScheduledTick',['../structti__sysbios__knl___clock___module___state____.html#a8a3eeee6559ed5d084c708d719ecac80',1,'ti_sysbios_knl_Clock_Module_State__']]],
+  ['nodebase_490',['nodeBase',['../structxdc__runtime___text___module___state____.html#a073321fad08379f3afcd25c4095fbcd1',1,'xdc_runtime_Text_Module_State__']]],
+  ['noise_5ffigure_5fhigh_491',['NOISE_FIGURE_HIGH',['../device__cfg_8h.html#a8ac8a5cbe86e45e208749512349be96a',1,'device_cfg.h']]],
+  ['noise_5ffigure_5flow_492',['NOISE_FIGURE_LOW',['../device__cfg_8h.html#a342d0342b59fb92adcd7709b2faf3052',1,'device_cfg.h']]],
+  ['noisedivshift_493',['noiseDivShift',['../struct_d_s_s___cfar_cfg__t.html#afeac102b3b193ceb975af9768905cb11',1,'DSS_CfarCfg_t']]],
+  ['noiseprofile_494',['noiseProfile',['../struct_mmw_demo___gui_mon_sel__t.html#a6c35c4f3c082766cbf0520bab64c1547',1,'MmwDemo_GuiMonSel_t']]],
+  ['num_5fchirp_5fprog_495',['NUM_CHIRP_PROG',['../app__cfg_8h.html#ab08bf41c488d910fb59cf16c3cd8fd0f',1,'app_cfg.h']]],
+  ['num_5fprofiles_496',['NUM_PROFILES',['../app__cfg_8h.html#a0931aa15c0fb3e1bf5c48fe47fe09511',1,'app_cfg.h']]],
+  ['num_5frx_5fchannels_497',['NUM_RX_CHANNELS',['../app__cfg_8h.html#a54335318df3476652340fe35e30fe094',1,'app_cfg.h']]],
+  ['num_5fsubframes_498',['NUM_SUBFRAMES',['../app__cfg_8h.html#af1d474982cda92e9c43e7605e25d0255',1,'app_cfg.h']]],
+  ['numatexithandlers_499',['numAtexitHandlers',['../structxdc__runtime___system___module___state____.html#a139fd7aee652094529374dd41334e50f',1,'xdc_runtime_System_Module_State__']]],
+  ['numavgchirps_500',['numAvgChirps',['../struct_d_s_s___calib_dc_range_sig_cfg__t.html#a750c6625b294e8ea5154d95fde66f31c',1,'DSS_CalibDcRangeSigCfg_t']]],
+  ['numblocks_501',['numBlocks',['../structti__sysbios__heaps___heap_buf___object____.html#a16c2cebeb3c155a15da4739c335fdd40',1,'ti_sysbios_heaps_HeapBuf_Object__']]],
+  ['numcalibrationreports_502',['numCalibrationReports',['../structmm_w___m_s_s___s_t_a_t_s__t.html#ad0f6db51353fe993df9fc955e063670f',1,'mmW_MSS_STATS_t']]],
+  ['numchirpspersubframe_503',['numChirpsPerSubframe',['../struct_m_c_b__t.html#a69f694f78d8e6675193c7e84075390e5',1,'MCB_t']]],
+  ['numdetectedobj_504',['numDetectedObj',['../structmm_wave___o_u_t___m_s_g__header__t.html#a31063a93ffe632618ad8871d4417afff',1,'mmWave_OUT_MSG_header_t']]],
+  ['numdetetedobj_505',['numDetetedObj',['../structmm_wave___o_u_t___m_s_g__stats__data_obj_descr__t.html#a69942dd2b2440f79df6b2c34f97ac28d',1,'mmWave_OUT_MSG_stats_dataObjDescr_t']]],
+  ['numfailedtimingreports_506',['numFailedTimingReports',['../structmm_w___m_s_s___s_t_a_t_s__t.html#a5fd83328b70658eea16c817c3564e6c7',1,'mmW_MSS_STATS_t']]],
+  ['numfreeblocks_507',['numFreeBlocks',['../structti__sysbios__heaps___heap_buf___object____.html#a5f5627538294adca2c7d5e122bc8c721',1,'ti_sysbios_heaps_HeapBuf_Object__']]],
+  ['numtickskip_508',['numTickSkip',['../structti__sysbios__knl___clock___module___state____.html#a132738b1c4466c5f8e28c3b78bea3273',1,'ti_sysbios_knl_Clock_Module_State__']]],
+  ['numtlvs_509',['numTLVs',['../structmm_wave___o_u_t___m_s_g__header__t.html#a8d07e5cd4716d8f35617bb911b7946b1',1,'mmWave_OUT_MSG_header_t']]]
+];

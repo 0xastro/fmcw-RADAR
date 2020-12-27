@@ -1,0 +1,58 @@
+.TH "MmwDemo_NearFieldCorrectionCfg_t" 3 "Wed May 20 2020" "Version 1.0" "mmWaveFMCWRADAR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MmwDemo_NearFieldCorrectionCfg_t \- Millimeter Wave Demo near field correction\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <mrr_config\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "uint8_t \fBenabled\fP"
+.br
+.RI "enabled flag: 1-enabled 0-disabled "
+.ti -1c
+.RI "uint16_t \fBendRangeIdx\fP"
+.br
+.RI "Range index beyond which the algorithm is disabled\&. "
+.ti -1c
+.RI "uint16_t \fBstartRangeIdx\fP"
+.br
+.RI "Range index below which the algorithm is disabled\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Millimeter Wave Demo near field correction\&. 
+
+The structure contains Near Field Correction configuration 
+.PP
+Definition at line 148 of file mrr_config\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "uint8_t MmwDemo_NearFieldCorrectionCfg_t::enabled"
+
+.PP
+enabled flag: 1-enabled 0-disabled 
+.PP
+Definition at line 151 of file mrr_config\&.h\&.
+.SS "uint16_t MmwDemo_NearFieldCorrectionCfg_t::endRangeIdx"
+
+.PP
+Range index beyond which the algorithm is disabled\&. 
+.PP
+Definition at line 154 of file mrr_config\&.h\&.
+.SS "uint16_t MmwDemo_NearFieldCorrectionCfg_t::startRangeIdx"
+
+.PP
+Range index below which the algorithm is disabled\&. 
+.PP
+Definition at line 157 of file mrr_config\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mmWaveFMCWRADAR from the source code\&.

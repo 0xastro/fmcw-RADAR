@@ -1,0 +1,174 @@
+.TH "MSS_MCB_t" 3 "Wed May 20 2020" "Version 1.0" "mmWaveFMCWRADAR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MSS_MCB_t \- MSS MRR TI Design Master control block\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <mss_mrr\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "SOC_Handle \fBsocHandle\fP"
+.br
+.ti -1c
+.RI "UART_Handle \fBloggingUartHandle\fP"
+.br
+.ti -1c
+.RI "UART_Handle \fBcommandUartHandle\fP"
+.br
+.ti -1c
+.RI "Mbox_Handle \fBmboxHandle\fP"
+.br
+.ti -1c
+.RI "Semaphore_Handle \fBmboxSemHandle\fP"
+.br
+.ti -1c
+.RI "Event_Handle \fBeventHandle\fP"
+.br
+.ti -1c
+.RI "SOC_SysIntListenerHandle \fBchirpIntHandle\fP"
+.br
+.ti -1c
+.RI "SOC_SysIntListenerHandle \fBframeStartIntHandle\fP"
+.br
+.ti -1c
+.RI "MMWave_Handle \fBctrlHandle\fP"
+.br
+.ti -1c
+.RI "bool \fBcfgStatus\fP"
+.br
+.ti -1c
+.RI "bool \fBrunningStatus\fP"
+.br
+.ti -1c
+.RI "bool \fBisMMWaveOpen\fP"
+.br
+.ti -1c
+.RI "int32_t \fBframeStartToken\fP"
+.br
+.ti -1c
+.RI "int32_t \fBsubframeCntFromChirpInt\fP"
+.br
+.ti -1c
+.RI "int32_t \fBsubframeCntFromFrameStart\fP"
+.br
+.ti -1c
+.RI "int32_t \fBchirpIntcumSum\fP"
+.br
+.ti -1c
+.RI "int32_t \fBchirpInt\fP"
+.br
+.ti -1c
+.RI "int32_t \fBnumChirpsPerSubframe\fP [\fBNUM_SUBFRAMES\fP]"
+.br
+.ti -1c
+.RI "int32_t \fBsubframeId\fP"
+.br
+.ti -1c
+.RI "\fBMmwDemo_MSS_STATS\fP \fBstats\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+MSS MRR TI Design Master control block\&. 
+
+The structure is used to hold information pertinent to the MSS MRR TI Design\&. 
+.PP
+Definition at line 115 of file mss_mrr\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "bool MSS_MCB_t::cfgStatus"
+
+.PP
+Definition at line 130 of file mss_mrr\&.h\&.
+.SS "int32_t MSS_MCB_t::chirpInt"
+
+.PP
+Definition at line 137 of file mss_mrr\&.h\&.
+.SS "int32_t MSS_MCB_t::chirpIntcumSum"
+
+.PP
+Definition at line 136 of file mss_mrr\&.h\&.
+.SS "SOC_SysIntListenerHandle MSS_MCB_t::chirpIntHandle"
+
+.PP
+Definition at line 125 of file mss_mrr\&.h\&.
+.SS "UART_Handle MSS_MCB_t::commandUartHandle"
+
+.PP
+Definition at line 120 of file mss_mrr\&.h\&.
+.SS "MMWave_Handle MSS_MCB_t::ctrlHandle"
+
+.PP
+Definition at line 127 of file mss_mrr\&.h\&.
+.SS "Event_Handle MSS_MCB_t::eventHandle"
+
+.PP
+Definition at line 124 of file mss_mrr\&.h\&.
+.SS "SOC_SysIntListenerHandle MSS_MCB_t::frameStartIntHandle"
+
+.PP
+Definition at line 126 of file mss_mrr\&.h\&.
+.SS "int32_t MSS_MCB_t::frameStartToken"
+
+.PP
+Definition at line 133 of file mss_mrr\&.h\&.
+.SS "bool MSS_MCB_t::isMMWaveOpen"
+
+.PP
+Definition at line 132 of file mss_mrr\&.h\&.
+.SS "UART_Handle MSS_MCB_t::loggingUartHandle"
+
+.PP
+Definition at line 119 of file mss_mrr\&.h\&.
+.SS "Mbox_Handle MSS_MCB_t::mboxHandle"
+
+.PP
+Definition at line 122 of file mss_mrr\&.h\&.
+.PP
+Referenced by MmwDemo_mboxWrite()\&.
+.SS "Semaphore_Handle MSS_MCB_t::mboxSemHandle"
+
+.PP
+Definition at line 123 of file mss_mrr\&.h\&.
+.PP
+Referenced by MmwDemo_mboxCallback()\&.
+.SS "int32_t MSS_MCB_t::numChirpsPerSubframe[\fBNUM_SUBFRAMES\fP]"
+
+.PP
+Definition at line 138 of file mss_mrr\&.h\&.
+.SS "bool MSS_MCB_t::runningStatus"
+
+.PP
+Definition at line 131 of file mss_mrr\&.h\&.
+.SS "SOC_Handle MSS_MCB_t::socHandle"
+
+.PP
+Definition at line 118 of file mss_mrr\&.h\&.
+.PP
+Referenced by main()\&.
+.SS "\fBMmwDemo_MSS_STATS\fP MSS_MCB_t::stats"
+
+.PP
+Definition at line 141 of file mss_mrr\&.h\&.
+.SS "int32_t MSS_MCB_t::subframeCntFromChirpInt"
+
+.PP
+Definition at line 134 of file mss_mrr\&.h\&.
+.SS "int32_t MSS_MCB_t::subframeCntFromFrameStart"
+
+.PP
+Definition at line 135 of file mss_mrr\&.h\&.
+.SS "int32_t MSS_MCB_t::subframeId"
+
+.PP
+Definition at line 139 of file mss_mrr\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mmWaveFMCWRADAR from the source code\&.

@@ -1,0 +1,39 @@
+                                   OVERVIEW                                    
+Memory                              Used               Total        Percent Used
+--------------------------------------------------------------------------------
+PAGE 0:
+DATA_RAM                          138524              196608              70.46%
+HS_RAM                                 0               32768               0.00%
+HWA_RAM                                0               65536               0.00%
+L3_RAM                            786432              786432             100.00%
+PROG_RAM                          128846              524032              24.59%
+VECTORS                               60                 256              23.44%
+PAGE 1:
+L3_RAM                                 0              786432               0.00%
+
+
+                            Type           DATA_RAM       HS_RAM      HWA_RAM       L3_RAM     PROG_RAM      VECTORS
+--------------------------------------------------------------------------------
+APP                         code                  0            0            0            0        16284           60
+APP                         data              14692            0            0            0         2335            0
+APP                         heap             117760            0            0       786432            0            0
+APP                         unknown               0            0            0            0            8            0
+BIOS                        code                  0            0            0            0        21845            0
+BIOS                        data                  4            0            0            0            0            0
+C_RUNTIME                   code                  0            0            0            0        15224            0
+C_RUNTIME                   data                784            0            0            0          905            0
+DPC                         code                  0            0            0            0         7744            0
+DPC                         data                 40            0            0            0            0            0
+DPM                         code                  0            0            0            0         2962            0
+DPM                         data                 32            0            0            0           40            0
+DPU                         code                  0            0            0            0        16642            0
+DRIVERS_CORE                code                  0            0            0            0        16794            0
+DRIVERS_CORE                data               1696            0            0            0          188            0
+DRIVERS_OPTIONAL            code                  0            0            0            0        11184            0
+DRIVERS_OPTIONAL            data               1060            0            0            0          256            0
+MMWAVE                      code                  0            0            0            0         7924            0
+MMWAVE                      data                260            0            0            0            0            0
+MMWAVELINK                  code                  0            0            0            0         6264            0
+MMWAVELINK                  data                996            0            0            0          816            0
+linker-generated            linker             1200            0            0            0          291            0
+linker-generated            unknown               0            0            0            0         1140            0

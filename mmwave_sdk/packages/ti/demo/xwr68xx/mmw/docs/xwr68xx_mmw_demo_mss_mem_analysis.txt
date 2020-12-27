@@ -1,0 +1,24 @@
+                                   OVERVIEW                                    
+Memory                              Used               Total        Percent Used
+--------------------------------------------------------------------------------
+PAGE 0:
+DATA_RAM                          138524              196608              70.46%
+HS_RAM                                 0               32768               0.00%
+HWA_RAM                                0               65536               0.00%
+L3_RAM                            786432              786432             100.00%
+PROG_RAM                          128846              524032              24.59%
+VECTORS                               60                 256              23.44%
+PAGE 1:
+L3_RAM                                 0              786432               0.00%
+
+
+                            Type           DATA_RAM       HS_RAM      HWA_RAM       L3_RAM     PROG_RAM      VECTORS
+--------------------------------------------------------------------------------
+APP                         code              15476            0            0            0        34748           60
+APP                         heap             117760            0            0       786432            0            0
+APP                         unknown               0            0            0            0            8            0
+BIOS                        code                  4            0            0            0        21845            0
+COMPONENTS_CORE             code               3024            0            0            0        59374            0
+COMPONENTS_OPTIONAL         code               1060            0            0            0        11440            0
+linker-generated            linker             1200            0            0            0          291            0
+linker-generated            unknown               0            0            0            0         1140            0

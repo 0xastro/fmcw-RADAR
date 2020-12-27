@@ -1,0 +1,166 @@
+\doxysection{mm\+W\+\_\+\+M\+S\+S\+\_\+\+S\+T\+A\+T\+S\+\_\+t Struct Reference}
+\label{structmm_w___m_s_s___s_t_a_t_s__t}\index{mmW\_MSS\_STATS\_t@{mmW\_MSS\_STATS\_t}}
+
+
+The structure is used to hold the statistics information for the Millimeter Wave Application.  
+
+
+
+
+{\ttfamily \#include $<$mm\+Wave\+\_\+\+X\+S\+S.\+h$>$}
+
+
+
+Collaboration diagram for mm\+W\+\_\+\+M\+S\+S\+\_\+\+S\+T\+A\+T\+S\+\_\+t\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=213pt]{structmm_w___m_s_s___s_t_a_t_s__t__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \textbf{ cli\+Sensor\+Start\+Evt}
+\item 
+uint8\+\_\+t \textbf{ cli\+Sensor\+Stop\+Evt}
+\begin{DoxyCompactList}\small\item\em ! C\+LI event for sensor\+Star \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ cli\+Frame\+Start\+Evt}
+\begin{DoxyCompactList}\small\item\em ! C\+LI event for sensor\+Stop \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ datapath\+Config\+Evt}
+\item 
+uint8\+\_\+t \textbf{ datapath\+Start\+Evt}
+\begin{DoxyCompactList}\small\item\em ! Counter which tracks the number of datapath config \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ datapath\+Stop\+Evt}
+\begin{DoxyCompactList}\small\item\em ! Counter which tracks the number of datapath start event detected \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ num\+Failed\+Timing\+Reports}
+\item 
+uint32\+\_\+t \textbf{ num\+Calibration\+Reports}
+\begin{DoxyCompactList}\small\item\em ! Counter which tracks the number of failed calibration reports \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The structure is used to hold the statistics information for the Millimeter Wave Application. 
+
+\DoxyHorRuler
+ \doxysubsubsection{Design}\label{mm_wave___x_s_s_8h_autotoc_md0}
+
+
+Definition at line 186 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\label{structmm_w___m_s_s___s_t_a_t_s__t_a954c49c06b64fda1878eac275ae2c52a}} 
+\index{mmW\_MSS\_STATS\_t@{mmW\_MSS\_STATS\_t}!cliFrameStartEvt@{cliFrameStartEvt}}
+\index{cliFrameStartEvt@{cliFrameStartEvt}!mmW\_MSS\_STATS\_t@{mmW\_MSS\_STATS\_t}}
+\doxysubsubsection{cliFrameStartEvt}
+{\footnotesize\ttfamily uint8\+\_\+t mm\+W\+\_\+\+M\+S\+S\+\_\+\+S\+T\+A\+T\+S\+\_\+t\+::cli\+Frame\+Start\+Evt}
+
+
+
+! C\+LI event for sensor\+Stop 
+
+
+
+Definition at line 191 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+\mbox{\label{structmm_w___m_s_s___s_t_a_t_s__t_ab9526fda178cfb7f9d5a0cac11d93b4d}} 
+\index{mmW\_MSS\_STATS\_t@{mmW\_MSS\_STATS\_t}!cliSensorStartEvt@{cliSensorStartEvt}}
+\index{cliSensorStartEvt@{cliSensorStartEvt}!mmW\_MSS\_STATS\_t@{mmW\_MSS\_STATS\_t}}
+\doxysubsubsection{cliSensorStartEvt}
+{\footnotesize\ttfamily uint8\+\_\+t mm\+W\+\_\+\+M\+S\+S\+\_\+\+S\+T\+A\+T\+S\+\_\+t\+::cli\+Sensor\+Start\+Evt}
+
+
+
+Definition at line 189 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+\mbox{\label{structmm_w___m_s_s___s_t_a_t_s__t_aa816def279e4d2775f938d8ec528cade}} 
+\index{mmW\_MSS\_STATS\_t@{mmW\_MSS\_STATS\_t}!cliSensorStopEvt@{cliSensorStopEvt}}
+\index{cliSensorStopEvt@{cliSensorStopEvt}!mmW\_MSS\_STATS\_t@{mmW\_MSS\_STATS\_t}}
+\doxysubsubsection{cliSensorStopEvt}
+{\footnotesize\ttfamily uint8\+\_\+t mm\+W\+\_\+\+M\+S\+S\+\_\+\+S\+T\+A\+T\+S\+\_\+t\+::cli\+Sensor\+Stop\+Evt}
+
+
+
+! C\+LI event for sensor\+Star 
+
+
+
+Definition at line 190 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+\mbox{\label{structmm_w___m_s_s___s_t_a_t_s__t_a15d415fbeab91ac52026bef1e3f19f37}} 
+\index{mmW\_MSS\_STATS\_t@{mmW\_MSS\_STATS\_t}!datapathConfigEvt@{datapathConfigEvt}}
+\index{datapathConfigEvt@{datapathConfigEvt}!mmW\_MSS\_STATS\_t@{mmW\_MSS\_STATS\_t}}
+\doxysubsubsection{datapathConfigEvt}
+{\footnotesize\ttfamily uint8\+\_\+t mm\+W\+\_\+\+M\+S\+S\+\_\+\+S\+T\+A\+T\+S\+\_\+t\+::datapath\+Config\+Evt}
+
+! C\+LI event for frame\+Start The event below are triggered in mmwave start callback function 
+
+Definition at line 193 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+\mbox{\label{structmm_w___m_s_s___s_t_a_t_s__t_a738e2a9e3e5f2658c18000170e75b5e8}} 
+\index{mmW\_MSS\_STATS\_t@{mmW\_MSS\_STATS\_t}!datapathStartEvt@{datapathStartEvt}}
+\index{datapathStartEvt@{datapathStartEvt}!mmW\_MSS\_STATS\_t@{mmW\_MSS\_STATS\_t}}
+\doxysubsubsection{datapathStartEvt}
+{\footnotesize\ttfamily uint8\+\_\+t mm\+W\+\_\+\+M\+S\+S\+\_\+\+S\+T\+A\+T\+S\+\_\+t\+::datapath\+Start\+Evt}
+
+
+
+! Counter which tracks the number of datapath config 
+
+
+
+Definition at line 194 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+
+
+Referenced by M\+S\+S\+\_\+mm\+Wave\+Start\+Callback\+Fxn().
+
+\mbox{\label{structmm_w___m_s_s___s_t_a_t_s__t_af74d994ff610b220d9b76b375ccc4e0e}} 
+\index{mmW\_MSS\_STATS\_t@{mmW\_MSS\_STATS\_t}!datapathStopEvt@{datapathStopEvt}}
+\index{datapathStopEvt@{datapathStopEvt}!mmW\_MSS\_STATS\_t@{mmW\_MSS\_STATS\_t}}
+\doxysubsubsection{datapathStopEvt}
+{\footnotesize\ttfamily uint8\+\_\+t mm\+W\+\_\+\+M\+S\+S\+\_\+\+S\+T\+A\+T\+S\+\_\+t\+::datapath\+Stop\+Evt}
+
+
+
+! Counter which tracks the number of datapath start event detected 
+
+
+
+Definition at line 195 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+
+
+Referenced by M\+S\+S\+\_\+mm\+Wave\+Stop\+Callback\+Fxn().
+
+\mbox{\label{structmm_w___m_s_s___s_t_a_t_s__t_ad0f6db51353fe993df9fc955e063670f}} 
+\index{mmW\_MSS\_STATS\_t@{mmW\_MSS\_STATS\_t}!numCalibrationReports@{numCalibrationReports}}
+\index{numCalibrationReports@{numCalibrationReports}!mmW\_MSS\_STATS\_t@{mmW\_MSS\_STATS\_t}}
+\doxysubsubsection{numCalibrationReports}
+{\footnotesize\ttfamily uint32\+\_\+t mm\+W\+\_\+\+M\+S\+S\+\_\+\+S\+T\+A\+T\+S\+\_\+t\+::num\+Calibration\+Reports}
+
+
+
+! Counter which tracks the number of failed calibration reports 
+
+
+
+Definition at line 198 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+\mbox{\label{structmm_w___m_s_s___s_t_a_t_s__t_a5fd83328b70658eea16c817c3564e6c7}} 
+\index{mmW\_MSS\_STATS\_t@{mmW\_MSS\_STATS\_t}!numFailedTimingReports@{numFailedTimingReports}}
+\index{numFailedTimingReports@{numFailedTimingReports}!mmW\_MSS\_STATS\_t@{mmW\_MSS\_STATS\_t}}
+\doxysubsubsection{numFailedTimingReports}
+{\footnotesize\ttfamily uint32\+\_\+t mm\+W\+\_\+\+M\+S\+S\+\_\+\+S\+T\+A\+T\+S\+\_\+t\+::num\+Failed\+Timing\+Reports}
+
+! Counter which tracks the number of datapath stop event detected The events below are triggered by asynchronous events from the B\+SS 
+
+Definition at line 197 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+common/\textbf{ mm\+Wave\+\_\+\+X\+S\+S.\+h}\end{DoxyCompactItemize}

@@ -1,0 +1,2301 @@
+\doxysection{dss\+\_\+data\+\_\+path.\+c File Reference}
+\label{dss__data__path_8c}\index{dss\_data\_path.c@{dss\_data\_path.c}}
+
+
+Implements Data path processing functionality.  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$xdc/std.\+h$>$}\newline
+{\ttfamily \#include $<$xdc/cfg/global.\+h$>$}\newline
+{\ttfamily \#include $<$xdc/runtime/\+I\+Heap.\+h$>$}\newline
+{\ttfamily \#include $<$xdc/runtime/\+System.\+h$>$}\newline
+{\ttfamily \#include $<$xdc/runtime/\+Error.\+h$>$}\newline
+{\ttfamily \#include $<$xdc/runtime/\+Memory.\+h$>$}\newline
+{\ttfamily \#include $<$ti/sysbios/\+B\+I\+O\+S.\+h$>$}\newline
+{\ttfamily \#include $<$ti/sysbios/knl/\+Task.\+h$>$}\newline
+{\ttfamily \#include $<$ti/sysbios/knl/\+Event.\+h$>$}\newline
+{\ttfamily \#include $<$ti/sysbios/knl/\+Semaphore.\+h$>$}\newline
+{\ttfamily \#include $<$ti/sysbios/knl/\+Clock.\+h$>$}\newline
+{\ttfamily \#include $<$ti/sysbios/heaps/\+Heap\+Buf.\+h$>$}\newline
+{\ttfamily \#include $<$ti/sysbios/heaps/\+Heap\+Mem.\+h$>$}\newline
+{\ttfamily \#include $<$ti/drivers/osal/\+Debug\+P.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include $<$ti/common/sys\+\_\+common.\+h$>$}\newline
+{\ttfamily \#include $<$ti/drivers/osal/\+Semaphore\+P.\+h$>$}\newline
+{\ttfamily \#include $<$ti/drivers/edma/edma.\+h$>$}\newline
+{\ttfamily \#include $<$ti/drivers/esm/esm.\+h$>$}\newline
+{\ttfamily \#include $<$ti/drivers/soc/soc.\+h$>$}\newline
+{\ttfamily \#include $<$ti/utils/cycleprofiler/cycle\+\_\+profiler.\+h$>$}\newline
+{\ttfamily \#include $<$ti/alg/mmwavelib/mmwavelib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}gen\+\_\+twiddle\+\_\+fft32x32.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}gen\+\_\+twiddle\+\_\+fft16x16.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}D\+S\+P\+\_\+fft32x32.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}D\+S\+P\+\_\+fft16x16.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$ti/mathlib/mathlib.\+h$>$}\newline
+{\ttfamily \#include $<$common/app\+\_\+cfg.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}dss\+\_\+data\+\_\+path.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dss\+\_\+config\+\_\+edma\+\_\+util.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}clustering\+D\+Bscan.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}E\+K\+F\+\_\+\+X\+Y\+Z\+\_\+\+Interface.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}common/mm\+Wave\+\_\+\+X\+S\+S.\+h\char`\"{}}\newline
+Include dependency graph for dss\+\_\+data\+\_\+path.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dss__data__path_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ Debug\+P\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+N\+A\+B\+L\+ED}~1
+\item 
+\#define \textbf{ R\+O\+U\+ND}(x)~((x) $<$ 0 ? ((x) -\/ 0.\+5) \+: ((x) + 0.\+5) )
+\item 
+\#define \textbf{ S\+O\+C\+\_\+\+X\+W\+R18\+X\+X\+\_\+\+D\+S\+S\+\_\+\+L3\+R\+A\+M\+\_\+\+S\+I\+ZE}~0x100000
+\item 
+\#define \textbf{ M\+M\+W\+\_\+\+A\+D\+C\+B\+U\+F\+\_\+\+S\+I\+ZE}~0x4000U
+\item 
+\#define \textbf{ M\+M\+W\+\_\+\+L2\+\_\+\+H\+E\+A\+P\+\_\+\+S\+I\+ZE}~0x19000U
+\begin{DoxyCompactList}\small\item\em L2 heap used for allocating buffers in L2 S\+R\+AM, mostly scratch buffers. \end{DoxyCompactList}\item 
+\#define \textbf{ M\+M\+W\+\_\+\+L1\+\_\+\+H\+E\+A\+P\+\_\+\+S\+I\+ZE}~0x4000U
+\begin{DoxyCompactList}\small\item\em L1 heap used for allocating buffers in L1D S\+R\+AM, mostly scratch buffers. \end{DoxyCompactList}\item 
+\#define \textbf{ F\+F\+T\+\_\+\+W\+I\+N\+D\+O\+W\+\_\+\+I\+N\+T16}~0
+\item 
+\#define \textbf{ F\+F\+T\+\_\+\+W\+I\+N\+D\+O\+W\+\_\+\+I\+N\+T32}~1
+\item 
+\#define \textbf{ M\+M\+W\+\_\+\+W\+I\+N\+\_\+\+H\+A\+M\+M\+I\+NG}~0
+\item 
+\#define \textbf{ M\+M\+W\+\_\+\+W\+I\+N\+\_\+\+B\+L\+A\+C\+K\+M\+AN}~1
+\item 
+\#define \textbf{ M\+M\+W\+\_\+\+W\+I\+N\+\_\+\+R\+E\+CT}~2
+\item 
+\#define \textbf{ M\+M\+W\+\_\+\+W\+I\+N\+\_\+\+H\+A\+N\+N\+I\+N\+G\+\_\+\+R\+E\+CT}~3
+\item 
+\#define \textbf{ R\+O\+U\+N\+DF}(x)~((x) $<$ 0 ? ((x) -\/ 0.\+5f) \+: ((x) + 0.\+5f) )
+\item 
+\#define \textbf{ ping\+Pong\+Id}(x)~((x) \& 0x1U)
+\item 
+\#define \textbf{ is\+Pong}(x)~(\textbf{ ping\+Pong\+Id}(x))
+\item 
+\#define \textbf{ S\+O\+C\+\_\+\+M\+A\+X\+\_\+\+N\+U\+M\+\_\+\+R\+X\+\_\+\+A\+N\+T\+E\+N\+N\+AS}~4
+\item 
+\#define \textbf{ S\+O\+C\+\_\+\+M\+A\+X\+\_\+\+N\+U\+M\+\_\+\+T\+X\+\_\+\+A\+N\+T\+E\+N\+N\+AS}~3
+\item 
+\#define \textbf{ A\+L\+I\+GN}(x,  a)~(((x)+((a)-\/1))\&$\sim$((a)-\/1))
+\item 
+\#define \textbf{ M\+M\+W\+\_\+\+A\+L\+L\+O\+C\+\_\+\+B\+UF}(name,  name\+Type,  start\+Addr,  alignment,  size)
+\item 
+\#define \textbf{ T\+W\+E\+N\+T\+Y\+\_\+\+T\+W\+O\+\_\+\+D\+B\+\_\+\+D\+O\+P\+P\+L\+E\+R\+\_\+\+S\+NR}~((22 $\ast$(256))/6)
+\item 
+\#define \textbf{ E\+I\+G\+H\+T\+E\+E\+N\+\_\+\+D\+B\+\_\+\+D\+O\+P\+P\+L\+E\+R\+\_\+\+S\+NR}~((18 $\ast$(256))/6)
+\item 
+\#define \textbf{ Z\+E\+R\+O\+\_\+\+P\+O\+I\+N\+T\+\_\+\+F\+I\+V\+E\+\_\+\+M\+E\+T\+E\+RS}~(0.\+5f $\ast$ 128)
+\item 
+\#define \textbf{ F\+O\+U\+R\+\_\+\+P\+O\+I\+N\+T\+\_\+\+Z\+E\+R\+O\+\_\+\+M\+E\+T\+E\+RS}~(4 $\ast$ 128)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ Mmw\+Demo\+\_\+gen\+Window} (void $\ast$win, uint32\+\_\+t window\+Datum\+Type, uint32\+\_\+t win\+Len, uint32\+\_\+t win\+Gen\+Len, int32\+\_\+t one\+Qformat, uint32\+\_\+t win\+Type)
+\item 
+uint32\+\_\+t \textbf{ find\+K\+Largest\+Peaks} (uint16\+\_\+t $\ast$restrict cfar\+Det\+Obj\+Index\+Buf, uint16\+\_\+t $\ast$restrict cfar\+Det\+Obj\+S\+NR, uint32\+\_\+t num\+Det\+Obj\+Per\+Cfar, uint16\+\_\+t $\ast$restrict sum\+Abs, uint16\+\_\+t num\+Bins, uint16\+\_\+t K)
+\item 
+uint32\+\_\+t \textbf{ prune\+To\+Peaks} (uint16\+\_\+t $\ast$restrict cfar\+Det\+Obj\+Index\+Buf, uint16\+\_\+t $\ast$restrict cfar\+Det\+Obj\+S\+NR, uint32\+\_\+t num\+Det\+Obj\+Per\+Cfar, uint16\+\_\+t $\ast$restrict sum\+Abs, uint16\+\_\+t num\+Bins)
+\item 
+uint32\+\_\+t \textbf{ prune\+To\+Peaks\+Or\+Neighbour\+Of\+Peaks} (uint16\+\_\+t $\ast$restrict cfar\+Det\+Obj\+Index\+Buf, uint16\+\_\+t $\ast$restrict cfar\+Det\+Obj\+S\+NR, uint32\+\_\+t num\+Det\+Obj\+Per\+Cfar, uint16\+\_\+t $\ast$restrict sum\+Abs, uint16\+\_\+t num\+Bins)
+\item 
+uint32\+\_\+t \textbf{ findand\+Populate\+Intersection\+Of\+Detected\+Objects} (\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$restrict obj, uint32\+\_\+t num\+Det\+Obj\+Per\+Cfar, uint16\+\_\+t doppler\+Line, uint32\+\_\+t num\+Det\+Obj2D, uint16\+\_\+t $\ast$restrict sum\+Abs\+Range)
+\item 
+uint32\+\_\+t \textbf{ findand\+Populate\+Detected\+Objects} (\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$restrict obj, uint32\+\_\+t num\+Det\+Obj\+Per\+Cfar, uint16\+\_\+t doppler\+Line, uint32\+\_\+t num\+Det\+Obj2D, uint16\+\_\+t $\ast$restrict sum\+Abs\+Range)
+\item 
+uint32\+\_\+t \textbf{ Mmw\+Demo\+\_\+cfar\+Peak\+Grouping} (\textbf{ Mmw\+Demo\+\_\+detected\+Obj\+Actual} $\ast$obj\+Out, uint32\+\_\+t num\+Detected\+Objects, uint16\+\_\+t $\ast$det\+Matrix, uint32\+\_\+t num\+Range\+Bins, uint32\+\_\+t num\+Doppler\+Bins, uint32\+\_\+t group\+In\+Doppler\+Direction, uint32\+\_\+t group\+In\+Range\+Direction)
+\item 
+uint32\+\_\+t \textbf{ second\+Dim\+F\+F\+Tand\+Log2\+Computation} (\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$obj, uint16\+\_\+t $\ast$sum\+Abs, uint16\+\_\+t check\+Det\+Matrix\+Tx, uint16\+\_\+t range\+Idx, uint32\+\_\+t $\ast$ping\+Pong\+Idx\+Ptr)
+\item 
+uint32\+\_\+t \textbf{ cfar\+Ca\+\_\+\+S\+O\+\_\+d\+Bwrap\+\_\+with\+S\+NR} (const uint16\+\_\+t inp[restrict], uint16\+\_\+t out[restrict], uint16\+\_\+t out\+S\+NR[restrict], uint32\+\_\+t len, uint32\+\_\+t const1, uint32\+\_\+t const2, uint32\+\_\+t guard\+Len, uint32\+\_\+t noise\+Len)
+\begin{DoxyCompactList}\small\item\em Function Name \+: cfar\+Ca\+\_\+\+S\+O\+\_\+d\+Bwrap\+\_\+with\+S\+NR. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ cfar\+Cad\+B\+\_\+\+S\+O\+\_\+with\+S\+NR} (const uint16\+\_\+t inp[restrict], uint16\+\_\+t out[restrict], uint16\+\_\+t out\+S\+NR[restrict], uint32\+\_\+t len, uint32\+\_\+t const1, uint32\+\_\+t const2, uint32\+\_\+t guard\+Len, uint32\+\_\+t noise\+Len, uint32\+\_\+t min\+Indx\+To\+Ignore\+H\+PF)
+\begin{DoxyCompactList}\small\item\em Function Name \+: cfar\+Cad\+B\+\_\+\+S\+O\+\_\+with\+S\+NR. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ azi\+Ele\+Processing} (\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$obj, uint32\+\_\+t subframe\+Indx)
+\item 
+uint16\+\_\+t \textbf{ compute\+Sin\+Azim\+S\+NR} (float $\ast$azimuth\+Mag\+Sqr, uint16\+\_\+t azim\+Idx, uint16\+\_\+t num\+Virtual\+Ant\+Azim, uint16\+\_\+t num\+Angle\+Bins, uint16\+\_\+t xyz\+Output\+Q\+Format)
+\item 
+float \textbf{ antilog2} (int32\+\_\+t input\+Actual, uint16\+\_\+t frac\+Bit\+In)
+\item 
+void \textbf{ associate\+Clustering} (\textbf{ clustering\+D\+Bscan\+Output\+\_\+t} $\ast$restrict output, \textbf{ clustering\+D\+Bscan\+Report\+\_\+t} $\ast$restrict state, uint16\+\_\+t max\+Num\+Trackers, int32\+\_\+t epsilon2, int32\+\_\+t v\+Factor)
+\item 
+uint32\+\_\+t \textbf{ cfar\+Peak\+Grouping\+Along\+Doppler} (\textbf{ Mmw\+Demo\+\_\+obj\+Raw2\+D\+\_\+t} $\ast$restrict obj\+Out, uint32\+\_\+t num\+Detected\+Objects, uint16\+\_\+t $\ast$det\+Matrix, uint32\+\_\+t num\+Range\+Bins, uint32\+\_\+t num\+Doppler\+Bins)
+\item 
+void \textbf{ populate\+Outputs} (\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$obj)
+\item 
+uint32\+\_\+t \textbf{ prune\+Tracking\+Input} (\textbf{ tracking\+Input\+Report\+\_\+t} $\ast$tracking\+Input, uint32\+\_\+t num\+Cluster)
+\item 
+float \textbf{ quadratic\+Interp\+Flt\+Peak\+Loc} (float $\ast$restrict y, int32\+\_\+t len, int32\+\_\+t indx)
+\item 
+float \textbf{ quadratic\+Interp\+Log2\+Short\+Peak\+Loc} (uint16\+\_\+t $\ast$restrict y, int32\+\_\+t len, int32\+\_\+t indx, uint16\+\_\+t frac\+Bit\+In)
+\item 
+void \textbf{ Mmw\+Demo\+\_\+\+X\+Ycalc} (\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$obj, uint32\+\_\+t obj\+Index, uint16\+\_\+t azim\+Idx, float $\ast$azimuth\+Mag\+Sqr)
+\item 
+void \textbf{ Mmw\+Demo\+\_\+add\+Doppler\+Compensation} (int32\+\_\+t doppler\+Idx, int32\+\_\+t num\+Doppler\+Bins, uint32\+\_\+t $\ast$azimuth\+Mod\+Coefs, uint32\+\_\+t $\ast$azimuth\+Mod\+Coefs\+Third\+Bin, uint32\+\_\+t $\ast$azimuth\+Mod\+Coefs\+Two\+Third\+Bin, int64\+\_\+t $\ast$azimuth\+In, uint32\+\_\+t num\+Ant, uint32\+\_\+t num\+Tx\+Ant, uint16\+\_\+t tx\+Ant\+Idx)
+\begin{DoxyCompactList}\small\item\em Function Name \+: Mmw\+Demo\+\_\+\+Doppler\+Compensation. \end{DoxyCompactList}\item 
+static void \textbf{ Mmw\+Demo\+\_\+rx\+Chan\+Phase\+Bias\+Compensation} (uint32\+\_\+t $\ast$rx\+Ch\+Comp, int64\+\_\+t $\ast$input, uint32\+\_\+t num\+Ant)
+\begin{DoxyCompactList}\small\item\em Function Name \+: Mmw\+Demo\+\_\+rx\+Chan\+Phase\+Bias\+Compensation. \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ select\+\_\+channel} (uint8\+\_\+t subframe\+Indx, uint8\+\_\+t \textbf{ ping\+Pong\+Id}, uint8\+\_\+t option0ping, uint8\+\_\+t option0pong)
+\item 
+void \textbf{ Mmw\+Demo\+\_\+start\+Dma\+Transfer} (E\+D\+M\+A\+\_\+\+Handle handle, uint8\+\_\+t channel\+Id0, uint8\+\_\+t subframe\+Indx)
+\item 
+void \textbf{ Mmw\+Demo\+\_\+reset\+Doppler\+Lines} (\textbf{ Mmw\+Demo\+\_\+1\+D\+\_\+\+Doppler\+Lines\+\_\+t} $\ast$ths)
+\item 
+void \textbf{ Mmw\+Demo\+\_\+set\+Doppler\+Line} (\textbf{ Mmw\+Demo\+\_\+1\+D\+\_\+\+Doppler\+Lines\+\_\+t} $\ast$ths, uint16\+\_\+t doppler\+Index)
+\item 
+uint32\+\_\+t \textbf{ Mmw\+Demo\+\_\+is\+Set\+Doppler\+Line} (\textbf{ Mmw\+Demo\+\_\+1\+D\+\_\+\+Doppler\+Lines\+\_\+t} $\ast$ths, uint16\+\_\+t index)
+\item 
+int32\+\_\+t \textbf{ Mmw\+Demo\+\_\+get\+Doppler\+Line} (\textbf{ Mmw\+Demo\+\_\+1\+D\+\_\+\+Doppler\+Lines\+\_\+t} $\ast$ths)
+\item 
+uint32\+\_\+t \textbf{ Mmw\+Demo\+\_\+pow2roundup} (uint32\+\_\+t x)
+\item 
+void \textbf{ Mmw\+Demo\+\_\+\+X\+Yestimation} (\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$obj, uint32\+\_\+t obj\+Index)
+\item 
+void \textbf{ Mmw\+Demo\+\_\+\+X\+Y\+Zestimation} (\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$obj, uint32\+\_\+t obj\+Index)
+\item 
+void \textbf{ Mmw\+Demo\+\_\+data\+Path\+Wait1\+D\+Input\+Data} (\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$obj, uint32\+\_\+t \textbf{ ping\+Pong\+Id}, uint32\+\_\+t subframe\+Indx)
+\item 
+void \textbf{ Mmw\+Demo\+\_\+data\+Path\+Wait1\+D\+Output\+Data} (\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$obj, uint32\+\_\+t \textbf{ ping\+Pong\+Id}, uint32\+\_\+t subframe\+Indx)
+\item 
+void \textbf{ Mmw\+Demo\+\_\+data\+Path\+Wait2\+D\+Input\+Data} (\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$obj, uint32\+\_\+t \textbf{ ping\+Pong\+Id}, uint32\+\_\+t subframe\+Indx)
+\item 
+void \textbf{ Mmw\+Demo\+\_\+data\+Path\+Wait3\+D\+Input\+Data} (\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$obj, uint32\+\_\+t \textbf{ ping\+Pong\+Id}, uint32\+\_\+t subframe\+Indx)
+\item 
+void \textbf{ Mmw\+Demo\+\_\+data\+Path\+Wait\+Trans\+Det\+Matrix} (\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$obj, uint8\+\_\+t subframe\+Indx)
+\item 
+void \textbf{ Mmw\+Demo\+\_\+data\+Path\+Wait\+Trans\+Det\+Matrix2} (\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$obj, uint32\+\_\+t subframe\+Indx)
+\item 
+int32\+\_\+t \textbf{ Mmw\+Demo\+\_\+data\+Path\+Config\+Edma} (\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$obj)
+\item 
+uint32\+\_\+t \textbf{ range\+Based\+Pruning} (\textbf{ Mmw\+Demo\+\_\+detected\+Obj\+Actual} $\ast$restrict obj\+Out, \textbf{ Mmw\+Demo\+\_\+obj\+Raw2\+D\+\_\+t} $\ast$restrict obj\+Raw, \textbf{ Range\+Dependant\+Thresh\+\_\+t} $\ast$restrict S\+N\+R\+Thresh, \textbf{ Range\+Dependant\+Thresh\+\_\+t} $\ast$restrict peak\+Val\+Thresh, uint32\+\_\+t num\+Detected\+Objects, uint32\+\_\+t num\+Doppler\+Bins, uint32\+\_\+t max\+Range, uint32\+\_\+t min\+Range)
+\item 
+void \textbf{ Mmw\+Demo\+\_\+magnitude\+Squared} (cmplx32\+Re\+Im\+\_\+t $\ast$restrict inp\+Buff, float $\ast$restrict mag\+Sqrd\+Buff, uint32\+\_\+t num\+Samples)
+\item 
+void \textbf{ Mmw\+Demo\+\_\+dc\+Range\+Signature\+Compensation} (\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$obj, uint8\+\_\+t chirp\+Ping\+Pong\+Id)
+\item 
+void \textbf{ Mmw\+Demo\+\_\+inter\+Chirp\+Processing} (\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$obj, uint32\+\_\+t chirp\+Ping\+Pong\+Id, uint8\+\_\+t subframe\+Indx)
+\item 
+void \textbf{ Mmw\+Demo\+\_\+inter\+Frame\+Processing} (\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$obj, uint8\+\_\+t subframe\+Indx)
+\item 
+void \textbf{ Mmw\+Demo\+\_\+process\+Chirp} (\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$obj, uint8\+\_\+t subframe\+Indx)
+\item 
+void \textbf{ Mmw\+Demo\+\_\+wait\+End\+Of\+Chirps} (\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$obj, uint8\+\_\+t subframe\+Indx)
+\item 
+void \textbf{ calc\+\_\+cmplx\+\_\+exp} (cmplx16\+Im\+Re\+\_\+t $\ast$dft\+Sin\+Cos, float i, uint32\+\_\+t dft\+Len)
+\item 
+void \textbf{ Mmw\+Demo\+\_\+gen\+Dft\+Sin\+Cos\+Table} (cmplx16\+Im\+Re\+\_\+t $\ast$dft\+Sin\+Cos\+Table, cmplx16\+Im\+Re\+\_\+t $\ast$dft\+Half\+Bin\+Val, cmplx16\+Im\+Re\+\_\+t $\ast$dft\+Third\+Bin\+Val, cmplx16\+Im\+Re\+\_\+t $\ast$dft\+Two\+Third\+Bin\+Val, uint32\+\_\+t dft\+Len)
+\item 
+void \textbf{ Mmw\+Demo\+\_\+edma\+Error\+Callback\+Fxn} (E\+D\+M\+A\+\_\+\+Handle handle, E\+D\+M\+A\+\_\+error\+Info\+\_\+t $\ast$error\+Info)
+\item 
+void \textbf{ Mmw\+Demo\+\_\+edma\+Transfer\+Controller\+Error\+Callback\+Fxn} (E\+D\+M\+A\+\_\+\+Handle handle, E\+D\+M\+A\+\_\+transfer\+Controller\+Error\+Info\+\_\+t $\ast$error\+Info)
+\item 
+void \textbf{ Mmw\+Demo\+\_\+data\+Path\+Init1\+Dstate} (\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$obj)
+\item 
+int32\+\_\+t \textbf{ Mmw\+Demo\+\_\+data\+Path\+Init\+Edma} (\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$obj)
+\item 
+int32\+\_\+t \textbf{ Mmw\+Demo\+\_\+data\+Path\+Copy\+Edma\+Handle} (\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$obj\+Output, \textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$obj\+Input)
+\item 
+void \textbf{ Mmw\+Demo\+\_\+print\+Heap\+Stats} (char $\ast$name, uint32\+\_\+t heap\+Used, uint32\+\_\+t heap\+Size)
+\item 
+void \textbf{ Mmw\+Demo\+\_\+data\+Path\+Config\+Buffers} (\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$obj\+In, uint32\+\_\+t adc\+Buf\+Address)
+\item 
+void \textbf{ Mmw\+Demo\+\_\+data\+Path\+Config\+F\+F\+Ts} (\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$obj)
+\item 
+uint32\+\_\+t \textbf{ second\+Dim\+F\+F\+Tand\+Log2\+Computation} (\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$restrict obj, uint16\+\_\+t $\ast$restrict sum\+Abs, uint16\+\_\+t check\+Det\+Matrix\+Tx, uint16\+\_\+t range\+Idx, uint32\+\_\+t $\ast$ping\+Pong\+Idx\+Ptr)
+\item 
+uint32\+\_\+t \textbf{ cfar\+Peak\+Grouping\+Along\+Doppler} (\textbf{ Mmw\+Demo\+\_\+obj\+Raw2\+D\+\_\+t} $\ast$restrict obj\+Out, uint32\+\_\+t num\+Detected\+Objects, uint16\+\_\+t $\ast$restrict det\+Matrix, uint32\+\_\+t num\+Range\+Bins, uint32\+\_\+t num\+Doppler\+Bins)
+\item 
+float \textbf{ convert\+S\+N\+Rd\+B\+To\+Var} (uint16\+\_\+t S\+N\+RdB, uint16\+\_\+t bitW, uint16\+\_\+t n\+\_\+samples, float resolution)
+\item 
+float \textbf{ convert\+S\+N\+R\+Lin\+To\+Var} (uint16\+\_\+t S\+N\+R\+Lin, uint16\+\_\+t bitW, uint16\+\_\+t n\+\_\+samples, float resolution)
+\item 
+void \textbf{ Mmw\+Demo\+\_\+\+X\+Y\+Zcalc} (\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$obj, uint32\+\_\+t obj\+Index, uint16\+\_\+t azim\+Idx, float $\ast$azimuth\+Mag\+Sqr)
+\item 
+void \textbf{ parking\+Assist\+Init} (\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$obj)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \textbf{ g\+Mmw\+L3} [\textbf{ S\+O\+C\+\_\+\+X\+W\+R18\+X\+X\+\_\+\+D\+S\+S\+\_\+\+L3\+R\+A\+M\+\_\+\+S\+I\+ZE}]
+\item 
+uint8\+\_\+t \textbf{ g\+Mmw\+L2} [\textbf{ M\+M\+W\+\_\+\+L2\+\_\+\+H\+E\+A\+P\+\_\+\+S\+I\+ZE}]
+\item 
+uint8\+\_\+t \textbf{ g\+Mmw\+L1} [\textbf{ M\+M\+W\+\_\+\+L1\+\_\+\+H\+E\+A\+P\+\_\+\+S\+I\+ZE}]
+\item 
+\textbf{ M\+CB} \textbf{ g\+M\+CB}
+\begin{DoxyCompactList}\small\item\em Global Variable for tracking information required by the design. \end{DoxyCompactList}\item 
+volatile \textbf{ cycle\+Log\+\_\+t} \textbf{ g\+Cycle\+Log}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implements Data path processing functionality. 
+
+\begin{DoxyParagraph}{}
+N\+O\+TE\+: (C) Copyright 2018 Texas Instruments, Inc.
+\end{DoxyParagraph}
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met\+:
+
+Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+Neither the name of Texas Instruments Incorporated nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+T\+H\+IS S\+O\+F\+T\+W\+A\+RE IS P\+R\+O\+V\+I\+D\+ED BY T\+HE C\+O\+P\+Y\+R\+I\+G\+HT H\+O\+L\+D\+E\+RS A\+ND C\+O\+N\+T\+R\+I\+B\+U\+T\+O\+RS \char`\"{}\+A\+S I\+S\char`\"{} A\+ND A\+NY E\+X\+P\+R\+E\+SS OR I\+M\+P\+L\+I\+ED W\+A\+R\+R\+A\+N\+T\+I\+ES, I\+N\+C\+L\+U\+D\+I\+NG, B\+UT N\+OT L\+I\+M\+I\+T\+ED TO, T\+HE I\+M\+P\+L\+I\+ED W\+A\+R\+R\+A\+N\+T\+I\+ES OF M\+E\+R\+C\+H\+A\+N\+T\+A\+B\+I\+L\+I\+TY A\+ND F\+I\+T\+N\+E\+SS F\+OR A P\+A\+R\+T\+I\+C\+U\+L\+AR P\+U\+R\+P\+O\+SE A\+RE D\+I\+S\+C\+L\+A\+I\+M\+ED. IN NO E\+V\+E\+NT S\+H\+A\+LL T\+HE C\+O\+P\+Y\+R\+I\+G\+HT O\+W\+N\+ER OR C\+O\+N\+T\+R\+I\+B\+U\+T\+O\+RS BE L\+I\+A\+B\+LE F\+OR A\+NY D\+I\+R\+E\+CT, I\+N\+D\+I\+R\+E\+CT, I\+N\+C\+I\+D\+E\+N\+T\+AL, S\+P\+E\+C\+I\+AL, E\+X\+E\+M\+P\+L\+A\+RY, OR C\+O\+N\+S\+E\+Q\+U\+E\+N\+T\+I\+AL D\+A\+M\+A\+G\+ES (I\+N\+C\+L\+U\+D\+I\+NG, B\+UT N\+OT L\+I\+M\+I\+T\+ED TO, P\+R\+O\+C\+U\+R\+E\+M\+E\+NT OF S\+U\+B\+S\+T\+I\+T\+U\+TE G\+O\+O\+DS OR S\+E\+R\+V\+I\+C\+ES; L\+O\+SS OF U\+SE, D\+A\+TA, OR P\+R\+O\+F\+I\+TS; OR B\+U\+S\+I\+N\+E\+SS I\+N\+T\+E\+R\+R\+U\+P\+T\+I\+ON) H\+O\+W\+E\+V\+ER C\+A\+U\+S\+ED A\+ND ON A\+NY T\+H\+E\+O\+RY OF L\+I\+A\+B\+I\+L\+I\+TY, W\+H\+E\+T\+H\+ER IN C\+O\+N\+T\+R\+A\+CT, S\+T\+R\+I\+CT L\+I\+A\+B\+I\+L\+I\+TY, OR T\+O\+RT (I\+N\+C\+L\+U\+D\+I\+NG N\+E\+G\+L\+I\+G\+E\+N\+CE OR O\+T\+H\+E\+R\+W\+I\+SE) A\+R\+I\+S\+I\+NG IN A\+NY W\+AY O\+UT OF T\+HE U\+SE OF T\+H\+IS S\+O\+F\+T\+W\+A\+RE, E\+V\+EN IF A\+D\+V\+I\+S\+ED OF T\+HE P\+O\+S\+S\+I\+B\+I\+L\+I\+TY OF S\+U\+CH D\+A\+M\+A\+GE. 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\label{dss__data__path_8c_a9ac102be1cec0ce473aa3819ff297a26}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!ALIGN@{ALIGN}}
+\index{ALIGN@{ALIGN}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{ALIGN}
+{\footnotesize\ttfamily \#define A\+L\+I\+GN(\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{a }\end{DoxyParamCaption})~(((x)+((a)-\/1))\&$\sim$((a)-\/1))}
+
+\mbox{\label{dss__data__path_8c_a03b7dc7186ecc72ee015f386b1c16260}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!DebugP\_ASSERT\_ENABLED@{DebugP\_ASSERT\_ENABLED}}
+\index{DebugP\_ASSERT\_ENABLED@{DebugP\_ASSERT\_ENABLED}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{DebugP\_ASSERT\_ENABLED}
+{\footnotesize\ttfamily \#define Debug\+P\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+E\+N\+A\+B\+L\+ED~1}
+
+
+
+Definition at line 70 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_a3df84f350dcf1a4eab8b528785268923}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!EIGHTEEN\_DB\_DOPPLER\_SNR@{EIGHTEEN\_DB\_DOPPLER\_SNR}}
+\index{EIGHTEEN\_DB\_DOPPLER\_SNR@{EIGHTEEN\_DB\_DOPPLER\_SNR}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{EIGHTEEN\_DB\_DOPPLER\_SNR}
+{\footnotesize\ttfamily \#define E\+I\+G\+H\+T\+E\+E\+N\+\_\+\+D\+B\+\_\+\+D\+O\+P\+P\+L\+E\+R\+\_\+\+S\+NR~((18 $\ast$(256))/6)}
+
+
+
+Definition at line 4449 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_a59536392d3f3e7adad48a3111f12b8c0}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!FFT\_WINDOW\_INT16@{FFT\_WINDOW\_INT16}}
+\index{FFT\_WINDOW\_INT16@{FFT\_WINDOW\_INT16}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{FFT\_WINDOW\_INT16}
+{\footnotesize\ttfamily \#define F\+F\+T\+\_\+\+W\+I\+N\+D\+O\+W\+\_\+\+I\+N\+T16~0}
+
+Types of F\+FT window
+
+F\+FT window 16 -\/ samples format is int16\+\_\+t 
+
+Definition at line 140 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_a26bfb9024e77e5bcd9b86d5436e16aaa}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!FFT\_WINDOW\_INT32@{FFT\_WINDOW\_INT32}}
+\index{FFT\_WINDOW\_INT32@{FFT\_WINDOW\_INT32}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{FFT\_WINDOW\_INT32}
+{\footnotesize\ttfamily \#define F\+F\+T\+\_\+\+W\+I\+N\+D\+O\+W\+\_\+\+I\+N\+T32~1}
+
+F\+FT window 32 -\/ samples format is int32\+\_\+t 
+
+Definition at line 142 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_a8816ba89ade7f8088802e88f52e6f162}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!FOUR\_POINT\_ZERO\_METERS@{FOUR\_POINT\_ZERO\_METERS}}
+\index{FOUR\_POINT\_ZERO\_METERS@{FOUR\_POINT\_ZERO\_METERS}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{FOUR\_POINT\_ZERO\_METERS}
+{\footnotesize\ttfamily \#define F\+O\+U\+R\+\_\+\+P\+O\+I\+N\+T\+\_\+\+Z\+E\+R\+O\+\_\+\+M\+E\+T\+E\+RS~(4 $\ast$ 128)}
+
+
+
+Definition at line 4451 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_ad7555464f13779df25aeb4934b6dd55f}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!isPong@{isPong}}
+\index{isPong@{isPong}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{isPong}
+{\footnotesize\ttfamily \#define is\+Pong(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~(\textbf{ ping\+Pong\+Id}(x))}
+
+
+
+Definition at line 159 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_ac492264d0c70319e52c4de981fc7f92f}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!MMW\_ADCBUF\_SIZE@{MMW\_ADCBUF\_SIZE}}
+\index{MMW\_ADCBUF\_SIZE@{MMW\_ADCBUF\_SIZE}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{MMW\_ADCBUF\_SIZE}
+{\footnotesize\ttfamily \#define M\+M\+W\+\_\+\+A\+D\+C\+B\+U\+F\+\_\+\+S\+I\+ZE~0x4000U}
+
+
+
+Definition at line 113 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_aeed2eead12d938795226fda585c8e81e}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!MMW\_ALLOC\_BUF@{MMW\_ALLOC\_BUF}}
+\index{MMW\_ALLOC\_BUF@{MMW\_ALLOC\_BUF}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{MMW\_ALLOC\_BUF}
+{\footnotesize\ttfamily \#define M\+M\+W\+\_\+\+A\+L\+L\+O\+C\+\_\+\+B\+UF(\begin{DoxyParamCaption}\item[{}]{name,  }\item[{}]{name\+Type,  }\item[{}]{start\+Addr,  }\item[{}]{alignment,  }\item[{}]{size }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{obj-\/>name = (nameType *) ALIGN(startAddr, alignment); \(\backslash\)}
+\DoxyCodeLine{                uint32\_t name\#\#\_end = (uint32\_t)obj-\/>name + (size) * \textcolor{keyword}{sizeof}(nameType);}
+
+\end{DoxyCode}
+\mbox{\label{dss__data__path_8c_ad56855ad8310bb9e1c8f81cd98ab24ca}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!MMW\_L1\_HEAP\_SIZE@{MMW\_L1\_HEAP\_SIZE}}
+\index{MMW\_L1\_HEAP\_SIZE@{MMW\_L1\_HEAP\_SIZE}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{MMW\_L1\_HEAP\_SIZE}
+{\footnotesize\ttfamily \#define M\+M\+W\+\_\+\+L1\+\_\+\+H\+E\+A\+P\+\_\+\+S\+I\+ZE~0x4000U}
+
+
+
+L1 heap used for allocating buffers in L1D S\+R\+AM, mostly scratch buffers. 
+
+
+
+Definition at line 121 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_a9650b01a96a3909359def421cf4b2dd1}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!MMW\_L2\_HEAP\_SIZE@{MMW\_L2\_HEAP\_SIZE}}
+\index{MMW\_L2\_HEAP\_SIZE@{MMW\_L2\_HEAP\_SIZE}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{MMW\_L2\_HEAP\_SIZE}
+{\footnotesize\ttfamily \#define M\+M\+W\+\_\+\+L2\+\_\+\+H\+E\+A\+P\+\_\+\+S\+I\+ZE~0x19000U}
+
+
+
+L2 heap used for allocating buffers in L2 S\+R\+AM, mostly scratch buffers. 
+
+
+
+Definition at line 117 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_a9663c475dfc74987d71cd5d96cf1edda}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!MMW\_WIN\_BLACKMAN@{MMW\_WIN\_BLACKMAN}}
+\index{MMW\_WIN\_BLACKMAN@{MMW\_WIN\_BLACKMAN}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{MMW\_WIN\_BLACKMAN}
+{\footnotesize\ttfamily \#define M\+M\+W\+\_\+\+W\+I\+N\+\_\+\+B\+L\+A\+C\+K\+M\+AN~1}
+
+Blackman window 
+
+Definition at line 148 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_a18fdf0cb70539be76bd9fdcc864aa416}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!MMW\_WIN\_HAMMING@{MMW\_WIN\_HAMMING}}
+\index{MMW\_WIN\_HAMMING@{MMW\_WIN\_HAMMING}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{MMW\_WIN\_HAMMING}
+{\footnotesize\ttfamily \#define M\+M\+W\+\_\+\+W\+I\+N\+\_\+\+H\+A\+M\+M\+I\+NG~0}
+
+Hamming window 
+
+Definition at line 146 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_a6dfa0b0dca136e51bf26c23749a8c34d}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!MMW\_WIN\_HANNING\_RECT@{MMW\_WIN\_HANNING\_RECT}}
+\index{MMW\_WIN\_HANNING\_RECT@{MMW\_WIN\_HANNING\_RECT}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{MMW\_WIN\_HANNING\_RECT}
+{\footnotesize\ttfamily \#define M\+M\+W\+\_\+\+W\+I\+N\+\_\+\+H\+A\+N\+N\+I\+N\+G\+\_\+\+R\+E\+CT~3}
+
+rectangularized Hanning window 
+
+Definition at line 152 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_a9d80e66a1751be86a54aea42919e1d6c}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!MMW\_WIN\_RECT@{MMW\_WIN\_RECT}}
+\index{MMW\_WIN\_RECT@{MMW\_WIN\_RECT}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{MMW\_WIN\_RECT}
+{\footnotesize\ttfamily \#define M\+M\+W\+\_\+\+W\+I\+N\+\_\+\+R\+E\+CT~2}
+
+Rectangular window 
+
+Definition at line 150 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_addd027eb9e359f4b2003b868785916a8}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!pingPongId@{pingPongId}}
+\index{pingPongId@{pingPongId}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{pingPongId}
+{\footnotesize\ttfamily \#define ping\+Pong\+Id(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~((x) \& 0x1U)}
+
+
+
+Definition at line 158 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_acd66e8cacf954c3bc3bba81d09425a12}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!ROUND@{ROUND}}
+\index{ROUND@{ROUND}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{ROUND}
+{\footnotesize\ttfamily \#define R\+O\+U\+ND(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~((x) $<$ 0 ? ((x) -\/ 0.\+5) \+: ((x) + 0.\+5) )}
+
+
+
+Definition at line 109 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_a2d1bb6a40cb230e6d4fedc3e8d7503d8}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!ROUNDF@{ROUNDF}}
+\index{ROUNDF@{ROUNDF}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{ROUNDF}
+{\footnotesize\ttfamily \#define R\+O\+U\+N\+DF(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~((x) $<$ 0 ? ((x) -\/ 0.\+5f) \+: ((x) + 0.\+5f) )}
+
+simple rounding function for float 
+
+Definition at line 154 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_a6e266aad38d9411500758adeed353540}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!SOC\_MAX\_NUM\_RX\_ANTENNAS@{SOC\_MAX\_NUM\_RX\_ANTENNAS}}
+\index{SOC\_MAX\_NUM\_RX\_ANTENNAS@{SOC\_MAX\_NUM\_RX\_ANTENNAS}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{SOC\_MAX\_NUM\_RX\_ANTENNAS}
+{\footnotesize\ttfamily \#define S\+O\+C\+\_\+\+M\+A\+X\+\_\+\+N\+U\+M\+\_\+\+R\+X\+\_\+\+A\+N\+T\+E\+N\+N\+AS~4}
+
+{\bfseries{Description}} ~\newline
+ This function assigns memory locations to the different data buffers used in the M\+RR design.
+
+Processing radar signals require a large number of scratch buffers for each step each of the processing stages (be it 1D-\/\+F\+FT, 2D-\/\+F\+FT, 3D-\/\+F\+FT, detection, angle estimation etc. However, since these stages occur serially, the memory assigned to a scratch buffer used in a previous stage can be re-\/used in the current stage. The Macro M\+M\+W\+\_\+\+A\+L\+L\+O\+C\+\_\+\+B\+UF in the following code allows specifying the start addresses such that the memory locations can be overlaid for efficient memory utilization.
+
+In the M\+RR TI Design, there are two sub-\/frames per frame, and both sub-\/frames are processed separately. Therefore, nearly every scratch buffer memory location can be overlaid between the two. The allocation code is called twice to allocate memory for both sub-\/frames.
+
+Certain memory locations are only necessary for a given processing path and are left unassigned for different programming paths.
+
+Memory locations that correspond to the windowing functions, and twiddle factors, and estimated mean chirp need to be saved between sub-\/frames and as such cannot be overlaid.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em obj} & data path object.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em na.} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 2329 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_a7d4320bf6722fbf312702a3e04b2aba4}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!SOC\_MAX\_NUM\_TX\_ANTENNAS@{SOC\_MAX\_NUM\_TX\_ANTENNAS}}
+\index{SOC\_MAX\_NUM\_TX\_ANTENNAS@{SOC\_MAX\_NUM\_TX\_ANTENNAS}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{SOC\_MAX\_NUM\_TX\_ANTENNAS}
+{\footnotesize\ttfamily \#define S\+O\+C\+\_\+\+M\+A\+X\+\_\+\+N\+U\+M\+\_\+\+T\+X\+\_\+\+A\+N\+T\+E\+N\+N\+AS~3}
+
+
+
+Definition at line 2330 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_a8330828d69a68167b37604ae2d8f9680}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!SOC\_XWR18XX\_DSS\_L3RAM\_SIZE@{SOC\_XWR18XX\_DSS\_L3RAM\_SIZE}}
+\index{SOC\_XWR18XX\_DSS\_L3RAM\_SIZE@{SOC\_XWR18XX\_DSS\_L3RAM\_SIZE}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{SOC\_XWR18XX\_DSS\_L3RAM\_SIZE}
+{\footnotesize\ttfamily \#define S\+O\+C\+\_\+\+X\+W\+R18\+X\+X\+\_\+\+D\+S\+S\+\_\+\+L3\+R\+A\+M\+\_\+\+S\+I\+ZE~0x100000}
+
+
+
+Definition at line 111 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_a5b3e84f5b3c14bc74fe3cc7028ab86d8}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!TWENTY\_TWO\_DB\_DOPPLER\_SNR@{TWENTY\_TWO\_DB\_DOPPLER\_SNR}}
+\index{TWENTY\_TWO\_DB\_DOPPLER\_SNR@{TWENTY\_TWO\_DB\_DOPPLER\_SNR}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{TWENTY\_TWO\_DB\_DOPPLER\_SNR}
+{\footnotesize\ttfamily \#define T\+W\+E\+N\+T\+Y\+\_\+\+T\+W\+O\+\_\+\+D\+B\+\_\+\+D\+O\+P\+P\+L\+E\+R\+\_\+\+S\+NR~((22 $\ast$(256))/6)}
+
+{\bfseries{Description}} ~\newline
+ The function populates the object location arrays for transmission to M\+SS. The reason we do this additional step is to minimize the size of the the transmission because it shouldn\textquotesingle{}t saturate the hold only the minimum information necessary for the external G\+UI are populated.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em obj} & data path object.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em none} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 4448 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_a340d26033b938b06c67e111e20625b01}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!ZERO\_POINT\_FIVE\_METERS@{ZERO\_POINT\_FIVE\_METERS}}
+\index{ZERO\_POINT\_FIVE\_METERS@{ZERO\_POINT\_FIVE\_METERS}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{ZERO\_POINT\_FIVE\_METERS}
+{\footnotesize\ttfamily \#define Z\+E\+R\+O\+\_\+\+P\+O\+I\+N\+T\+\_\+\+F\+I\+V\+E\+\_\+\+M\+E\+T\+E\+RS~(0.\+5f $\ast$ 128)}
+
+
+
+Definition at line 4450 of file dss\+\_\+data\+\_\+path.\+c.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\label{dss__data__path_8c_ab6b6ccb118cf5b0862b829cc9de4786a}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!antilog2@{antilog2}}
+\index{antilog2@{antilog2}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{antilog2()}
+{\footnotesize\ttfamily float antilog2 (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{input\+Actual,  }\item[{uint16\+\_\+t}]{frac\+Bit\+In }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ The function computes an antilog2 on the input which has a0 specified bitwidth. ~\newline
+ 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em input} & 16 bit input with specified bitwidth. \\
+\hline
+\mbox{\texttt{ in}}  & {\em frac\+Bit\+In} & input fractional bitwidth.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em 2$^\wedge$(input/(2$^\wedge$frac\+Bit\+In))} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 4037 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_a5a8ab9b3f0379b67950e1522817e759c}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!associateClustering@{associateClustering}}
+\index{associateClustering@{associateClustering}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{associateClustering()}
+{\footnotesize\ttfamily void associate\+Clustering (\begin{DoxyParamCaption}\item[{\textbf{ clustering\+D\+Bscan\+Output\+\_\+t} $\ast$restrict}]{output,  }\item[{\textbf{ clustering\+D\+Bscan\+Report\+\_\+t} $\ast$restrict}]{state,  }\item[{uint16\+\_\+t}]{max\+Num\+Clusters,  }\item[{int32\+\_\+t}]{epsilon2,  }\item[{int32\+\_\+t}]{v\+Factor }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ The function performs an association between the pre-\/existing clusters and the new clusters, with the intent that the cluster sizes are filtered.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em output} & The output of the clustering algorithm. \\
+\hline
+\mbox{\texttt{ in}}  & {\em state} & The previous clustering output. \\
+\hline
+\mbox{\texttt{ in}}  & {\em max\+Num\+Trackers} & The maximum number of trackers. \\
+\hline
+\mbox{\texttt{ in}}  & {\em epsilon2} & distance metric param for association.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em none} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 4322 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_a7edd3d94d2192522b545b13c271ea0a3}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!aziEleProcessing@{aziEleProcessing}}
+\index{aziEleProcessing@{aziEleProcessing}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{aziEleProcessing()}
+{\footnotesize\ttfamily uint32\+\_\+t azi\+Ele\+Processing (\begin{DoxyParamCaption}\item[{\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$}]{obj,  }\item[{uint32\+\_\+t}]{subframe\+Indx }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ The function performs the third dimension processing, including the computation of the azimuth, and the x and y co-\/ordinate.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em input} & data path object.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em none} & \\
+\hline
+\end{DoxyRetVals}
+Azimuth calculation
+
+Definition at line 4059 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_a4aac2a08f67de7a98af67334bdce9411}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!calc\_cmplx\_exp@{calc\_cmplx\_exp}}
+\index{calc\_cmplx\_exp@{calc\_cmplx\_exp}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{calc\_cmplx\_exp()}
+{\footnotesize\ttfamily void calc\+\_\+cmplx\+\_\+exp (\begin{DoxyParamCaption}\item[{cmplx16\+Im\+Re\+\_\+t $\ast$}]{dft\+Sin\+Cos,  }\item[{float}]{i,  }\item[{uint32\+\_\+t}]{dft\+Len }\end{DoxyParamCaption})}
+
+
+
+Definition at line 2090 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_a8a7766b84df65aafc8a7a56c9bcbf9f7}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!cfarCa\_SO\_dBwrap\_withSNR@{cfarCa\_SO\_dBwrap\_withSNR}}
+\index{cfarCa\_SO\_dBwrap\_withSNR@{cfarCa\_SO\_dBwrap\_withSNR}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{cfarCa\_SO\_dBwrap\_withSNR()}
+{\footnotesize\ttfamily uint32\+\_\+t cfar\+Ca\+\_\+\+S\+O\+\_\+d\+Bwrap\+\_\+with\+S\+NR (\begin{DoxyParamCaption}\item[{const uint16\+\_\+t}]{inp[restrict],  }\item[{uint16\+\_\+t}]{out[restrict],  }\item[{uint16\+\_\+t}]{out\+S\+NR[restrict],  }\item[{uint32\+\_\+t}]{len,  }\item[{uint32\+\_\+t}]{const1,  }\item[{uint32\+\_\+t}]{const2,  }\item[{uint32\+\_\+t}]{guard\+Len,  }\item[{uint32\+\_\+t}]{noise\+Len }\end{DoxyParamCaption})}
+
+
+
+Function Name \+: cfar\+Ca\+\_\+\+S\+O\+\_\+d\+Bwrap\+\_\+with\+S\+NR. 
+
+\DoxyHorRuler
+ \begin{DoxyParagraph}{}
+{\bfseries{Description}} \+: Performs a C\+F\+AR on an 16-\/bit unsigned input vector (C\+F\+A\+R-\/\+CA). The input values are assumed to be in logarithmic scale. So the comparison between the C\+UT and the noise samples is additive rather than multiplicative. Comparison is two-\/sided (wrap around when needed) for all C\+U\+Ts.
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em inp} & \+: input array (16 bit unsigned numbers) \\
+\hline
+\mbox{\texttt{ in}}  & {\em out} & \+: output array (indices of detected peaks (zero based counting)) \\
+\hline
+\mbox{\texttt{ in}}  & {\em out\+S\+NR} & \+: S\+NR array (S\+NR of detected peaks) \\
+\hline
+\mbox{\texttt{ in}}  & {\em len} & \+: number of elements in input array \\
+\hline
+\mbox{\texttt{ in}}  & {\em const1,const2} & \+: used to compare the Cell Under Test (C\+UT) to the sum of the noise cells\+: [noise sum /(2$^\wedge$(const2))] +const1 for two sided comparison. \\
+\hline
+\mbox{\texttt{ in}}  & {\em guard\+Len} & \+: one sided guard length \\
+\hline
+\mbox{\texttt{ in}}  & {\em noise\+Len} & \+: one sided Noise length\\
+\hline
+\mbox{\texttt{ out}}  & {\em out} & \+: output array with indices of the detected peaks\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of detected peaks (i.\+e length of out)
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+Input (inp) and Output (out) arrays are non-\/aliased. 
+\end{DoxyPrecond}
+
+
+Definition at line 3546 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_a6f96d78c18dda926f02242f661c79576}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!cfarCadB\_SO\_withSNR@{cfarCadB\_SO\_withSNR}}
+\index{cfarCadB\_SO\_withSNR@{cfarCadB\_SO\_withSNR}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{cfarCadB\_SO\_withSNR()}
+{\footnotesize\ttfamily uint32\+\_\+t cfar\+Cad\+B\+\_\+\+S\+O\+\_\+with\+S\+NR (\begin{DoxyParamCaption}\item[{const uint16\+\_\+t}]{inp[restrict],  }\item[{uint16\+\_\+t}]{out[restrict],  }\item[{uint16\+\_\+t}]{out\+S\+NR[restrict],  }\item[{uint32\+\_\+t}]{len,  }\item[{uint32\+\_\+t}]{const1,  }\item[{uint32\+\_\+t}]{const2,  }\item[{uint32\+\_\+t}]{guard\+Len,  }\item[{uint32\+\_\+t}]{noise\+Len,  }\item[{uint32\+\_\+t}]{min\+Indx\+To\+Ignore\+H\+PF }\end{DoxyParamCaption})}
+
+
+
+Function Name \+: cfar\+Cad\+B\+\_\+\+S\+O\+\_\+with\+S\+NR. 
+
+{\bfseries{Description}} ~\newline
+The M\+RR subframe achieves a maximum unambiguous velocity of 90kmph by using signal processing techniques that help disambiguate velocity. This method works by using two different estimates of velocity from the two kinds of chirps (‘fast chirps’ and ‘slow chirps’) transmitted in the M\+RR subframe. If the two velocity estimates do not agree, then velocity disambiguation is necessary. To disambiguate it is necessary to rationalize the two velocity measurements, and find out the disambiguation factor, k. If the naive maximum unambiguous velocity of the \textquotesingle{}fast chirp\textquotesingle{} is v\+\_\+f, and that of the \textquotesingle{}slow chirp\textquotesingle{} is v\+\_\+s. Then after the disambiguation process, the disambiguated velocity would 〖2kv〗\+\_\+f+v, where v is the naïve estimated velocity from the ‘fast chirps’.
+
+The disambiguation process works by using the \textquotesingle{}fast chirp\textquotesingle{} velocity to compute different disambiguated velocity hypotheses. This is done by taking the \textquotesingle{}fast chirp\textquotesingle{} velocity and adding 2k v\+\_\+f, where k ∈ \{-\/1,0,1\} (an unwrapping process on the velocity estimate). These hypotheses are then converted to indices of the \textquotesingle{}slow chirp\textquotesingle{} by finding the equivalent estimated velocities in the \textquotesingle{}slow chirp\textquotesingle{} configuration ( essentially, undoing the unwrapping using v\+\_\+s as the maximum unambiguous velocity).
+
+If the index corresponding to one of the hypotheses has significant energy, then that hypothesis is considered to be valid. Disambiguation of up to 3x of the naive max-\/velocity is possible with this method, however, testing has only been done up to 90 kmph. ~\newline
+
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em sum\+Abs} & The slow chirps doppler bins at a certain range. ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em fast\+Chirp\+Vel} & The velocity estimate using the fast chirps (pre-\/disambiguation). ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em fast\+Chirp\+Peak\+Val} & The peak value of the index of the detected object from the fast chirp. \\
+\hline
+\mbox{\texttt{ in}}  & {\em obj} & data path object.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Ambiguity} & index.\\
+\hline
+\end{DoxyRetVals}
+\DoxyHorRuler
+ \begin{DoxyParagraph}{}
+{\bfseries{Description}} \+: Performs a C\+F\+AR SO on an 16-\/bit unsigned input vector. The input values are assumed to be in lograthimic scale. So the comparision between the C\+UT and the noise samples is additive rather than multiplicative.
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em inp} & \+: input array (16 bit unsigned numbers) \\
+\hline
+\mbox{\texttt{ in}}  & {\em out} & \+: output array (indices of detected peaks (zero based counting)) \\
+\hline
+\mbox{\texttt{ in}}  & {\em out\+S\+NR} & \+: output array (S\+NR of detected peaks) \\
+\hline
+\mbox{\texttt{ in}}  & {\em len} & \+: number of elements in input array \\
+\hline
+\mbox{\texttt{ in}}  & {\em const1,const2} & \+: used to compare the Cell Under Test (C\+UT) to the sum of the noise cells\+: [noise sum /(2$^\wedge$(const2-\/1))]+const1 for one sided comparison (at the begining and end of the input vector). [noise sum /(2$^\wedge$(const2))]+const1 for two sided comparison \\
+\hline
+\mbox{\texttt{ in}}  & {\em guard\+Len} & \+: one sided guard length \\
+\hline
+\mbox{\texttt{ in}}  & {\em noise\+Len} & \+: one sided noise length \\
+\hline
+\mbox{\texttt{ in}}  & {\em min\+Indx\+To\+Ignore\+H\+PF} & \+: the number of indices to force one sided C\+F\+AR, so as to avoid false detections due to effect of the H\+PF. \\
+\hline
+\mbox{\texttt{ out}}  & {\em out} & \+: output array with indices of the detected peaks\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of detected peaks (i.\+e length of out)
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Precondition}
+Input (inp) and Output (out) arrays are non-\/aliased. 
+\end{DoxyPrecond}
+
+
+Definition at line 3400 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_ac89df38d64c24ea0c8b78957973668ba}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!cfarPeakGroupingAlongDoppler@{cfarPeakGroupingAlongDoppler}}
+\index{cfarPeakGroupingAlongDoppler@{cfarPeakGroupingAlongDoppler}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{cfarPeakGroupingAlongDoppler()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily uint32\+\_\+t cfar\+Peak\+Grouping\+Along\+Doppler (\begin{DoxyParamCaption}\item[{\textbf{ Mmw\+Demo\+\_\+obj\+Raw2\+D\+\_\+t} $\ast$restrict}]{obj\+Out,  }\item[{uint32\+\_\+t}]{num\+Detected\+Objects,  }\item[{uint16\+\_\+t $\ast$}]{det\+Matrix,  }\item[{uint32\+\_\+t}]{num\+Range\+Bins,  }\item[{uint32\+\_\+t}]{num\+Doppler\+Bins }\end{DoxyParamCaption})}
+
+\mbox{\label{dss__data__path_8c_ac292d68f0b6507ffc4913112666194af}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!cfarPeakGroupingAlongDoppler@{cfarPeakGroupingAlongDoppler}}
+\index{cfarPeakGroupingAlongDoppler@{cfarPeakGroupingAlongDoppler}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{cfarPeakGroupingAlongDoppler()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily uint32\+\_\+t cfar\+Peak\+Grouping\+Along\+Doppler (\begin{DoxyParamCaption}\item[{\textbf{ Mmw\+Demo\+\_\+obj\+Raw2\+D\+\_\+t} $\ast$restrict}]{obj\+Out,  }\item[{uint32\+\_\+t}]{num\+Detected\+Objects,  }\item[{uint16\+\_\+t $\ast$restrict}]{det\+Matrix,  }\item[{uint32\+\_\+t}]{num\+Range\+Bins,  }\item[{uint32\+\_\+t}]{num\+Doppler\+Bins }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ The function groups neighboring peaks (only in the doppler direction) into one. For each ~\newline
+ detected peak the function checks if the peak is greater than its neighbors. If this is true, the peak is copied to the output list of detected objects. The neighboring peaks that are used for checking are taken from the detection matrix and copied into 1x3 kernel regardless of whether they are C\+F\+AR detected or not.
+
+Note\+: Function always reads 3 samples per detected object from L3 memory into local array.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em obj\+Out} & Output array of detected objects after peak grouping \\
+\hline
+\mbox{\texttt{ in}}  & {\em obj\+Raw} & Array of detected objects after C\+F\+AR detection \\
+\hline
+\mbox{\texttt{ in}}  & {\em num\+Detected\+Objects} & Number of detected objects by C\+F\+AR \\
+\hline
+\mbox{\texttt{ in}}  & {\em det\+Matrix} & Detection Range/\+Doppler matrix \\
+\hline
+\mbox{\texttt{ in}}  & {\em num\+Doppler\+Bins} & Number of Doppler bins3401\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Number} & of detected objects after grouping \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 3845 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_a108f25f267871e86950ef4ef743396a6}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!computeSinAzimSNR@{computeSinAzimSNR}}
+\index{computeSinAzimSNR@{computeSinAzimSNR}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{computeSinAzimSNR()}
+{\footnotesize\ttfamily uint16\+\_\+t compute\+Sin\+Azim\+S\+NR (\begin{DoxyParamCaption}\item[{float $\ast$}]{azimuth\+Mag\+Sqr,  }\item[{uint16\+\_\+t}]{azim\+Idx,  }\item[{uint16\+\_\+t}]{num\+Virtual\+Ant\+Azim,  }\item[{uint16\+\_\+t}]{num\+Angle\+Bins,  }\item[{uint16\+\_\+t}]{xyz\+Output\+Q\+Format }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ The function 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em azimuth\+Mag\+Sqr} & Input array of the sum of the squares of the zero padded F\+FT output. \\
+\hline
+\mbox{\texttt{ in}}  & {\em azim\+Idx} & The location of the peak of the detected object. \\
+\hline
+\mbox{\texttt{ in}}  & {\em num\+Virtual\+Ant\+Azim} & the size of the F\+FT input. \\
+\hline
+\mbox{\texttt{ in}}  & {\em num\+Angle\+Bins} & The size of the F\+FT output. \\
+\hline
+\mbox{\texttt{ in}}  & {\em xyz\+Output\+Q\+Format} & number of fractional bits in the output.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em S\+N\+Rlinear} & with the programmed fractional bitwidth \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 3919 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_a88e8969a48565a61df1fef3839947797}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!convertSNRdBToVar@{convertSNRdBToVar}}
+\index{convertSNRdBToVar@{convertSNRdBToVar}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{convertSNRdBToVar()}
+{\footnotesize\ttfamily float convert\+S\+N\+Rd\+B\+To\+Var (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{S\+N\+RdB,  }\item[{uint16\+\_\+t}]{bitW,  }\item[{uint16\+\_\+t}]{n\+\_\+samples,  }\item[{float}]{resolution }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ The function computes the C\+R\+LB of the given estimate given an S\+NR input (dB) and the number of samples used in the estimate, and the resolution of the estimate.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em S\+N\+RdB} & 16 bit input with specified bitwidth. \\
+\hline
+\mbox{\texttt{ in}}  & {\em bitW} & input fractional bitwidth (for S\+NR in dB). \\
+\hline
+\mbox{\texttt{ in}}  & {\em n\+\_\+samples} & number of samples per chirp. \\
+\hline
+\mbox{\texttt{ in}}  & {\em resolution} & range resolution in meters.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em C\+R\+LB} & in the specified resolution (with some lower bounds). \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 3971 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_a1bbf44fb64b3401ec6cedf62ec0bf7ca}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!convertSNRLinToVar@{convertSNRLinToVar}}
+\index{convertSNRLinToVar@{convertSNRLinToVar}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{convertSNRLinToVar()}
+{\footnotesize\ttfamily float convert\+S\+N\+R\+Lin\+To\+Var (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{S\+N\+R\+Lin,  }\item[{uint16\+\_\+t}]{bitW,  }\item[{uint16\+\_\+t}]{n\+\_\+samples,  }\item[{float}]{resolution }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ The function computes the C\+R\+LB of the given estimate given an S\+NR input (linear) and the number of samples used in the estimate, and the resolution of the estimate.
+
+The C\+R\+LB is lower bounded by the resolution.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em S\+N\+RdB} & 16 bit input with specified bitwidth. \\
+\hline
+\mbox{\texttt{ in}}  & {\em bitW} & input fractional bitwidth. \\
+\hline
+\mbox{\texttt{ in}}  & {\em n\+\_\+samples} & number of samples per chirp. \\
+\hline
+\mbox{\texttt{ in}}  & {\em resolution} & resolution in meters.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em 2$^\wedge$(input/(2$^\wedge$frac\+Bit\+In))} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 4008 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_aa0d902fec5fb141b6e8cca99fd59f1a6}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!findandPopulateDetectedObjects@{findandPopulateDetectedObjects}}
+\index{findandPopulateDetectedObjects@{findandPopulateDetectedObjects}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{findandPopulateDetectedObjects()}
+{\footnotesize\ttfamily uint32\+\_\+t findand\+Populate\+Detected\+Objects (\begin{DoxyParamCaption}\item[{\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$restrict}]{obj,  }\item[{uint32\+\_\+t}]{num\+Det\+Obj\+Per\+Cfar,  }\item[{uint16\+\_\+t}]{doppler\+Line,  }\item[{uint32\+\_\+t}]{num\+Det\+Obj2D,  }\item[{uint16\+\_\+t $\ast$restrict}]{sum\+Abs\+Range }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ This function populates the 2D cfar object
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em obj} & data path object. \\
+\hline
+\mbox{\texttt{ in}}  & {\em num\+Det\+Obj\+Per\+Cfar} & number of detected objects from the C\+F\+AR function. \\
+\hline
+\mbox{\texttt{ in}}  & {\em doppler\+Line} & The index of the doppler gate being processed. \\
+\hline
+\mbox{\texttt{ in}}  & {\em num\+Det\+Obj2D} & The total number of detected objects. \\
+\hline
+\mbox{\texttt{ in}}  & {\em sum\+Abs\+Range} & The sum\+Abs Array for the range dimension. It is used to populate the \textquotesingle{}peak\+Val\textquotesingle{} on a per object basis. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em The} & total number of detected objects (including the results of the current intersection). \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 3130 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_a5831313d8919343194bc8cb3a2f65377}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!findandPopulateIntersectionOfDetectedObjects@{findandPopulateIntersectionOfDetectedObjects}}
+\index{findandPopulateIntersectionOfDetectedObjects@{findandPopulateIntersectionOfDetectedObjects}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{findandPopulateIntersectionOfDetectedObjects()}
+{\footnotesize\ttfamily uint32\+\_\+t findand\+Populate\+Intersection\+Of\+Detected\+Objects (\begin{DoxyParamCaption}\item[{\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$restrict}]{obj,  }\item[{uint32\+\_\+t}]{num\+Det\+Obj\+Per\+Cfar,  }\item[{uint16\+\_\+t}]{doppler\+Line,  }\item[{uint32\+\_\+t}]{num\+Det\+Obj2D,  }\item[{uint16\+\_\+t $\ast$restrict}]{sum\+Abs\+Range }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ This function finds the intersection of the 1D cfar objects (computed previously) and the outputs of the 2D C\+F\+AR function. The purpose is to select only those objects which have been detected in both the 1D and 2D C\+F\+A\+Rs.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em obj} & data path object. \\
+\hline
+\mbox{\texttt{ in}}  & {\em num\+Det\+Obj\+Per\+Cfar} & number of detected objects from the C\+F\+AR function. \\
+\hline
+\mbox{\texttt{ in}}  & {\em doppler\+Line} & The index of the doppler gate being processed. \\
+\hline
+\mbox{\texttt{ in}}  & {\em num\+Det\+Obj2D} & The total number of detected objects. \\
+\hline
+\mbox{\texttt{ in}}  & {\em sum\+Abs\+Range} & The sum\+Abs Array for the range dimension. It is used to populate the \textquotesingle{}peak\+Val\textquotesingle{} on a per object basis. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em The} & total number of detected objects (including the results of the current intersection). \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 3031 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_a07ac6a7176aac944800fc0fa53390881}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!findKLargestPeaks@{findKLargestPeaks}}
+\index{findKLargestPeaks@{findKLargestPeaks}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{findKLargestPeaks()}
+{\footnotesize\ttfamily uint32\+\_\+t find\+K\+Largest\+Peaks (\begin{DoxyParamCaption}\item[{uint16\+\_\+t $\ast$restrict}]{cfar\+Det\+Obj\+Index\+Buf,  }\item[{uint16\+\_\+t $\ast$restrict}]{cfar\+Det\+Obj\+S\+NR,  }\item[{uint32\+\_\+t}]{num\+Det\+Obj\+Per\+Cfar,  }\item[{uint16\+\_\+t $\ast$restrict}]{sum\+Abs,  }\item[{uint16\+\_\+t}]{num\+Bins,  }\item[{uint16\+\_\+t}]{K }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ This function finds the K strongest objects in a given list of objects. The \textquotesingle{}strength\textquotesingle{} of an object is its \textquotesingle{}peak value\textquotesingle{} corresponding to its index in the sum\+Abs Array.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em cfar\+Det\+Obj\+Index\+Buf} & The indices of the detected objects. \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em cfar\+Det\+Obj\+S\+NR} & The S\+NR of the detected objects. \\
+\hline
+\mbox{\texttt{ in}}  & {\em num\+Det\+Obj\+Per\+Cfar} & The number of detected objects. \\
+\hline
+\mbox{\texttt{ in}}  & {\em sum\+Abs} & The sum\+Abs array on which the C\+F\+AR was run. \\
+\hline
+\mbox{\texttt{ in}}  & {\em num\+Bins} & The length of the cfar\+Det\+Obj\+S\+NR and cfar\+Det\+Obj\+Index\+Buf array. \\
+\hline
+\mbox{\texttt{ in}}  & {\em K} & The maximum number of objects to be returned by this function.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em min(K,num\+Det\+Obj\+Per\+Cfar).} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 3276 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_a8e29d50ddda527425a968d91632a4532}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!MmwDemo\_addDopplerCompensation@{MmwDemo\_addDopplerCompensation}}
+\index{MmwDemo\_addDopplerCompensation@{MmwDemo\_addDopplerCompensation}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{MmwDemo\_addDopplerCompensation()}
+{\footnotesize\ttfamily void Mmw\+Demo\+\_\+add\+Doppler\+Compensation (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{doppler\+Idx,  }\item[{int32\+\_\+t}]{num\+Doppler\+Bins,  }\item[{uint32\+\_\+t $\ast$}]{azimuth\+Mod\+Coefs,  }\item[{uint32\+\_\+t $\ast$}]{azimuth\+Mod\+Coefs\+Third\+Bin,  }\item[{uint32\+\_\+t $\ast$}]{azimuth\+Mod\+Coefs\+Two\+Third\+Bin,  }\item[{int64\+\_\+t $\ast$}]{azimuth\+In,  }\item[{uint32\+\_\+t}]{num\+Ant,  }\item[{uint32\+\_\+t}]{num\+Tx\+Ant,  }\item[{uint16\+\_\+t}]{tx\+Ant\+Idx }\end{DoxyParamCaption})}
+
+
+
+Function Name \+: Mmw\+Demo\+\_\+\+Doppler\+Compensation. 
+
+\DoxyHorRuler
+ \begin{DoxyParagraph}{}
+{\bfseries{Description}} \+: Compensation of Doppler phase shift in the virtual antennas, (corresponding to second Tx antenna chirps). Symbols corresponding to virtual antennas, are rotated by half of the Doppler phase shift measured by Doppler F\+FT. The phase shift read from the table using half of the object Doppler index value. If the Doppler index is odd, an extra half of the bin phase shift is added.
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em doppler\+Idx} & \+: Doppler index of the object \\
+\hline
+\mbox{\texttt{ in}}  & {\em num\+Doppler\+Bins} & \+: Number of Doppler bins \\
+\hline
+\mbox{\texttt{ in}}  & {\em azimuth\+Mod\+Coefs} & Table with cos/sin values S\+IN in even position, C\+OS in odd position exp(1j$\ast$2$\ast$pi$\ast$k/N) for k=0,...,N-\/1 where N is number of Doppler bins. \\
+\hline
+\mbox{\texttt{ out}}  & {\em azimuth\+Mod\+Coefs\+Half\+Bin} & \+: exp(1j$\ast$2$\ast$pi$\ast$ 0.\+5 /N) //\+T\+O\+DO change to 1/3 instead of 1/2 for the correction. \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em azimuth\+In} & \+:Pointer to antenna symbols to be Doppler compensated \\
+\hline
+\mbox{\texttt{ in}}  & {\em num\+Ant} & \+: Number of antenna symbols to be Doppler compensated\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 4866 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_a1861196d3f7c1a94aae709807c354d2a}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!MmwDemo\_cfarPeakGrouping@{MmwDemo\_cfarPeakGrouping}}
+\index{MmwDemo\_cfarPeakGrouping@{MmwDemo\_cfarPeakGrouping}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{MmwDemo\_cfarPeakGrouping()}
+{\footnotesize\ttfamily uint32\+\_\+t Mmw\+Demo\+\_\+cfar\+Peak\+Grouping (\begin{DoxyParamCaption}\item[{\textbf{ Mmw\+Demo\+\_\+detected\+Obj\+Actual} $\ast$}]{obj\+Out,  }\item[{uint32\+\_\+t}]{num\+Detected\+Objects,  }\item[{uint16\+\_\+t $\ast$}]{det\+Matrix,  }\item[{uint32\+\_\+t}]{num\+Range\+Bins,  }\item[{uint32\+\_\+t}]{num\+Doppler\+Bins,  }\item[{uint32\+\_\+t}]{group\+In\+Doppler\+Direction,  }\item[{uint32\+\_\+t}]{group\+In\+Range\+Direction }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ The function groups neighboring peaks into one. The grouping is done according to two input flags\+: group\+In\+Doppler\+Direction and group\+In\+Doppler\+Direction. For each detected peak the function checks if the peak is greater than its neighbors. If this is true, the peak is copied to the output list of detected objects. The neighboring peaks that are used for checking are taken from the detection matrix and copied into 3x3 kernel regardless of whether they are C\+F\+AR detected or not. Note\+: Function always reads 9 samples per detected object from L3 memory into local array temp\+Buff, but it only needs to read according to input flags. For example if only the group\+In\+Doppler\+Direction flag is set, it only needs to read middle row of the kernel, i.\+e. 3 samples per target from detection matrix. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em obj\+Out} & Output array of detected objects after peak grouping \\
+\hline
+\mbox{\texttt{ in}}  & {\em obj\+Raw} & Array of detected objects after C\+F\+AR detection \\
+\hline
+\mbox{\texttt{ in}}  & {\em num\+Detected\+Objects} & Number of detected objects by C\+F\+AR \\
+\hline
+\mbox{\texttt{ in}}  & {\em det\+Matrix} & Detection Range/\+Doppler matrix \\
+\hline
+\mbox{\texttt{ in}}  & {\em num\+Doppler\+Bins} & Number of Doppler bins \\
+\hline
+\mbox{\texttt{ in}}  & {\em group\+In\+Doppler\+Direction} & Flag enables grouping in Doppler directiuon \\
+\hline
+\mbox{\texttt{ in}}  & {\em group\+In\+Range\+Direction} & Flag enables grouping in Range directiuon\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Number} & of detected objects after grouping \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 3710 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_a59b3e9103d2022ee08a596142807373f}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!MmwDemo\_dataPathConfigBuffers@{MmwDemo\_dataPathConfigBuffers}}
+\index{MmwDemo\_dataPathConfigBuffers@{MmwDemo\_dataPathConfigBuffers}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{MmwDemo\_dataPathConfigBuffers()}
+{\footnotesize\ttfamily void Mmw\+Demo\+\_\+data\+Path\+Config\+Buffers (\begin{DoxyParamCaption}\item[{\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$}]{obj,  }\item[{uint32\+\_\+t}]{adc\+Buf\+Address }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ Creates heap in L2 and L3 and allocates data path buffers, The heap is destroyed at the end of the function.
+
+
+\begin{DoxyRetVals}{Return values}
+{\em Not} & Applicable. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 2331 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_a78abff2ecdd14f7beb4283946419f134}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!MmwDemo\_dataPathConfigEdma@{MmwDemo\_dataPathConfigEdma}}
+\index{MmwDemo\_dataPathConfigEdma@{MmwDemo\_dataPathConfigEdma}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{MmwDemo\_dataPathConfigEdma()}
+{\footnotesize\ttfamily int32\+\_\+t Mmw\+Demo\+\_\+data\+Path\+Config\+Edma (\begin{DoxyParamCaption}\item[{\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$}]{obj }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ Configures all E\+D\+MA channels and param sets used in data path processing
+
+This function is very similar to the data\+Path\+Config\+E\+D\+MA from the O\+OB demo, but with the difference that we have two subframes, and one subframe can support the maximum velocity enhancement modification. In this method , the 2nd dimension has two kinds of chirps and each chirp is repeated \textquotesingle{}num\+Doppler\+Bins\textquotesingle{} times, and each chirp has the same number of adc samples.
+
+We would also like to ensure that when the data is transferred to L3 R\+AM, a range gate (i.\+e. doppler bins corresponding to a range bin) of each \textquotesingle{}chirptype\textquotesingle{} is contiguous, so that a single E\+D\+MA can pull them both out in the 2nd dimension processing.
+
+Hence the E\+D\+M\+As corresponding to the transfer of 1D data to L3 and the transfer of data from L3 to L2 are modified.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em obj} & Pointer to data path object array.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em -\/1} & if error, 0 for no error \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 936 of file dss\+\_\+data\+\_\+path.\+c.
+
+
+
+References D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::\+A\+D\+Cdata\+Buf, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::adc\+Data\+In, B\+Y\+T\+E\+S\+\_\+\+P\+E\+R\+\_\+\+S\+A\+M\+P\+\_\+1D, B\+Y\+T\+E\+S\+\_\+\+P\+E\+R\+\_\+\+S\+A\+M\+P\+\_\+\+D\+ET, E\+D\+M\+A\+\_\+\+I\+N\+S\+T\+A\+N\+C\+E\+\_\+\+D\+SS, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::edma\+Handle, E\+D\+M\+Autil\+\_\+config\+Type1(), E\+D\+M\+Autil\+\_\+config\+Type2a(), E\+D\+M\+Autil\+\_\+config\+Type3(), M\+AX, M\+A\+X\+\_\+\+V\+E\+L\+\_\+\+E\+N\+H\+\_\+\+P\+R\+O\+C\+E\+S\+S\+I\+NG, M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+1\+D\+\_\+\+I\+N\+\_\+\+P\+I\+NG, M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+1\+D\+\_\+\+I\+N\+\_\+\+P\+O\+NG, M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+1\+D\+\_\+\+O\+U\+T\+\_\+\+P\+I\+NG, M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+1\+D\+\_\+\+O\+U\+T\+\_\+\+P\+O\+NG, M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+2\+D\+\_\+\+I\+N\+\_\+\+P\+I\+NG, M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+2\+D\+\_\+\+I\+N\+\_\+\+P\+O\+NG, M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+3\+D\+\_\+\+I\+N\+\_\+\+P\+I\+NG, M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+3\+D\+\_\+\+I\+N\+\_\+\+P\+O\+NG, M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+\+D\+E\+T\+\_\+\+M\+A\+T\+R\+IX, M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+\+D\+E\+T\+\_\+\+M\+A\+T\+R\+I\+X2, N\+U\+M\+\_\+\+S\+U\+B\+F\+R\+A\+M\+ES, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::num\+Adc\+Samples, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::num\+Rx\+Antennas, and D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::processing\+Path.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dss__data__path_8c_a78abff2ecdd14f7beb4283946419f134_cgraph}
+\end{center}
+\end{figure}
+\mbox{\label{dss__data__path_8c_aa984146e49cf8db8d409bc4bb24a7062}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!MmwDemo\_dataPathConfigFFTs@{MmwDemo\_dataPathConfigFFTs}}
+\index{MmwDemo\_dataPathConfigFFTs@{MmwDemo\_dataPathConfigFFTs}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{MmwDemo\_dataPathConfigFFTs()}
+{\footnotesize\ttfamily void Mmw\+Demo\+\_\+data\+Path\+Config\+F\+F\+Ts (\begin{DoxyParamCaption}\item[{\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$}]{obj }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ Function to populate the twiddle factors for F\+F\+TS needed for the data path object.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em obj} & data path object.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em waiting\+Time.} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 2746 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_afac665394cc028ba3e9d3b4aacc14a8d}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!MmwDemo\_dataPathCopyEdmaHandle@{MmwDemo\_dataPathCopyEdmaHandle}}
+\index{MmwDemo\_dataPathCopyEdmaHandle@{MmwDemo\_dataPathCopyEdmaHandle}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{MmwDemo\_dataPathCopyEdmaHandle()}
+{\footnotesize\ttfamily int32\+\_\+t Mmw\+Demo\+\_\+data\+Path\+Copy\+Edma\+Handle (\begin{DoxyParamCaption}\item[{\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$}]{obj\+Output,  }\item[{\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$}]{obj\+Input }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ This function copies the E\+D\+MA handles to all of the remaining data path objects. ~\newline
+
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em obj} & data path object.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em success.} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 2272 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_aacd2dd763d4a16102adeba5b483fd950}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!MmwDemo\_dataPathInit1Dstate@{MmwDemo\_dataPathInit1Dstate}}
+\index{MmwDemo\_dataPathInit1Dstate@{MmwDemo\_dataPathInit1Dstate}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{MmwDemo\_dataPathInit1Dstate()}
+{\footnotesize\ttfamily void Mmw\+Demo\+\_\+data\+Path\+Init1\+Dstate (\begin{DoxyParamCaption}\item[{\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$}]{obj }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ This function initializes some of the states (counters) used for 1D processing. ~\newline
+
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em obj} & data path object.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em success/failure.} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 2198 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_abfcc356c85da3a7f49e949d9b7d58874}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!MmwDemo\_dataPathInitEdma@{MmwDemo\_dataPathInitEdma}}
+\index{MmwDemo\_dataPathInitEdma@{MmwDemo\_dataPathInitEdma}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{MmwDemo\_dataPathInitEdma()}
+{\footnotesize\ttfamily int32\+\_\+t Mmw\+Demo\+\_\+data\+Path\+Init\+Edma (\begin{DoxyParamCaption}\item[{\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$}]{obj }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ This function copies the E\+D\+MA handles to all of the remaining data path objects. ~\newline
+
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em obj} & data path object.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em success/failure.} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 2223 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_a27771d0558aa5dd2f056c2841040d182}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!MmwDemo\_dataPathWait1DInputData@{MmwDemo\_dataPathWait1DInputData}}
+\index{MmwDemo\_dataPathWait1DInputData@{MmwDemo\_dataPathWait1DInputData}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{MmwDemo\_dataPathWait1DInputData()}
+{\footnotesize\ttfamily void Mmw\+Demo\+\_\+data\+Path\+Wait1\+D\+Input\+Data (\begin{DoxyParamCaption}\item[{\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$}]{obj,  }\item[{uint32\+\_\+t}]{ping\+Pong\+Id,  }\item[{uint32\+\_\+t}]{subframe\+Indx }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ Waits for 1D F\+FT data to be transferrd to input buffer. This is a blocking function.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em obj} & Pointer to data path object \\
+\hline
+\mbox{\texttt{ in}}  & {\em ping\+Pong\+Id} & ping-\/pong id (ping is 0 and pong is 1) \\
+\hline
+\mbox{\texttt{ in}}  & {\em subframe\+Indx} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em N\+O\+NE} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 703 of file dss\+\_\+data\+\_\+path.\+c.
+
+
+
+References E\+D\+M\+A\+\_\+\+I\+N\+S\+T\+A\+N\+C\+E\+\_\+\+D\+SS, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::edma\+Handle, Mmw\+Demo\+\_\+dss\+Assert, M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+1\+D\+\_\+\+I\+N\+\_\+\+P\+I\+NG, M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+1\+D\+\_\+\+I\+N\+\_\+\+P\+O\+NG, and ping\+Pong\+Id.
+
+\mbox{\label{dss__data__path_8c_a389046b256f4569a688b52829dadddea}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!MmwDemo\_dataPathWait1DOutputData@{MmwDemo\_dataPathWait1DOutputData}}
+\index{MmwDemo\_dataPathWait1DOutputData@{MmwDemo\_dataPathWait1DOutputData}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{MmwDemo\_dataPathWait1DOutputData()}
+{\footnotesize\ttfamily void Mmw\+Demo\+\_\+data\+Path\+Wait1\+D\+Output\+Data (\begin{DoxyParamCaption}\item[{\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$}]{obj,  }\item[{uint32\+\_\+t}]{ping\+Pong\+Id,  }\item[{uint32\+\_\+t}]{subframe\+Indx }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ Waits for 1D F\+FT data to be transferred to output buffer. This is a blocking function.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em obj} & Pointer to data path object \\
+\hline
+\mbox{\texttt{ in}}  & {\em ping\+Pong\+Id} & ping-\/pong id (ping is 0 and pong is 1) \\
+\hline
+\mbox{\texttt{ in}}  & {\em subframe\+Indx} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em N\+O\+NE} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 755 of file dss\+\_\+data\+\_\+path.\+c.
+
+
+
+References E\+D\+M\+A\+\_\+\+I\+N\+S\+T\+A\+N\+C\+E\+\_\+\+D\+SS, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::edma\+Handle, Mmw\+Demo\+\_\+dss\+Assert, M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+1\+D\+\_\+\+O\+U\+T\+\_\+\+P\+I\+NG, M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+1\+D\+\_\+\+O\+U\+T\+\_\+\+P\+O\+NG, ping\+Pong\+Id, and select\+\_\+channel().
+
+
+
+Referenced by Mmw\+Demo\+\_\+process\+Chirp().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dss__data__path_8c_a389046b256f4569a688b52829dadddea_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dss__data__path_8c_a389046b256f4569a688b52829dadddea_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{dss__data__path_8c_a49e705ab0439066d21aa01e8287ceb2b}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!MmwDemo\_dataPathWait2DInputData@{MmwDemo\_dataPathWait2DInputData}}
+\index{MmwDemo\_dataPathWait2DInputData@{MmwDemo\_dataPathWait2DInputData}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{MmwDemo\_dataPathWait2DInputData()}
+{\footnotesize\ttfamily void Mmw\+Demo\+\_\+data\+Path\+Wait2\+D\+Input\+Data (\begin{DoxyParamCaption}\item[{\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$}]{obj,  }\item[{uint32\+\_\+t}]{ping\+Pong\+Id,  }\item[{uint32\+\_\+t}]{subframe\+Indx }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ Waits for 1D F\+FT data to be transferred to input buffer for 2D-\/\+F\+FT caclulation. This is a blocking function.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em obj} & Pointer to data path object \\
+\hline
+\mbox{\texttt{ in}}  & {\em ping\+Pong\+Id} & ping-\/pong id (ping is 0 and pong is 1) \\
+\hline
+\mbox{\texttt{ in}}  & {\em subframe} & Index\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em N\+O\+NE} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 786 of file dss\+\_\+data\+\_\+path.\+c.
+
+
+
+References E\+D\+M\+A\+\_\+\+I\+N\+S\+T\+A\+N\+C\+E\+\_\+\+D\+SS, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::edma\+Handle, Mmw\+Demo\+\_\+dss\+Assert, M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+2\+D\+\_\+\+I\+N\+\_\+\+P\+I\+NG, M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+2\+D\+\_\+\+I\+N\+\_\+\+P\+O\+NG, ping\+Pong\+Id, and select\+\_\+channel().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dss__data__path_8c_a49e705ab0439066d21aa01e8287ceb2b_cgraph}
+\end{center}
+\end{figure}
+\mbox{\label{dss__data__path_8c_a86be15e8167abfdbd63b3d869d26c7e6}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!MmwDemo\_dataPathWait3DInputData@{MmwDemo\_dataPathWait3DInputData}}
+\index{MmwDemo\_dataPathWait3DInputData@{MmwDemo\_dataPathWait3DInputData}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{MmwDemo\_dataPathWait3DInputData()}
+{\footnotesize\ttfamily void Mmw\+Demo\+\_\+data\+Path\+Wait3\+D\+Input\+Data (\begin{DoxyParamCaption}\item[{\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$}]{obj,  }\item[{uint32\+\_\+t}]{ping\+Pong\+Id,  }\item[{uint32\+\_\+t}]{subframe\+Indx }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ Waits for 1D F\+FT data to be transferred to input buffer for 3D-\/\+F\+FT calculation. This is a blocking function.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em obj} & Pointer to data path object \\
+\hline
+\mbox{\texttt{ in}}  & {\em ping\+Pong\+Id} & ping-\/pong id (ping is 0 and pong is 1) \\
+\hline
+\mbox{\texttt{ in}}  & {\em subframe\+Indx} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em N\+O\+NE} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 818 of file dss\+\_\+data\+\_\+path.\+c.
+
+
+
+References E\+D\+M\+A\+\_\+\+I\+N\+S\+T\+A\+N\+C\+E\+\_\+\+D\+SS, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::edma\+Handle, Mmw\+Demo\+\_\+dss\+Assert, M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+3\+D\+\_\+\+I\+N\+\_\+\+P\+I\+NG, M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+3\+D\+\_\+\+I\+N\+\_\+\+P\+O\+NG, ping\+Pong\+Id, and select\+\_\+channel().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dss__data__path_8c_a86be15e8167abfdbd63b3d869d26c7e6_cgraph}
+\end{center}
+\end{figure}
+\mbox{\label{dss__data__path_8c_ac484faf665a4b46bebfb7ab2f9fc1ccd}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!MmwDemo\_dataPathWaitTransDetMatrix@{MmwDemo\_dataPathWaitTransDetMatrix}}
+\index{MmwDemo\_dataPathWaitTransDetMatrix@{MmwDemo\_dataPathWaitTransDetMatrix}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{MmwDemo\_dataPathWaitTransDetMatrix()}
+{\footnotesize\ttfamily void Mmw\+Demo\+\_\+data\+Path\+Wait\+Trans\+Det\+Matrix (\begin{DoxyParamCaption}\item[{\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$}]{obj,  }\item[{uint8\+\_\+t}]{subframe\+Indx }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ Waits for 2D F\+FT calculated data to be transferred out from L2 memory to detection matrix located in L3 memory. This is a blocking function.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em obj} & Pointer to data path object \\
+\hline
+\mbox{\texttt{ in}}  & {\em subframe\+Indx} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em N\+O\+NE} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 848 of file dss\+\_\+data\+\_\+path.\+c.
+
+
+
+References E\+D\+M\+A\+\_\+\+I\+N\+S\+T\+A\+N\+C\+E\+\_\+\+D\+SS, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::edma\+Handle, Mmw\+Demo\+\_\+dss\+Assert, and M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+\+D\+E\+T\+\_\+\+M\+A\+T\+R\+IX.
+
+\mbox{\label{dss__data__path_8c_a40ce7948e9a6dbb9d7afe45e8af99adf}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!MmwDemo\_dataPathWaitTransDetMatrix2@{MmwDemo\_dataPathWaitTransDetMatrix2}}
+\index{MmwDemo\_dataPathWaitTransDetMatrix2@{MmwDemo\_dataPathWaitTransDetMatrix2}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{MmwDemo\_dataPathWaitTransDetMatrix2()}
+{\footnotesize\ttfamily void Mmw\+Demo\+\_\+data\+Path\+Wait\+Trans\+Det\+Matrix2 (\begin{DoxyParamCaption}\item[{\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$}]{obj,  }\item[{uint32\+\_\+t}]{subframe\+Indx }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ Waits for 2D F\+FT data to be transferred from detection matrix in L3 memory to L2 memory for C\+F\+AR detection in range direction. This is a blocking function.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em obj} & Pointer to data path object \\
+\hline
+\mbox{\texttt{ in}}  & {\em subframe\+Indx} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em N\+O\+NE} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 885 of file dss\+\_\+data\+\_\+path.\+c.
+
+
+
+References E\+D\+M\+A\+\_\+\+I\+N\+S\+T\+A\+N\+C\+E\+\_\+\+D\+SS, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::edma\+Handle, Mmw\+Demo\+\_\+dss\+Assert, and M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+\+D\+E\+T\+\_\+\+M\+A\+T\+R\+I\+X2.
+
+\mbox{\label{dss__data__path_8c_a01d7665ffa602354653053a08add9a12}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!MmwDemo\_dcRangeSignatureCompensation@{MmwDemo\_dcRangeSignatureCompensation}}
+\index{MmwDemo\_dcRangeSignatureCompensation@{MmwDemo\_dcRangeSignatureCompensation}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{MmwDemo\_dcRangeSignatureCompensation()}
+{\footnotesize\ttfamily void Mmw\+Demo\+\_\+dc\+Range\+Signature\+Compensation (\begin{DoxyParamCaption}\item[{\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$}]{obj,  }\item[{uint8\+\_\+t}]{chirp\+Ping\+Pong\+Id }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ Compensation of DC range antenna signature (unused currently)
+
+
+\begin{DoxyRetVals}{Return values}
+{\em Not} & Applicable. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 1447 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_aab12823a054732da603bd04c274d27c2}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!MmwDemo\_edmaErrorCallbackFxn@{MmwDemo\_edmaErrorCallbackFxn}}
+\index{MmwDemo\_edmaErrorCallbackFxn@{MmwDemo\_edmaErrorCallbackFxn}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{MmwDemo\_edmaErrorCallbackFxn()}
+{\footnotesize\ttfamily void Mmw\+Demo\+\_\+edma\+Error\+Callback\+Fxn (\begin{DoxyParamCaption}\item[{E\+D\+M\+A\+\_\+\+Handle}]{handle,  }\item[{E\+D\+M\+A\+\_\+error\+Info\+\_\+t $\ast$}]{error\+Info }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ This is a callback function for E\+D\+MA errors.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em handle} & E\+D\+MA Handle. \\
+\hline
+\mbox{\texttt{ in}}  & {\em error\+Info} & E\+D\+MA error info.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em n/a.} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 2163 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_a732ae83ac23f3b7830b3cd5ee94a02c4}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!MmwDemo\_edmaTransferControllerErrorCallbackFxn@{MmwDemo\_edmaTransferControllerErrorCallbackFxn}}
+\index{MmwDemo\_edmaTransferControllerErrorCallbackFxn@{MmwDemo\_edmaTransferControllerErrorCallbackFxn}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{MmwDemo\_edmaTransferControllerErrorCallbackFxn()}
+{\footnotesize\ttfamily void Mmw\+Demo\+\_\+edma\+Transfer\+Controller\+Error\+Callback\+Fxn (\begin{DoxyParamCaption}\item[{E\+D\+M\+A\+\_\+\+Handle}]{handle,  }\item[{E\+D\+M\+A\+\_\+transfer\+Controller\+Error\+Info\+\_\+t $\ast$}]{error\+Info }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ This is a callback function for E\+D\+MA TC errors.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em handle} & E\+D\+MA Handle. \\
+\hline
+\mbox{\texttt{ in}}  & {\em error\+Info} & E\+D\+MA TC error info.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em n/a.} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 2178 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_a51c1ee0b60fabaf772f4e74733e1e197}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!MmwDemo\_genDftSinCosTable@{MmwDemo\_genDftSinCosTable}}
+\index{MmwDemo\_genDftSinCosTable@{MmwDemo\_genDftSinCosTable}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{MmwDemo\_genDftSinCosTable()}
+{\footnotesize\ttfamily void Mmw\+Demo\+\_\+gen\+Dft\+Sin\+Cos\+Table (\begin{DoxyParamCaption}\item[{cmplx16\+Im\+Re\+\_\+t $\ast$}]{dft\+Sin\+Cos\+Table,  }\item[{cmplx16\+Im\+Re\+\_\+t $\ast$}]{dft\+Half\+Bin\+Val,  }\item[{cmplx16\+Im\+Re\+\_\+t $\ast$}]{dft\+Third\+Bin\+Val,  }\item[{cmplx16\+Im\+Re\+\_\+t $\ast$}]{dft\+Two\+Third\+Bin\+Val,  }\item[{uint32\+\_\+t}]{dft\+Len }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+Generate S\+I\+N/\+C\+OS table in Q15 (S\+IN to even int16 location, C\+OS to odd int16 location. Also generates Sin/\+Cos at half the bin value The table is generated as T[i]=cos[2$\ast$pi$\ast$i/N] -\/ 1j$\ast$sin[2$\ast$pi$\ast$i/N] for i=0,...,N where N is dft\+Len The half bn value is calculated as\+: TH = cos[2$\ast$pi$\ast$0.5/N] -\/ 1j$\ast$sin[2$\ast$pi$\ast$0.5/N]
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em dft\+Sin\+Cos\+Table} & Array with generated Sin Cos table \\
+\hline
+\mbox{\texttt{ out}}  & {\em dft\+Half\+Bin\+Val} & Sin/\+Cos value at half the bin \\
+\hline
+\mbox{\texttt{ in}}  & {\em dft\+Len} & Length of the D\+FT\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Not} & Applicable. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 2130 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_a402f36a6f3fafad82d47d00be62057dd}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!MmwDemo\_genWindow@{MmwDemo\_genWindow}}
+\index{MmwDemo\_genWindow@{MmwDemo\_genWindow}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{MmwDemo\_genWindow()}
+{\footnotesize\ttfamily void Mmw\+Demo\+\_\+gen\+Window (\begin{DoxyParamCaption}\item[{void $\ast$}]{win,  }\item[{uint32\+\_\+t}]{window\+Datum\+Type,  }\item[{uint32\+\_\+t}]{win\+Len,  }\item[{uint32\+\_\+t}]{win\+Gen\+Len,  }\item[{int32\+\_\+t}]{one\+Qformat,  }\item[{uint32\+\_\+t}]{win\+Type }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ Function to generate a single F\+FT window sample.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em win} & Pointer to calculated window samples. \\
+\hline
+\mbox{\texttt{ in}}  & {\em window\+Datum\+Type} & Window samples data format. For window\+Datum\+Type = \doxyref{F\+F\+T\+\_\+\+W\+I\+N\+D\+O\+W\+\_\+\+I\+N\+T16}{p.}{dss__data__path_8c_a59536392d3f3e7adad48a3111f12b8c0}, the samples format is int16\+\_\+t. For window\+Datum\+Type = \doxyref{F\+F\+T\+\_\+\+W\+I\+N\+D\+O\+W\+\_\+\+I\+N\+T32}{p.}{dss__data__path_8c_a26bfb9024e77e5bcd9b86d5436e16aaa}, the samples format is int32\+\_\+t. \\
+\hline
+\mbox{\texttt{ in}}  & {\em win\+Len} & Nominal window length \\
+\hline
+\mbox{\texttt{ in}}  & {\em win\+Gen\+Len} & Number of generated samples \\
+\hline
+\mbox{\texttt{ in}}  & {\em one\+Qformat} & Q format of samples, one\+Qformat is the value of one in the desired format. \\
+\hline
+\mbox{\texttt{ in}}  & {\em win\+Type} & Type of window, one of \doxyref{M\+M\+W\+\_\+\+W\+I\+N\+\_\+\+B\+L\+A\+C\+K\+M\+AN}{p.}{dss__data__path_8c_a9663c475dfc74987d71cd5d96cf1edda}, M\+M\+W\+\_\+\+W\+I\+N\+\_\+\+H\+A\+N\+N\+I\+NG, or \doxyref{M\+M\+W\+\_\+\+W\+I\+N\+\_\+\+R\+E\+CT}{p.}{dss__data__path_8c_a9d80e66a1751be86a54aea42919e1d6c}. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em none.} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 2796 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_abfd57c605fd7f40a11305a08d897f00e}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!MmwDemo\_getDopplerLine@{MmwDemo\_getDopplerLine}}
+\index{MmwDemo\_getDopplerLine@{MmwDemo\_getDopplerLine}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{MmwDemo\_getDopplerLine()}
+{\footnotesize\ttfamily int32\+\_\+t Mmw\+Demo\+\_\+get\+Doppler\+Line (\begin{DoxyParamCaption}\item[{\textbf{ Mmw\+Demo\+\_\+1\+D\+\_\+\+Doppler\+Lines\+\_\+t} $\ast$}]{ths }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ Gets the Doppler index from the Doppler line bit mask, starting from the smallest active Doppler lin (bin). Subsequent calls return the next active Doppler line. \begin{DoxySeeAlso}{See also}
+\doxyref{Mmw\+Demo\+\_\+reset\+Doppler\+Lines}{p.}{dss__data__path_8c_a7c573877a56403c202cdc5d498a15923} 
+\end{DoxySeeAlso}
+
+
+Definition at line 377 of file dss\+\_\+data\+\_\+path.\+c.
+
+
+
+References Mmw\+Demo\+\_\+1\+D\+\_\+\+Doppler\+Lines\+::current\+Index, and Mmw\+Demo\+\_\+1\+D\+\_\+\+Doppler\+Lines\+::doppler\+Line\+Mask.
+
+\mbox{\label{dss__data__path_8c_ad2bf4fb7d93ecb03741191edab7f8c27}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!MmwDemo\_interChirpProcessing@{MmwDemo\_interChirpProcessing}}
+\index{MmwDemo\_interChirpProcessing@{MmwDemo\_interChirpProcessing}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{MmwDemo\_interChirpProcessing()}
+{\footnotesize\ttfamily void Mmw\+Demo\+\_\+inter\+Chirp\+Processing (\begin{DoxyParamCaption}\item[{\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$}]{obj,  }\item[{uint32\+\_\+t}]{chirp\+Ping\+Pong\+Id,  }\item[{uint8\+\_\+t}]{subframe\+Indx }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ Interchirp processing. It is executed per chirp event, after A\+DC buffer is filled with chirp samples.
+
+
+\begin{DoxyRetVals}{Return values}
+{\em Not} & Applicable. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 1562 of file dss\+\_\+data\+\_\+path.\+c.
+
+
+
+Referenced by Mmw\+Demo\+\_\+process\+Chirp().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dss__data__path_8c_ad2bf4fb7d93ecb03741191edab7f8c27_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{dss__data__path_8c_ab896bf7409c594e2d870c254023dce24}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!MmwDemo\_interFrameProcessing@{MmwDemo\_interFrameProcessing}}
+\index{MmwDemo\_interFrameProcessing@{MmwDemo\_interFrameProcessing}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{MmwDemo\_interFrameProcessing()}
+{\footnotesize\ttfamily void Mmw\+Demo\+\_\+inter\+Frame\+Processing (\begin{DoxyParamCaption}\item[{\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$}]{obj,  }\item[{uint8\+\_\+t}]{subframe\+Indx }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ Interframe processing. It is called from Mmw\+Demo\+\_\+dss\+Data\+Path\+Process\+Events after all chirps of the frame have been received and 1D F\+FT processing on them has been completed.
+
+
+\begin{DoxyRetVals}{Return values}
+{\em Not} & Applicable. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 1633 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_a86df087ff3d59d53ebb57e366aef2cda}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!MmwDemo\_isSetDopplerLine@{MmwDemo\_isSetDopplerLine}}
+\index{MmwDemo\_isSetDopplerLine@{MmwDemo\_isSetDopplerLine}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{MmwDemo\_isSetDopplerLine()}
+{\footnotesize\ttfamily uint32\+\_\+t Mmw\+Demo\+\_\+is\+Set\+Doppler\+Line (\begin{DoxyParamCaption}\item[{\textbf{ Mmw\+Demo\+\_\+1\+D\+\_\+\+Doppler\+Lines\+\_\+t} $\ast$}]{ths,  }\item[{uint16\+\_\+t}]{index }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ Checks whether Doppler line is active in the observed frame. It checks whether the bit is set in the Doppler line bit mask corresponding to Doppler line on which C\+F\+AR in Doppler direction detected object. \begin{DoxySeeAlso}{See also}
+\doxyref{Mmw\+Demo\+\_\+reset\+Doppler\+Lines}{p.}{dss__data__path_8c_a7c573877a56403c202cdc5d498a15923} 
+\end{DoxySeeAlso}
+
+
+Definition at line 352 of file dss\+\_\+data\+\_\+path.\+c.
+
+
+
+References Mmw\+Demo\+\_\+1\+D\+\_\+\+Doppler\+Lines\+::doppler\+Line\+Mask.
+
+\mbox{\label{dss__data__path_8c_a542af93bc5a5e0d4b69604c3c346ba90}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!MmwDemo\_magnitudeSquared@{MmwDemo\_magnitudeSquared}}
+\index{MmwDemo\_magnitudeSquared@{MmwDemo\_magnitudeSquared}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{MmwDemo\_magnitudeSquared()}
+{\footnotesize\ttfamily void Mmw\+Demo\+\_\+magnitude\+Squared (\begin{DoxyParamCaption}\item[{cmplx32\+Re\+Im\+\_\+t $\ast$restrict}]{inp\+Buff,  }\item[{float $\ast$restrict}]{mag\+Sqrd\+Buff,  }\item[{uint32\+\_\+t}]{num\+Samples }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ Outputs magnitude squared float array of input complex32 array
+
+
+\begin{DoxyRetVals}{Return values}
+{\em Not} & Applicable. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 1428 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_a2d544fba2a4525a7bca8d3ed5edb17a3}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!MmwDemo\_pow2roundup@{MmwDemo\_pow2roundup}}
+\index{MmwDemo\_pow2roundup@{MmwDemo\_pow2roundup}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{MmwDemo\_pow2roundup()}
+{\footnotesize\ttfamily uint32\+\_\+t Mmw\+Demo\+\_\+pow2roundup (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{x }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ Power of 2 round up function. 
+
+Definition at line 404 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_accf7fd360051a6ae579c91bf00207a27}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!MmwDemo\_printHeapStats@{MmwDemo\_printHeapStats}}
+\index{MmwDemo\_printHeapStats@{MmwDemo\_printHeapStats}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{MmwDemo\_printHeapStats()}
+{\footnotesize\ttfamily void Mmw\+Demo\+\_\+print\+Heap\+Stats (\begin{DoxyParamCaption}\item[{char $\ast$}]{name,  }\item[{uint32\+\_\+t}]{heap\+Used,  }\item[{uint32\+\_\+t}]{heap\+Size }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ This function holds the last remaining \textquotesingle{}printf\textquotesingle{} in the entire M\+RR, and prints the space remaining in the global heap.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em obj} & data path object.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em na.} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 2297 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_a767ff919518cda1ad94eb6b72c91dcf2}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!MmwDemo\_processChirp@{MmwDemo\_processChirp}}
+\index{MmwDemo\_processChirp@{MmwDemo\_processChirp}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{MmwDemo\_processChirp()}
+{\footnotesize\ttfamily void Mmw\+Demo\+\_\+process\+Chirp (\begin{DoxyParamCaption}\item[{\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$}]{obj,  }\item[{uint8\+\_\+t}]{subframe\+Indx }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ Chirp processing. It is called from Mmw\+Demo\+\_\+dss\+Data\+Path\+Process\+Events. It is executed per chirp.
+
+The range F\+FT output is transferred in a transpose manner to L3 using an E\+D\+MA. This is done so that the 2nd F\+FT data can be pulled out using a non-\/transpose E\+D\+MA (which is more efficient)
+
+The E\+D\+MA transfer requires a destination offset (radar\+Cube\+Offset) that is proportional with the chirp number.
+
+For the M\+A\+X\+\_\+\+V\+E\+L\+\_\+\+E\+NH chirp, there are two chirp types (fast and slow), they are stored consecutively ( for e.\+g. chirp 1 of the fast chirp is directly followed by chirp 1 of the slow chirp.
+
+
+\begin{DoxyRetVals}{Return values}
+{\em Not} & Applicable. \\
+\hline
+\end{DoxyRetVals}
+
+\begin{DoxyEnumerate}
+\item Book keeping.
+\item Range processing.
+\end{DoxyEnumerate}
+
+Definition at line 1974 of file dss\+\_\+data\+\_\+path.\+c.
+
+
+
+References D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::chirp\+Count, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::chirp\+Type\+Count, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::doppler\+Bin\+Count, E\+D\+M\+A\+\_\+\+I\+N\+S\+T\+A\+N\+C\+E\+\_\+\+D\+SS, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::edma\+Handle, E\+D\+M\+Autil\+\_\+trigger\+Type3(), g\+Cycle\+Log, cycle\+Log\+\_\+t\+\_\+\+::inter\+Chirp\+Wait\+Time, is\+Pong, M\+A\+X\+\_\+\+V\+E\+L\+\_\+\+E\+N\+H\+\_\+\+P\+R\+O\+C\+E\+S\+S\+I\+NG, Mmw\+Demo\+\_\+data\+Path\+Wait1\+D\+Output\+Data(), Mmw\+Demo\+\_\+inter\+Chirp\+Processing(), M\+R\+R\+\_\+\+E\+D\+M\+A\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+E\+N\+A\+B\+LE, M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+1\+D\+\_\+\+O\+U\+T\+\_\+\+P\+I\+NG, M\+R\+R\+\_\+\+S\+F0\+\_\+\+E\+D\+M\+A\+\_\+\+C\+H\+\_\+1\+D\+\_\+\+O\+U\+T\+\_\+\+P\+O\+NG, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::num\+Doppler\+Bins, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::num\+Rx\+Antennas, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::num\+Tx\+Antennas, ping\+Pong\+Id, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::processing\+Path, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::radar\+Cube, and D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::tx\+Antenna\+Count.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dss__data__path_8c_a767ff919518cda1ad94eb6b72c91dcf2_cgraph}
+\end{center}
+\end{figure}
+\mbox{\label{dss__data__path_8c_a7c573877a56403c202cdc5d498a15923}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!MmwDemo\_resetDopplerLines@{MmwDemo\_resetDopplerLines}}
+\index{MmwDemo\_resetDopplerLines@{MmwDemo\_resetDopplerLines}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{MmwDemo\_resetDopplerLines()}
+{\footnotesize\ttfamily void Mmw\+Demo\+\_\+reset\+Doppler\+Lines (\begin{DoxyParamCaption}\item[{\textbf{ Mmw\+Demo\+\_\+1\+D\+\_\+\+Doppler\+Lines\+\_\+t} $\ast$}]{ths }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ Resets the Doppler line bit mask. Doppler line bit mask indicates Doppler lines (bins) on wich the C\+F\+AR in Doppler direction detected objects. After the C\+F\+AR in Doppler direction is completed for all range bins, the C\+F\+AR in range direction is performed on indicated Doppler lines. The array doppler\+Line\+Mask is uint32\+\_\+t array. The L\+SB bit of the first word corresponds to Doppler line (bin) zero. 
+
+Definition at line 323 of file dss\+\_\+data\+\_\+path.\+c.
+
+
+
+References Mmw\+Demo\+\_\+1\+D\+\_\+\+Doppler\+Lines\+::current\+Index, Mmw\+Demo\+\_\+1\+D\+\_\+\+Doppler\+Lines\+::doppler\+Line\+Mask, and Mmw\+Demo\+\_\+1\+D\+\_\+\+Doppler\+Lines\+::doppler\+Line\+Mask\+Len.
+
+\mbox{\label{dss__data__path_8c_a4546b38f3315656fca7de944cdaee7d1}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!MmwDemo\_rxChanPhaseBiasCompensation@{MmwDemo\_rxChanPhaseBiasCompensation}}
+\index{MmwDemo\_rxChanPhaseBiasCompensation@{MmwDemo\_rxChanPhaseBiasCompensation}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{MmwDemo\_rxChanPhaseBiasCompensation()}
+{\footnotesize\ttfamily static void Mmw\+Demo\+\_\+rx\+Chan\+Phase\+Bias\+Compensation (\begin{DoxyParamCaption}\item[{uint32\+\_\+t $\ast$}]{rx\+Ch\+Comp,  }\item[{int64\+\_\+t $\ast$}]{input,  }\item[{uint32\+\_\+t}]{num\+Ant }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Function Name \+: Mmw\+Demo\+\_\+rx\+Chan\+Phase\+Bias\+Compensation. 
+
+\DoxyHorRuler
+ \begin{DoxyParagraph}{}
+{\bfseries{Description}} \+: Compensation of rx channel phase bias
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em rx\+Ch\+Comp} & \+: rx channel compensation coefficient \\
+\hline
+\mbox{\texttt{ in}}  & {\em input} & \+: 32-\/bit complex input symbols must be 64 bit aligned \\
+\hline
+\mbox{\texttt{ in}}  & {\em num\+Ant} & \+: number of symbols\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 4939 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_af5ddbfdb56bcd84fcc33d6b79da5af17}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!MmwDemo\_setDopplerLine@{MmwDemo\_setDopplerLine}}
+\index{MmwDemo\_setDopplerLine@{MmwDemo\_setDopplerLine}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{MmwDemo\_setDopplerLine()}
+{\footnotesize\ttfamily void Mmw\+Demo\+\_\+set\+Doppler\+Line (\begin{DoxyParamCaption}\item[{\textbf{ Mmw\+Demo\+\_\+1\+D\+\_\+\+Doppler\+Lines\+\_\+t} $\ast$}]{ths,  }\item[{uint16\+\_\+t}]{doppler\+Index }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ Sets the bit in the Doppler line bit mask doppler\+Line\+Mask corresponding to Doppler line on which C\+F\+AR in Doppler direction detected object. Indicating the Doppler line being active in observed frame. \begin{DoxySeeAlso}{See also}
+\doxyref{Mmw\+Demo\+\_\+reset\+Doppler\+Lines}{p.}{dss__data__path_8c_a7c573877a56403c202cdc5d498a15923} 
+\end{DoxySeeAlso}
+
+
+Definition at line 336 of file dss\+\_\+data\+\_\+path.\+c.
+
+
+
+References Mmw\+Demo\+\_\+1\+D\+\_\+\+Doppler\+Lines\+::doppler\+Line\+Mask.
+
+\mbox{\label{dss__data__path_8c_adafe76503e40043b08f614fb18e6cca3}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!MmwDemo\_startDmaTransfer@{MmwDemo\_startDmaTransfer}}
+\index{MmwDemo\_startDmaTransfer@{MmwDemo\_startDmaTransfer}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{MmwDemo\_startDmaTransfer()}
+{\footnotesize\ttfamily void Mmw\+Demo\+\_\+start\+Dma\+Transfer (\begin{DoxyParamCaption}\item[{E\+D\+M\+A\+\_\+\+Handle}]{handle,  }\item[{uint8\+\_\+t}]{channel\+Id0,  }\item[{uint8\+\_\+t}]{subframe\+Indx }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ Starts a D\+MA transfer on a specifed channel corresponding to a given subframe. 
+
+Definition at line 303 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_a1a5e6be76babc25c75355bbeed7cc1d3}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!MmwDemo\_waitEndOfChirps@{MmwDemo\_waitEndOfChirps}}
+\index{MmwDemo\_waitEndOfChirps@{MmwDemo\_waitEndOfChirps}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{MmwDemo\_waitEndOfChirps()}
+{\footnotesize\ttfamily void Mmw\+Demo\+\_\+wait\+End\+Of\+Chirps (\begin{DoxyParamCaption}\item[{\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$}]{obj,  }\item[{uint8\+\_\+t}]{subframe\+Indx }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+Wait for transfer of data corresponding to the last 2 chirps (ping/pong) to the radar\+Cube matrix before starting interframe processing. 
+\begin{DoxyRetVals}{Return values}
+{\em Not} & Applicable. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 2079 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_a23dc21ffa5efa802d1786d2e747246f4}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!MmwDemo\_XYcalc@{MmwDemo\_XYcalc}}
+\index{MmwDemo\_XYcalc@{MmwDemo\_XYcalc}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{MmwDemo\_XYcalc()}
+{\footnotesize\ttfamily void Mmw\+Demo\+\_\+\+X\+Ycalc (\begin{DoxyParamCaption}\item[{\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$}]{obj,  }\item[{uint32\+\_\+t}]{obj\+Index,  }\item[{uint16\+\_\+t}]{azim\+Idx,  }\item[{float $\ast$}]{azimuth\+Mag\+Sqr }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ Calculates X/Y coordinates in meters based on the maximum position in the magnitude square of the azimuth F\+FT output. The function is called per detected object.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em obj} & Pointer to data path object \\
+\hline
+\mbox{\texttt{ in}}  & {\em obj\+Index} & Detected object index \\
+\hline
+\mbox{\texttt{ in}}  & {\em azim\+Idx} & Index of the peak position in Azimuth F\+FT output \\
+\hline
+\mbox{\texttt{ in}}  & {\em azimuth\+Mag\+Sqr} & azimuth energy array\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em N\+O\+NE} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 4982 of file dss\+\_\+data\+\_\+path.\+c.
+
+
+
+Referenced by Mmw\+Demo\+\_\+\+X\+Yestimation().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=345pt]{dss__data__path_8c_a23dc21ffa5efa802d1786d2e747246f4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{dss__data__path_8c_a6b2e4417c9fc340adbe89788beae8d36}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!MmwDemo\_XYestimation@{MmwDemo\_XYestimation}}
+\index{MmwDemo\_XYestimation@{MmwDemo\_XYestimation}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{MmwDemo\_XYestimation()}
+{\footnotesize\ttfamily void Mmw\+Demo\+\_\+\+X\+Yestimation (\begin{DoxyParamCaption}\item[{\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$}]{obj,  }\item[{uint32\+\_\+t}]{obj\+Index }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ Calculates X/Y coordinates in meters based on the maximum position in the magnitude square of the azimuth F\+FT output. The function is called per detected object. The detected object structure already has populated range and doppler indices. This function finds maximum index in the azimuth F\+FT, calculates X and Y and coordinates and stores them into object fields along with the peak height. Also it populates the azimuth index in azimuth\+Mag\+Sqr array.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em obj} & Pointer to data path object \\
+\hline
+\mbox{\texttt{ in}}  & {\em obj\+Index} & Detected object index\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em N\+O\+NE} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 431 of file dss\+\_\+data\+\_\+path.\+c.
+
+
+
+References D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::azimuth\+Mag\+Sqr, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::det\+Obj2D, Mmw\+Demo\+\_\+\+Multi\+Obj\+Beam\+Forming\+Cfg\+\_\+t\+::enabled, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::max\+Unambiguous\+Vel, Mmw\+Demo\+\_\+\+X\+Ycalc(), M\+R\+R\+\_\+\+M\+A\+X\+\_\+\+O\+B\+J\+\_\+\+O\+UT, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::multi\+Obj\+Beam\+Forming\+Cfg, Mmw\+Demo\+\_\+\+Multi\+Obj\+Beam\+Forming\+Cfg\+\_\+t\+::multi\+Peak\+Thrs\+Scal, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::num\+Angle\+Bins, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::num\+Det\+Obj, P\+O\+I\+N\+T\+\_\+\+C\+L\+O\+U\+D\+\_\+\+P\+R\+O\+C\+E\+S\+S\+I\+NG, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::processing\+Path, Mmw\+Demo\+\_\+detected\+Obj\+Actual\+\_\+t\+::speed, and D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::xyz\+Output\+Q\+Format.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=345pt]{dss__data__path_8c_a6b2e4417c9fc340adbe89788beae8d36_cgraph}
+\end{center}
+\end{figure}
+\mbox{\label{dss__data__path_8c_abc5a5506d354548a679449af792380d2}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!MmwDemo\_XYZcalc@{MmwDemo\_XYZcalc}}
+\index{MmwDemo\_XYZcalc@{MmwDemo\_XYZcalc}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{MmwDemo\_XYZcalc()}
+{\footnotesize\ttfamily void Mmw\+Demo\+\_\+\+X\+Y\+Zcalc (\begin{DoxyParamCaption}\item[{\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$}]{obj,  }\item[{uint32\+\_\+t}]{obj\+Index,  }\item[{uint16\+\_\+t}]{azim\+Idx,  }\item[{float $\ast$}]{azimuth\+Mag\+Sqr }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ Calculates X/Y coordinates in meters based on the maximum position in the magnitude square of the azimuth F\+FT output. The function is called per detected object.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em obj} & Pointer to data path object \\
+\hline
+\mbox{\texttt{ in}}  & {\em obj\+Index} & Detected object index \\
+\hline
+\mbox{\texttt{ in}}  & {\em azim\+Idx} & Index of the peak position in Azimuth F\+FT output \\
+\hline
+\mbox{\texttt{ in}}  & {\em azimuth\+Mag\+Sqr} & azimuth energy array\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em N\+O\+NE} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 5052 of file dss\+\_\+data\+\_\+path.\+c.
+
+
+
+Referenced by Mmw\+Demo\+\_\+\+X\+Y\+Zestimation().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dss__data__path_8c_abc5a5506d354548a679449af792380d2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{dss__data__path_8c_ac681c917b017010bdc7b359da066a355}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!MmwDemo\_XYZestimation@{MmwDemo\_XYZestimation}}
+\index{MmwDemo\_XYZestimation@{MmwDemo\_XYZestimation}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{MmwDemo\_XYZestimation()}
+{\footnotesize\ttfamily void Mmw\+Demo\+\_\+\+X\+Y\+Zestimation (\begin{DoxyParamCaption}\item[{\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$}]{obj,  }\item[{uint32\+\_\+t}]{obj\+Index }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ Calculates X/Y coordinates in meters based on the maximum position in the magnitude square of the azimuth F\+FT output. The function is called per detected object. The detected object structure already has populated range and doppler indices. This function finds maximum index in the azimuth F\+FT, calculates X and Y and coordinates and stores them into object fields along with the peak height. Also it populates the azimuth index in azimuth\+Mag\+Sqr array.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em obj} & Pointer to data path object \\
+\hline
+\mbox{\texttt{ in}}  & {\em obj\+Index} & Detected object index\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em N\+O\+NE} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 563 of file dss\+\_\+data\+\_\+path.\+c.
+
+
+
+References D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::azimuth\+Mag\+Sqr, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::det\+Obj2D, Mmw\+Demo\+\_\+\+Multi\+Obj\+Beam\+Forming\+Cfg\+\_\+t\+::enabled, M\+A\+X\+\_\+\+V\+E\+L\+\_\+\+P\+O\+I\+N\+T\+\_\+\+C\+L\+O\+U\+D\+\_\+\+P\+R\+O\+C\+E\+S\+S\+I\+N\+G\+\_\+\+I\+S\+\_\+\+E\+N\+A\+B\+L\+ED, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::max\+Unambiguous\+Vel, Mmw\+Demo\+\_\+\+X\+Y\+Zcalc(), M\+R\+R\+\_\+\+M\+A\+X\+\_\+\+O\+B\+J\+\_\+\+O\+UT, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::multi\+Obj\+Beam\+Forming\+Cfg, Mmw\+Demo\+\_\+\+Multi\+Obj\+Beam\+Forming\+Cfg\+\_\+t\+::multi\+Peak\+Thrs\+Scal, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::num\+Angle\+Bins, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::num\+Det\+Obj, P\+O\+I\+N\+T\+\_\+\+C\+L\+O\+U\+D\+\_\+\+P\+R\+O\+C\+E\+S\+S\+I\+NG, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::processing\+Path, Mmw\+Demo\+\_\+detected\+Obj\+Actual\+\_\+t\+::speed, and D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::xyz\+Output\+Q\+Format.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dss__data__path_8c_ac681c917b017010bdc7b359da066a355_cgraph}
+\end{center}
+\end{figure}
+\mbox{\label{dss__data__path_8c_a4c732c3ef40edafbfdd43c129bb0d47d}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!parkingAssistInit@{parkingAssistInit}}
+\index{parkingAssistInit@{parkingAssistInit}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{parkingAssistInit()}
+{\footnotesize\ttfamily void parking\+Assist\+Init (\begin{DoxyParamCaption}\item[{\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$}]{obj }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ Initialize the \textquotesingle{}parking assist bins\textquotesingle{} state which is essentially the closest obstruction upper bounded by its maximum value.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em obj} & Pointer to data path object\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em N\+O\+NE} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 5146 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_a2f1dc419540f889de74a72c297de3c0b}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!populateOutputs@{populateOutputs}}
+\index{populateOutputs@{populateOutputs}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{populateOutputs()}
+{\footnotesize\ttfamily void populate\+Outputs (\begin{DoxyParamCaption}\item[{\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$}]{obj }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ The function populates the object location arrays for transmission to M\+SS. The reason we do this additional step is to minimize the size of the the transmission by populating new structure which hold only the minimum information necessary for the G\+UI.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em input} & data path object.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em none} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 4452 of file dss\+\_\+data\+\_\+path.\+c.
+
+
+
+References A\+G\+E\+D\+\_\+\+O\+B\+J\+\_\+\+D\+E\+L\+E\+T\+I\+O\+N\+\_\+\+T\+H\+R\+E\+SH, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::cluster\+Op\+Final, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::db\+Scan\+Instance, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::db\+Scan\+Report, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::db\+Scan\+State, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::det\+Obj2D, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::det\+Obj\+Final, E\+I\+G\+H\+T\+E\+E\+N\+\_\+\+D\+B\+\_\+\+D\+O\+P\+P\+L\+E\+R\+\_\+\+S\+NR, F\+O\+U\+R\+\_\+\+P\+O\+I\+N\+T\+\_\+\+Z\+E\+R\+O\+\_\+\+M\+E\+T\+E\+RS, iX, i\+Xd, iY, i\+Yd, M\+A\+X\+\_\+\+V\+E\+L\+\_\+\+E\+N\+H\+\_\+\+P\+R\+O\+C\+E\+S\+S\+I\+NG, clustering\+D\+Bscan\+Instance\+::max\+Clusters, K\+Ftracker\+Instance\+::max\+Trackers, M\+I\+N\+\_\+\+T\+I\+C\+K\+\_\+\+F\+O\+R\+\_\+\+TX, Mmw\+Demo\+\_\+dss\+Assert, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::num\+Active\+Trackers, clustering\+D\+Bscan\+Output\+::num\+Cluster, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::num\+Det\+Obj, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::parking\+Assist\+Bins, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::parking\+Assist\+Bins\+State, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::parking\+Assist\+Bins\+State\+Cnt, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::parking\+Assist\+Max\+Range, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::parking\+Assist\+Num\+Bins, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::parking\+Assist\+Num\+Bins\+Log2, P\+O\+I\+N\+T\+\_\+\+C\+L\+O\+U\+D\+\_\+\+P\+R\+O\+C\+E\+S\+S\+I\+NG, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::processing\+Path, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::sin\+Azim\+Q\+Format, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::tracker\+Instance, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::tracker\+Op\+Final, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::tracker\+State, T\+W\+E\+N\+T\+Y\+\_\+\+T\+W\+O\+\_\+\+D\+B\+\_\+\+D\+O\+P\+P\+L\+E\+R\+\_\+\+S\+NR, K\+Fstate\+::vec, K\+Fstate\+::x\+Size, D\+S\+S\+\_\+\+Data\+Path\+Obj\+\_\+t\+::xyz\+Output\+Q\+Format, K\+Fstate\+::y\+Size, and Z\+E\+R\+O\+\_\+\+P\+O\+I\+N\+T\+\_\+\+F\+I\+V\+E\+\_\+\+M\+E\+T\+E\+RS.
+
+\mbox{\label{dss__data__path_8c_afaf7898b45f97cd4862488d583701396}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!pruneToPeaks@{pruneToPeaks}}
+\index{pruneToPeaks@{pruneToPeaks}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{pruneToPeaks()}
+{\footnotesize\ttfamily uint32\+\_\+t prune\+To\+Peaks (\begin{DoxyParamCaption}\item[{uint16\+\_\+t $\ast$restrict}]{cfar\+Det\+Obj\+Index\+Buf,  }\item[{uint16\+\_\+t $\ast$restrict}]{cfar\+Det\+Obj\+S\+NR,  }\item[{uint32\+\_\+t}]{num\+Det\+Obj\+Per\+Cfar,  }\item[{uint16\+\_\+t $\ast$restrict}]{sum\+Abs,  }\item[{uint16\+\_\+t}]{num\+Bins }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ This function prune\+To\+Peaks selects the peaks from within the list of objects detected by C\+F\+AR.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em cfar\+Det\+Obj\+Index\+Buf} & The indices of the detected objects. \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em cfar\+Det\+Obj\+S\+NR} & The S\+NR of the detected objects. \\
+\hline
+\mbox{\texttt{ in}}  & {\em num\+Det\+Obj\+Per\+Cfar} & The number of detected objects. \\
+\hline
+\mbox{\texttt{ in}}  & {\em sum\+Abs} & The sum\+Abs array on which the C\+F\+AR was run.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em The} & number of detected objects that are peaks. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 3208 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_a77683113772db692e2e692d08e58a0e5}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!pruneToPeaksOrNeighbourOfPeaks@{pruneToPeaksOrNeighbourOfPeaks}}
+\index{pruneToPeaksOrNeighbourOfPeaks@{pruneToPeaksOrNeighbourOfPeaks}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{pruneToPeaksOrNeighbourOfPeaks()}
+{\footnotesize\ttfamily uint32\+\_\+t prune\+To\+Peaks\+Or\+Neighbour\+Of\+Peaks (\begin{DoxyParamCaption}\item[{uint16\+\_\+t $\ast$restrict}]{cfar\+Det\+Obj\+Index\+Buf,  }\item[{uint16\+\_\+t $\ast$restrict}]{cfar\+Det\+Obj\+S\+NR,  }\item[{uint32\+\_\+t}]{num\+Det\+Obj\+Per\+Cfar,  }\item[{uint16\+\_\+t $\ast$restrict}]{sum\+Abs,  }\item[{uint16\+\_\+t}]{num\+Bins }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ A slightly weaker implementation of the \textquotesingle{}prune\+To\+Peaks\textquotesingle{} algorithm. This variation passes peaks as well as their largest neighbour.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em cfar\+Det\+Obj\+Index\+Buf} & The indices of the detected objects. \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em cfar\+Det\+Obj\+S\+NR} & The S\+NR of the detected objects. \\
+\hline
+\mbox{\texttt{ in}}  & {\em num\+Det\+Obj\+Per\+Cfar} & The number of detected objects. \\
+\hline
+\mbox{\texttt{ in}}  & {\em sum\+Abs} & The sum\+Abs array on which the C\+F\+AR was run. \\
+\hline
+\mbox{\texttt{ in}}  & {\em num\+Bins} & The length of the sum\+Abs array.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em N\+O\+NE} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 5173 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_af07291cd51c3616525a8f08ed40b14fe}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!pruneTrackingInput@{pruneTrackingInput}}
+\index{pruneTrackingInput@{pruneTrackingInput}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{pruneTrackingInput()}
+{\footnotesize\ttfamily uint32\+\_\+t prune\+Tracking\+Input (\begin{DoxyParamCaption}\item[{\textbf{ tracking\+Input\+Report\+\_\+t} $\ast$}]{tracking\+Input,  }\item[{const uint32\+\_\+t}]{num\+Cluster }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ The function removes objects from extreme angles and with poor angle S\+NR from the tracking input.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em trackinginput} & List of tracking inputs. \\
+\hline
+\mbox{\texttt{ in}}  & {\em num\+Clusters} & number of tracking inputs (from the clustering output). \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em number} & of tracking inputs after pruning. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 4706 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_a3229ef73ab254e17edbe5dcadfd23fb6}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!quadraticInterpFltPeakLoc@{quadraticInterpFltPeakLoc}}
+\index{quadraticInterpFltPeakLoc@{quadraticInterpFltPeakLoc}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{quadraticInterpFltPeakLoc()}
+{\footnotesize\ttfamily float quadratic\+Interp\+Flt\+Peak\+Loc (\begin{DoxyParamCaption}\item[{float $\ast$restrict}]{y,  }\item[{int32\+\_\+t}]{len,  }\item[{int32\+\_\+t}]{indx }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ The function performs a quadractic peak interpolation to compute the fractional offset of the peak location. It is primarily intended to be used in oversampled F\+F\+Ts.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em y} & the array of data. \\
+\hline
+\mbox{\texttt{ in}}  & {\em len} & length of the array. \\
+\hline
+\mbox{\texttt{ in}}  & {\em indx} & coarse peak location.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em interpolated} & peak location (varies from -\/1 to +1). \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 4741 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_a2d8a872aba73fe08fe0d817a2a4011da}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!quadraticInterpLog2ShortPeakLoc@{quadraticInterpLog2ShortPeakLoc}}
+\index{quadraticInterpLog2ShortPeakLoc@{quadraticInterpLog2ShortPeakLoc}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{quadraticInterpLog2ShortPeakLoc()}
+{\footnotesize\ttfamily float quadratic\+Interp\+Log2\+Short\+Peak\+Loc (\begin{DoxyParamCaption}\item[{uint16\+\_\+t $\ast$restrict}]{y,  }\item[{int32\+\_\+t}]{len,  }\item[{int32\+\_\+t}]{indx,  }\item[{uint16\+\_\+t}]{frac\+Bit\+In }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ The function performs a quadractic peak interpolation to compute the fractional offset of the peak location. It is primarily intended to be used in oversampled F\+F\+Ts. The input is assumed to be an unsigned short.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em y} & the array of data. \\
+\hline
+\mbox{\texttt{ in}}  & {\em len} & length of the array. \\
+\hline
+\mbox{\texttt{ in}}  & {\em indx} & coarse peak location. \\
+\hline
+\mbox{\texttt{ in}}  & {\em frac\+Bit\+In} & fractional bits in the input array. ~\newline
+\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em interpolated} & peak location (varies from -\/1 to +1). \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 4795 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_af2ce76243b504f03f6379cdf7f7081df}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!rangeBasedPruning@{rangeBasedPruning}}
+\index{rangeBasedPruning@{rangeBasedPruning}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{rangeBasedPruning()}
+{\footnotesize\ttfamily uint32\+\_\+t range\+Based\+Pruning (\begin{DoxyParamCaption}\item[{\textbf{ Mmw\+Demo\+\_\+detected\+Obj\+Actual} $\ast$restrict}]{obj\+Out,  }\item[{\textbf{ Mmw\+Demo\+\_\+obj\+Raw2\+D\+\_\+t} $\ast$restrict}]{obj\+Raw,  }\item[{\textbf{ Range\+Dependant\+Thresh\+\_\+t} $\ast$restrict}]{S\+N\+R\+Thresh,  }\item[{\textbf{ Range\+Dependant\+Thresh\+\_\+t} $\ast$restrict}]{peak\+Val\+Thresh,  }\item[{uint32\+\_\+t}]{num\+Detected\+Objects,  }\item[{uint32\+\_\+t}]{num\+Doppler\+Bins,  }\item[{uint32\+\_\+t}]{max\+Range,  }\item[{uint32\+\_\+t}]{min\+Range }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ This function populates the Obj\+Out based on the obj\+Raw. It includes one more layer of pruning which prevent objects beyond the maximum range or minimum range from being populated. Additionally we change the S\+NR requirement as a function of the range, requiring larger S\+NR for objects closer to the car, and lower S\+NR for objects farther from the car. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em obj\+Out} & Output array of detected objects after peak grouping \\
+\hline
+\mbox{\texttt{ in}}  & {\em obj\+Raw} & Array of detected objects after C\+F\+AR detection \\
+\hline
+\mbox{\texttt{ in}}  & {\em S\+N\+R\+Thresh} & A list of S\+NR thresholds for a list of ranges. \\
+\hline
+\mbox{\texttt{ in}}  & {\em S\+N\+R\+Thresh} & A list of peak\+Val thresholds for a list of ranges. \\
+\hline
+\mbox{\texttt{ in}}  & {\em num\+Detected\+Objects} & Number of detected objects by C\+F\+AR \\
+\hline
+\mbox{\texttt{ in}}  & {\em num\+Doppler\+Bins} & Number of Doppler bins \\
+\hline
+\mbox{\texttt{ in}}  & {\em max\+Range} & Maximum range (in O\+N\+E\+\_\+\+Q\+F\+O\+R\+M\+AT) \\
+\hline
+\mbox{\texttt{ in}}  & {\em min\+Range} & Minimum range (in O\+N\+E\+\_\+\+Q\+F\+O\+R\+M\+AT)\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Number} & of detected objects after grouping \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 1317 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_a2e2377d3ad6f135f2faf2f3471f1694c}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!secondDimFFTandLog2Computation@{secondDimFFTandLog2Computation}}
+\index{secondDimFFTandLog2Computation@{secondDimFFTandLog2Computation}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{secondDimFFTandLog2Computation()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily uint32\+\_\+t second\+Dim\+F\+F\+Tand\+Log2\+Computation (\begin{DoxyParamCaption}\item[{\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$}]{obj,  }\item[{uint16\+\_\+t $\ast$}]{sum\+Abs,  }\item[{uint16\+\_\+t}]{check\+Det\+Matrix\+Tx,  }\item[{uint16\+\_\+t}]{range\+Idx,  }\item[{uint32\+\_\+t $\ast$}]{ping\+Pong\+Idx\+Ptr }\end{DoxyParamCaption})}
+
+\mbox{\label{dss__data__path_8c_ae2538ad95738cf52edce1a18e8a58c8b}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!secondDimFFTandLog2Computation@{secondDimFFTandLog2Computation}}
+\index{secondDimFFTandLog2Computation@{secondDimFFTandLog2Computation}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{secondDimFFTandLog2Computation()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily uint32\+\_\+t second\+Dim\+F\+F\+Tand\+Log2\+Computation (\begin{DoxyParamCaption}\item[{\textbf{ D\+S\+S\+\_\+\+Data\+Path\+Obj} $\ast$restrict}]{obj,  }\item[{uint16\+\_\+t $\ast$restrict}]{sum\+Abs,  }\item[{uint16\+\_\+t}]{check\+Det\+Matrix\+Tx,  }\item[{uint16\+\_\+t}]{range\+Idx,  }\item[{uint32\+\_\+t $\ast$}]{ping\+Pong\+Idx\+Ptr }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ Function to perform 2D-\/\+F\+FT on all Rxs corresponding to one range gatewindow sample. Following the F\+FT it computes the Log2 Abs and optionally stores it in det\+Matrix.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em obj} & Data path object. \\
+\hline
+\mbox{\texttt{ out}}  & {\em sum\+Abs} & Sum of the log2 of absolute value. \\
+\hline
+\mbox{\texttt{ in}}  & {\em check\+Det\+Matrix\+Tx} & Optionally check whether the detection matrix has been transferred to L3. \\
+\hline
+\mbox{\texttt{ in}}  & {\em range\+Idx} & The index of the range gate being processed. \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em ping\+Pong\+Idx\+Ptr} & Pointer to the current ping-\/pong indx\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em waiting\+Time.} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 2926 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_ac270a89f3946ebec88056e23c48bc47c}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!select\_channel@{select\_channel}}
+\index{select\_channel@{select\_channel}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{select\_channel()}
+{\footnotesize\ttfamily uint8\+\_\+t select\+\_\+channel (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{subframe\+Indx,  }\item[{uint8\+\_\+t}]{ping\+Pong\+Id,  }\item[{uint8\+\_\+t}]{option0ping,  }\item[{uint8\+\_\+t}]{option0pong }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ selects one of four channels based on the subframe and the \textquotesingle{}ping pong\textquotesingle{} ID 
+
+Definition at line 266 of file dss\+\_\+data\+\_\+path.\+c.
+
+
+
+References ping\+Pong\+Id.
+
+
+
+Referenced by Mmw\+Demo\+\_\+data\+Path\+Wait1\+D\+Output\+Data(), Mmw\+Demo\+\_\+data\+Path\+Wait2\+D\+Input\+Data(), and Mmw\+Demo\+\_\+data\+Path\+Wait3\+D\+Input\+Data().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dss__data__path_8c_ac270a89f3946ebec88056e23c48bc47c_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\label{dss__data__path_8c_a6e08c5e3199213090b427bdef632f159}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!gCycleLog@{gCycleLog}}
+\index{gCycleLog@{gCycleLog}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{gCycleLog}
+{\footnotesize\ttfamily volatile \textbf{ cycle\+Log\+\_\+t} g\+Cycle\+Log}
+
+
+
+Definition at line 99 of file dss\+\_\+main.\+c.
+
+
+
+Referenced by Mmw\+Demo\+\_\+process\+Chirp().
+
+\mbox{\label{dss__data__path_8c_a400857e2ff108c7f9aa2f123e85774a1}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!gMCB@{gMCB}}
+\index{gMCB@{gMCB}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{gMCB}
+{\footnotesize\ttfamily \textbf{ M\+CB} g\+M\+CB}
+
+
+
+Global Variable for tracking information required by the design. 
+
+
+
+Definition at line 97 of file dss\+\_\+main.\+c.
+
+\mbox{\label{dss__data__path_8c_abc9873a24b3a8b2d28730047f7ee1115}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!gMmwL1@{gMmwL1}}
+\index{gMmwL1@{gMmwL1}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{gMmwL1}
+{\footnotesize\ttfamily uint8\+\_\+t g\+Mmw\+L1[\textbf{ M\+M\+W\+\_\+\+L1\+\_\+\+H\+E\+A\+P\+\_\+\+S\+I\+ZE}]}
+
+L1 Heap 
+
+Definition at line 136 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_af32cc72c66cc0e30a4b5663c2fd1485c}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!gMmwL2@{gMmwL2}}
+\index{gMmwL2@{gMmwL2}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{gMmwL2}
+{\footnotesize\ttfamily uint8\+\_\+t g\+Mmw\+L2[\textbf{ M\+M\+W\+\_\+\+L2\+\_\+\+H\+E\+A\+P\+\_\+\+S\+I\+ZE}]}
+
+L2 Heap 
+
+Definition at line 131 of file dss\+\_\+data\+\_\+path.\+c.
+
+\mbox{\label{dss__data__path_8c_a04d331bc79664cb2ff72e328f4566d97}} 
+\index{dss\_data\_path.c@{dss\_data\_path.c}!gMmwL3@{gMmwL3}}
+\index{gMmwL3@{gMmwL3}!dss\_data\_path.c@{dss\_data\_path.c}}
+\doxysubsubsection{gMmwL3}
+{\footnotesize\ttfamily uint8\+\_\+t g\+Mmw\+L3[\textbf{ S\+O\+C\+\_\+\+X\+W\+R18\+X\+X\+\_\+\+D\+S\+S\+\_\+\+L3\+R\+A\+M\+\_\+\+S\+I\+ZE}]}
+
+L3 R\+AM buffer 
+
+Definition at line 126 of file dss\+\_\+data\+\_\+path.\+c.
+

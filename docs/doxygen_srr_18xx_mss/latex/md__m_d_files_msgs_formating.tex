@@ -1,0 +1,138 @@
+\begin{quote}
+The structure defines the message structure used to commuincate between M\+SS and D\+SS. \end{quote}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{/* Within the MSS */}}
+\DoxyCodeLine{MmwDemo\_message      message;}
+\end{DoxyCode}
+
+
+\begin{quote}
+Mmw\+Demo\+\_\+message Structure is defined in {\ttfamily \doxyref{mmw\+\_\+messages.\+h}{p.}{mmw__messages_8h}} \end{quote}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{typedef} \textcolor{keyword}{struct }MmwDemo\_message\_t}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    MmwDemo\_message\_type        type;}
+\DoxyCodeLine{    int8\_t                      subFrameNum;    }
+\DoxyCodeLine{    MmwDemo\_message\_body        body;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\} MmwDemo\_message;}
+\end{DoxyCode}
+
+
+\begin{quote}
+The enum is used to hold all the messages types used for Mailbox communication between M\+SS and D\+SS \end{quote}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{typedef} \textcolor{keyword}{enum} MmwDemo\_message\_type\_e }
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    MMWDEMO\_MSS2DSS\_GUIMON\_CFG = 0xFEED0001,}
+\DoxyCodeLine{    MMWDEMO\_MSS2DSS\_CFAR\_RANGE\_CFG,}
+\DoxyCodeLine{    MMWDEMO\_MSS2DSS\_CFAR\_DOPPLER\_CFG,}
+\DoxyCodeLine{    MMWDEMO\_MSS2DSS\_PEAK\_GROUPING\_CFG,}
+\DoxyCodeLine{    MMWDEMO\_MSS2DSS\_MULTI\_OBJ\_BEAM\_FORM,}
+\DoxyCodeLine{    MMWDEMO\_MSS2DSS\_CALIB\_DC\_RANGE\_SIG,}
+\DoxyCodeLine{    MMWDEMO\_MSS2DSS\_DETOBJ\_SHIPPED,}
+\DoxyCodeLine{    MMWDEMO\_MSS2DSS\_SET\_DATALOGGER,}
+\DoxyCodeLine{    MMWDEMO\_MSS2DSS\_ADCBUFCFG,}
+\DoxyCodeLine{    MMWDEMO\_MSS2DSS\_EXTENDED\_MAX\_VELOCITY,}
+\DoxyCodeLine{    MMWDEMO\_MSS2DSS\_CLUTTER\_REMOVAL,}
+\DoxyCodeLine{    MMWDEMO\_MSS2DSS\_COMP\_RANGE\_BIAS\_AND\_RX\_CHAN\_PHASE,}
+\DoxyCodeLine{    MMWDEMO\_MSS2DSS\_MEASURE\_RANGE\_BIAS\_AND\_RX\_CHAN\_PHASE,}
+\DoxyCodeLine{    MMWDEMO\_DSS2MSS\_CONFIGDONE = 0xFEED0100,}
+\DoxyCodeLine{    MMWDEMO\_DSS2MSS\_DETOBJ\_READY,}
+\DoxyCodeLine{    MMWDEMO\_DSS2MSS\_STOPDONE,}
+\DoxyCodeLine{    MMWDEMO\_DSS2MSS\_ASSERT\_INFO,}
+\DoxyCodeLine{    MMWDEMO\_DSS2MSS\_ISR\_INFO\_ADDRESS,}
+\DoxyCodeLine{    MMWDEMO\_DSS2MSS\_MEASUREMENT\_INFO}
+\DoxyCodeLine{\}MmwDemo\_message\_type;}
+\end{DoxyCode}
+
+
+\begin{quote}
+The union defines the message body for various configuration messages to be passed from M\+SS to D\+SS \end{quote}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{typedef} \textcolor{keyword}{union }MmwDemo\_message\_body\_u }
+\DoxyCodeLine{\{}
+\DoxyCodeLine{}
+\DoxyCodeLine{    uint8\_t                     dataLogger;}
+\DoxyCodeLine{    uint32\_t                    dss2mssISRinfoAddress;}
+\DoxyCodeLine{    MmwDemo\_detInfoMsg          detObj;}
+\DoxyCodeLine{    MmwDemo\_dssAssertInfoMsg    assertInfo;}
+\DoxyCodeLine{\} MmwDemo\_message\_body;}
+\end{DoxyCode}
+
+
+\begin{quote}
+The structure defines the message body for reporting D\+SS assertion information on a D\+SS exception that should be forwarded to the M\+SS. \end{quote}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{typedef} \textcolor{keyword}{struct }MmwDemo\_dssAssertInfoMsg\_t}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \textcolor{keywordtype}{char}     file[MMWDEMO\_MAX\_FILE\_NAME\_SIZE];}
+\DoxyCodeLine{    uint32\_t line;}
+\DoxyCodeLine{\} MmwDemo\_dssAssertInfoMsg;}
+\end{DoxyCode}
+
+
+\begin{quote}
+The structure defines the message body for reporting detection information from data path to M\+SS. \end{quote}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{typedef} \textcolor{keyword}{struct }MmwDemo\_detObjMsg\_t}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    MmwDemo\_output\_     message\_header header;}
+\DoxyCodeLine{    MmwDemo\_msgTlv      tlv[MMWDEMO\_OUTPUT\_MSG\_MAX];}
+\DoxyCodeLine{\} MmwDemo\_detInfoMsg;}
+\end{DoxyCode}
+
+
+\begin{quote}
+The structure describes the T\+LV part of the message from D\+SS to M\+SS on data path detection information. \end{quote}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{typedef} \textcolor{keyword}{struct }MmwDemo\_msgTlv\_t}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    uint32\_t    type;}
+\DoxyCodeLine{    uint32\_t    length;}
+\DoxyCodeLine{    uint32\_t   address;}
+\DoxyCodeLine{\} MmwDemo\_msgTlv;}
+\end{DoxyCode}
+\doxysection{M\+O\+V\+I\+N\+G T\+O A\+N\+O\+T\+H\+E\+R F\+I\+LE}\label{md__m_d_files_msgs_formating_autotoc_md7}
+\begin{quote}
+Mmw\+Demo\+\_\+message Structure is defined in {\ttfamily mrr\+\_\+output.\+h} \end{quote}
+
+
+\begin{quote}
+The structure defines the message header for reporting detection information from data path \end{quote}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{typedef} \textcolor{keyword}{struct }MmwDemo\_output\_message\_header\_t}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    uint16\_t    magicWord[4];}
+\DoxyCodeLine{    uint32\_t    version;}
+\DoxyCodeLine{    uint32\_t    totalPacketLen;}
+\DoxyCodeLine{    uint32\_t    platform;}
+\DoxyCodeLine{    uint32\_t    frameNumber;}
+\DoxyCodeLine{    uint32\_t    timeCpuCycles;}
+\DoxyCodeLine{    uint32\_t    numDetectedObj;}
+\DoxyCodeLine{    uint32\_t    numTLVs;}
+\DoxyCodeLine{    uint32\_t    subFrameNumber;}
+\DoxyCodeLine{\} MmwDemo\_output\_message\_header;}
+\end{DoxyCode}
+
+
+\begin{quote}
+The rest structures in the mrr\+\_\+output.\+h file are used by the D\+SS. \end{quote}

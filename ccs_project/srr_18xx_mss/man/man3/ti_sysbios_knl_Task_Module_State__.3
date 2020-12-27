@@ -1,0 +1,133 @@
+.TH "ti_sysbios_knl_Task_Module_State__" 3 "Wed May 20 2020" "Version 1.0" "mmWaveFMCWRADAR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ti_sysbios_knl_Task_Module_State__
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "volatile xdc_Bool \fBlocked\fP"
+.br
+.ti -1c
+.RI "volatile xdc_UInt \fBcurSet\fP"
+.br
+.ti -1c
+.RI "volatile xdc_Bool \fBworkFlag\fP"
+.br
+.ti -1c
+.RI "xdc_UInt \fBvitalTasks\fP"
+.br
+.ti -1c
+.RI "ti_sysbios_knl_Task_Handle \fBcurTask\fP"
+.br
+.ti -1c
+.RI "ti_sysbios_knl_Queue_Handle \fBcurQ\fP"
+.br
+.ti -1c
+.RI "__TA_ti_sysbios_knl_Task_Module_State__readyQ \fBreadyQ\fP"
+.br
+.ti -1c
+.RI "__TA_ti_sysbios_knl_Task_Module_State__smpCurSet \fBsmpCurSet\fP"
+.br
+.ti -1c
+.RI "__TA_ti_sysbios_knl_Task_Module_State__smpCurMask \fBsmpCurMask\fP"
+.br
+.ti -1c
+.RI "__TA_ti_sysbios_knl_Task_Module_State__smpCurTask \fBsmpCurTask\fP"
+.br
+.ti -1c
+.RI "__TA_ti_sysbios_knl_Task_Module_State__smpReadyQ \fBsmpReadyQ\fP"
+.br
+.ti -1c
+.RI "__TA_ti_sysbios_knl_Task_Module_State__idleTask \fBidleTask\fP"
+.br
+.ti -1c
+.RI "__TA_ti_sysbios_knl_Task_Module_State__constructedTasks \fBconstructedTasks\fP"
+.br
+.ti -1c
+.RI "xdc_Bool \fBcurTaskPrivileged\fP"
+.br
+.ti -1c
+.RI "\fBti_sysbios_knl_Queue_Object__\fP \fBObject_field_inactiveQ\fP"
+.br
+.ti -1c
+.RI "\fBti_sysbios_knl_Queue_Object__\fP \fBObject_field_terminatedQ\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 1360 of file mss_mrr_per4f\&.c\&.
+.SH "Field Documentation"
+.PP 
+.SS "__TA_ti_sysbios_knl_Task_Module_State__constructedTasks ti_sysbios_knl_Task_Module_State__::constructedTasks"
+
+.PP
+Definition at line 1373 of file mss_mrr_per4f\&.c\&.
+.SS "ti_sysbios_knl_Queue_Handle ti_sysbios_knl_Task_Module_State__::curQ"
+
+.PP
+Definition at line 1366 of file mss_mrr_per4f\&.c\&.
+.SS "volatile xdc_UInt ti_sysbios_knl_Task_Module_State__::curSet"
+
+.PP
+Definition at line 1362 of file mss_mrr_per4f\&.c\&.
+.SS "ti_sysbios_knl_Task_Handle ti_sysbios_knl_Task_Module_State__::curTask"
+
+.PP
+Definition at line 1365 of file mss_mrr_per4f\&.c\&.
+.SS "xdc_Bool ti_sysbios_knl_Task_Module_State__::curTaskPrivileged"
+
+.PP
+Definition at line 1374 of file mss_mrr_per4f\&.c\&.
+.SS "__TA_ti_sysbios_knl_Task_Module_State__idleTask ti_sysbios_knl_Task_Module_State__::idleTask"
+
+.PP
+Definition at line 1372 of file mss_mrr_per4f\&.c\&.
+.SS "volatile xdc_Bool ti_sysbios_knl_Task_Module_State__::locked"
+
+.PP
+Definition at line 1361 of file mss_mrr_per4f\&.c\&.
+.SS "\fBti_sysbios_knl_Queue_Object__\fP ti_sysbios_knl_Task_Module_State__::Object_field_inactiveQ"
+
+.PP
+Definition at line 1375 of file mss_mrr_per4f\&.c\&.
+.SS "\fBti_sysbios_knl_Queue_Object__\fP ti_sysbios_knl_Task_Module_State__::Object_field_terminatedQ"
+
+.PP
+Definition at line 1376 of file mss_mrr_per4f\&.c\&.
+.SS "__TA_ti_sysbios_knl_Task_Module_State__readyQ ti_sysbios_knl_Task_Module_State__::readyQ"
+
+.PP
+Definition at line 1367 of file mss_mrr_per4f\&.c\&.
+.SS "__TA_ti_sysbios_knl_Task_Module_State__smpCurMask ti_sysbios_knl_Task_Module_State__::smpCurMask"
+
+.PP
+Definition at line 1369 of file mss_mrr_per4f\&.c\&.
+.SS "__TA_ti_sysbios_knl_Task_Module_State__smpCurSet ti_sysbios_knl_Task_Module_State__::smpCurSet"
+
+.PP
+Definition at line 1368 of file mss_mrr_per4f\&.c\&.
+.SS "__TA_ti_sysbios_knl_Task_Module_State__smpCurTask ti_sysbios_knl_Task_Module_State__::smpCurTask"
+
+.PP
+Definition at line 1370 of file mss_mrr_per4f\&.c\&.
+.SS "__TA_ti_sysbios_knl_Task_Module_State__smpReadyQ ti_sysbios_knl_Task_Module_State__::smpReadyQ"
+
+.PP
+Definition at line 1371 of file mss_mrr_per4f\&.c\&.
+.SS "xdc_UInt ti_sysbios_knl_Task_Module_State__::vitalTasks"
+
+.PP
+Definition at line 1364 of file mss_mrr_per4f\&.c\&.
+.SS "volatile xdc_Bool ti_sysbios_knl_Task_Module_State__::workFlag"
+
+.PP
+Definition at line 1363 of file mss_mrr_per4f\&.c\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mmWaveFMCWRADAR from the source code\&.

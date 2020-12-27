@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['data_5fpath_5fcq_5ffmt_5fbits_5f12_4139',['DATA_PATH_CQ_FMT_BITS_12',['../device__cfg_8h.html#a2464a6a75ac3038b5b7e1598019d962c',1,'device_cfg.h']]],
+  ['data_5fpath_5fcq_5ffmt_5fbits_5f14_4140',['DATA_PATH_CQ_FMT_BITS_14',['../device__cfg_8h.html#a4cc3e1e27154c17ce54e5cbeb7345c10',1,'device_cfg.h']]],
+  ['data_5fpath_5fcq_5ffmt_5fbits_5f16_4141',['DATA_PATH_CQ_FMT_BITS_16',['../device__cfg_8h.html#a03ff20b9506ced8ff3f36850ac695d59',1,'device_cfg.h']]],
+  ['data_5fpath_5fcsi2_4142',['DATA_PATH_CSI2',['../device__cfg_8h.html#a8a27b71a63bce05fbe0a457c711d6e06',1,'device_cfg.h']]],
+  ['data_5fpath_5ffmt0_5fadc_5fcp_5fdata_4143',['DATA_PATH_FMT0_ADC_CP_DATA',['../device__cfg_8h.html#ab6fe8403164c91cf7bcd7e9e4d9218ba',1,'device_cfg.h']]],
+  ['data_5fpath_5ffmt0_5fadc_5fdata_5fonly_4144',['DATA_PATH_FMT0_ADC_DATA_ONLY',['../device__cfg_8h.html#ab40b7403d7872c98e8d039661229aaa1',1,'device_cfg.h']]],
+  ['data_5fpath_5ffmt0_5fcp_5fadc_5fcq_5fdata_4145',['DATA_PATH_FMT0_CP_ADC_CQ_DATA',['../device__cfg_8h.html#a8f20763ef7267f70a375a69062ca2264',1,'device_cfg.h']]],
+  ['data_5fpath_5ffmt0_5fcp_5fadc_5fdata_4146',['DATA_PATH_FMT0_CP_ADC_DATA',['../device__cfg_8h.html#a39e4832aff69023075c2988da4fae7c9',1,'device_cfg.h']]],
+  ['data_5fpath_5ffmt1_5fcp_5fcq_4147',['DATA_PATH_FMT1_CP_CQ',['../device__cfg_8h.html#a85eff203c9a7e5f90b5241edabd99542',1,'device_cfg.h']]],
+  ['data_5fpath_5ffmt1_5fcq_5fcp_4148',['DATA_PATH_FMT1_CQ_CP',['../device__cfg_8h.html#a2eefe22ce3eec8ea316e84e2ff37826d',1,'device_cfg.h']]],
+  ['data_5fpath_5ffmt1_5fsupress_4149',['DATA_PATH_FMT1_SUPRESS',['../device__cfg_8h.html#aadba0e68e578c71636dd10fe229ca3af',1,'device_cfg.h']]],
+  ['data_5fpath_5flvds_4150',['DATA_PATH_LVDS',['../device__cfg_8h.html#a7bcac747ec8a2ff43455915bb2958284',1,'device_cfg.h']]],
+  ['dc_5frange_5fsignature_5fcomp_5fmax_5fbin_5fsize_4151',['DC_RANGE_SIGNATURE_COMP_MAX_BIN_SIZE',['../mrr__config_8h.html#a60c995d8fc5bab046f892e248592cbd3',1,'mrr_config.h']]],
+  ['do_5fnot_5fcheck_5ffor_5fdet_5fmatrix_5ftx_4152',['DO_NOT_CHECK_FOR_DET_MATRIX_TX',['../app__cfg_8h.html#a58f03ba61d11f536fca965ce322889a7',1,'app_cfg.h']]],
+  ['doppler_5fidx_5fto_5fsigned_4153',['DOPPLER_IDX_TO_SIGNED',['../detected__obj_8h.html#aadbe88483d7d17cf1e18bd38cb3c25b1',1,'detected_obj.h']]],
+  ['doppler_5fidx_5fto_5funsigned_4154',['DOPPLER_IDX_TO_UNSIGNED',['../detected__obj_8h.html#a558eb0a31417d1363eccfc369557b197',1,'detected_obj.h']]],
+  ['dss_5fstart_5fcompleted_5fevt_4155',['DSS_START_COMPLETED_EVT',['../mm_wave___x_s_s_8h.html#aad78cc8548277fafe8e943ce395781a8',1,'mmWave_XSS.h']]]
+];

@@ -1,0 +1,153 @@
+This file contains the memory types found in the map file
+given. You can rename the memory types to whatever you want by
+writing a new name on the same line as the old. If you don't want
+to rename a memory type just leave it on the line by itself.
+
+    Example: <old name> <new name>
+             text code
+    This will rename text to code in the analysis output.
+
+*******************************************************************************
+MEMORY TYPES
+------------
+const code
+text code
+reserved
+systemheap heap
+myfiqstack heap
+bss code
+tramp code
+vecs code
+unknown
+xdc
+data code
+common code
+
+hwabufs hw_mem
+l3ram heap
+dpc heap
+
+LIBRARIES
+---------
+(__TI_cinit_table) linker-generated
+libmailbox_xwr16xx.aer4f COMPONENTS_CORE
+(.common:ti_sysbios_family_arm_exc_Exception_Module_State_0_excStack_0__A) APP
+sysbios.aer4ft BIOS
+(.cinit.systemHeap.load) linker-generated
+(.common:gGPIOMCB) COMPONENTS_OPTIONAL
+libdma_xwr16xx.aer4f COMPONENTS_CORE
+(.common:gMmwMssMCB) APP
+(.common:gEsmMCB) COMPONENTS_CORE
+mss_main.oer4f APP
+libcli_xwr16xx.aer4f APP
+libcrc_xwr16xx.aer4f COMPONENTS_CORE
+libosal_xwr16xx.aer4f BIOS
+cli.oer4f APP
+(.cinit..data.load) linker-generated
+(__TI_handler_table) linker-generated
+libsoc_xwr16xx.aer4f COMPONENTS_CORE
+(.cinit..myFiqStack.load) linker-generated
+libpinmux_xwr16xx.aer4f COMPONENTS_CORE
+(.common:gMMWave_XWR16xxMCB) COMPONENTS_CORE
+(.common:gMMWave_MCB) COMPONENTS_CORE
+boot.aer4ft APP
+(.cinit..bss.load) linker-generated
+(.common:gCLI) APP
+auto_init.aer4ft APP
+libmmwave_xwr16xx.aer4f COMPONENTS_CORE
+libesm_xwr16xx.aer4f COMPONENTS_CORE
+(.common:__TI_tmpnams) APP
+libuart_xwr16xx.aer4f COMPONENTS_OPTIONAL
+ti.targets.arm.rtsarm.aer4ft APP
+rtsv7R4_T_le_v3D16_eabi.lib APP
+libmmwavelink_xwr16xx.aer4f COMPONENTS_CORE
+libgpio_xwr16xx.aer4f COMPONENTS_OPTIONAL
+mss_mmw_per4ft.oer4ft APP
+mmw_per4ft.oer4ft APP
+(.common:parmbuf) APP
+
+(.common:gHWADriverPtr) COMPONENTS_CORE
+(.common:gMmwSessionMgmtMCB) APP
+(.common:ti_sysbios_knl_Task_Instance_State_0_hookEnv__A) BIOS
+config_edma_util.oer4f APP
+config_hwa_util.oer4f APP
+data_path.oer4f APP
+libadcbuf_xwr14xx.aer4f COMPONENTS_CORE
+libcli_xwr14xx.aer4f APP
+libcrc_xwr14xx.aer4f COMPONENTS_CORE
+libedma_xwr14xx.aer4f COMPONENTS_CORE
+libesm_xwr14xx.aer4f COMPONENTS_CORE
+libgpio_xwr14xx.aer4f COMPONENTS_OPTIONAL
+libhwa_xwr14xx.aer4f COMPONENTS_CORE
+libmailbox_xwr14xx.aer4f COMPONENTS_CORE
+libmmwave_xwr14xx.aer4f COMPONENTS_CORE
+libmmwavelink_xwr14xx.aer4f COMPONENTS_CORE
+libosal_xwr14xx.aer4f BIOS
+libpinmux_xwr14xx.aer4f COMPONENTS_CORE
+libsoc_xwr14xx.aer4f COMPONENTS_CORE
+libuart_xwr14xx.aer4f COMPONENTS_OPTIONAL
+main.oer4f APP
+mmw_cli.oer4f APP 
+mmw_per4f.oer4f APP
+post_processing.oer4f APP
+sensor_mgmt.oer4f APP
+rx_ch_bias_measure.oer4f APP
+mmw_lvds_stream.oer4f APP
+mmwDemo_monitor.oer4f APP
+(.common:gHSIHeaderMCB) COMPONENTS_OPTIONAL
+libcbuff_xwr14xx.aer4f COMPONENTS_OPTIONAL
+libhsiheader_xwr14xx.aer4f COMPONENTS_OPTIONAL
+
+libedma_xwr68xx.aer4f COMPONENTS_CORE
+(.cinit..DPC_objDetTcmbHeap.load) APP
+libmathutils.aer4f COMPONENTS_CORE
+(.common:xdc_runtime_LoggerBuf_Instance_State_0_entryArr__A) APP
+libmmwave_xwr68xx.aer4f COMPONENTS_CORE
+libdpedma_hwa_xwr68xx.aer4f COMPONENTS_CORE
+libpinmux_xwr68xx.aer4f COMPONENTS_CORE
+libosal_xwr68xx.aer4f BIOS
+libmailbox_xwr68xx.aer4f COMPONENTS_CORE
+libcfarcaproc_hwa_xwr68xx.aer4f COMPONENTS_CORE 
+libdpm_xwr68xx.aer4f COMPONENTS_CORE
+objectdetection.oer4f COMPONENTS_CORE
+(.cinit..l3ram.load) linker-generated
+data_path.oer4f APP
+(.common:gObjDetObj) COMPONENTS_CORE
+libaoaproc_hwa_xwr68xx.aer4f COMPONENTS_CORE
+libdma_xwr68xx.aer4f COMPONENTS_OPTIONAL
+(.common:gMMWave_DualcoreMCB) COMPONENTS_CORE
+(.common:gMmwMCB) APP
+libcrc_xwr68xx.aer4f COMPONENTS_CORE
+libhwa_xwr68xx.aer4f COMPONENTS_CORE
+libdopplerproc_hwa_xwr68xx.aer4f COMPONENTS_CORE
+libuart_xwr68xx.aer4f COMPONENTS_OPTIONAL
+libgpio_xwr68xx.aer4f COMPONENTS_OPTIONAL
+mmwdemo_adcconfig.oer4f APP
+librangeproc_hwa_xwr68xx.aer4f  COMPONENTS_CORE
+libesm_xwr68xx.aer4f  COMPONENTS_CORE
+libstaticclutterproc_xwr68xx.aer4f  COMPONENTS_CORE
+mmwdemo_rfparser.oer4f APP
+libmmwavelink_xwr68xx.aer4f  COMPONENTS_CORE
+libsoc_xwr68xx.aer4f  COMPONENTS_CORE
+libadcbuf_xwr68xx.aer4f  COMPONENTS_CORE
+libcli_xwr68xx.aer4f  COMPONENTS_OPTIONAL
+
+libmmwavelink_xwr18xx.aer4f COMPONENTS_CORE
+libdpm_xwr18xx.aer4f COMPONENTS_CORE 
+libdma_xwr18xx.aer4f COMPONENTS_OPTIONAL
+mmw_mss_per4ft.oer4ft APP
+libcli_xwr18xx.aer4f COMPONENTS_OPTIONAL
+(.common:gMmwMssMCB) APP
+mss_main.oer4f APP
+libcrc_xwr18xx.aer4f COMPONENTS_CORE
+mmw_cli.oer4f APP
+libsoc_xwr18xx.aer4f COMPONENTS_CORE
+libuart_xwr18xx.aer4f COMPONENTS_OPTIONAL
+libosal_xwr18xx.aer4f BIOS
+libpinmux_xwr18xx.aer4f COMPONENTS_CORE
+libmailbox_xwr18xx.aer4f COMPONENTS_CORE
+libgpio_xwr18xx.aer4f COMPONENTS_OPTIONAL
+libmathutils.aer4f COMPONENTS_CORE
+libesm_xwr18xx.aer4f COMPONENTS_CORE
+libadcbuf_xwr18xx.aer4f COMPONENTS_CORE
+libmmwave_xwr18xx.aer4f COMPONENTS_CORE

@@ -1,0 +1,212 @@
+\doxysection{common/frame\+\_\+cfg.c File Reference}
+\label{frame__cfg_8c}\index{common/frame\_cfg.c@{common/frame\_cfg.c}}
+{\ttfamily \#include $<$common/app\+\_\+cfg.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$xdc/runtime/\+System.\+h$>$}\newline
+{\ttfamily \#include $<$ti/common/sys\+\_\+common.\+h$>$}\newline
+{\ttfamily \#include $<$ti/drivers/uart/\+U\+A\+R\+T.\+h$>$}\newline
+{\ttfamily \#include $<$ti/control/mmwavelink/mmwavelink.\+h$>$}\newline
+{\ttfamily \#include $<$ti/utils/cli/cli.\+h$>$}\newline
+Include dependency graph for frame\+\_\+cfg.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{frame__cfg_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ Cfg\+\_\+\+Adv\+Frame\+Cfg\+Init\+Params} (rl\+Adv\+Frame\+Cfg\+\_\+t $\ast$ptr\+Adv\+Frame\+Cfg)
+\begin{DoxyCompactList}\small\item\em The function initializes the frame configuration with the default parameters. \end{DoxyCompactList}\item 
+void \textbf{ Cfg\+\_\+\+Frame\+Cfg\+Init\+Params} (rl\+Frame\+Cfg\+\_\+t $\ast$ptr\+Frame\+Cfg)
+\begin{DoxyCompactList}\small\item\em The function initializes the frame configuration with the default parameters. \end{DoxyCompactList}\item 
+void \textbf{ Cfg\+\_\+\+Profile\+Cfg\+Init\+Params} (uint8\+\_\+t profile\+Num, rl\+Profile\+Cfg\+\_\+t $\ast$ptr\+Profile\+Cfg)
+\begin{DoxyCompactList}\small\item\em The function initializes the profile configuration with the default parameters. \end{DoxyCompactList}\item 
+void \textbf{ Cfg\+\_\+\+Chirp\+Cfg\+Init\+Params} (uint8\+\_\+t chirp\+Num, rl\+Chirp\+Cfg\+\_\+t $\ast$ptr\+Chirp\+Cfg)
+\begin{DoxyCompactList}\small\item\em The function initializes the chirp configuration with the default parameters. \end{DoxyCompactList}\item 
+void \textbf{ Cfg\+\_\+\+Low\+Power\+Mode\+Init\+Params} (rl\+Low\+Power\+Mode\+Cfg\+\_\+t $\ast$ptr\+Low\+Power\+Mode)
+\begin{DoxyCompactList}\small\item\em The function initializes the low power configuration with the default parameters. \end{DoxyCompactList}\item 
+void \textbf{ Cfg\+\_\+\+Channel\+Cfg\+Init\+Params} (rl\+Chan\+Cfg\+\_\+t $\ast$ptr\+Channel\+Cfg)
+\begin{DoxyCompactList}\small\item\em The function initializes the channel configuration with the default parameters. \end{DoxyCompactList}\item 
+void \textbf{ Cfg\+\_\+\+A\+D\+C\+Out\+Cfg\+Init\+Params} (rl\+Adc\+Out\+Cfg\+\_\+t $\ast$ptr\+A\+D\+C\+Out\+Cfg)
+\begin{DoxyCompactList}\small\item\em The function initializes the A\+D\+C\+Out configuration with the default parameters. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\label{frame__cfg_8c_a97614be092b49866d88d08a85808d653}} 
+\index{frame\_cfg.c@{frame\_cfg.c}!Cfg\_ADCOutCfgInitParams@{Cfg\_ADCOutCfgInitParams}}
+\index{Cfg\_ADCOutCfgInitParams@{Cfg\_ADCOutCfgInitParams}!frame\_cfg.c@{frame\_cfg.c}}
+\doxysubsubsection{Cfg\_ADCOutCfgInitParams()}
+{\footnotesize\ttfamily void Cfg\+\_\+\+A\+D\+C\+Out\+Cfg\+Init\+Params (\begin{DoxyParamCaption}\item[{rl\+Adc\+Out\+Cfg\+\_\+t $\ast$}]{ptr\+A\+D\+C\+Out\+Cfg }\end{DoxyParamCaption})}
+
+
+
+The function initializes the A\+D\+C\+Out configuration with the default parameters. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em ptr\+A\+D\+C\+Out\+Cfg} & Pointer to the A\+D\+C\+Output configuration\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em N/A} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 308 of file frame\+\_\+cfg.\+c.
+
+\mbox{\label{frame__cfg_8c_a8c220050230c0150a0ee1bd0b6b291c1}} 
+\index{frame\_cfg.c@{frame\_cfg.c}!Cfg\_AdvFrameCfgInitParams@{Cfg\_AdvFrameCfgInitParams}}
+\index{Cfg\_AdvFrameCfgInitParams@{Cfg\_AdvFrameCfgInitParams}!frame\_cfg.c@{frame\_cfg.c}}
+\doxysubsubsection{Cfg\_AdvFrameCfgInitParams()}
+{\footnotesize\ttfamily void Cfg\+\_\+\+Adv\+Frame\+Cfg\+Init\+Params (\begin{DoxyParamCaption}\item[{rl\+Adv\+Frame\+Cfg\+\_\+t $\ast$}]{ptr\+Adv\+Frame\+Cfg }\end{DoxyParamCaption})}
+
+
+
+The function initializes the frame configuration with the default parameters. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em ptr\+Adv\+Frame\+Cfg} & Pointer to the adavance frame configuration\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em N/A} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 42 of file frame\+\_\+cfg.\+c.
+
+\mbox{\label{frame__cfg_8c_a0f19cdd6f9114573831a701ba671fa07}} 
+\index{frame\_cfg.c@{frame\_cfg.c}!Cfg\_ChannelCfgInitParams@{Cfg\_ChannelCfgInitParams}}
+\index{Cfg\_ChannelCfgInitParams@{Cfg\_ChannelCfgInitParams}!frame\_cfg.c@{frame\_cfg.c}}
+\doxysubsubsection{Cfg\_ChannelCfgInitParams()}
+{\footnotesize\ttfamily void Cfg\+\_\+\+Channel\+Cfg\+Init\+Params (\begin{DoxyParamCaption}\item[{rl\+Chan\+Cfg\+\_\+t $\ast$}]{ptr\+Channel\+Cfg }\end{DoxyParamCaption})}
+
+
+
+The function initializes the channel configuration with the default parameters. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em ptr\+Channel\+Cfg} & Pointer to the channel configuration\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em N/A} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 285 of file frame\+\_\+cfg.\+c.
+
+\mbox{\label{frame__cfg_8c_a0b5e20fd310136c525f6e983366ee19f}} 
+\index{frame\_cfg.c@{frame\_cfg.c}!Cfg\_ChirpCfgInitParams@{Cfg\_ChirpCfgInitParams}}
+\index{Cfg\_ChirpCfgInitParams@{Cfg\_ChirpCfgInitParams}!frame\_cfg.c@{frame\_cfg.c}}
+\doxysubsubsection{Cfg\_ChirpCfgInitParams()}
+{\footnotesize\ttfamily void Cfg\+\_\+\+Chirp\+Cfg\+Init\+Params (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{chirp\+Num,  }\item[{rl\+Chirp\+Cfg\+\_\+t $\ast$}]{ptr\+Chirp\+Cfg }\end{DoxyParamCaption})}
+
+
+
+The function initializes the chirp configuration with the default parameters. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em chirp\+Num} & Chirp Number to be configured \\
+\hline
+\mbox{\texttt{ out}}  & {\em ptr\+Chirp\+Cfg} & Pointer to the chirp configuration\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em N/A} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 204 of file frame\+\_\+cfg.\+c.
+
+\mbox{\label{frame__cfg_8c_a285d8a73a5cea5f2e239c1f14b2e0e92}} 
+\index{frame\_cfg.c@{frame\_cfg.c}!Cfg\_FrameCfgInitParams@{Cfg\_FrameCfgInitParams}}
+\index{Cfg\_FrameCfgInitParams@{Cfg\_FrameCfgInitParams}!frame\_cfg.c@{frame\_cfg.c}}
+\doxysubsubsection{Cfg\_FrameCfgInitParams()}
+{\footnotesize\ttfamily void Cfg\+\_\+\+Frame\+Cfg\+Init\+Params (\begin{DoxyParamCaption}\item[{rl\+Frame\+Cfg\+\_\+t $\ast$}]{ptr\+Frame\+Cfg }\end{DoxyParamCaption})}
+
+
+
+The function initializes the frame configuration with the default parameters. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em ptr\+Frame\+Cfg} & Pointer to the frame configuration\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em N/A} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 138 of file frame\+\_\+cfg.\+c.
+
+\mbox{\label{frame__cfg_8c_ade79a8527c5a0769895ee1b6ac9ec327}} 
+\index{frame\_cfg.c@{frame\_cfg.c}!Cfg\_LowPowerModeInitParams@{Cfg\_LowPowerModeInitParams}}
+\index{Cfg\_LowPowerModeInitParams@{Cfg\_LowPowerModeInitParams}!frame\_cfg.c@{frame\_cfg.c}}
+\doxysubsubsection{Cfg\_LowPowerModeInitParams()}
+{\footnotesize\ttfamily void Cfg\+\_\+\+Low\+Power\+Mode\+Init\+Params (\begin{DoxyParamCaption}\item[{rl\+Low\+Power\+Mode\+Cfg\+\_\+t $\ast$}]{ptr\+Low\+Power\+Mode }\end{DoxyParamCaption})}
+
+
+
+The function initializes the low power configuration with the default parameters. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em ptr\+Low\+Power\+Mode} & Pointer to the low power mode configuration\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em N/A} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 264 of file frame\+\_\+cfg.\+c.
+
+\mbox{\label{frame__cfg_8c_a35827653f7b672697d2aecbcb643b986}} 
+\index{frame\_cfg.c@{frame\_cfg.c}!Cfg\_ProfileCfgInitParams@{Cfg\_ProfileCfgInitParams}}
+\index{Cfg\_ProfileCfgInitParams@{Cfg\_ProfileCfgInitParams}!frame\_cfg.c@{frame\_cfg.c}}
+\doxysubsubsection{Cfg\_ProfileCfgInitParams()}
+{\footnotesize\ttfamily void Cfg\+\_\+\+Profile\+Cfg\+Init\+Params (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{profile\+Num,  }\item[{rl\+Profile\+Cfg\+\_\+t $\ast$}]{ptr\+Profile\+Cfg }\end{DoxyParamCaption})}
+
+
+
+The function initializes the profile configuration with the default parameters. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em profile\+Num} & Profile number to be initialized \\
+\hline
+\mbox{\texttt{ out}}  & {\em ptr\+Profile\+Cfg} & Pointer to the profile configuration\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em N/A} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 167 of file frame\+\_\+cfg.\+c.
+

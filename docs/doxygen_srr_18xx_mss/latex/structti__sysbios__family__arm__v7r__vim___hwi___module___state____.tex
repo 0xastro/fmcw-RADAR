@@ -1,0 +1,149 @@
+\doxysection{ti\+\_\+sysbios\+\_\+family\+\_\+arm\+\_\+v7r\+\_\+vim\+\_\+\+Hwi\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+ Struct Reference}
+\label{structti__sysbios__family__arm__v7r__vim___hwi___module___state____}\index{ti\_sysbios\_family\_arm\_v7r\_vim\_Hwi\_Module\_State\_\_@{ti\_sysbios\_family\_arm\_v7r\_vim\_Hwi\_Module\_State\_\_}}
+
+
+Collaboration diagram for ti\+\_\+sysbios\+\_\+family\+\_\+arm\+\_\+v7r\+\_\+vim\+\_\+\+Hwi\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=230pt]{structti__sysbios__family__arm__v7r__vim___hwi___module___state______coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+xdc\+\_\+\+Char $\ast$ \textbf{ task\+SP}
+\item 
+xdc\+\_\+\+Char $\ast$ \textbf{ isr\+Stack}
+\item 
+xdc\+\_\+\+Ptr \textbf{ isr\+Stack\+Base}
+\item 
+xdc\+\_\+\+Ptr \textbf{ isr\+Stack\+Size}
+\item 
+\+\_\+\+\_\+\+T\+A\+\_\+ti\+\_\+sysbios\+\_\+family\+\_\+arm\+\_\+v7r\+\_\+vim\+\_\+\+Hwi\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+fiq\+Stack \textbf{ fiq\+Stack}
+\item 
+xdc\+\_\+\+SizeT \textbf{ fiq\+Stack\+Size}
+\item 
+xdc\+\_\+\+U\+Int $\ast$ \textbf{ vim\+Ram}
+\item 
+\+\_\+\+\_\+\+T\+A\+\_\+ti\+\_\+sysbios\+\_\+family\+\_\+arm\+\_\+v7r\+\_\+vim\+\_\+\+Hwi\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+dispatch\+Table \textbf{ dispatch\+Table}
+\item 
+\+\_\+\+\_\+\+T\+A\+\_\+ti\+\_\+sysbios\+\_\+family\+\_\+arm\+\_\+v7r\+\_\+vim\+\_\+\+Hwi\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+zero\+Latency\+F\+I\+Q\+Mask \textbf{ zero\+Latency\+F\+I\+Q\+Mask}
+\item 
+xdc\+\_\+\+U\+Int \textbf{ spurious\+Ints}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 1058 of file mss\+\_\+per4f.\+c.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\label{structti__sysbios__family__arm__v7r__vim___hwi___module___state_____a546744662187aef03f221a1c97dea508}} 
+\index{ti\_sysbios\_family\_arm\_v7r\_vim\_Hwi\_Module\_State\_\_@{ti\_sysbios\_family\_arm\_v7r\_vim\_Hwi\_Module\_State\_\_}!dispatchTable@{dispatchTable}}
+\index{dispatchTable@{dispatchTable}!ti\_sysbios\_family\_arm\_v7r\_vim\_Hwi\_Module\_State\_\_@{ti\_sysbios\_family\_arm\_v7r\_vim\_Hwi\_Module\_State\_\_}}
+\doxysubsubsection{dispatchTable}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+T\+A\+\_\+ti\+\_\+sysbios\+\_\+family\+\_\+arm\+\_\+v7r\+\_\+vim\+\_\+\+Hwi\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+dispatch\+Table ti\+\_\+sysbios\+\_\+family\+\_\+arm\+\_\+v7r\+\_\+vim\+\_\+\+Hwi\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+\+::dispatch\+Table}
+
+
+
+Definition at line 1066 of file mss\+\_\+per4f.\+c.
+
+\mbox{\label{structti__sysbios__family__arm__v7r__vim___hwi___module___state_____a78b8920a9a37bcdba2859fccc55110ec}} 
+\index{ti\_sysbios\_family\_arm\_v7r\_vim\_Hwi\_Module\_State\_\_@{ti\_sysbios\_family\_arm\_v7r\_vim\_Hwi\_Module\_State\_\_}!fiqStack@{fiqStack}}
+\index{fiqStack@{fiqStack}!ti\_sysbios\_family\_arm\_v7r\_vim\_Hwi\_Module\_State\_\_@{ti\_sysbios\_family\_arm\_v7r\_vim\_Hwi\_Module\_State\_\_}}
+\doxysubsubsection{fiqStack}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+T\+A\+\_\+ti\+\_\+sysbios\+\_\+family\+\_\+arm\+\_\+v7r\+\_\+vim\+\_\+\+Hwi\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+fiq\+Stack ti\+\_\+sysbios\+\_\+family\+\_\+arm\+\_\+v7r\+\_\+vim\+\_\+\+Hwi\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+\+::fiq\+Stack}
+
+
+
+Definition at line 1063 of file mss\+\_\+per4f.\+c.
+
+\mbox{\label{structti__sysbios__family__arm__v7r__vim___hwi___module___state_____ac9aecf5b6d2f14999c4c15681c1ceec2}} 
+\index{ti\_sysbios\_family\_arm\_v7r\_vim\_Hwi\_Module\_State\_\_@{ti\_sysbios\_family\_arm\_v7r\_vim\_Hwi\_Module\_State\_\_}!fiqStackSize@{fiqStackSize}}
+\index{fiqStackSize@{fiqStackSize}!ti\_sysbios\_family\_arm\_v7r\_vim\_Hwi\_Module\_State\_\_@{ti\_sysbios\_family\_arm\_v7r\_vim\_Hwi\_Module\_State\_\_}}
+\doxysubsubsection{fiqStackSize}
+{\footnotesize\ttfamily xdc\+\_\+\+SizeT ti\+\_\+sysbios\+\_\+family\+\_\+arm\+\_\+v7r\+\_\+vim\+\_\+\+Hwi\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+\+::fiq\+Stack\+Size}
+
+
+
+Definition at line 1064 of file mss\+\_\+per4f.\+c.
+
+\mbox{\label{structti__sysbios__family__arm__v7r__vim___hwi___module___state_____ad4cc87a5104ed64aa458e4ea171f9c99}} 
+\index{ti\_sysbios\_family\_arm\_v7r\_vim\_Hwi\_Module\_State\_\_@{ti\_sysbios\_family\_arm\_v7r\_vim\_Hwi\_Module\_State\_\_}!isrStack@{isrStack}}
+\index{isrStack@{isrStack}!ti\_sysbios\_family\_arm\_v7r\_vim\_Hwi\_Module\_State\_\_@{ti\_sysbios\_family\_arm\_v7r\_vim\_Hwi\_Module\_State\_\_}}
+\doxysubsubsection{isrStack}
+{\footnotesize\ttfamily xdc\+\_\+\+Char$\ast$ ti\+\_\+sysbios\+\_\+family\+\_\+arm\+\_\+v7r\+\_\+vim\+\_\+\+Hwi\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+\+::isr\+Stack}
+
+
+
+Definition at line 1060 of file mss\+\_\+per4f.\+c.
+
+\mbox{\label{structti__sysbios__family__arm__v7r__vim___hwi___module___state_____a9623bc8616080b9f4e942849193f97fa}} 
+\index{ti\_sysbios\_family\_arm\_v7r\_vim\_Hwi\_Module\_State\_\_@{ti\_sysbios\_family\_arm\_v7r\_vim\_Hwi\_Module\_State\_\_}!isrStackBase@{isrStackBase}}
+\index{isrStackBase@{isrStackBase}!ti\_sysbios\_family\_arm\_v7r\_vim\_Hwi\_Module\_State\_\_@{ti\_sysbios\_family\_arm\_v7r\_vim\_Hwi\_Module\_State\_\_}}
+\doxysubsubsection{isrStackBase}
+{\footnotesize\ttfamily xdc\+\_\+\+Ptr ti\+\_\+sysbios\+\_\+family\+\_\+arm\+\_\+v7r\+\_\+vim\+\_\+\+Hwi\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+\+::isr\+Stack\+Base}
+
+
+
+Definition at line 1061 of file mss\+\_\+per4f.\+c.
+
+\mbox{\label{structti__sysbios__family__arm__v7r__vim___hwi___module___state_____ae73f1991dcbaff49f386647de85e3f71}} 
+\index{ti\_sysbios\_family\_arm\_v7r\_vim\_Hwi\_Module\_State\_\_@{ti\_sysbios\_family\_arm\_v7r\_vim\_Hwi\_Module\_State\_\_}!isrStackSize@{isrStackSize}}
+\index{isrStackSize@{isrStackSize}!ti\_sysbios\_family\_arm\_v7r\_vim\_Hwi\_Module\_State\_\_@{ti\_sysbios\_family\_arm\_v7r\_vim\_Hwi\_Module\_State\_\_}}
+\doxysubsubsection{isrStackSize}
+{\footnotesize\ttfamily xdc\+\_\+\+Ptr ti\+\_\+sysbios\+\_\+family\+\_\+arm\+\_\+v7r\+\_\+vim\+\_\+\+Hwi\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+\+::isr\+Stack\+Size}
+
+
+
+Definition at line 1062 of file mss\+\_\+per4f.\+c.
+
+\mbox{\label{structti__sysbios__family__arm__v7r__vim___hwi___module___state_____a6091a9f82dbbd1d6ccd3318924fecef5}} 
+\index{ti\_sysbios\_family\_arm\_v7r\_vim\_Hwi\_Module\_State\_\_@{ti\_sysbios\_family\_arm\_v7r\_vim\_Hwi\_Module\_State\_\_}!spuriousInts@{spuriousInts}}
+\index{spuriousInts@{spuriousInts}!ti\_sysbios\_family\_arm\_v7r\_vim\_Hwi\_Module\_State\_\_@{ti\_sysbios\_family\_arm\_v7r\_vim\_Hwi\_Module\_State\_\_}}
+\doxysubsubsection{spuriousInts}
+{\footnotesize\ttfamily xdc\+\_\+\+U\+Int ti\+\_\+sysbios\+\_\+family\+\_\+arm\+\_\+v7r\+\_\+vim\+\_\+\+Hwi\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+\+::spurious\+Ints}
+
+
+
+Definition at line 1068 of file mss\+\_\+per4f.\+c.
+
+\mbox{\label{structti__sysbios__family__arm__v7r__vim___hwi___module___state_____a5a126ea00844643d704acb1ea3da4d1a}} 
+\index{ti\_sysbios\_family\_arm\_v7r\_vim\_Hwi\_Module\_State\_\_@{ti\_sysbios\_family\_arm\_v7r\_vim\_Hwi\_Module\_State\_\_}!taskSP@{taskSP}}
+\index{taskSP@{taskSP}!ti\_sysbios\_family\_arm\_v7r\_vim\_Hwi\_Module\_State\_\_@{ti\_sysbios\_family\_arm\_v7r\_vim\_Hwi\_Module\_State\_\_}}
+\doxysubsubsection{taskSP}
+{\footnotesize\ttfamily xdc\+\_\+\+Char$\ast$ ti\+\_\+sysbios\+\_\+family\+\_\+arm\+\_\+v7r\+\_\+vim\+\_\+\+Hwi\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+\+::task\+SP}
+
+
+
+Definition at line 1059 of file mss\+\_\+per4f.\+c.
+
+\mbox{\label{structti__sysbios__family__arm__v7r__vim___hwi___module___state_____adbbfcb646f0558565b9bc0e2e0f74b49}} 
+\index{ti\_sysbios\_family\_arm\_v7r\_vim\_Hwi\_Module\_State\_\_@{ti\_sysbios\_family\_arm\_v7r\_vim\_Hwi\_Module\_State\_\_}!vimRam@{vimRam}}
+\index{vimRam@{vimRam}!ti\_sysbios\_family\_arm\_v7r\_vim\_Hwi\_Module\_State\_\_@{ti\_sysbios\_family\_arm\_v7r\_vim\_Hwi\_Module\_State\_\_}}
+\doxysubsubsection{vimRam}
+{\footnotesize\ttfamily xdc\+\_\+\+U\+Int$\ast$ ti\+\_\+sysbios\+\_\+family\+\_\+arm\+\_\+v7r\+\_\+vim\+\_\+\+Hwi\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+\+::vim\+Ram}
+
+
+
+Definition at line 1065 of file mss\+\_\+per4f.\+c.
+
+\mbox{\label{structti__sysbios__family__arm__v7r__vim___hwi___module___state_____a08c8864f1d16333f69c2f0c641bc2f49}} 
+\index{ti\_sysbios\_family\_arm\_v7r\_vim\_Hwi\_Module\_State\_\_@{ti\_sysbios\_family\_arm\_v7r\_vim\_Hwi\_Module\_State\_\_}!zeroLatencyFIQMask@{zeroLatencyFIQMask}}
+\index{zeroLatencyFIQMask@{zeroLatencyFIQMask}!ti\_sysbios\_family\_arm\_v7r\_vim\_Hwi\_Module\_State\_\_@{ti\_sysbios\_family\_arm\_v7r\_vim\_Hwi\_Module\_State\_\_}}
+\doxysubsubsection{zeroLatencyFIQMask}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+T\+A\+\_\+ti\+\_\+sysbios\+\_\+family\+\_\+arm\+\_\+v7r\+\_\+vim\+\_\+\+Hwi\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+zero\+Latency\+F\+I\+Q\+Mask ti\+\_\+sysbios\+\_\+family\+\_\+arm\+\_\+v7r\+\_\+vim\+\_\+\+Hwi\+\_\+\+Module\+\_\+\+State\+\_\+\+\_\+\+::zero\+Latency\+F\+I\+Q\+Mask}
+
+
+
+Definition at line 1067 of file mss\+\_\+per4f.\+c.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Debug/config\+Pkg/package/cfg/\textbf{ mss\+\_\+per4f.\+c}\end{DoxyCompactItemize}

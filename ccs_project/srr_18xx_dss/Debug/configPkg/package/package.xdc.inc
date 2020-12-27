@@ -1,0 +1,12 @@
+package.xdc
+package.xs
+package/configPkg.sch
+package/.vers_g200
+package/.vers_r200
+package/.vers_b200
+package/.xdc-E10
+package/configPkg.java
+package/configPkg.class
+package/package_configPkg.c
+package/package.defs.h
+package/configPkg.ccs

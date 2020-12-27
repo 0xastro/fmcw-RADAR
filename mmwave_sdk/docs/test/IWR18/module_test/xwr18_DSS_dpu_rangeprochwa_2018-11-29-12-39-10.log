@@ -1,0 +1,4170 @@
+eth008 Board details:
+IP address: 10.218.113.61
+
+Port: 17494
+
+connecting...
+Relay states 8->1 : 01010101
+5 off
+6 off
+Relay states 8->1 : 01000101
+5 on
+Relay states 8->1 : 01010101
+exit
+Disconnected
+Pre-Script returned: Success
+**************************************************
+Testcase mods & parameters invoked:
+**************************************************
+Two core test case: None (this is not a two core testcase)
+
+**************************************************
+Copying test case files from the Build server
+**************************************************
+Testdata possible location 1: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/mmwave_sdk/packages/ti/datapath/dpu/rangeproc/testdata
+
+
+Testdata directory was not found on Testdata possible location 1
+
+
+Testdata possible location 2: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/datapath/dpu/rangeproc/test/testdata
+
+
+Copy-To local testcase data path is: /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr18xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_03_55_41/testdata
+
+Test case data file rangeprochwa_test_data.bin found on server for downloading
+Test case data file rangeprocdsp_test_data.bin found on server for downloading
+Call to copy_testcase_binary:
+TCP: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/datapath/dpu/rangeproc/test; /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr18xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_03_55_41
+
+Copying testcase binary file from http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/datapath/dpu/rangeproc/test/xwr18xx_rangeprochwa_dss.xe674 to /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr18xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_03_55_41 using command: 
+wget -e robots=off --no-proxy -N -T 30 -t 2 -P /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr18xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_03_55_41 http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/datapath/dpu/rangeproc/test/xwr18xx_rangeprochwa_dss.xe674
+**************************************************
+Executing Testcase:/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr18xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_03_55_41/xwr18xx_rangeprochwa_dss.xe674
+**************************************************
+Checking if Py4J Gateway server has started...
+Py4J Gateway Server is Started
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/DEBUGSSM_0
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/IcePick_M_0
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/C674X_0
+DSS test case opening debug session.
+
+cr4ctl = 0x0
+
+efuse/register @0xFFFFE210 = 0x0
+
+efuse/register @0xFFFFE214 = 0x0
+
+efuse/register @0xFFFFE218 = 0x0
+
+efuse/register @0xFFFFE21C = 0x0
+
+Loading binary to the DUT (no binary args updated):/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr18xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_03_55_41/xwr18xx_rangeprochwa_dss.xe674
+binary path = /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr18xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_03_55_41/xwr18xx_rangeprochwa_dss.xe674
+
+dt-time: start time = Thu Nov 29 12:39:54 2018
+
+dt-time: end time = Thu Nov 29 13:32:21 2018
+
+
+**************************************************
+CIO Log captured for the testcase
+**************************************************
+...... Initialization ...... 
+
+...... 306 Tests to be run .......
+
+numTxAntennas = 1
+numRangeBins = 64
+numChirpsPerFrame = 4
+
+
+Test #0  start
+Configuration : :Tx1 Rx1 ADC64 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #0 finished!
+
+Test #1  start
+Configuration : :Tx1 Rx1 ADC64 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #1 finished!
+
+Test #2  start
+Configuration : :Tx1 Rx1 ADC64 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #2 finished!
+
+Feature: :Tx1 Rx1 R64 D4: Passed
+
+
+Test #3  start
+Configuration : :Tx1 Rx2 ADC64 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #3 finished!
+
+Test #4  start
+Configuration : :Tx1 Rx2 ADC64 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #4 finished!
+
+Test #5  start
+Configuration : :Tx1 Rx2 ADC64 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #5 finished!
+
+Feature: :Tx1 Rx2 R64 D4: Passed
+
+
+Test #6  start
+Configuration : :Tx1 Rx4 ADC64 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #6 finished!
+
+Test #7  start
+Configuration : :Tx1 Rx4 ADC64 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #7 finished!
+
+Test #8  start
+Configuration : :Tx1 Rx4 ADC64 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #8 finished!
+
+Feature: :Tx1 Rx4 R64 D4: Passed
+
+numTxAntennas = 1
+numRangeBins = 128
+numChirpsPerFrame = 4
+
+
+Test #9  start
+Configuration : :Tx1 Rx1 ADC119 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #9 finished!
+
+Test #10  start
+Configuration : :Tx1 Rx1 ADC119 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #10 finished!
+
+Test #11  start
+Configuration : :Tx1 Rx1 ADC119 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #11 finished!
+
+Feature: :Tx1 Rx1 R128 D4: Passed
+
+
+Test #12  start
+Configuration : :Tx1 Rx2 ADC119 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #12 finished!
+
+Test #13  start
+Configuration : :Tx1 Rx2 ADC119 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #13 finished!
+
+Test #14  start
+Configuration : :Tx1 Rx2 ADC119 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #14 finished!
+
+Feature: :Tx1 Rx2 R128 D4: Passed
+
+
+Test #15  start
+Configuration : :Tx1 Rx4 ADC119 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #15 finished!
+
+Test #16  start
+Configuration : :Tx1 Rx4 ADC119 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #16 finished!
+
+Test #17  start
+Configuration : :Tx1 Rx4 ADC119 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #17 finished!
+
+Feature: :Tx1 Rx4 R128 D4: Passed
+
+
+Test #18  start
+Configuration : :Tx1 Rx1 ADC122 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #18 finished!
+
+Test #19  start
+Configuration : :Tx1 Rx1 ADC122 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #19 finished!
+
+Test #20  start
+Configuration : :Tx1 Rx1 ADC122 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #20 finished!
+
+Feature: :Tx1 Rx1 R128 D4: Passed
+
+
+Test #21  start
+Configuration : :Tx1 Rx2 ADC122 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #21 finished!
+
+Test #22  start
+Configuration : :Tx1 Rx2 ADC122 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #22 finished!
+
+Test #23  start
+Configuration : :Tx1 Rx2 ADC122 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #23 finished!
+
+Feature: :Tx1 Rx2 R128 D4: Passed
+
+
+Test #24  start
+Configuration : :Tx1 Rx4 ADC122 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #24 finished!
+
+Test #25  start
+Configuration : :Tx1 Rx4 ADC122 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #25 finished!
+
+Test #26  start
+Configuration : :Tx1 Rx4 ADC122 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #26 finished!
+
+Feature: :Tx1 Rx4 R128 D4: Passed
+
+
+Test #27  start
+Configuration : :Tx1 Rx1 ADC125 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #27 finished!
+
+Test #28  start
+Configuration : :Tx1 Rx1 ADC125 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #28 finished!
+
+Test #29  start
+Configuration : :Tx1 Rx1 ADC125 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #29 finished!
+
+Feature: :Tx1 Rx1 R128 D4: Passed
+
+
+Test #30  start
+Configuration : :Tx1 Rx2 ADC125 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #30 finished!
+
+Test #31  start
+Configuration : :Tx1 Rx2 ADC125 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #31 finished!
+
+Test #32  start
+Configuration : :Tx1 Rx2 ADC125 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #32 finished!
+
+Feature: :Tx1 Rx2 R128 D4: Passed
+
+
+Test #33  start
+Configuration : :Tx1 Rx4 ADC125 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #33 finished!
+
+Test #34  start
+Configuration : :Tx1 Rx4 ADC125 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #34 finished!
+
+Test #35  start
+Configuration : :Tx1 Rx4 ADC125 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #35 finished!
+
+Feature: :Tx1 Rx4 R128 D4: Passed
+
+
+Test #36  start
+Configuration : :Tx1 Rx1 ADC128 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #36 finished!
+
+Test #37  start
+Configuration : :Tx1 Rx1 ADC128 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #37 finished!
+
+Test #38  start
+Configuration : :Tx1 Rx1 ADC128 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #38 finished!
+
+Feature: :Tx1 Rx1 R128 D4: Passed
+
+
+Test #39  start
+Configuration : :Tx1 Rx2 ADC128 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #39 finished!
+
+Test #40  start
+Configuration : :Tx1 Rx2 ADC128 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #40 finished!
+
+Test #41  start
+Configuration : :Tx1 Rx2 ADC128 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #41 finished!
+
+Feature: :Tx1 Rx2 R128 D4: Passed
+
+
+Test #42  start
+Configuration : :Tx1 Rx4 ADC128 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #42 finished!
+
+Test #43  start
+Configuration : :Tx1 Rx4 ADC128 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #43 finished!
+
+Test #44  start
+Configuration : :Tx1 Rx4 ADC128 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #44 finished!
+
+Feature: :Tx1 Rx4 R128 D4: Passed
+
+numTxAntennas = 1
+numRangeBins = 256
+numChirpsPerFrame = 4
+
+
+Test #45  start
+Configuration : :Tx1 Rx1 ADC247 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #45 finished!
+
+Test #46  start
+Configuration : :Tx1 Rx1 ADC247 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #46 finished!
+
+Test #47  start
+Configuration : :Tx1 Rx1 ADC247 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #47 finished!
+
+Feature: :Tx1 Rx1 R256 D4: Passed
+
+
+Test #48  start
+Configuration : :Tx1 Rx2 ADC247 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #48 finished!
+
+Test #49  start
+Configuration : :Tx1 Rx2 ADC247 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #49 finished!
+
+Test #50  start
+Configuration : :Tx1 Rx2 ADC247 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #50 finished!
+
+Feature: :Tx1 Rx2 R256 D4: Passed
+
+
+Test #51  start
+Configuration : :Tx1 Rx4 ADC247 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #51 finished!
+
+Test #52  start
+Configuration : :Tx1 Rx4 ADC247 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #52 finished!
+
+Test #53  start
+Configuration : :Tx1 Rx4 ADC247 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #53 finished!
+
+Feature: :Tx1 Rx4 R256 D4: Passed
+
+
+Test #54  start
+Configuration : :Tx1 Rx1 ADC250 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #54 finished!
+
+Test #55  start
+Configuration : :Tx1 Rx1 ADC250 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #55 finished!
+
+Test #56  start
+Configuration : :Tx1 Rx1 ADC250 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #56 finished!
+
+Feature: :Tx1 Rx1 R256 D4: Passed
+
+
+Test #57  start
+Configuration : :Tx1 Rx2 ADC250 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #57 finished!
+
+Test #58  start
+Configuration : :Tx1 Rx2 ADC250 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #58 finished!
+
+Test #59  start
+Configuration : :Tx1 Rx2 ADC250 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #59 finished!
+
+Feature: :Tx1 Rx2 R256 D4: Passed
+
+
+Test #60  start
+Configuration : :Tx1 Rx4 ADC250 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #60 finished!
+
+Test #61  start
+Configuration : :Tx1 Rx4 ADC250 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #61 finished!
+
+Test #62  start
+Configuration : :Tx1 Rx4 ADC250 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #62 finished!
+
+Feature: :Tx1 Rx4 R256 D4: Passed
+
+
+Test #63  start
+Configuration : :Tx1 Rx1 ADC253 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #63 finished!
+
+Test #64  start
+Configuration : :Tx1 Rx1 ADC253 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #64 finished!
+
+Test #65  start
+Configuration : :Tx1 Rx1 ADC253 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #65 finished!
+
+Feature: :Tx1 Rx1 R256 D4: Passed
+
+
+Test #66  start
+Configuration : :Tx1 Rx2 ADC253 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #66 finished!
+
+Test #67  start
+Configuration : :Tx1 Rx2 ADC253 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #67 finished!
+
+Test #68  start
+Configuration : :Tx1 Rx2 ADC253 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #68 finished!
+
+Feature: :Tx1 Rx2 R256 D4: Passed
+
+
+Test #69  start
+Configuration : :Tx1 Rx4 ADC253 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #69 finished!
+
+Test #70  start
+Configuration : :Tx1 Rx4 ADC253 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #70 finished!
+
+Test #71  start
+Configuration : :Tx1 Rx4 ADC253 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #71 finished!
+
+Feature: :Tx1 Rx4 R256 D4: Passed
+
+
+Test #72  start
+Configuration : :Tx1 Rx1 ADC256 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #72 finished!
+
+Test #73  start
+Configuration : :Tx1 Rx1 ADC256 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #73 finished!
+
+Test #74  start
+Configuration : :Tx1 Rx1 ADC256 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #74 finished!
+
+Feature: :Tx1 Rx1 R256 D4: Passed
+
+
+Test #75  start
+Configuration : :Tx1 Rx2 ADC256 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #75 finished!
+
+Test #76  start
+Configuration : :Tx1 Rx2 ADC256 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #76 finished!
+
+Test #77  start
+Configuration : :Tx1 Rx2 ADC256 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #77 finished!
+
+Feature: :Tx1 Rx2 R256 D4: Passed
+
+
+Test #78  start
+Configuration : :Tx1 Rx4 ADC256 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #78 finished!
+
+Test #79  start
+Configuration : :Tx1 Rx4 ADC256 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #79 finished!
+
+Test #80  start
+Configuration : :Tx1 Rx4 ADC256 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #80 finished!
+
+Feature: :Tx1 Rx4 R256 D4: Passed
+
+numTxAntennas = 1
+numRangeBins = 512
+numChirpsPerFrame = 4
+
+
+Test #81  start
+Configuration : :Tx1 Rx1 ADC503 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #81 finished!
+
+Test #82  start
+Configuration : :Tx1 Rx1 ADC503 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #82 finished!
+
+Test #83  start
+Configuration : :Tx1 Rx1 ADC503 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #83 finished!
+
+Feature: :Tx1 Rx1 R512 D4: Passed
+
+
+Test #84  start
+Configuration : :Tx1 Rx2 ADC503 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #84 finished!
+
+Test #85  start
+Configuration : :Tx1 Rx2 ADC503 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #85 finished!
+
+Test #86  start
+Configuration : :Tx1 Rx2 ADC503 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #86 finished!
+
+Feature: :Tx1 Rx2 R512 D4: Passed
+
+
+Test #87  start
+Configuration : :Tx1 Rx4 ADC503 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #87 finished!
+
+Test #88  start
+Configuration : :Tx1 Rx4 ADC503 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #88 finished!
+
+Test #89  start
+Configuration : :Tx1 Rx4 ADC503 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #89 finished!
+
+Feature: :Tx1 Rx4 R512 D4: Passed
+
+
+Test #90  start
+Configuration : :Tx1 Rx1 ADC506 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #90 finished!
+
+Test #91  start
+Configuration : :Tx1 Rx1 ADC506 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #91 finished!
+
+Test #92  start
+Configuration : :Tx1 Rx1 ADC506 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #92 finished!
+
+Feature: :Tx1 Rx1 R512 D4: Passed
+
+
+Test #93  start
+Configuration : :Tx1 Rx2 ADC506 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #93 finished!
+
+Test #94  start
+Configuration : :Tx1 Rx2 ADC506 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #94 finished!
+
+Test #95  start
+Configuration : :Tx1 Rx2 ADC506 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #95 finished!
+
+Feature: :Tx1 Rx2 R512 D4: Passed
+
+
+Test #96  start
+Configuration : :Tx1 Rx4 ADC506 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #96 finished!
+
+Test #97  start
+Configuration : :Tx1 Rx4 ADC506 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #97 finished!
+
+Test #98  start
+Configuration : :Tx1 Rx4 ADC506 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #98 finished!
+
+Feature: :Tx1 Rx4 R512 D4: Passed
+
+
+Test #99  start
+Configuration : :Tx1 Rx1 ADC509 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #99 finished!
+
+Test #100  start
+Configuration : :Tx1 Rx1 ADC509 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #100 finished!
+
+Test #101  start
+Configuration : :Tx1 Rx1 ADC509 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #101 finished!
+
+Feature: :Tx1 Rx1 R512 D4: Passed
+
+
+Test #102  start
+Configuration : :Tx1 Rx2 ADC509 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #102 finished!
+
+Test #103  start
+Configuration : :Tx1 Rx2 ADC509 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #103 finished!
+
+Test #104  start
+Configuration : :Tx1 Rx2 ADC509 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #104 finished!
+
+Feature: :Tx1 Rx2 R512 D4: Passed
+
+
+Test #105  start
+Configuration : :Tx1 Rx4 ADC509 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #105 finished!
+
+Test #106  start
+Configuration : :Tx1 Rx4 ADC509 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #106 finished!
+
+Test #107  start
+Configuration : :Tx1 Rx4 ADC509 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #107 finished!
+
+Feature: :Tx1 Rx4 R512 D4: Passed
+
+
+Test #108  start
+Configuration : :Tx1 Rx1 ADC512 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #108 finished!
+
+Test #109  start
+Configuration : :Tx1 Rx1 ADC512 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #109 finished!
+
+Test #110  start
+Configuration : :Tx1 Rx1 ADC512 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #110 finished!
+
+Feature: :Tx1 Rx1 R512 D4: Passed
+
+
+Test #111  start
+Configuration : :Tx1 Rx2 ADC512 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #111 finished!
+
+Test #112  start
+Configuration : :Tx1 Rx2 ADC512 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #112 finished!
+
+Test #113  start
+Configuration : :Tx1 Rx2 ADC512 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #113 finished!
+
+Feature: :Tx1 Rx2 R512 D4: Passed
+
+
+Test #114  start
+Configuration : :Tx1 Rx4 ADC512 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #114 finished!
+
+Test #115  start
+Configuration : :Tx1 Rx4 ADC512 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #115 finished!
+
+Test #116  start
+Configuration : :Tx1 Rx4 ADC512 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #116 finished!
+
+Feature: :Tx1 Rx4 R512 D4: Passed
+
+numTxAntennas = 1
+numRangeBins = 1024
+numChirpsPerFrame = 4
+
+
+Test #117  start
+Configuration : :Tx1 Rx1 ADC1015 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #117 finished!
+
+Test #118  start
+Configuration : :Tx1 Rx1 ADC1015 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #118 finished!
+
+Test #119  start
+Configuration : :Tx1 Rx1 ADC1015 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #119 finished!
+
+Feature: :Tx1 Rx1 R1024 D4: Passed
+
+
+Test #120  start
+Configuration : :Tx1 Rx2 ADC1015 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #120 finished!
+
+Test #121  start
+Configuration : :Tx1 Rx2 ADC1015 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #121 finished!
+
+Test #122  start
+Configuration : :Tx1 Rx2 ADC1015 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #122 finished!
+
+Feature: :Tx1 Rx2 R1024 D4: Passed
+
+
+Test #123  start
+Configuration : :Tx1 Rx4 ADC1015 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #123 finished!
+
+Test #124 NOT RUN, KNOWN ISSUE!
+
+Test #125  start
+Configuration : :Tx1 Rx4 ADC1015 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #125 finished!
+
+Feature: :Tx1 Rx4 R1024 D4: Passed
+
+
+Test #126  start
+Configuration : :Tx1 Rx1 ADC1018 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #126 finished!
+
+Test #127  start
+Configuration : :Tx1 Rx1 ADC1018 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #127 finished!
+
+Test #128  start
+Configuration : :Tx1 Rx1 ADC1018 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #128 finished!
+
+Feature: :Tx1 Rx1 R1024 D4: Passed
+
+
+Test #129  start
+Configuration : :Tx1 Rx2 ADC1018 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #129 finished!
+
+Test #130  start
+Configuration : :Tx1 Rx2 ADC1018 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #130 finished!
+
+Test #131  start
+Configuration : :Tx1 Rx2 ADC1018 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #131 finished!
+
+Feature: :Tx1 Rx2 R1024 D4: Passed
+
+
+Test #132  start
+Configuration : :Tx1 Rx4 ADC1018 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #132 finished!
+
+Test #133 NOT RUN, KNOWN ISSUE!
+
+Test #134  start
+Configuration : :Tx1 Rx4 ADC1018 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #134 finished!
+
+Feature: :Tx1 Rx4 R1024 D4: Passed
+
+
+Test #135  start
+Configuration : :Tx1 Rx1 ADC1021 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #135 finished!
+
+Test #136  start
+Configuration : :Tx1 Rx1 ADC1021 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #136 finished!
+
+Test #137  start
+Configuration : :Tx1 Rx1 ADC1021 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #137 finished!
+
+Feature: :Tx1 Rx1 R1024 D4: Passed
+
+
+Test #138  start
+Configuration : :Tx1 Rx2 ADC1021 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #138 finished!
+
+Test #139  start
+Configuration : :Tx1 Rx2 ADC1021 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #139 finished!
+
+Test #140  start
+Configuration : :Tx1 Rx2 ADC1021 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #140 finished!
+
+Feature: :Tx1 Rx2 R1024 D4: Passed
+
+
+Test #141  start
+Configuration : :Tx1 Rx4 ADC1021 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #141 finished!
+
+Test #142 NOT RUN, KNOWN ISSUE!
+
+Test #143  start
+Configuration : :Tx1 Rx4 ADC1021 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #143 finished!
+
+Feature: :Tx1 Rx4 R1024 D4: Passed
+
+
+Test #144  start
+Configuration : :Tx1 Rx1 ADC1024 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #144 finished!
+
+Test #145  start
+Configuration : :Tx1 Rx1 ADC1024 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #145 finished!
+
+Test #146  start
+Configuration : :Tx1 Rx1 ADC1024 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #146 finished!
+
+Feature: :Tx1 Rx1 R1024 D4: Passed
+
+
+Test #147  start
+Configuration : :Tx1 Rx2 ADC1024 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #147 finished!
+
+Test #148  start
+Configuration : :Tx1 Rx2 ADC1024 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #148 finished!
+
+Test #149  start
+Configuration : :Tx1 Rx2 ADC1024 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #149 finished!
+
+Feature: :Tx1 Rx2 R1024 D4: Passed
+
+
+Test #150  start
+Configuration : :Tx1 Rx4 ADC1024 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #150 finished!
+
+Test #151 NOT RUN, KNOWN ISSUE!
+
+Test #152  start
+Configuration : :Tx1 Rx4 ADC1024 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #152 finished!
+
+Feature: :Tx1 Rx4 R1024 D4: Passed
+
+numTxAntennas = 2
+numRangeBins = 64
+numChirpsPerFrame = 4
+
+
+Test #153  start
+Configuration : :Tx2 Rx2 ADC64 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #153 finished!
+
+Test #154  start
+Configuration : :Tx2 Rx2 ADC64 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #154 finished!
+
+Test #155  start
+Configuration : :Tx2 Rx2 ADC64 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #155 finished!
+
+Feature: :Tx2 Rx2 R64 D4: Passed
+
+
+Test #156  start
+Configuration : :Tx2 Rx4 ADC64 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #156 finished!
+
+Test #157  start
+Configuration : :Tx2 Rx4 ADC64 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #157 finished!
+
+Test #158  start
+Configuration : :Tx2 Rx4 ADC64 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #158 finished!
+
+Feature: :Tx2 Rx4 R64 D4: Passed
+
+numTxAntennas = 2
+numRangeBins = 128
+numChirpsPerFrame = 4
+
+
+Test #159  start
+Configuration : :Tx2 Rx2 ADC119 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #159 finished!
+
+Test #160  start
+Configuration : :Tx2 Rx2 ADC119 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #160 finished!
+
+Test #161  start
+Configuration : :Tx2 Rx2 ADC119 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #161 finished!
+
+Feature: :Tx2 Rx2 R128 D4: Passed
+
+
+Test #162  start
+Configuration : :Tx2 Rx4 ADC119 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #162 finished!
+
+Test #163  start
+Configuration : :Tx2 Rx4 ADC119 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #163 finished!
+
+Test #164  start
+Configuration : :Tx2 Rx4 ADC119 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #164 finished!
+
+Feature: :Tx2 Rx4 R128 D4: Passed
+
+
+Test #165  start
+Configuration : :Tx2 Rx2 ADC122 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #165 finished!
+
+Test #166  start
+Configuration : :Tx2 Rx2 ADC122 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #166 finished!
+
+Test #167  start
+Configuration : :Tx2 Rx2 ADC122 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #167 finished!
+
+Feature: :Tx2 Rx2 R128 D4: Passed
+
+
+Test #168  start
+Configuration : :Tx2 Rx4 ADC122 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #168 finished!
+
+Test #169  start
+Configuration : :Tx2 Rx4 ADC122 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #169 finished!
+
+Test #170  start
+Configuration : :Tx2 Rx4 ADC122 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #170 finished!
+
+Feature: :Tx2 Rx4 R128 D4: Passed
+
+
+Test #171  start
+Configuration : :Tx2 Rx2 ADC125 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #171 finished!
+
+Test #172  start
+Configuration : :Tx2 Rx2 ADC125 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #172 finished!
+
+Test #173  start
+Configuration : :Tx2 Rx2 ADC125 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #173 finished!
+
+Feature: :Tx2 Rx2 R128 D4: Passed
+
+
+Test #174  start
+Configuration : :Tx2 Rx4 ADC125 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #174 finished!
+
+Test #175  start
+Configuration : :Tx2 Rx4 ADC125 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #175 finished!
+
+Test #176  start
+Configuration : :Tx2 Rx4 ADC125 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #176 finished!
+
+Feature: :Tx2 Rx4 R128 D4: Passed
+
+
+Test #177  start
+Configuration : :Tx2 Rx2 ADC128 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #177 finished!
+
+Test #178  start
+Configuration : :Tx2 Rx2 ADC128 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #178 finished!
+
+Test #179  start
+Configuration : :Tx2 Rx2 ADC128 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #179 finished!
+
+Feature: :Tx2 Rx2 R128 D4: Passed
+
+
+Test #180  start
+Configuration : :Tx2 Rx4 ADC128 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #180 finished!
+
+Test #181  start
+Configuration : :Tx2 Rx4 ADC128 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #181 finished!
+
+Test #182  start
+Configuration : :Tx2 Rx4 ADC128 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #182 finished!
+
+Feature: :Tx2 Rx4 R128 D4: Passed
+
+numTxAntennas = 2
+numRangeBins = 256
+numChirpsPerFrame = 4
+
+
+Test #183  start
+Configuration : :Tx2 Rx2 ADC247 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #183 finished!
+
+Test #184  start
+Configuration : :Tx2 Rx2 ADC247 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #184 finished!
+
+Test #185  start
+Configuration : :Tx2 Rx2 ADC247 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #185 finished!
+
+Feature: :Tx2 Rx2 R256 D4: Passed
+
+
+Test #186  start
+Configuration : :Tx2 Rx4 ADC247 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #186 finished!
+
+Test #187  start
+Configuration : :Tx2 Rx4 ADC247 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #187 finished!
+
+Test #188  start
+Configuration : :Tx2 Rx4 ADC247 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #188 finished!
+
+Feature: :Tx2 Rx4 R256 D4: Passed
+
+
+Test #189  start
+Configuration : :Tx2 Rx2 ADC250 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #189 finished!
+
+Test #190  start
+Configuration : :Tx2 Rx2 ADC250 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #190 finished!
+
+Test #191  start
+Configuration : :Tx2 Rx2 ADC250 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #191 finished!
+
+Feature: :Tx2 Rx2 R256 D4: Passed
+
+
+Test #192  start
+Configuration : :Tx2 Rx4 ADC250 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #192 finished!
+
+Test #193  start
+Configuration : :Tx2 Rx4 ADC250 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #193 finished!
+
+Test #194  start
+Configuration : :Tx2 Rx4 ADC250 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #194 finished!
+
+Feature: :Tx2 Rx4 R256 D4: Passed
+
+
+Test #195  start
+Configuration : :Tx2 Rx2 ADC253 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #195 finished!
+
+Test #196  start
+Configuration : :Tx2 Rx2 ADC253 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #196 finished!
+
+Test #197  start
+Configuration : :Tx2 Rx2 ADC253 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #197 finished!
+
+Feature: :Tx2 Rx2 R256 D4: Passed
+
+
+Test #198  start
+Configuration : :Tx2 Rx4 ADC253 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #198 finished!
+
+Test #199  start
+Configuration : :Tx2 Rx4 ADC253 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #199 finished!
+
+Test #200  start
+Configuration : :Tx2 Rx4 ADC253 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #200 finished!
+
+Feature: :Tx2 Rx4 R256 D4: Passed
+
+
+Test #201  start
+Configuration : :Tx2 Rx2 ADC256 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #201 finished!
+
+Test #202  start
+Configuration : :Tx2 Rx2 ADC256 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #202 finished!
+
+Test #203  start
+Configuration : :Tx2 Rx2 ADC256 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #203 finished!
+
+Feature: :Tx2 Rx2 R256 D4: Passed
+
+
+Test #204  start
+Configuration : :Tx2 Rx4 ADC256 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #204 finished!
+
+Test #205  start
+Configuration : :Tx2 Rx4 ADC256 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #205 finished!
+
+Test #206  start
+Configuration : :Tx2 Rx4 ADC256 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #206 finished!
+
+Feature: :Tx2 Rx4 R256 D4: Passed
+
+numTxAntennas = 2
+numRangeBins = 512
+numChirpsPerFrame = 4
+
+
+Test #207  start
+Configuration : :Tx2 Rx2 ADC503 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #207 finished!
+
+Test #208  start
+Configuration : :Tx2 Rx2 ADC503 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #208 finished!
+
+Test #209  start
+Configuration : :Tx2 Rx2 ADC503 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #209 finished!
+
+Feature: :Tx2 Rx2 R512 D4: Passed
+
+
+Test #210  start
+Configuration : :Tx2 Rx4 ADC503 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #210 finished!
+
+Test #211  start
+Configuration : :Tx2 Rx4 ADC503 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #211 finished!
+
+Test #212  start
+Configuration : :Tx2 Rx4 ADC503 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #212 finished!
+
+Feature: :Tx2 Rx4 R512 D4: Passed
+
+
+Test #213  start
+Configuration : :Tx2 Rx2 ADC506 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #213 finished!
+
+Test #214  start
+Configuration : :Tx2 Rx2 ADC506 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #214 finished!
+
+Test #215  start
+Configuration : :Tx2 Rx2 ADC506 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #215 finished!
+
+Feature: :Tx2 Rx2 R512 D4: Passed
+
+
+Test #216  start
+Configuration : :Tx2 Rx4 ADC506 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #216 finished!
+
+Test #217  start
+Configuration : :Tx2 Rx4 ADC506 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #217 finished!
+
+Test #218  start
+Configuration : :Tx2 Rx4 ADC506 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #218 finished!
+
+Feature: :Tx2 Rx4 R512 D4: Passed
+
+
+Test #219  start
+Configuration : :Tx2 Rx2 ADC509 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #219 finished!
+
+Test #220  start
+Configuration : :Tx2 Rx2 ADC509 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #220 finished!
+
+Test #221  start
+Configuration : :Tx2 Rx2 ADC509 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #221 finished!
+
+Feature: :Tx2 Rx2 R512 D4: Passed
+
+
+Test #222  start
+Configuration : :Tx2 Rx4 ADC509 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #222 finished!
+
+Test #223  start
+Configuration : :Tx2 Rx4 ADC509 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #223 finished!
+
+Test #224  start
+Configuration : :Tx2 Rx4 ADC509 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #224 finished!
+
+Feature: :Tx2 Rx4 R512 D4: Passed
+
+
+Test #225  start
+Configuration : :Tx2 Rx2 ADC512 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #225 finished!
+
+Test #226  start
+Configuration : :Tx2 Rx2 ADC512 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #226 finished!
+
+Test #227  start
+Configuration : :Tx2 Rx2 ADC512 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #227 finished!
+
+Feature: :Tx2 Rx2 R512 D4: Passed
+
+
+Test #228  start
+Configuration : :Tx2 Rx4 ADC512 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #228 finished!
+
+Test #229  start
+Configuration : :Tx2 Rx4 ADC512 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #229 finished!
+
+Test #230  start
+Configuration : :Tx2 Rx4 ADC512 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #230 finished!
+
+Feature: :Tx2 Rx4 R512 D4: Passed
+
+numTxAntennas = 2
+numRangeBins = 1024
+numChirpsPerFrame = 4
+
+
+Test #231  start
+Configuration : :Tx2 Rx2 ADC1015 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #231 finished!
+
+Test #232  start
+Configuration : :Tx2 Rx2 ADC1015 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #232 finished!
+
+Test #233  start
+Configuration : :Tx2 Rx2 ADC1015 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #233 finished!
+
+Feature: :Tx2 Rx2 R1024 D4: Passed
+
+
+Test #234  start
+Configuration : :Tx2 Rx4 ADC1015 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #234 finished!
+
+Test #235  start
+Configuration : :Tx2 Rx4 ADC1015 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #235 finished!
+
+Test #236  start
+Configuration : :Tx2 Rx4 ADC1015 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #236 finished!
+
+Feature: :Tx2 Rx4 R1024 D4: Passed
+
+
+Test #237  start
+Configuration : :Tx2 Rx2 ADC1018 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #237 finished!
+
+Test #238  start
+Configuration : :Tx2 Rx2 ADC1018 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #238 finished!
+
+Test #239  start
+Configuration : :Tx2 Rx2 ADC1018 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #239 finished!
+
+Feature: :Tx2 Rx2 R1024 D4: Passed
+
+
+Test #240  start
+Configuration : :Tx2 Rx4 ADC1018 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #240 finished!
+
+Test #241  start
+Configuration : :Tx2 Rx4 ADC1018 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #241 finished!
+
+Test #242  start
+Configuration : :Tx2 Rx4 ADC1018 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #242 finished!
+
+Feature: :Tx2 Rx4 R1024 D4: Passed
+
+
+Test #243  start
+Configuration : :Tx2 Rx2 ADC1021 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #243 finished!
+
+Test #244  start
+Configuration : :Tx2 Rx2 ADC1021 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #244 finished!
+
+Test #245  start
+Configuration : :Tx2 Rx2 ADC1021 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #245 finished!
+
+Feature: :Tx2 Rx2 R1024 D4: Passed
+
+
+Test #246  start
+Configuration : :Tx2 Rx4 ADC1021 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #246 finished!
+
+Test #247  start
+Configuration : :Tx2 Rx4 ADC1021 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #247 finished!
+
+Test #248  start
+Configuration : :Tx2 Rx4 ADC1021 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #248 finished!
+
+Feature: :Tx2 Rx4 R1024 D4: Passed
+
+
+Test #249  start
+Configuration : :Tx2 Rx2 ADC1024 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #249 finished!
+
+Test #250  start
+Configuration : :Tx2 Rx2 ADC1024 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #250 finished!
+
+Test #251  start
+Configuration : :Tx2 Rx2 ADC1024 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #251 finished!
+
+Feature: :Tx2 Rx2 R1024 D4: Passed
+
+
+Test #252  start
+Configuration : :Tx2 Rx4 ADC1024 Chps4 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #252 finished!
+
+Test #253  start
+Configuration : :Tx2 Rx4 ADC1024 Chps4 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #253 finished!
+
+Test #254  start
+Configuration : :Tx2 Rx4 ADC1024 Chps4 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #254 finished!
+
+Feature: :Tx2 Rx4 R1024 D4: Passed
+
+numTxAntennas = 3
+numRangeBins = 64
+numChirpsPerFrame = 6
+
+
+Test #255  start
+Configuration : :Tx3 Rx4 ADC64 Chps6 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #255 finished!
+
+Test #256  start
+Configuration : :Tx3 Rx4 ADC64 Chps6 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #256 finished!
+
+Test #257  start
+Configuration : :Tx3 Rx4 ADC64 Chps6 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #257 finished!
+
+Feature: :Tx3 Rx4 R64 D6: Passed
+
+numTxAntennas = 3
+numRangeBins = 128
+numChirpsPerFrame = 6
+
+
+Test #258  start
+Configuration : :Tx3 Rx4 ADC119 Chps6 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #258 finished!
+
+Test #259  start
+Configuration : :Tx3 Rx4 ADC119 Chps6 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #259 finished!
+
+Test #260  start
+Configuration : :Tx3 Rx4 ADC119 Chps6 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #260 finished!
+
+Feature: :Tx3 Rx4 R128 D6: Passed
+
+
+Test #261  start
+Configuration : :Tx3 Rx4 ADC122 Chps6 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #261 finished!
+
+Test #262  start
+Configuration : :Tx3 Rx4 ADC122 Chps6 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #262 finished!
+
+Test #263  start
+Configuration : :Tx3 Rx4 ADC122 Chps6 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #263 finished!
+
+Feature: :Tx3 Rx4 R128 D6: Passed
+
+
+Test #264  start
+Configuration : :Tx3 Rx4 ADC125 Chps6 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #264 finished!
+
+Test #265  start
+Configuration : :Tx3 Rx4 ADC125 Chps6 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #265 finished!
+
+Test #266  start
+Configuration : :Tx3 Rx4 ADC125 Chps6 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #266 finished!
+
+Feature: :Tx3 Rx4 R128 D6: Passed
+
+
+Test #267  start
+Configuration : :Tx3 Rx4 ADC128 Chps6 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #267 finished!
+
+Test #268  start
+Configuration : :Tx3 Rx4 ADC128 Chps6 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #268 finished!
+
+Test #269  start
+Configuration : :Tx3 Rx4 ADC128 Chps6 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #269 finished!
+
+Feature: :Tx3 Rx4 R128 D6: Passed
+
+numTxAntennas = 3
+numRangeBins = 256
+numChirpsPerFrame = 6
+
+
+Test #270  start
+Configuration : :Tx3 Rx4 ADC247 Chps6 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #270 finished!
+
+Test #271  start
+Configuration : :Tx3 Rx4 ADC247 Chps6 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #271 finished!
+
+Test #272  start
+Configuration : :Tx3 Rx4 ADC247 Chps6 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #272 finished!
+
+Feature: :Tx3 Rx4 R256 D6: Passed
+
+
+Test #273  start
+Configuration : :Tx3 Rx4 ADC250 Chps6 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #273 finished!
+
+Test #274  start
+Configuration : :Tx3 Rx4 ADC250 Chps6 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #274 finished!
+
+Test #275  start
+Configuration : :Tx3 Rx4 ADC250 Chps6 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #275 finished!
+
+Feature: :Tx3 Rx4 R256 D6: Passed
+
+
+Test #276  start
+Configuration : :Tx3 Rx4 ADC253 Chps6 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #276 finished!
+
+Test #277  start
+Configuration : :Tx3 Rx4 ADC253 Chps6 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #277 finished!
+
+Test #278  start
+Configuration : :Tx3 Rx4 ADC253 Chps6 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #278 finished!
+
+Feature: :Tx3 Rx4 R256 D6: Passed
+
+
+Test #279  start
+Configuration : :Tx3 Rx4 ADC256 Chps6 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #279 finished!
+
+Test #280  start
+Configuration : :Tx3 Rx4 ADC256 Chps6 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #280 finished!
+
+Test #281  start
+Configuration : :Tx3 Rx4 ADC256 Chps6 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #281 finished!
+
+Feature: :Tx3 Rx4 R256 D6: Passed
+
+numTxAntennas = 3
+numRangeBins = 512
+numChirpsPerFrame = 6
+
+
+Test #282  start
+Configuration : :Tx3 Rx4 ADC503 Chps6 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #282 finished!
+
+Test #283  start
+Configuration : :Tx3 Rx4 ADC503 Chps6 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #283 finished!
+
+Test #284  start
+Configuration : :Tx3 Rx4 ADC503 Chps6 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #284 finished!
+
+Feature: :Tx3 Rx4 R512 D6: Passed
+
+
+Test #285  start
+Configuration : :Tx3 Rx4 ADC506 Chps6 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #285 finished!
+
+Test #286  start
+Configuration : :Tx3 Rx4 ADC506 Chps6 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #286 finished!
+
+Test #287  start
+Configuration : :Tx3 Rx4 ADC506 Chps6 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #287 finished!
+
+Feature: :Tx3 Rx4 R512 D6: Passed
+
+
+Test #288  start
+Configuration : :Tx3 Rx4 ADC509 Chps6 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #288 finished!
+
+Test #289  start
+Configuration : :Tx3 Rx4 ADC509 Chps6 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #289 finished!
+
+Test #290  start
+Configuration : :Tx3 Rx4 ADC509 Chps6 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #290 finished!
+
+Feature: :Tx3 Rx4 R512 D6: Passed
+
+
+Test #291  start
+Configuration : :Tx3 Rx4 ADC512 Chps6 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #291 finished!
+
+Test #292  start
+Configuration : :Tx3 Rx4 ADC512 Chps6 IntLv0 OutFmt1
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #292 finished!
+
+Test #293  start
+Configuration : :Tx3 Rx4 ADC512 Chps6 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #293 finished!
+
+Feature: :Tx3 Rx4 R512 D6: Passed
+
+numTxAntennas = 3
+numRangeBins = 1024
+numChirpsPerFrame = 6
+
+
+Test #294  start
+Configuration : :Tx3 Rx4 ADC1015 Chps6 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #294 finished!
+
+Test #295  start
+Configuration : :Tx3 Rx4 ADC1015 Chps6 IntLv0 OutFmt1
+NOT SUPPORTED!
+Test #295 finished!
+
+Test #296  start
+Configuration : :Tx3 Rx4 ADC1015 Chps6 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #296 finished!
+
+Feature: :Tx3 Rx4 R1024 D6: Passed
+
+
+Test #297  start
+Configuration : :Tx3 Rx4 ADC1018 Chps6 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #297 finished!
+
+Test #298  start
+Configuration : :Tx3 Rx4 ADC1018 Chps6 IntLv0 OutFmt1
+NOT SUPPORTED!
+Test #298 finished!
+
+Test #299  start
+Configuration : :Tx3 Rx4 ADC1018 Chps6 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #299 finished!
+
+Feature: :Tx3 Rx4 R1024 D6: Passed
+
+
+Test #300  start
+Configuration : :Tx3 Rx4 ADC1021 Chps6 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #300 finished!
+
+Test #301  start
+Configuration : :Tx3 Rx4 ADC1021 Chps6 IntLv0 OutFmt1
+NOT SUPPORTED!
+Test #301 finished!
+
+Test #302  start
+Configuration : :Tx3 Rx4 ADC1021 Chps6 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #302 finished!
+
+Feature: :Tx3 Rx4 R1024 D6: Passed
+
+
+Test #303  start
+Configuration : :Tx3 Rx4 ADC1024 Chps6 IntLv0 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #303 finished!
+
+Test #304  start
+Configuration : :Tx3 Rx4 ADC1024 Chps6 IntLv0 OutFmt1
+NOT SUPPORTED!
+Test #304 finished!
+
+Test #305  start
+Configuration : :Tx3 Rx4 ADC1024 Chps6 IntLv1 OutFmt0
+
+... DPU Finish, Check Cube data ....  : 
+
+Test PASSED!
+
+... DPU Finish, Check Calibration data ....  : 
+
+Test PASSED!
+Test #305 finished!
+
+Feature: :Tx3 Rx4 R1024 D6: Passed
+
+All 306 Tests finished!
+
+......TEST PASSES......
+Value read from Global variable (MCPI_Result): 0
+Test Failure Signature: 0
+Test Log Messages: 
+Feature tested: :Tx1 Rx1 R64 D4: Passed
+Feature tested: :Tx1 Rx2 R64 D4: Passed
+Feature tested: :Tx1 Rx4 R64 D4: Passed
+Feature tested: :Tx1 Rx1 R128 D4: Passed
+Feature tested: :Tx1 Rx2 R128 D4: Passed
+Feature tested: :Tx1 Rx4 R128 D4: Passed
+Feature tested: :Tx1 Rx1 R128 D4: Passed
+Feature tested: :Tx1 Rx2 R128 D4: Passed
+Feature tested: :Tx1 Rx4 R128 D4: Passed
+Feature tested: :Tx1 Rx1 R128 D4: Passed
+Feature tested: :Tx1 Rx2 R128 D4: Passed
+Feature tested: :Tx1 Rx4 R128 D4: Passed
+Feature tested: :Tx1 Rx1 R128 D4: Passed
+Feature tested: :Tx1 Rx2 R128 D4: Passed
+Feature tested: :Tx1 Rx4 R128 D4: Passed
+Feature tested: :Tx1 Rx1 R256 D4: Passed
+Feature tested: :Tx1 Rx2 R256 D4: Passed
+Feature tested: :Tx1 Rx4 R256 D4: Passed
+Feature tested: :Tx1 Rx1 R256 D4: Passed
+Feature tested: :Tx1 Rx2 R256 D4: Passed
+Feature tested: :Tx1 Rx4 R256 D4: Passed
+Feature tested: :Tx1 Rx1 R256 D4: Passed
+Feature tested: :Tx1 Rx2 R256 D4: Passed
+Feature tested: :Tx1 Rx4 R256 D4: Passed
+Feature tested: :Tx1 Rx1 R256 D4: Passed
+Feature tested: :Tx1 Rx2 R256 D4: Passed
+Feature tested: :Tx1 Rx4 R256 D4: Passed
+Feature tested: :Tx1 Rx1 R512 D4: Passed
+Feature tested: :Tx1 Rx2 R512 D4: Passed
+Feature tested: :Tx1 Rx4 R512 D4: Passed
+Feature tested: :Tx1 Rx1 R512 D4: Passed
+Feature tested: :Tx1 Rx2 R512 D4: Passed
+Feature tested: :Tx1 Rx4 R512 D4: Passed
+Feature tested: :Tx1 Rx1 R512 D4: Passed
+Feature tested: :Tx1 Rx2 R512 D4: Passed
+Feature tested: :Tx1 Rx4 R512 D4: Passed
+Feature tested: :Tx1 Rx1 R512 D4: Passed
+Feature tested: :Tx1 Rx2 R512 D4: Passed
+Feature tested: :Tx1 Rx4 R512 D4: Passed
+Feature tested: :Tx1 Rx1 R1024 D4: Passed
+Feature tested: :Tx1 Rx2 R1024 D4: Passed
+Feature tested: :Tx1 Rx4 R1024 D4: Passed
+Feature tested: :Tx1 Rx1 R1024 D4: Passed
+Feature tested: :Tx1 Rx2 R1024 D4: Passed
+Feature tested: :Tx1 Rx4 R1024 D4: Passed
+Feature tested: :Tx1 Rx1 R1024 D4: Passed
+Feature tested: :Tx1 Rx2 R1024 D4: Passed
+Feature tested: :Tx1 Rx4 R1024 D4: Passed
+Feature tested: :Tx1 Rx1 R1024 D4: Passed
+Feature tested: :Tx1 Rx2 R1024 D4: Passed
+Feature tested: :Tx1 Rx4 R1024 D4: Passed
+Feature tested: :Tx2 Rx2 R64 D4: Passed
+Feature tested: :Tx2 Rx4 R64 D4: Passed
+Feature tested: :Tx2 Rx2 R128 D4: Passed
+Feature tested: :Tx2 Rx4 R128 D4: Passed
+Feature tested: :Tx2 Rx2 R128 D4: Passed
+Feature tested: :Tx2 Rx4 R128 D4: Passed
+Feature tested: :Tx2 Rx2 R128 D4: Passed
+Feature tested: :Tx2 Rx4 R128 D4: Passed
+Feature tested: :Tx2 Rx2 R128 D4: Passed
+Feature tested: :Tx2 Rx4 R128 D4: Passed
+Feature tested: :Tx2 Rx2 R256 D4: Passed
+Feature tested: :Tx2 Rx4 R256 D4: Passed
+Feature tested: :Tx2 Rx2 R256 D4: Passed
+Feature tested: :Tx2 Rx4 R256 D4: Passed
+Feature tested: :Tx2 Rx2 R256 D4: Passed
+Feature tested: :Tx2 Rx4 R256 D4: Passed
+Feature tested: :Tx2 Rx2 R256 D4: Passed
+Feature tested: :Tx2 Rx4 R256 D4: Passed
+Feature tested: :Tx2 Rx2 R512 D4: Passed
+Feature tested: :Tx2 Rx4 R512 D4: Passed
+Feature tested: :Tx2 Rx2 R512 D4: Passed
+Feature tested: :Tx2 Rx4 R512 D4: Passed
+Feature tested: :Tx2 Rx2 R512 D4: Passed
+Feature tested: :Tx2 Rx4 R512 D4: Passed
+Feature tested: :Tx2 Rx2 R512 D4: Passed
+Feature tested: :Tx2 Rx4 R512 D4: Passed
+Feature tested: :Tx2 Rx2 R1024 D4: Passed
+Feature tested: :Tx2 Rx4 R1024 D4: Passed
+Feature tested: :Tx2 Rx2 R1024 D4: Passed
+Feature tested: :Tx2 Rx4 R1024 D4: Passed
+Feature tested: :Tx2 Rx2 R1024 D4: Passed
+Feature tested: :Tx2 Rx4 R1024 D4: Passed
+Feature tested: :Tx2 Rx2 R1024 D4: Passed
+Feature tested: :Tx2 Rx4 R1024 D4: Passed
+Feature tested: :Tx3 Rx4 R64 D6: Passed
+Feature tested: :Tx3 Rx4 R128 D6: Passed
+Feature tested: :Tx3 Rx4 R128 D6: Passed
+Feature tested: :Tx3 Rx4 R128 D6: Passed
+Feature tested: :Tx3 Rx4 R128 D6: Passed
+Feature tested: :Tx3 Rx4 R256 D6: Passed
+Feature tested: :Tx3 Rx4 R256 D6: Passed
+Feature tested: :Tx3 Rx4 R256 D6: Passed
+Feature tested: :Tx3 Rx4 R256 D6: Passed
+Feature tested: :Tx3 Rx4 R512 D6: Passed
+Feature tested: :Tx3 Rx4 R512 D6: Passed
+Feature tested: :Tx3 Rx4 R512 D6: Passed
+Feature tested: :Tx3 Rx4 R512 D6: Passed
+Feature tested: :Tx3 Rx4 R1024 D6: Passed
+Feature tested: :Tx3 Rx4 R1024 D6: Passed
+Feature tested: :Tx3 Rx4 R1024 D6: Passed
+Feature tested: :Tx3 Rx4 R1024 D6: Passed
+
+
+shutting down py4j gw server.
+
+
+**************************************************
+Terminating the debug session and Shutting down gateway.
+**************************************************
+
+**************************************************
+Test case execution completed
+**************************************************
+
+**************************************************
+Testcase Result : PASS
+**************************************************

@@ -1,0 +1,79 @@
+\doxysection{Mmw\+Demo\+\_\+message\+\_\+t Struct Reference}
+\label{struct_mmw_demo__message__t}\index{MmwDemo\_message\_t@{MmwDemo\_message\_t}}
+
+
+D\+S\+S/\+M\+SS communication messages.  
+
+
+
+
+{\ttfamily \#include $<$mmw\+\_\+messages.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Mmw\+Demo\+\_\+message\+\_\+type} \textbf{ type}
+\begin{DoxyCompactList}\small\item\em message type \end{DoxyCompactList}\item 
+int8\+\_\+t \textbf{ sub\+Frame\+Num}
+\begin{DoxyCompactList}\small\item\em message length \+: P\+R\+O\+C\+\_\+\+T\+BA does body need to be pointer and not a union structure? \end{DoxyCompactList}\item 
+\textbf{ Mmw\+Demo\+\_\+message\+\_\+body} \textbf{ body}
+\begin{DoxyCompactList}\small\item\em message body \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+D\+S\+S/\+M\+SS communication messages. 
+
+The structure defines the message structure used to commuincate between M\+SS and D\+SS. 
+
+Definition at line 196 of file mmw\+\_\+messages.\+h.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\label{struct_mmw_demo__message__t_aa6418dd80727ce30644f763b1cc4fd11}} 
+\index{MmwDemo\_message\_t@{MmwDemo\_message\_t}!body@{body}}
+\index{body@{body}!MmwDemo\_message\_t@{MmwDemo\_message\_t}}
+\doxysubsubsection{body}
+{\footnotesize\ttfamily \textbf{ Mmw\+Demo\+\_\+message\+\_\+body} Mmw\+Demo\+\_\+message\+\_\+t\+::body}
+
+
+
+message body 
+
+
+
+Definition at line 212 of file mmw\+\_\+messages.\+h.
+
+\mbox{\label{struct_mmw_demo__message__t_ae2d521b243c0334d29120ac0559d82d6}} 
+\index{MmwDemo\_message\_t@{MmwDemo\_message\_t}!subFrameNum@{subFrameNum}}
+\index{subFrameNum@{subFrameNum}!MmwDemo\_message\_t@{MmwDemo\_message\_t}}
+\doxysubsubsection{subFrameNum}
+{\footnotesize\ttfamily int8\+\_\+t Mmw\+Demo\+\_\+message\+\_\+t\+::sub\+Frame\+Num}
+
+
+
+message length \+: P\+R\+O\+C\+\_\+\+T\+BA does body need to be pointer and not a union structure? 
+
+Subframe number for which this message is applicable. Valid only when advanced frame config is used. When advanced frame config is not used, this field should be set to M\+M\+W\+D\+E\+M\+O\+\_\+\+S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+N\+U\+M\+\_\+\+F\+R\+A\+M\+E\+\_\+\+L\+E\+V\+E\+L\+\_\+\+C\+O\+N\+F\+IG. 
+
+Definition at line 209 of file mmw\+\_\+messages.\+h.
+
+\mbox{\label{struct_mmw_demo__message__t_acefda005cb8164ce71eb9bfcd6191894}} 
+\index{MmwDemo\_message\_t@{MmwDemo\_message\_t}!type@{type}}
+\index{type@{type}!MmwDemo\_message\_t@{MmwDemo\_message\_t}}
+\doxysubsubsection{type}
+{\footnotesize\ttfamily \textbf{ Mmw\+Demo\+\_\+message\+\_\+type} Mmw\+Demo\+\_\+message\+\_\+t\+::type}
+
+
+
+message type 
+
+
+
+Definition at line 199 of file mmw\+\_\+messages.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+common/\textbf{ mmw\+\_\+messages.\+h}\end{DoxyCompactItemize}

@@ -1,0 +1,176 @@
+eth008 Board details:
+IP address: 10.218.113.67
+
+Port: 17494
+
+connecting...
+Relay states 8->1 : 00000001
+1 off
+2 off
+Relay states 8->1 : 00000000
+1 on
+Relay states 8->1 : 00000001
+exit
+Disconnected
+Pre-Script returned: Success
+
+**************************************************
+Testcase mods & parameters invoked:
+**************************************************
+TwoCoreTest:: slave_case: True, binary_file is xwr16xx_distributed_dss.xe674, local path is /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___hs_iwr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13, remote path is http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/control/dpm/test/distributed, binary_params is None
+
+**************************************************
+Copying test case files from the Build server
+**************************************************
+amk: ARGS['TestcasePath']: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/control/dpm/test/distributed
+
+amk: remote_datapath: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/control/dpm/test/testdata
+
+A testdata directory was not found on build server for this testcase
+
+
+amk: error logging: testcasepath = http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/control/dpm/test/distributed/mss
+amk: error logging: binaryfile = xwr16xx_distributed_mss.xer4f
+Copying testcase binary file from http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/control/dpm/test/distributed/mss/xwr16xx_distributed_mss.xer4f to /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___hs_iwr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13 using command: 
+wget -e robots=off --no-proxy -N -T 30 -t 2 -P /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___hs_iwr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13 http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/control/dpm/test/distributed/mss/xwr16xx_distributed_mss.xer4f
+**************************************************
+Executing Testcase:/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___hs_iwr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13/xwr16xx_distributed_mss.xer4f
+**************************************************
+amk: TwoCoreTest:: slave_case: True, binary_file is xwr16xx_distributed_dss.xe674, local path is /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___hs_iwr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13, remote path is http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/control/dpm/test/distributed, binary_params is None
+
+Checking if Py4J Gateway server has started...
+Py4J Gateway Server is Started
+Two-core test check: dss_execute_obj.two_core_test: True
+
+
+amk: a path in detected cpuList is: Texas Instruments XDS110 USB Debug Probe_1/DEBUGSSM_0
+amk: a path in detected cpuList is: Texas Instruments XDS110 USB Debug Probe_1/IcePick_M_0
+amk: a path in detected cpuList is: Texas Instruments XDS110 USB Debug Probe_1/C674X_0
+Slave core now opening debug session, cpuName = C674X_0.
+
+amk: Loading slave core binary:/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___hs_iwr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13/xwr16xx_distributed_dss.xe674
+amk: Updating slave binary parameters:/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___hs_iwr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13/xwr16xx_distributed_dss.xe674
+
+**************************************************
+ Parameters found in the Binary arguments : 
+{}
+**************************************************
+amk: a path in detected cpuList is Texas Instruments XDS110 USB Debug Probe_1/DEBUGSSM_0
+amk: a path in detected cpuList is Texas Instruments XDS110 USB Debug Probe_1/IcePick_M_0
+amk: a path in detected cpuList is Texas Instruments XDS110 USB Debug Probe_1/C674X_0
+amk: a path in detected cpuList is Texas Instruments XDS110 USB Debug Probe_1/CS_DAP_0
+amk: a path in detected cpuList is Texas Instruments XDS110 USB Debug Probe_1/CortexR4_0
+Master core now opening debug session, cpuName = CortexR4_0.
+
+Loading binary to the DUT:/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___hs_iwr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13/xwr16xx_distributed_mss.xer4f
+
+**************************************************
+ Parameters found in the Binary arguments : 
+{}
+**************************************************
+binary path = /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___hs_iwr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13/xwr16xx_distributed_mss.xer4f
+
+
+**************************************************
+CIO Log captured for the testcase
+**************************************************
+Feature: DPM Distributed Domain Initialization: Passed
+Feature: DPM Distributed Domain Synchronization: Passed
+Feature: DPM Local Domain Initialization: Passed
+Feature: HL DPC GTrack Configuration: Passed
+Feature: DPM Configuration: Passed
+Feature: HL DPC Started: Passed
+Feature: LL DPC FFTC Configuration: Passed
+Feature: ML DPC Peak Grouping Configuration: Passed
+Feature: LL DPC Started: Passed
+Feature: ML DPC Started: Passed
+Feature: DPM Start: Passed
+Feature: LL DPC Stopped: Passed
+Feature: ML DPC Stopped: Passed
+Feature: HL DPC Stopped Results validated=98: Passed
+Feature: DPM Stop: Passed
+Feature: LL DPC FFTC Configuration: Passed
+Feature: ML DPC Peak Grouping Configuration: Passed
+Feature: HL DPC GTrack Configuration: Passed
+Feature: DPM Configuration: Passed
+Feature: LL DPC Started: Passed
+Feature: ML DPC Started: Passed
+Feature: HL DPC Started: Passed
+Feature: DPM Start: Passed
+Feature: LL DPC Stopped: Passed
+Feature: ML DPC Stopped: Passed
+Feature: HL DPC Stopped Results validated=98: Passed
+Feature: DPM Stop: Passed
+Debug: DPM Distributed Unit Testing completed
+Value read from Global variable (MCPI_Result): 0
+Test Failure Signature: 0
+Test Log Messages: 
+Feature tested: DPM Distributed Domain Initialization: Passed
+Feature tested: DPM Distributed Domain Synchronization: Passed
+Feature tested: DPM Local Domain Initialization: Passed
+Feature tested: HL DPC GTrack Configuration: Passed
+Feature tested: DPM Configuration: Passed
+Feature tested: LL DPC FFTC Configuration: Passed
+Feature tested: ML DPC Peak Grouping Configuration: Passed
+Feature tested: LL DPC Started: Passed
+Feature tested: ML DPC Started: Passed
+Feature tested: HL DPC Started: Passed
+Feature tested: DPM Start: Passed
+Feature tested: LL DPC Stopped: Passed
+Feature tested: ML DPC Stopped: Passed
+Feature tested: HL DPC Stopped Results validated=98: Passed
+Feature tested: DPM Stop: Passed
+Feature tested: LL DPC FFTC Configuration: Passed
+Feature tested: ML DPC Peak Grouping Configuration: Passed
+Feature tested: HL DPC GTrack Configuration: Passed
+Feature tested: DPM Configuration: Passed
+Feature tested: LL DPC Started: Passed
+Feature tested: ML DPC Started: Passed
+Feature tested: HL DPC Started: Passed
+Feature tested: DPM Start: Passed
+Feature tested: LL DPC Stopped: Passed
+Feature tested: ML DPC Stopped: Passed
+Feature tested: HL DPC Stopped Results validated=98: Passed
+Feature tested: DPM Stop: Passed
+
+
+shutting down py4j gw server.
+
+
+**************************************************
+Terminating the debug session and Shutting down gateway.
+**************************************************
+
+**************************************************
+Test case execution completed
+**************************************************
+
+**************************************************
+Testcase Result : PASS
+**************************************************
+on: Passed
+Feature tested: DPM Local Domain Initialization: Passed
+Feature tested: HL DPC GTrack Configuration: Passed
+Feature tested: DPM Configuration: Passed
+Feature tested: LL DPC FFTC Configuration: Passed
+Feature tested: ML DPC Peak Grouping Configuration: Passed
+Feature tested: LL DPC Started: Passed
+Feature tested: ML DPC Started: Passed
+Feature tested: HL DPC Started: Passed
+Feature tested: DPM Start: Passed
+Feature tested: LL DPC Stopped: Passed
+Feature tested: ML DPC Stopped: Passed
+Feature tested: HL DPC Stopped Results validated=98: Passed
+Feature tested: DPM Stop: Passed
+Feature tested: LL DPC FFTC Configuration: Passed
+Feature tested: ML DPC Peak Grouping Configuration: Passed
+Feature tested: HL DPC GTrack Configuration: Passed
+Feature tested: DPM Configuration: Passed
+Feature tested: LL DPC Started: Passed
+Feature tested: ML DPC Started: Passed
+Feature tested: HL DPC Started: Passed
+Feature tested: DPM Start: Passed
+Feature tested: LL DPC Stopped: Passed
+Feature tested: ML DPC Stopped: Passed
+Feature tested: HL DPC Stopped Results validated=98: Passed
+Feature tested: DPM Stop: Passed

@@ -1,0 +1,138 @@
+\doxysection{Mmw\+Demo\+\_\+\+Gui\+Mon\+Sel\+\_\+t Struct Reference}
+\label{struct_mmw_demo___gui_mon_sel__t}\index{MmwDemo\_GuiMonSel\_t@{MmwDemo\_GuiMonSel\_t}}
+
+
+Millimeter Wave Demo Gui Monitor Selection.  
+
+
+
+
+{\ttfamily \#include $<$mrr\+\_\+config.\+h$>$}
+
+
+
+Collaboration diagram for Mmw\+Demo\+\_\+\+Gui\+Mon\+Sel\+\_\+t\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=207pt]{struct_mmw_demo___gui_mon_sel__t__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \textbf{ detected\+Objects}
+\begin{DoxyCompactList}\small\item\em Send list of detected objects (see \doxyref{Mmw\+Demo\+\_\+detected\+Obj\+\_\+t}{p.}{struct_mmw_demo__detected_obj__t}) \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ log\+Mag\+Range}
+\begin{DoxyCompactList}\small\item\em Send log magnitude range array ~\newline
+ \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ noise\+Profile}
+\begin{DoxyCompactList}\small\item\em Send noise floor profile. \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ range\+Azimuth\+Heat\+Map}
+\begin{DoxyCompactList}\small\item\em Send complex range bins at zero doppler, all antenna symbols for range-\/azimuth heat map. \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ range\+Doppler\+Heat\+Map}
+\begin{DoxyCompactList}\small\item\em Send complex range bins at zero doppler, (all antenna symbols), for range-\/azimuth heat map. \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ stats\+Info}
+\begin{DoxyCompactList}\small\item\em Send stats. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Millimeter Wave Demo Gui Monitor Selection. 
+
+The structure contains the flags which select what information is placed to the output packet, and sent out to G\+UI. If the flag is set to 1, information is sent out. If the flag is set to 0, information is not sent out. 
+
+Definition at line 325 of file mrr\+\_\+config.\+h.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\label{struct_mmw_demo___gui_mon_sel__t_acfbcf0e9188039069557f7241cdd548c}} 
+\index{MmwDemo\_GuiMonSel\_t@{MmwDemo\_GuiMonSel\_t}!detectedObjects@{detectedObjects}}
+\index{detectedObjects@{detectedObjects}!MmwDemo\_GuiMonSel\_t@{MmwDemo\_GuiMonSel\_t}}
+\doxysubsubsection{detectedObjects}
+{\footnotesize\ttfamily uint8\+\_\+t Mmw\+Demo\+\_\+\+Gui\+Mon\+Sel\+\_\+t\+::detected\+Objects}
+
+
+
+Send list of detected objects (see \doxyref{Mmw\+Demo\+\_\+detected\+Obj\+\_\+t}{p.}{struct_mmw_demo__detected_obj__t}) 
+
+
+
+Definition at line 328 of file mrr\+\_\+config.\+h.
+
+\mbox{\label{struct_mmw_demo___gui_mon_sel__t_abc7380a7f4b34aca1176df78080368da}} 
+\index{MmwDemo\_GuiMonSel\_t@{MmwDemo\_GuiMonSel\_t}!logMagRange@{logMagRange}}
+\index{logMagRange@{logMagRange}!MmwDemo\_GuiMonSel\_t@{MmwDemo\_GuiMonSel\_t}}
+\doxysubsubsection{logMagRange}
+{\footnotesize\ttfamily uint8\+\_\+t Mmw\+Demo\+\_\+\+Gui\+Mon\+Sel\+\_\+t\+::log\+Mag\+Range}
+
+
+
+Send log magnitude range array ~\newline
+ 
+
+
+
+Definition at line 331 of file mrr\+\_\+config.\+h.
+
+\mbox{\label{struct_mmw_demo___gui_mon_sel__t_a6c35c4f3c082766cbf0520bab64c1547}} 
+\index{MmwDemo\_GuiMonSel\_t@{MmwDemo\_GuiMonSel\_t}!noiseProfile@{noiseProfile}}
+\index{noiseProfile@{noiseProfile}!MmwDemo\_GuiMonSel\_t@{MmwDemo\_GuiMonSel\_t}}
+\doxysubsubsection{noiseProfile}
+{\footnotesize\ttfamily uint8\+\_\+t Mmw\+Demo\+\_\+\+Gui\+Mon\+Sel\+\_\+t\+::noise\+Profile}
+
+
+
+Send noise floor profile. 
+
+
+
+Definition at line 334 of file mrr\+\_\+config.\+h.
+
+\mbox{\label{struct_mmw_demo___gui_mon_sel__t_a6b3a768afbd8b37794480da0bbb9f6da}} 
+\index{MmwDemo\_GuiMonSel\_t@{MmwDemo\_GuiMonSel\_t}!rangeAzimuthHeatMap@{rangeAzimuthHeatMap}}
+\index{rangeAzimuthHeatMap@{rangeAzimuthHeatMap}!MmwDemo\_GuiMonSel\_t@{MmwDemo\_GuiMonSel\_t}}
+\doxysubsubsection{rangeAzimuthHeatMap}
+{\footnotesize\ttfamily uint8\+\_\+t Mmw\+Demo\+\_\+\+Gui\+Mon\+Sel\+\_\+t\+::range\+Azimuth\+Heat\+Map}
+
+
+
+Send complex range bins at zero doppler, all antenna symbols for range-\/azimuth heat map. 
+
+
+
+Definition at line 337 of file mrr\+\_\+config.\+h.
+
+\mbox{\label{struct_mmw_demo___gui_mon_sel__t_a6b87ba141c0c0c89ed7383d553932dd4}} 
+\index{MmwDemo\_GuiMonSel\_t@{MmwDemo\_GuiMonSel\_t}!rangeDopplerHeatMap@{rangeDopplerHeatMap}}
+\index{rangeDopplerHeatMap@{rangeDopplerHeatMap}!MmwDemo\_GuiMonSel\_t@{MmwDemo\_GuiMonSel\_t}}
+\doxysubsubsection{rangeDopplerHeatMap}
+{\footnotesize\ttfamily uint8\+\_\+t Mmw\+Demo\+\_\+\+Gui\+Mon\+Sel\+\_\+t\+::range\+Doppler\+Heat\+Map}
+
+
+
+Send complex range bins at zero doppler, (all antenna symbols), for range-\/azimuth heat map. 
+
+
+
+Definition at line 340 of file mrr\+\_\+config.\+h.
+
+\mbox{\label{struct_mmw_demo___gui_mon_sel__t_adfe45ea36333fde2ad49ceb20b338a7f}} 
+\index{MmwDemo\_GuiMonSel\_t@{MmwDemo\_GuiMonSel\_t}!statsInfo@{statsInfo}}
+\index{statsInfo@{statsInfo}!MmwDemo\_GuiMonSel\_t@{MmwDemo\_GuiMonSel\_t}}
+\doxysubsubsection{statsInfo}
+{\footnotesize\ttfamily uint8\+\_\+t Mmw\+Demo\+\_\+\+Gui\+Mon\+Sel\+\_\+t\+::stats\+Info}
+
+
+
+Send stats. 
+
+
+
+Definition at line 343 of file mrr\+\_\+config.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+common/\textbf{ mrr\+\_\+config.\+h}\end{DoxyCompactItemize}

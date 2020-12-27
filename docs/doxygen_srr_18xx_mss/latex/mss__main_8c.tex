@@ -1,0 +1,678 @@
+\doxysection{mss\+\_\+main.\+c File Reference}
+\label{mss__main_8c}\index{mss\_main.c@{mss\_main.c}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$xdc/std.\+h$>$}\newline
+{\ttfamily \#include $<$xdc/cfg/global.\+h$>$}\newline
+{\ttfamily \#include $<$xdc/runtime/\+I\+Heap.\+h$>$}\newline
+{\ttfamily \#include $<$xdc/runtime/\+System.\+h$>$}\newline
+{\ttfamily \#include $<$xdc/runtime/\+Error.\+h$>$}\newline
+{\ttfamily \#include $<$xdc/runtime/\+Memory.\+h$>$}\newline
+{\ttfamily \#include $<$ti/sysbios/\+B\+I\+O\+S.\+h$>$}\newline
+{\ttfamily \#include $<$ti/sysbios/knl/\+Task.\+h$>$}\newline
+{\ttfamily \#include $<$ti/sysbios/knl/\+Event.\+h$>$}\newline
+{\ttfamily \#include $<$ti/sysbios/knl/\+Semaphore.\+h$>$}\newline
+{\ttfamily \#include $<$ti/sysbios/knl/\+Clock.\+h$>$}\newline
+{\ttfamily \#include $<$ti/sysbios/heaps/\+Heap\+Buf.\+h$>$}\newline
+{\ttfamily \#include $<$ti/sysbios/heaps/\+Heap\+Mem.\+h$>$}\newline
+{\ttfamily \#include $<$ti/sysbios/family/arm/v7a/\+Pmu.\+h$>$}\newline
+{\ttfamily \#include $<$ti/sysbios/family/arm/v7r/vim/\+Hwi.\+h$>$}\newline
+{\ttfamily \#include $<$ti/control/mmwavelink/mmwavelink.\+h$>$}\newline
+{\ttfamily \#include $<$ti/control/mmwave/mmwave.\+h$>$}\newline
+{\ttfamily \#include $<$ti/control/mmwavelink/include/rl\+\_\+driver.\+h$>$}\newline
+{\ttfamily \#include $<$ti/common/sys\+\_\+common.\+h$>$}\newline
+{\ttfamily \#include $<$ti/drivers/soc/soc.\+h$>$}\newline
+{\ttfamily \#include $<$ti/drivers/esm/esm.\+h$>$}\newline
+{\ttfamily \#include $<$ti/drivers/crc/crc.\+h$>$}\newline
+{\ttfamily \#include $<$ti/drivers/uart/\+U\+A\+R\+T.\+h$>$}\newline
+{\ttfamily \#include $<$ti/drivers/gpio/gpio.\+h$>$}\newline
+{\ttfamily \#include $<$ti/drivers/mailbox/mailbox.\+h$>$}\newline
+{\ttfamily \#include $<$ti/drivers/pinmux/include/pinmux\+\_\+xwr18xx.\+h$>$}\newline
+{\ttfamily \#include $<$ti/drivers/osal/\+Debug\+P.\+h$>$}\newline
+{\ttfamily \#include $<$ti/drivers/canfd/canfd.\+h$>$}\newline
+{\ttfamily \#include $<$ti/drivers/pinmux/pinmux.\+h$>$}\newline
+{\ttfamily \#include $<$ti/drivers/cbuff/cbuff.\+h$>$}\newline
+{\ttfamily \#include $<$ti/utils/testlogger/logger.\+h$>$}\newline
+{\ttfamily \#include $<$ti/utils/cli/cli.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}common/mmw\+\_\+messages.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}common/mm\+Wave\+\_\+\+X\+S\+S.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$common/app\+\_\+cfg.\+h$>$}\newline
+Include dependency graph for mss\+\_\+main.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mss__main_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ T\+A\+S\+K\+\_\+\+P\+R\+I\+O\+\_\+1}~1
+\item 
+\#define \textbf{ T\+A\+S\+K\+\_\+\+P\+R\+I\+O\+\_\+2}~2
+\item 
+\#define \textbf{ T\+A\+S\+K\+\_\+\+P\+R\+I\+O\+\_\+3}~3
+\item 
+\#define \textbf{ T\+A\+S\+K\+\_\+\+P\+R\+I\+O\+\_\+4}~4
+\item 
+\#define \textbf{ T\+A\+S\+K\+\_\+\+P\+R\+I\+O\+\_\+5}~5
+\item 
+\#define \textbf{ T\+A\+S\+K\+\_\+\+P\+R\+I\+O\+\_\+6}~6
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \textbf{ M\+S\+S\+\_\+mm\+Wave\+Init\+T\+A\+SK} (U\+Arg arg0, U\+Arg arg1)
+\begin{DoxyCompactList}\small\item\em Initialize the M\+C\+PI Log Message Buffer. \end{DoxyCompactList}\item 
+static void \textbf{ M\+S\+S\+\_\+mm\+Wave\+Config\+Callback\+Fxn} (M\+M\+Wave\+\_\+\+Ctrl\+Cfg $\ast$ptr\+Ctrl\+Cfg)
+\begin{DoxyCompactList}\small\item\em This is the application registered callback function which is invoked after the configuration has been used to configure the mm\+Wave link and the B\+SS. \end{DoxyCompactList}\item 
+static void \textbf{ M\+S\+S\+\_\+chirp\+Int\+Callback} (uintptr\+\_\+t arg)
+\begin{DoxyCompactList}\small\item\em This is the callback function registered with the A\+DC Driver which is invoked when a chirp is available. This is executed in the I\+SR context which is registered to the listener function listener\+Fxn; defined within S\+O\+C\+\_\+\+Sys\+Int\+Listener\+Cfg. Hence; In our design, there\textquotesingle{}s no frame segmentation (Advanced Frame Configuration) (in other words, frame \+:= 1 sub-\/frame). However, advanced frame configuration will allow the use of different subframes in the radar configuration to support and meet the requirements of different ranges\+: i.\+e ultra-\/short, short, medium, long ranges. Accordingly, different subframes results in different chirp sizes which is totally depending on the each sub-\/frame\+Type. Therefore, It\textquotesingle{}s important to identify this for each sub-\/frame before the start of the next subframe, at the end of the previous subframes last chirp. \end{DoxyCompactList}\item 
+static void \textbf{ M\+S\+S\+\_\+mm\+Wave\+Start\+Callback\+Fxn} (M\+M\+Wave\+\_\+\+Calibration\+Cfg $\ast$ptr\+Calibration\+Cfg)
+\begin{DoxyCompactList}\small\item\em Application registered callback function which is invoked on the peer domain just before the mm\+Wave link is started on the B\+SS. \end{DoxyCompactList}\item 
+static void \textbf{ M\+S\+S\+\_\+mm\+Wave\+Stop\+Callback\+Fxn} (void)
+\begin{DoxyCompactList}\small\item\em This is the application registered callback function which is invoked after the M\+SS has been stopped. Hence, possible sceanarios\+: \end{DoxyCompactList}\item 
+static void \textbf{ M\+S\+S\+\_\+frame\+Start\+Int\+Callback} (uintptr\+\_\+t arg)
+\begin{DoxyCompactList}\small\item\em This is the callback function registered with the A\+DC Driver which is invoked when a frame is started. This is executed in the I\+SR context which is registered to the listener function listener\+Fxn; defined within S\+O\+C\+\_\+\+Sys\+Int\+Listener\+Cfg Inside the function we Check if the frames are coming correctly, and no chirps have been missed. \end{DoxyCompactList}\item 
+static void \textbf{ M\+S\+S\+\_\+mm\+Wave\+Ctrl\+Task} (U\+Arg arg0, U\+Arg arg1)
+\begin{DoxyCompactList}\small\item\em This is the task which provides an execution context for the mm\+Wave control module. \end{DoxyCompactList}\item 
+static void \textbf{ M\+S\+S\+\_\+mm\+Wave\+Open\+Callback\+Fxn} (M\+M\+Wave\+\_\+\+Open\+Cfg $\ast$ptr\+Open\+Cfg)
+\begin{DoxyCompactList}\small\item\em This is the application registered callback function which is invoked after the M\+SS has been opened. \end{DoxyCompactList}\item 
+static void \textbf{ M\+S\+S\+\_\+mm\+Wave\+Close\+Callback\+Fxn} (void)
+\begin{DoxyCompactList}\small\item\em This is the application registered callback function which is invoked after the M\+SS has been closed. \end{DoxyCompactList}\item 
+static int32\+\_\+t \textbf{ M\+S\+S\+\_\+event\+Fxn} (uint16\+\_\+t msg\+Id, uint16\+\_\+t sb\+Id, uint16\+\_\+t sb\+Len, uint8\+\_\+t $\ast$payload)
+\begin{DoxyCompactList}\small\item\em This is a registered event function which is invoked when an event is recieved from the B\+SS. This event is passed to the peer domain/core B\+SS. \end{DoxyCompactList}\item 
+static void \textbf{ mbox\+Callback\+Fxn\+\_\+\+M\+S\+S\+\_\+ch0} (Mbox\+\_\+\+Handle handle, Mailbox\+\_\+\+Type peer)
+\begin{DoxyCompactList}\small\item\em mbox\+Callback\+Fxn\+\_\+\+M\+S\+S\+\_\+ch0 is a callback function. Function is invoked for each received messege from the D\+SS peer endpoint. When invoked, release the resources and wakeup the mm\+Wave thread to process the received message. Hence\+: the address of this function is passed to mbox\+Cfg.\+read\+Callback \end{DoxyCompactList}\item 
+static void \textbf{ mbox\+In\+\_\+uart\+Out\+\_\+\+T\+A\+SK} (U\+Arg arg0, U\+Arg arg1)
+\begin{DoxyCompactList}\small\item\em The Task is used to handle the recieved messages from the D\+SS Peer over the mailbox virtual communication channel. \end{DoxyCompactList}\item 
+int32\+\_\+t \textbf{ M\+S\+S\+\_\+mbox\+Write} (\textbf{ mm\+Wave\+M\+SG} $\ast$msg)
+\item 
+int32\+\_\+t \textbf{ main} (void)
+\begin{DoxyCompactList}\small\item\em Main Program entrypoint. This is the entrypoint for the M\+SS firmware which describe the startup sequence for the A\+W\+R1843 application running on top of M\+SS. The M\+SS application must have the following startup sequence at bootup time. Clear all the E\+SM group errors and register Disable the firewall for J\+T\+AG and L\+O\+G\+G\+ER (U\+A\+RT) Start the B\+I\+OS and further initialize required peripherals. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ M\+CB} \textbf{ g\+M\+CB}
+\begin{DoxyCompactList}\small\item\em g\+M\+CB structure contains the tracking information required by the design is aligned using D\+A\+T\+A\+\_\+\+A\+L\+I\+GN paragma to increase the performance of M\+SS core by aligning the structure g\+M\+CB (Master Control Block) to be divisable by 16. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\label{mss__main_8c_af701a584c7f66a370e2300d9c90d19bf}} 
+\index{mss\_main.c@{mss\_main.c}!TASK\_PRIO\_1@{TASK\_PRIO\_1}}
+\index{TASK\_PRIO\_1@{TASK\_PRIO\_1}!mss\_main.c@{mss\_main.c}}
+\doxysubsubsection{TASK\_PRIO\_1}
+{\footnotesize\ttfamily \#define T\+A\+S\+K\+\_\+\+P\+R\+I\+O\+\_\+1~1}
+
+
+
+Definition at line 76 of file mss\+\_\+main.\+c.
+
+\mbox{\label{mss__main_8c_a066c1fc0ddc42e5d88ba6a59b4637adf}} 
+\index{mss\_main.c@{mss\_main.c}!TASK\_PRIO\_2@{TASK\_PRIO\_2}}
+\index{TASK\_PRIO\_2@{TASK\_PRIO\_2}!mss\_main.c@{mss\_main.c}}
+\doxysubsubsection{TASK\_PRIO\_2}
+{\footnotesize\ttfamily \#define T\+A\+S\+K\+\_\+\+P\+R\+I\+O\+\_\+2~2}
+
+
+
+Definition at line 77 of file mss\+\_\+main.\+c.
+
+\mbox{\label{mss__main_8c_a32d3e2dfce3c3b5ac5dc79a447dda05a}} 
+\index{mss\_main.c@{mss\_main.c}!TASK\_PRIO\_3@{TASK\_PRIO\_3}}
+\index{TASK\_PRIO\_3@{TASK\_PRIO\_3}!mss\_main.c@{mss\_main.c}}
+\doxysubsubsection{TASK\_PRIO\_3}
+{\footnotesize\ttfamily \#define T\+A\+S\+K\+\_\+\+P\+R\+I\+O\+\_\+3~3}
+
+
+
+Definition at line 78 of file mss\+\_\+main.\+c.
+
+\mbox{\label{mss__main_8c_a87ce99a7350d260a2a0dbf5e1dff60dc}} 
+\index{mss\_main.c@{mss\_main.c}!TASK\_PRIO\_4@{TASK\_PRIO\_4}}
+\index{TASK\_PRIO\_4@{TASK\_PRIO\_4}!mss\_main.c@{mss\_main.c}}
+\doxysubsubsection{TASK\_PRIO\_4}
+{\footnotesize\ttfamily \#define T\+A\+S\+K\+\_\+\+P\+R\+I\+O\+\_\+4~4}
+
+
+
+Definition at line 79 of file mss\+\_\+main.\+c.
+
+\mbox{\label{mss__main_8c_a4484c81ddaa2ff87e7c7d010e3e7d42d}} 
+\index{mss\_main.c@{mss\_main.c}!TASK\_PRIO\_5@{TASK\_PRIO\_5}}
+\index{TASK\_PRIO\_5@{TASK\_PRIO\_5}!mss\_main.c@{mss\_main.c}}
+\doxysubsubsection{TASK\_PRIO\_5}
+{\footnotesize\ttfamily \#define T\+A\+S\+K\+\_\+\+P\+R\+I\+O\+\_\+5~5}
+
+
+
+Definition at line 80 of file mss\+\_\+main.\+c.
+
+\mbox{\label{mss__main_8c_a8e8b55f6195cbb246eb03322fe7bd528}} 
+\index{mss\_main.c@{mss\_main.c}!TASK\_PRIO\_6@{TASK\_PRIO\_6}}
+\index{TASK\_PRIO\_6@{TASK\_PRIO\_6}!mss\_main.c@{mss\_main.c}}
+\doxysubsubsection{TASK\_PRIO\_6}
+{\footnotesize\ttfamily \#define T\+A\+S\+K\+\_\+\+P\+R\+I\+O\+\_\+6~6}
+
+
+
+Definition at line 81 of file mss\+\_\+main.\+c.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\label{mss__main_8c_a52d2cba30e6946c95578be946ac12a65}} 
+\index{mss\_main.c@{mss\_main.c}!main@{main}}
+\index{main@{main}!mss\_main.c@{mss\_main.c}}
+\doxysubsubsection{main()}
+{\footnotesize\ttfamily int32\+\_\+t main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Main Program entrypoint. This is the entrypoint for the M\+SS firmware which describe the startup sequence for the A\+W\+R1843 application running on top of M\+SS. The M\+SS application must have the following startup sequence at bootup time. Clear all the E\+SM group errors and register Disable the firewall for J\+T\+AG and L\+O\+G\+G\+ER (U\+A\+RT) Start the B\+I\+OS and further initialize required peripherals. 
+
+\begin{DoxyItemize}
+\item N/A \begin{DoxyReturn}{Returns}
+0 
+\end{DoxyReturn}
+\end{DoxyItemize}
+
+
+Definition at line 916 of file mss\+\_\+main.\+c.
+
+
+
+References g\+M\+CB, M\+S\+S\+\_\+mm\+Wave\+Init\+T\+A\+S\+K(), M\+C\+B\+\_\+t\+::soc\+Handle, and T\+A\+S\+K\+\_\+\+P\+R\+I\+O\+\_\+1.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mss__main_8c_a52d2cba30e6946c95578be946ac12a65_cgraph}
+\end{center}
+\end{figure}
+\mbox{\label{mss__main_8c_a2ecebb929cb2a75806536a21aedba1ff}} 
+\index{mss\_main.c@{mss\_main.c}!mboxCallbackFxn\_MSS\_ch0@{mboxCallbackFxn\_MSS\_ch0}}
+\index{mboxCallbackFxn\_MSS\_ch0@{mboxCallbackFxn\_MSS\_ch0}!mss\_main.c@{mss\_main.c}}
+\doxysubsubsection{mboxCallbackFxn\_MSS\_ch0()}
+{\footnotesize\ttfamily static void mbox\+Callback\+Fxn\+\_\+\+M\+S\+S\+\_\+ch0 (\begin{DoxyParamCaption}\item[{Mbox\+\_\+\+Handle}]{handle,  }\item[{Mailbox\+\_\+\+Type}]{peer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+mbox\+Callback\+Fxn\+\_\+\+M\+S\+S\+\_\+ch0 is a callback function. Function is invoked for each received messege from the D\+SS peer endpoint. When invoked, release the resources and wakeup the mm\+Wave thread to process the received message. Hence\+: the address of this function is passed to mbox\+Cfg.\+read\+Callback 
+
+\begin{DoxyItemize}
+\item [0] Handle to the Mailbox on which data was received \item [1] Peer from which data was received (D\+SS) \begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\end{DoxyItemize}
+
+
+Definition at line 596 of file mss\+\_\+main.\+c.
+
+
+
+References g\+M\+CB, and M\+C\+B\+\_\+t\+::mbox\+Sem\+Handle.
+
+
+
+Referenced by M\+S\+S\+\_\+mm\+Wave\+Init\+T\+A\+S\+K().
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mss__main_8c_a2ecebb929cb2a75806536a21aedba1ff_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{mss__main_8c_aab2ee2281d102f40b9babe34af5e2509}} 
+\index{mss\_main.c@{mss\_main.c}!mboxIn\_uartOut\_TASK@{mboxIn\_uartOut\_TASK}}
+\index{mboxIn\_uartOut\_TASK@{mboxIn\_uartOut\_TASK}!mss\_main.c@{mss\_main.c}}
+\doxysubsubsection{mboxIn\_uartOut\_TASK()}
+{\footnotesize\ttfamily static void mbox\+In\+\_\+uart\+Out\+\_\+\+T\+A\+SK (\begin{DoxyParamCaption}\item[{U\+Arg}]{arg0,  }\item[{U\+Arg}]{arg1 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The Task is used to handle the recieved messages from the D\+SS Peer over the mailbox virtual communication channel. 
+
+\begin{DoxyItemize}
+\item [0] arg0 of the Task. \item [1] arg1 of the Task. \begin{DoxyReturn}{Returns}
+Success -\/0 Fail $<$ -\/1 
+\end{DoxyReturn}
+\end{DoxyItemize}
+
+
+Definition at line 457 of file mss\+\_\+main.\+c.
+
+
+
+References g\+M\+CB, M\+C\+B\+\_\+t\+::logging\+Uart\+Handle, M\+B\+O\+X\+\_\+\+D\+S\+S2\+M\+S\+S\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+I\+N\+FO, M\+B\+O\+X\+\_\+\+D\+S\+S2\+M\+S\+S\+\_\+\+D\+E\+T\+O\+B\+J\+\_\+\+R\+E\+A\+DY, M\+B\+O\+X\+\_\+\+M\+S\+S2\+D\+S\+S\+\_\+\+D\+E\+T\+O\+B\+J\+\_\+\+S\+H\+I\+P\+P\+ED, M\+C\+B\+\_\+t\+::mbox\+Handle, M\+C\+B\+\_\+t\+::mbox\+Sem\+Handle, M\+M\+W\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+M\+S\+G\+\_\+\+S\+E\+G\+M\+E\+N\+T\+\_\+\+L\+EN, and M\+S\+S\+\_\+mbox\+Write().
+
+
+
+Referenced by M\+S\+S\+\_\+mm\+Wave\+Init\+T\+A\+S\+K().
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=323pt]{mss__main_8c_aab2ee2281d102f40b9babe34af5e2509_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mss__main_8c_aab2ee2281d102f40b9babe34af5e2509_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{mss__main_8c_a17166dac98c5ccaa0367b86387448247}} 
+\index{mss\_main.c@{mss\_main.c}!MSS\_chirpIntCallback@{MSS\_chirpIntCallback}}
+\index{MSS\_chirpIntCallback@{MSS\_chirpIntCallback}!mss\_main.c@{mss\_main.c}}
+\doxysubsubsection{MSS\_chirpIntCallback()}
+{\footnotesize\ttfamily static void M\+S\+S\+\_\+chirp\+Int\+Callback (\begin{DoxyParamCaption}\item[{uintptr\+\_\+t}]{arg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+This is the callback function registered with the A\+DC Driver which is invoked when a chirp is available. This is executed in the I\+SR context which is registered to the listener function listener\+Fxn; defined within S\+O\+C\+\_\+\+Sys\+Int\+Listener\+Cfg. Hence; In our design, there\textquotesingle{}s no frame segmentation (Advanced Frame Configuration) (in other words, frame \+:= 1 sub-\/frame). However, advanced frame configuration will allow the use of different subframes in the radar configuration to support and meet the requirements of different ranges\+: i.\+e ultra-\/short, short, medium, long ranges. Accordingly, different subframes results in different chirp sizes which is totally depending on the each sub-\/frame\+Type. Therefore, It\textquotesingle{}s important to identify this for each sub-\/frame before the start of the next subframe, at the end of the previous subframes last chirp. 
+
+\begin{DoxyItemize}
+\item [0] Application registered argument\end{DoxyItemize}
+\begin{DoxyRefDesc}{Todo}
+\item[\textbf{ Todo}]Add sub-\/frames configurations and measure the performance\end{DoxyRefDesc}
+
+
+Definition at line 219 of file mss\+\_\+main.\+c.
+
+
+
+References M\+C\+B\+\_\+t\+::chirp\+Int, g\+M\+CB, N\+U\+M\+\_\+\+S\+U\+B\+F\+R\+A\+M\+ES, M\+C\+B\+\_\+t\+::num\+Chirps\+Per\+Subframe, M\+C\+B\+\_\+t\+::subframe\+Cnt\+From\+Chirp\+Int, and M\+C\+B\+\_\+t\+::subframe\+Id.
+
+
+
+Referenced by M\+S\+S\+\_\+mm\+Wave\+Init\+T\+A\+S\+K().
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mss__main_8c_a17166dac98c5ccaa0367b86387448247_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{mss__main_8c_a1d1f87db58f6210edd691eeafe2a36a9}} 
+\index{mss\_main.c@{mss\_main.c}!MSS\_eventFxn@{MSS\_eventFxn}}
+\index{MSS\_eventFxn@{MSS\_eventFxn}!mss\_main.c@{mss\_main.c}}
+\doxysubsubsection{MSS\_eventFxn()}
+{\footnotesize\ttfamily static int32\+\_\+t M\+S\+S\+\_\+event\+Fxn (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{msg\+Id,  }\item[{uint16\+\_\+t}]{sb\+Id,  }\item[{uint16\+\_\+t}]{sb\+Len,  }\item[{uint8\+\_\+t $\ast$}]{payload }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+This is a registered event function which is invoked when an event is recieved from the B\+SS. This event is passed to the peer domain/core B\+SS. 
+
+\begin{DoxyItemize}
+\item [0] Message Identifier \item [1] Subblock identifier \item [2] Length of the subblock \item [3] Pointer to the payload buffer \begin{DoxyReturn}{Returns}
+0 
+\end{DoxyReturn}
+\end{DoxyItemize}
+
+
+Definition at line 283 of file mss\+\_\+main.\+c.
+
+
+
+Referenced by M\+S\+S\+\_\+mm\+Wave\+Init\+T\+A\+S\+K().
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mss__main_8c_a1d1f87db58f6210edd691eeafe2a36a9_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{mss__main_8c_a16eb8d8fc62e096524db88914f5d5049}} 
+\index{mss\_main.c@{mss\_main.c}!MSS\_frameStartIntCallback@{MSS\_frameStartIntCallback}}
+\index{MSS\_frameStartIntCallback@{MSS\_frameStartIntCallback}!mss\_main.c@{mss\_main.c}}
+\doxysubsubsection{MSS\_frameStartIntCallback()}
+{\footnotesize\ttfamily static void M\+S\+S\+\_\+frame\+Start\+Int\+Callback (\begin{DoxyParamCaption}\item[{uintptr\+\_\+t}]{arg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+This is the callback function registered with the A\+DC Driver which is invoked when a frame is started. This is executed in the I\+SR context which is registered to the listener function listener\+Fxn; defined within S\+O\+C\+\_\+\+Sys\+Int\+Listener\+Cfg Inside the function we Check if the frames are coming correctly, and no chirps have been missed. 
+
+\begin{DoxyItemize}
+\item [0] Application registered argument \begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\end{DoxyItemize}
+
+
+Definition at line 253 of file mss\+\_\+main.\+c.
+
+
+
+References M\+C\+B\+\_\+t\+::chirp\+Int, M\+C\+B\+\_\+t\+::frame\+Start\+Token, and g\+M\+CB.
+
+
+
+Referenced by M\+S\+S\+\_\+mm\+Wave\+Init\+T\+A\+S\+K().
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mss__main_8c_a16eb8d8fc62e096524db88914f5d5049_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{mss__main_8c_afac751fde1219a4650eaef8a5058fc39}} 
+\index{mss\_main.c@{mss\_main.c}!MSS\_mboxWrite@{MSS\_mboxWrite}}
+\index{MSS\_mboxWrite@{MSS\_mboxWrite}!mss\_main.c@{mss\_main.c}}
+\doxysubsubsection{MSS\_mboxWrite()}
+{\footnotesize\ttfamily int32\+\_\+t M\+S\+S\+\_\+mbox\+Write (\begin{DoxyParamCaption}\item[{\textbf{ mm\+Wave\+M\+SG} $\ast$}]{msg }\end{DoxyParamCaption})}
+
+\begin{DoxyItemize}
+\item [0] Pointer to the M\+MW demo message A\+S\+T\+RO. \begin{DoxyReturn}{Returns}
+Success -\/ 0 Fail $<$ -\/1 
+\end{DoxyReturn}
+\end{DoxyItemize}
+
+
+Definition at line 432 of file mss\+\_\+main.\+c.
+
+
+
+References g\+M\+CB, and M\+C\+B\+\_\+t\+::mbox\+Handle.
+
+
+
+Referenced by mbox\+In\+\_\+uart\+Out\+\_\+\+T\+A\+S\+K().
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mss__main_8c_afac751fde1219a4650eaef8a5058fc39_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{mss__main_8c_ace93b406001cf89e20e37723200ac7dc}} 
+\index{mss\_main.c@{mss\_main.c}!MSS\_mmWaveCloseCallbackFxn@{MSS\_mmWaveCloseCallbackFxn}}
+\index{MSS\_mmWaveCloseCallbackFxn@{MSS\_mmWaveCloseCallbackFxn}!mss\_main.c@{mss\_main.c}}
+\doxysubsubsection{MSS\_mmWaveCloseCallbackFxn()}
+{\footnotesize\ttfamily static void M\+S\+S\+\_\+mm\+Wave\+Close\+Callback\+Fxn (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+This is the application registered callback function which is invoked after the M\+SS has been closed. 
+
+\begin{DoxyItemize}
+\item N/A \begin{DoxyReturn}{Returns}
+N/A 
+\end{DoxyReturn}
+\end{DoxyItemize}
+
+
+Definition at line 416 of file mss\+\_\+main.\+c.
+
+
+
+Referenced by M\+S\+S\+\_\+mm\+Wave\+Init\+T\+A\+S\+K().
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mss__main_8c_ace93b406001cf89e20e37723200ac7dc_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{mss__main_8c_a4c87c1a40f978d1cd7c40eaa8b0d41f3}} 
+\index{mss\_main.c@{mss\_main.c}!MSS\_mmWaveConfigCallbackFxn@{MSS\_mmWaveConfigCallbackFxn}}
+\index{MSS\_mmWaveConfigCallbackFxn@{MSS\_mmWaveConfigCallbackFxn}!mss\_main.c@{mss\_main.c}}
+\doxysubsubsection{MSS\_mmWaveConfigCallbackFxn()}
+{\footnotesize\ttfamily static void M\+S\+S\+\_\+mm\+Wave\+Config\+Callback\+Fxn (\begin{DoxyParamCaption}\item[{M\+M\+Wave\+\_\+\+Ctrl\+Cfg $\ast$}]{ptr\+Ctrl\+Cfg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+This is the application registered callback function which is invoked after the configuration has been used to configure the mm\+Wave link and the B\+SS. 
+
+\begin{DoxyItemize}
+\item [0] Pointer to the control configuration \begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\end{DoxyItemize}
+
+
+Definition at line 346 of file mss\+\_\+main.\+c.
+
+
+
+Referenced by M\+S\+S\+\_\+mm\+Wave\+Init\+T\+A\+S\+K().
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mss__main_8c_a4c87c1a40f978d1cd7c40eaa8b0d41f3_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{mss__main_8c_af2ef11ef31f2b3b041c0958437846040}} 
+\index{mss\_main.c@{mss\_main.c}!MSS\_mmWaveCtrlTask@{MSS\_mmWaveCtrlTask}}
+\index{MSS\_mmWaveCtrlTask@{MSS\_mmWaveCtrlTask}!mss\_main.c@{mss\_main.c}}
+\doxysubsubsection{MSS\_mmWaveCtrlTask()}
+{\footnotesize\ttfamily static void M\+S\+S\+\_\+mm\+Wave\+Ctrl\+Task (\begin{DoxyParamCaption}\item[{U\+Arg}]{arg0,  }\item[{U\+Arg}]{arg1 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+This is the task which provides an execution context for the mm\+Wave control module. 
+
+\begin{DoxyItemize}
+\item [0] arg0 Argument0 with which the task was created \item [1] arg1 Argument1 with which the task was created \begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\end{DoxyItemize}
+
+
+Definition at line 614 of file mss\+\_\+main.\+c.
+
+
+
+References M\+C\+B\+\_\+t\+::ctrl\+Handle, and g\+M\+CB.
+
+
+
+Referenced by M\+S\+S\+\_\+mm\+Wave\+Init\+T\+A\+S\+K().
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mss__main_8c_af2ef11ef31f2b3b041c0958437846040_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{mss__main_8c_a9bf125d212e1f5fc7b6678fcf3b20868}} 
+\index{mss\_main.c@{mss\_main.c}!MSS\_mmWaveInitTASK@{MSS\_mmWaveInitTASK}}
+\index{MSS\_mmWaveInitTASK@{MSS\_mmWaveInitTASK}!mss\_main.c@{mss\_main.c}}
+\doxysubsubsection{MSS\_mmWaveInitTASK()}
+{\footnotesize\ttfamily static void M\+S\+S\+\_\+mm\+Wave\+Init\+T\+A\+SK (\begin{DoxyParamCaption}\item[{U\+Arg}]{arg0,  }\item[{U\+Arg}]{arg1 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Initialize the M\+C\+PI Log Message Buffer. 
+
+M\+SS Initialization Task which initializes the various components in the M\+SS subsystem including U\+A\+RT for logging and configurations and Mailbox for bi-\/directional communication between M\+SS and D\+SS subsystems.
+
+\begin{DoxyItemize}
+\item [0] Argument0 with which the task was created \item [1] Argument1 with which the task was created \begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\end{DoxyItemize}
+\begin{quote}
+setup the P\+I\+N\+M\+UX (pin multiplexing) for bringing out the U\+A\+RT; (U\+A\+RT settings configuring, I/O cell characteristics specification) \end{quote}
+
+
+\begin{quote}
+Initialize the U\+A\+RT \end{quote}
+
+
+\begin{quote}
+Initialize the C\+AN interface \end{quote}
+\begin{DoxyRefDesc}{Todo}
+\item[\textbf{ Todo}]C\+AN Interface is Semi-\/deployed in this system due to the hardware limitations. It Will be added anyway for future considerations \end{DoxyRefDesc}
+
+
+\begin{quote}
+Initialize the Mailbox \end{quote}
+
+
+Definition at line 643 of file mss\+\_\+main.\+c.
+
+
+
+References M\+C\+B\+\_\+t\+::chirp\+Int\+Handle, M\+C\+B\+\_\+t\+::command\+Uart\+Handle, M\+C\+B\+\_\+t\+::ctrl\+Handle, M\+C\+B\+\_\+t\+::frame\+Start\+Int\+Handle, g\+M\+CB, M\+C\+B\+\_\+t\+::logging\+Uart\+Handle, mbox\+Callback\+Fxn\+\_\+\+M\+S\+S\+\_\+ch0(), M\+C\+B\+\_\+t\+::mbox\+Handle, mbox\+In\+\_\+uart\+Out\+\_\+\+T\+A\+S\+K(), M\+C\+B\+\_\+t\+::mbox\+Sem\+Handle, M\+S\+S\+\_\+chirp\+Int\+Callback(), M\+S\+S\+\_\+\+C\+L\+I\+Init(), M\+S\+S\+\_\+event\+Fxn(), M\+S\+S\+\_\+frame\+Start\+Int\+Callback(), M\+S\+S\+\_\+mm\+Wave\+Close\+Callback\+Fxn(), M\+S\+S\+\_\+mm\+Wave\+Config\+Callback\+Fxn(), M\+S\+S\+\_\+mm\+Wave\+Ctrl\+Task(), M\+S\+S\+\_\+mm\+Wave\+Open\+Callback\+Fxn(), M\+S\+S\+\_\+mm\+Wave\+Start\+Callback\+Fxn(), M\+S\+S\+\_\+mm\+Wave\+Stop\+Callback\+Fxn(), M\+C\+B\+\_\+t\+::num\+Chirps\+Per\+Subframe, M\+C\+B\+\_\+t\+::soc\+Handle, S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+M\+R\+R\+\_\+\+N\+U\+M\+\_\+\+C\+H\+I\+R\+P\+S\+\_\+\+T\+O\+T\+AL, S\+U\+B\+F\+R\+A\+M\+E\+\_\+\+U\+S\+R\+R\+\_\+\+N\+U\+M\+\_\+\+C\+H\+I\+R\+P\+S\+\_\+\+T\+O\+T\+AL, and T\+A\+S\+K\+\_\+\+P\+R\+I\+O\+\_\+6.
+
+
+
+Referenced by main().
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mss__main_8c_a9bf125d212e1f5fc7b6678fcf3b20868_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{mss__main_8c_a9bf125d212e1f5fc7b6678fcf3b20868_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{mss__main_8c_aa8bb14e64725549ea5c998ab2b606834}} 
+\index{mss\_main.c@{mss\_main.c}!MSS\_mmWaveOpenCallbackFxn@{MSS\_mmWaveOpenCallbackFxn}}
+\index{MSS\_mmWaveOpenCallbackFxn@{MSS\_mmWaveOpenCallbackFxn}!mss\_main.c@{mss\_main.c}}
+\doxysubsubsection{MSS\_mmWaveOpenCallbackFxn()}
+{\footnotesize\ttfamily static void M\+S\+S\+\_\+mm\+Wave\+Open\+Callback\+Fxn (\begin{DoxyParamCaption}\item[{M\+M\+Wave\+\_\+\+Open\+Cfg $\ast$}]{ptr\+Open\+Cfg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+This is the application registered callback function which is invoked after the M\+SS has been opened. 
+
+\begin{DoxyItemize}
+\item [0] Pointer to the open configuration \begin{DoxyReturn}{Returns}
+N/A 
+\end{DoxyReturn}
+\end{DoxyItemize}
+
+
+Definition at line 400 of file mss\+\_\+main.\+c.
+
+
+
+Referenced by M\+S\+S\+\_\+mm\+Wave\+Init\+T\+A\+S\+K().
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mss__main_8c_aa8bb14e64725549ea5c998ab2b606834_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{mss__main_8c_a290500bd059ac684393436ad3bb16396}} 
+\index{mss\_main.c@{mss\_main.c}!MSS\_mmWaveStartCallbackFxn@{MSS\_mmWaveStartCallbackFxn}}
+\index{MSS\_mmWaveStartCallbackFxn@{MSS\_mmWaveStartCallbackFxn}!mss\_main.c@{mss\_main.c}}
+\doxysubsubsection{MSS\_mmWaveStartCallbackFxn()}
+{\footnotesize\ttfamily static void M\+S\+S\+\_\+mm\+Wave\+Start\+Callback\+Fxn (\begin{DoxyParamCaption}\item[{M\+M\+Wave\+\_\+\+Calibration\+Cfg $\ast$}]{ptr\+Calibration\+Cfg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Application registered callback function which is invoked on the peer domain just before the mm\+Wave link is started on the B\+SS. 
+
+\begin{DoxyItemize}
+\item [0] Pointer to the calibration configuration \begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\end{DoxyItemize}
+
+
+Definition at line 362 of file mss\+\_\+main.\+c.
+
+
+
+References mm\+W\+\_\+\+M\+S\+S\+\_\+\+S\+T\+A\+T\+S\+\_\+t\+::datapath\+Start\+Evt, D\+S\+S\+\_\+\+S\+T\+A\+R\+T\+\_\+\+C\+O\+M\+P\+L\+E\+T\+E\+D\+\_\+\+E\+VT, M\+C\+B\+\_\+t\+::event\+Handle, g\+M\+CB, and M\+C\+B\+\_\+t\+::stats.
+
+
+
+Referenced by M\+S\+S\+\_\+mm\+Wave\+Init\+T\+A\+S\+K().
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mss__main_8c_a290500bd059ac684393436ad3bb16396_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{mss__main_8c_ab2dacb1c39819c33438370b35daec7a5}} 
+\index{mss\_main.c@{mss\_main.c}!MSS\_mmWaveStopCallbackFxn@{MSS\_mmWaveStopCallbackFxn}}
+\index{MSS\_mmWaveStopCallbackFxn@{MSS\_mmWaveStopCallbackFxn}!mss\_main.c@{mss\_main.c}}
+\doxysubsubsection{MSS\_mmWaveStopCallbackFxn()}
+{\footnotesize\ttfamily static void M\+S\+S\+\_\+mm\+Wave\+Stop\+Callback\+Fxn (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+This is the application registered callback function which is invoked after the M\+SS has been stopped. Hence, possible sceanarios\+: 
+
+
+\begin{DoxyEnumerate}
+\item C\+LI sensor\+Stop command triggers mmwave\+\_\+stop() to be called from M\+SS
+\item In case of Error, mmwave\+\_\+stop() will be triggered from M\+SS or D\+SS \begin{DoxyItemize}
+\item N/A \begin{DoxyReturn}{Returns}
+N/A 
+\end{DoxyReturn}
+\end{DoxyItemize}
+
+\end{DoxyEnumerate}
+
+Definition at line 385 of file mss\+\_\+main.\+c.
+
+
+
+References mm\+W\+\_\+\+M\+S\+S\+\_\+\+S\+T\+A\+T\+S\+\_\+t\+::datapath\+Stop\+Evt, g\+M\+CB, and M\+C\+B\+\_\+t\+::stats.
+
+
+
+Referenced by M\+S\+S\+\_\+mm\+Wave\+Init\+T\+A\+S\+K().
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mss__main_8c_ab2dacb1c39819c33438370b35daec7a5_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\label{mss__main_8c_a400857e2ff108c7f9aa2f123e85774a1}} 
+\index{mss\_main.c@{mss\_main.c}!gMCB@{gMCB}}
+\index{gMCB@{gMCB}!mss\_main.c@{mss\_main.c}}
+\doxysubsubsection{gMCB}
+{\footnotesize\ttfamily \textbf{ M\+CB} g\+M\+CB}
+
+
+
+g\+M\+CB structure contains the tracking information required by the design is aligned using D\+A\+T\+A\+\_\+\+A\+L\+I\+GN paragma to increase the performance of M\+SS core by aligning the structure g\+M\+CB (Master Control Block) to be divisable by 16. 
+
+\DoxyHorRuler
+ \doxysubsubsection{T\+I-\/reference\+: spnu151j.\+pdf section \#5.\+10.\+6}\label{mss__main_8c_autotoc_md8}
+
+
+Definition at line 163 of file mss\+\_\+main.\+c.
+
+
+
+Referenced by main(), mbox\+Callback\+Fxn\+\_\+\+M\+S\+S\+\_\+ch0(), mbox\+In\+\_\+uart\+Out\+\_\+\+T\+A\+S\+K(), M\+S\+S\+\_\+chirp\+Int\+Callback(), M\+S\+S\+\_\+\+C\+L\+I\+Basic\+Cfg(), M\+S\+S\+\_\+\+C\+L\+I\+Sensor\+Start(), M\+S\+S\+\_\+\+C\+L\+I\+Sensor\+Stop(), M\+S\+S\+\_\+frame\+Start\+Int\+Callback(), M\+S\+S\+\_\+mbox\+Write(), M\+S\+S\+\_\+mm\+Wave\+Ctrl\+Task(), M\+S\+S\+\_\+mm\+Wave\+Init\+T\+A\+S\+K(), M\+S\+S\+\_\+mm\+Wave\+Start\+Callback\+Fxn(), and M\+S\+S\+\_\+mm\+Wave\+Stop\+Callback\+Fxn().
+

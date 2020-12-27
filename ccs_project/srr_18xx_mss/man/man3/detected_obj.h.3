@@ -1,0 +1,74 @@
+.TH "C:/Users/astro/workspace_v9_2/mrr_18xx_dss/common/detected_obj.h" 3 "Wed May 20 2020" "Version 1.0" "mmWaveFMCWRADAR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/Users/astro/workspace_v9_2/mrr_18xx_dss/common/detected_obj.h
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBMmwDemo_detectedObj_t\fP"
+.br
+.RI "Detected object estimated parameters\&. "
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBMMW_MAX_OBJ_OUT\fP   100"
+.br
+.RI "Maximum number of detected objects by HWA\&. "
+.ti -1c
+.RI "#define \fBDOPPLER_IDX_TO_SIGNED\fP(_idx,  _fftSize)"
+.br
+.RI "Converts Doppler index to signed variable\&. Value greater than or equal half the Doppler FFT size will become negative\&. Needed for extended maximum velocity\&. "
+.ti -1c
+.RI "#define \fBDOPPLER_IDX_TO_UNSIGNED\fP(_idx,  _fftSize)   ((_idx) & (_fftSize \- 1))"
+.br
+.RI "Converts signed Doppler index to unsigned variable (zero to FFT size -1)\&. "
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef volatile struct \fBMmwDemo_detectedObj_t\fP \fBMmwDemo_detectedObj\fP"
+.br
+.RI "Detected object estimated parameters\&. "
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define DOPPLER_IDX_TO_SIGNED(_idx, _fftSize)"
+\fBValue:\fP
+.PP
+.nf
+((_idx) < (_fftSize)/2 ? \
+        ((int16_t) (_idx)) : ((int16_t) (_idx) - (int16_t) (_fftSize)))
+.fi
+.PP
+Converts Doppler index to signed variable\&. Value greater than or equal half the Doppler FFT size will become negative\&. Needed for extended maximum velocity\&. 
+.PP
+Definition at line 16 of file detected_obj\&.h\&.
+.SS "#define DOPPLER_IDX_TO_UNSIGNED(_idx, _fftSize)   ((_idx) & (_fftSize \- 1))"
+
+.PP
+Converts signed Doppler index to unsigned variable (zero to FFT size -1)\&. 
+.PP
+Definition at line 21 of file detected_obj\&.h\&.
+.SS "#define MMW_MAX_OBJ_OUT   100"
+
+.PP
+Maximum number of detected objects by HWA\&. 
+.PP
+Definition at line 10 of file detected_obj\&.h\&.
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef volatile struct \fBMmwDemo_detectedObj_t\fP  \fBMmwDemo_detectedObj\fP"
+
+.PP
+Detected object estimated parameters\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mmWaveFMCWRADAR from the source code\&.

@@ -1,0 +1,98 @@
+This file contains the memory types found in the map file
+given. You can rename the memory types to whatever you want by
+writing a new name on the same line as the old. If you don't want
+to rename a memory type just leave it on the line by itself.
+
+    Example: <old name> <new name>
+             text code
+    This will rename text to code in the analysis output.
+
+*******************************************************************************
+MEMORY TYPES
+------------
+l2data heap
+l1data heap
+reserved
+demosharedmem heap
+l3data heap
+common code
+text code
+ovly code
+systemheap heap
+cio code
+neardata code
+tramp code
+switch code
+vecs code
+far code
+xdc code
+fardata code
+stack heap
+const code
+data code
+
+l3ram heap
+dpc heap
+
+LIBRARIES
+---------
+sysbios.ae674 BIOS
+dss_config_edma_util.oe674 APP
+libosal_xwr16xx.ae674 BIOS
+(.common:parmbuf) APP
+libadcbuf_xwr16xx.ae674 COMPONENTS_CORE
+reserved
+(.common:edmaDbg) COMPONENTS_CORE
+(.common:gCycleLog) APP
+dss_lvds_stream.oe674 APP
+libmmwavelink_xwr16xx.ae674 COMPONENTS_CORE
+libhsiheader_xwr16xx.ae674 COMPONENTS_OPTIONAL
+(.ovly:_MmwDemo_fastCode_L1PSRAM_copy_table) APP
+dss_main.oe674 APP
+libuart_xwr16xx.ae674 COMPONENTS_OPTIONAL
+libcbuff_xwr16xx.ae674 COMPONENTS_OPTIONAL
+libmailbox_xwr16xx.ae674 COMPONENTS_CORE
+libmmwave_xwr16xx.ae674 COMPONENTS_CORE
+libmmwavealg_xwr16xx.ae674 ALG
+(.common:EDMA_object) COMPONENTS_CORE
+(.common:ti_sysbios_knl_Task_Instance_State_0_hookEnv__A) BIOS
+(.common:gMMWave_XWR16xxMCB) COMPONENTS_CORE
+libedma_xwr16xx.ae674 COMPONENTS_CORE
+(.common:gMMWave_MCB) COMPONENTS_CORE
+mmwDemo_monitor.oe674 APP
+dss_mmw_pe674.oe674 APP
+ti.targets.rts6000.ae674 APP
+rx_ch_bias_measure.oe674 APP
+dss_data_path.oe674 APP
+(.common:gMmwDssMCB) APP
+(.common:gHSIHeaderMCB) COMPONENTS_OPTIONAL
+mathlib.ae674 ALG
+(.common:__TI_tmpnams) APP 
+libcrc_xwr16xx.ae674 COMPONENTS_CORE
+dsplib.ae64P ALG
+rts6740_elf.lib APP
+boot.ae674 APP
+libsoc_xwr16xx.ae674 COMPONENTS_CORE
+
+librangeproc_hwa_xwr18xx.ae674 COMPONENTS_CORE 
+objectdetection.oe674 COMPONENTS_CORE
+(.common:xdc_runtime_LoggerBuf_Instance_State_0_entryArr__A) APP
+libmailbox_xwr18xx.ae674 COMPONENTS_CORE
+mmw_dss_pe674.oe674 APP
+libhwa_xwr18xx.ae674 COMPONENTS_CORE
+data_path.oe674 APP
+libstaticclutterproc_xwr18xx.ae674 COMPONENTS_CORE
+(.common:gObjDetObj) COMPONENTS_CORE
+libdpedma_hwa_xwr18xx.ae674 COMPONENTS_CORE
+libosal_xwr18xx.ae674 BIOS
+libaoaproc_hwa_xwr18xx.ae674 COMPONENTS_CORE
+libmmwavealg_xwr18xx.ae674 ALG
+libcfarcaproc_hwa_xwr18xx.ae674 COMPONENTS_CORE
+libedma_xwr18xx.ae674 COMPONENTS_CORE
+libmathutils.ae674 COMPONENTS_CORE
+(.common:resultBuffer) APP
+(.common:gMmwDssMCB) APP
+libdpm_xwr18xx.ae674 COMPONENTS_CORE
+dss_main.oe674 APP
+libsoc_xwr18xx.ae674 COMPONENTS_CORE
+libdopplerproc_hwa_xwr18xx.ae674 COMPONENTS_CORE

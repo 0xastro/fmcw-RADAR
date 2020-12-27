@@ -1,0 +1,303 @@
+\doxysection{Mrr\+\_\+\+D\+S\+S\+\_\+\+M\+C\+B\+\_\+t Struct Reference}
+\label{struct_mrr___d_s_s___m_c_b__t}\index{Mrr\_DSS\_MCB\_t@{Mrr\_DSS\_MCB\_t}}
+
+
+D\+SS M\+RR TI Design Master control block.  
+
+
+
+
+{\ttfamily \#include $<$dss\+\_\+mrr.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+S\+O\+C\+\_\+\+Handle \textbf{ soc\+Handle}
+\begin{DoxyCompactList}\small\item\em Handle to the S\+OC Module. \end{DoxyCompactList}\item 
+M\+M\+Wave\+\_\+\+Handle \textbf{ ctrl\+Handle}
+\begin{DoxyCompactList}\small\item\em mm\+Wave control handle use to initialize the link infrastructure which allows communication between the M\+SS and B\+SS \end{DoxyCompactList}\item 
+A\+D\+C\+Buf\+\_\+\+Handle \textbf{ adc\+Buf\+Handle}
+\begin{DoxyCompactList}\small\item\em Handle to the A\+D\+C\+B\+UF Driver. \end{DoxyCompactList}\item 
+S\+O\+C\+\_\+\+Sys\+Int\+Listener\+Handle \textbf{ chirp\+Int\+Handle}
+\begin{DoxyCompactList}\small\item\em Handle to the S\+OC chirp interrupt listener Handle. \end{DoxyCompactList}\item 
+S\+O\+C\+\_\+\+Sys\+Int\+Listener\+Handle \textbf{ frame\+Start\+Int\+Handle}
+\begin{DoxyCompactList}\small\item\em Handle to the S\+OC chirp interrupt listener Handle. \end{DoxyCompactList}\item 
+Semaphore\+\_\+\+Handle \textbf{ mbox\+Sem\+Handle}
+\begin{DoxyCompactList}\small\item\em Semaphore handle for the mailbox communication Not Used. \end{DoxyCompactList}\item 
+Mbox\+\_\+\+Handle \textbf{ peer\+Mailbox}
+\begin{DoxyCompactList}\small\item\em Mailbox Handle\+: This is used to exchange messages between the M\+SS and D\+SS. \end{DoxyCompactList}\item 
+\textbf{ Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+TE} \textbf{ state}
+\begin{DoxyCompactList}\small\item\em mmw Demo state \end{DoxyCompactList}\item 
+\textbf{ Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+TS} \textbf{ stats}
+\begin{DoxyCompactList}\small\item\em mmw Demo statistics \end{DoxyCompactList}\item 
+\textbf{ Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+Data\+Path\+Obj} \textbf{ data\+Path\+Obj} [\textbf{ N\+U\+M\+\_\+\+S\+U\+B\+F\+R\+A\+M\+ES}]
+\begin{DoxyCompactList}\small\item\em Data Path object. \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ logging\+Buffer\+Available}
+\begin{DoxyCompactList}\small\item\em Logging buffer flag. \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ subframe\+Indx}
+\begin{DoxyCompactList}\small\item\em Subframe index. \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ inter\+Frame\+Proc\+Token}
+\begin{DoxyCompactList}\small\item\em inter frame\+Proc token \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ frame\+Start\+Int\+Token}
+\begin{DoxyCompactList}\small\item\em frame start token \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ chirp\+Proc\+Token}
+\begin{DoxyCompactList}\small\item\em chirp\+Proc token \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ mbox\+Proc\+Token}
+\begin{DoxyCompactList}\small\item\em \textquotesingle{}mailbox has a message\textquotesingle{} token \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ frame\+Proc\+Token}
+\begin{DoxyCompactList}\small\item\em frame process token \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+D\+SS M\+RR TI Design Master control block. 
+
+The structure is used to hold information pertinent to the D\+SS M\+RR TI design. 
+
+Definition at line 154 of file dss\+\_\+mrr.\+h.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\label{struct_mrr___d_s_s___m_c_b__t_ac01046594cbaa39224ec145378842884}} 
+\index{Mrr\_DSS\_MCB\_t@{Mrr\_DSS\_MCB\_t}!adcBufHandle@{adcBufHandle}}
+\index{adcBufHandle@{adcBufHandle}!Mrr\_DSS\_MCB\_t@{Mrr\_DSS\_MCB\_t}}
+\doxysubsubsection{adcBufHandle}
+{\footnotesize\ttfamily A\+D\+C\+Buf\+\_\+\+Handle Mrr\+\_\+\+D\+S\+S\+\_\+\+M\+C\+B\+\_\+t\+::adc\+Buf\+Handle}
+
+
+
+Handle to the A\+D\+C\+B\+UF Driver. 
+
+
+
+Definition at line 170 of file dss\+\_\+mrr.\+h.
+
+\mbox{\label{struct_mrr___d_s_s___m_c_b__t_aa8b1b5422ff51c92e304a70694326a04}} 
+\index{Mrr\_DSS\_MCB\_t@{Mrr\_DSS\_MCB\_t}!chirpIntHandle@{chirpIntHandle}}
+\index{chirpIntHandle@{chirpIntHandle}!Mrr\_DSS\_MCB\_t@{Mrr\_DSS\_MCB\_t}}
+\doxysubsubsection{chirpIntHandle}
+{\footnotesize\ttfamily S\+O\+C\+\_\+\+Sys\+Int\+Listener\+Handle Mrr\+\_\+\+D\+S\+S\+\_\+\+M\+C\+B\+\_\+t\+::chirp\+Int\+Handle}
+
+
+
+Handle to the S\+OC chirp interrupt listener Handle. 
+
+
+
+Definition at line 175 of file dss\+\_\+mrr.\+h.
+
+\mbox{\label{struct_mrr___d_s_s___m_c_b__t_aefbcef40e38fa81f190142d61f81d220}} 
+\index{Mrr\_DSS\_MCB\_t@{Mrr\_DSS\_MCB\_t}!chirpProcToken@{chirpProcToken}}
+\index{chirpProcToken@{chirpProcToken}!Mrr\_DSS\_MCB\_t@{Mrr\_DSS\_MCB\_t}}
+\doxysubsubsection{chirpProcToken}
+{\footnotesize\ttfamily uint8\+\_\+t Mrr\+\_\+\+D\+S\+S\+\_\+\+M\+C\+B\+\_\+t\+::chirp\+Proc\+Token}
+
+
+
+chirp\+Proc token 
+
+
+
+Definition at line 213 of file dss\+\_\+mrr.\+h.
+
+\mbox{\label{struct_mrr___d_s_s___m_c_b__t_ae242bf4d75eb41eac32b818d3adabea6}} 
+\index{Mrr\_DSS\_MCB\_t@{Mrr\_DSS\_MCB\_t}!ctrlHandle@{ctrlHandle}}
+\index{ctrlHandle@{ctrlHandle}!Mrr\_DSS\_MCB\_t@{Mrr\_DSS\_MCB\_t}}
+\doxysubsubsection{ctrlHandle}
+{\footnotesize\ttfamily M\+M\+Wave\+\_\+\+Handle Mrr\+\_\+\+D\+S\+S\+\_\+\+M\+C\+B\+\_\+t\+::ctrl\+Handle}
+
+
+
+mm\+Wave control handle use to initialize the link infrastructure which allows communication between the M\+SS and B\+SS 
+
+
+
+Definition at line 165 of file dss\+\_\+mrr.\+h.
+
+\mbox{\label{struct_mrr___d_s_s___m_c_b__t_a0af77e4bbdf1fbffe8f3eeddd8b976f2}} 
+\index{Mrr\_DSS\_MCB\_t@{Mrr\_DSS\_MCB\_t}!dataPathObj@{dataPathObj}}
+\index{dataPathObj@{dataPathObj}!Mrr\_DSS\_MCB\_t@{Mrr\_DSS\_MCB\_t}}
+\doxysubsubsection{dataPathObj}
+{\footnotesize\ttfamily \textbf{ Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+Data\+Path\+Obj} Mrr\+\_\+\+D\+S\+S\+\_\+\+M\+C\+B\+\_\+t\+::data\+Path\+Obj[\textbf{ N\+U\+M\+\_\+\+S\+U\+B\+F\+R\+A\+M\+ES}]}
+
+
+
+Data Path object. 
+
+
+
+Definition at line 198 of file dss\+\_\+mrr.\+h.
+
+\mbox{\label{struct_mrr___d_s_s___m_c_b__t_af4bbf78d8b55cfa05f0698705385fd51}} 
+\index{Mrr\_DSS\_MCB\_t@{Mrr\_DSS\_MCB\_t}!frameProcToken@{frameProcToken}}
+\index{frameProcToken@{frameProcToken}!Mrr\_DSS\_MCB\_t@{Mrr\_DSS\_MCB\_t}}
+\doxysubsubsection{frameProcToken}
+{\footnotesize\ttfamily uint8\+\_\+t Mrr\+\_\+\+D\+S\+S\+\_\+\+M\+C\+B\+\_\+t\+::frame\+Proc\+Token}
+
+
+
+frame process token 
+
+
+
+Definition at line 219 of file dss\+\_\+mrr.\+h.
+
+\mbox{\label{struct_mrr___d_s_s___m_c_b__t_a51d7d1dcbd6ce66a6146fb9ac599fdd5}} 
+\index{Mrr\_DSS\_MCB\_t@{Mrr\_DSS\_MCB\_t}!frameStartIntHandle@{frameStartIntHandle}}
+\index{frameStartIntHandle@{frameStartIntHandle}!Mrr\_DSS\_MCB\_t@{Mrr\_DSS\_MCB\_t}}
+\doxysubsubsection{frameStartIntHandle}
+{\footnotesize\ttfamily S\+O\+C\+\_\+\+Sys\+Int\+Listener\+Handle Mrr\+\_\+\+D\+S\+S\+\_\+\+M\+C\+B\+\_\+t\+::frame\+Start\+Int\+Handle}
+
+
+
+Handle to the S\+OC chirp interrupt listener Handle. 
+
+
+
+Definition at line 180 of file dss\+\_\+mrr.\+h.
+
+\mbox{\label{struct_mrr___d_s_s___m_c_b__t_afbda34d9f05ed824c7d57878b551cb3a}} 
+\index{Mrr\_DSS\_MCB\_t@{Mrr\_DSS\_MCB\_t}!frameStartIntToken@{frameStartIntToken}}
+\index{frameStartIntToken@{frameStartIntToken}!Mrr\_DSS\_MCB\_t@{Mrr\_DSS\_MCB\_t}}
+\doxysubsubsection{frameStartIntToken}
+{\footnotesize\ttfamily uint8\+\_\+t Mrr\+\_\+\+D\+S\+S\+\_\+\+M\+C\+B\+\_\+t\+::frame\+Start\+Int\+Token}
+
+
+
+frame start token 
+
+
+
+Definition at line 210 of file dss\+\_\+mrr.\+h.
+
+\mbox{\label{struct_mrr___d_s_s___m_c_b__t_a39d4cfd740a0e1a710f3e1411555fa67}} 
+\index{Mrr\_DSS\_MCB\_t@{Mrr\_DSS\_MCB\_t}!interFrameProcToken@{interFrameProcToken}}
+\index{interFrameProcToken@{interFrameProcToken}!Mrr\_DSS\_MCB\_t@{Mrr\_DSS\_MCB\_t}}
+\doxysubsubsection{interFrameProcToken}
+{\footnotesize\ttfamily uint8\+\_\+t Mrr\+\_\+\+D\+S\+S\+\_\+\+M\+C\+B\+\_\+t\+::inter\+Frame\+Proc\+Token}
+
+
+
+inter frame\+Proc token 
+
+
+
+Definition at line 207 of file dss\+\_\+mrr.\+h.
+
+\mbox{\label{struct_mrr___d_s_s___m_c_b__t_a517f00663175875496474f6ad873a9ba}} 
+\index{Mrr\_DSS\_MCB\_t@{Mrr\_DSS\_MCB\_t}!loggingBufferAvailable@{loggingBufferAvailable}}
+\index{loggingBufferAvailable@{loggingBufferAvailable}!Mrr\_DSS\_MCB\_t@{Mrr\_DSS\_MCB\_t}}
+\doxysubsubsection{loggingBufferAvailable}
+{\footnotesize\ttfamily uint8\+\_\+t Mrr\+\_\+\+D\+S\+S\+\_\+\+M\+C\+B\+\_\+t\+::logging\+Buffer\+Available}
+
+
+
+Logging buffer flag. 
+
+
+
+Definition at line 201 of file dss\+\_\+mrr.\+h.
+
+\mbox{\label{struct_mrr___d_s_s___m_c_b__t_a218f3a6d7a37068ed9141152cd55eb0a}} 
+\index{Mrr\_DSS\_MCB\_t@{Mrr\_DSS\_MCB\_t}!mboxProcToken@{mboxProcToken}}
+\index{mboxProcToken@{mboxProcToken}!Mrr\_DSS\_MCB\_t@{Mrr\_DSS\_MCB\_t}}
+\doxysubsubsection{mboxProcToken}
+{\footnotesize\ttfamily uint8\+\_\+t Mrr\+\_\+\+D\+S\+S\+\_\+\+M\+C\+B\+\_\+t\+::mbox\+Proc\+Token}
+
+
+
+\textquotesingle{}mailbox has a message\textquotesingle{} token 
+
+
+
+Definition at line 216 of file dss\+\_\+mrr.\+h.
+
+\mbox{\label{struct_mrr___d_s_s___m_c_b__t_a044feb4ce36430006a76fe903eeb3855}} 
+\index{Mrr\_DSS\_MCB\_t@{Mrr\_DSS\_MCB\_t}!mboxSemHandle@{mboxSemHandle}}
+\index{mboxSemHandle@{mboxSemHandle}!Mrr\_DSS\_MCB\_t@{Mrr\_DSS\_MCB\_t}}
+\doxysubsubsection{mboxSemHandle}
+{\footnotesize\ttfamily Semaphore\+\_\+\+Handle Mrr\+\_\+\+D\+S\+S\+\_\+\+M\+C\+B\+\_\+t\+::mbox\+Sem\+Handle}
+
+
+
+Semaphore handle for the mailbox communication Not Used. 
+
+
+
+Definition at line 183 of file dss\+\_\+mrr.\+h.
+
+\mbox{\label{struct_mrr___d_s_s___m_c_b__t_af7d26b0a9295dc89a774eea9fa228d9c}} 
+\index{Mrr\_DSS\_MCB\_t@{Mrr\_DSS\_MCB\_t}!peerMailbox@{peerMailbox}}
+\index{peerMailbox@{peerMailbox}!Mrr\_DSS\_MCB\_t@{Mrr\_DSS\_MCB\_t}}
+\doxysubsubsection{peerMailbox}
+{\footnotesize\ttfamily Mbox\+\_\+\+Handle Mrr\+\_\+\+D\+S\+S\+\_\+\+M\+C\+B\+\_\+t\+::peer\+Mailbox}
+
+
+
+Mailbox Handle\+: This is used to exchange messages between the M\+SS and D\+SS. 
+
+
+
+Definition at line 189 of file dss\+\_\+mrr.\+h.
+
+\mbox{\label{struct_mrr___d_s_s___m_c_b__t_aa2232d8e07719c5d53c477891f62f228}} 
+\index{Mrr\_DSS\_MCB\_t@{Mrr\_DSS\_MCB\_t}!socHandle@{socHandle}}
+\index{socHandle@{socHandle}!Mrr\_DSS\_MCB\_t@{Mrr\_DSS\_MCB\_t}}
+\doxysubsubsection{socHandle}
+{\footnotesize\ttfamily S\+O\+C\+\_\+\+Handle Mrr\+\_\+\+D\+S\+S\+\_\+\+M\+C\+B\+\_\+t\+::soc\+Handle}
+
+
+
+Handle to the S\+OC Module. 
+
+
+
+Definition at line 159 of file dss\+\_\+mrr.\+h.
+
+\mbox{\label{struct_mrr___d_s_s___m_c_b__t_a4b43c95e079f9a7c99986a0492a14b78}} 
+\index{Mrr\_DSS\_MCB\_t@{Mrr\_DSS\_MCB\_t}!state@{state}}
+\index{state@{state}!Mrr\_DSS\_MCB\_t@{Mrr\_DSS\_MCB\_t}}
+\doxysubsubsection{state}
+{\footnotesize\ttfamily \textbf{ Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+TE} Mrr\+\_\+\+D\+S\+S\+\_\+\+M\+C\+B\+\_\+t\+::state}
+
+
+
+mmw Demo state 
+
+
+
+Definition at line 192 of file dss\+\_\+mrr.\+h.
+
+\mbox{\label{struct_mrr___d_s_s___m_c_b__t_ab39de890a51ac6f4bc425be6a3c60b8e}} 
+\index{Mrr\_DSS\_MCB\_t@{Mrr\_DSS\_MCB\_t}!stats@{stats}}
+\index{stats@{stats}!Mrr\_DSS\_MCB\_t@{Mrr\_DSS\_MCB\_t}}
+\doxysubsubsection{stats}
+{\footnotesize\ttfamily \textbf{ Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+TS} Mrr\+\_\+\+D\+S\+S\+\_\+\+M\+C\+B\+\_\+t\+::stats}
+
+
+
+mmw Demo statistics 
+
+
+
+Definition at line 195 of file dss\+\_\+mrr.\+h.
+
+\mbox{\label{struct_mrr___d_s_s___m_c_b__t_a9e819a18f0122bc5d3211d6a32c1982c}} 
+\index{Mrr\_DSS\_MCB\_t@{Mrr\_DSS\_MCB\_t}!subframeIndx@{subframeIndx}}
+\index{subframeIndx@{subframeIndx}!Mrr\_DSS\_MCB\_t@{Mrr\_DSS\_MCB\_t}}
+\doxysubsubsection{subframeIndx}
+{\footnotesize\ttfamily uint8\+\_\+t Mrr\+\_\+\+D\+S\+S\+\_\+\+M\+C\+B\+\_\+t\+::subframe\+Indx}
+
+
+
+Subframe index. 
+
+
+
+Definition at line 204 of file dss\+\_\+mrr.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ dss\+\_\+mrr.\+h}\end{DoxyCompactItemize}

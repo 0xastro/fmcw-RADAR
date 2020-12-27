@@ -1,0 +1,136 @@
+\doxysection{D\+S\+S\+\_\+\+Cfar\+Cfg\+\_\+t Struct Reference}
+\label{struct_d_s_s___cfar_cfg__t}\index{DSS\_CfarCfg\_t@{DSS\_CfarCfg\_t}}
+
+
+Millimeter Wave Demo C\+F\+AR Configuration.  
+
+
+
+
+{\ttfamily \#include $<$mrr\+\_\+config.\+h$>$}
+
+
+
+Collaboration diagram for D\+S\+S\+\_\+\+Cfar\+Cfg\+\_\+t\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=170pt]{struct_d_s_s___cfar_cfg__t__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint16\+\_\+t \textbf{ threshold\+Scale}
+\begin{DoxyCompactList}\small\item\em C\+F\+AR threshold scale. \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ average\+Mode}
+\begin{DoxyCompactList}\small\item\em C\+F\+AR averagining mode 0-\/C\+F\+A\+R\+\_\+\+CA, 1-\/C\+F\+A\+R\+\_\+\+C\+A\+GO, 2-\/C\+F\+A\+R\+\_\+\+C\+A\+SO. \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ win\+Len}
+\begin{DoxyCompactList}\small\item\em C\+F\+AR noise avraging window length. \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ guard\+Len}
+\begin{DoxyCompactList}\small\item\em C\+F\+AR guard length. \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ noise\+Div\+Shift}
+\begin{DoxyCompactList}\small\item\em C\+F\+AR cumulative noise sum divisor. \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ cyclic\+Mode}
+\begin{DoxyCompactList}\small\item\em C\+F\+AR 0-\/cyclic mode disabled, 1-\/cyclic mode enabled. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Millimeter Wave Demo C\+F\+AR Configuration. 
+
+The structure contains the cfar configuration used in data path 
+
+Definition at line 61 of file mrr\+\_\+config.\+h.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\label{struct_d_s_s___cfar_cfg__t_afff94272d99016d66bef8a7c7d253771}} 
+\index{DSS\_CfarCfg\_t@{DSS\_CfarCfg\_t}!averageMode@{averageMode}}
+\index{averageMode@{averageMode}!DSS\_CfarCfg\_t@{DSS\_CfarCfg\_t}}
+\doxysubsubsection{averageMode}
+{\footnotesize\ttfamily uint8\+\_\+t D\+S\+S\+\_\+\+Cfar\+Cfg\+\_\+t\+::average\+Mode}
+
+
+
+C\+F\+AR averagining mode 0-\/C\+F\+A\+R\+\_\+\+CA, 1-\/C\+F\+A\+R\+\_\+\+C\+A\+GO, 2-\/C\+F\+A\+R\+\_\+\+C\+A\+SO. 
+
+
+
+Definition at line 67 of file mrr\+\_\+config.\+h.
+
+\mbox{\label{struct_d_s_s___cfar_cfg__t_a83c8f83c123e984ccb9e50778664c450}} 
+\index{DSS\_CfarCfg\_t@{DSS\_CfarCfg\_t}!cyclicMode@{cyclicMode}}
+\index{cyclicMode@{cyclicMode}!DSS\_CfarCfg\_t@{DSS\_CfarCfg\_t}}
+\doxysubsubsection{cyclicMode}
+{\footnotesize\ttfamily uint8\+\_\+t D\+S\+S\+\_\+\+Cfar\+Cfg\+\_\+t\+::cyclic\+Mode}
+
+
+
+C\+F\+AR 0-\/cyclic mode disabled, 1-\/cyclic mode enabled. 
+
+
+
+Definition at line 79 of file mrr\+\_\+config.\+h.
+
+\mbox{\label{struct_d_s_s___cfar_cfg__t_a06203085176b290e3815d7b5fdb65fd9}} 
+\index{DSS\_CfarCfg\_t@{DSS\_CfarCfg\_t}!guardLen@{guardLen}}
+\index{guardLen@{guardLen}!DSS\_CfarCfg\_t@{DSS\_CfarCfg\_t}}
+\doxysubsubsection{guardLen}
+{\footnotesize\ttfamily uint8\+\_\+t D\+S\+S\+\_\+\+Cfar\+Cfg\+\_\+t\+::guard\+Len}
+
+
+
+C\+F\+AR guard length. 
+
+
+
+Definition at line 73 of file mrr\+\_\+config.\+h.
+
+\mbox{\label{struct_d_s_s___cfar_cfg__t_afeac102b3b193ceb975af9768905cb11}} 
+\index{DSS\_CfarCfg\_t@{DSS\_CfarCfg\_t}!noiseDivShift@{noiseDivShift}}
+\index{noiseDivShift@{noiseDivShift}!DSS\_CfarCfg\_t@{DSS\_CfarCfg\_t}}
+\doxysubsubsection{noiseDivShift}
+{\footnotesize\ttfamily uint8\+\_\+t D\+S\+S\+\_\+\+Cfar\+Cfg\+\_\+t\+::noise\+Div\+Shift}
+
+
+
+C\+F\+AR cumulative noise sum divisor. 
+
+
+
+Definition at line 76 of file mrr\+\_\+config.\+h.
+
+\mbox{\label{struct_d_s_s___cfar_cfg__t_ad64bec6975bf5de160a899c739361076}} 
+\index{DSS\_CfarCfg\_t@{DSS\_CfarCfg\_t}!thresholdScale@{thresholdScale}}
+\index{thresholdScale@{thresholdScale}!DSS\_CfarCfg\_t@{DSS\_CfarCfg\_t}}
+\doxysubsubsection{thresholdScale}
+{\footnotesize\ttfamily uint16\+\_\+t D\+S\+S\+\_\+\+Cfar\+Cfg\+\_\+t\+::threshold\+Scale}
+
+
+
+C\+F\+AR threshold scale. 
+
+
+
+Definition at line 64 of file mrr\+\_\+config.\+h.
+
+\mbox{\label{struct_d_s_s___cfar_cfg__t_a065bc032e863ed0d85f41363cc4a9675}} 
+\index{DSS\_CfarCfg\_t@{DSS\_CfarCfg\_t}!winLen@{winLen}}
+\index{winLen@{winLen}!DSS\_CfarCfg\_t@{DSS\_CfarCfg\_t}}
+\doxysubsubsection{winLen}
+{\footnotesize\ttfamily uint8\+\_\+t D\+S\+S\+\_\+\+Cfar\+Cfg\+\_\+t\+::win\+Len}
+
+
+
+C\+F\+AR noise avraging window length. 
+
+
+
+Definition at line 70 of file mrr\+\_\+config.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+common/\textbf{ mrr\+\_\+config.\+h}\end{DoxyCompactItemize}

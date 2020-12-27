@@ -1,0 +1,58 @@
+eth008 Board details:
+IP address: 10.218.113.62
+
+Port: 17494
+
+connecting...
+Relay states 8->1 : 00010101
+5 off
+7 off
+6 off
+Relay states 8->1 : 00000101
+5 on
+Relay states 8->1 : 00010101
+exit
+Disconnected
+Pre-Script returned: SuccessChecking if Py4J Gateway server has started...
+Py4J Gateway Server is Started
+a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/DEBUGSSM_0
+a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/IcePick_M_0
+a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/C674X_0
+a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/CS_DAP_0
+a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/CortexR4_0
+
+Set CP15_MPU_REGION_NUMBER = 0x6
+
+Set CP15_MPU_REGION_BASE_ADDRESS = 0x43f7f000
+
+Set CP15_MPU_REGION_SIZE_ENABLE = 0x13
+
+Set CP15_MPU_REGION_ACCESS = 0x120c
+
+Read BSS registers:
+BSS register @0xffffe21c = 0x32e
+
+BSS register @0x43f7f0a4 = 0xa228a0
+
+BSS register @0x43f7f0a8 = 0x3f71946
+
+BSS register @0x43f7f0c4 = 0x66198
+
+BSS register @0x43f7f0c8 = 0x60599
+
+
+
+shutting down py4j gw server.
+
+
+**************************************************
+Terminating the debug session and Shutting down gateway.
+**************************************************
+
+**************************************************
+Test case execution completed
+**************************************************
+
+**************************************************
+Testcase Result : PASS
+**************************************************

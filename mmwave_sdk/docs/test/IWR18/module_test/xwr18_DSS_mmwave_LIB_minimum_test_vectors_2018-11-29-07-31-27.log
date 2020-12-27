@@ -1,0 +1,640 @@
+eth008 Board details:
+IP address: 10.218.113.61
+
+Port: 17494
+
+connecting...
+Relay states 8->1 : 01010101
+5 off
+6 off
+Relay states 8->1 : 01000101
+5 on
+Relay states 8->1 : 01010101
+exit
+Disconnected
+Pre-Script returned: Success
+**************************************************
+Testcase mods & parameters invoked:
+**************************************************
+Two core test case: None (this is not a two core testcase)
+
+**************************************************
+Copying test case files from the Build server
+**************************************************
+Testdata possible location 1: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/alg/mmwavelib/test/testdata
+
+
+Copy-To local testcase data path is: /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/testdata
+
+Test case data file radarDemo_neg10_ref.bin found on server for downloading
+Test case data file radarDemo_neg15_test.bin found on server for downloading
+Test case data file radarDemo_test.bin found on server for downloading
+Test case data file clustering_test.bin found on server for downloading
+Test case data file radarDemo_neg15_ref.bin found on server for downloading
+Test case data file floatpoint_test_aoaMultiObj.bin found on server for downloading
+Test case data file radarCase2_2dfftout_test.bin found on server for downloading
+Test case data file radarCase2_mulObj_test.bin found on server for downloading
+Test case data file radarDemo_multiObj_ref.bin found on server for downloading
+Test case data file dftsinglebinwithwin_test.bin found on server for downloading
+Test case data file floatpoint_test_dbscanCluster.bin found on server for downloading
+Test case data file accumPowerFlt_test.bin found on server for downloading
+Test case data file radarDemo_captured_ref.bin found on server for downloading
+Test case data file radarCase1_512_test.bin found on server for downloading
+Test case data file radarCase1_512_ref.bin found on server for downloading
+Test case data file radarCase1_ref.bin found on server for downloading
+Test case data file radarCase2_test.bin found on server for downloading
+Test case data file radarDemo_multiObj_neg15_ref.bin found on server for downloading
+Test case data file radarDemo_multiObj_test.bin found on server for downloading
+Test case data file radarDemo_multiObj_neg5_test.bin found on server for downloading
+Test case data file cfarca_test.bin found on server for downloading
+Test case data file cfarca_peak_test.bin found on server for downloading
+Test case data file floatpoint_test_aoaMultiObj_ref.bin found on server for downloading
+Test case data file radarCase1_test.bin found on server for downloading
+Test case data file dftsinglebinwithwinQI_test.bin found on server for downloading
+Test case data file floatpoint_test_dbscanCluster_ref.bin found on server for downloading
+Test case data file radarCase1_mulObj_ref.bin found on server for downloading
+Test case data file dftsinglebin_test.bin found on server for downloading
+Test case data file radarCase2_mulObj_2dfftout_test.bin found on server for downloading
+Test case data file windowFlt_test.bin found on server for downloading
+Test case data file radarDemo_neg10_test.bin found on server for downloading
+Test case data file cfarca_wrap_test.bin found on server for downloading
+Test case data file radarCase1_mulObj_test.bin found on server for downloading
+Test case data file radarDemo_ref_new.bin found on server for downloading
+Test case data file radarCase2_mulObj_ref.bin found on server for downloading
+Test case data file floatPoint_chain_test.bin found on server for downloading
+Test case data file radarDemo_multiObj_neg15_test.bin found on server for downloading
+Test case data file peakpruning_test.bin found on server for downloading
+Test case data file radarCase2_ref.bin found on server for downloading
+Test case data file radarDemo_captured_test.bin found on server for downloading
+Test case data file radarDemo_ref.bin found on server for downloading
+Test case data file aoaest_test.bin found on server for downloading
+Test case data file radarDemo_multiObj_neg5_ref.bin found on server for downloading
+Call to copy_testcase_binary:
+TCP: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/alg/mmwavelib/test/xwr18xx; /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr18xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_03_55_41
+
+Copying testcase binary file from http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/alg/mmwavelib/test/xwr18xx/xwr18xx_mmwavealg_dss.xe674 to /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr18xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_03_55_41 using command: 
+wget -e robots=off --no-proxy -N -T 30 -t 2 -P /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr18xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_03_55_41 http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/alg/mmwavelib/test/xwr18xx/xwr18xx_mmwavealg_dss.xe674
+**************************************************
+Executing Testcase:/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr18xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_03_55_41/xwr18xx_mmwavealg_dss.xe674
+**************************************************
+Checking if Py4J Gateway server has started...
+Py4J Gateway Server is Started
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/DEBUGSSM_0
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/IcePick_M_0
+amk: a path in cpuList is Texas Instruments XDS110 USB Debug Probe_1/C674X_0
+DSS test case opening debug session.
+
+cr4ctl = 0x0
+
+efuse/register @0xFFFFE210 = 0x0
+
+efuse/register @0xFFFFE214 = 0x0
+
+efuse/register @0xFFFFE218 = 0x0
+
+efuse/register @0xFFFFE21C = 0x0
+
+Loading binary to the DUT:/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr18xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_03_55_41/xwr18xx_mmwavealg_dss.xe674
+
+**************************************************
+ Parameters found in the Binary arguments : 
+{'moretv(32)': '0'}
+**************************************************
+Reading address of symbol: moretv
+Address of symbol obtained: 0x81fac8
+Write value 0 to address 0x81fac8 
+Value updated successfully
+binary path = /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___iwr18xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_03_55_41/xwr18xx_mmwavealg_dss.xe674
+
+dt-time: start time = Thu Nov 29 07:32:13 2018
+
+dt-time: end time = Thu Nov 29 08:11:54 2018
+
+
+**************************************************
+CIO Log captured for the testcase
+**************************************************
+tsc_overhead = 1 cycles
+
+Benchmark:
+length and windowing16x16 cycles:
+128	127
+256	190
+512	342
+1024	646
+
+length and windowing16x16_evenlen cycles:
+128	167
+256	227
+512	379
+1024	683
+len mod16 = 0:
+112	144
+240	217
+496	369
+1008	673
+len mod16 = 2:
+114	159
+242	242
+498	410
+1010	746
+len mod16 = 4:
+116	162
+244	245
+500	413
+1012	749
+len mod16 = 6:
+118	158
+246	233
+502	385
+1014	689
+len mod16 = 8:
+120	162
+248	237
+504	389
+1016	693
+len mod16 = 10:
+122	171
+250	254
+506	422
+1018	758
+len mod16 = 12:
+124	174
+252	257
+508	425
+1020	761
+len mod16 = 14:
+126	170
+254	245
+510	397
+1022	701
+
+length and windowing16x32 cycles:
+16	53
+32	87
+64	127
+128	207
+256	367
+
+length and windowing16x32_IQswap cycles:
+16	72
+32	90
+64	129
+128	209
+256	369
+
+length and vecsum cycles:
+32	48
+64	67
+128	99
+256	163
+512	291
+
+length and vecsubc cycles:
+32	65
+64	78
+128	110
+256	174
+512	302
+
+length and log2abs cycles:
+32	188
+64	313
+128	537
+256	985
+512	1881
+1024	3673
+length and cfarCadB cycles:
+32	237
+64	332
+128	524
+256	908
+512	1676
+1024	3212
+length and cfarCadBwrap cycles:
+32	289
+64	361
+128	553
+256	937
+512	1705
+1024	3241
+length and cfarCadB_SOGO (type CFAR_CA) cycles:
+32	274
+64	349
+128	541
+256	925
+512	1693
+1024	3229
+length and cfarCadB_SOGO (type CFAR_CAGO) cycles:
+32	278
+64	391
+128	647
+256	1159
+512	2183
+1024	4231
+length and cfarCadB_SOGO (type CFAR_CASO) cycles:
+32	268
+64	391
+128	647
+256	1159
+512	2183
+1024	4231
+
+Test log2abs 16, 32 functionality :
+Feature: The log2abs32 functionality test: Passed
+Feature: The log2abs16 functionality test: Passed
+
+Test histogram:
+Feature: Histogram test all bins: Passed
+
+Benchmark for mmwavelib_histogram :
+input length and 64-bin histogram cycles:
+32	279
+64	357
+128	429
+256	573
+512	861
+input length and 32-bin histogram cycles:
+32	242
+64	279
+128	351
+256	495
+512	783
+
+Benchmark for mmwavelib_shiftright16:
+input length and cycles:
+32	52
+64	59
+128	75
+256	107
+512	171
+
+Test shiftright32:
+Feature: 32-bit shiftright test: Passed
+Benchmark for mmwavelib_shiftright32:
+input length and cycles:
+32	60
+64	88
+128	120
+256	184
+512	312
+
+256-point twiddle16x16 cycles=230251
+32-point twiddle32x32 cycles=22324
+
+===  test vector with captured data: ===
+ref number of objects: 1
+ref doppler&range indices, 0, 13.
+file read count for 1D window =128
+file read count for 2D window =16
+
+----- Antenna index 0:
+--- 1D Processing:
+256-point Window16x16 cycles =192, FFT16x16 cycles =936
+Test 1D windowing16x16 and FFT16x16 passed.
+
+--- 2D Processing: ---
+32-point Win16x32 cycles =74; FFT32x32 cycles =337; logabs cycles =177; accum16 cycles =67 
+32-point vecsum cycles =48, sumref cycles =54; vecsubc cycles =50, subref cycles =83
+
+Test 2D windowing16x32, 2D windowing16x32_IQswap, and FFT32x32, log2Abs32 passed.
+
+----- Antenna index 1:
+--- 1D Processing:
+256-point Window16x16 cycles =192, FFT16x16 cycles =936
+Test 1D windowing16x16 and FFT16x16 passed.
+
+--- 2D Processing: ---
+32-point Win16x32 cycles =74; FFT32x32 cycles =332; logabs cycles =177; accum16 cycles =67 
+32-point vecsum cycles =48, sumref cycles =54; vecsubc cycles =50, subref cycles =83
+
+Test 2D windowing16x32, 2D windowing16x32_IQswap, and FFT32x32, log2Abs32 passed.
+
+----- Antenna index 2:
+--- 1D Processing:
+256-point Window16x16 cycles =192, FFT16x16 cycles =936
+Test 1D windowing16x16 and FFT16x16 passed.
+
+--- 2D Processing: ---
+32-point Win16x32 cycles =74; FFT32x32 cycles =332; logabs cycles =177; accum16 cycles =68 
+32-point vecsum cycles =48, sumref cycles =54; vecsubc cycles =50, subref cycles =83
+
+Test 2D windowing16x32, 2D windowing16x32_IQswap, and FFT32x32, log2Abs32 passed.
+
+----- Antenna index 3:
+--- 1D Processing:
+256-point Window16x16 cycles =192, FFT16x16 cycles =936
+Test 1D windowing16x16 and FFT16x16 passed.
+
+--- 2D Processing: ---
+32-point Win16x32 cycles =74; FFT32x32 cycles =332; logabs cycles =177; accum16 cycles =67 
+32-point vecsum cycles =48, sumref cycles =54; vecsubc cycles =50, subref cycles =83
+
+Test 2D windowing16x32, 2D windowing16x32_IQswap, and FFT32x32, log2Abs32 passed.
+
+ --- CFAR on accumulated (over all antennae) log2abs values:
+
+Run 256-point cfarCadB (type CFAR_CA) on every doppler bin:
+Doppler Bin 0: Num detected object: 1, detected range bin index: 13 (19956)
+Detected the object1 succesfully. 
+
+cfarCadB_SOGO (type CFAR_CA) cycles for length 256: 928
+
+ ----- Miss/False detection test on cfarCadB; cfarCadB_SOGO for type CA_SO and CA-GO:
+Run 256-point cfar:
+
+On doppler bin 0 :
+CA: when threshold=4800: Num detected object: 1, detected range bin index: 13 (19956)
+Detected the object1 succesfully. 
+CA: peak= 19956, avg noise= 15042, gap= 4914.
+PASS: no missed detection when threshold=4913.
+PASS: no false detection when threshold=4914.
+
+CA-SO: when threshold=4800: Num detected object: 1, detected range bin index: 13 (19956)
+CA-SO: peak= 19956, CASO avg noise= 14967, gap= 4989.
+PASS: cfarCadB_SOGO type CA-SO has no missed detection when threshold=4988.
+PASS: cfarCadB_SOGO type CASO has no false detection when threshold=4989.
+
+CA-GO /w threshold 4800: Num detected object: 1, detected range bin index: 13 (19956)
+CA-GO: peak= 19956, CAGO avg noise= 15117, gap= 4839.
+PASS: cfarCadB_SOGO type CAGO has no missed detection when threshold=4838.
+PASS: cfarCadB_SOGO type CAGO has no false detection when threshold=4839.
+
+cfarCadB cycles for length 256: 980
+
+testFailed = 0.
+
+ Miss/False detection test on cfarCadBwrap:
+Run 32-point cfar:
+
+On range bin 13 :Num detected object: 1, detected doppler bin index: 0 (19956)
+peak= 19956, avg noise= 8231, gap= 11725, threshold 4800.
+PASS: no missed detection when threshold=11724.
+PASS: no false detection when threshold=11725.
+
+cfarCadBwrap cycles for length 32: 292
+
+testFailed = 0.
+
+ --- Test 1-Object Angle FFT:
+file read count for anglefft input =8
+
+Anglefft16pt cycles =291
+file read count for anglefft out =32
+16-point Angle FFT passed.
+
+ --- Test histogram calculation :
+Feature: Histogram test: Passed
+
+ --- Test shiftright16 calculation :
+Feature: 16-bit shiftright test: Passed
+
+This test case's fail count = 0. Total failed = 0
+Feature: demo case 256pt 1DFFT 32pt 2DFFT captured data: Passed
+
+ --- Test windowing types :
+windowing16x16_evenlen length and cycles:
+256 204
+240 222
+242 245
+244 248
+246 235
+248 239
+250 256
+252 260
+254 247
+256 232
+windowing16x32 length and cycles:
+32 75
+28 75
+Feature: windowing various types test: Passed
+
+=== TV single object office captured data done. ====
+
+===  test vector with multiple objects: ===
+ref number of objects: 3
+ref doppler&range indices, 0, 12, 22, 64, 104, 254.
+file read count for 1D window =128
+file read count for 2D window =16
+
+----- Antenna index 0:
+--- 1D Processing:
+256-point Window16x16 cycles =192, FFT16x16 cycles =936
+Test 1D windowing16x16 and FFT16x16 passed.
+
+--- 2D Processing: ---
+32-point Win16x32 cycles =74; FFT32x32 cycles =332; logabs cycles =177; accum16 cycles =67 
+32-point vecsum cycles =48, sumref cycles =54; vecsubc cycles =50, subref cycles =83
+
+Test 2D windowing16x32, 2D windowing16x32_IQswap, and FFT32x32, log2Abs32 passed.
+
+----- Antenna index 1:
+--- 1D Processing:
+256-point Window16x16 cycles =192, FFT16x16 cycles =936
+Test 1D windowing16x16 and FFT16x16 passed.
+
+--- 2D Processing: ---
+32-point Win16x32 cycles =75; FFT32x32 cycles =332; logabs cycles =177; accum16 cycles =67 
+32-point vecsum cycles =48, sumref cycles =54; vecsubc cycles =50, subref cycles =83
+
+Test 2D windowing16x32, 2D windowing16x32_IQswap, and FFT32x32, log2Abs32 passed.
+
+----- Antenna index 2:
+--- 1D Processing:
+256-point Window16x16 cycles =192, FFT16x16 cycles =936
+Test 1D windowing16x16 and FFT16x16 passed.
+
+--- 2D Processing: ---
+32-point Win16x32 cycles =75; FFT32x32 cycles =332; logabs cycles =177; accum16 cycles =67 
+32-point vecsum cycles =48, sumref cycles =54; vecsubc cycles =50, subref cycles =83
+
+Test 2D windowing16x32, 2D windowing16x32_IQswap, and FFT32x32, log2Abs32 passed.
+
+----- Antenna index 3:
+--- 1D Processing:
+256-point Window16x16 cycles =192, FFT16x16 cycles =936
+Test 1D windowing16x16 and FFT16x16 passed.
+
+--- 2D Processing: ---
+32-point Win16x32 cycles =74; FFT32x32 cycles =332; logabs cycles =177; accum16 cycles =67 
+32-point vecsum cycles =48, sumref cycles =54; vecsubc cycles =50, subref cycles =83
+
+Test 2D windowing16x32, 2D windowing16x32_IQswap, and FFT32x32, log2Abs32 passed.
+
+----- Antenna index 4:
+--- 1D Processing:
+256-point Window16x16 cycles =192, FFT16x16 cycles =936
+Test 1D windowing16x16 and FFT16x16 passed.
+
+--- 2D Processing: ---
+32-point Win16x32 cycles =75; FFT32x32 cycles =332; logabs cycles =177; accum16 cycles =67 
+32-point vecsum cycles =48, sumref cycles =54; vecsubc cycles =50, subref cycles =83
+
+Test 2D windowing16x32, 2D windowing16x32_IQswap, and FFT32x32, log2Abs32 passed.
+
+----- Antenna index 5:
+--- 1D Processing:
+256-point Window16x16 cycles =192, FFT16x16 cycles =936
+Test 1D windowing16x16 and FFT16x16 passed.
+
+--- 2D Processing: ---
+32-point Win16x32 cycles =74; FFT32x32 cycles =332; logabs cycles =177; accum16 cycles =67 
+32-point vecsum cycles =48, sumref cycles =54; vecsubc cycles =50, subref cycles =83
+
+Test 2D windowing16x32, 2D windowing16x32_IQswap, and FFT32x32, log2Abs32 passed.
+
+----- Antenna index 6:
+--- 1D Processing:
+256-point Window16x16 cycles =192, FFT16x16 cycles =936
+Test 1D windowing16x16 and FFT16x16 passed.
+
+--- 2D Processing: ---
+32-point Win16x32 cycles =74; FFT32x32 cycles =332; logabs cycles =177; accum16 cycles =67 
+32-point vecsum cycles =48, sumref cycles =54; vecsubc cycles =50, subref cycles =83
+
+Test 2D windowing16x32, 2D windowing16x32_IQswap, and FFT32x32, log2Abs32 passed.
+
+----- Antenna index 7:
+--- 1D Processing:
+256-point Window16x16 cycles =192, FFT16x16 cycles =936
+Test 1D windowing16x16 and FFT16x16 passed.
+
+--- 2D Processing: ---
+32-point Win16x32 cycles =75; FFT32x32 cycles =332; logabs cycles =177; accum16 cycles =67 
+32-point vecsum cycles =48, sumref cycles =54; vecsubc cycles =50, subref cycles =83
+
+Test 2D windowing16x32, 2D windowing16x32_IQswap, and FFT32x32, log2Abs32 passed.
+
+ --- CFAR on accumulated (over all antennae) log2abs values:
+
+Run 256-point cfarCadB (type CFAR_CA) on every doppler bin:
+Doppler Bin 0: Num detected object: 2, detected range bin index: 64 (36682),65 (36555)
+Detected the object1 succesfully. 
+Doppler Bin 12: Num detected object: 2, detected range bin index: 103 (34355),104 (37346)
+Detected the object2 succesfully. 
+Doppler Bin 22: Num detected object: 2, detected range bin index: 253 (33689),254 (37263)
+Detected the object3 succesfully. 
+
+cfarCadB_SOGO (type CFAR_CA) cycles for length 256: 928
+
+ ----- Miss/False detection test on cfarCadB; cfarCadB_SOGO for type CA_SO and CA-GO:
+Run 256-point cfar:
+
+On doppler bin 0 :
+CA: when threshold=6144: Num detected object: 2, detected range bin index: 64 (36682),65 (36555)
+Detected the object1 succesfully. 
+CA: peak= 36682, avg noise= 27730, gap= 8952.
+PASS: no missed detection when threshold=8951.
+PASS: no false detection when threshold=8952.
+
+CA-SO: when threshold=6144: Num detected object: 2, detected range bin index: 64 (36682),65 (36555)
+CA-SO: peak= 36682, CASO avg noise= 27513, gap= 9169.
+PASS: cfarCadB_SOGO type CA-SO has no missed detection when threshold=9168.
+PASS: cfarCadB_SOGO type CASO has no false detection when threshold=9169.
+
+CA-GO /w threshold 6144: Num detected object: 2, detected range bin index: 64 (36682),65 (36555)
+CA-GO: peak= 36682, CAGO avg noise= 27947, gap= 8735.
+PASS: cfarCadB_SOGO type CAGO has no missed detection when threshold=8734.
+PASS: cfarCadB_SOGO type CAGO has no false detection when threshold=8735.
+
+On doppler bin 12 :
+CA: when threshold=6144: Num detected object: 2, detected range bin index: 103 (34355),104 (37346)
+Detected the object2 succesfully. 
+CA: peak= 37346, avg noise= 27210, gap= 10136.
+PASS: no missed detection when threshold=10135.
+PASS: no false detection when threshold=10136.
+
+CA-SO: when threshold=6144: Num detected object: 2, detected range bin index: 103 (34355),104 (37346)
+CA-SO: peak= 37346, CASO avg noise= 27005, gap= 10341.
+PASS: cfarCadB_SOGO type CA-SO has no missed detection when threshold=10340.
+PASS: cfarCadB_SOGO type CASO has no false detection when threshold=10341.
+
+CA-GO /w threshold 6144: Num detected object: 2, detected range bin index: 103 (34355),104 (37346)
+CA-GO: peak= 37346, CAGO avg noise= 27415, gap= 9931.
+PASS: cfarCadB_SOGO type CAGO has no missed detection when threshold=9930.
+PASS: cfarCadB_SOGO type CAGO has no false detection when threshold=9931.
+
+On doppler bin 22 :
+CA: when threshold=6144: Num detected object: 2, detected range bin index: 253 (33689),254 (37263)
+Detected the object3 succesfully. 
+CA: peak= 37263, avg noise= 26873, gap= 10390.
+PASS: no missed detection when threshold=10389.
+PASS: no false detection when threshold=10390.
+
+cfarCadB cycles for length 256: 980
+
+testFailed = 0.
+
+ Miss/False detection test on cfarCadBwrap:
+Run 32-point cfar:
+
+On range bin 64 :Num detected object: 1, detected doppler bin index: 0 (36682)
+peak= 36682, avg noise= 26390, gap= 10292, threshold 6144.
+PASS: no missed detection when threshold=10291.
+PASS: no false detection when threshold=10292.
+
+On range bin 104 :Num detected object: 1, detected doppler bin index: 12 (37346)
+peak= 37346, avg noise= 26248, gap= 11098, threshold 6144.
+PASS: no missed detection when threshold=11097.
+PASS: no false detection when threshold=11098.
+
+On range bin 254 :Num detected object: 1, detected doppler bin index: 22 (37263)
+peak= 37263, avg noise= 26338, gap= 10925, threshold 6144.
+PASS: no missed detection when threshold=10924.
+PASS: no false detection when threshold=10925.
+
+cfarCadBwrap cycles for length 32: 266
+
+testFailed = 0.
+
+ --- Test 3-Object Angle FFT:
+file read count for anglefft input =48
+
+Anglefft16pt cycles =553
+file read count for anglefft out =96
+16-point Angle FFT passed.
+
+ --- Test histogram calculation :
+Feature: Histogram test: Passed
+
+ --- Test shiftright16 calculation :
+Feature: 16-bit shiftright test: Passed
+
+This test case's fail count = 0. Total failed = 0
+Feature: demo case 256pt 1DFFT 32pt 2DFFT multi-obj SNR0: Passed
+
+=== TV multiple objects SNR0 done. ====
+
+==========  All tests passed! ==========
+
+==========  Testing completed! ==========
+Value read from Global variable (MCPI_Result): 0
+Test Failure Signature: 0
+Test Log Messages: 
+Feature tested: The log2abs32 functionality test: Passed
+Feature tested: The log2abs16 functionality test: Passed
+Feature tested: Histogram test all bins: Passed
+Feature tested: 32-bit shiftright test: Passed
+Feature tested: Histogram test: Passed
+Feature tested: 16-bit shiftright test: Passed
+Feature tested: demo case 256pt 1DFFT 32pt 2DFFT captured data: Passed
+Feature tested: windowing various types test: Passed
+Feature tested: Histogram test: Passed
+Feature tested: 16-bit shiftright test: Passed
+Feature tested: demo case 256pt 1DFFT 32pt 2DFFT multi-obj SNR0: Passed
+
+
+shutting down py4j gw server.
+
+
+**************************************************
+Terminating the debug session and Shutting down gateway.
+**************************************************
+
+**************************************************
+Test case execution completed
+**************************************************
+
+**************************************************
+Testcase Result : PASS
+**************************************************

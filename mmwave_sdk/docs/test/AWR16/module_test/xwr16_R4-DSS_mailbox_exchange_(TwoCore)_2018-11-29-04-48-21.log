@@ -1,0 +1,182 @@
+
+**************************************************
+Copying test case files from the Build server
+**************************************************
+call to copy_testcase_binary:
+TCP: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/drivers/mailbox/test/xwr16xx/test_mss_dss_msg_exchange to /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13
+
+amk: error logging: testcasepath = http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/drivers/mailbox/test/xwr16xx/test_mss_dss_msg_exchange
+amk: error logging: binaryfile = xwr16xx_mailbox_mss.xer4f
+Copying testcase binary file from http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/drivers/mailbox/test/xwr16xx/test_mss_dss_msg_exchange/xwr16xx_mailbox_mss.xer4f to /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13 using command: 
+wget -e robots=off --no-proxy -N -T 30 -t 2 -P /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13 http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/drivers/mailbox/test/xwr16xx/test_mss_dss_msg_exchange/xwr16xx_mailbox_mss.xer4f
+Error 25: Could not copy the testcase binary to the local machine
+
+DT> port_no = 50106
+eth008 Board details:
+IP address: 10.218.113.62
+
+Port: 17494
+
+connecting...
+Relay states 8->1 : 00010101
+1 off
+8 off
+2 off
+Relay states 8->1 : 00010100
+1 on
+Relay states 8->1 : 00010101
+exit
+Disconnected
+Pre-Script returned: Success
+
+**************************************************
+Testcase mods & parameters invoked:
+**************************************************
+TwoCoreTest:: slave_case: True, binary_file is xwr16xx_mailbox_mss.xer4f, local path is /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13, remote path is http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/drivers/mailbox/test/xwr16xx/test_mss_dss_msg_exchange, binary_params is None
+
+**************************************************
+Copying test case files from the Build server
+**************************************************
+amk: ARGS['TestcasePath']: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/drivers/mailbox/test/xwr16xx/test_mss_dss_msg_exchange
+
+amk: remote_datapath: http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/drivers/mailbox/test/xwr16xx/testdata
+
+A testdata directory was not found on build server for this testcase
+
+
+amk: error logging: testcasepath = http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/drivers/mailbox/test/xwr16xx/test_mss_dss_msg_exchange
+amk: error logging: binaryfile = xwr16xx_mailbox_dss.xe674
+Copying testcase binary file from http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/drivers/mailbox/test/xwr16xx/test_mss_dss_msg_exchange/xwr16xx_mailbox_dss.xe674 to /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13 using command: 
+wget -e robots=off --no-proxy -N -T 30 -t 2 -P /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13 http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/drivers/mailbox/test/xwr16xx/test_mss_dss_msg_exchange/xwr16xx_mailbox_dss.xe674
+**************************************************
+Executing Testcase:/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13/xwr16xx_mailbox_dss.xe674
+**************************************************
+amk: TwoCoreTest:: slave_case: True, binary_file is xwr16xx_mailbox_mss.xer4f, local path is /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13, remote path is http://gtjenkins.itg.ti.com/nightly_builds/mmwave_sdk-dev/79-2018-11-28_21-52-01/artifacts/test/mmwave_sdk/packages/ti/drivers/mailbox/test/xwr16xx/test_mss_dss_msg_exchange, binary_params is None
+
+Checking if Py4J Gateway server has started...
+Py4J Gateway Server is Started
+Two-core test check: dss_execute_obj.two_core_test: True
+
+
+amk: a path in detected cpuList is: Texas Instruments XDS110 USB Debug Probe_1/DEBUGSSM_0
+amk: a path in detected cpuList is: Texas Instruments XDS110 USB Debug Probe_1/IcePick_M_0
+amk: a path in detected cpuList is: Texas Instruments XDS110 USB Debug Probe_1/C674X_0
+amk: a path in detected cpuList is: Texas Instruments XDS110 USB Debug Probe_1/CS_DAP_0
+amk: a path in detected cpuList is: Texas Instruments XDS110 USB Debug Probe_1/CortexR4_0
+Slave core now opening debug session, cpuName = CortexR4_0.
+
+amk: Loading slave core binary:/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13/xwr16xx_mailbox_mss.xer4f
+amk: Updating slave binary parameters:/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13/xwr16xx_mailbox_mss.xer4f
+
+**************************************************
+ Parameters found in the Binary arguments : 
+{}
+**************************************************
+amk: a path in detected cpuList is Texas Instruments XDS110 USB Debug Probe_1/DEBUGSSM_0
+amk: a path in detected cpuList is Texas Instruments XDS110 USB Debug Probe_1/IcePick_M_0
+amk: a path in detected cpuList is Texas Instruments XDS110 USB Debug Probe_1/C674X_0
+Master core now opening debug session, cpuName = C674X_0.
+
+Loading binary to the DUT:/home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13/xwr16xx_mailbox_dss.xe674
+
+**************************************************
+ Parameters found in the Binary arguments : 
+{}
+**************************************************
+binary path = /home/lte_phy/ti/mcpi_tf/mcpi_testframework_1_12_00_01/test/temp/mmWave_SDK___awr16xx_sdk03.01.00_Test_Plan___jenkins-79_2018_11_29_01_55_13/xwr16xx_mailbox_dss.xe674
+
+
+**************************************************
+CIO Log captured for the testcase
+**************************************************
+DSS: Sync starting...
+DSS: Mailbox Instance MSS: Mailbox Instance to DSS 8001328 has been opened successfully
+MSS: Mailbox Instance to BSS 8001408 haDSS: Message 1 received.
+DSS: Read 4 bytes. Val=0x11111111 
+DSS: Read 4 bytes. Val=0x22MSS: Ack received from DSS for message 1. Size=12
+MSS: ************ Waiting for message 2 from DSS ****************
+MSS: MDSS: Ack received from MSS for message 2. Size=12
+DSS: ************ Waiting for message 3 from MSS ****************
+DSS: Message 3 received.
+DSS: Read 4 bytes. Val=0x88887777 
+DSS: Flushing read
+DSS: ************ Writing message 4 to MSS ****************
+DSS: Ack received from MSS for message 4. Size=4
+DSS: Checking driver internal stats
+*************************************************
+
+DSS: Starting Multichannel Test.
+DSS: Mailbox Instance to MSS @008012c8 has been opened successfully
+DSS: Mailbox Instance to MSS @00801318 has been opened successfully
+DSS: Mailbox Instance to MSS @00801388 has been opened successfully
+DSS: Mailbox Instance to DSS @00801418 has been opened successfully
+DSS: Sync starting...
+DSS: ************ Writing a message in CHANNEL 3 to MSS ****************
+DSS: Channel 3 received message.
+DSS: Read 4 bytes. Val=0x88887777 
+DSS: ************ Writing a message in CHANNEL 4 to MSS ****************
+DSS: Channel 4 received message.
+DSS: Read 4 bytes. Val=0xffffffff 
+DSS: ************ Writing a message in CHANNEL 3 to MSS ****************
+DSS: Channel 3 received message.
+DSS: Read 4 bytes. Val=0x88887777 
+DSS: ************ Writing a message in CHANNEL 4 to MSS ****************
+DSS: Channel 4 received message.
+DSS: Read 4 bytes. Val=0xffffffff 
+DSS: ************ Writing a message in CHANNEL 3 to MSS ****************
+DSS: Channel 3 received message.
+DSS: Read 4 bytes. Val=0x88887777 
+DSS: ************ Writing a message in CHANNEL 4 to MSS ************Value read from Global variable (MCPI_Result): 0
+Test Failure Signature: 0
+Test Log Messages: 
+Feature tested: DSS: MSS_DSS_msg_exchange: Passed
+
+
+shutting down py4j gw server.
+
+
+**************************************************
+Terminating the debug session and Shutting down gateway.
+**************************************************
+
+**************************************************
+Test case execution completed
+**************************************************
+
+**************************************************
+Testcase Result : PASS
+**************************************************
+ce 1
+Debug: closed instance 3
+Debug: closed instance 4
+Debug: closed instance 7
+DSS: Sync starting...
+
+DSS: Starting 2044KB transfer test.
+DSS: Mailbox Instance to MSS @008012c8 has been opened successfully
+DSS: Waiting for big message to arrive...
+DSS: Read 2044 bytes. 
+DSS: Sending big data msg to MSS 
+DSS: ************ Writing big message to MSS ****************
+DSS: Transfer completed.
+DSS: TEST ENDED
+Feature: DSS: MSS_DSS_msg_exchange: Passed
+DSS: Test Passed
+: Checking driver internal stats for channel 4
+MSS: Checking driver internal stats for channel 7
+Debug: closed instance 1
+Debug: closed instance 3
+Debug: closed instance 4
+Debug: closed instance 7
+MSS: Sync starting...
+
+MSS: Starting 2044KB transfer test.
+MSS: Mailbox Instance to DSS 8001328 has been opened successfully
+MSS: ************ Writing big message to DSS ****************
+MSS: Transfer completed.
+MSS: Waiting for big message to arrive...
+MSS: Read 2044 bytes. 
+MSS: Message received. 
+MSS: TEST ENDED
+Feature: MSS: MSS_DSS_msg_exchange: Passed
+MSS: Test Passed

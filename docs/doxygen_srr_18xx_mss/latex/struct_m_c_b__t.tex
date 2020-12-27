@@ -1,0 +1,426 @@
+\doxysection{M\+C\+B\+\_\+t Struct Reference}
+\label{struct_m_c_b__t}\index{MCB\_t@{MCB\_t}}
+
+
+D\+S\+P-\/\+Subsystem (D\+SS) Master control block (M\+CB) The structure is used to hold handling information, flags and stats relative to the radar design.  
+
+
+
+
+{\ttfamily \#include $<$mm\+Wave\+\_\+\+X\+S\+S.\+h$>$}
+
+
+
+Collaboration diagram for M\+C\+B\+\_\+t\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=213pt]{struct_m_c_b__t__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+S\+O\+C\+\_\+\+Handle \textbf{ soc\+Handle}
+\item 
+Mbox\+\_\+\+Handle \textbf{ mbox\+Handle}
+\begin{DoxyCompactList}\small\item\em ! Handle to the S\+OC Module \end{DoxyCompactList}\item 
+Semaphore\+\_\+\+Handle \textbf{ mbox\+Sem\+Handle}
+\begin{DoxyCompactList}\small\item\em ! Handle to the peer Mailbox used to exchange messages between the M\+SS and D\+SS \end{DoxyCompactList}\item 
+S\+O\+C\+\_\+\+Sys\+Int\+Listener\+Handle \textbf{ chirp\+Int\+Handle}
+\begin{DoxyCompactList}\small\item\em ! Semaphore handle for the mailbox communication \end{DoxyCompactList}\item 
+S\+O\+C\+\_\+\+Sys\+Int\+Listener\+Handle \textbf{ frame\+Start\+Int\+Handle}
+\begin{DoxyCompactList}\small\item\em ! Handle to the S\+OC chirp interrupt listener Handle \end{DoxyCompactList}\item 
+M\+M\+Wave\+\_\+\+Handle \textbf{ ctrl\+Handle}
+\begin{DoxyCompactList}\small\item\em ! Handle to the S\+OC frame interrupt listener Handle \end{DoxyCompactList}\item 
+Event\+\_\+\+Handle \textbf{ event\+Handle}
+\begin{DoxyCompactList}\small\item\em mm\+Wave control handle use to initialize the link infrastructure, which allows communication between the M\+SS and B\+SS \end{DoxyCompactList}\item 
+U\+A\+R\+T\+\_\+\+Handle \textbf{ logging\+Uart\+Handle}
+\begin{DoxyCompactList}\small\item\em ! M\+SS system event handle \end{DoxyCompactList}\item 
+U\+A\+R\+T\+\_\+\+Handle \textbf{ command\+Uart\+Handle}
+\begin{DoxyCompactList}\small\item\em ! U\+A\+RT Logging Handle \end{DoxyCompactList}\item 
+\textbf{ mm\+W\+\_\+\+M\+S\+S\+\_\+\+S\+T\+A\+TS} \textbf{ stats}
+\begin{DoxyCompactList}\small\item\em ! U\+A\+RT Command Handle used to interface with the C\+LI \end{DoxyCompactList}\item 
+bool \textbf{ cfg\+Status}
+\begin{DoxyCompactList}\small\item\em !mm\+Wave stats \end{DoxyCompactList}\item 
+bool \textbf{ running\+Status}
+\begin{DoxyCompactList}\small\item\em ! flag which indicates if the mm\+Wave link has been configured \end{DoxyCompactList}\item 
+bool \textbf{ is\+M\+M\+Wave\+Open}
+\begin{DoxyCompactList}\small\item\em ! flag which indicates if the radar is transmitting or not \end{DoxyCompactList}\item 
+int32\+\_\+t \textbf{ frame\+Start\+Token}
+\begin{DoxyCompactList}\small\item\em ! flag which indicates if the basic radar configuration is completed. \end{DoxyCompactList}\item 
+int32\+\_\+t \textbf{ subframe\+Cnt\+From\+Chirp\+Int}
+\begin{DoxyCompactList}\small\item\em ! token for frame start events. \end{DoxyCompactList}\item 
+int32\+\_\+t \textbf{ subframe\+Cnt\+From\+Frame\+Start}
+\begin{DoxyCompactList}\small\item\em ! The number of sub-\/frames transmitted derived from chirp available interrupts. \end{DoxyCompactList}\item 
+int32\+\_\+t \textbf{ chirp\+Intcum\+Sum}
+\begin{DoxyCompactList}\small\item\em ! The number of subframes transmitted derived from the frame start interrupts. \end{DoxyCompactList}\item 
+int32\+\_\+t \textbf{ chirp\+Int}
+\begin{DoxyCompactList}\small\item\em ! The total number of chirp available interrupts. \end{DoxyCompactList}\item 
+int32\+\_\+t \textbf{ num\+Chirps\+Per\+Subframe} [\textbf{ N\+U\+M\+\_\+\+S\+U\+B\+F\+R\+A\+M\+ES}]
+\begin{DoxyCompactList}\small\item\em ! A counter for chirp interrupts. It is reset every subframe. \end{DoxyCompactList}\item 
+int32\+\_\+t \textbf{ subframe\+Id}
+\begin{DoxyCompactList}\small\item\em ! The number of chirps per subframe. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+D\+S\+P-\/\+Subsystem (D\+SS) Master control block (M\+CB) The structure is used to hold handling information, flags and stats relative to the radar design. 
+
+\DoxyHorRuler
+ \DoxyHorRuler
+ 
+
+Definition at line 210 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\label{struct_m_c_b__t_a17fb78c28efc9821c7b9b093a7ef325a}} 
+\index{MCB\_t@{MCB\_t}!cfgStatus@{cfgStatus}}
+\index{cfgStatus@{cfgStatus}!MCB\_t@{MCB\_t}}
+\doxysubsubsection{cfgStatus}
+{\footnotesize\ttfamily bool M\+C\+B\+\_\+t\+::cfg\+Status}
+
+
+
+!mm\+Wave stats 
+
+
+
+Definition at line 241 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+
+
+Referenced by M\+S\+S\+\_\+\+C\+L\+I\+Basic\+Cfg(), M\+S\+S\+\_\+\+C\+L\+I\+Sensor\+Start(), and M\+S\+S\+\_\+\+C\+L\+I\+Sensor\+Stop().
+
+\mbox{\label{struct_m_c_b__t_aa55a490981fff4b9eefd9561fd615197}} 
+\index{MCB\_t@{MCB\_t}!chirpInt@{chirpInt}}
+\index{chirpInt@{chirpInt}!MCB\_t@{MCB\_t}}
+\doxysubsubsection{chirpInt}
+{\footnotesize\ttfamily int32\+\_\+t M\+C\+B\+\_\+t\+::chirp\+Int}
+
+
+
+! The total number of chirp available interrupts. 
+
+
+
+Definition at line 248 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+
+
+Referenced by M\+S\+S\+\_\+chirp\+Int\+Callback(), and M\+S\+S\+\_\+frame\+Start\+Int\+Callback().
+
+\mbox{\label{struct_m_c_b__t_af6db53d8a9c6f400318eb82f8768c55a}} 
+\index{MCB\_t@{MCB\_t}!chirpIntcumSum@{chirpIntcumSum}}
+\index{chirpIntcumSum@{chirpIntcumSum}!MCB\_t@{MCB\_t}}
+\doxysubsubsection{chirpIntcumSum}
+{\footnotesize\ttfamily int32\+\_\+t M\+C\+B\+\_\+t\+::chirp\+Intcum\+Sum}
+
+
+
+! The number of subframes transmitted derived from the frame start interrupts. 
+
+
+
+Definition at line 247 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+\mbox{\label{struct_m_c_b__t_a1babf4a12432fce3f2915e053e06c928}} 
+\index{MCB\_t@{MCB\_t}!chirpIntHandle@{chirpIntHandle}}
+\index{chirpIntHandle@{chirpIntHandle}!MCB\_t@{MCB\_t}}
+\doxysubsubsection{chirpIntHandle}
+{\footnotesize\ttfamily S\+O\+C\+\_\+\+Sys\+Int\+Listener\+Handle M\+C\+B\+\_\+t\+::chirp\+Int\+Handle}
+
+
+
+! Semaphore handle for the mailbox communication 
+
+
+
+Definition at line 216 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+
+
+Referenced by M\+S\+S\+\_\+mm\+Wave\+Init\+T\+A\+S\+K().
+
+\mbox{\label{struct_m_c_b__t_a4daad2552d7e3528d40b894e6eb01740}} 
+\index{MCB\_t@{MCB\_t}!commandUartHandle@{commandUartHandle}}
+\index{commandUartHandle@{commandUartHandle}!MCB\_t@{MCB\_t}}
+\doxysubsubsection{commandUartHandle}
+{\footnotesize\ttfamily U\+A\+R\+T\+\_\+\+Handle M\+C\+B\+\_\+t\+::command\+Uart\+Handle}
+
+
+
+! U\+A\+RT Logging Handle 
+
+
+
+Definition at line 239 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+
+
+Referenced by M\+S\+S\+\_\+mm\+Wave\+Init\+T\+A\+S\+K().
+
+\mbox{\label{struct_m_c_b__t_a3c9d3d957cac0c8ad0b2876f0e7c857d}} 
+\index{MCB\_t@{MCB\_t}!ctrlHandle@{ctrlHandle}}
+\index{ctrlHandle@{ctrlHandle}!MCB\_t@{MCB\_t}}
+\doxysubsubsection{ctrlHandle}
+{\footnotesize\ttfamily M\+M\+Wave\+\_\+\+Handle M\+C\+B\+\_\+t\+::ctrl\+Handle}
+
+
+
+! Handle to the S\+OC frame interrupt listener Handle 
+
+
+
+Definition at line 218 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+
+
+Referenced by M\+S\+S\+\_\+\+C\+L\+I\+Basic\+Cfg(), M\+S\+S\+\_\+\+C\+L\+I\+Sensor\+Start(), M\+S\+S\+\_\+\+C\+L\+I\+Sensor\+Stop(), M\+S\+S\+\_\+mm\+Wave\+Ctrl\+Task(), and M\+S\+S\+\_\+mm\+Wave\+Init\+T\+A\+S\+K().
+
+\mbox{\label{struct_m_c_b__t_a32c121ae1477c62220086b42de7c13ad}} 
+\index{MCB\_t@{MCB\_t}!eventHandle@{eventHandle}}
+\index{eventHandle@{eventHandle}!MCB\_t@{MCB\_t}}
+\doxysubsubsection{eventHandle}
+{\footnotesize\ttfamily Event\+\_\+\+Handle M\+C\+B\+\_\+t\+::event\+Handle}
+
+
+
+mm\+Wave control handle use to initialize the link infrastructure, which allows communication between the M\+SS and B\+SS 
+
+
+
+Definition at line 237 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+
+
+Referenced by M\+S\+S\+\_\+mm\+Wave\+Start\+Callback\+Fxn().
+
+\mbox{\label{struct_m_c_b__t_ace1cdaac20f5318c51abb7efd6efedb5}} 
+\index{MCB\_t@{MCB\_t}!frameStartIntHandle@{frameStartIntHandle}}
+\index{frameStartIntHandle@{frameStartIntHandle}!MCB\_t@{MCB\_t}}
+\doxysubsubsection{frameStartIntHandle}
+{\footnotesize\ttfamily S\+O\+C\+\_\+\+Sys\+Int\+Listener\+Handle M\+C\+B\+\_\+t\+::frame\+Start\+Int\+Handle}
+
+
+
+! Handle to the S\+OC chirp interrupt listener Handle 
+
+
+
+Definition at line 217 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+
+
+Referenced by M\+S\+S\+\_\+mm\+Wave\+Init\+T\+A\+S\+K().
+
+\mbox{\label{struct_m_c_b__t_a2ab8f4d496460059bf9ef16c2f5b3a14}} 
+\index{MCB\_t@{MCB\_t}!frameStartToken@{frameStartToken}}
+\index{frameStartToken@{frameStartToken}!MCB\_t@{MCB\_t}}
+\doxysubsubsection{frameStartToken}
+{\footnotesize\ttfamily int32\+\_\+t M\+C\+B\+\_\+t\+::frame\+Start\+Token}
+
+
+
+! flag which indicates if the basic radar configuration is completed. 
+
+
+
+Definition at line 244 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+
+
+Referenced by M\+S\+S\+\_\+frame\+Start\+Int\+Callback().
+
+\mbox{\label{struct_m_c_b__t_a9b4c9df8518e529f7aea139be2fead5f}} 
+\index{MCB\_t@{MCB\_t}!isMMWaveOpen@{isMMWaveOpen}}
+\index{isMMWaveOpen@{isMMWaveOpen}!MCB\_t@{MCB\_t}}
+\doxysubsubsection{isMMWaveOpen}
+{\footnotesize\ttfamily bool M\+C\+B\+\_\+t\+::is\+M\+M\+Wave\+Open}
+
+
+
+! flag which indicates if the radar is transmitting or not 
+
+
+
+Definition at line 243 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+\mbox{\label{struct_m_c_b__t_ab7114671bcde88972065f33aa6b6a5f9}} 
+\index{MCB\_t@{MCB\_t}!loggingUartHandle@{loggingUartHandle}}
+\index{loggingUartHandle@{loggingUartHandle}!MCB\_t@{MCB\_t}}
+\doxysubsubsection{loggingUartHandle}
+{\footnotesize\ttfamily U\+A\+R\+T\+\_\+\+Handle M\+C\+B\+\_\+t\+::logging\+Uart\+Handle}
+
+
+
+! M\+SS system event handle 
+
+
+
+Definition at line 238 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+
+
+Referenced by mbox\+In\+\_\+uart\+Out\+\_\+\+T\+A\+S\+K(), and M\+S\+S\+\_\+mm\+Wave\+Init\+T\+A\+S\+K().
+
+\mbox{\label{struct_m_c_b__t_a5f788422b7cd97aba39c9f14a3d710d3}} 
+\index{MCB\_t@{MCB\_t}!mboxHandle@{mboxHandle}}
+\index{mboxHandle@{mboxHandle}!MCB\_t@{MCB\_t}}
+\doxysubsubsection{mboxHandle}
+{\footnotesize\ttfamily Mbox\+\_\+\+Handle M\+C\+B\+\_\+t\+::mbox\+Handle}
+
+
+
+! Handle to the S\+OC Module 
+
+
+
+Definition at line 214 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+
+
+Referenced by mbox\+In\+\_\+uart\+Out\+\_\+\+T\+A\+S\+K(), M\+S\+S\+\_\+mbox\+Write(), and M\+S\+S\+\_\+mm\+Wave\+Init\+T\+A\+S\+K().
+
+\mbox{\label{struct_m_c_b__t_a9b71b310da976e67dba7866108922ed8}} 
+\index{MCB\_t@{MCB\_t}!mboxSemHandle@{mboxSemHandle}}
+\index{mboxSemHandle@{mboxSemHandle}!MCB\_t@{MCB\_t}}
+\doxysubsubsection{mboxSemHandle}
+{\footnotesize\ttfamily Semaphore\+\_\+\+Handle M\+C\+B\+\_\+t\+::mbox\+Sem\+Handle}
+
+
+
+! Handle to the peer Mailbox used to exchange messages between the M\+SS and D\+SS 
+
+
+
+Definition at line 215 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+
+
+Referenced by mbox\+Callback\+Fxn\+\_\+\+M\+S\+S\+\_\+ch0(), mbox\+In\+\_\+uart\+Out\+\_\+\+T\+A\+S\+K(), and M\+S\+S\+\_\+mm\+Wave\+Init\+T\+A\+S\+K().
+
+\mbox{\label{struct_m_c_b__t_a69f694f78d8e6675193c7e84075390e5}} 
+\index{MCB\_t@{MCB\_t}!numChirpsPerSubframe@{numChirpsPerSubframe}}
+\index{numChirpsPerSubframe@{numChirpsPerSubframe}!MCB\_t@{MCB\_t}}
+\doxysubsubsection{numChirpsPerSubframe}
+{\footnotesize\ttfamily int32\+\_\+t M\+C\+B\+\_\+t\+::num\+Chirps\+Per\+Subframe[\textbf{ N\+U\+M\+\_\+\+S\+U\+B\+F\+R\+A\+M\+ES}]}
+
+
+
+! A counter for chirp interrupts. It is reset every subframe. 
+
+
+
+Definition at line 249 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+
+
+Referenced by M\+S\+S\+\_\+chirp\+Int\+Callback(), and M\+S\+S\+\_\+mm\+Wave\+Init\+T\+A\+S\+K().
+
+\mbox{\label{struct_m_c_b__t_a9a5ce6c434ec9fd544540f7c67bb49e8}} 
+\index{MCB\_t@{MCB\_t}!runningStatus@{runningStatus}}
+\index{runningStatus@{runningStatus}!MCB\_t@{MCB\_t}}
+\doxysubsubsection{runningStatus}
+{\footnotesize\ttfamily bool M\+C\+B\+\_\+t\+::running\+Status}
+
+
+
+! flag which indicates if the mm\+Wave link has been configured 
+
+
+
+Definition at line 242 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+
+
+Referenced by M\+S\+S\+\_\+\+C\+L\+I\+Sensor\+Start(), and M\+S\+S\+\_\+\+C\+L\+I\+Sensor\+Stop().
+
+\mbox{\label{struct_m_c_b__t_acccae70abdcd213a2832cb5eed42601e}} 
+\index{MCB\_t@{MCB\_t}!socHandle@{socHandle}}
+\index{socHandle@{socHandle}!MCB\_t@{MCB\_t}}
+\doxysubsubsection{socHandle}
+{\footnotesize\ttfamily S\+O\+C\+\_\+\+Handle M\+C\+B\+\_\+t\+::soc\+Handle}
+
+
+
+Definition at line 213 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+
+
+Referenced by main(), and M\+S\+S\+\_\+mm\+Wave\+Init\+T\+A\+S\+K().
+
+\mbox{\label{struct_m_c_b__t_ab0354bd14e737688a56bcf924bad4048}} 
+\index{MCB\_t@{MCB\_t}!stats@{stats}}
+\index{stats@{stats}!MCB\_t@{MCB\_t}}
+\doxysubsubsection{stats}
+{\footnotesize\ttfamily \textbf{ mm\+W\+\_\+\+M\+S\+S\+\_\+\+S\+T\+A\+TS} M\+C\+B\+\_\+t\+::stats}
+
+
+
+! U\+A\+RT Command Handle used to interface with the C\+LI 
+
+
+
+Definition at line 240 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+
+
+Referenced by M\+S\+S\+\_\+mm\+Wave\+Start\+Callback\+Fxn(), and M\+S\+S\+\_\+mm\+Wave\+Stop\+Callback\+Fxn().
+
+\mbox{\label{struct_m_c_b__t_af02595d2d11b6cdc2b60c4f7bc2d14bd}} 
+\index{MCB\_t@{MCB\_t}!subframeCntFromChirpInt@{subframeCntFromChirpInt}}
+\index{subframeCntFromChirpInt@{subframeCntFromChirpInt}!MCB\_t@{MCB\_t}}
+\doxysubsubsection{subframeCntFromChirpInt}
+{\footnotesize\ttfamily int32\+\_\+t M\+C\+B\+\_\+t\+::subframe\+Cnt\+From\+Chirp\+Int}
+
+
+
+! token for frame start events. 
+
+
+
+Definition at line 245 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+
+
+Referenced by M\+S\+S\+\_\+chirp\+Int\+Callback().
+
+\mbox{\label{struct_m_c_b__t_a9a67746c923e06f0c4f6e2704c2587d7}} 
+\index{MCB\_t@{MCB\_t}!subframeCntFromFrameStart@{subframeCntFromFrameStart}}
+\index{subframeCntFromFrameStart@{subframeCntFromFrameStart}!MCB\_t@{MCB\_t}}
+\doxysubsubsection{subframeCntFromFrameStart}
+{\footnotesize\ttfamily int32\+\_\+t M\+C\+B\+\_\+t\+::subframe\+Cnt\+From\+Frame\+Start}
+
+
+
+! The number of sub-\/frames transmitted derived from chirp available interrupts. 
+
+
+
+Definition at line 246 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+\mbox{\label{struct_m_c_b__t_abc46883f00b90560110b96b5c5d79bfc}} 
+\index{MCB\_t@{MCB\_t}!subframeId@{subframeId}}
+\index{subframeId@{subframeId}!MCB\_t@{MCB\_t}}
+\doxysubsubsection{subframeId}
+{\footnotesize\ttfamily int32\+\_\+t M\+C\+B\+\_\+t\+::subframe\+Id}
+
+
+
+! The number of chirps per subframe. 
+
+
+
+Definition at line 250 of file mm\+Wave\+\_\+\+X\+S\+S.\+h.
+
+
+
+Referenced by M\+S\+S\+\_\+chirp\+Int\+Callback().
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+common/\textbf{ mm\+Wave\+\_\+\+X\+S\+S.\+h}\end{DoxyCompactItemize}

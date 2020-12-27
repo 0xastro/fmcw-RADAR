@@ -1,0 +1,376 @@
+\doxysection{dss\+\_\+mrr.\+h File Reference}
+\label{dss__mrr_8h}\index{dss\_mrr.h@{dss\_mrr.h}}
+
+
+This is the main header file for the D\+SS M\+RR TI Design.  
+
+
+{\ttfamily \#include $<$ti/common/mmwave\+\_\+error.\+h$>$}\newline
+{\ttfamily \#include $<$ti/drivers/uart/\+U\+A\+R\+T.\+h$>$}\newline
+{\ttfamily \#include $<$ti/drivers/mailbox/mailbox.\+h$>$}\newline
+{\ttfamily \#include $<$ti/drivers/adcbuf/\+A\+D\+C\+Buf.\+h$>$}\newline
+{\ttfamily \#include $<$ti/drivers/edma/edma.\+h$>$}\newline
+{\ttfamily \#include $<$ti/drivers/osal/\+Debug\+P.\+h$>$}\newline
+{\ttfamily \#include $<$ti/sysbios/knl/\+Semaphore.\+h$>$}\newline
+{\ttfamily \#include $<$ti/control/mmwave/mmwave.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}dss\+\_\+data\+\_\+path.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../common/mrr\+\_\+config\+\_\+consts.\+h\char`\"{}}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+T\+S\+\_\+t}
+\item 
+struct \textbf{ Mrr\+\_\+\+D\+S\+S\+\_\+\+M\+C\+B\+\_\+t}
+\begin{DoxyCompactList}\small\item\em D\+SS M\+RR TI Design Master control block. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ Mmw\+Demo\+\_\+dss\+Assert}(expression)
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \textbf{ Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+T\+E\+\_\+e} \textbf{ Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+TE}
+\begin{DoxyCompactList}\small\item\em Millimeter Wave Demo state. \end{DoxyCompactList}\item 
+typedef struct \textbf{ Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+T\+S\+\_\+t} \textbf{ Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+TS}
+\item 
+typedef struct \textbf{ Mrr\+\_\+\+D\+S\+S\+\_\+\+M\+C\+B\+\_\+t} \textbf{ Mrr\+\_\+\+D\+S\+S\+\_\+\+M\+CB}
+\begin{DoxyCompactList}\small\item\em D\+SS M\+RR TI Design Master control block. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \textbf{ Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+T\+E\+\_\+e} \{ \textbf{ Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+T\+E\+\_\+\+I\+N\+IT} = 0, 
+\textbf{ Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+T\+E\+\_\+\+S\+T\+A\+R\+T\+ED}, 
+\textbf{ Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+T\+E\+\_\+\+S\+T\+O\+P\+P\+ED}, 
+\textbf{ Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+T\+E\+\_\+\+S\+T\+O\+P\+\_\+\+P\+E\+N\+D\+I\+NG}
+ \}
+\begin{DoxyCompactList}\small\item\em Millimeter Wave Demo state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ \+\_\+\+Mmw\+Demo\+\_\+dss\+Assert} (int32\+\_\+t expression, const char $\ast$file, int32\+\_\+t line)
+\item 
+void \textbf{ Cfg\+\_\+\+Adv\+Frame\+Cfg\+Init\+Params} (rl\+Adv\+Frame\+Cfg\+\_\+t $\ast$ptr\+Adv\+Frame\+Cfg)
+\item 
+void \textbf{ Cfg\+\_\+\+Frame\+Cfg\+Init\+Params} (rl\+Frame\+Cfg\+\_\+t $\ast$ptr\+Frame\+Cfg)
+\item 
+void \textbf{ Cfg\+\_\+\+Profile\+Cfg\+Init\+Params} (uint8\+\_\+t profile\+Num, rl\+Profile\+Cfg\+\_\+t $\ast$ptr\+Profile\+Cfg)
+\item 
+void \textbf{ Cfg\+\_\+\+Chirp\+Cfg\+Init\+Params} (uint8\+\_\+t chirp\+Num, rl\+Chirp\+Cfg\+\_\+t $\ast$ptr\+Chirp\+Cfg)
+\item 
+void \textbf{ Cfg\+\_\+\+Low\+Power\+Mode\+Init\+Params} (rl\+Low\+Power\+Mode\+Cfg\+\_\+t $\ast$ptr\+Low\+Power\+Mode)
+\item 
+void \textbf{ Cfg\+\_\+\+Channel\+Cfg\+Init\+Params} (rl\+Chan\+Cfg\+\_\+t $\ast$ptr\+Channel\+Cfg)
+\item 
+void \textbf{ Cfg\+\_\+\+A\+D\+C\+Out\+Cfg\+Init\+Params} (rl\+Adc\+Out\+Cfg\+\_\+t $\ast$ptr\+A\+D\+C\+Out\+Cfg)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Mrr\+\_\+\+D\+S\+S\+\_\+\+M\+CB} \textbf{ g\+Mrr\+D\+S\+S\+M\+CB}
+\begin{DoxyCompactList}\small\item\em Global Variable for tracking information required by the design. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This is the main header file for the D\+SS M\+RR TI Design. 
+
+\begin{DoxyParagraph}{}
+N\+O\+TE\+: (C) Copyright 2017 Texas Instruments, Inc.
+\end{DoxyParagraph}
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met\+:
+
+Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+Neither the name of Texas Instruments Incorporated nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+T\+H\+IS S\+O\+F\+T\+W\+A\+RE IS P\+R\+O\+V\+I\+D\+ED BY T\+HE C\+O\+P\+Y\+R\+I\+G\+HT H\+O\+L\+D\+E\+RS A\+ND C\+O\+N\+T\+R\+I\+B\+U\+T\+O\+RS \char`\"{}\+A\+S I\+S\char`\"{} A\+ND A\+NY E\+X\+P\+R\+E\+SS OR I\+M\+P\+L\+I\+ED W\+A\+R\+R\+A\+N\+T\+I\+ES, I\+N\+C\+L\+U\+D\+I\+NG, B\+UT N\+OT L\+I\+M\+I\+T\+ED TO, T\+HE I\+M\+P\+L\+I\+ED W\+A\+R\+R\+A\+N\+T\+I\+ES OF M\+E\+R\+C\+H\+A\+N\+T\+A\+B\+I\+L\+I\+TY A\+ND F\+I\+T\+N\+E\+SS F\+OR A P\+A\+R\+T\+I\+C\+U\+L\+AR P\+U\+R\+P\+O\+SE A\+RE D\+I\+S\+C\+L\+A\+I\+M\+ED. IN NO E\+V\+E\+NT S\+H\+A\+LL T\+HE C\+O\+P\+Y\+R\+I\+G\+HT O\+W\+N\+ER OR C\+O\+N\+T\+R\+I\+B\+U\+T\+O\+RS BE L\+I\+A\+B\+LE F\+OR A\+NY D\+I\+R\+E\+CT, I\+N\+D\+I\+R\+E\+CT, I\+N\+C\+I\+D\+E\+N\+T\+AL, S\+P\+E\+C\+I\+AL, E\+X\+E\+M\+P\+L\+A\+RY, OR C\+O\+N\+S\+E\+Q\+U\+E\+N\+T\+I\+AL D\+A\+M\+A\+G\+ES (I\+N\+C\+L\+U\+D\+I\+NG, B\+UT N\+OT L\+I\+M\+I\+T\+ED TO, P\+R\+O\+C\+U\+R\+E\+M\+E\+NT OF S\+U\+B\+S\+T\+I\+T\+U\+TE G\+O\+O\+DS OR S\+E\+R\+V\+I\+C\+ES; L\+O\+SS OF U\+SE, D\+A\+TA, OR P\+R\+O\+F\+I\+TS; OR B\+U\+S\+I\+N\+E\+SS I\+N\+T\+E\+R\+R\+U\+P\+T\+I\+ON) H\+O\+W\+E\+V\+ER C\+A\+U\+S\+ED A\+ND ON A\+NY T\+H\+E\+O\+RY OF L\+I\+A\+B\+I\+L\+I\+TY, W\+H\+E\+T\+H\+ER IN C\+O\+N\+T\+R\+A\+CT, S\+T\+R\+I\+CT L\+I\+A\+B\+I\+L\+I\+TY, OR T\+O\+RT (I\+N\+C\+L\+U\+D\+I\+NG N\+E\+G\+L\+I\+G\+E\+N\+CE OR O\+T\+H\+E\+R\+W\+I\+SE) A\+R\+I\+S\+I\+NG IN A\+NY W\+AY O\+UT OF T\+HE U\+SE OF T\+H\+IS S\+O\+F\+T\+W\+A\+RE, E\+V\+EN IF A\+D\+V\+I\+S\+ED OF T\+HE P\+O\+S\+S\+I\+B\+I\+L\+I\+TY OF S\+U\+CH D\+A\+M\+A\+GE. 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\label{dss__mrr_8h_aec77c76a32ee1da1e9d9747ddd5cc23e}} 
+\index{dss\_mrr.h@{dss\_mrr.h}!MmwDemo\_dssAssert@{MmwDemo\_dssAssert}}
+\index{MmwDemo\_dssAssert@{MmwDemo\_dssAssert}!dss\_mrr.h@{dss\_mrr.h}}
+\doxysubsubsection{MmwDemo\_dssAssert}
+{\footnotesize\ttfamily \#define Mmw\+Demo\+\_\+dss\+Assert(\begin{DoxyParamCaption}\item[{}]{expression }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{                                      \(\backslash\)}
+\DoxyCodeLine{                                    \_MmwDemo\_dssAssert(expression,           \(\backslash\)}
+\DoxyCodeLine{                                             \_\_FILE\_\_, \_\_LINE\_\_);         \(\backslash\)}
+\DoxyCodeLine{                                    DebugP\_assert(expression);            \(\backslash\)}
+\DoxyCodeLine{                                   \}}
+
+\end{DoxyCode}
+
+
+Definition at line 228 of file dss\+\_\+mrr.\+h.
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\label{dss__mrr_8h_a3781c5d95015e5907bea6aa131b5ad13}} 
+\index{dss\_mrr.h@{dss\_mrr.h}!MmwDemo\_DSS\_STATE@{MmwDemo\_DSS\_STATE}}
+\index{MmwDemo\_DSS\_STATE@{MmwDemo\_DSS\_STATE}!dss\_mrr.h@{dss\_mrr.h}}
+\doxysubsubsection{MmwDemo\_DSS\_STATE}
+{\footnotesize\ttfamily typedef enum \textbf{ Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+T\+E\+\_\+e} \textbf{ Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+TE}}
+
+
+
+Millimeter Wave Demo state. 
+
+The enumeration is used to hold the data path states for the Millimeter Wave demo \mbox{\label{dss__mrr_8h_a318771e48627af9cb9cc9c8f0db920b6}} 
+\index{dss\_mrr.h@{dss\_mrr.h}!MmwDemo\_DSS\_STATS@{MmwDemo\_DSS\_STATS}}
+\index{MmwDemo\_DSS\_STATS@{MmwDemo\_DSS\_STATS}!dss\_mrr.h@{dss\_mrr.h}}
+\doxysubsubsection{MmwDemo\_DSS\_STATS}
+{\footnotesize\ttfamily typedef struct \textbf{ Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+T\+S\+\_\+t} \textbf{ Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+TS}}
+
+\mbox{\label{dss__mrr_8h_a989f89ab4eb0788f1644ff927f2ef7af}} 
+\index{dss\_mrr.h@{dss\_mrr.h}!Mrr\_DSS\_MCB@{Mrr\_DSS\_MCB}}
+\index{Mrr\_DSS\_MCB@{Mrr\_DSS\_MCB}!dss\_mrr.h@{dss\_mrr.h}}
+\doxysubsubsection{Mrr\_DSS\_MCB}
+{\footnotesize\ttfamily typedef struct \textbf{ Mrr\+\_\+\+D\+S\+S\+\_\+\+M\+C\+B\+\_\+t} \textbf{ Mrr\+\_\+\+D\+S\+S\+\_\+\+M\+CB}}
+
+
+
+D\+SS M\+RR TI Design Master control block. 
+
+The structure is used to hold information pertinent to the D\+SS M\+RR TI design. 
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\label{dss__mrr_8h_a954ae46b578dfac30faffeaa36ddc5ee}} 
+\index{dss\_mrr.h@{dss\_mrr.h}!MmwDemo\_DSS\_STATE\_e@{MmwDemo\_DSS\_STATE\_e}}
+\index{MmwDemo\_DSS\_STATE\_e@{MmwDemo\_DSS\_STATE\_e}!dss\_mrr.h@{dss\_mrr.h}}
+\doxysubsubsection{MmwDemo\_DSS\_STATE\_e}
+{\footnotesize\ttfamily enum \textbf{ Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+T\+E\+\_\+e}}
+
+
+
+Millimeter Wave Demo state. 
+
+The enumeration is used to hold the data path states for the Millimeter Wave demo \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MmwDemo\_DSS\_STATE\_INIT@{MmwDemo\_DSS\_STATE\_INIT}!dss\_mrr.h@{dss\_mrr.h}}\index{dss\_mrr.h@{dss\_mrr.h}!MmwDemo\_DSS\_STATE\_INIT@{MmwDemo\_DSS\_STATE\_INIT}}}\mbox{\label{dss__mrr_8h_a954ae46b578dfac30faffeaa36ddc5eead03541b515af53110411a887685e5705}} 
+Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+T\+E\+\_\+\+I\+N\+IT&State after data path is initialized. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MmwDemo\_DSS\_STATE\_STARTED@{MmwDemo\_DSS\_STATE\_STARTED}!dss\_mrr.h@{dss\_mrr.h}}\index{dss\_mrr.h@{dss\_mrr.h}!MmwDemo\_DSS\_STATE\_STARTED@{MmwDemo\_DSS\_STATE\_STARTED}}}\mbox{\label{dss__mrr_8h_a954ae46b578dfac30faffeaa36ddc5eea50f43589577b604094032715bbac771f}} 
+Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+T\+E\+\_\+\+S\+T\+A\+R\+T\+ED&State after data path is started. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MmwDemo\_DSS\_STATE\_STOPPED@{MmwDemo\_DSS\_STATE\_STOPPED}!dss\_mrr.h@{dss\_mrr.h}}\index{dss\_mrr.h@{dss\_mrr.h}!MmwDemo\_DSS\_STATE\_STOPPED@{MmwDemo\_DSS\_STATE\_STOPPED}}}\mbox{\label{dss__mrr_8h_a954ae46b578dfac30faffeaa36ddc5eead4361b2c1827d8d31b258b838eb22b60}} 
+Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+T\+E\+\_\+\+S\+T\+O\+P\+P\+ED&State after data path is stopped. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MmwDemo\_DSS\_STATE\_STOP\_PENDING@{MmwDemo\_DSS\_STATE\_STOP\_PENDING}!dss\_mrr.h@{dss\_mrr.h}}\index{dss\_mrr.h@{dss\_mrr.h}!MmwDemo\_DSS\_STATE\_STOP\_PENDING@{MmwDemo\_DSS\_STATE\_STOP\_PENDING}}}\mbox{\label{dss__mrr_8h_a954ae46b578dfac30faffeaa36ddc5eea6e640857902d92fbdd68fc0d325f0cf4}} 
+Mmw\+Demo\+\_\+\+D\+S\+S\+\_\+\+S\+T\+A\+T\+E\+\_\+\+S\+T\+O\+P\+\_\+\+P\+E\+N\+D\+I\+NG&State after S\+T\+OP request was received by D\+SP but complete stop is on-\/going. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 72 of file dss\+\_\+mrr.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\label{dss__mrr_8h_a91a8ede97a3777ba3da80043dc61cdd1}} 
+\index{dss\_mrr.h@{dss\_mrr.h}!\_MmwDemo\_dssAssert@{\_MmwDemo\_dssAssert}}
+\index{\_MmwDemo\_dssAssert@{\_MmwDemo\_dssAssert}!dss\_mrr.h@{dss\_mrr.h}}
+\doxysubsubsection{\_MmwDemo\_dssAssert()}
+{\footnotesize\ttfamily void \+\_\+\+Mmw\+Demo\+\_\+dss\+Assert (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{expression,  }\item[{const char $\ast$}]{file,  }\item[{int32\+\_\+t}]{line }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ Sends D\+SS assert information to M\+SS
+
+
+\begin{DoxyRetVals}{Return values}
+{\em Not} & Applicable. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 349 of file dss\+\_\+main.\+c.
+
+\mbox{\label{dss__mrr_8h_a97614be092b49866d88d08a85808d653}} 
+\index{dss\_mrr.h@{dss\_mrr.h}!Cfg\_ADCOutCfgInitParams@{Cfg\_ADCOutCfgInitParams}}
+\index{Cfg\_ADCOutCfgInitParams@{Cfg\_ADCOutCfgInitParams}!dss\_mrr.h@{dss\_mrr.h}}
+\doxysubsubsection{Cfg\_ADCOutCfgInitParams()}
+{\footnotesize\ttfamily void Cfg\+\_\+\+A\+D\+C\+Out\+Cfg\+Init\+Params (\begin{DoxyParamCaption}\item[{rl\+Adc\+Out\+Cfg\+\_\+t $\ast$}]{ptr\+A\+D\+C\+Out\+Cfg }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ The function initializes the A\+D\+C\+Out configuration with the default parameters.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em ptr\+A\+D\+C\+Out\+Cfg} & Pointer to the A\+D\+C\+Output configuration\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Not} & applicable \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 367 of file cfg.\+c.
+
+\mbox{\label{dss__mrr_8h_a8c220050230c0150a0ee1bd0b6b291c1}} 
+\index{dss\_mrr.h@{dss\_mrr.h}!Cfg\_AdvFrameCfgInitParams@{Cfg\_AdvFrameCfgInitParams}}
+\index{Cfg\_AdvFrameCfgInitParams@{Cfg\_AdvFrameCfgInitParams}!dss\_mrr.h@{dss\_mrr.h}}
+\doxysubsubsection{Cfg\_AdvFrameCfgInitParams()}
+{\footnotesize\ttfamily void Cfg\+\_\+\+Adv\+Frame\+Cfg\+Init\+Params (\begin{DoxyParamCaption}\item[{rl\+Adv\+Frame\+Cfg\+\_\+t $\ast$}]{ptr\+Adv\+Frame\+Cfg }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ The function initializes the frame configuration with the default parameters.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em ptr\+Adv\+Frame\+Cfg} & Pointer to the adavance frame configuration\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Not} & applicable \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 45 of file cfg.\+c.
+
+\mbox{\label{dss__mrr_8h_a0f19cdd6f9114573831a701ba671fa07}} 
+\index{dss\_mrr.h@{dss\_mrr.h}!Cfg\_ChannelCfgInitParams@{Cfg\_ChannelCfgInitParams}}
+\index{Cfg\_ChannelCfgInitParams@{Cfg\_ChannelCfgInitParams}!dss\_mrr.h@{dss\_mrr.h}}
+\doxysubsubsection{Cfg\_ChannelCfgInitParams()}
+{\footnotesize\ttfamily void Cfg\+\_\+\+Channel\+Cfg\+Init\+Params (\begin{DoxyParamCaption}\item[{rl\+Chan\+Cfg\+\_\+t $\ast$}]{ptr\+Channel\+Cfg }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ The function initializes the channel configuration with the default parameters.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em ptr\+Channel\+Cfg} & Pointer to the channel configuration\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Not} & applicable \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 342 of file cfg.\+c.
+
+\mbox{\label{dss__mrr_8h_a0b5e20fd310136c525f6e983366ee19f}} 
+\index{dss\_mrr.h@{dss\_mrr.h}!Cfg\_ChirpCfgInitParams@{Cfg\_ChirpCfgInitParams}}
+\index{Cfg\_ChirpCfgInitParams@{Cfg\_ChirpCfgInitParams}!dss\_mrr.h@{dss\_mrr.h}}
+\doxysubsubsection{Cfg\_ChirpCfgInitParams()}
+{\footnotesize\ttfamily void Cfg\+\_\+\+Chirp\+Cfg\+Init\+Params (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{chirp\+Num,  }\item[{rl\+Chirp\+Cfg\+\_\+t $\ast$}]{ptr\+Chirp\+Cfg }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ The function initializes the chirp configuration with the default parameters.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em chirp\+Num} & Chirp Number to be configured \\
+\hline
+\mbox{\texttt{ out}}  & {\em ptr\+Chirp\+Cfg} & Pointer to the chirp configuration\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Not} & applicable \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 231 of file cfg.\+c.
+
+\mbox{\label{dss__mrr_8h_a285d8a73a5cea5f2e239c1f14b2e0e92}} 
+\index{dss\_mrr.h@{dss\_mrr.h}!Cfg\_FrameCfgInitParams@{Cfg\_FrameCfgInitParams}}
+\index{Cfg\_FrameCfgInitParams@{Cfg\_FrameCfgInitParams}!dss\_mrr.h@{dss\_mrr.h}}
+\doxysubsubsection{Cfg\_FrameCfgInitParams()}
+{\footnotesize\ttfamily void Cfg\+\_\+\+Frame\+Cfg\+Init\+Params (\begin{DoxyParamCaption}\item[{rl\+Frame\+Cfg\+\_\+t $\ast$}]{ptr\+Frame\+Cfg }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ The function initializes the frame configuration with the default parameters.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em ptr\+Frame\+Cfg} & Pointer to the frame configuration\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Not} & applicable \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 142 of file cfg.\+c.
+
+\mbox{\label{dss__mrr_8h_ade79a8527c5a0769895ee1b6ac9ec327}} 
+\index{dss\_mrr.h@{dss\_mrr.h}!Cfg\_LowPowerModeInitParams@{Cfg\_LowPowerModeInitParams}}
+\index{Cfg\_LowPowerModeInitParams@{Cfg\_LowPowerModeInitParams}!dss\_mrr.h@{dss\_mrr.h}}
+\doxysubsubsection{Cfg\_LowPowerModeInitParams()}
+{\footnotesize\ttfamily void Cfg\+\_\+\+Low\+Power\+Mode\+Init\+Params (\begin{DoxyParamCaption}\item[{rl\+Low\+Power\+Mode\+Cfg\+\_\+t $\ast$}]{ptr\+Low\+Power\+Mode }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ The function initializes the low power configuration with the default parameters.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em ptr\+Low\+Power\+Mode} & Pointer to the low power mode configuration\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Not} & applicable \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 320 of file cfg.\+c.
+
+\mbox{\label{dss__mrr_8h_a35827653f7b672697d2aecbcb643b986}} 
+\index{dss\_mrr.h@{dss\_mrr.h}!Cfg\_ProfileCfgInitParams@{Cfg\_ProfileCfgInitParams}}
+\index{Cfg\_ProfileCfgInitParams@{Cfg\_ProfileCfgInitParams}!dss\_mrr.h@{dss\_mrr.h}}
+\doxysubsubsection{Cfg\_ProfileCfgInitParams()}
+{\footnotesize\ttfamily void Cfg\+\_\+\+Profile\+Cfg\+Init\+Params (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{profile\+Num,  }\item[{rl\+Profile\+Cfg\+\_\+t $\ast$}]{ptr\+Profile\+Cfg }\end{DoxyParamCaption})}
+
+{\bfseries{Description}} ~\newline
+ The function initializes the profile configuration with the default parameters.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em profile\+Num} & Profile number to be initialized \\
+\hline
+\mbox{\texttt{ out}}  & {\em ptr\+Profile\+Cfg} & Pointer to the profile configuration\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Not} & applicable \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 173 of file cfg.\+c.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\label{dss__mrr_8h_acbd9002de30906e8282a4ef3db17d501}} 
+\index{dss\_mrr.h@{dss\_mrr.h}!gMrrDSSMCB@{gMrrDSSMCB}}
+\index{gMrrDSSMCB@{gMrrDSSMCB}!dss\_mrr.h@{dss\_mrr.h}}
+\doxysubsubsection{gMrrDSSMCB}
+{\footnotesize\ttfamily \textbf{ Mrr\+\_\+\+D\+S\+S\+\_\+\+M\+CB} g\+Mrr\+D\+S\+S\+M\+CB}
+
+
+
+Global Variable for tracking information required by the design. 
+
+
+
+Definition at line 144 of file dss\+\_\+main.\+c.
+
