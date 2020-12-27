@@ -39,7 +39,6 @@
 
 The fmcw-RADAR software is composed of the following parts: 
 
-<pre>
 fmcw-RADAR
 └── ccs_project: Contains the ccsv9 project from workspace.
     ├── srr_18xx_mss
@@ -110,6 +109,7 @@ fmcw-RADAR
 	    └── index.html
 	└── latex
 	    └── doxygen_srr_18xx_mss.pdf
+
 
 ## Objective
 Test & Evaluate the performance of TI mmWave Radar system using the AWR1843 EVM development board.
