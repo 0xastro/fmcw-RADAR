@@ -1052,3 +1052,7 @@ Travis CI host our CI/CD flow by building the docker image `Dockerfile.ccs.mmwav
 
 ### Affiliation
  TeCIP Institute, Scuola Superiore Sant'anna.
+
+### Authors
+- Abdelrahman Astro	astro@bridgeit.tech
+- Carlo Alberto Avizzano carloalberto.avizzano@santannapisa.it 
