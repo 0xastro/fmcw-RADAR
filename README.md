@@ -33,6 +33,7 @@
 
 # Where to Start #
  *  [System Description](https://github.com/astro7x/fmcw-RADAR/blob/master/README.m)
+ *  [Technical Document](https://bridgeit.tech/fmcw-RADAR/docs/Draft_Technical_Document.pdf)
  *  **System Source Code Doxygen Documentation**
  * *  [RF Core Design](https://bridgeit.tech/fmcw-RADAR/docs/doxygen_srr_18xx_mss/html/mss__main_8c.html)
  * *  [DSP Core Design](https://bridgeit.tech/fmcw-RADAR/docs/doxygen_srr_18xx_dss/html/dss__main_8c.html)
@@ -109,6 +110,7 @@ fmcw-RADAR
 ├── mmwave_sdk
 ├── travisCI
 └── docs 
+    └── Draft_Technical_Document.pdf
     └── doxygen_srr_18xx_dss
     	└── html
 	    ├── index.html
