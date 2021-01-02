@@ -813,6 +813,19 @@ On MSS, it calls ESM and SOC init functions to initialize the device in known st
 [10/12/2020, 12:32:22 PM] [SUCCESS] Program Load completed successfully.
 ~~~
 
+## Running a sample demo
+
+- Set the Dip Switch SOP0=ON; SOP1=OFF; SOP2=OFF
+- Power on the EVM using a 5V/2.5A power supply.
+- Connect the EVM to your PC and check the COM ports. The EVM exports two virtual COM ports as shown below:
+- - XDS110 Class Application/User UART (COMUART): Used for passing configuration data and firmware to the EVM
+- - XDS110 Class Auxiliary Data Port (COMAUX): Used to send processed radar data output
+- Open the Matlab function `mmwave_gui.m` and run
+- - Insert the UART port int the configuration box
+- - Click OK to proceed
+- - The program will start reading the serial port and plot the objects
+
+
 
 ## Connecting EVM to CCS
 
@@ -823,6 +836,32 @@ On MSS, it calls ESM and SOC init functions to initialize the device in known st
 - In the configuration editor window: Select “Texas Instruments XDS110 USB Debug Probe” for Connection and Select AWR1843 device in the Board or Device text box.
 - Press the Save button to save the target configuration.
 - You can press the Test Connection button to check the connection with the board.
+
+<p align="left">
+<img  src="https://github.com/astro7x/fmcw-RADAR/blob/master/figs/com_port.png" alt="UART Port check" class="inline"/>
+</p>
+
+<p align="left">
+<img  src="https://github.com/astro7x/fmcw-RADAR/blob/master/figs/TI_gui_uart_config.png" alt="UART confuration" class="inline"/>
+</p>
+
+<p align="left">
+<img  src="https://github.com/astro7x/fmcw-RADAR/blob/master/figs/TI_gui.png" alt="Visualization GUI" class="inline"/>
+</p>
+
+## Visualizing an object tracker infront of the radar up from 30cm to 8m
+
+<p align="center">
+<img  src="https://github.com/astro7x/fmcw-RADAR/blob/master/figs/test_n10_range.gif" alt="Visualization GUI" class="inline"/>
+</p>
+
+## Visualizing an object tracker infront of the radar moving 5m away and approaches the rader to 0cm
+
+<p align="center">
+<img  src="https://github.com/astro7x/fmcw-RADAR/blob/master/figs/test_n17_range.gif" alt="Visualization GUI" class="inline"/>
+</p>
+
+
 
 > TEST LOGS
 
@@ -912,6 +951,7 @@ The JTAG DR Integrity scan-test has succeeded.
 
 [End: Texas Instruments XDS110 USB Debug Probe_0]
 ~~~
+
 
 
 # Continuous Integration and Continuous Development
