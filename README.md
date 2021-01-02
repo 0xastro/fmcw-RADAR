@@ -32,11 +32,10 @@
 - mmWave Demo Visualizer
 
 # Where to Start #
-<a href="https://github.com/astro7x/fmcw-RADAR/blob/master/README.m" target="_blank">external link</a>
- *  <a href="https://github.com/astro7x/fmcw-RADAR/blob/master/README.m" target="_blank">System Flow</a>
+ *  [System Description](https://github.com/astro7x/fmcw-RADAR/blob/master/README.m)
  *  **System Source Code Doxygen Documentation**
- * *  [RF Core Design](https://github.com/astro7x/fmcw-RADAR/docs/doxygen_srr_18xx_mss/html/index.html)
- * *  [DSP Core Design](https://github.com/astro7x/fmcw-RADAR/docs/doxygen_srr_18xx_dss/html/index.html)
+ * *  [RF Core Design](https://bridgeit.tech/fmcw-RADAR/docs/doxygen_srr_18xx_mss/html/index.html)
+ * *  [DSP Core Design](https://bridgeit.tech/fmcw-RADAR/docs/doxygen_srr_18xx_dss/html/index.html)
  *  **Device Drivers**
  * * [UART](https://bridgeit.tech/fmcw-RADAR/mmwave_sdk/packages/ti/drivers/uart/docs/doxygen/html/index.html)
  * * [MAILBOX](https://bridgeit.tech/fmcw-RADAR/mmwave_sdk/packages/ti/drivers/mailbox/docs/doxygen/html/index.html)
