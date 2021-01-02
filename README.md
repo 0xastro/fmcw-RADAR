@@ -40,11 +40,11 @@
  *  **Device Drivers**
  * * [UART](https://bridgeit.tech/fmcw-RADAR/mmwave_sdk/packages/ti/drivers/uart/docs/doxygen/html/index.html)
  * * [MAILBOX](https://bridgeit.tech/fmcw-RADAR/mmwave_sdk/packages/ti/drivers/mailbox/docs/doxygen/html/index.html)
- * * [ADC](https://bridgeit.tech/fmcw-RADAR/mmwave_sdk/packages/ti/drivers/drivers/adcbuf/docs/doxygen/html/index.html)
- * * [EDMA](https://bridgeit.tech/fmcw-RADAR/mmwave_sdk/packages/ti/drivers/drivers/edma/docs/doxygen/html/index.html)
- * [mmWave LINK APIs](https://bridgeit.tech/fmcwRADAR/mmwave_sdk/packages/ti/mmwave_sdk_03_01_00_02/packages/ti/control/mmwavelink/docs/doxygen/html/index.html)
- * [FFT and Clustering](https://bridgeit.tech/fmcwRADAR/mmwave_sdk/packages/ti/mmwave_sdk_03_01_00_02/packages/ti/alg/mmwavelib/docs/doxygen/html/index.html)
-* [Kalman Filter](https://bridgeit.tech/fmcwRADAR/mmwave_sdk/packages/ti/mmwave_sdk_03_01_00_02/packages/ti/alg/gtrack/docs/doxygen2D/html/index.html)
+ * * [ADC](https://bridgeit.tech/fmcw-RADAR/mmwave_sdk/packages/ti/drivers/adcbuf/docs/doxygen/html/index.html)
+ * * [EDMA](https://bridgeit.tech/fmcw-RADAR/mmwave_sdk/packages/ti/drivers/edma/docs/doxygen/html/index.html)
+ * [mmWave LINK APIs](https://bridgeit.tech/fmcw-RADAR/mmwave_sdk/packages/ti/control/mmwavelink/docs/doxygen/html/index.html)
+ * [FFT and Clustering](https://bridgeit.tech/fmcw-RADAR/mmwave_sdk/packages/ti/alg/mmwavelib/docs/doxygen/html/index.html)
+* [Kalman Filter](https://bridgeit.tech/fmcw-RADAR/mmwave_sdk/packages/ti/alg/gtrack/docs/doxygen2D/html/index.html)
 
 # fmcw-RADAR Hierarchy and Repository structure #
 The fmcw-RADAR software is composed of the following parts: 
