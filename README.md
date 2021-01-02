@@ -32,11 +32,20 @@
 - mmWave Demo Visualizer
 
 # Where to Start #
-
- *  [System Flow](https://github.com/astro7x/fmcw-RADAR/blob/master/README.md)
-
+<a href="https://github.com/astro7x/fmcw-RADAR/blob/master/README.m" target="_blank">external link</a>
+ *  <a href="https://github.com/astro7x/fmcw-RADAR/blob/master/README.m" target="_blank">System Flow</a>
+ *  **System Source Code Doxygen Documentation**
+ * *  [RF Core Design](https://github.com/astro7x/fmcw-RADAR/docs/doxygen_srr_18xx_mss/html/index.html)
+ * *  [DSP Core Design](https://github.com/astro7x/fmcw-RADAR/docs/doxygen_srr_18xx_dss/html/index.html)
+ *  **Device Drivers**
+ * * [UART](https://bridgeit.tech/fmcw-RADAR/mmwave_sdk/packages/ti/drivers/uart/docs/doxygen/html/index.html)
+ * * [MAILBOX](https://bridgeit.tech/fmcw-RADAR/mmwave_sdk/packages/ti/drivers/mailbox/docs/doxygen/html/index.html)
+ * * [ADC](https://bridgeit.tech/fmcw-RADAR/mmwave_sdk/packages/ti/drivers/drivers/adcbuf/docs/doxygen/html/index.html)
+ * * [EDMA](https://bridgeit.tech/fmcw-RADAR/mmwave_sdk/packages/ti/drivers/drivers/edma/docs/doxygen/html/index.html)
+ * [mmWave LINK APIs](https://bridgeit.tech/fmcwRADAR/mmwave_sdk/packages/ti/mmwave_sdk_03_01_00_02/packages/ti/control/mmwavelink/docs/doxygen/html/index.html)
+ * [FFT and Clustering](https://bridgeit.tech/fmcwRADAR/mmwave_sdk/packages/ti/mmwave_sdk_03_01_00_02/packages/ti/alg/mmwavelib/docs/doxygen/html/index.html)
+* [Kalman Filter](https://bridgeit.tech/fmcwRADAR/mmwave_sdk/packages/ti/mmwave_sdk_03_01_00_02/packages/ti/alg/gtrack/docs/doxygen2D/html/index.html)
 # fmcw-RADAR Hierarchy and Repository structure #
-
 The fmcw-RADAR software is composed of the following parts: 
 
 <pre>
@@ -126,8 +135,83 @@ The mmWave FMCW Radar shows some of the capabilities of the AWR1843 SoC using th
 <img  src="https://github.com/astro7x/fmcw-RADAR/blob/master/figs/sysview1.svg" alt="system architicture" class="inline"/>
 </p>
 
-The processing chain for AWR1843 using the ultra short range chirp and frame design, is implemented on the AWR1843 EVM as shown in 
-the main processing elements involved in the processing chain consist of the following:
+The processing chain for AWR1843 using the ultra short range chirp and frame design, is implemented on the AWR1843 EVM.
+
+For the modular design, we use the subframe as a base element to design and develop our waveform. Hence, we use only one subframe per frame in this design. The SRR subframe consists of three chirps each with it's own profile configuration. Each chrip is mapped to one of the on-board transmitter chain. 
+1. Chirp 1 -> Tx1
+2. Chirp 2 -> Tx2
+3. Chirp 3 -> Tx3
+
+This allows the generation of a 12 virtual recieve antenna array. Accordingly, this leads to a higher and better angular resolution.
+```
+N_Tx =3;
+N_Rx =4;
+Rx_vir = N_Tx * N_Rx
+Rx_vir = 12
+```
+
+As whown below the main processing elements involved in the processing chain consist of the following:
+
+The RF front end is configured by the BIST subsystem (BSS). Hence we access the BSS through the Master subsystem (MSS) through mmwavelink APIs.
+The raw data obtained from each RF channels is taken by the DSP subsystem (DSS) for further digital signal processing. The DSP processing chain consists of 1D-FFT (Range FFT). This happens immidiately by taking input from the receive antenna array from the ADC ping-pong buffer for every chirp. Then, the output is transposed and transfered by the enhanced direct memory access (eDMA) into the L3 RAM.
+
+Further the 2D-FFT (Doppler FFT) processing is performed by DSS. The DSS reads the L3 RAM (Range bins: output of 1D-DDT) and performs 2D-FFT to give a (range, doppler) matrix and write it into the L3 RAM. 
+
+More advanced processing, includes CFAR detection in range and doppler direction. Then, Direction of arrival estimation. **Clustering using dBScan algorthm** is applied as well on the detected objects to allow the grouping of dense point clouds. The output of the dBScan is the mean location of a cluster and its dimensions. Further, the clustering output is shipped over the serial port (UART) to matlab.
+
+Extended Kalman Filter is used by taking the the detected clustered output. Extended Kalman Filter contains four states `[x, y, vx, vv]` and three inputs `[r, v, sin(θ)]`
+1- r -> range
+2- v -> velocity
+3- sin(θ) -> Azimuth angle 
+
+Finally, output data is shipped to the PC for visualization. Hence, the data packet format is:
+
+– A TLV (type-length-value). TLV is an encoding scheme is used with little endian byte order. For every frame, a
+packet is sent consisting of a fixed sized Frame Header and then a variable number of TLVs.
+
+Below are the possible TLVs
+
+| TLV Name  | TLV Type |
+| ------------- | ------------- |
+| Detected Points  | 1  |
+| Clusters  | 2  |
+| Tracked Objects  | 3  |
+
+<img  src="https://github.com/astro7x/fmcw-RADAR/blob/master/figs/tlv.png" alt="TLV subframe" width="400" height="60" class="inline"/>
+
+	
+
+|  Detected Object List **Parameter** | **Size** |
+| ------------- | ------------- |
+| Doppler Index  | short(uint16)  |
+| Peak Vale  | short(uint16)  |
+| X Co-ordinate   | short(uint16)  |
+| Y Co-ordinate   | short(uint16)  |
+| Z Co-ordinate   | short(uint16)  |
+
+
+|  Cluster Output Format **Parameter** | **Size** |
+| ------------- | ------------- |
+| Clustering center on X-direction  | short(uint16)  |
+| Clustering center on Y-direction  | short(uint16)  |
+| Clustering size on X-direction  | short(uint16)  |
+| Clustering size on Y-direction  | short(uint16)  |
+
+|  Tracking Output Format **Parameter** | **Size** |
+| ------------- | ------------- |
+| Tracking X co-ordinate  | short(uint16)  |
+| Tracking Y co-ordinate  | short(uint16)  |
+| Velocity in X direction  | short(uint16)  |
+| Velocity in Y direction  | short(uint16)  |
+| Clustering size on X-direction  | short(uint16)  |
+| Clustering size on Y-direction  | short(uint16)  |
+
+The coordinates geometry as well is illustrated below:
+
+<p align="center">
+<img  src="https://github.com/astro7x/fmcw-RADAR/blob/master/figs/coordinate_geometry.png" alt="system architicture" class="inline"/>
+<\p>
+
 
 <p align="center">
 <img  src="https://github.com/astro7x/fmcw-RADAR/blob/master/figs/sysview2.svg" alt="system architicture" class="inline"/>
