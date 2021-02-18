@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<projectSpec>
+    <project
+        name="vitalSigns_16xx_dss"
+        deviceFamily="C6000"
+        isTargetManual="false"
+        device="AWR1642"
+        cgtVersion="8.1.3"
+        connection="common/targetdb/connections/TIXDS110_Connection.xml"
+        toolChain="TI"
+        linkerCommandFile="dss_mmw_linker.cmd"
+        preannouncebuildStep="Deleting old BIN format image"
+        preBuildStep="rm -f ${PROJECT_ROOT}/${ProjName}.bin;"
+        postannouncebuildStep="Preparing BIN format image"
+        postBuildStep="${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/scripts/ImageCreator/xwr16xx/out2rprc/out2rprc.exe ${ProjName}.xe674 ${ProjName}.bin"
+        description="Driver Vital Signs dss"
+        launchWizard="false"
+        configurations="Debug, Release"
+        compilerBuildOptions="
+        -mv6740 -mo -O3
+        -I${PROJECT_ROOT}
+        -I${CG_TOOL_ROOT}/include
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages
+        -I${TI_MATHLIB_BASE}/packages
+        -I${TI_DSPLIB_BASE}/packages/ti/dsplib/src/DSP_fft16x16/c64P
+        -I${TI_DSPLIB_BASE}/packages/ti/dsplib/src/DSP_fft32x32/c64P
+        -DSOC_XWR16XX
+        -DSUBSYS_DSS
+        -DDOWNLOAD_FROM_CCS
+        -DMMWAVE_L3RAM_SIZE=0xC0000
+        -DDebugP_ASSERT_ENABLED
+        --gcc -g --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --obj_extension .oe674"
+        linkerBuildOptions="
+        -m${ProjName}.map -o${ProjName}.xe674
+        -I${PROJECT_ROOT}
+        -I${CG_TOOL_ROOT}/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/control/mmwave/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/control/mmwavelink/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/alg/mmwavelib/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/crc/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/mailbox/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/soc/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/osal/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/edma/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/adcbuf/lib
+		-I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/uart/lib
+        -I${TI_DSPLIB_BASE}/packages/ti/dsplib/lib
+        -I${TI_MATHLIB_BASE}/packages/ti/mathlib/lib
+        -ldsplib.lib
+		-ldsplib.ae64P
+        -lmathlib.ae674
+        -llibsoc_xwr16xx.ae674
+        -llibosal_xwr16xx.ae674
+        -llibcrc_xwr16xx.ae674
+		-llibuart_xwr16xx.ae674
+        -llibmailbox_xwr16xx.ae674
+        -llibmmwavelink_xwr16xx.ae674
+        -llibmmwave_xwr16xx.ae674
+        -llibedma_xwr16xx.ae674
+        -llibadcbuf_xwr16xx.ae674
+        -llibmmwavealg_xwr16xx.ae674
+        --reread_libs --diag_warning=225 --diag_wrap=off --display_error_number --warn_sections
+        --xml_link_info=xwr16xx_${ProjName}_linkInfo.xml --ram_model --unused_section_elimination=on --disable_auto_rts -lrts6740_elf.lib">
+
+        <!-- Project properties -->
+        <property name="type" value="rtsc"/>
+        <property name="products" value="com.ti.rtsc.SYSBIOS:6.53.02.00;com.ti.MMWAVE_SDK:2.0.0.04;"/>
+        <property name="xdcToolsVersion" value="3.50.04.43_core"/>
+        <property name="target" value="ti.targets.elf.C674"/>
+        <property name="platform" value="ti.platforms.c6x:AWR16XX:false:600"/>
+        <property name="endianness" value="little"/>
+        <property name="output_format" value="elf"/>
+        <property name="buildProfile" value="debug"/>
+        <pathVariable name="TI_DSPLIB_BASE" path="C:/ti/dsplib_c64Px_3_4_0_0" scope="project"/>
+        <pathVariable name="TI_MATHLIB_BASE" path="C:/ti/mathlib_c674x_3_1_2_1" scope="project"/>
+
+        <!-- Project files -->
+        <file path="dss/dss_config_edma_util.c" openOnCreation="false" excludeFromBuild="false" action="copy"/>
+        <file path="dss/dss_config_edma_util.h" openOnCreation="false" excludeFromBuild="false" action="copy"/>
+        <file path="dss/dss_data_path.c" openOnCreation="false" excludeFromBuild="false" action="copy"/>
+        <file path="dss/dss_data_path.h" openOnCreation="false" excludeFromBuild="false" action="copy"/>
+        <file path="dss/dss_main.c" openOnCreation="false" excludeFromBuild="false" action="copy"/>
+        <file path="dss/dss_mmw.cfg" openOnCreation="false" excludeFromBuild="false" action="copy"/>
+        <file path="dss/dss_mmw.h" openOnCreation="false" excludeFromBuild="false" action="copy"/>
+		<file path="dss/dss_resources.h" openOnCreation="false" excludeFromBuild="false" action="copy"/>
+        <file path="dss/dss_vitalSignsDemo_utilsFunc.c" openOnCreation="false" excludeFromBuild="false" action="copy"/>
+        <file path="dss/dss_vitalSignsDemo_utilsFunc.h" openOnCreation="false" excludeFromBuild="false" action="copy"/>
+        <file path="common/mmw_config.h" targetDirectory="common" openOnCreation="false" excludeFromBuild="false" action="copy" />
+        <file path="common/mmw_messages.h" targetDirectory="common" openOnCreation="false" excludeFromBuild="false" action="copy" />
+		<file path="common/mmw_output.h" targetDirectory="common" openOnCreation="false" excludeFromBuild="false" action="copy" />
+		<file path="dss/dss_mmw_linker.cmd" openOnCreation="false" excludeFromBuild="false" action="copy"/>
+        <file path="dss/c674x_linker.cmd" openOnCreation="false" excludeFromBuild="false" action="copy"/>
+
+    </project>
+</projectSpec>
