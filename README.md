@@ -4,7 +4,7 @@
 <table style="border-collapse: collapse; border: none;">
   <tr style="border-collapse: collapse; border: none;">
     <td style="border-collapse: collapse; border: none;">
-      <a href="https://bridgeit.tech/fmcw-RADAR">
+      <a href="https://astroa.net/fmcw-RADAR">
          <img src="https://github.com/astro7x/fmcw-RADAR/blob/master/docs/doxygen_srr_18xx_dss/logo.png" alt="" border=3> <!--height=100 width=20-->
          </img>
       </a>
@@ -33,18 +33,18 @@
 
 # Where to Start #
  *  [System Description](https://github.com/astro7x/fmcw-RADAR/blob/master/README.md)
- *  [Technical Document](https://bridgeit.tech/fmcw-RADAR/docs/Draft_Technical_Document.pdf)
+ *  [Technical Document](https://astroa.net/fmcw-RADAR/docs/Draft_Technical_Document.pdf)
  *  **System Source Code Doxygen Documentation**
- * *  [RF Core Design](https://bridgeit.tech/fmcw-RADAR/docs/doxygen_srr_18xx_mss/html/mss__main_8c.html)
- * *  [DSP Core Design](https://bridgeit.tech/fmcw-RADAR/docs/doxygen_srr_18xx_dss/html/dss__main_8c.html)
+ * *  [RF Core Design](https://astroa.neth/fmcw-RADAR/docs/doxygen_srr_18xx_mss/html/mss__main_8c.html)
+ * *  [DSP Core Design](https://astroa.net/fmcw-RADAR/docs/doxygen_srr_18xx_dss/html/dss__main_8c.html)
  *  **Device Drivers**
- * * [UART](https://bridgeit.tech/fmcw-RADAR/mmwave_sdk/packages/ti/drivers/uart/docs/doxygen/html/index.html)
- * * [MAILBOX](https://bridgeit.tech/fmcw-RADAR/mmwave_sdk/packages/ti/drivers/mailbox/docs/doxygen/html/index.html)
- * * [ADC](https://bridgeit.tech/fmcw-RADAR/mmwave_sdk/packages/ti/drivers/adcbuf/docs/doxygen/html/index.html)
- * * [EDMA](https://bridgeit.tech/fmcw-RADAR/mmwave_sdk/packages/ti/drivers/edma/docs/doxygen/html/index.html)
- * [mmWave LINK APIs](https://bridgeit.tech/fmcw-RADAR/mmwave_sdk/packages/ti/control/mmwavelink/docs/doxygen/html/index.html)
- * [FFT and Clustering](https://bridgeit.tech/fmcw-RADAR/mmwave_sdk/packages/ti/alg/mmwavelib/docs/doxygen/html/index.html)
-* [Kalman Filter](https://bridgeit.tech/fmcw-RADAR/mmwave_sdk/packages/ti/alg/gtrack/docs/doxygen2D/html/index.html)
+ * * [UART](https://astroa.net/fmcw-RADAR/mmwave_sdk/packages/ti/drivers/uart/docs/doxygen/html/index.html)
+ * * [MAILBOX](https://astroa.net/fmcw-RADAR/mmwave_sdk/packages/ti/drivers/mailbox/docs/doxygen/html/index.html)
+ * * [ADC](https://astroa.net/fmcw-RADAR/mmwave_sdk/packages/ti/drivers/adcbuf/docs/doxygen/html/index.html)
+ * * [EDMA](https://astroa.net/fmcw-RADAR/mmwave_sdk/packages/ti/drivers/edma/docs/doxygen/html/index.html)
+ * [mmWave LINK APIs](https://astroa.net/fmcw-RADAR/mmwave_sdk/packages/ti/control/mmwavelink/docs/doxygen/html/index.html)
+ * [FFT and Clustering](https://astroa.net/fmcw-RADAR/mmwave_sdk/packages/ti/alg/mmwavelib/docs/doxygen/html/index.html)
+* [Kalman Filter](https://astroa.net/fmcw-RADAR/mmwave_sdk/packages/ti/alg/gtrack/docs/doxygen2D/html/index.html)
 
 # fmcw-RADAR Hierarchy and Repository structure #
 The fmcw-RADAR software is composed of the following parts: 
@@ -1054,5 +1054,5 @@ Travis CI host our CI/CD flow by building the docker image `Dockerfile.ccs.mmwav
  TeCIP Institute, Scuola Superiore Sant'anna.
 
 ### Authors
-- Abdelrahman Astro	astro@bridgeit.tech
+- Abdelrahman Astro	contact@astroa.net
 - Carlo Alberto Avizzano carloalberto.avizzano@santannapisa.it 
